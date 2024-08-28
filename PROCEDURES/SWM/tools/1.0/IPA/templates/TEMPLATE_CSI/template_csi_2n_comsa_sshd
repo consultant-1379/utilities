@@ -1,0 +1,12 @@
+			<create objectClassName="SaAmfCSI" parentObjectDN="safSi=#SI_NAME#,safApp=#SAF_APP#">
+				<attribute name="safCsi" type="SA_IMM_ATTR_SASTRINGT">
+					<value>safCsi=#CSI_SSH_NAME#</value>
+				</attribute>
+				<attribute name="saAmfCSType" type="SA_IMM_ATTR_SANAMET">
+					<value>safVersion=#SAF_VERSION#,safCSType=#CS_TYPE#</value>
+				</attribute>
+				<attribute name="saAmfCSIDependencies" type="SA_IMM_ATTR_SANAMET">
+                  			<value>safCsi=#CSI_NAME#,safSi=#SI_NAME#,safApp=#SAF_APP#</value>
+                		</attribute>
+			</create>
+			

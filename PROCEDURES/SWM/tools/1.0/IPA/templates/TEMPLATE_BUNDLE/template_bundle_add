@@ -1,0 +1,4 @@
+						<swAdd bundleDN="safSmfBundle=#BUNDLE_NAME#" pathnamePrefix="#COMP_PATH#">
+							<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+							<plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster"/>
+						</swAdd>

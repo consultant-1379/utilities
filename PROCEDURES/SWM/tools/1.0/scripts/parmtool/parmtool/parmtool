@@ -1,0 +1,84 @@
+#!/bin/bash
+##
+# ------------------------------------------------------------------------
+#     Copyright (C) 2015 Ericsson AB. All rights reserved.
+# ------------------------------------------------------------------------
+##
+# Name:
+#       parmtool
+# Description:
+#       A tool to validate, set and get APG parameters
+##
+# Usage:
+#       parmtool --help
+##
+# Changelog:
+# - Wed Nov 18 2015 - Pratap Reddy (xpraupp)
+#   First Version
+##
+
+# populate PARMTOOL_ROOT 
+if [ -L "$0" ]; then
+  PARMTOOL_ROOT=$(dirname $(readlink -m $0))
+elif [ -f "$0" ]; then
+  PARMTOOL_ROOT=$(dirname $0)
+fi
+
+if [ -z $PARMTOOL_ROOT ]; then
+	echo 'PARMTOOL_ROOT not found...exiting' >&2 
+	exit 1
+fi	
+	
+COMMON_LIBRARY=${PARMTOOL_ROOT}/lib/common/parmtool_common.sh
+if [ ! -r "$COMMON_LIBRARY" ]; then
+  echo 'COMMON_LIBRARY not found...exiting' >&2
+  exit 1
+fi
+
+export PARMTOOL_ROOT
+source $COMMON_LIBRARY
+
+function usage(){
+  cat $MAN_DIR/parmtool.man
+}
+
+function parse_cmdline(){
+  local ARGS="$@"
+  eval set -- "$ARGS"
+	
+  if [ $# -le 0 ]; then
+    usage && abort 'missing parameter'
+  fi
+
+  while [ $# -gt 0 ]; do
+    case $1 in
+      --help)
+				usage && exit $TRUE
+      ;;
+			
+      $(is_cmd_valid $1 && echo $1))
+        COMMAND=$1
+				DIR=$1
+        shift
+        $CMD_DIR/$DIR/$COMMAND $*
+        EXIT_CODE=$?
+        [ $EXIT_CODE -eq $FALSE ] && abort "the command \"$COMMAND \" ended with errors"
+        return $EXIT_CODE
+      ;;
+			
+      *)
+        abort "command/option \"$1\" not valid"
+      ;;
+    esac
+  done
+}
+
+#### M A I N ####
+
+log "commandline: \"$(basename $0) $*\""
+
+parse_cmdline $@
+
+log "$(basename $0) completed successfully: "
+
+exit $TRUE

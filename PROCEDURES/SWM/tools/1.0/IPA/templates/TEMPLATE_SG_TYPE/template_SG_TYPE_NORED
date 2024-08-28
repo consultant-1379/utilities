@@ -1,0 +1,9 @@
+				<SGBaseType safSgType="safSgType=ERIC-APG_SG_#CSI_NAME#">
+					<SGType safVersion="safVersion=1.0.0">
+						<suType saAmfSgtValidSuTypes="safVersion=#SAF_VERSION#,safSuType=ERIC-APG_SU_#CSI_NAME#"/>
+						<redundancy saAmfSgtRedundancyModel="5"/>
+						<compRestart saAmfSgtDefCompRestartMax="#COMP_RESTART_MAX#" saAmfSgtDefCompRestartProb="#COMP_RESTART_PROB#"/>
+						<suRestart saAmfSgtDefSuRestartMax="0" saAmfSgtDefSuRestartProb="#SU_REST_PROB#"/>
+						<autoAttrs saAmfSgtDefAutoAdjustProb="10000000" safAmfSgtDefAutoAdjust="1" safAmfSgtDefAutoRepair="1"/>
+					</SGType>
+				</SGBaseType>

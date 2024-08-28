@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="AxeLocalTsUsersPolicy">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NRAMoQwOEdmFcaeZXPdWAQ" source="uml2.diagrams"/>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_4DiLIGu5EeK_psk_X1_33w" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_4DiLIWu5EeK_psk_X1_33w" key="com.ericsson.ecim.coremw.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_C3QMYGu6EeK_psk_X1_33w" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>&lt;p>AXE Local TS Users Policy MOM.&lt;/p></body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_8JbBoIW5Ed-FBpQGdJXi3g">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OS1OUIXLEd-lToFzlKoOsA" name="" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_z_YIYIKSEeK3wcU1QErItg" name="AxeLocalTsUsersPolicy">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_z_YIzIKSEeK3wcU1QErItg" annotatedElement="_z_YIYIKSEeK3wcU1QErItg">
+        <body>Troubleshooting Users Management function MOM.</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_z_YIzYKSEeK3wcU1QErItg" name="LocalTsUsersPolicyM">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_z_YIzoKSEeK3wcU1QErItg" annotatedElement="_z_YIzYKSEeK3wcU1QErItg">
+          <body>Represents the configurable settings on AP for new created TS user management.
+These include password policies and account policies.
+All changes on the class apply only for new defined TS users.
+
+One or more attributes setting can fail due to one of the following reasons:
+- Internal Error: Wrong/missing configuration file. 
+- Error connecting to server : Internal Error. 
+</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_YQPP0MK_EeWHWfw_NwU0PQ" constrainedElement="_z_YI94KSEeK3wcU1QErItg _z_YI3YKSEeK3wcU1QErItg _z_YI-oKSEeK3wcU1QErItg _z_YI4oKSEeK3wcU1QErItg _z_YJI4KSEeK3wcU1QErItg _z_YJH4KSEeK3wcU1QErItg">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_YQQd8MK_EeWHWfw_NwU0PQ">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_z_YIz4KSEeK3wcU1QErItg" name="localTsUsersPolicyMId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_z_YI0IKSEeK3wcU1QErItg" annotatedElement="_z_YIz4KSEeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z_YI0oKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z_YI0YKSEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_z_YI04KSEeK3wcU1QErItg" name="lockoutDuration" type="_z_YJA4KSEeK3wcU1QErItg" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_z_YI1IKSEeK3wcU1QErItg" annotatedElement="_z_YI04KSEeK3wcU1QErItg">
+            <body>It defines the minimum duration after which locked accounts are automatically unlocked. 
+The default value is 15 minutes.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z_YI1oKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z_YI1YKSEeK3wcU1QErItg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_z_YI14KSEeK3wcU1QErItg" value="15"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_z_YI2IKSEeK3wcU1QErItg" name="lockoutBadCount" type="_z_YI9IKSEeK3wcU1QErItg" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_z_YI2YKSEeK3wcU1QErItg" annotatedElement="_z_YI2IKSEeK3wcU1QErItg">
+            <body>Specifies the maximum number of login attempts that are allowed before the user is locked out. 
+The default value is 3.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z_YI24KSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z_YI2oKSEeK3wcU1QErItg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_z_YI3IKSEeK3wcU1QErItg" value="3"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_z_YI3YKSEeK3wcU1QErItg" name="maximumPasswordAge" type="_z_YI94KSEeK3wcU1QErItg" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_z_YI3oKSEeK3wcU1QErItg" annotatedElement="_z_YI3YKSEeK3wcU1QErItg">
+            <body>Specifies the maximum number of days a user password is valid. 
+The default value is 5 days.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z_YI4IKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z_YI34KSEeK3wcU1QErItg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_z_YI4YKSEeK3wcU1QErItg" value="5"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_z_YI4oKSEeK3wcU1QErItg" name="minimumPasswordAge" type="_z_YI-oKSEeK3wcU1QErItg" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_z_YI44KSEeK3wcU1QErItg" annotatedElement="_z_YI4oKSEeK3wcU1QErItg">
+            <body>Specifies the minimum number of days after which a user can change the password.
+The default value is 2 days.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z_YI5YKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z_YI5IKSEeK3wcU1QErItg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_z_YI5oKSEeK3wcU1QErItg" value="2"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_z_YI54KSEeK3wcU1QErItg" name="minimumPasswordLength" type="_z_YI_YKSEeK3wcU1QErItg" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_z_YI6IKSEeK3wcU1QErItg" annotatedElement="_z_YI54KSEeK3wcU1QErItg">
+            <body>Specifies the minimum number of characters to be used in a password.
+The default value is 8 characters.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z_YI6oKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z_YI6YKSEeK3wcU1QErItg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_z_YI64KSEeK3wcU1QErItg" value="8"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_z_YI7IKSEeK3wcU1QErItg" name="passwordHistorySize" visibility="private" type="_z_YJAIKSEeK3wcU1QErItg" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_z_YI7YKSEeK3wcU1QErItg" annotatedElement="_z_YI7IKSEeK3wcU1QErItg">
+            <body>Specifies the maximum number of previous passwords remembered for a user.
+The default value is 24.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z_YI74KSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z_YI7oKSEeK3wcU1QErItg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_z_YI8IKSEeK3wcU1QErItg" value="24"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_nPWygLtrEeSmVrSpwpeEYA" name="maximumAccountAge" visibility="public" type="_ezV6YLtpEeSOsrNwt1vaXQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Rk2tkLtuEeS2vPyCL2t7Nw" annotatedElement="_nPWygLtrEeSmVrSpwpeEYA">
+            <body>Specifies the maximum number of days a user account is valid.
+The default value is 5 days.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sxE40L2TEeS_fq_b2_ADdg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nPrioLtrEeSmVrSpwpeEYA" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_D-f3gLtsEeSmVrSpwpeEYA" value="5"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_z_YI9IKSEeK3wcU1QErItg" name="LockoutBadCountValue">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_z_YI9YKSEeK3wcU1QErItg" annotatedElement="_z_YI9IKSEeK3wcU1QErItg">
+          <body>This attribute specifies the range for LockoutBadCount attribute.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_z_YI9oKSEeK3wcU1QErItg">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_z_YI94KSEeK3wcU1QErItg" name="MaximumPasswordAgeValue">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_z_YI-IKSEeK3wcU1QErItg" annotatedElement="_z_YI94KSEeK3wcU1QErItg">
+          <body>Specifies the valid range for attribute maximumPasswordAge.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_z_YI-YKSEeK3wcU1QErItg">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_z_YI-oKSEeK3wcU1QErItg" name="MinimumPasswordAgeValue">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_z_YI-4KSEeK3wcU1QErItg" annotatedElement="_z_YI-oKSEeK3wcU1QErItg">
+          <body>This attribute specifies the range for MinimumPasswordAge attribute.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_z_YI_IKSEeK3wcU1QErItg">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_z_YI_YKSEeK3wcU1QErItg" name="MinimumPasswordLengthValue">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_z_YI_oKSEeK3wcU1QErItg" annotatedElement="_z_YI_YKSEeK3wcU1QErItg">
+          <body>This attribute specifies the range for MinimumPasswordLength attribute.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_z_YI_4KSEeK3wcU1QErItg">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_z_YJAIKSEeK3wcU1QErItg" name="PasswordHistorySizeValue">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_z_YJAYKSEeK3wcU1QErItg" annotatedElement="_z_YJAIKSEeK3wcU1QErItg">
+          <body>This attribute specifies the range for PasswordHistorySize attribute.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_z_YJAoKSEeK3wcU1QErItg">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_z_YJA4KSEeK3wcU1QErItg" name="LockoutDurationValue">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_z_YJBIKSEeK3wcU1QErItg" annotatedElement="_z_YJA4KSEeK3wcU1QErItg">
+          <body>This attribute specifies the range for LockoutDuration attribute.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_z_YJBYKSEeK3wcU1QErItg">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_z_YJBoKSEeK3wcU1QErItg" name="SecurityHandling_to_LocalTsUsersPolicyM" memberEnd="_z_YI8YKSEeK3wcU1QErItg _z_YJCIKSEeK3wcU1QErItg">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_z_YJB4KSEeK3wcU1QErItg" annotatedElement="_z_YJBoKSEeK3wcU1QErItg">
+          <body>This is a contribution from AxeLocalTSUsersPolicyM class to SecurityHandling.</body>
+        </ownedComment>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_z_YJCIKSEeK3wcU1QErItg" name="localTsUsersPolicy" visibility="public" type="_z_YIzYKSEeK3wcU1QErItg" aggregation="composite" association="_z_YJBoKSEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z_YJCoKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z_YJCYKSEeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_z_YI8YKSEeK3wcU1QErItg" name="SecurityHandling" visibility="public" association="_z_YJBoKSEeK3wcU1QErItg">
+          <type xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0JoKREeK3wcU1QErItg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z_YI84KSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z_YI8oKSEeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_z_YJC4KSEeK3wcU1QErItg" name="Instances">
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_z_YJGIKSEeK3wcU1QErItg" name="AxeLocalTSUsersPolicy Instance" classifier="_z_YIzYKSEeK3wcU1QErItg">
+          <slot xmi:type="uml:Slot" xmi:id="_z_YJGYKSEeK3wcU1QErItg" definingFeature="_z_YIz4KSEeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralString" xmi:id="_z_YJGoKSEeK3wcU1QErItg" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_z_YJG4KSEeK3wcU1QErItg" definingFeature="_z_YI04KSEeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_z_YJHIKSEeK3wcU1QErItg" type="_z_YJA4KSEeK3wcU1QErItg" value="15"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_z_YJHYKSEeK3wcU1QErItg" definingFeature="_z_YI2IKSEeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_z_YJHoKSEeK3wcU1QErItg" type="_z_YI9IKSEeK3wcU1QErItg" value="3"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_z_YJH4KSEeK3wcU1QErItg" definingFeature="_z_YI4oKSEeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_z_YJIIKSEeK3wcU1QErItg" type="_z_YI-oKSEeK3wcU1QErItg" value="2"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_z_YJIYKSEeK3wcU1QErItg" definingFeature="_z_YI54KSEeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_z_YJIoKSEeK3wcU1QErItg" type="_z_YI_YKSEeK3wcU1QErItg" value="8"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_z_YJI4KSEeK3wcU1QErItg" definingFeature="_z_YI3YKSEeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_z_YJJIKSEeK3wcU1QErItg" value="5"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_z_YJJYKSEeK3wcU1QErItg" definingFeature="_z_YI7IKSEeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_z_YJJoKSEeK3wcU1QErItg" value="24"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_BemtoLtsEeSmVrSpwpeEYA" definingFeature="_nPWygLtrEeSmVrSpwpeEYA">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_Ben7wLtsEeSmVrSpwpeEYA" value="5"/>
+          </slot>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_ezV6YLtpEeSOsrNwt1vaXQ" name="MaximumAccountAgeValue">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ezfEUbtpEeSOsrNwt1vaXQ" annotatedElement="_ezV6YLtpEeSOsrNwt1vaXQ">
+          <body>Specifies the valid range for attribute maximumAccountAge.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_eznnMLtpEeSOsrNwt1vaXQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_ASQMsMK_EeWHWfw_NwU0PQ" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_ASYIgMK_EeWHWfw_NwU0PQ" name="BASIC"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_zpdx4Mg9EeWSN5hWjYHzjg" client="_ASYIgMK_EeWHWfw_NwU0PQ" supplier="_C10VoMK_EeWHWfw_NwU0PQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_C1tn8MK_EeWHWfw_NwU0PQ" name="Features">
+        <packagedElement xmi:type="uml:Class" xmi:id="_C10VoMK_EeWHWfw_NwU0PQ" name="CPI_HIDDEN"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_cikwQHVqEeCBgp9CYCosRQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ziHJ0Co7Eeu2GN2FjMiJkA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ziHJ0So7Eeu2GN2FjMiJkA" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ziHJ0io7Eeu2GN2FjMiJkA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ziHJ0yo7Eeu2GN2FjMiJkA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ziHJ1Co7Eeu2GN2FjMiJkA" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ziHJ1So7Eeu2GN2FjMiJkA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ciq24HVqEeCBgp9CYCosRQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_4EqzkGu5EeK_psk_X1_33w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rboSkN6MEeehtLhJYaltnA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rboSkd6MEeehtLhJYaltnA" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rboSkt6MEeehtLhJYaltnA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rboSk96MEeehtLhJYaltnA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rboSlN6MEeehtLhJYaltnA" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rboSld6MEeehtLhJYaltnA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_60CWgDesEeahC94WIY_Q6w" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_60CWgTesEeahC94WIY_Q6w" key="Version" value="1.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_60CWgjesEeahC94WIY_Q6w" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_60CWgzesEeahC94WIY_Q6w" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_60CWhDesEeahC94WIY_Q6w" key="Date" value="2016-02-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_60CWhTesEeahC94WIY_Q6w" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_4axmcGu5EeK_psk_X1_33w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_JI50sRtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="Managed Object Model for Troubleshooting Users Management Function" subTitle=" " docNo="2/19089-CXA 117 0042/13" docRev="A" createdBy="XHARBAV" docLang="Uen" docDate="2020-12-14"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_JI6bwRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Package="_z_YIYIKSEeK3wcU1QErItg" author="Harika Bavana" contact="XHARBAV" date="2020-12-14" docNo="" revision="" version="4" release="2" organization="" correction="0"/>
+  <CoreMWProfile:CmwMom xmi:id="_JNYFABtEEeWvQYFW8NSCww" base_Package="_z_YIYIKSEeK3wcU1QErItg" immNamespace="MOM_NAME"/>
+  <CoreMWProfile:CmwClass xmi:id="_JNYFARtEEeWvQYFW8NSCww" base_Class="_z_YIzYKSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_JI7C0RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_z_YIz4KSEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JNYsEBtEEeWvQYFW8NSCww" base_Property="_z_YI04KSEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_JI7p4RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_z_YI04KSEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JNYsERtEEeWvQYFW8NSCww" base_Property="_z_YI2IKSEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_JI8Q8BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_z_YI2IKSEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JNYsEhtEEeWvQYFW8NSCww" base_Property="_z_YI3YKSEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_JI8Q8htEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" base_Property="_z_YI3YKSEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JNZTIBtEEeWvQYFW8NSCww" base_Property="_z_YI4oKSEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_JI8Q8xtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" base_Property="_z_YI4oKSEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JNZTIRtEEeWvQYFW8NSCww" base_Property="_z_YI54KSEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_JI84ABtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_z_YI54KSEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JNZTIhtEEeWvQYFW8NSCww" base_Property="_z_YI7IKSEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_JI84ARtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_z_YI7IKSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_JI84AhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" range="1..20" base_DataType="_z_YI9IKSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_JI9fEBtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" range="1..14" base_DataType="_z_YI94KSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_JI9fERtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" range="1..5" base_DataType="_z_YI-oKSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_JI9fEhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" range="8..12" base_DataType="_z_YI_YKSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_JI-GIBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" range="1..24" base_DataType="_z_YJAIKSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_JI-GIRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" range="5..60" base_DataType="_z_YJA4KSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_JI-GIhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_z_YJBoKSEeK3wcU1QErItg" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimInstances xmi:id="_JI-tMBtEEeWvQYFW8NSCww" base_Package="_z_YJC4KSEeK3wcU1QErItg" version="1" release="0" correction="0"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_JI_UQBtEEeWvQYFW8NSCww" base_InstanceSpecification="_z_YJGIKSEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwModel xmi:id="_JNZTIxtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwContribution xmi:id="_JNZ6MBtEEeWvQYFW8NSCww" base_Association="_z_YJBoKSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_JI_UQRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Class="_z_YIzYKSEeK3wcU1QErItg" isLegacyRoot="true"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_JI_7UBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" range="1..30" base_DataType="_ezV6YLtpEeSOsrNwt1vaXQ" unit="" multiplicationFactor="" resolution=""/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_JI_7URtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_nPWygLtrEeSmVrSpwpeEYA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JNZ6MRtEEeWvQYFW8NSCww" base_Property="_nPWygLtrEeSmVrSpwpeEYA" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JNZ6MhtEEeWvQYFW8NSCww" base_Property="_z_YIz4KSEeK3wcU1QErItg" isPersistent="true"/>
+  <Documentation:Documentation xmi:id="_8HDH8BtDEeWvQYFW8NSCww" base_Comment="_C3QMYGu6EeK_psk_X1_33w"/>
+  <Documentation:Documentation xmi:id="_8HDH8RtDEeWvQYFW8NSCww" base_Comment="_z_YIzIKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8HDH8htDEeWvQYFW8NSCww" base_Comment="_z_YIzoKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8HDH8xtDEeWvQYFW8NSCww" base_Comment="_z_YI0IKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8HDH9BtDEeWvQYFW8NSCww" base_Comment="_z_YI1IKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8HDH9RtDEeWvQYFW8NSCww" base_Comment="_z_YI2YKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8HDH9htDEeWvQYFW8NSCww" base_Comment="_z_YI3oKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8HDH9xtDEeWvQYFW8NSCww" base_Comment="_z_YI44KSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8HDH-BtDEeWvQYFW8NSCww" base_Comment="_z_YI6IKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8HDH-RtDEeWvQYFW8NSCww" base_Comment="_z_YI7YKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8HDH-htDEeWvQYFW8NSCww" base_Comment="_z_YI9YKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8HDH-xtDEeWvQYFW8NSCww" base_Comment="_z_YI-IKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8HDH_BtDEeWvQYFW8NSCww" base_Comment="_z_YI-4KSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8HDH_RtDEeWvQYFW8NSCww" base_Comment="_z_YI_oKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8HDH_htDEeWvQYFW8NSCww" base_Comment="_z_YJAYKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8HDH_xtDEeWvQYFW8NSCww" base_Comment="_z_YJBIKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8HDIABtDEeWvQYFW8NSCww" base_Comment="_z_YJB4KSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8HDIARtDEeWvQYFW8NSCww" base_Comment="_ezfEUbtpEeSOsrNwt1vaXQ"/>
+  <Documentation:Documentation xmi:id="_8HDIAhtDEeWvQYFW8NSCww" base_Comment="_Rk2tkLtuEeS2vPyCL2t7Nw"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_ASXhcMK_EeWHWfw_NwU0PQ" base_Package="_ASQMsMK_EeWHWfw_NwU0PQ"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_ASdoEMK_EeWHWfw_NwU0PQ" base_Class="_ASYIgMK_EeWHWfw_NwU0PQ"/>
+  <ECIMBaseProfile:EcimFeatures xmi:id="_C1zukMK_EeWHWfw_NwU0PQ" base_Package="_C1tn8MK_EeWHWfw_NwU0PQ"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_C151MMK_EeWHWfw_NwU0PQ" base_Class="_C10VoMK_EeWHWfw_NwU0PQ"/>
+</xmi:XMI>

@@ -1,0 +1,107 @@
+#
+# Sample /etc/sudoers file.
+#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# See the sudoers man page for the details on how to write a sudoers file.
+#
+
+##
+# User alias specification
+##
+
+##
+# Runas alias specification
+##
+
+##
+# Host alias specification
+##
+
+##
+# Cmnd alias specification
+##
+
+#Alias section
+
+Cmnd_Alias TSGROUPLIST = \
+		/bin/date, \ 
+		/opt/ap/acs/bin/acs_hcs_hcstart.sh, \ 
+		/opt/ap/acs/bin/cpgls, \ 
+		/opt/ap/acs/bin/cpls, \ 
+		/opt/ap/acs/bin/lmlkmapls, \ 
+		/opt/ap/acs/bin/lmtestact, \ 
+		/opt/ap/acs/bin/lmtestadd, \ 
+		/opt/ap/acs/bin/lmtestls, \ 
+		/opt/ap/acs/bin/lmtestrm, \ 
+		/opt/ap/acs/bin/mktr, \ 
+		/opt/ap/acs/bin/msdls, \ 
+		/opt/ap/acs/bin/opensession, \ 
+		/opt/ap/acs/bin/rtrch, \ 
+		/opt/ap/acs/bin/rtrdef, \ 
+		/opt/ap/acs/bin/rtrfe, \ 
+		/opt/ap/acs/bin/rtrls, \ 
+		/opt/ap/acs/bin/rtrrm, \ 
+		/opt/ap/acs/bin/swrprint, \ 
+		/opt/ap/acs/bin/trautil, \ 
+		/opt/ap/apos/bin/bioschg, \ 
+		/opt/ap/apos/bin/cdadm, \ 
+		/opt/ap/apos/bin/clusterconf/clusterconf, \ 
+		/opt/ap/apos/bin/httpmgr, \
+		/opt/ap/apos/bin/netls, \ 
+		/opt/ap/apos/bin/raidmgr, \
+		/opt/ap/cphw/bin/mauls, \
+		/opt/ap/cphw/bin/syscon, \
+		/opt/ap/cqs/bin/cqrhils, \ 
+		/opt/ap/cqs/bin/cqrhlls, \ 
+		/opt/ap/fixs/bin/fixerls, \ 
+		/opt/ap/mas/bin/crdls, \ 
+		/opt/ap/mas/bin/misclhls, \ 
+		/opt/ap/mcs/bin/cpdtest, \ 
+		/opt/ap/osu/bin/osumgr, \ 
+		/opt/ap/pes/bin/rpls, \ 
+		/opt/ap/pes/bin/rptran, \ 
+		/opt/coremw/bin/cmw-cluster-reboot, \ 
+		/opt/coremw/bin/cmw-collect-info, \ 
+		/opt/coremw/bin/cmw-node-reboot, \ 
+		/opt/coremw/bin/cmw-sdp-remove, \ 
+		/sbin/bios-upgrade, \ 
+		/sbin/chkconfig -l, \ 
+		/sbin/fdisk -l, \ 
+		/sbin/lspci, \ 
+		/sbin/lvm lvdisplay [/ a-zA-Z0-9_-]*, \ 
+		/sbin/lvm lvdisplay, \ 
+		/sbin/lvm pvdisplay [/ a-zA-Z0-9_-]*, \ 
+		/sbin/lvm pvdisplay, \ 
+		/sbin/lvm vgdisplay [/ a-zA-Z0-9_-]*, \ 
+		/sbin/lvm vgdisplay, \ 
+		/sbin/service --status-all, \ 
+		/sbin/tipc link statistics show, \ 
+		/usr/bin/amf-state, \ 
+		/usr/bin/cluster, \ 
+		/usr/bin/configap, \ 
+		/usr/bin/csadm, \ 
+		/usr/bin/emfcopy, \ 
+		/usr/bin/integrityap, \ 
+		/usr/bin/prcboot, \ 
+		/usr/bin/prcstate, \ 
+		/usr/bin/raidmgmt, \ 
+		/usr/bin/sg_map -x, \ 
+		/usr/bin/tail, \ 
+		/usr/sbin/dmidecode, \ 
+		/sbin/drbd-overview, \
+		/usr/sbin/eri-ipmitool, \ 
+		/usr/sbin/lde-brf, \ 
+		/usr/sbin/repquota, \ 
+		/usr/sbin/smartctl, \ 
+		/usr/sbin/tcpdump
+
+##
+# User specification
+##
+
+# TS Group can run following on any machine as any user
+%tsgroup	ALL = (root) NOPASSWD: TSGROUPLIST
+
+# swmgr command --- available only to apgswmgr and root 
+%tsgroup  ALL = (apgswmgr) NOPASSWD: /opt/ap/apos/bin/swmgr

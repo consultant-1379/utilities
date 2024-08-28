@@ -1,0 +1,99 @@
+##
+# ------------------------------------------------------------------------
+#     Copyright (C) 2013 Ericsson AB. All rights reserved.
+# ------------------------------------------------------------------------
+##
+# models.info TEMPLATE
+##
+# Description:
+#       Configuration file used to perform IMM model changes during software upgrade for XXX block.
+##
+##
+# Changelog:
+# - nov 25-27 2013 - Fabrizio Paglia (XFABPAG)
+#       First version
+##
+
+# Report here FOR EACH package version, all introduced model changes, in the following format,
+# starting from the first version from which you want to support upgrade, with the most recent on top
+#
+# VERSION: CXC1234568-R1A03
+# <model changes commands here>
+# VERSION: CXC1234568-R1A
+# <model changes commands here>
+# VERSION: CXC1234567-R1B
+# <model changes commands here>
+
+# You can use the following predefined variable:
+# $BUNDLE_NAME (full name of the bundle currently installing)
+
+# You can use also the following predefined functions
+# log($message) ===> Use it to append a notice to the system log
+# log_error($message) ===> Use it to append an error message to the system log
+
+# Examples of supported model changes:
+##
+# Add IMM class
+# cmw-immclass-add $BUNDLE_NAME <class_name>
+##
+# Remove IMM class
+# cmw-immclass-delete <class_name>
+##
+# Modify IMM class
+# cmw-immclass-modify $BUNDLE_NAME <class_name>
+##
+# Change one attribute for one IMMobject
+# immcfg -a saAmfNodeSuFailoverMax='7' safAmfNode=Node01,safAmfCluster=1
+##
+# Create one object setting one initialized attribute
+# immcfg -c SaAmfApplication -a saAmfAppType='Test' safApp=myTestApp1
+##
+# Delete one IMM object
+# immcfg -d safAmfNode=Node01,safAmfCluster=1
+##
+# Delete two IMM objects
+# immcfg -d safAmfNode=Node01,safAmfCluster=1 safAmfNode=Node02,safAmfCluster=1
+##
+# Add a value to an attribute
+# immcfg -a saAmfNGNodeList+='safAmfNode=PL_2_6,safAmfCluster=myAmfCluster' safAmfNodeGroup=PLs,safAmfCluster=myAmfCluster
+##
+# Remove a value from an attribute
+# immcfg -a saAmfNGNodeList-='safAmfNode=PL_2_6,safAmfCluster=myAmfCluster' safAmfNodeGroup=PLs,safAmfCluster=myAmfCluster
+##
+
+##
+# IMPORTANT NOTE
+# To avoid errors or execution of injected code during the software upgrade procedure,
+# please pay attention to surround with single quotes (') the attribute values passed to immcfg command,
+# especially in case the attribute values contain regular expressions, special chars or names of AP command, like in the following
+# immcfg -c Rule -a userLabel='Execute permissions to some AP commands' -a permission='1' -a ruleData='regexp:acease|alist|cmdlls|cpdtest|cqrhils|cqrhlls|crdls|clhls|misclhls|fixerls|tesrvls'
+##
+
+##
+# IMPORTANT NOTE
+# Due to a fault (http://devel.opensaf.org/ticket/2950) in CoreMW 3.1 C11 (used in APG43L Release 1), it is not possible to modify multiple attributes of a IMM object using a single immcfg command.
+# Because of this limitation, to avoid errors during the upgrade from Release 1 to Release 2, please insert in this file one immcfg command for each attribute to modify.
+# 
+# DO NOT USE
+# immcfg -a userLabel='Full access to create any file in folder data_transfer/source/data_records' -a permission='7'
+# -a ruleData='ManagedElement,SystemFunctions,FileM,LogicalFs,FileGroup=data_transfer,FileGroup=source,FileGroup=data_records,FileInformation,*' ruleId=AxeFileManagement_82,roleId=SystemAdministrator,localAuthorizationMethodId=1
+# 
+# PLEASE USE
+# immcfg -a userLabel='Full access to create any file in folder data_transfer/source/data_records' ruleId=AxeFileManagement_82,roleId=SystemAdministrator,localAuthorizationMethodId=1
+# immcfg -a permission='7' ruleId=AxeFileManagement_82,roleId=SystemAdministrator,localAuthorizationMethodId=1
+# immcfg -a ruleData='ManagedElement,SystemFunctions,FileM,LogicalFs,FileGroup=data_transfer,FileGroup=source,FileGroup=data_records,FileInformation,*'
+# ruleId=AxeFileManagement_82,roleId=SystemAdministrator,localAuthorizationMethodId=1
+##
+
+###################
+# EXAMPLE CONTENT #
+###################
+
+VERSION: CXC1234568-R1A03
+# Model changes introduced in version CXC1234568-R1A03 #
+
+VERSION: CXC1234568-R1A
+# Model changes introduced in version CXC1234568-R1A #
+
+VERSION: CXC1234567-R1B
+# THIS IS THE FIRST VERSION FROM WHICH YOU WANT TO SUPPORT UPGRADE #

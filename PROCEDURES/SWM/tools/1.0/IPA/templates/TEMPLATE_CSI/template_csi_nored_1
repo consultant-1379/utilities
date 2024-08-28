@@ -1,0 +1,8 @@
+			<create objectClassName="SaAmfCSI" parentObjectDN="safSi=#CSI_NAME#-1,safApp=#SAF_APP#">
+				<attribute name="safCsi" type="SA_IMM_ATTR_SASTRINGT">
+					<value>safCsi=#CSI_NAME#</value>
+				</attribute>
+				<attribute name="saAmfCSType" type="SA_IMM_ATTR_SANAMET">
+					<value>safVersion=#SAF_VERSION#,safCSType=#CS_TYPE#</value>
+				</attribute>
+			</create>

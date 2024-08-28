@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="ECIM_TimeM">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0aDQ4b7xEeOsb7FBQvVQ5A" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0aDQ4r7xEeOsb7FBQvVQ5A" key="com.ericsson.ecim.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_OzpAgL8CEeOsb7FBQvVQ5A">
+      <body>doc&#xD;
+</body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_uWHKUIXbEd-Id79DLfNphQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_jPEZUL72EeOsb7FBQvVQ5A" name="LdeTimeM">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9dtQcL72EeOsb7FBQvVQ5A" source="uml2.diagrams"/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_jPJ44b72EeOsb7FBQvVQ5A" annotatedElement="_jPEZUL72EeOsb7FBQvVQ5A">
+        <body>The fragment contains the Time management attributes including handling of the NTP server information.</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_jPOxYL72EeOsb7FBQvVQ5A" name="TimeM">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_jPTp4b72EeOsb7FBQvVQ5A" annotatedElement="_jPOxYL72EeOsb7FBQvVQ5A">
+          <body>Time management concerns the calendar date and local time of the node.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jPX7Ub72EeOsb7FBQvVQ5A" name="timeMId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_jPcz0b72EeOsb7FBQvVQ5A" annotatedElement="_jPX7Ub72EeOsb7FBQvVQ5A">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jPhFQb72EeOsb7FBQvVQ5A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jPhsUL72EeOsb7FBQvVQ5A" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_oPosAL79EeOsb7FBQvVQ5A" name="DateAndTime" visibility="public" type="_34J9ML72EeOsb7FBQvVQ5A" aggregation="composite" association="_oPm20L79EeOsb7FBQvVQ5A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oPqhMb79EeOsb7FBQvVQ5A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oPqhML79EeOsb7FBQvVQ5A" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__p6vENrgEeWGSsFVyWAPlQ" name="Ntp" visibility="public" type="_q-54kNrgEeWGSsFVyWAPlQ" aggregation="composite" association="__p0ocNrgEeWGSsFVyWAPlQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__qA1s9rgEeWGSsFVyWAPlQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__qA1strgEeWGSsFVyWAPlQ" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_34J9ML72EeOsb7FBQvVQ5A" name="DateAndTime">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_34UVQb72EeOsb7FBQvVQ5A" annotatedElement="_34J9ML72EeOsb7FBQvVQ5A">
+          <body>Local time and time zone values.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_vzVgkDhZEeaodprnndtvQg" constrainedElement="_34J9ML72EeOsb7FBQvVQ5A">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_vzZyADhZEeaodprnndtvQg">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_34Z00b72EeOsb7FBQvVQ5A" name="dateAndTimeId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_34fUYb72EeOsb7FBQvVQ5A" annotatedElement="_34Z00b72EeOsb7FBQvVQ5A">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_34kM4L72EeOsb7FBQvVQ5A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_34kM4b72EeOsb7FBQvVQ5A" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_-5POwL8AEeOsb7FBQvVQ5A" name="timeZone" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_C3YfUL8BEeOsb7FBQvVQ5A" annotatedElement="_-5POwL8AEeOsb7FBQvVQ5A">
+            <body>The time zone of the ME.&#xD;
+&#xD;
+A time zone is a region that has a uniform standard time. The string must match an entry in the ME’s time zone database, for example ‘Europe/Stockholm’.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-5V8cL8AEeOsb7FBQvVQ5A"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-5V8cb8AEeOsb7FBQvVQ5A" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_H6qIwL79EeOsb7FBQvVQ5A" name="localDateTime" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_H6wPYb79EeOsb7FBQvVQ5A" annotatedElement="_H6qIwL79EeOsb7FBQvVQ5A">
+            <body>The local date and time of the ME.&#xD;
+&#xD;
+Local time is standard time in a time zone at a fixed offset from Coordinated Universal Time (UTC), possibly adjusted by Daylight Saving Time (DST) during part of the year.&#xD;
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H61u8b79EeOsb7FBQvVQ5A"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H61u8r79EeOsb7FBQvVQ5A" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Nk8LAL79EeOsb7FBQvVQ5A" name="dateTimeOffset" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NlBqkL79EeOsb7FBQvVQ5A" annotatedElement="_Nk8LAL79EeOsb7FBQvVQ5A">
+            <body>The offset in hours and minutes from UTC to local time.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_W7B6wJddEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NlGjEb79EeOsb7FBQvVQ5A"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NlGjEr79EeOsb7FBQvVQ5A" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Ovr3YM-GEeOMH_V-Hdy1bA" name="tzRevision" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_OvzzMc-GEeOMH_V-Hdy1bA">
+            <body>The revision of the time zone database stored on the ME.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ov4rsc-GEeOMH_V-Hdy1bA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ov5SwM-GEeOMH_V-Hdy1bA" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_oPm20L79EeOsb7FBQvVQ5A" name="TimeM_to_DateAndTime" memberEnd="_oPosAL79EeOsb7FBQvVQ5A _oPp6IL79EeOsb7FBQvVQ5A">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_oPp6IL79EeOsb7FBQvVQ5A" name="TimeM" visibility="public" type="_jPOxYL72EeOsb7FBQvVQ5A" association="_oPm20L79EeOsb7FBQvVQ5A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oPxO4L79EeOsb7FBQvVQ5A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oPwn0b79EeOsb7FBQvVQ5A" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_Rz_eAL8AEeOsb7FBQvVQ5A" name="SysM_to_TimeM" memberEnd="_Rz_eAb8AEeOsb7FBQvVQ5A _R0AFEr8AEeOsb7FBQvVQ5A">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_Rz_eAb8AEeOsb7FBQvVQ5A" name="SysM" visibility="public" association="_Rz_eAL8AEeOsb7FBQvVQ5A">
+          <type xmi:type="uml:Class" href="ComSysM.uml#_vhVZEKlCEd-n4-IXUFdTxw"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R0AsIr8AEeOsb7FBQvVQ5A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R0AsIb8AEeOsb7FBQvVQ5A" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_R0AFEr8AEeOsb7FBQvVQ5A" name="TimeM" visibility="public" type="_jPOxYL72EeOsb7FBQvVQ5A" aggregation="composite" association="_Rz_eAL8AEeOsb7FBQvVQ5A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R0E9kb8AEeOsb7FBQvVQ5A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R0E9kL8AEeOsb7FBQvVQ5A" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_XlvEcNrgEeWGSsFVyWAPlQ" name="NtpServer">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_XlvEcdrgEeWGSsFVyWAPlQ" annotatedElement="_XlvEcNrgEeWGSsFVyWAPlQ">
+          <body>The NTP server configuration data.&#xD;
+&#xD;
+This MOC presents a persistent NTP client mode network association with a specified remote server or local reference clock address. </body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_lI2B4DhbEeaodprnndtvQg" constrainedElement="_XlvEcNrgEeWGSsFVyWAPlQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_lMcvgDhbEeaodprnndtvQg">
+            <language>Optionality</language>
+            <body>if-feature NOT NATIVE_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_XlvEctrgEeWGSsFVyWAPlQ" name="userLabel">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_XlvEc9rgEeWGSsFVyWAPlQ">
+            <body>An additional descriptive text.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XlvEdNrgEeWGSsFVyWAPlQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_XlvEddrgEeWGSsFVyWAPlQ" name="ntpServerId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_XlvEdtrgEeWGSsFVyWAPlQ">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_XlvEd9rgEeWGSsFVyWAPlQ" name="serverAddress" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_XlvEeNrgEeWGSsFVyWAPlQ" annotatedElement="_XlvEd9rgEeWGSsFVyWAPlQ">
+            <body>The address of the NTP server with which a persistent client server mode association is made.&#xD;
+&#xD;
+The serverAddress represents either a V4 or a V6 IP address, or a DNS domain name.&#xD;
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_W7AsoJddEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5hMdIOvSEeWnvY5XpRKbxg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5hNEMOvSEeWnvY5XpRKbxg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_XlvEedrgEeWGSsFVyWAPlQ" name="administrativeState" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_XlvEetrgEeWGSsFVyWAPlQ" annotatedElement="_XlvEedrgEeWGSsFVyWAPlQ">
+            <body>Locks or unlocks the operation of the NTP client function.&#xD;
+&#xD;
+This allows to some or all NtpServer instances to be temporarily locked without the need to delete the MO.&#xD;
+</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#__jC9IJdbEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_16UdEOvSEeWnvY5XpRKbxg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_16VEIOvSEeWnvY5XpRKbxg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_q-54kNrgEeWGSsFVyWAPlQ" name="Ntp">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_q_cEENrgEeWGSsFVyWAPlQ">
+          <body>The NTP top class.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_nRBr0DhaEeaodprnndtvQg" constrainedElement="_q-54kNrgEeWGSsFVyWAPlQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_nRHLYDhaEeaodprnndtvQg">
+            <language>Optionality</language>
+            <body>if-feature NOT NATIVE_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_q_jY0NrgEeWGSsFVyWAPlQ" name="ntpId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_q_nDMNrgEeWGSsFVyWAPlQ">
+            <body>The key attribute.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_q_rUoNrgEeWGSsFVyWAPlQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_q_rUodrgEeWGSsFVyWAPlQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_O1Ht8drhEeWGSsFVyWAPlQ" name="NtpServer" visibility="public" type="_XlvEcNrgEeWGSsFVyWAPlQ" aggregation="composite" association="_O1Ht8NrhEeWGSsFVyWAPlQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_O1Ht-NrhEeWGSsFVyWAPlQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_O1Ht99rhEeWGSsFVyWAPlQ" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="__p0ocNrgEeWGSsFVyWAPlQ" name="TimeM_to_Ntp" memberEnd="__p6vENrgEeWGSsFVyWAPlQ __p6vE9rgEeWGSsFVyWAPlQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="__p6vE9rgEeWGSsFVyWAPlQ" name="TimeM" visibility="public" type="_jPOxYL72EeOsb7FBQvVQ5A" association="__p0ocNrgEeWGSsFVyWAPlQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__qG8UtrgEeWGSsFVyWAPlQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__qG8UdrgEeWGSsFVyWAPlQ" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_O1Ht8NrhEeWGSsFVyWAPlQ" name="Ntp_to_NtpServer" memberEnd="_O1Ht8drhEeWGSsFVyWAPlQ _O1Ht9NrhEeWGSsFVyWAPlQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_O1Ht9NrhEeWGSsFVyWAPlQ" name="Ntp" visibility="public" type="_q-54kNrgEeWGSsFVyWAPlQ" association="_O1Ht8NrhEeWGSsFVyWAPlQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_O1VwYtrhEeWGSsFVyWAPlQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_O1VwYdrhEeWGSsFVyWAPlQ" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_DcllMDPSEeaYXuBx_BDVww" name="Features">
+        <packagedElement xmi:type="uml:Class" xmi:id="_DcwkUDPSEeaYXuBx_BDVww" name="CPI_HIDDEN"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_ICLqMDhaEeaodprnndtvQg" name="NATIVE_HIDDEN"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_HKUbMDPSEeaYXuBx_BDVww" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_HKh2kDPSEeaYXuBx_BDVww" name="NATIVE"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_IqxhUDPSEeaYXuBx_BDVww" name="VIRTUAL"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_yhr9MDhZEeaodprnndtvQg" name="" client="_HKh2kDPSEeaYXuBx_BDVww" supplier="_DcwkUDPSEeaYXuBx_BDVww"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_0LsA4DhZEeaodprnndtvQg" name="" client="_IqxhUDPSEeaYXuBx_BDVww" supplier="_DcwkUDPSEeaYXuBx_BDVww"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_UbWmUDhaEeaodprnndtvQg" name="" client="_HKh2kDPSEeaYXuBx_BDVww" supplier="_ICLqMDhaEeaodprnndtvQg"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_wJfcAOvUEeWnvY5XpRKbxg" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Vb5fgOy6EeWhGfaUEsjZDg" name="LdeTimeMInstance">
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_cPJU8Oy6EeWhGfaUEsjZDg" name="TimeM" classifier="_jPOxYL72EeOsb7FBQvVQ5A">
+        <slot xmi:type="uml:Slot" xmi:id="_cPnPAOy6EeWhGfaUEsjZDg" definingFeature="_jPX7Ub72EeOsb7FBQvVQ5A">
+          <value xmi:type="uml:LiteralString" xmi:id="_cPvx4Oy6EeWhGfaUEsjZDg" value="1">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </value>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_ged1EOy6EeWhGfaUEsjZDg" name="DateAndTime" classifier="_34J9ML72EeOsb7FBQvVQ5A">
+        <slot xmi:type="uml:Slot" xmi:id="_geqCUOy6EeWhGfaUEsjZDg" definingFeature="_34Z00b72EeOsb7FBQvVQ5A">
+          <value xmi:type="uml:LiteralString" xmi:id="_geqCUey6EeWhGfaUEsjZDg" value="1">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </value>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_qRNhgOy6EeWhGfaUEsjZDg" name="Ntp" classifier="_q-54kNrgEeWGSsFVyWAPlQ">
+        <slot xmi:type="uml:Slot" xmi:id="_qRZuwOy6EeWhGfaUEsjZDg" definingFeature="_q_jY0NrgEeWGSsFVyWAPlQ">
+          <value xmi:type="uml:LiteralString" xmi:id="_qRZuwey6EeWhGfaUEsjZDg" value="1">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </value>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_WfkboOy9EeWBXZr3fyN0fA" client="_ged1EOy6EeWhGfaUEsjZDg" supplier="_cPJU8Oy6EeWhGfaUEsjZDg"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_qi5AAOy9EeWBXZr3fyN0fA" client="_qRNhgOy6EeWhGfaUEsjZDg" supplier="_cPJU8Oy6EeWhGfaUEsjZDg"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_0aDQ477xEeOsb7FBQvVQ5A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iGXM4DCXEeuM18drTysasw" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iGXM4TCXEeuM18drTysasw" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iGXM4jCXEeuM18drTysasw" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iGXM4zCXEeuM18drTysasw" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iGXM5DCXEeuM18drTysasw" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iGXM5TCXEeuM18drTysasw" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0oCpkL7xEeOsb7FBQvVQ5A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_wHTqsOvUEeWnvY5XpRKbxg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wHTqsevUEeWnvY5XpRKbxg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_0oCpkb7xEeOsb7FBQvVQ5A" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_jPJ44L72EeOsb7FBQvVQ5A" hideGroupName="" specification="" statusInformation="" base_Package="_jPEZUL72EeOsb7FBQvVQ5A" author="Vahagn Avedian" contact="ETXAVED" date="2016/02/24" docNo="" revision="" version="1" release="2" organization="FLE/EU" ecimMomName="ECIM_TimeM" ecimMomVersion="1" ecimMomRelease="2" ecimMomCorrection="0" correction="0"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_jPcz0L72EeOsb7FBQvVQ5A" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_jPX7Ub72EeOsb7FBQvVQ5A"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_34UVQL72EeOsb7FBQvVQ5A" hideGroupName="hidden" specification="" statusInformation="" base_Class="_34J9ML72EeOsb7FBQvVQ5A" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_34fUYL72EeOsb7FBQvVQ5A" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_34Z00b72EeOsb7FBQvVQ5A"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_oPwn0L79EeOsb7FBQvVQ5A" hideGroupName="hidden" specification="" statusInformation="" base_Association="_oPm20L79EeOsb7FBQvVQ5A" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_R0EWgL8AEeOsb7FBQvVQ5A" hideGroupName="" specification="" statusInformation="" base_Association="_Rz_eAL8AEeOsb7FBQvVQ5A" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_-5VVYL8AEeOsb7FBQvVQ5A" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" isNotifiable="true" isAssociationEnd="true" base_Property="_-5POwL8AEeOsb7FBQvVQ5A"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_WSNgUL8BEeOsb7FBQvVQ5A" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isAssociationEnd="true" base_Property="_H6qIwL79EeOsb7FBQvVQ5A"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_WSOHYb8BEeOsb7FBQvVQ5A" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" isNotifiable="true" isAssociationEnd="true" base_Property="_Nk8LAL79EeOsb7FBQvVQ5A"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_OvzzMM-GEeOMH_V-Hdy1bA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" isNotifiable="true" isAssociationEnd="true" base_Property="_Ovr3YM-GEeOMH_V-Hdy1bA"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_MSlaEKYiEeSniNas3trnuA" hideGroupName="" specification="" statusInformation="" base_Class="_jPOxYL72EeOsb7FBQvVQ5A" isSystemCreated="true" isLegacyRoot="true"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_XmBYUNrgEeWGSsFVyWAPlQ" hideGroupName="" specification="RFC1305; RFC5905" base_Class="_XlvEcNrgEeWGSsFVyWAPlQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_XmBYUtrgEeWGSsFVyWAPlQ" hideGroupName="" specification="" isNotifiable="true" base_Property="_XlvEctrgEeWGSsFVyWAPlQ"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_XmBYVNrgEeWGSsFVyWAPlQ" hideGroupName="" specification="" base_Property="_XlvEddrgEeWGSsFVyWAPlQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_XmBYVtrgEeWGSsFVyWAPlQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" patternErrorMsg="" isNotifiable="true" base_Property="_XlvEd9rgEeWGSsFVyWAPlQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_XmBYWNrgEeWGSsFVyWAPlQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" patternErrorMsg="" isNotifiable="true" base_Property="_XlvEedrgEeWGSsFVyWAPlQ"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_q_bdANrgEeWGSsFVyWAPlQ" hideGroupName="" specification="" statusInformation="" base_Class="_q-54kNrgEeWGSsFVyWAPlQ"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_q_mcINrgEeWGSsFVyWAPlQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_q_jY0NrgEeWGSsFVyWAPlQ"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="__qG8UNrgEeWGSsFVyWAPlQ" hideGroupName="" specification="" statusInformation="" base_Association="__p0ocNrgEeWGSsFVyWAPlQ" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_O1VwYNrhEeWGSsFVyWAPlQ" hideGroupName="" specification="" statusInformation="" base_Association="_O1Ht8NrhEeWGSsFVyWAPlQ" isNotifiable="true"/>
+  <CoreMWProfile:CmwModel xmi:id="_wHURwOvUEeWnvY5XpRKbxg" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwMom xmi:id="_wHU40OvUEeWnvY5XpRKbxg" base_Package="_jPEZUL72EeOsb7FBQvVQ5A" immNamespace="MOM_NAME"/>
+  <CoreMWProfile:CmwClass xmi:id="_wHVf4OvUEeWnvY5XpRKbxg" base_Class="_jPOxYL72EeOsb7FBQvVQ5A"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_wHWG8OvUEeWnvY5XpRKbxg" base_Property="_jPX7Ub72EeOsb7FBQvVQ5A"/>
+  <CoreMWProfile:CmwClass xmi:id="_wHWuAOvUEeWnvY5XpRKbxg" base_Class="_34J9ML72EeOsb7FBQvVQ5A"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_wHWuAevUEeWnvY5XpRKbxg" base_Property="_34Z00b72EeOsb7FBQvVQ5A"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_wHWuAuvUEeWnvY5XpRKbxg" base_Property="_-5POwL8AEeOsb7FBQvVQ5A" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_wHWuA-vUEeWnvY5XpRKbxg" base_Property="_H6qIwL79EeOsb7FBQvVQ5A"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_wHWuBOvUEeWnvY5XpRKbxg" base_Property="_Nk8LAL79EeOsb7FBQvVQ5A"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_wHXVEOvUEeWnvY5XpRKbxg" base_Property="_Ovr3YM-GEeOMH_V-Hdy1bA"/>
+  <CoreMWProfile:CmwContribution xmi:id="_wHXVEevUEeWnvY5XpRKbxg" base_Association="_Rz_eAL8AEeOsb7FBQvVQ5A"/>
+  <CoreMWProfile:CmwClass xmi:id="_wHXVEuvUEeWnvY5XpRKbxg" base_Class="_XlvEcNrgEeWGSsFVyWAPlQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_wHX8IOvUEeWnvY5XpRKbxg" base_Property="_XlvEctrgEeWGSsFVyWAPlQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_wHX8IevUEeWnvY5XpRKbxg" base_Property="_XlvEddrgEeWGSsFVyWAPlQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_wHX8IuvUEeWnvY5XpRKbxg" base_Property="_XlvEd9rgEeWGSsFVyWAPlQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_wHX8I-vUEeWnvY5XpRKbxg" base_Property="_XlvEedrgEeWGSsFVyWAPlQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_wHYjMOvUEeWnvY5XpRKbxg" base_Class="_q-54kNrgEeWGSsFVyWAPlQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_wHYjMevUEeWnvY5XpRKbxg" base_Property="_q_jY0NrgEeWGSsFVyWAPlQ"/>
+  <ECIMBaseProfile:EcimInstances xmi:id="_VfBE8Oy6EeWhGfaUEsjZDg" base_Package="_Vb5fgOy6EeWhGfaUEsjZDg" version="1" release="0" correction="0"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_cPcP4Oy6EeWhGfaUEsjZDg" base_InstanceSpecification="_cPJU8Oy6EeWhGfaUEsjZDg"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_geitkOy6EeWhGfaUEsjZDg" base_InstanceSpecification="_ged1EOy6EeWhGfaUEsjZDg"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_qRTBEOy6EeWhGfaUEsjZDg" base_InstanceSpecification="_qRNhgOy6EeWhGfaUEsjZDg"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_WiPVIOy9EeWBXZr3fyN0fA" base_Dependency="_WfkboOy9EeWBXZr3fyN0fA"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_qi-fkOy9EeWBXZr3fyN0fA" base_Dependency="_qi5AAOy9EeWBXZr3fyN0fA"/>
+  <Documentation:Documentation xmi:id="_BcQq4DLPEeaOiqsd1YH7eQ" base_Comment="_jPJ44b72EeOsb7FBQvVQ5A"/>
+  <Documentation:Documentation xmi:id="_BcQq4TLPEeaOiqsd1YH7eQ" base_Comment="_jPTp4b72EeOsb7FBQvVQ5A"/>
+  <Documentation:Documentation xmi:id="_BcQq4jLPEeaOiqsd1YH7eQ" base_Comment="_jPcz0b72EeOsb7FBQvVQ5A"/>
+  <Documentation:Documentation xmi:id="_BcQq4zLPEeaOiqsd1YH7eQ" base_Comment="_34UVQb72EeOsb7FBQvVQ5A"/>
+  <Documentation:Documentation xmi:id="_BcQq5DLPEeaOiqsd1YH7eQ" base_Comment="_34fUYb72EeOsb7FBQvVQ5A"/>
+  <Documentation:Documentation xmi:id="_BcQq5TLPEeaOiqsd1YH7eQ" base_Comment="_C3YfUL8BEeOsb7FBQvVQ5A"/>
+  <Documentation:Documentation xmi:id="_BcQq5jLPEeaOiqsd1YH7eQ" base_Comment="_H6wPYb79EeOsb7FBQvVQ5A"/>
+  <Documentation:Documentation xmi:id="_BcQq5zLPEeaOiqsd1YH7eQ" base_Comment="_NlBqkL79EeOsb7FBQvVQ5A"/>
+  <Documentation:Documentation xmi:id="_BcQq6DLPEeaOiqsd1YH7eQ" base_Comment="_OzpAgL8CEeOsb7FBQvVQ5A"/>
+  <Documentation:Documentation xmi:id="_BcQq6TLPEeaOiqsd1YH7eQ" base_Comment="_OvzzMc-GEeOMH_V-Hdy1bA"/>
+  <Documentation:Documentation xmi:id="_BcQq6jLPEeaOiqsd1YH7eQ" base_Comment="_XlvEcdrgEeWGSsFVyWAPlQ"/>
+  <Documentation:Documentation xmi:id="_BcQq6zLPEeaOiqsd1YH7eQ" base_Comment="_XlvEc9rgEeWGSsFVyWAPlQ"/>
+  <Documentation:Documentation xmi:id="_BcQq7DLPEeaOiqsd1YH7eQ" base_Comment="_XlvEdtrgEeWGSsFVyWAPlQ"/>
+  <Documentation:Documentation xmi:id="_BcQq7TLPEeaOiqsd1YH7eQ" base_Comment="_XlvEeNrgEeWGSsFVyWAPlQ"/>
+  <Documentation:Documentation xmi:id="_BcQq7jLPEeaOiqsd1YH7eQ" base_Comment="_XlvEetrgEeWGSsFVyWAPlQ"/>
+  <Documentation:Documentation xmi:id="_BcQq7zLPEeaOiqsd1YH7eQ" base_Comment="_q_cEENrgEeWGSsFVyWAPlQ"/>
+  <Documentation:Documentation xmi:id="_BcQq8DLPEeaOiqsd1YH7eQ" base_Comment="_q_nDMNrgEeWGSsFVyWAPlQ"/>
+  <ECIMBaseProfile:EcimFeatures xmi:id="_DcvWMDPSEeaYXuBx_BDVww" base_Package="_DcllMDPSEeaYXuBx_BDVww"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_Dc3SADPSEeaYXuBx_BDVww" base_Class="_DcwkUDPSEeaYXuBx_BDVww"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_HKgocDPSEeaYXuBx_BDVww" base_Package="_HKUbMDPSEeaYXuBx_BDVww"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_HKrnkDPSEeaYXuBx_BDVww" base_Class="_HKh2kDPSEeaYXuBx_BDVww"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_Iq7SUDPSEeaYXuBx_BDVww" base_Class="_IqxhUDPSEeaYXuBx_BDVww"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_ICd-EDhaEeaodprnndtvQg" base_Class="_ICLqMDhaEeaodprnndtvQg"/>
+</xmi:XMI>

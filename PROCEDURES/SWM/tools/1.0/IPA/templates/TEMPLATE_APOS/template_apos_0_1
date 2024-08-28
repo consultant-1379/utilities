@@ -1,0 +1,82 @@
+	<upgradeProcedure saSmfExecLevel="11" safSmfProcedure="safSmfProc=SingleStepAPOS">
+		<outageInfo>
+        		<acceptableServiceOutage>
+         			 <all/>
+			</acceptableServiceOutage>
+			<procedurePeriod saSmfProcPeriod="600000000"/>
+		</outageInfo>
+		<procInitAction>
+			<doCliCommand command="cmw-addToImm" args="#APOS_CNF_BUNDLE#"/>
+			<undoCliCommand command="/bin/false" args=""/>
+			<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+		</procInitAction>
+		<procInitAction>
+			<doCliCommand command="cmw-model-add" args="#APOS_CNF_BUNDLE# --mt COM_R1"/>
+			<undoCliCommand command="/bin/false" args=""/>
+       			<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+		</procInitAction>
+		<procInitAction>
+			<doCliCommand command="cmw-addToImm" args="#LCT_BUNDLE#"/>
+			<undoCliCommand command="/bin/false" args=""/>
+			<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+		</procInitAction>
+		<procInitAction>
+			<doCliCommand command="cmw-model-add" args="#LCT_BUNDLE# --mt COM_R1"/>
+			<undoCliCommand command="/bin/false" args=""/>
+			<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+		</procInitAction>
+		<procInitAction>
+       			<doCliCommand command="cmw-model-done" args="--mt COM_R1"/>
+        		<undoCliCommand command="/bin/false" args=""/>
+       			<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+		</procInitAction>
+		<procInitAction>
+			<doCliCommand command="comsa-mim-tool" args="com_switchover"/>
+			<undoCliCommand command="/bin/false" args=""/>
+			<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+		</procInitAction>
+		<upgradeMethod>
+			<singleStepUpgrade>
+				<upgradeScope>
+					<forAddRemove>
+						<deactivationUnit/>
+              			<activationUnit>
+							<swAdd bundleDN="safSmfBundle=#APOS_EXT_BUNDLE#" pathnamePrefix="/home/coremw/repository">
+								<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+							</swAdd>
+							<swAdd bundleDN="safSmfBundle=#APOS_CMD_BUNDLE#" pathnamePrefix="/home/coremw/repository">
+								<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+							</swAdd>
+							<swAdd bundleDN="safSmfBundle=#APOS_CNF_BUNDLE#" pathnamePrefix="/home/coremw/repository">
+								<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+							</swAdd>
+							<swAdd bundleDN="safSmfBundle=#LCT_BUNDLE#" pathnamePrefix="/opt/ap/acs/bin">
+								<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+							</swAdd>
+						</activationUnit>
+					</forAddRemove>
+				</upgradeScope>
+				<upgradeStep/>
+			</singleStepUpgrade>
+		</upgradeMethod>
+	 	<procWrapupAction>
+			<doCliCommand command="#APOS_CONF_PATH##APOS_POST_INSTALL_SCRIPT#" args=""/>
+			<undoCliCommand command="/bin/false" args=""/>
+			<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+		</procWrapupAction>
+		<procWrapupAction>
+			<doCliCommand command="/opt/ap/acs/bin/acs_lct_configap.sh" args="-i"/>
+			<undoCliCommand command="/bin/false" args=""/>
+			<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+		</procWrapupAction>
+		<procWrapupAction>
+			<doCliCommand command="/opt/ap/acs/bin/acs_lct_configap.sh" args="-d"/>
+			<undoCliCommand command="/bin/false" args=""/>
+			<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+		</procWrapupAction>
+		<procWrapupAction>
+			<doCliCommand command="#APOS_CONF_PATH#apos_finalize.sh" args=""/>
+			<undoCliCommand command="/bin/false" args=""/>
+			<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+		</procWrapupAction>
+	</upgradeProcedure>

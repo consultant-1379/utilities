@@ -1,0 +1,28 @@
+# Directories
+555:cmd
+555:cmd/get
+555:cmd/set
+555:cmd/validate
+555:lib
+777:lib/common
+555:lib/man
+
+# Files
+555:parmtool
+
+555:cmd/get/get
+
+555:cmd/set/set
+
+555:cmd/validate/validate
+555:cmd/validate/T2XConverter
+555:cmd/validate/script_based_validation
+555:cmd/validate/APGParms.xsd
+
+666:lib/common/PSO.db
+666:lib/common/parmtool_common.sh
+
+444:lib/man/get.man
+444:lib/man/set.man
+444:lib/man/validate.man
+444:lib/man/parmtool.man

@@ -1,0 +1,27 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeFunctions_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "DataOutputHandling" as AxeFunctions__DataOutputHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20DataOutputHandling]] 
+class "DataRecordM" as AxeDataRecord__DataRecordM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20DataRecordM]] 
+AxeFunctions__DataOutputHandling *-- "1" AxeDataRecord__DataRecordM
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+AxeFunctions__DataOutputHandling *-- "1" AxeDataTransfer__DataTransferM
+class "DirectDataTransferM" as AxeDirectDataTransfer__DirectDataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20DirectDataTransferM]] 
+AxeFunctions__DataOutputHandling *-- "1" AxeDirectDataTransfer__DirectDataTransferM
+class "NbiFoldersM" as AxeNbiFolders__NbiFoldersM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeNbiFolders?title=class%20NbiFoldersM]] 
+AxeFunctions__DataOutputHandling *-- "1" AxeNbiFolders__NbiFoldersM
+class "StatisticalCounterM" as AxeStatisticalCounter__StatisticalCounterM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20StatisticalCounterM]] 
+AxeFunctions__DataOutputHandling *-- "1" AxeStatisticalCounter__StatisticalCounterM
+
+
+@enduml 

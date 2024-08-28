@@ -1,0 +1,31 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/MOMAXE_LocalAuthUG_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "Role" as ComLocalAuthorization__Role [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLocalAuthorization?title=class%20Role]] 
+class "Rule" as ComLocalAuthorization__Rule [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLocalAuthorization?title=class%20Rule]] 
+class "LocalAuthorizationMethod" as ComLocalAuthorization__LocalAuthorizationMethod [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLocalAuthorization?title=class%20LocalAuthorizationMethod]] 
+class "SecM" as ComSecM__SecM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20SecM]] 
+class "UserManagement" as ComSecM__UserManagement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20UserManagement]] 
+class "Role" as ComLocalAuthorization__Role [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLocalAuthorization?title=class%20Role]] 
+class "Rule" as ComLocalAuthorization__Rule [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLocalAuthorization?title=class%20Rule]] 
+ComLocalAuthorization__Role *-- "1..*" ComLocalAuthorization__Rule
+class "LocalAuthorizationMethod" as ComLocalAuthorization__LocalAuthorizationMethod [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLocalAuthorization?title=class%20LocalAuthorizationMethod]] 
+class "Role" as ComLocalAuthorization__Role [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLocalAuthorization?title=class%20Role]] 
+ComLocalAuthorization__LocalAuthorizationMethod *-- "*" ComLocalAuthorization__Role
+class "SecM" as ComSecM__SecM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20SecM]] 
+class "UserManagement" as ComSecM__UserManagement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20UserManagement]] 
+ComSecM__SecM *-- "1" ComSecM__UserManagement
+class "UserManagement" as ComSecM__UserManagement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20UserManagement]] 
+class "LocalAuthorizationMethod" as ComLocalAuthorization__LocalAuthorizationMethod [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLocalAuthorization?title=class%20LocalAuthorizationMethod]] 
+ComSecM__UserManagement *-- "1" ComLocalAuthorization__LocalAuthorizationMethod
+@enduml 

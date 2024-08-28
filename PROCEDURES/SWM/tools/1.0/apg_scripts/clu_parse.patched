@@ -1,0 +1,405 @@
+#!/bin/bash
+##
+# ------------------------------------------------------------------------
+#     Copyright (C) 2012 Ericsson AB. All rights reserved.
+# ------------------------------------------------------------------------
+##
+# Name:
+#       clu_parse
+#
+# Description:
+#       It takes the inputs from clusterconf commands and 
+# 	updates the cluster configuration accordingly.
+##
+# Usage:
+#
+# Options:
+#	No options are required for this command.
+##
+# Changelog:
+# - Wed 22 Feb 2017 - Furquan Ullah (XFURULL)
+#	            - Fix for TR HV56251.
+# - Mon 26 Sep 2016 - Malangsha Shaik (XMALSHA)
+#  		- Optimizing USA signal handling.
+# - Mon 30 Mar 2015 - Antonio Buonocunto (EANBUON)
+#        Semaphore/locking mechanism improved.
+# - Fri 27 May 2014 - Torgny Wilhelmsson (XTORWIL)
+#      - TR HS71829 "rifdef command fails in case vlan is defined with tag = 1"
+#        If the check rule parameter contains a dot, '.', it is expanded to 
+#        any character by the grep command while modifying a rule.
+#        Checks rule parameter is changed to insert escape character \ before the dot.
+#      - The Add rule function inserts an '/' character before any dot 
+#        for the check rule, however the escape character is '\', now changed.
+# - Thu	May 09 2013 - Krishna Chaitanya (XCHAKRI)
+#	- Modified the code for TR HR32568 
+# - Tue Apr 15 2013 - XCHAKRI
+#	- Modifed the file for TR HR18163
+#	- Introduced signal to ignore and resume services restart for USA
+# - Mon Aug 06 2012 - Malangsha Shaik(xmalsha)
+#	- Added support to allow mutiple updates
+#	- to the cluster configuration.
+# - Thu Mar 10 2011 - Madhu Aravabhumi
+# 	- Updated.
+# - Sep 30 2010 - Satya Deepthi (XSATDEE)
+# 	- First version.
+#
+
+# set -x
+
+# Global variable
+cluster_command="/usr/bin/cluster"
+RHOST=''
+[ -f /etc/cluster/nodes/peer/hostname ] && RHOST=$(</etc/cluster/nodes/peer/hostname)
+
+LOCK_FILE="/tmp/cluster.conf.lock"
+
+#Functions
+#Function to unlock /cluster/etc/cluster.conf file
+unlock()
+{
+	rm -f $LOCK_FILE &> /dev/null
+}
+
+#Function to  check if the peer  node is alive
+
+function is_alive(){
+local NODE="${1}"
+	[[ -z "${NODE}" ]] && return 1
+		/bin/ping -q -i 1 -w 1 -W 1 -c 1 "${NODE}" &> /dev/null
+		local RETURN_CODE=$?
+		if [ $RETURN_CODE -eq 0 ]; then
+			return 0
+		else
+			return 1
+		fi
+}
+
+
+#Function to reload cluster conf file
+cluster_conf_reload() {
+	tmp_file="/var/log/cluster_v.txt"
+	cmd_killall='/usr/bin/killall'
+	cmd_ssh='/usr/bin/ssh'
+
+	$cluster_command config -v >& $tmp_file
+	status=$?
+	sleep 1
+	if [ $status -ne 0 ]; then
+        	echo -e  "\nSyntax error observed in the new configuration"
+	        #cat $tmp_file
+	else
+			SIGRT_IGNORE=35
+			SIGRT_RESUME=36
+			USA_LOGANALYSER_RUNNING='/opt/ap/acs/bin/usa.analyser.running'
+			# These signals shall be aligned with USA
+			# #define SIG_IGNORE_EVENTS ACE_SIGRTMIN+1
+			# #define SIG_RESUME_EVENTS ACE_SIGRTMIN+2
+			# file: /vobs/cm4ap/ntacs/usa_cnz/usaadm_caa/inc/acs_usa_sysloganalyser.h
+			# SIGRTMIN=34
+
+			usapid=$( pidof /opt/ap/acs/bin/acs_usad)
+			if [[ ! -z "$usapid" && -f $USA_LOGANALYSER_RUNNING ]]; then
+				$cmd_killall -$SIGRT_IGNORE -q -e /opt/ap/acs/bin/acs_usad &> /dev/null
+				if [ ! -z "$RHOST" ]; then
+					if is_alive "$RHOST"; then
+						rhost_usapid=$( $cmd_ssh $RHOST pidof /opt/ap/acs/bin/acs_usad)
+						rCode=$( $cmd_ssh $RHOST  ls /opt/ap/acs/bin/usa.analyser.running &>/dev/null; echo $? )	
+						if [[ ! -z "$rhost_usapid" && $rCode == 0 ]]; then	
+							$cmd_ssh $RHOST "killall -$SIGRT_IGNORE -q -e /opt/ap/acs/bin/acs_usad &> /dev/null"				
+							$cluster_command config -r -a
+							$cmd_ssh $RHOST "killall -$SIGRT_RESUME -q -e /opt/ap/acs/bin/acs_usad &> /dev/null"
+							
+						else 
+							$cluster_command config -r	
+						fi	
+					else	
+						$cluster_command config -r
+	     				fi
+				else
+					$cluster_command config -r 
+				fi	
+				$cmd_killall -$SIGRT_RESUME -q -e /opt/ap/acs/bin/acs_usad &> /dev/null	
+			fi		
+	fi
+	if [ -e $tmp_file ]; then
+		rm -rf $tmp_file
+	fi
+	return $status
+}
+
+#Function to extract rule when rule number is given
+rulenum_to_rule() {
+                word=${!1}
+                ip=${!2}
+                rule=$( cat $clu_Conf_path$clu_Conf_file | grep -w ^$word)
+                rule_num=$(( $ip + 1))
+                drul=$( echo $rule | sed "s/\b$word\b/?/g" | cut -d? -f $rule_num)
+                dr=$( echo $drul | sed -e 's/ *$//g')
+                final_rule="$word $dr"
+                echo $final_rule
+        }
+
+# Function to add rule to cluster.conf
+add_rule() {
+		word=${!1}
+		arg=${!2}
+
+	        drul=$( echo $arg | sed "s/\b$word\b/?/g" | cut -d? -f 2)
+	        dr=$( echo $drul | sed -e 's/ *$//g')
+		rule="$word $dr"
+
+	        drul=$( echo $arg | sed "s/\b$word\b/?/g" | cut -d? -f 3)
+        	dr=$( echo $drul | sed -e 's/ *$//g')
+		chk_rul="$word $dr"
+        	chk_rule=$( echo $chk_rul  | sed -e 's/ *$//g' | sed 's/\./\\./g')
+
+		cnt=$( cat $clu_Conf_path$clu_Conf_file | grep ^"$word" | wc -l)
+                if [ $cnt == 0 ]; then
+			totl_rcds=$( awk 'END {print NR}' $clu_Conf_path$clu_Conf_file)
+                        while [ $totl_rcds -gt 0 ];do
+                                line=`sed -n "$totl_rcds"p $clu_Conf_path$clu_Conf_file`
+                                [ -z "$line" ] && {
+                                        totl_rcds=`expr $totl_rcds - 1`
+                                        continue
+                                }
+
+                                if test ! `echo "$line" | grep -i "End of file"` &>/dev/null ;then
+                                        sed -i "$totl_rcds  a\\${rule}" $clu_Conf_path$clu_Conf_file
+                                        add_status=$?
+                                        break
+                                else
+                                        sed -i "$totl_rcds i\\${rule}"  $clu_Conf_path$clu_Conf_file
+                                        add_status=$?
+                                        break
+                                fi
+                        done
+                else
+                        rule_cnt=$( cat $clu_Conf_path$clu_Conf_file | grep -w ^"$chk_rule" | wc -l)
+                        if [ $rule_cnt == 0 ];then
+				line=$( awk "/^$word /{print NR}" $clu_Conf_path$clu_Conf_file | tail -n -1) 
+                                sed -i "$line a\\${rule}" $clu_Conf_path$clu_Conf_file
+                                add_status=$?
+                        else
+                                echo "Rule for $chk_rule already exists."
+                                unlock ; exit 1
+                        fi
+                fi
+                if [ $add_status == 0 ]; then
+                	echo "Rule $rule added"
+                else
+                        echo "Sorry. $word rule not added."
+                        unlock ; exit 1
+                fi
+		if [ "$MULTIPLE_UPDATES" == "NO" ]; then
+			# Delete wrongly added rule
+                	cluster_conf_reload
+	                ret_status=$?
+                	#if [ $( $cluster_command config -v | grep OK | wc -l) != 1 ]
+        	        if [ $ret_status != 0 ]; then
+                		sed -i "\#\b$rule\b#d" $clu_Conf_path$clu_Conf_file 2> /dev/null 
+				echo -e "$word rule not added. \nReloading cluster with previous configuration...\n"
+                		cluster_conf_reload
+                	fi
+		fi
+	}
+
+# Function to delete rule from cluster.conf
+del_rule() {
+		word=${!1}
+		ip=${!2}
+                if [ $ip -eq 0 ] || [ $( cat $clu_Conf_path$clu_Conf_file | grep -c ^$word) -lt $ip ]
+	        then
+                        echo "Rule $ip does not exist"
+                        unlock ; exit 1
+                fi
+                del_rule=`rulenum_to_rule word ip`
+
+		#sed -i "s#\b$del_rule\b##g" $clu_Conf_path$clu_Conf_file 2> /dev/null
+                sed -i "\#\b$del_rule\b#d" $clu_Conf_path$clu_Conf_file 
+                if [ $? == 0 ];	then 
+			echo "$del_rule deleted."
+                else
+                        echo "No $word rule deleted."
+                        unlock ; exit 1
+                fi
+		if [ "$MULTIPLE_UPDATES" == "NO" ]; then
+               		cluster_conf_reload
+		fi
+	}
+
+# Function to modify rule in cluster.conf
+mod_rule() {
+	w1=${!1}
+	ip=${!2}
+	if [ $ip -eq 0 ] || [ $( cat $clu_Conf_path$clu_Conf_file | grep -c ^$word) -lt $ip ]; then
+		echo Rule $ip does not exist
+		unlock ; exit 1
+	fi
+
+	arg="${!3}"
+	drul=$( echo $arg | sed "s/\b$word\b/?/g" | cut -d? -f 2)
+	dr=$( echo $drul | sed -e 's/ *$//g')
+	new_rule="$word $dr"
+
+	drul=$( echo $arg | sed "s/\b$word\b/?/g" | cut -d? -f 3)
+	dr=$( echo $drul | sed -e 's/ *$//g')
+	chk_rul="$word $dr"
+       	chk_rule=$( echo $chk_rul  | sed -e 's/ *$//g' | sed 's/\./\\./g')
+
+	mod_rule=`rulenum_to_rule w1 ip`
+        if [ "$( cat $clu_Conf_path$clu_Conf_file | sed "s#$mod_rule#$new_rule#g" | grep -c -w ^"$chk_rule")" -gt 1 ]; then 
+			echo "Rule for $chk_rule already exists. Rule not modified."
+			unlock ; exit 1;	
+	fi
+                
+	sed -i "s#$mod_rule#$new_rule#g" $clu_Conf_path$clu_Conf_file 2> /dev/null
+        if [ $? == 0 ]; then
+                echo "Rule $mod_rule modified as $new_rule"
+        else
+                echo -e "No $w1 rule modified." 
+                unlock ; exit 1
+        fi
+		
+        if [ "$MULTIPLE_UPDATES" == "NO" ]; then
+                #Dont modify wrongly added rule
+	        cluster_conf_reload
+        	ret_status=$?
+                #if [ $( $cluster_command config -v | grep OK | wc -l) != 1 ]
+                if [ $ret_status != 0 ]; then
+                       	sed -i "s#$new_rule#$mod_rule#g" $clu_Conf_path$clu_Conf_file 2> /dev/null
+			echo -e "$word rule unmodified. \nReloading cluster with previous configuration...\n"
+        	        cluster_conf_reload
+                fi
+        fi
+
+}
+
+# Function to display rules from cluster.conf
+display_rules() {
+		word=${!1}
+                if [ $(cat $clu_Conf_path$clu_Conf_file | grep -c ^$word ) == 0 ]
+                then 
+                        echo "No $word rules present."
+                else
+                        echo $word rules present are:
+                        cat $clu_Conf_path$clu_Conf_file | grep -w ^"$word" | nl
+                fi
+
+	}
+
+# To implement default and site parameters ( Considered for two nodes only )
+defparam()
+{
+	sed -i 's/^M//g' $path
+        clu_Conf_path="/cluster/etc/"
+        clu_Conf_file="cluster.conf"
+	nw_id=`grep -r "IPAddressGateway" $path | cut -d = -f 2`
+        nodename1=`grep -r "NodeNameA" $path | cut -d = -f 2`
+        nodename2=`grep -r "NodeNameB" $path | cut -d = -f 2`
+        nodeIP1=`grep -r "IPAddressNodeA" $path | cut -d = -f 2`
+        nodeIP2=`grep -r "IPAddressNodeB" $path | cut -d = -f 2`
+
+        #To change first node Name
+        n1=" "$nodename1" "
+        n2=`grep -r "node " $clu_Conf_path$clu_Conf_file | head -1 | awk '{print " " $4 " "}'`
+        sed -i s/"$n2"/"$n1"/g $clu_Conf_path$clu_Conf_file  # Replacing node1 name
+
+        #To change second node Name
+        n3=" "$nodename2" "
+        n4=`grep -r "node " $clu_Conf_path$clu_Conf_file | tail -n -1 | awk '{print " " $4 " "}'`
+        sed -i s/"$n4"/"$n3"/g $clu_Conf_path$clu_Conf_file # Replacing node2 name
+
+	#To change public network-id/netmask
+	network_id=`echo $nw_id | awk -F "." '{ print $1"."$2"."$3"."0 }'`
+	network_id1="$network_id/24"
+        n5=`grep -r "network external " $clu_Conf_path$clu_Conf_file | awk '{print $3}'`
+        sed -i s/'$n5'/'$network_id1'/g $clu_Conf_path$clu_Conf_file  # Replacing node1 IP
+
+	# Name of the public network
+        public_network_name=`grep -r "$network_id" $clu_Conf_path$clu_Conf_file | awk '{print $2}'`
+
+	# To change node-1 public IP
+	n6="$nodeIP1"
+        n7=`grep -r "ip 1 " $clu_Conf_path$clu_Conf_file | grep "$public_network_name" | head -1 |awk '{print $5}'`
+	sed -i s/"$n7"/"$n6"/g $clu_Conf_path$clu_Conf_file # Replacing node1 IP
+
+	# To change node-2 public IP
+        n8="$nodeIP2"
+        n9=`grep -r "ip 2 " $clu_Conf_path$clu_Conf_file | grep "$public_network_name" | head -1 |awk '{print $5}'`
+        sed -i s/"$n9"/"$n8"/g $clu_Conf_path$clu_Conf_file # Replacing node2 IP
+
+	# To change public network default gateway
+        b1="$nw_id"
+        b2=`grep -r "route *[a-z]* default gateway" /cluster/etc/cluster.conf | awk '{print $5}'`
+        sed -i s/"$b2"/"$b1"/g $clu_Conf_path$clu_Conf_file # Replacing node2 IP
+        
+	echo -e "Done"
+	if [ "$MULTIPLE_UPDATES" == "NO" ]; then 
+        	cluster_conf_reload
+	fi
+}
+
+
+#Main
+
+if [ -f /cluster/etc/cluster.conf ];then
+        clu_Conf_path="/cluster/etc/"
+        clu_Conf_file="cluster.conf"
+else
+        echo -e "\n/cluster/etc/cluster.conf file does not exists"
+        unlock ; exit 1
+fi
+
+# Creates a lockfile as a semaphore for concurrent instances.
+lockfile -1 -r -1 -l 3 -s 3 $LOCK_FILE &>/dev/null
+
+
+# check we have been invoked with the option of multiple
+# updations. We copy the original file for the first time and
+# clu_mgmt finally takes the action of either committing
+# or aborting the multiple updations.
+if [ "$MULTIPLE_UPDATES" == "YES" ]; then
+	CLUSTER_CONF_MUPDT=/opt/ap/apos/conf/cluster.conf.mupdt
+	CLUSTER_CONF=/cluster/etc/cluster.conf
+	[ ! -f $CLUSTER_CONF_MUPDT ] && 
+	cp $CLUSTER_CONF $CLUSTER_CONF_MUPDT	
+fi
+
+ ch=$2
+ case $ch in 
+	--add) 
+		word=$1
+		shift 2
+		arg=$*
+		#echo arg passed: $arg
+		add_rule word arg
+	;;
+	--delete)
+		word=$1
+		arg=$3
+		#echo arg passed: $arg
+		del_rule word arg
+	;;
+	--modify)
+		word=$1
+		rule_num=$3
+		shift 3
+		arg=$*
+		#echo arg passed:$arg
+		mod_rule word rule_num arg
+	;;
+	--display)
+		word=$1
+		display_rules word
+	;;
+	--other)
+		word=$1
+		path=$3
+		if [ $word = "defparam" ]; then
+			defparam $path
+		fi
+	;;
+esac
+unlock
+
+

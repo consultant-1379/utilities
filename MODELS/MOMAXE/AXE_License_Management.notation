@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <notation:Diagram xmi:id="_8GOorBtDEeWvQYFW8NSCww" type="PapyrusUMLClassDiagram" name="LM ObjectDiagram" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_8GOorRtDEeWvQYFW8NSCww" type="2001" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GOorhtDEeWvQYFW8NSCww" type="5002">
+        <element xmi:type="uml:InstanceSpecification" href="AXE_License_Management.uml#_gKWfOIKSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GOorxtDEeWvQYFW8NSCww" type="7001">
+        <children xmi:type="notation:Shape" xmi:id="_8GOosBtDEeWvQYFW8NSCww" type="3030">
+          <element xmi:type="uml:Slot" href="AXE_License_Management.uml#_gKWfOYKSEeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:InstanceSpecification" href="AXE_License_Management.uml#_gKWfOIKSEeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:InstanceSpecification" href="AXE_License_Management.uml#_gKWfOIKSEeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8GOosRtDEeWvQYFW8NSCww" x="168" y="25"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_8GOoshtDEeWvQYFW8NSCww"/>
+    <element xmi:type="uml:Package" href="AXE_License_Management.uml#_gKWfK4KSEeK3wcU1QErItg"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_8GOosxtDEeWvQYFW8NSCww" type="PapyrusUMLClassDiagram" name="System Handling, License Management_UC" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_8GOotBtDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GOotRtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWe7YKSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GOothtDEeWvQYFW8NSCww" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_8GOotxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWe74KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GOouBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWe84KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GOouRtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWe94KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GOouhtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWe-4KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GOouxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWe_4KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GOovBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_vefFYNqdEeKCbcFdSWbe4w"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GOovRtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_9ZYfQOAJEeKCbcFdSWbe4w"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GOovhtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_YSYOkN89EeOs4Laq6AiA6A"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWe7YKSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GOovxtDEeWvQYFW8NSCww" type="7018">
+        <children xmi:type="notation:Shape" xmi:id="_8GOowBtDEeWvQYFW8NSCww" type="3013">
+          <element xmi:type="uml:Operation" href="AXE_License_Management.uml#_gKWfCYKSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GOowRtDEeWvQYFW8NSCww" type="3013">
+          <element xmi:type="uml:Operation" href="AXE_License_Management.uml#_gKWfC4KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GOowhtDEeWvQYFW8NSCww" type="3013">
+          <element xmi:type="uml:Operation" href="AXE_License_Management.uml#_GeZHYPCHEeOy-LpDwWjJLw"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWe7YKSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GOowxtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWe7YKSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GOoxBtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_8GOoxRtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWe7YKSEeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWe7YKSEeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8GOoxhtDEeWvQYFW8NSCww" x="158" y="255"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_8GOoxxtDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GOoyBtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWfEYKSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GOoyRtDEeWvQYFW8NSCww" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_8GOoyhtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWfE4KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GOoyxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWfF4KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GOozBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWfG4KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GOozRtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWfH4KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GOozhtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWfI4KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GOozxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWfJ4KSEeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWfEYKSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GOo0BtDEeWvQYFW8NSCww" type="7018">
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWfEYKSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GOo0RtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWfEYKSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GOo0htDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_8GOo0xtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWfEYKSEeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWfEYKSEeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8GOo1BtDEeWvQYFW8NSCww" x="182" y="632"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_8GOo1RtDEeWvQYFW8NSCww" type="2006" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GOo1htDEeWvQYFW8NSCww" type="5023">
+        <element xmi:type="uml:Enumeration" href="AXE_License_Management.uml#_gKWfP4KSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GOo1xtDEeWvQYFW8NSCww" type="7015">
+        <children xmi:type="notation:Shape" xmi:id="_8GOo2BtDEeWvQYFW8NSCww" type="3017">
+          <element xmi:type="uml:EnumerationLiteral" href="AXE_License_Management.uml#_gKWfQYKSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GOo2RtDEeWvQYFW8NSCww" type="3017">
+          <element xmi:type="uml:EnumerationLiteral" href="AXE_License_Management.uml#_gKWfRIKSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GOo2htDEeWvQYFW8NSCww" type="3017">
+          <element xmi:type="uml:EnumerationLiteral" href="AXE_License_Management.uml#_gKWfR4KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GOo2xtDEeWvQYFW8NSCww" type="3017">
+          <element xmi:type="uml:EnumerationLiteral" href="AXE_License_Management.uml#_gKWfSoKSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GOo3BtDEeWvQYFW8NSCww" type="3017">
+          <element xmi:type="uml:EnumerationLiteral" href="AXE_License_Management.uml#_9yGKYNqcEeKCbcFdSWbe4w"/>
+        </children>
+        <element xmi:type="uml:Enumeration" href="AXE_License_Management.uml#_gKWfP4KSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GOo3RtDEeWvQYFW8NSCww" visible="false">
+        <element xmi:type="uml:Enumeration" href="AXE_License_Management.uml#_gKWfP4KSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GOo3htDEeWvQYFW8NSCww" visible="false">
+        <element xmi:type="uml:Enumeration" href="AXE_License_Management.uml#_gKWfP4KSEeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Enumeration" href="AXE_License_Management.uml#_gKWfP4KSEeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8GOo3xtDEeWvQYFW8NSCww" x="790" y="194"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_8GOo4BtDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GOo4RtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0MIKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GOo4htDEeWvQYFW8NSCww" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_8GOo4xtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_Functions.uml#_tAN0MoKREeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0MIKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GOo5BtDEeWvQYFW8NSCww" type="7018">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0MIKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GOo5RtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0MIKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GOo5htDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_8GOo5xtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0MIKREeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0MIKREeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8GOo6BtDEeWvQYFW8NSCww" x="206" y="12"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_8GOo6RtDEeWvQYFW8NSCww"/>
+    <element xmi:type="uml:Package" href="AXE_License_Management.uml#_gKV3oIKSEeK3wcU1QErItg"/>
+    <edges xmi:type="notation:Connector" xmi:id="_8GOo6htDEeWvQYFW8NSCww" type="4001" source="_8GOotBtDEeWvQYFW8NSCww" target="_8GOoxxtDEeWvQYFW8NSCww" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GOo6xtDEeWvQYFW8NSCww" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GOo7BtDEeWvQYFW8NSCww" x="-1" y="-159"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GOo7RtDEeWvQYFW8NSCww" type="6034">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GOo7htDEeWvQYFW8NSCww" x="-6" y="-16"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GOo7xtDEeWvQYFW8NSCww" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GOo8BtDEeWvQYFW8NSCww" x="-6" y="94"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GOo8RtDEeWvQYFW8NSCww" type="6033">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GOo8htDEeWvQYFW8NSCww" x="6" y="-16"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GOo8xtDEeWvQYFW8NSCww" type="6005">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GPPoBtDEeWvQYFW8NSCww" x="6" y="76"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_8GPPoRtDEeWvQYFW8NSCww" fontName="Sans"/>
+      <element xmi:type="uml:Association" href="AXE_License_Management.uml#_gKWfO4KSEeK3wcU1QErItg"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8GPPohtDEeWvQYFW8NSCww" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_8GPPoxtDEeWvQYFW8NSCww" type="4001" source="_8GOotBtDEeWvQYFW8NSCww" target="_8GOo4BtDEeWvQYFW8NSCww" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPPpBtDEeWvQYFW8NSCww" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GPPpRtDEeWvQYFW8NSCww" x="4" y="137"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPPphtDEeWvQYFW8NSCww" type="6034">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GPPpxtDEeWvQYFW8NSCww" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPPqBtDEeWvQYFW8NSCww" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GPPqRtDEeWvQYFW8NSCww" x="-6" y="-75"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPPqhtDEeWvQYFW8NSCww" type="6033">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GPPqxtDEeWvQYFW8NSCww" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPPrBtDEeWvQYFW8NSCww" type="6005">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GPPrRtDEeWvQYFW8NSCww" x="4" y="-62"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_8GPPrhtDEeWvQYFW8NSCww" fontName="Sans" fontHeight="8"/>
+      <element xmi:type="uml:Association" href="AXE_License_Management.uml#_gKWfTYKSEeK3wcU1QErItg"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8GPPrxtDEeWvQYFW8NSCww" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_8GPPsBtDEeWvQYFW8NSCww" type="PapyrusUMLClassDiagram" name="System Handling, License Management" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_8GPPsRtDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPPshtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWe7YKSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GPPsxtDEeWvQYFW8NSCww" visible="false" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_8GPPtBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWe74KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GPPtRtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWe84KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GPPthtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWe94KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GPPtxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWe-4KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GPPuBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWe_4KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GPPuRtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_vefFYNqdEeKCbcFdSWbe4w"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GPPuhtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_9ZYfQOAJEeKCbcFdSWbe4w"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GPPuxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_YSYOkN89EeOs4Laq6AiA6A"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWe7YKSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GPPvBtDEeWvQYFW8NSCww" visible="false" type="7018">
+        <children xmi:type="notation:Shape" xmi:id="_8GPPvRtDEeWvQYFW8NSCww" type="3013">
+          <element xmi:type="uml:Operation" href="AXE_License_Management.uml#_gKWfCYKSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GPPvhtDEeWvQYFW8NSCww" type="3013">
+          <element xmi:type="uml:Operation" href="AXE_License_Management.uml#_gKWfC4KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GPPvxtDEeWvQYFW8NSCww" type="3013">
+          <element xmi:type="uml:Operation" href="AXE_License_Management.uml#_GeZHYPCHEeOy-LpDwWjJLw"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWe7YKSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GPPwBtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWe7YKSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPPwRtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_8GPPwhtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWe7YKSEeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWe7YKSEeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8GPPwxtDEeWvQYFW8NSCww" x="158" y="158"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_8GPPxBtDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPPxRtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWfEYKSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GPPxhtDEeWvQYFW8NSCww" visible="false" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_8GPPxxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWfE4KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GPPyBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWfF4KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GPPyRtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWfG4KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GPPyhtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWfH4KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GPPyxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWfI4KSEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8GPPzBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_License_Management.uml#_gKWfJ4KSEeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWfEYKSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GPPzRtDEeWvQYFW8NSCww" visible="false" type="7018">
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWfEYKSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GPPzhtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWfEYKSEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPPzxtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_8GPP0BtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWfEYKSEeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_License_Management.uml#_gKWfEYKSEeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8GPP0RtDEeWvQYFW8NSCww" x="145" y="279"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_8GPP0htDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPP0xtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0MIKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GPP1BtDEeWvQYFW8NSCww" visible="false" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_8GPP1RtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_Functions.uml#_tAN0MoKREeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0MIKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GPP1htDEeWvQYFW8NSCww" visible="false" type="7018">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0MIKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8GPP1xtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0MIKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPP2BtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_8GPP2RtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0MIKREeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0MIKREeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8GPP2htDEeWvQYFW8NSCww" x="133" y="60"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_8GPP2xtDEeWvQYFW8NSCww"/>
+    <element xmi:type="uml:Package" href="AXE_License_Management.uml#_gKV3oIKSEeK3wcU1QErItg"/>
+    <edges xmi:type="notation:Connector" xmi:id="_8GPP3BtDEeWvQYFW8NSCww" type="4001" source="_8GPPsRtDEeWvQYFW8NSCww" target="_8GPPxBtDEeWvQYFW8NSCww" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPP3RtDEeWvQYFW8NSCww" visible="false" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GPP3htDEeWvQYFW8NSCww" x="-15" y="160"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPP3xtDEeWvQYFW8NSCww" visible="false" type="6034">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GPP4BtDEeWvQYFW8NSCww" y="11"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPP4RtDEeWvQYFW8NSCww" visible="false" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GPP4htDEeWvQYFW8NSCww" x="23" y="-135"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPP4xtDEeWvQYFW8NSCww" type="6033">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GPP5BtDEeWvQYFW8NSCww" y="11"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPP5RtDEeWvQYFW8NSCww" visible="false" type="6005">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GPP5htDEeWvQYFW8NSCww" x="6" y="-111"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_8GPP5xtDEeWvQYFW8NSCww" fontName="Sans"/>
+      <element xmi:type="uml:Association" href="AXE_License_Management.uml#_gKWfO4KSEeK3wcU1QErItg"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8GPP6BtDEeWvQYFW8NSCww" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_8GPP6RtDEeWvQYFW8NSCww" type="4001" source="_8GPPsRtDEeWvQYFW8NSCww" target="_8GPP0htDEeWvQYFW8NSCww" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPP6htDEeWvQYFW8NSCww" visible="false" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GPP6xtDEeWvQYFW8NSCww" y="-9"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPP7BtDEeWvQYFW8NSCww" visible="false" type="6034">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GPP7RtDEeWvQYFW8NSCww" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPP7htDEeWvQYFW8NSCww" visible="false" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GPP7xtDEeWvQYFW8NSCww" y="-20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPP8BtDEeWvQYFW8NSCww" visible="false" type="6033">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GPP8RtDEeWvQYFW8NSCww" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8GPP8htDEeWvQYFW8NSCww" visible="false" type="6005">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8GPP8xtDEeWvQYFW8NSCww" y="-20"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_8GPP9BtDEeWvQYFW8NSCww" fontName="Sans" fontHeight="8"/>
+      <element xmi:type="uml:Association" href="AXE_License_Management.uml#_gKWfTYKSEeK3wcU1QErItg"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8GPP9RtDEeWvQYFW8NSCww" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>

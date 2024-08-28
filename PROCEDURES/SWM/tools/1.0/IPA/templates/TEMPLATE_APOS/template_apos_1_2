@@ -1,0 +1,42 @@
+	<upgradeProcedure saSmfExecLevel="11" safSmfProcedure="safSmfProc=SingleStepAPOS">
+		<outageInfo>
+        		<acceptableServiceOutage>
+         			 <all/>
+			</acceptableServiceOutage>
+			<procedurePeriod saSmfProcPeriod="600000000"/>
+		</outageInfo>
+		<upgradeMethod>
+			<singleStepUpgrade>
+				<upgradeScope>
+					<forAddRemove>
+						<deactivationUnit/>
+              					<activationUnit>
+							<swAdd bundleDN="safSmfBundle=#APOS_EXT_BUNDLE#" pathnamePrefix="/home/coremw/repository">
+								<plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster"/>
+							</swAdd>
+							<swAdd bundleDN="safSmfBundle=#APOS_CMD_BUNDLE#" pathnamePrefix="/home/coremw/repository">
+								<plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster"/>
+							</swAdd>
+							<swAdd bundleDN="safSmfBundle=#APOS_CNF_BUNDLE#" pathnamePrefix="/home/coremw/repository">
+								<plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster"/>
+							</swAdd>
+							<swAdd bundleDN="safSmfBundle=#LCT_BUNDLE#" pathnamePrefix="/opt/ap/acs/bin">
+								<plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster"/>
+							</swAdd>
+						</activationUnit>
+					</forAddRemove>
+				</upgradeScope>
+				<upgradeStep/>
+			</singleStepUpgrade>
+		</upgradeMethod>
+		<procWrapupAction>
+                        <doCliCommand command="#APOS_CONF_PATH##APOS_POST_INSTALL_SCRIPT#" args=""/>
+                        <undoCliCommand command="/bin/false" args=""/>
+                        <plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster"/>
+                </procWrapupAction>
+                <procWrapupAction>
+                        <doCliCommand command="#APOS_CONF_PATH#apos_finalize.sh" args=""/>
+                        <undoCliCommand command="/bin/false" args=""/>
+                        <plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster"/>
+                </procWrapupAction>
+	</upgradeProcedure>

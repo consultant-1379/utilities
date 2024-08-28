@@ -1,0 +1,215 @@
+<!-- BRF_CMW PART-->
+<!--                                                                                    -->
+<!--                                                                                    -->
+	<upgradeProcedure saSmfExecLevel="5" safSmfProcedure="safSmfProc=SingleStepBRF_BRFCmw_BRFP">
+		<outageInfo>
+			<acceptableServiceOutage>
+				<all/>
+			</acceptableServiceOutage>
+			<procedurePeriod saSmfProcPeriod="60000000000"/>
+		</outageInfo>
+		<procInitAction>
+            <immCCB ccbFlags="0">
+                <create objectClassName="SaAmfSU" parentObjectDN="safSg=2N,safApp=ERIC-Brf">
+                    <attribute name="safSu" type="SA_IMM_ATTR_SASTRINGT">
+                        <value>safSu=Control2</value>
+                    </attribute>
+                    <attribute name="saAmfSUType" type="SA_IMM_ATTR_SANAMET">
+                        <value>safVersion=1.0.0,safSuType=ERIC-Brf-Control</value>
+                    </attribute>
+                    <attribute name="saAmfSURank" type="SA_IMM_ATTR_SAUINT32T">
+                        <value>0</value>
+                    </attribute>
+                    <attribute name="saAmfSUHostNodeOrNodeGroup" type="SA_IMM_ATTR_SANAMET">
+                        <value>safAmfNode=SC-2,safAmfCluster=myAmfCluster</value>
+                    </attribute>
+                    <attribute name="saAmfSUFailover" type="SA_IMM_ATTR_SAUINT32T">
+                        <value>false</value>
+                    </attribute>
+                    <attribute name="saAmfSUAdminState" type="SA_IMM_ATTR_SAUINT32T">
+                        <value>3</value>
+                    </attribute>
+                </create>
+                <create objectClassName="SaAmfComp" parentObjectDN="safSu=Control2,safSg=2N,safApp=ERIC-Brf">
+                    <attribute name="safComp" type="SA_IMM_ATTR_SASTRINGT">
+                        <value>safComp=Control</value>
+                    </attribute>
+                    <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET">
+                        <value>safVersion=#BRF_RSTATE#,safCompType=ERIC-Brf-Control</value>
+                    </attribute>
+                </create>
+                <create objectClassName="SaAmfHealthcheck" parentObjectDN="safComp=Control,safSu=Control2,safSg=2N,safApp=ERIC-Brf">
+               	    <attribute name="safHealthcheckKey" type="SA_IMM_ATTR_SASTRINGT">
+          	       <value>safHealthcheckKey=A9FD64E12C</value>
+                    </attribute>
+                    <attribute name="saAmfHealthcheckPeriod" type="SA_IMM_ATTR_SATIMET">
+                       <value>30000000000</value>
+                    </attribute>
+                    <attribute name="saAmfHealthcheckMaxDuration" type="SA_IMM_ATTR_SATIMET">
+                       <value>10000000000</value>
+                    </attribute>
+                </create>
+                <create objectClassName="SaAmfCompCsType" parentObjectDN="safComp=Control,safSu=Control2,safSg=2N,safApp=ERIC-Brf">
+                    <attribute name="safSupportedCsType" type="SA_IMM_ATTR_SANAMET">
+                        <value>safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-Brf-2N</value>
+                    </attribute>
+                </create>
+            </immCCB>
+        </procInitAction>
+        <procInitAction>
+            <immCCB ccbFlags="0">
+                <create objectClassName="SaAmfSU" parentObjectDN="safSg=2N,safApp=ERIC-BrfCmwA">
+                    <attribute name="safSu" type="SA_IMM_ATTR_SASTRINGT">
+                        <value>safSu=Control2</value>
+                    </attribute>
+                    <attribute name="saAmfSUType" type="SA_IMM_ATTR_SANAMET">
+                        <value>safVersion=1.0.0,safSuType=ERIC-BrfCmwA-Control</value>
+                    </attribute>
+                    <attribute name="saAmfSURank" type="SA_IMM_ATTR_SAUINT32T">
+                        <value>0</value>
+                    </attribute>
+                    <attribute name="saAmfSUHostNodeOrNodeGroup" type="SA_IMM_ATTR_SANAMET">
+                        <value>safAmfNode=SC-2,safAmfCluster=myAmfCluster</value>
+                    </attribute>
+                    <attribute name="saAmfSUFailover" type="SA_IMM_ATTR_SAUINT32T">
+                        <value>false</value>
+                    </attribute>
+                    <attribute name="saAmfSUAdminState" type="SA_IMM_ATTR_SAUINT32T">
+                        <value>3</value>
+                    </attribute>
+                </create>
+                <create objectClassName="SaAmfComp" parentObjectDN="safSu=Control2,safSg=2N,safApp=ERIC-BrfCmwA">
+                    <attribute name="safComp" type="SA_IMM_ATTR_SASTRINGT">
+                        <value>safComp=Control</value>
+                    </attribute>
+                    <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET">
+                        <value>safVersion=#BRFCMW_RSTATE#,safCompType=ERIC-BrfCmwA-Control</value>
+                    </attribute>
+                </create>
+                <create objectClassName="SaAmfHealthcheck" parentObjectDN="safComp=Control,safSu=Control2,safSg=2N,safApp=ERIC-BrfCmwA">
+                    <attribute name="safHealthcheckKey" type="SA_IMM_ATTR_SASTRINGT">
+                       <value>safHealthcheckKey=A9FD64E12D</value>
+                    </attribute>
+                    <attribute name="saAmfHealthcheckPeriod" type="SA_IMM_ATTR_SATIMET">
+                       <value>30000000000</value>
+                    </attribute>
+                    <attribute name="saAmfHealthcheckMaxDuration" type="SA_IMM_ATTR_SATIMET">
+                       <value>10000000000</value>
+                    </attribute>
+                </create>
+                <create objectClassName="SaAmfCompCsType" parentObjectDN="safComp=Control,safSu=Control2,safSg=2N,safApp=ERIC-BrfCmwA">
+                    <attribute name="safSupportedCsType" type="SA_IMM_ATTR_SANAMET">
+                        <value>safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-BrfCmwA-2N</value>
+                    </attribute>
+                </create>
+            </immCCB>
+        </procInitAction>
+        <procInitAction>
+            <immCCB ccbFlags="0">
+                <create objectClassName="SaAmfSU" parentObjectDN="safSg=NR,safApp=ERIC-Brfp">
+                    <attribute name="safSu" type="SA_IMM_ATTR_SASTRINGT">
+                        <value>safSu=Control2</value>
+                    </attribute>
+                    <attribute name="saAmfSUType" type="SA_IMM_ATTR_SANAMET">
+                        <value>safVersion=1.0.0,safSuType=ERIC-Brfp-Control</value>
+                    </attribute>
+                    <attribute name="saAmfSURank" type="SA_IMM_ATTR_SAUINT32T">
+                        <value>0</value>
+                    </attribute>
+                    <attribute name="saAmfSUHostNodeOrNodeGroup" type="SA_IMM_ATTR_SANAMET">
+                        <value>safAmfNode=SC-2,safAmfCluster=myAmfCluster</value>
+                    </attribute>
+                    <attribute name="saAmfSUFailover" type="SA_IMM_ATTR_SAUINT32T">
+                        <value>false</value>
+                    </attribute>
+                    <attribute name="saAmfSUAdminState" type="SA_IMM_ATTR_SAUINT32T">
+                        <value>3</value>
+                    </attribute>
+                </create>
+                <create objectClassName="SaAmfComp" parentObjectDN="safSu=Control2,safSg=NR,safApp=ERIC-Brfp">
+                    <attribute name="safComp" type="SA_IMM_ATTR_SASTRINGT">
+                        <value>safComp=Control</value>
+                    </attribute>
+                    <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET">
+                        <value>safVersion=#BRFP_RSTATE#,safCompType=ERIC-Brfp-Control</value>
+                    </attribute>
+                </create>
+                <create objectClassName="SaAmfHealthcheck" parentObjectDN="safComp=Control,safSu=Control2,safSg=NR,safApp=ERIC-Brfp">
+                    <attribute name="safHealthcheckKey" type="SA_IMM_ATTR_SASTRINGT">
+                       <value>safHealthcheckKey=A9FD64E12E</value>
+                    </attribute>
+                    <attribute name="saAmfHealthcheckPeriod" type="SA_IMM_ATTR_SATIMET">
+                       <value>30000000000</value>
+                    </attribute>
+                    <attribute name="saAmfHealthcheckMaxDuration" type="SA_IMM_ATTR_SATIMET">
+                       <value>10000000000</value>
+                    </attribute>
+                </create>
+                <create objectClassName="SaAmfCompCsType" parentObjectDN="safComp=Control,safSu=Control2,safSg=NR,safApp=ERIC-Brfp">
+                    <attribute name="safSupportedCsType" type="SA_IMM_ATTR_SANAMET">
+                        <value>safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-Brfp-NR</value>
+                    </attribute>
+                </create>
+                <create objectClassName="SaAmfSI" parentObjectDN="safApp=ERIC-Brfp">
+                    <attribute name="safSi" type="SA_IMM_ATTR_SASTRINGT">
+                        <value>safSi=Control2</value>
+                    </attribute>
+                    <attribute name="saAmfSvcType" type="SA_IMM_ATTR_SANAMET">
+                        <value>safVersion=1.0.0,safSvcType=ERIC-Brfp-NR</value>
+                    </attribute>
+                    <attribute name="saAmfSIProtectedbySG" type="SA_IMM_ATTR_SANAMET">
+                        <value>safSg=NR,safApp=ERIC-Brfp</value>
+                    </attribute>
+                    <attribute name="saAmfSIRank" type="SA_IMM_ATTR_SAUINT32T">
+                        <value>1</value>
+                    </attribute>
+                    <attribute name="saAmfSIAdminState" type="SA_IMM_ATTR_SAUINT32T">
+                    	<value>1</value>
+                    </attribute>
+                    <attribute name="saAmfSIPrefStandbyAssignments" type="SA_IMM_ATTR_SAUINT32T">
+                       <value>0</value>
+                    </attribute>
+                    <attribute name="saAmfSIPrefActiveAssignments" type="SA_IMM_ATTR_SAUINT32T">
+                       <value>2</value>
+                    </attribute>
+                </create>
+                <create objectClassName="SaAmfCSI" parentObjectDN="safSi=Control2,safApp=ERIC-Brfp">
+                    <attribute name="safCsi" type="SA_IMM_ATTR_SASTRINGT">
+                        <value>safCsi=Control2</value>
+                    </attribute>
+                    <attribute name="saAmfCSType" type="SA_IMM_ATTR_SANAMET">
+                        <value>safVersion=1.0.0,safCSType=ERIC-Brfp-NR</value>
+                    </attribute>
+                </create>
+            </immCCB>
+        </procInitAction>
+		<upgradeMethod>
+		<singleStepUpgrade>
+		<upgradeScope>
+			<forAddRemove>
+			<deactivationUnit/>
+			<activationUnit>
+				<actedOn>
+					<byName objectDN="safSu=Control2,safSg=2N,safApp=ERIC-Brf"/>
+					<byName objectDN="safSu=Control2,safSg=2N,safApp=ERIC-BrfCmwA"/>
+                    <byName objectDN="safSu=Control2,safSg=NR,safApp=ERIC-Brfp"/>
+				</actedOn>
+				<swAdd bundleDN="safSmfBundle=#BRF_BUNDLE#" pathnamePrefix="/opt/brf/bin">
+					<plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster"/>
+				</swAdd>
+				<swAdd bundleDN="safSmfBundle=#BRFCMW_BUNDLE#" pathnamePrefix="/opt/brf/bin">
+					<plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster"/>
+				</swAdd>
+				<swAdd bundleDN="safSmfBundle=#BRFP_BUNDLE#" pathnamePrefix="/opt/brf/bin">
+					<plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster"/>
+				</swAdd>
+            </activationUnit>
+          </forAddRemove>
+        </upgradeScope>
+        <upgradeStep/>
+      </singleStepUpgrade>
+    </upgradeMethod>
+  </upgradeProcedure>
+<!-- BRF_CMW PART-->
+<!--                                                                                    -->
+<!--                                                                                    -->

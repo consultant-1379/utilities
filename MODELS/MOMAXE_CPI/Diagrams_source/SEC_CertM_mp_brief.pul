@@ -1,0 +1,62 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/SEC_CertM_DWAXE_mp_brief.svg
+top to bottom direction
+hide members
+hide circle
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "CertM" as SEC_CertM__CertM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertM]] 
+class "TrustedCertificate" as SEC_CertM__TrustedCertificate [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20TrustedCertificate]] 
+class "NodeCredential" as SEC_CertM__NodeCredential [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20NodeCredential]] 
+class "EnrollmentServerGroup" as SEC_CertM__EnrollmentServerGroup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentServerGroup]] 
+class "EnrollmentAuthority" as SEC_CertM__EnrollmentAuthority [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentAuthority]] 
+class "TrustCategory" as SEC_CertM__TrustCategory [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20TrustCategory]] 
+class "CertMCapabilities" as SEC_CertM__CertMCapabilities [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertMCapabilities]] 
+class "EnrollmentServer" as SEC_CertM__EnrollmentServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentServer]] 
+class "ChainCertificate" as SEC_CertM__ChainCertificate [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20ChainCertificate]] 
+class "CertM" as SEC_CertM__CertM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertM]] 
+class "EnrollmentServerGroup" as SEC_CertM__EnrollmentServerGroup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentServerGroup]] 
+SEC_CertM__CertM *-- "*" SEC_CertM__EnrollmentServerGroup
+class "CertM" as SEC_CertM__CertM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertM]] 
+class "EnrollmentAuthority" as SEC_CertM__EnrollmentAuthority [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentAuthority]] 
+SEC_CertM__CertM *-- "*" SEC_CertM__EnrollmentAuthority
+class "CertM" as SEC_CertM__CertM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertM]] 
+class "TrustedCertificate" as SEC_CertM__TrustedCertificate [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20TrustedCertificate]] 
+SEC_CertM__CertM *-- "*" SEC_CertM__TrustedCertificate
+class "CertM" as SEC_CertM__CertM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertM]] 
+class "NodeCredential" as SEC_CertM__NodeCredential [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20NodeCredential]] 
+SEC_CertM__CertM *-- "*" SEC_CertM__NodeCredential
+class "CertM" as SEC_CertM__CertM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertM]] 
+class "TrustCategory" as SEC_CertM__TrustCategory [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20TrustCategory]] 
+SEC_CertM__CertM *-- "*" SEC_CertM__TrustCategory
+class "CertM" as SEC_CertM__CertM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertM]] 
+class "CertMCapabilities" as SEC_CertM__CertMCapabilities [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertMCapabilities]] 
+SEC_CertM__CertM *-- "1" SEC_CertM__CertMCapabilities
+class "EnrollmentServerGroup" as SEC_CertM__EnrollmentServerGroup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentServerGroup]] 
+class "EnrollmentServer" as SEC_CertM__EnrollmentServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentServer]] 
+SEC_CertM__EnrollmentServerGroup *-- "*" SEC_CertM__EnrollmentServer
+class "NodeCredential" as SEC_CertM__NodeCredential [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20NodeCredential]] 
+class "ChainCertificate" as SEC_CertM__ChainCertificate [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20ChainCertificate]] 
+SEC_CertM__NodeCredential *-- "*" SEC_CertM__ChainCertificate
+class "SecM" as ComSecM__SecM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20SecM]] 
+class "CertM" as SEC_CertM__CertM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertM]] 
+ComSecM__SecM *-- "1" SEC_CertM__CertM
+class "EnrollmentAuthority" as SEC_CertM__EnrollmentAuthority [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentAuthority]] 
+class "NodeCredential" as SEC_CertM__NodeCredential [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20NodeCredential]] 
+SEC_CertM__EnrollmentAuthority "0..1" -- "*" SEC_CertM__NodeCredential
+class "EnrollmentServerGroup" as SEC_CertM__EnrollmentServerGroup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentServerGroup]] 
+class "NodeCredential" as SEC_CertM__NodeCredential [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20NodeCredential]] 
+SEC_CertM__EnrollmentServerGroup "0..1" -- "*" SEC_CertM__NodeCredential
+class "TrustedCertificate" as SEC_CertM__TrustedCertificate [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20TrustedCertificate]] 
+class "EnrollmentAuthority" as SEC_CertM__EnrollmentAuthority [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentAuthority]] 
+SEC_CertM__TrustedCertificate "0..1" -- "*" SEC_CertM__EnrollmentAuthority
+class "TrustedCertificate" as SEC_CertM__TrustedCertificate [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20TrustedCertificate]] 
+class "TrustCategory" as SEC_CertM__TrustCategory [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20TrustCategory]] 
+SEC_CertM__TrustedCertificate "1..*" -- "*" SEC_CertM__TrustCategory
+@enduml 

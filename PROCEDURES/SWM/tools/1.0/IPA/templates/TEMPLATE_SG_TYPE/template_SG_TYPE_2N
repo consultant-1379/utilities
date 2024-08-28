@@ -1,0 +1,9 @@
+				<SGBaseType safSgType="safSgType=#SG_2N_TYPE#">
+					<SGType safVersion="safVersion=1.0.0">
+					<suType saAmfSgtValidSuTypes="safVersion=#SAF_VERSION#,safSuType=#SU_2N_TYPE#"/>
+						<redundancy saAmfSgtRedundancyModel="1"/>
+						<compRestart saAmfSgtDefCompRestartMax="#COMP_RESTART_MAX#" saAmfSgtDefCompRestartProb="#COMP_RESTART_PROB#"/>
+						<suRestart saAmfSgtDefSuRestartMax="0" saAmfSgtDefSuRestartProb="#SU_REST_PROB#"/>
+						<autoAttrs saAmfSgtDefAutoAdjustProb="10000000" safAmfSgtDefAutoAdjust="1" safAmfSgtDefAutoRepair="1"/>
+					</SGType>
+				</SGBaseType>

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="AxeSshProtocol">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_oKwI8LcrEd-gvvrqzvkuGQ" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>AXE SSH Protocol Management function MOM.</body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_uWHKUIXbEd-Id79DLfNphQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_12zMwLcsEd-gvvrqzvkuGQ" name="AxeSshProtocol">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_13E5kLcsEd-gvvrqzvkuGQ">
+        <body>ECIM Security Management MOM. &#xD;
+&#xD;
+The Security Management fragment must encompass most system security aspects to be configured on the Managed Element. This version of the model contains authentication and authorization, the User Management aspects. Authentication and authorization methods must contribute to the UserManagement MOC in a modular way.</body>
+      </ownedComment>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_g5r9YMJsEemW-4AuSvlJHw" annotatedElement="_12zMwLcsEd-gvvrqzvkuGQ">
+        <body>AXE SSH Protocol Management function MOM.</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_lR0nMKiFEeSr2ZbyDzUAmw" name="Ssh">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_lSCCkaiFEeSr2ZbyDzUAmw" annotatedElement="_lR0nMKiFEeSr2ZbyDzUAmw">
+          <body>Configures security related properties of a command session opened using SSH layer protocol.
+The set of ciphers, key exchange algorithms, and message authentication codes that the SSH server on APG can offer to a remote client can be changed for each of the supported command session types, independently.
+
+By default, all ciphers, key exchange algorithms, and message authentication codes are suppported. 
+The related attributes can be changed for excluding the less secure ones from the set os supported ones.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_lSFs8aiFEeSr2ZbyDzUAmw" name="sshId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_lSJXUaiFEeSr2ZbyDzUAmw" annotatedElement="_lSFs8aiFEeSr2ZbyDzUAmw">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lSNBsKiFEeSr2ZbyDzUAmw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lSNBsaiFEeSr2ZbyDzUAmw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_QOgckLEkEeS_NN5tre41SA" name="selectedCiphers" visibility="public" type="__RKVoO2zEeSvJIdWZk0X_A">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_QOyJYbEkEeS_NN5tre41SA">
+            <body>The list of selected ciphers.&#xD;
+&#xD;
+The ciphers are offered to the SSH peer in the order as configured. Each value indicates one cipher.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pDNIABDZEeWUyrPzuwn0zA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QO3o8bEkEeS_NN5tre41SA" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_KhQSQKiGEeSr2ZbyDzUAmw" name="supportedCiphers" visibility="public" type="__RKVoO2zEeSvJIdWZk0X_A" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Khe7waiGEeSr2ZbyDzUAmw">
+            <body>Lists the supported encryption ciphers.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Khp64KiGEeSr2ZbyDzUAmw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Khqh8KiGEeSr2ZbyDzUAmw" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WLj-8LEmEeS_NN5tre41SA" name="selectedKeyExchanges" visibility="public" type="__RKVoO2zEeSvJIdWZk0X_A">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WLyBYLEmEeS_NN5tre41SA">
+            <body>The list of selected key exchange algorithms.&#xD;
+&#xD;
+The algorithms are offered to the SSH peer in the order as configured. Each value indicates one algorithm.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pdU4MBDZEeWUyrPzuwn0zA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WL8ZcbEmEeS_NN5tre41SA" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_afWtsKiGEeSr2ZbyDzUAmw" name="supportedKeyExchanges" visibility="public" type="__RKVoO2zEeSvJIdWZk0X_A" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_afgesaiGEeSr2ZbyDzUAmw">
+            <body>Lists the supported key exchange algorithms.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_afnMYaiGEeSr2ZbyDzUAmw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_afnzcKiGEeSr2ZbyDzUAmw" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jxwu4LEmEeS_NN5tre41SA" name="selectedMacs" visibility="public" type="__RKVoO2zEeSvJIdWZk0X_A">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_jx-xUbEmEeS_NN5tre41SA">
+            <body>The list of selected message authentication codes.&#xD;
+&#xD;
+The algorithms are offered to the SSH peer in the order as configured. Each value indicates one coding algorithm.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_p285IBDZEeWUyrPzuwn0zA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jyGtIbEmEeS_NN5tre41SA" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_kEA60KiGEeSr2ZbyDzUAmw" name="supportedMacs" visibility="public" type="__RKVoO2zEeSvJIdWZk0X_A" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_kEPkUaiGEeSr2ZbyDzUAmw">
+            <body>Lists the supported message authentication codes.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kEXgIaiGEeSr2ZbyDzUAmw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kEYHMKiGEeSr2ZbyDzUAmw" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="__RKVoO2zEeSvJIdWZk0X_A" name="SshAlgorithm">
+        <ownedComment xmi:type="uml:Comment" xmi:id="__Rpd0O2zEeSvJIdWZk0X_A" annotatedElement="__RKVoO2zEeSvJIdWZk0X_A">
+          <body>Derived string for SSH cipher, key exchange and MAC strings.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="__RyAsO2zEeSvJIdWZk0X_A">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_iu-agOwuEemPV7mdZ1x6jA" name="SshM">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_JigVkOwvEemPV7mdZ1x6jA" annotatedElement="_iu-agOwuEemPV7mdZ1x6jA">
+          <body>Represents the root MOC for AXE SSH Protocol Management function MOM.
+Configures security related properties of a command session opened using  SSH layer protocol.
+The supported session types are:
+- AP session: it can be opened by addressing TCP port number 22.
+- NETCONF session: it can be opened by addressing TCP port number 830.
+- MML session: it can be opened by addressing one of the TCP port numbers 52xxx (x=0,1).
+- TS session: it can be opened by addressing TCP port number 4422.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ivG9YOwuEemPV7mdZ1x6jA" name="sshMId" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_PTyXsOwvEemPV7mdZ1x6jA" annotatedElement="_ivG9YOwuEemPV7mdZ1x6jA">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ivLO0OwuEemPV7mdZ1x6jA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ivLO0ewuEemPV7mdZ1x6jA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_lB1YIO5WEemYy6VRMJOI2w" name="ssh" visibility="public" type="_lR0nMKiFEeSr2ZbyDzUAmw" aggregation="composite" association="_lBzi8O5WEemYy6VRMJOI2w">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lB3NUe5WEemYy6VRMJOI2w" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lB3NUO5WEemYy6VRMJOI2w" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_w1AEkOwvEemPV7mdZ1x6jA" name="Features">
+        <packagedElement xmi:type="uml:Class" xmi:id="_w1DH4ewvEemPV7mdZ1x6jA" name="CPI_HIDDEN"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_CQ4soOwwEemPV7mdZ1x6jA" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_CQ8XAewwEemPV7mdZ1x6jA" name="BASIC"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_KUAgEO5VEemYy6VRMJOI2w" name="SecurityHandling_to_SshM" memberEnd="_KUEKcO5VEemYy6VRMJOI2w _KUFYke5VEemYy6VRMJOI2w">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_KUEKcO5VEemYy6VRMJOI2w" name="SecurityHandling" visibility="public" association="_KUAgEO5VEemYy6VRMJOI2w">
+          <type xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0JoKREeK3wcU1QErItg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KUGmse5VEemYy6VRMJOI2w" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KUGmsO5VEemYy6VRMJOI2w" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_KUFYke5VEemYy6VRMJOI2w" name="sshM" visibility="public" type="_iu-agOwuEemPV7mdZ1x6jA" aggregation="composite" association="_KUAgEO5VEemYy6VRMJOI2w">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KUPJke5VEemYy6VRMJOI2w" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KUPJkO5VEemYy6VRMJOI2w" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_lBzi8O5WEemYy6VRMJOI2w" name="SshM_to_Ssh" visibility="public" memberEnd="_lB1YIO5WEemYy6VRMJOI2w _lB2mQO5WEemYy6VRMJOI2w">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_lB2mQO5WEemYy6VRMJOI2w" name="sshM" visibility="public" type="_iu-agOwuEemPV7mdZ1x6jA" association="_lBzi8O5WEemYy6VRMJOI2w">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lB63sO5WEemYy6VRMJOI2w" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lB6QoO5WEemYy6VRMJOI2w" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_0uXBwMJsEemW-4AuSvlJHw" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_ZRCD8OwvEemPV7mdZ1x6jA" name="AxeSshProtocolInstances">
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_uo-_UOw3EemPV7mdZ1x6jA" name="SshInstance1" classifier="_lR0nMKiFEeSr2ZbyDzUAmw">
+        <slot xmi:type="uml:Slot" xmi:id="_upc5YOw3EemPV7mdZ1x6jA" definingFeature="_lSFs8aiFEeSr2ZbyDzUAmw">
+          <value xmi:type="uml:LiteralString" xmi:id="_yKrkcOw3EemPV7mdZ1x6jA" value="APSESSION"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_GuGvsOz9EembzPVzg4fOUg" definingFeature="_QOgckLEkEeS_NN5tre41SA">
+          <value xmi:type="uml:LiteralString" xmi:id="_-GfgAO0EEembzPVzg4fOUg" value="rijndael-cbc@lysator.liu.se,arcfour,aes256-cbc,aes192-cbc,cast128-cbc,blowfish-cbc,3des-cbc,aes128-cbc,chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,arcfour128,arcfour256,aes256-ctr,aes192-ctr,aes128-ctr"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_qycnAO0FEembzPVzg4fOUg" definingFeature="_WLj-8LEmEeS_NN5tre41SA">
+          <value xmi:type="uml:LiteralString" xmi:id="_1Ou_sO0FEembzPVzg4fOUg" value="diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1,diffie-hellman-group-exchange-sha256,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,curve25519-sha256@libssh.org"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_9aYLcO0FEembzPVzg4fOUg" definingFeature="_jxwu4LEmEeS_NN5tre41SA">
+          <value xmi:type="uml:LiteralString" xmi:id="_9aYygO0FEembzPVzg4fOUg" value="hmac-md5-96,hmac-sha1-96,hmac-ripemd160@openssh.com,hmac-ripemd160,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com,umac-64@openssh.com,hmac-sha1,hmac-md5,hmac-md5-96-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,umac-64-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-md5-etm@openssh.com"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_AM2pQOw5EemPV7mdZ1x6jA" name="SshInstance2" classifier="_lR0nMKiFEeSr2ZbyDzUAmw">
+        <slot xmi:type="uml:Slot" xmi:id="_ANFSwOw5EemPV7mdZ1x6jA" definingFeature="_lSFs8aiFEeSr2ZbyDzUAmw">
+          <value xmi:type="uml:LiteralString" xmi:id="_KAzPkOw5EemPV7mdZ1x6jA" value="NETCONFSESSION"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_lDZZgO0FEembzPVzg4fOUg" definingFeature="_QOgckLEkEeS_NN5tre41SA">
+          <value xmi:type="uml:LiteralString" xmi:id="_lDZZge0FEembzPVzg4fOUg" value="rijndael-cbc@lysator.liu.se,arcfour,aes256-cbc,aes192-cbc,cast128-cbc,blowfish-cbc,3des-cbc,aes128-cbc,chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,arcfour128,arcfour256,aes256-ctr,aes192-ctr,aes128-ctr"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_Ce51QO0GEembzPVzg4fOUg" definingFeature="_WLj-8LEmEeS_NN5tre41SA">
+          <value xmi:type="uml:LiteralString" xmi:id="_Ce51Qe0GEembzPVzg4fOUg" value="diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1,diffie-hellman-group-exchange-sha256,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,curve25519-sha256@libssh.org"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_Ce6cUO0GEembzPVzg4fOUg" definingFeature="_jxwu4LEmEeS_NN5tre41SA">
+          <value xmi:type="uml:LiteralString" xmi:id="_Ce6cUe0GEembzPVzg4fOUg" value="hmac-md5-96,hmac-sha1-96,hmac-ripemd160@openssh.com,hmac-ripemd160,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com,umac-64@openssh.com,hmac-sha1,hmac-md5,hmac-md5-96-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,umac-64-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-md5-etm@openssh.com"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_T8RaMOw5EemPV7mdZ1x6jA" name="SshInstance3" classifier="_lR0nMKiFEeSr2ZbyDzUAmw">
+        <slot xmi:type="uml:Slot" xmi:id="_T8RaMew5EemPV7mdZ1x6jA" definingFeature="_lSFs8aiFEeSr2ZbyDzUAmw">
+          <value xmi:type="uml:LiteralString" xmi:id="_aJkp8Ow5EemPV7mdZ1x6jA" value="MMLSESSION"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_A53xIO0GEembzPVzg4fOUg" definingFeature="_QOgckLEkEeS_NN5tre41SA">
+          <value xmi:type="uml:LiteralString" xmi:id="_A53xIe0GEembzPVzg4fOUg" value="rijndael-cbc@lysator.liu.se,arcfour,aes256-cbc,aes192-cbc,cast128-cbc,blowfish-cbc,3des-cbc,aes128-cbc,chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,arcfour128,arcfour256,aes256-ctr,aes192-ctr,aes128-ctr"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_A54YMO0GEembzPVzg4fOUg" definingFeature="_WLj-8LEmEeS_NN5tre41SA">
+          <value xmi:type="uml:LiteralString" xmi:id="_A54YMe0GEembzPVzg4fOUg" value="diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1,diffie-hellman-group-exchange-sha256,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,curve25519-sha256@libssh.org"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_A54YMu0GEembzPVzg4fOUg" definingFeature="_jxwu4LEmEeS_NN5tre41SA">
+          <value xmi:type="uml:LiteralString" xmi:id="_A54YM-0GEembzPVzg4fOUg" value="hmac-md5-96,hmac-sha1-96,hmac-ripemd160@openssh.com,hmac-ripemd160,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com,umac-64@openssh.com,hmac-sha1,hmac-md5,hmac-md5-96-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,umac-64-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-md5-etm@openssh.com"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_bm3uYOw5EemPV7mdZ1x6jA" name="SshInstance4" classifier="_lR0nMKiFEeSr2ZbyDzUAmw">
+        <slot xmi:type="uml:Slot" xmi:id="_bm3uYew5EemPV7mdZ1x6jA" definingFeature="_lSFs8aiFEeSr2ZbyDzUAmw">
+          <value xmi:type="uml:LiteralString" xmi:id="_evTe8Ow5EemPV7mdZ1x6jA" value="TSSESSION"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_BikI0O0GEembzPVzg4fOUg" definingFeature="_QOgckLEkEeS_NN5tre41SA">
+          <value xmi:type="uml:LiteralString" xmi:id="_BikI0e0GEembzPVzg4fOUg" value="rijndael-cbc@lysator.liu.se,arcfour,aes256-cbc,aes192-cbc,cast128-cbc,blowfish-cbc,3des-cbc,aes128-cbc,chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,arcfour128,arcfour256,aes256-ctr,aes192-ctr,aes128-ctr"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_Bikv4O0GEembzPVzg4fOUg" definingFeature="_WLj-8LEmEeS_NN5tre41SA">
+          <value xmi:type="uml:LiteralString" xmi:id="_Bikv4e0GEembzPVzg4fOUg" value="diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1,diffie-hellman-group-exchange-sha256,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,curve25519-sha256@libssh.org"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_Bikv4u0GEembzPVzg4fOUg" definingFeature="_jxwu4LEmEeS_NN5tre41SA">
+          <value xmi:type="uml:LiteralString" xmi:id="_Bikv4-0GEembzPVzg4fOUg" value="hmac-md5-96,hmac-sha1-96,hmac-ripemd160@openssh.com,hmac-ripemd160,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com,umac-64@openssh.com,hmac-sha1,hmac-md5,hmac-md5-96-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,umac-64-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-md5-etm@openssh.com"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_FxObUOw6EemPV7mdZ1x6jA" name="SshM" classifier="_iu-agOwuEemPV7mdZ1x6jA">
+        <slot xmi:type="uml:Slot" xmi:id="_FxbPoOw6EemPV7mdZ1x6jA" definingFeature="_ivG9YOwuEemPV7mdZ1x6jA">
+          <value xmi:type="uml:LiteralString" xmi:id="_Fxb2sOw6EemPV7mdZ1x6jA" value="1">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </value>
+        </slot>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_5LbwYMJ0EemW-4AuSvlJHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5YXLgCo7Eeu2GN2FjMiJkA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_5YXLgSo7Eeu2GN2FjMiJkA" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_5YXLgio7Eeu2GN2FjMiJkA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_5YXLgyo7Eeu2GN2FjMiJkA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_5YXLhCo7Eeu2GN2FjMiJkA" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_5YXLhSo7Eeu2GN2FjMiJkA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5Lgo4MJ0EemW-4AuSvlJHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_5NK1wMJ0EemW-4AuSvlJHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5NN5EMJ0EemW-4AuSvlJHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_5NipMMJ0EemW-4AuSvlJHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5NnhsMJ0EemW-4AuSvlJHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_U29kELcrEd-gvvrqzvkuGQ" hideGroupName="" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="AXE SSH Protocol Management" subTitle="" docNo="" docRev="" createdBy="" docLang="" docDate=""/>
+  <ECIMBaseProfile:EcimMom xmi:id="_13be4LcsEd-gvvrqzvkuGQ" hideGroupName="" specification="" base_Package="_12zMwLcsEd-gvvrqzvkuGQ" author="Paolo Palmieri" contact="" date="2019-08-19" docNo="" revision="A" version="1" release="0" organization="TEI" ecimMomName="ECIM_Security_Management" ecimMomVersion="2" ecimMomRelease="4" ecimMomCorrection="1" correction="0"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_lSCCkKiFEeSr2ZbyDzUAmw" hideGroupName="" specification="" statusInformation="" base_Class="_lR0nMKiFEeSr2ZbyDzUAmw" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_lSJXUKiFEeSr2ZbyDzUAmw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_lSFs8aiFEeSr2ZbyDzUAmw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Khe7wKiGEeSr2ZbyDzUAmw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" isNotifiable="true" base_Property="_KhQSQKiGEeSr2ZbyDzUAmw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_afgesKiGEeSr2ZbyDzUAmw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" isNotifiable="true" base_Property="_afWtsKiGEeSr2ZbyDzUAmw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_kEPkUKiGEeSr2ZbyDzUAmw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" isNotifiable="true" base_Property="_kEA60KiGEeSr2ZbyDzUAmw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_QOyJYLEkEeS_NN5tre41SA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" isNotifiable="true" base_Property="_QOgckLEkEeS_NN5tre41SA"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_WLxaULEmEeS_NN5tre41SA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" isNotifiable="true" base_Property="_WLj-8LEmEeS_NN5tre41SA"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_jx-xULEmEeS_NN5tre41SA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" isNotifiable="true" base_Property="_jxwu4LEmEeS_NN5tre41SA"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="__RoPsO2zEeSvJIdWZk0X_A" hideGroupName="" specification="" statusInformation="" length="" pattern="^([a-zA-Z0-9])+((-([a-zA-Z0-9])*)?)*(@(([a-zA-Z]|[a-zA-Z][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z]|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9]))?$" base_DataType="__RKVoO2zEeSvJIdWZk0X_A" patternErrorMsg="Must be a string of alphanumeric US-ASCII characters with optional ‘-‘. Domain names following an ‘@’ character are appended to proprietary algorithm names. For example: ‘aes256-gcm@openssh.com’"/>
+  <Documentation:Documentation xmi:id="_Siv-8MJqEemW-4AuSvlJHw" base_Comment="_oKwI8LcrEd-gvvrqzvkuGQ"/>
+  <Documentation:Documentation xmi:id="_Siv-8cJqEemW-4AuSvlJHw" base_Comment="_13E5kLcsEd-gvvrqzvkuGQ"/>
+  <Documentation:Documentation xmi:id="_Siv_FMJqEemW-4AuSvlJHw" base_Comment="_lSCCkaiFEeSr2ZbyDzUAmw"/>
+  <Documentation:Documentation xmi:id="_Siv_FcJqEemW-4AuSvlJHw" base_Comment="_lSJXUaiFEeSr2ZbyDzUAmw"/>
+  <Documentation:Documentation xmi:id="_Siv_FsJqEemW-4AuSvlJHw" base_Comment="_Khe7waiGEeSr2ZbyDzUAmw"/>
+  <Documentation:Documentation xmi:id="_Siv_F8JqEemW-4AuSvlJHw" base_Comment="_afgesaiGEeSr2ZbyDzUAmw"/>
+  <Documentation:Documentation xmi:id="_Siv_GMJqEemW-4AuSvlJHw" base_Comment="_kEPkUaiGEeSr2ZbyDzUAmw"/>
+  <Documentation:Documentation xmi:id="_Siv_GcJqEemW-4AuSvlJHw" base_Comment="_QOyJYbEkEeS_NN5tre41SA"/>
+  <Documentation:Documentation xmi:id="_Siv_GsJqEemW-4AuSvlJHw" base_Comment="_WLyBYLEmEeS_NN5tre41SA"/>
+  <Documentation:Documentation xmi:id="_Siv_G8JqEemW-4AuSvlJHw" base_Comment="_jx-xUbEmEeS_NN5tre41SA"/>
+  <Documentation:Documentation xmi:id="_Siv_HMJqEemW-4AuSvlJHw" base_Comment="__Rpd0O2zEeSvJIdWZk0X_A"/>
+  <CoreMWProfile:CmwModel xmi:id="_0trsUMJsEemW-4AuSvlJHw" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwMom xmi:id="_0tvWsMJsEemW-4AuSvlJHw" base_Package="_12zMwLcsEd-gvvrqzvkuGQ" immNamespace="MOM_NAME"/>
+  <CoreMWProfile:CmwClass xmi:id="_0t_OUcJsEemW-4AuSvlJHw" base_Class="_lR0nMKiFEeSr2ZbyDzUAmw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_0t_OUsJsEemW-4AuSvlJHw" base_Property="_lSFs8aiFEeSr2ZbyDzUAmw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_0t_OU8JsEemW-4AuSvlJHw" base_Property="_QOgckLEkEeS_NN5tre41SA" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_0t_OVMJsEemW-4AuSvlJHw" base_Property="_KhQSQKiGEeSr2ZbyDzUAmw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_0t_1YMJsEemW-4AuSvlJHw" base_Property="_WLj-8LEmEeS_NN5tre41SA" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_0t_1YcJsEemW-4AuSvlJHw" base_Property="_afWtsKiGEeSr2ZbyDzUAmw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_0t_1YsJsEemW-4AuSvlJHw" base_Property="_jxwu4LEmEeS_NN5tre41SA" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_0t_1Y8JsEemW-4AuSvlJHw" base_Property="_kEA60KiGEeSr2ZbyDzUAmw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_ivCr8OwuEemPV7mdZ1x6jA" hideGroupName="" specification="" statusInformation="" base_Class="_iu-agOwuEemPV7mdZ1x6jA" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_ivGWUOwuEemPV7mdZ1x6jA" base_Class="_iu-agOwuEemPV7mdZ1x6jA"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_ivJZoOwuEemPV7mdZ1x6jA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_ivG9YOwuEemPV7mdZ1x6jA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ivKAsOwuEemPV7mdZ1x6jA" base_Property="_ivG9YOwuEemPV7mdZ1x6jA" isPersistent="true"/>
+  <ECIMBaseProfile:EcimInstances xmi:id="_ZRIKkOwvEemPV7mdZ1x6jA" base_Package="_ZRCD8OwvEemPV7mdZ1x6jA" version="1" release="1" correction="0"/>
+  <ECIMBaseProfile:EcimFeatures xmi:id="_w1DH4OwvEemPV7mdZ1x6jA" base_Package="_w1AEkOwvEemPV7mdZ1x6jA"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_w1E9EOwvEemPV7mdZ1x6jA" base_Class="_w1DH4ewvEemPV7mdZ1x6jA"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_CQ8XAOwwEemPV7mdZ1x6jA" base_Package="_CQ4soOwwEemPV7mdZ1x6jA"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_CQ-MMOwwEemPV7mdZ1x6jA" base_Class="_CQ8XAewwEemPV7mdZ1x6jA"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_upCpsOw3EemPV7mdZ1x6jA" base_InstanceSpecification="_uo-_UOw3EemPV7mdZ1x6jA"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_AM6ToOw5EemPV7mdZ1x6jA" base_InstanceSpecification="_AM2pQOw5EemPV7mdZ1x6jA"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_T8SBQOw5EemPV7mdZ1x6jA" base_InstanceSpecification="_T8RaMOw5EemPV7mdZ1x6jA"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_bm3uZuw5EemPV7mdZ1x6jA" base_InstanceSpecification="_bm3uYOw5EemPV7mdZ1x6jA"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_FxQ3kOw6EemPV7mdZ1x6jA" base_InstanceSpecification="_FxObUOw6EemPV7mdZ1x6jA"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_KUN7cO5VEemYy6VRMJOI2w" hideGroupName="" specification="" statusInformation="" base_Association="_KUAgEO5VEemYy6VRMJOI2w" isNotifiable="true"/>
+  <CoreMWProfile:CmwContribution xmi:id="_KUOigO5VEemYy6VRMJOI2w" base_Association="_KUAgEO5VEemYy6VRMJOI2w"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_lB5pkO5WEemYy6VRMJOI2w" hideGroupName="" specification="" statusInformation="" base_Association="_lBzi8O5WEemYy6VRMJOI2w" isNotifiable="true"/>
+</xmi:XMI>

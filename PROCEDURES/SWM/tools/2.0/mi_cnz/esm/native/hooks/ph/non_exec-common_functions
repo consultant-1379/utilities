@@ -1,0 +1,535 @@
+#!/bin/bash
+##
+# ------------------------------------------------------------------------
+#   Copyright (C) 2012 Ericsson AB. All rights reserved.
+# ------------------------------------------------------------------------
+##
+# Name:
+#     non_exec-common_functions
+# Description:
+#     A script providing common functions.
+# Note:
+#     Sourced via LOTC cluster install script during
+#     the hooks execution.
+##
+# Usage:
+#     Used during APG43L maiden installation.
+##
+# Output:
+#     None.
+##
+# Changelog:
+# - Tue Aug 28 2018 - Yeswanth Vankayala (xyesvan)
+#   log entries adaptation for SwM 2.0
+# - Mon Mar 09 2015 - Giuseppe Pontillo (QGIUPON)
+#   Adaptation for APG-VM
+# - Thu Sep 27 2012 - Paolo Palmieri (epaopal)
+#     First version.
+##
+
+# Global
+TRUE=$( true; echo $? )
+FALSE=$( false; echo $? )
+MI_STATUS_LOG="status.log"
+BRF_CONF_PATH="system/config/lotc-ana90139"
+BRF_SOFT_PATH="system/software/lotc-ana90139"
+
+function abort() {
+  local ERROR_STRING=""
+
+  if [ "$1" ]; then
+    ERROR_STRING="ERROR: $1"
+    echo "$ERROR_STRING"
+    status_error_append $ERROR_STRING 
+  fi
+  echo "Aborting"
+  echo ""
+  exit 1
+}
+
+function warning() {
+  if [ "$1" ]; then
+    echo "WARNING: $1"
+  fi
+}
+
+function save_repo_path() {
+  mkdir -p /etc/cluster/installation
+  echo $DEST_PATH > /etc/cluster/installation/repository
+}
+
+function trim() {
+  echo $1;
+}
+
+# Installation order for GEP1/GEP2:
+# - Installation procedure started
+# - Linux installed on first node
+# - Middleware installed on first node
+# - Apps installed on first node
+# - Linux installed on second node
+# - Cluster storage in sync
+# - Middleware and Apps installed on second node
+# - Software update is in progress
+# - Cluster up and running
+# - Unknown status!
+#
+# Installation order for GEP5:
+# - Installation procedure started
+# - Linux installed on first node
+# - Middleware installed on first node
+# - Linux installed on second node
+# - Cluster storage in sync
+# - Data storage in sync
+# - Apps installed on first node
+# - Middleware and Apps installed on second node
+# - Software update is in progress
+# - Cluster up and running
+# - Unknown status!
+
+function status_update() {
+  if [ ! -d $MI_PATH/$MI_LOGS ]; then
+    mkdir -p $MI_PATH/$MI_LOGS
+  fi
+  pushd "$MI_PATH/$MI_LOGS" > /dev/null 2>&1
+  echo "$*" > $MI_STATUS_LOG
+  popd > /dev/null 2>&1
+}
+
+function status_error_append() {
+  if [ -d $MI_PATH/$MI_LOGS ]; then
+    pushd "$MI_PATH/$MI_LOGS" > /dev/null 2>&1
+    if [ ! -s $MI_STATUS_LOG ]; then
+      echo "Unknown status!" > $MI_STATUS_LOG
+    fi
+    echo "$*" >> $MI_STATUS_LOG
+    popd > /dev/null 2>&1
+  fi
+}
+
+function create_repo_from_drbd() {
+  echo "Creating installation repo from working lotc drbd directory"
+  local DRBD_PATH=$1
+  local DEST_PATH=$2
+
+  mkdir -p $DEST_PATH/etc
+  mkdir -p $DEST_PATH/hooks
+
+  # Copy cluster.conf and installation.conf
+  for conf_file in cluster.conf installation.conf
+  do
+    if [ -f $DRBD_PATH/etc/$conf_file ]; then
+      cp -f $DRBD_PATH/etc/$conf_file $DEST_PATH/etc/
+    fi
+  done
+
+  # Copy hooks
+  if [ -d $DRBD_PATH/hooks ]; then
+    cp -f $DRBD_PATH/hooks/* $DEST_PATH/hooks/
+  fi
+
+  # Copy the active RPM files
+  for rpm_conf in $DRBD_PATH/nodes/*/etc/rpm.conf
+  do
+    if [ ! -f $rpm_conf ]; then
+        echo "$rpm_conf not found. Not a valid drbd directory"
+        return 1
+    fi
+    read rpm_file < $rpm_conf
+    if [ ! -f $DEST_PATH/$rpm_file ]; then
+      if [ ! -f $DRBD_PATH/rpms/$rpm_file ]; then
+        echo "$rpm_file not found. Not a valid drbd directory"
+        return 1
+      fi
+      cp -f $DRBD_PATH/rpms/$rpm_file $DEST_PATH/
+    fi
+  done
+
+  save_repo_path
+}
+
+function extract_brf() {
+  backup_file=$1
+  type=$2
+  file=$3
+  dest=$4
+
+  local TEMP_DIR=$(mktemp -d /tmp/brf_backup.$$.XXX)
+
+  case $type in
+    config) file=$BRF_CONF_PATH/$file ;;
+    software) file=$BRF_SOFT_PATH/$file ;;
+  esac
+
+  local label=$(tar tf $backup_file | cut -d/ -f1 | uniq)
+  if tar Oxf $backup_file $label/$type.tar.gz | tar --wildcards -xz -C $TEMP_DIR -- $file &>/dev/null
+  then
+    mv $TEMP_DIR/$file $dest
+  fi
+  rm -rf $TEMP_DIR
+}
+
+function list_brf() {
+  local backup_file=$1
+  local type=$2
+  local file=$3
+  local path=
+
+  case $type in
+    config) path=$BRF_CONF_PATH ;;
+    software) path=$BRF_SOFT_PATH ;;
+  esac
+
+  local label=$(tar tf $backup_file | cut -d/ -f1 | uniq)
+  out=($(tar Oxf $backup_file $label/$type.tar.gz | tar --wildcards -tz -- $path/$file 2>/dev/null))
+  for line in ${out[@]}; do
+    echo ${line#$path/}
+  done
+}
+
+function create_repo_from_brf() {
+  echo "Creating installation repo from brf file"
+  local BRF_FILE=$1
+  local DEST_PATH=$2
+
+  mkdir -p $DEST_PATH/{etc,hooks}
+
+  # Copy cluster.conf and installation.conf
+  for conf_file in cluster.conf installation.conf
+  do
+    extract_brf $BRF_FILE config etc/$conf_file $DEST_PATH/etc
+  done
+
+  # Copy hooks
+  extract_brf $BRF_FILE config hooks/* $DEST_PATH/hooks
+
+  # Copy the active RPM files
+  for rpm_conf in $(list_brf $BRF_FILE config nodes/*/etc/rpm.conf)
+  do
+    extract_brf $BRF_FILE config $rpm_conf /tmp
+    read rpm_file < /tmp/rpm.conf
+    if [ ! -f $DEST_PATH/$rpm_file ]; then
+      extract_brf $BRF_FILE software rpms/$rpm_file $DEST_PATH/
+    fi
+    rm -f /tmp/rpm.conf
+  done
+  save_repo_path
+}
+
+function get_boot_ip() {
+  grep -o ' ip=[^ ]*' /proc/cmdline | sed 's| ip=||g' | tr ':' ' '
+}
+
+function get_boot_mac() {
+  grep -o ' BOOTIF=01-[^ ]*' /proc/cmdline | sed 's| BOOTIF=01-||g' | tr '[:lower:]-' '[:upper:]:'
+}
+
+function get_interface_from_mac() {
+  local MAC="$1"
+  local FILE=$(grep -il "^$MAC\$" /sys/class/net/eth*/address)
+  if [ -z "$FILE" ]; then
+    return 1
+  fi
+  local IF=$(basename $(dirname $FILE))
+  if [ -z "$IF" ]; then
+    return 1
+  fi
+  echo "$IF"
+}
+
+function is_repair() {
+  local node_type=$(</etc/cluster/options/type)
+  if [ "$node_type" == "repair" ]; then
+    echo "1"
+  else
+    echo ""
+  fi
+}
+
+function download() {
+  local BOOT_IP=($(get_boot_ip))
+  local SERVER_IP=${BOOT_IP[1]}
+  if [ -n "$3" ]; then
+    SERVER_IP="$3"
+  fi
+  mkdir -p $2
+  (cd $2 && atftp --option "blksize 8192" --option "tsize 1" -g -r $1 $SERVER_IP) &>/dev/null
+  if [ ! -s $2/$(basename $1) ]; then
+    rm $2/$(basename $1)
+  fi
+  true
+}
+
+function setup_network() {
+  # Extract network boot information
+  local BOOT_MAC=$(get_boot_mac)
+  local BOOT_IF=$(get_interface_from_mac $BOOT_MAC)
+  local BOOT_IP=($(get_boot_ip))
+
+  local BOOT_LOCAL_IP=${BOOT_IP[0]}
+  local BOOT_SERVER_IP=${BOOT_IP[1]}
+  local BOOT_GATEWAY=${BOOT_IP[2]}
+  local BOOT_NETMASK=${BOOT_IP[3]}
+
+  if [ ! "$BOOT_MAC" ] || [ ! "$BOOT_LOCAL_IP" ]; then
+    return 1
+  fi
+
+  echo "Network configuration: $BOOT_IF $BOOT_LOCAL_IP netmask $BOOT_NETMASK"
+  echo "Installation server: $BOOT_SERVER_IP"
+  echo "Default Gateway: $BOOT_GATEWAY"
+  # Configure network interface
+  ip addr add $BOOT_LOCAL_IP/$BOOT_NETMASK dev $BOOT_IF
+  ip link set up dev $BOOT_IF
+
+  if [ "$BOOT_GATEWAY" != "0.0.0.0" ]; then
+    ip route add default via $BOOT_GATEWAY
+  fi
+
+  # Let the interface come up
+  sleep 5
+}
+
+function shutdown_network() {
+  # Extract network boot information
+  local BOOT_MAC=$(get_boot_mac)
+  local BOOT_IF=$(get_interface_from_mac $BOOT_MAC)
+  local BOOT_IP=($(get_boot_ip))
+
+  local BOOT_LOCAL_IP=${BOOT_IP[0]}
+  local BOOT_NETMASK=${BOOT_IP[3]}
+
+  if [ ! "$BOOT_NETMASK" ] || [ ! "$BOOT_LOCAL_IP" ] || [ ! "$BOOT_IF" ]; then
+    return 1
+  fi
+
+  ip addr del $BOOT_LOCAL_IP/$BOOT_NETMASK dev $BOOT_IF
+  ip link set down dev $BOOT_IF
+}
+
+function try_mount_media() {
+  MEDIA=/dev/$1
+  VOLNAME=$(volname $MEDIA 2> /dev/null)
+  local try=3
+
+  force_prompt "."
+
+  if [[ "$VOLNAME" =~ ^$MEDIA_NAME_PREFIX\ $(</etc/cluster/product/id)\ $(</etc/cluster/product/version) ]]; then
+    echo ""
+    echo "Installation media found on $MEDIA, $VOLNAME"
+    while ! mount -t iso9660 -o ro $MEDIA /mnt &> /tmp/mountout;
+    do
+      if [[ $try -le 0 ]]; then
+        cat /tmp/mountout
+        abort "Failed to mount installation media"
+      fi
+      ((try--))
+    done
+
+    # Ok, installation media mounted
+    return 0
+  fi
+
+  return 1
+}
+
+function force_prompt() {
+  echo -n "$1"
+}
+
+function try_mount_usb_media() {
+  MEDIA=/dev/$1
+  VOLNAME=$(e2label $MEDIA 2> /dev/null)
+
+  force_prompt "."
+
+  if [[ "$VOLNAME" =~ ^$MEDIA_NAME_PREFIX_EXT2 ]]; then
+  echo ""
+  echo "Installation media found on $MEDIA, $VOLNAME"
+  if ! mount -t ext2 -o ro $MEDIA /mnt; then
+    echo "Failed to mount installation media"
+    exit 1
+  fi
+
+  # Ok, installation media mounted
+  return 0
+  fi
+
+  return 1
+}
+
+function gep_detect() {
+  ROJ=$( dmidecode -s baseboard-product-name | tr '[:upper:]' '[:lower:]' | tr -d '[:space:]' )
+  if [ -z "$ROJ" ]; then
+    ROJ=$( eri-ipmitool gp | grep ROJ | tr '[:upper:]' '[:lower:]' | awk '{print $3,$4,$5}' |sed -e "s/ //g" )
+  fi
+  if [ -z "$ROJ" ]; then
+    abort "unable to retrieve the ROJ code"
+  else
+        GEP_TYPE=`echo "$ROJ" | sed 's@.*/@@g'`
+        HW_TYPE="$GEP_PREFIX${GEP_TYPE:0:1}"
+        echo "$HW_TYPE"
+  fi
+}
+
+#--------------------------------------------------------------------
+function isSIMULATED(){
+	local rCode=$FALSE
+
+	[ "$(get_hwtype)" == "VM" ] && rCode=$TRUE
+	
+	return $rCode
+}
+
+function get_hwtype() {
+  local GEP_PREFIX='GEP'
+  local VM='VM'
+  local ERROR='NO_HWTYPE'
+
+  MANUFACTURER=$( dmidecode -s system-manufacturer | tr '[:upper:]' '[:lower:]' )
+  if [ -z "$MANUFACTURER" ]; then
+        abort "no board manufacturer information found"
+  else
+        case "$MANUFACTURER" in
+                *vmware*)
+                        HW_TYPE="$VM"
+                        if [ "$VERBOSE" ]; then HW_TYPE="hw-type: \"$HW_TYPE\""; fi
+                        echo "$HW_TYPE"
+                ;;
+                *ericsson*)
+                        echo "$( gep_detect )"
+                ;;
+                *)
+                        HW_TYPE="$ERROR"
+                        if [ "$VERBOSE" ]; then HW_TYPE="hw-type: \"$HW_TYPE\""; fi
+                        abort "$HW_TYPE"
+                ;;
+
+        esac
+  fi
+}
+
+
+function mount_media() {
+  force_prompt "Searching for installation media (press Shift-A to abort)"
+  echo ""
+
+  while true; do
+    if [ -f /proc/sys/dev/cdrom/info ]; then
+      for DEVICE in $(grep 'drive name:' /proc/sys/dev/cdrom/info | cut -d: -f2); do
+        if try_mount_media $DEVICE; then
+          echo ""
+          return
+        fi
+      done
+    fi
+
+    # In Xen, the cdrom might not show up as a cdrom
+    for DEVICE in $(ls -1 /sys/block | grep -v loop); do
+      if try_mount_media $DEVICE; then
+        echo ""
+        return
+      fi
+    done
+
+    for DEVICE in $(ls -1 /sys/block | grep -v loop); do
+      if try_mount_usb_media $DEVICE; then
+        echo ""
+        return
+      fi
+      for PART in $(ls -1 /sys/block/$DEVICE | grep $DEVICE ); do
+      if try_mount_usb_media $PART; then
+        echo ""
+        return
+      fi
+      done
+    done
+
+    # Wait 10 seconds and re-scan (abort if Shift-A is pressed)
+    read -s -t 10 -n 1
+    if [ "$REPLY" == "A" ]; then
+      echo ""
+      echo "Search aborted (Shift-A pressed)"
+      exit 1
+    fi
+  done
+}
+
+function umount_media() {
+  umount /mnt
+}
+
+function identify_backup_brf() {
+  local backup_file=$1
+  # Check for BRF identifiers
+  for type in software config; do
+    if ! tar tf $backup_file | grep -q "${type}.tar.gz$"; then
+      return 1
+    fi
+  done
+  return 0
+}
+
+function identify_backup() {
+  local supported_types="brf"
+  local backup_file=$1
+  for backup_type in $supported_types; do
+    if identify_backup_$backup_type $backup_file; then
+      echo $backup_type
+      return
+    fi
+  done
+  echo "Unknown file, supported backup types: $supported_types" >&2
+  echo "unknown"
+  return
+}
+
+# Public function that will be called by the install script
+function create_installation_repo() {
+  # Parse parameters to set TYPE,SRC_PATH and DEST_PATH
+  local TYPE
+  local SRC_PATH
+  local DEST_PATH="/tmp/installation_repo"
+
+  if [ -z "$1" ]; then
+    if ! setup_network; then
+      TYPE="media"
+      SRC_PATH="media"
+    else
+      TYPE="pxe"
+      SRC_PATH="pxe"
+    fi
+  else
+    SRC_PATH=$1
+    if [ -d $SRC_PATH ]; then
+      TYPE="drbd"
+    elif [ -f $SRC_PATH ]; then
+      TYPE=$(identify_backup $SRC_PATH)
+      if [ "$TYPE" == "unknown" ]; then
+        return 1
+      fi
+    else
+      echo "Invalid value $SRC_PATH"
+      return 1
+    fi
+
+    if [ ! -z "$2" ]; then
+      DEST_PATH=$2
+    fi
+  fi
+
+  mkdir -p $DEST_PATH
+  if [ ! -d $DEST_PATH ]; then
+    echo "$DEST_PATH doesn't exist or can't be created"
+    return 1
+  fi
+
+  DEST_PATH=$( cd $DEST_PATH; pwd )
+
+  rm -f $DEST_PATH/*.rpm
+  rm -f $DEST_PATH/etc/{installation.conf,cluster.conf}
+  rm -f $DEST_PATH/hooks/*
+
+  create_repo_from_$TYPE $SRC_PATH $DEST_PATH
+  return $?
+}

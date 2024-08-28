@@ -1,0 +1,1066 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="AxeDataRecord">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NRAMoQwOEdmFcaeZXPdWAQ" source="uml2.diagrams"/>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_yow0oYE5EeC4Tq9V97HaFw" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_yow0ooE5EeC4Tq9V97HaFw" key="com.ericsson.ecim.coremw.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_1-YFkIE5EeC4Tq9V97HaFw" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>Data Record Management function MOM.</body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_8JbBoIW5Ed-FBpQGdJXi3g">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OS1OUIXLEd-lToFzlKoOsA" name="" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_yBVy0IE6EeC4Tq9V97HaFw" name="AxeDataRecord">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_yBY2IYE6EeC4Tq9V97HaFw" annotatedElement="_yBVy0IE6EeC4Tq9V97HaFw">
+        <body>Data Record Management function MOM.</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_yBlDYIE6EeC4Tq9V97HaFw" name="DataRecordM">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_IFXZoMdvEeGLz76AwAlVaQ" annotatedElement="_yBlDYIE6EeC4Tq9V97HaFw">
+          <body>Represents the root MOC for Data Record Management function.
+This function can be mainly segregated into the below parts:
+- Transfer of record data originating from CP towards message stores in the form of message records.
+- Transfer of message records from message stores in the form of either files or blocks.
+- Send the files or blocks to remote destination using TQs.
+
+</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_T9V2EMUWEeW_V_4toor9vg" constrainedElement="_RTEpAGSkEeK3d40sJcAnjw _bn9jwGSlEeK3d40sJcAnjw _x67sAGSkEeK3d40sJcAnjw _uGUI4G8wEeS4i-x4fbss1w">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_T9XEMMUWEeW_V_4toor9vg">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_yB07AIE6EeC4Tq9V97HaFw" name="dataRecordMId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_yB3-UYE6EeC4Tq9V97HaFw" annotatedElement="_yB07AIE6EeC4Tq9V97HaFw">
+            <body>Holds the name used when identifying the MO.
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_LKgc0Mf3EeGdk_xbmJQ8zg" name="messageStore" visibility="public" type="_qwcgYKQeEeCOnvxuUx5QTQ" aggregation="composite" association="_LKf1wMf3EeGdk_xbmJQ8zg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wV0y0WGYEeKf2PmxyIzdfg" value="8"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wV0y0GGYEeKf2PmxyIzdfg" value="8"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_RTEpAGSkEeK3d40sJcAnjw" name="iPadding" visibility="public" type="_bn9jwGSlEeK3d40sJcAnjw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_23q2UGSlEeK3d40sJcAnjw" annotatedElement="_RTEpAGSkEeK3d40sJcAnjw">
+            <body>Specifies a 64 bit hexadecimal string which is given as an input to the hash function in the form of inner padding.
+This attribute along with other attributes oPadding and hashKey form an input, to generate hash value.
+The hash value is generated from the content of the charging file and is appended at the end of charging file.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QE6KgIzCEeOxntplxjZTAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RTITYmSkEeK3d40sJcAnjw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_7nWUMBtDEeWvQYFW8NSCww" visibility="public" value="6666666666666666666666666666666666666666666666666666666666666666">
+            <name xsi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_x67sAGSkEeK3d40sJcAnjw" name="oPadding" visibility="public" type="_bn9jwGSlEeK3d40sJcAnjw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_1lqb4GSlEeK3d40sJcAnjw" annotatedElement="_x67sAGSkEeK3d40sJcAnjw">
+            <body>Specifies a 64 bit hexadecimal string which is given as an input to the hash function in the form of outer padding.
+This attribute along with other attributes iPadding and hashKey form an input, to generate hash value.
+The hash value is generated from the content of the charging file and is appended at the end of charging file.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RqMtUIzCEeOxntplxjZTAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x7CZsWSkEeK3d40sJcAnjw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_ZEKnsIMCEeOnvLxkacNSjw" value="\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\0"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_uGUI4G8wEeS4i-x4fbss1w" name="osCachingEnabled" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_uGnq4G8wEeS4i-x4fbss1w" annotatedElement="_uGUI4G8wEeS4i-x4fbss1w">
+            <body>Specifies if the OS caching mechanism should be used or not during data writing.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uGwNwW8wEeS4i-x4fbss1w"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uGw00G8wEeS4i-x4fbss1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_3lqiwG8xEeS4i-x4fbss1w"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_DDeS4IJTEeC4Tq9V97HaFw" name="BlockBasedJob">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_DDhWMYJTEeC4Tq9V97HaFw" annotatedElement="_DDeS4IJTEeC4Tq9V97HaFw">
+          <body>Represents a block based record transfer job.
+This job facilitates in the transfer of charging data records from the message stores to the remote server in the form of volatile buffers. Unlike the file based charging transfer which stores the record transfer files onto disk, block based charging transfer does not store anything on disk. The attributes of this class help in configuring the block record transfer towards remote server. Transfer of these blocks to a remote system is achieved with the help of the Data Transfer Management function.
+
+One or more attributes setting can fail due to one of the following reasons:
+
+- Unset mandatory attribute(s): This message appears when the attribute 'transferQueue' is not provided during block based job creation.
+- Transfer queue not defined: This message appears when the transfer queue name entered is not defined.
+- Job already defined: This message appears when an attempt is made to define a job under a message store which already has a job (file or block) created.
+- No access to Data Transfer Functionality: This message appears when there is no access to the data transfer functionality.
+- Message Store buffer larger than block size : This message appears when length attribute value is smaller than the value of recordSize attribute of MessageStore MO class.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_DD8M8IJTEeC4Tq9V97HaFw" name="blockBasedJobId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_DD_QQYJTEeC4Tq9V97HaFw" annotatedElement="_DD8M8IJTEeC4Tq9V97HaFw">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_4K0GQIJdEeCBdspLDGU8wg" name="transferQueue" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_4K3JkoJdEeCBdspLDGU8wg" annotatedElement="_4K0GQIJdEeCBdspLDGU8wg">
+            <body>The TQ name used for transferring record data to a remote destination.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_vj6t0MdSEeGLz76AwAlVaQ" name="holdTime" type="_V0UiIMddEeGLz76AwAlVaQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_vj9xIcdSEeGLz76AwAlVaQ" annotatedElement="_vj6t0MdSEeGLz76AwAlVaQ">
+            <body>Specifies the maximum number of seconds a call record block is held before closing it.
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_M-NC0IzDEeOxntplxjZTAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UQ5pYNDmEeG5N8Ba4_HXBQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_u32IcGOGEeK3d40sJcAnjw" value="60"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_1w08AMdSEeGLz76AwAlVaQ" name="length" type="_SMcigNDfEeG5N8Ba4_HXBQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_1w3_UsdSEeGLz76AwAlVaQ" annotatedElement="_1w08AMdSEeGLz76AwAlVaQ">
+            <body>Specifies the maximum length of a call record block.
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LsNE4IzCEeOxntplxjZTAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_U-aPoNDmEeG5N8Ba4_HXBQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_y3vFcGOGEeK3d40sJcAnjw" value="4096"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__jr9MMdSEeGLz76AwAlVaQ" name="lengthType" type="_q1MTMKENEeCMrYFGDJTSDA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="__jvAgcdSEeGLz76AwAlVaQ" annotatedElement="__jr9MMdSEeGLz76AwAlVaQ">
+            <body>Specifies whether the block length is fixed, variable or variable with even number of bytes.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MBVnYIzCEeOxntplxjZTAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__jxcwsdSEeGLz76AwAlVaQ" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_9dtK0CytEeKcv7wtFnaZFQ" name="FIXED" instance="_q1MTNaENEeCMrYFGDJTSDA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_MHajgMdTEeGLz76AwAlVaQ" name="paddingChar" type="_9RB4gNDeEeG5N8Ba4_HXBQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_MHeN4cdTEeGLz76AwAlVaQ" annotatedElement="_MHajgMdTEeGLz76AwAlVaQ">
+            <body>The decimal value of a character used to fill unused bytes. Such unused bytes are filled in a fixed length call record block or in a call record block with a variable length but with a required even number of bytes.
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_M20d4IzCEeOxntplxjZTAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V9-PMNDmEeG5N8Ba4_HXBQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_QiCUsMdTEeGLz76AwAlVaQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_qgyL4GG1EeKf2PmxyIzdfg" name="StatisticsInfo" visibility="public" type="_e2k0IIJYEeC4Tq9V97HaFw" aggregation="composite" association="_qgxk0GG1EeKf2PmxyIzdfg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oPNKoY_zEeKOro0PLc0swg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oPNKoI_zEeKOro0PLc0swg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Ux74sIJTEeC4Tq9V97HaFw" name="FileBasedJob">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Ux-8AYJTEeC4Tq9V97HaFw" annotatedElement="_Ux74sIJTEeC4Tq9V97HaFw">
+          <body>Represents a file based record transfer job.
+This job facilitates in the transfer of charging data records from the message stores to the remote server in the form of files. In this kind of transfer, the record transfer files are stored on disk. Each file consists of the message records which are retrieved from message stores. Each file is built with the received message records, before it is stored on data disk. The attributes of this class help in configuring the record transfer flow towards the remote server. Transfer of these files to a remote system is achieved with the help of data transfer functionality.
+
+One or more attributes setting can fail due to one of the following reasons:
+
+- Unset mandatory attribute(s): This message appears when the attribute 'transferQueue' is not provided during file based job creation.
+- Transfer queue not defined: This message appears when the transfer queue name entered is not defined.
+- Job already defined: This message appears when an attempt is made to define a job under a message store which already has a job (file or block) created.
+- No access to Data Transfer Functionality: This message appears when there is no access to the data transfer functionality.
+- Message Store buffer larger than fixed record size: This message appears in case of attribute fixedFileRecordsFlag is set to FIXED and value of the recordLength attribute is smaller than the value of recordSize attribute of MessageStore MO class.
+</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_UyQBwIJTEeC4Tq9V97HaFw" name="fileBasedJobId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_UyTFEYJTEeC4Tq9V97HaFw" annotatedElement="_UyQBwIJTEeC4Tq9V97HaFw">
+            <body>Holds the name used when identifying the MO.
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_OgZBIIJeEeCBdspLDGU8wg" name="transferQueue" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_OgcrgIJeEeCBdspLDGU8wg" annotatedElement="_OgZBIIJeEeCBdspLDGU8wg">
+            <body>The TQ name used for transferring record files to a remote destination.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_KZhjgMdBEeGLz76AwAlVaQ" name="cdrCounterFlag" type="_4L-T0M_ZEeGy_eZiDkQwYQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_T_VfAMd0EeGLz76AwAlVaQ" annotatedElement="_KZhjgMdBEeGLz76AwAlVaQ">
+            <body>Specifies whether CDR counting function is enabled or disabled.
+If enabled, it is possible to inform the remote system about the number of CDRs stored in a file. 
+This information is appended to the file name.
+
+Note: The CDR counting function is enabled only if the user is updated to send CDR number to APG.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9u0kAIzBEeOxntplxjZTAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KZlN4cdBEeGLz76AwAlVaQ" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_RTHiENgXEeGovuOuvHbYAQ" name="DISABLE" instance="_HUUzAM_aEeGy_eZiDkQwYQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_CB7J8MdCEeGLz76AwAlVaQ" name="holdTime" type="_2cQnMMdpEeGLz76AwAlVaQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_CB-0UsdCEeGLz76AwAlVaQ" annotatedElement="_CB7J8MdCEeGLz76AwAlVaQ">
+            <body>Specifies the maximum time, a file is held before closing it. 
+Time is expressed in seconds. If the maximum filehold time is reached and no Call Data Records are received during the time interval, a file containing no data is created.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__lH-UIzBEeOxntplxjZTAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bKun8NDmEeG5N8Ba4_HXBQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_CCB3ocdCEeGLz76AwAlVaQ" value="300"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_zhMkEMdEEeGLz76AwAlVaQ" name="paddingChar" type="_9RB4gNDeEeG5N8Ba4_HXBQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_zhQOcMdEEeGLz76AwAlVaQ" annotatedElement="_zhMkEMdEEeGLz76AwAlVaQ">
+            <body>The decimal value of a character is used to fill the unused bytes in a fixed file record.
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AfCB0IzCEeOxntplxjZTAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cBreENDmEeG5N8Ba4_HXBQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_zhSqscdEEeGLz76AwAlVaQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__5q8oMdEEeGLz76AwAlVaQ" name="recordlength" type="_SMcigNDfEeG5N8Ba4_HXBQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="__5unAMdEEeGLz76AwAlVaQ" annotatedElement="__5q8oMdEEeGLz76AwAlVaQ">
+            <body>Specifies the fixed length of an individual record. 
+This value is expessed in bytes.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BFm5oIzCEeOxntplxjZTAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c1BmkNDmEeG5N8Ba4_HXBQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_eQaF0NDuEeGahvQ20kDpNQ" value="2048"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_LA_PUMdFEeGLz76AwAlVaQ" name="fileSize" type="_uat9MMdqEeGLz76AwAlVaQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_LBC5sMdFEeGLz76AwAlVaQ" annotatedElement="_LA_PUMdFEeGLz76AwAlVaQ">
+            <body>Specifies the range of the file size. 
+This value is expressed in kilobytes.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-LKhwIzBEeOxntplxjZTAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dketkNDmEeG5N8Ba4_HXBQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_LBFV8cdFEeGLz76AwAlVaQ" value="1024"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_VmaV4MdFEeGLz76AwAlVaQ" name="fixedFileRecordsFlag" type="_PMzgQM_cEeGy_eZiDkQwYQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_VmdZMsdFEeGLz76AwAlVaQ" annotatedElement="_VmaV4MdFEeGLz76AwAlVaQ">
+            <body>Specifies that the components of a file records will have a fixed length or variable length.
+
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-nl_EIzBEeOxntplxjZTAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Vmgcg8dFEeGLz76AwAlVaQ" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_GSn_MIy4EeKOro0PLc0swg" name="VARIABLE" instance="_PM5m4c_cEeGy_eZiDkQwYQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_gsfScMdFEeGLz76AwAlVaQ" name="minFileSize" type="_C-AbEMdrEeGLz76AwAlVaQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gsiVwMdFEeGLz76AwAlVaQ" annotatedElement="_gsfScMdFEeGLz76AwAlVaQ">
+            <body>Specifies the minimum size of a record transfer file expressed in bytes.
+The minimum file size functionality will be enabled if the value is non-zero.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AD_EkIzCEeOxntplxjZTAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fdbMMNDmEeG5N8Ba4_HXBQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_gskyAcdFEeGLz76AwAlVaQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_avt9kGEKEeKf2PmxyIzdfg" name="hashKey" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_avyPAmEKEeKf2PmxyIzdfg" annotatedElement="_avt9kGEKEeKf2PmxyIzdfg">
+            <body>A 32 bit hexadecimal string given as an input in the form of key to the hash function.
+If the key is defined, then a 16 byte long hash is stored at the end of record transfer file. The hash value is generated from the content of the record transfer file.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_eS1LUJf4EeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_m_hFEIzCEeOxntplxjZTAw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_av3HgGEKEeKf2PmxyIzdfg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__sxBcGG1EeKf2PmxyIzdfg" name="StatisticsInfo" visibility="public" type="_e2k0IIJYEeC4Tq9V97HaFw" aggregation="composite" association="__swaYGG1EeKf2PmxyIzdfg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mX1ZUY_zEeKOro0PLc0swg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mX1ZUI_zEeKOro0PLc0swg" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_nI0D8IMEEeCBdspLDGU8wg" name="endCurrentDataFile" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_nI2gMoMEEeCBdspLDGU8wg" annotatedElement="_nI0D8IMEEeCBdspLDGU8wg">
+            <body>Ends the record transfer file which is under construction and send it to remote destination immediately.
+
+The action can fail due to the following reason: 
+- No data file to end: No data files are under construction in the specified FilebasedJob.
+</body>
+          </ownedComment>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_e2k0IIJYEeC4Tq9V97HaFw" name="StatisticsInfo">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_e2oegIJYEeC4Tq9V97HaFw" annotatedElement="_e2k0IIJYEeC4Tq9V97HaFw">
+          <body>Represents the information about the current record transfer job statistics.
+For each record transfer job there is an instance of this class. This class has statistics of a particular file based or block based job.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_e3CuMIJYEeC4Tq9V97HaFw" name="statisticsInfoId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_e3INwYJYEeC4Tq9V97HaFw" annotatedElement="_e3CuMIJYEeC4Tq9V97HaFw">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_itzu8YJZEeC4Tq9V97HaFw" name="CPStatisticsInfo" visibility="public" type="_syHh8IJYEeC4Tq9V97HaFw" aggregation="composite" association="_itzu8IJZEeC4Tq9V97HaFw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QeUx4GUeEeK3d40sJcAnjw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QeUK0GUeEeK3d40sJcAnjw" value="64"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_7imDAIkDEeC5zsciqtUSLw" name="volumeRead" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_7ipGUokDEeC5zsciqtUSLw" annotatedElement="_7imDAIkDEeC5zsciqtUSLw">
+            <body>Specifies the volume in Kilobytes that has been retrieved from the Message Store.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxV08CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7ipGUYkDEeC5zsciqtUSLw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_P4lrwIkEEeC5zsciqtUSLw" name="volumeReported" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_P4ovE4kEEeC5zsciqtUSLw" annotatedElement="_P4lrwIkEEeC5zsciqtUSLw">
+            <body>Specifies the volume in Kilobytes that has been sent to the remote destination.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxV08CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_P4ovEokEEeC5zsciqtUSLw"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_syHh8IJYEeC4Tq9V97HaFw" name="CPStatisticsInfo">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_syKlQIJYEeC4Tq9V97HaFw" annotatedElement="_syHh8IJYEeC4Tq9V97HaFw">
+          <body>Represents the record transfer statistics for a particular CP.
+For each record transfer job there will be one or more instances of this class.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_syiYsIJYEeC4Tq9V97HaFw" name="cPStatisticsInfoId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_sylcAIJYEeC4Tq9V97HaFw" annotatedElement="_syiYsIJYEeC4Tq9V97HaFw">
+            <body>Holds the name used when identifying the MO.
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_dIT1YIkEEeC5zsciqtUSLw" name="recordsLost" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_dIW4sYkEEeC5zsciqtUSLw" annotatedElement="_dIT1YIkEEeC5zsciqtUSLw">
+            <body>Specifies the number of Message Store records declared as lost.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxV08CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dIW4sIkEEeC5zsciqtUSLw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rdDtYIkEEeC5zsciqtUSLw" name="recordsRead" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rdGwsYkEEeC5zsciqtUSLw" annotatedElement="_rdDtYIkEEeC5zsciqtUSLw">
+            <body>Specifies the number of Message Store records read from Message store.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxV08CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rdGwsIkEEeC5zsciqtUSLw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_5kwn4IkEEeC5zsciqtUSLw" name="recordsSkipped" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_5kzEI4kEEeC5zsciqtUSLw" annotatedElement="_5kwn4IkEEeC5zsciqtUSLw">
+            <body>Specifies the number of Message Store records declared as skipped.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxV08CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5kzEIokEEeC5zsciqtUSLw"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_itzu8IJZEeC4Tq9V97HaFw" name="RecordTransferStatisticInfo_to_CPspecificRecordTransStatInfo" memberEnd="_itzu8YJZEeC4Tq9V97HaFw _it0WAYJZEeC4Tq9V97HaFw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_it0WAYJZEeC4Tq9V97HaFw" name="recordTransferStatisticsInfo" visibility="public" type="_e2k0IIJYEeC4Tq9V97HaFw" association="_itzu8IJZEeC4Tq9V97HaFw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_it0WAoJZEeC4Tq9V97HaFw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_it0WA4JZEeC4Tq9V97HaFw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_DLluEImbEeC5zsciqtUSLw" name="Instances">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_T1_oUIm7EeClprSLtnzQJA" source="uml2.diagrams"/>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_O1MOcImbEeC5zsciqtUSLw" name="RecordTransferMInstance" classifier="_yBlDYIE6EeC4Tq9V97HaFw">
+          <slot xmi:type="uml:Slot" xmi:id="_O1PRwImbEeC5zsciqtUSLw" definingFeature="_yB07AIE6EeC4Tq9V97HaFw">
+            <value xmi:type="uml:LiteralString" xmi:id="_O1PRwYmbEeC5zsciqtUSLw" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_04K5oHVBEeKWC87wTVCCSw" name="MessageStoreInstance8" classifier="_qwcgYKQeEeCOnvxuUx5QTQ">
+          <slot xmi:type="uml:Slot" xmi:id="_04g34HVBEeKWC87wTVCCSw" definingFeature="_qwcgYqQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralString" xmi:id="_MLATsHVSEeKWC87wTVCCSw" value="CHS7"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_91nigHVREeKWC87wTVCCSw" definingFeature="_qwcgh6QeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_91xTgHVREeKWC87wTVCCSw" value="25"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_FAsCEHVSEeKWC87wTVCCSw" definingFeature="_r3gS4Cf8EeKwQbWvvMx0hA">
+            <value xmi:type="uml:LiteralString" xmi:id="_FAsCEXVSEeKWC87wTVCCSw" value="CHS7"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_O6D68HVSEeKWC87wTVCCSw" definingFeature="_qwcgeKQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_O6EiAHVSEeKWC87wTVCCSw" value="40"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_QtckIHVSEeKWC87wTVCCSw" definingFeature="_qwcgbqQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_QtdLMHVSEeKWC87wTVCCSw" value="6000"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_cQzVwHVWEeKWC87wTVCCSw" definingFeature="_OxNkIHVWEeKWC87wTVCCSw">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_cQz80HVWEeKWC87wTVCCSw" value="4096"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_jZw5UHVSEeKWC87wTVCCSw" name="MessageStoreInstance1" classifier="_qwcgYKQeEeCOnvxuUx5QTQ">
+          <slot xmi:type="uml:Slot" xmi:id="_jZ-UsHVSEeKWC87wTVCCSw" definingFeature="_qwcgYqQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralString" xmi:id="_mFW84HVSEeKWC87wTVCCSw" value="CHS"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_nvoGUHVSEeKWC87wTVCCSw" definingFeature="_qwcgh6QeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_nvoGUXVSEeKWC87wTVCCSw" value="25"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_rkT44HVSEeKWC87wTVCCSw" definingFeature="_r3gS4Cf8EeKwQbWvvMx0hA">
+            <value xmi:type="uml:LiteralString" xmi:id="_rkUf8HVSEeKWC87wTVCCSw" value="CHS"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_s34ZkHVSEeKWC87wTVCCSw" definingFeature="_qwcgeKQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_s34ZkXVSEeKWC87wTVCCSw" value="40"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_uCdWUHVSEeKWC87wTVCCSw" definingFeature="_qwcgbqQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_uCd9YHVSEeKWC87wTVCCSw" value="6000"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_SIjTYHVWEeKWC87wTVCCSw" definingFeature="_OxNkIHVWEeKWC87wTVCCSw">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_SIjTYXVWEeKWC87wTVCCSw" value="4096"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_zFzUYHVSEeKWC87wTVCCSw" name="MessageStoreInstance2" classifier="_qwcgYKQeEeCOnvxuUx5QTQ">
+          <slot xmi:type="uml:Slot" xmi:id="_zGAvwHVSEeKWC87wTVCCSw" definingFeature="_qwcgYqQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralString" xmi:id="_0ZhmEHVSEeKWC87wTVCCSw" value="CHS1"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_1s6gkHVSEeKWC87wTVCCSw" definingFeature="_qwcgh6QeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_1s7HoHVSEeKWC87wTVCCSw" value="25"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_4cAkEHVSEeKWC87wTVCCSw" definingFeature="_r3gS4Cf8EeKwQbWvvMx0hA">
+            <value xmi:type="uml:LiteralString" xmi:id="_4cAkEXVSEeKWC87wTVCCSw" value="CHS1"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_5si-4HVSEeKWC87wTVCCSw" definingFeature="_qwcgeKQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_5sjl8HVSEeKWC87wTVCCSw" value="40"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_64-80HVSEeKWC87wTVCCSw" definingFeature="_qwcgbqQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_64_j4HVSEeKWC87wTVCCSw" value="6000"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_T1dhIHVWEeKWC87wTVCCSw" definingFeature="_OxNkIHVWEeKWC87wTVCCSw">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_T1dhIXVWEeKWC87wTVCCSw" value="4096"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_-0qvQHVSEeKWC87wTVCCSw" name="MessageStoreInstance3" classifier="_qwcgYKQeEeCOnvxuUx5QTQ">
+          <slot xmi:type="uml:Slot" xmi:id="_-03jkHVSEeKWC87wTVCCSw" definingFeature="_qwcgYqQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralString" xmi:id="_AIypkHVTEeKWC87wTVCCSw" value="CHS2"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_BK1VYHVTEeKWC87wTVCCSw" definingFeature="_qwcgh6QeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_BK1VYXVTEeKWC87wTVCCSw" value="25"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_EDFU4HVTEeKWC87wTVCCSw" definingFeature="_r3gS4Cf8EeKwQbWvvMx0hA">
+            <value xmi:type="uml:LiteralString" xmi:id="_EDF78HVTEeKWC87wTVCCSw" value="CHS2"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_FjtaIHVTEeKWC87wTVCCSw" definingFeature="_qwcgeKQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_FjuBMHVTEeKWC87wTVCCSw" value="40"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_GsMFIHVTEeKWC87wTVCCSw" definingFeature="_qwcgbqQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_GsMFIXVTEeKWC87wTVCCSw" value="6000"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_VLECIHVWEeKWC87wTVCCSw" definingFeature="_OxNkIHVWEeKWC87wTVCCSw">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_VLEpMHVWEeKWC87wTVCCSw" value="4096"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_KAcEIHVTEeKWC87wTVCCSw" name="MessageStoreInstance4" classifier="_qwcgYKQeEeCOnvxuUx5QTQ">
+          <slot xmi:type="uml:Slot" xmi:id="_KApfgHVTEeKWC87wTVCCSw" definingFeature="_qwcgYqQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralString" xmi:id="_LNTf4HVTEeKWC87wTVCCSw" value="CHS3"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_M2AjEHVTEeKWC87wTVCCSw" definingFeature="_qwcgh6QeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_M2AjEXVTEeKWC87wTVCCSw" value="25"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_QZssQHVTEeKWC87wTVCCSw" definingFeature="_r3gS4Cf8EeKwQbWvvMx0hA">
+            <value xmi:type="uml:LiteralString" xmi:id="_QZtTUHVTEeKWC87wTVCCSw" value="CHS3"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_RlyE4HVTEeKWC87wTVCCSw" definingFeature="_qwcgeKQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_RlyE4XVTEeKWC87wTVCCSw" value="40"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_StRRYHVTEeKWC87wTVCCSw" definingFeature="_qwcgbqQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_StRRYXVTEeKWC87wTVCCSw" value="6000"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_WdYloHVWEeKWC87wTVCCSw" definingFeature="_OxNkIHVWEeKWC87wTVCCSw">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_WdYloXVWEeKWC87wTVCCSw" value="4096"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_WEzN4HVTEeKWC87wTVCCSw" name="MessageStoreInstance5" classifier="_qwcgYKQeEeCOnvxuUx5QTQ">
+          <slot xmi:type="uml:Slot" xmi:id="_WFApQHVTEeKWC87wTVCCSw" definingFeature="_qwcgYqQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralString" xmi:id="_XK7IcHVTEeKWC87wTVCCSw" value="CHS4"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_YScKIHVTEeKWC87wTVCCSw" definingFeature="_qwcgh6QeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_YScxMHVTEeKWC87wTVCCSw" value="25"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_xfb-EHVTEeKWC87wTVCCSw" definingFeature="_r3gS4Cf8EeKwQbWvvMx0hA">
+            <value xmi:type="uml:LiteralString" xmi:id="_xfb-EXVTEeKWC87wTVCCSw" value="CHS4"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_y1hnQHVTEeKWC87wTVCCSw" definingFeature="_qwcgeKQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_y1hnQXVTEeKWC87wTVCCSw" value="40"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_z8aW0HVTEeKWC87wTVCCSw" definingFeature="_qwcgbqQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_z8a94HVTEeKWC87wTVCCSw" value="6000"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_XxRPYHVWEeKWC87wTVCCSw" definingFeature="_OxNkIHVWEeKWC87wTVCCSw">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_XxRPYXVWEeKWC87wTVCCSw" value="4096"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_3RVrQHVTEeKWC87wTVCCSw" name="MessageStoreInstance6" classifier="_qwcgYKQeEeCOnvxuUx5QTQ">
+          <slot xmi:type="uml:Slot" xmi:id="_3RjGoHVTEeKWC87wTVCCSw" definingFeature="_qwcgYqQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralString" xmi:id="_4sZ7EHVTEeKWC87wTVCCSw" value="CHS5"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_5-o_AHVTEeKWC87wTVCCSw" definingFeature="_qwcgh6QeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_5-o_AXVTEeKWC87wTVCCSw" value="25"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_8qKxIHVTEeKWC87wTVCCSw" definingFeature="_r3gS4Cf8EeKwQbWvvMx0hA">
+            <value xmi:type="uml:LiteralString" xmi:id="_8qLYMHVTEeKWC87wTVCCSw" value="CHS5"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_9vASQHVTEeKWC87wTVCCSw" definingFeature="_qwcgeKQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_9vASQXVTEeKWC87wTVCCSw" value="40"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_-0QDEHVTEeKWC87wTVCCSw" definingFeature="_qwcgbqQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_-0QDEXVTEeKWC87wTVCCSw" value="6000"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_ZISFoHVWEeKWC87wTVCCSw" definingFeature="_OxNkIHVWEeKWC87wTVCCSw">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_ZISFoXVWEeKWC87wTVCCSw" value="4096"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_1F-xgHVUEeKWC87wTVCCSw" name="MessageStoreInstance7" classifier="_qwcgYKQeEeCOnvxuUx5QTQ">
+          <slot xmi:type="uml:Slot" xmi:id="_1GNbAHVUEeKWC87wTVCCSw" definingFeature="_qwcgYqQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralString" xmi:id="_2S_XMHVUEeKWC87wTVCCSw" value="CHS6"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_3fx6cHVUEeKWC87wTVCCSw" definingFeature="_qwcgh6QeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_3fyhgHVUEeKWC87wTVCCSw" value="25"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_58RLAHVUEeKWC87wTVCCSw" definingFeature="_r3gS4Cf8EeKwQbWvvMx0hA">
+            <value xmi:type="uml:LiteralString" xmi:id="_58RLAXVUEeKWC87wTVCCSw" value="CHS6"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_68qRAHVUEeKWC87wTVCCSw" definingFeature="_qwcgeKQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_68q4EHVUEeKWC87wTVCCSw" value="40"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_8RHigHVUEeKWC87wTVCCSw" definingFeature="_qwcgbqQeEeCOnvxuUx5QTQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_8RIJkHVUEeKWC87wTVCCSw" value="6000"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_alxXUHVWEeKWC87wTVCCSw" definingFeature="_OxNkIHVWEeKWC87wTVCCSw">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_alxXUXVWEeKWC87wTVCCSw" value="4096"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_HDAHcHdoEeKI95dkCMD57g" client="_jZw5UHVSEeKWC87wTVCCSw" supplier="_O1MOcImbEeC5zsciqtUSLw"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_LItYkHdoEeKI95dkCMD57g" client="_zFzUYHVSEeKWC87wTVCCSw" supplier="_O1MOcImbEeC5zsciqtUSLw"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_NQF70HdoEeKI95dkCMD57g" client="_-0qvQHVSEeKWC87wTVCCSw" supplier="_O1MOcImbEeC5zsciqtUSLw"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_PU_y0HdoEeKI95dkCMD57g" client="_KAcEIHVTEeKWC87wTVCCSw" supplier="_O1MOcImbEeC5zsciqtUSLw"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_RZLREHdoEeKI95dkCMD57g" client="_WEzN4HVTEeKWC87wTVCCSw" supplier="_O1MOcImbEeC5zsciqtUSLw"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_UIIxsHdoEeKI95dkCMD57g" client="_3RVrQHVTEeKWC87wTVCCSw" supplier="_O1MOcImbEeC5zsciqtUSLw"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_V6jxkHdoEeKI95dkCMD57g" client="_1F-xgHVUEeKWC87wTVCCSw" supplier="_O1MOcImbEeC5zsciqtUSLw"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_XpmtUHdoEeKI95dkCMD57g" client="_04K5oHVBEeKWC87wTVCCSw" supplier="_O1MOcImbEeC5zsciqtUSLw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_q1MTMKENEeCMrYFGDJTSDA" name="LengthType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_q1MTMaENEeCMrYFGDJTSDA" annotatedElement="_q1MTMKENEeCMrYFGDJTSDA">
+          <body>Specifies the range for files length.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_q1MTMqENEeCMrYFGDJTSDA" name="VARIABLE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_q1MTM6ENEeCMrYFGDJTSDA" annotatedElement="_q1MTMqENEeCMrYFGDJTSDA">
+            <body>The length of a block of records is variable.
+The length of a block is adjusted so that no unused bytes are included.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_q1MTNKENEeCMrYFGDJTSDA" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_q1MTNaENEeCMrYFGDJTSDA" name="FIXED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_q1MTNqENEeCMrYFGDJTSDA" annotatedElement="_q1MTNaENEeCMrYFGDJTSDA">
+            <body>The length of a block of records is fixed.
+Bytes not occupied by are filled with the character specified by paddingChar attribute.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_q1MTN6ENEeCMrYFGDJTSDA"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_q1MTOKENEeCMrYFGDJTSDA" name="EVEN">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_q1MTOaENEeCMrYFGDJTSDA" annotatedElement="_q1MTOKENEeCMrYFGDJTSDA">
+            <body>The length of a block of records is variable with even number of bytes.
+The length is made even, if needed, by addition of a padding character specified by paddingChar attribute.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_q1MTOqENEeCMrYFGDJTSDA" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_qwcgYKQeEeCOnvxuUx5QTQ" name="MessageStore">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_qwcgYaQeEeCOnvxuUx5QTQ" annotatedElement="_qwcgYKQeEeCOnvxuUx5QTQ">
+          <body>Represents a message store that is configured for data record transfer from CP.
+Message stores are published on APG for receiving the traffic generated by CP(s). 
+
+The setting of messageStoreName and recordSize can fail for one of the following reasons:
+- Connection with message store temporary unavailable, try again : This message appears when the connection with the message store is temporary unavailable.
+- Record size cannot be changed since the message store contains not acknowledged messages : This message appears when the recordSize attribute is changed when the message store contains not acknowledged messages.
+- Message store name cannot be changed since the message store contains not acknowledged messages : This message appears when the messageStoreName attribute is changed when the message store contains not acknowledged messages.
+- The value of recordSize attribute should be smaller than or equal to value of recordlength attribute : This message appears when the value of recordSize attribute is greater than the value of recordlength attribute in MOC FileBasedJob.
+- The value of recordSize attribute should be smaller than or equal to value of length attribute : This message appears when the value of recordSize attribute is greater than value of length attribute in MOC BlockBasedJob. 
+
+Note: A restart of the traffic flow from CP is required if the attributes messageStoreName and recordSize of this class are modified.
+</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_bz2MMC1HEeSZ68tpNAKG2g">
+          <general xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_xu6e8JaXEeC11vgiYYrb4A"/>
+        </generalization>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_qwcgYqQeEeCOnvxuUx5QTQ" name="messageStoreId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_qwcgY6QeEeCOnvxuUx5QTQ" annotatedElement="_qwcgYqQeEeCOnvxuUx5QTQ">
+            <body>Holds the name used when identifying the MO.
+It holds the name of the message store which cannot be modified by the end user. It holds the same name as the messageStoreName attribute's initial value.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_qwcgbqQeEeCOnvxuUx5QTQ" name="numberOfRecords" type="__rRc0MdbEeGLz76AwAlVaQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_qwcgb6QeEeCOnvxuUx5QTQ" annotatedElement="_qwcgbqQeEeCOnvxuUx5QTQ">
+            <body>Specifies the maximum number of records that can be stored in a file.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zJUk8IzBEeOxntplxjZTAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NUWG8NDmEeG5N8Ba4_HXBQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_qwcgcqQeEeCOnvxuUx5QTQ" value="6000"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_qwcgeKQeEeCOnvxuUx5QTQ" name="numberOfFiles" type="_x7QCgMdbEeGLz76AwAlVaQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_qwcgeaQeEeCOnvxuUx5QTQ" annotatedElement="_qwcgeKQeEeCOnvxuUx5QTQ">
+            <body>Specifies the maximum number of files that can exist in a message store at the same time. 
+When the numberOfFiles reaches threshold an alarm is raised.
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ySnmcIzBEeOxntplxjZTAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MZLfMNDmEeG5N8Ba4_HXBQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_qwcgfKQeEeCOnvxuUx5QTQ" value="40"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_qwcgh6QeEeCOnvxuUx5QTQ" name="alarmLevel" type="_af0PICo9EeKcv7wtFnaZFQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_qwcgiKQeEeCOnvxuUx5QTQ" annotatedElement="_qwcgh6QeEeCOnvxuUx5QTQ">
+            <body>Specifies at what storage level in the message store an alarm is initiated. 
+The value is given in percent of message store. 
+Size of the message store is determined by numberOfRecords * recordSize * numberOfFiles.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wJbsYIzBEeOxntplxjZTAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qe2nYNDoEeGahvQ20kDpNQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_UNizkGOHEeK3d40sJcAnjw" value="25"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_r3gS4Cf8EeKwQbWvvMx0hA" name="messageStoreName" visibility="public" type="_j07BAMdbEeGLz76AwAlVaQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_7C9JYCf8EeKwQbWvvMx0hA" annotatedElement="_r3gS4Cf8EeKwQbWvvMx0hA">
+            <body>Specifies the name of the message store.
+The default values to this attribute for the 8 instances of this class are CHS, CHS1, CHS2, CHS3, CHS4, CHS5, CHS6, CHS7 respectively.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x2Ai8IzBEeOxntplxjZTAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_r3mZgCf8EeKwQbWvvMx0hA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_g38GgGGuEeKf2PmxyIzdfg" name="FilebasedJob" visibility="public" type="_Ux74sIJTEeC4Tq9V97HaFw" aggregation="composite" association="_g37fcGGuEeKf2PmxyIzdfg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fxFXIWOmEeK3d40sJcAnjw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fxFXIGOmEeK3d40sJcAnjw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_PP1x8WGvEeKf2PmxyIzdfg" name="BlockbasedJob" visibility="public" type="_DDeS4IJTEeC4Tq9V97HaFw" aggregation="composite" association="_PP1x8GGvEeKf2PmxyIzdfg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_j3-UAWOmEeK3d40sJcAnjw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_j3-UAGOmEeK3d40sJcAnjw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_OxNkIHVWEeKWC87wTVCCSw" name="recordSize" visibility="public" type="_qF2XEMdcEeGLz76AwAlVaQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_OxR1kXVWEeKWC87wTVCCSw" annotatedElement="_OxNkIHVWEeKWC87wTVCCSw">
+            <body>Specifies the maximum size of a record in bytes.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0-evwIzBEeOxntplxjZTAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OxaYcHVWEeKWC87wTVCCSw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_OxVf8HVWEeKWC87wTVCCSw" value="4096"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_AJoLsMExEeKZn61hTTn96w" name="alarmSeverity" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_AJuSUMExEeKZn61hTTn96w" annotatedElement="_AJoLsMExEeKZn61hTTn96w">
+            <body>Specifies the severity of the alarm that is raised when the message store is filled to alarmLevel. </body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="AXE_Common_Library.uml#_6wRcOoKMEeK3wcU1QErItg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vGaJIIzBEeOxntplxjZTAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AJzK0cExEeKZn61hTTn96w" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_AJyjwMExEeKZn61hTTn96w" name="ALARM_MEDIUM">
+            <instance xmi:type="uml:EnumerationLiteral" href="AXE_Common_Library.uml#_6wRcP4KMEeK3wcU1QErItg"/>
+          </defaultValue>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_j07BAMdbEeGLz76AwAlVaQ" name="MessageStoreName">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_j0-EUcdbEeGLz76AwAlVaQ" annotatedElement="_j07BAMdbEeGLz76AwAlVaQ">
+          <body>Specifies message store name pattern.
+</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_j1BHocdbEeGLz76AwAlVaQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_x7QCgMdbEeGLz76AwAlVaQ" name="NumberOfFiles">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_PhtfIMdeEeGLz76AwAlVaQ" annotatedElement="_x7QCgMdbEeGLz76AwAlVaQ">
+          <body>Specifies range for number of files.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_x7TF0cdbEeGLz76AwAlVaQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="__rRc0MdbEeGLz76AwAlVaQ" name="NumberOfRecords">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Q9nccMdeEeGLz76AwAlVaQ" annotatedElement="__rRc0MdbEeGLz76AwAlVaQ">
+          <body>This derived data type is used for the attribute 'numberOfRecords'</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="__rVHMcdbEeGLz76AwAlVaQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_qF2XEMdcEeGLz76AwAlVaQ" name="RecordSize">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_qF5aYcdcEeGLz76AwAlVaQ" annotatedElement="_qF2XEMdcEeGLz76AwAlVaQ">
+          <body>Specifies record size range.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_qF72ocdcEeGLz76AwAlVaQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_V0UiIMddEeGLz76AwAlVaQ" name="BlockHoldTime">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_V0XlcMddEeGLz76AwAlVaQ" annotatedElement="_V0UiIMddEeGLz76AwAlVaQ">
+          <body>Specifies hold time range for block based transfer.
+</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_V0aBscddEeGLz76AwAlVaQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_2cQnMMdpEeGLz76AwAlVaQ" name="FileHoldTime">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_2cTqgcdpEeGLz76AwAlVaQ" annotatedElement="_2cQnMMdpEeGLz76AwAlVaQ">
+          <body>Specifies hold time range for file based transfer.
+</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_2cWGwcdpEeGLz76AwAlVaQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_uat9MMdqEeGLz76AwAlVaQ" name="FileSize">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_uaxAgcdqEeGLz76AwAlVaQ" annotatedElement="_uat9MMdqEeGLz76AwAlVaQ">
+          <body>Specifies file size range.
+</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_uazcwcdqEeGLz76AwAlVaQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_C-AbEMdrEeGLz76AwAlVaQ" name="MinFileSize">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_C-DeYcdrEeGLz76AwAlVaQ" annotatedElement="_C-AbEMdrEeGLz76AwAlVaQ">
+          <body>Specifies minimum file size range.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_C-GhsMdrEeGLz76AwAlVaQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_LKf1wMf3EeGdk_xbmJQ8zg" name="RecordTransferM_to_MessageStore" memberEnd="_LKgc0Mf3EeGdk_xbmJQ8zg _LKhD4cf3EeGdk_xbmJQ8zg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_LKhD4cf3EeGdk_xbmJQ8zg" name="recordTransferM" visibility="public" type="_yBlDYIE6EeC4Tq9V97HaFw" association="_LKf1wMf3EeGdk_xbmJQ8zg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LKlVUcf3EeGdk_xbmJQ8zg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LKlVUMf3EeGdk_xbmJQ8zg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_4L-T0M_ZEeGy_eZiDkQwYQ" name="CdrCounterFlag">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_4MBXIc_ZEeGy_eZiDkQwYQ" annotatedElement="_4L-T0M_ZEeGy_eZiDkQwYQ">
+          <body>Specifies the range for CDR counting function.
+
+
+
+</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_4MEacM_ZEeGy_eZiDkQwYQ" name="ENABLE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_JlXBgM_aEeGy_eZiDkQwYQ" annotatedElement="_4MEacM_ZEeGy_eZiDkQwYQ">
+            <body>CDR counting function is enabled.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_4MG2sc_ZEeGy_eZiDkQwYQ" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_HUUzAM_aEeGy_eZiDkQwYQ" name="DISABLE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_HUYdYc_aEeGy_eZiDkQwYQ" annotatedElement="_HUUzAM_aEeGy_eZiDkQwYQ">
+            <body>CDR counting function is disabled.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_HUa5oc_aEeGy_eZiDkQwYQ"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_PMzgQM_cEeGy_eZiDkQwYQ" name="FixedFileRecordsFlag">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_PM2jkc_cEeGy_eZiDkQwYQ" annotatedElement="_PMzgQM_cEeGy_eZiDkQwYQ">
+          <body>This enum is used for the attribute 'fixedFileRecordsFlag'.
+
+</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_PM5m4c_cEeGy_eZiDkQwYQ" name="VARIABLE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_lZtAQM_cEeGy_eZiDkQwYQ" annotatedElement="_PM5m4c_cEeGy_eZiDkQwYQ">
+            <body>Length of a file record is variable.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_sZEbsNgXEeGovuOuvHbYAQ" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rwEscM_cEeGy_eZiDkQwYQ" name="FIXED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rwHvwc_cEeGy_eZiDkQwYQ" annotatedElement="_rwEscM_cEeGy_eZiDkQwYQ">
+            <body>Length of a file record is fixed.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rPY20NgXEeGovuOuvHbYAQ"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_9RB4gNDeEeG5N8Ba4_HXBQ" name="PaddingChar">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_9RE70NDeEeG5N8Ba4_HXBQ" annotatedElement="_9RB4gNDeEeG5N8Ba4_HXBQ">
+          <body>Specifies range for padding characters.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_9RHYEdDeEeG5N8Ba4_HXBQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-Z9gkCCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_SMcigNDfEeG5N8Ba4_HXBQ" name="Length">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_SMgM4dDfEeG5N8Ba4_HXBQ" annotatedElement="_SMcigNDfEeG5N8Ba4_HXBQ">
+          <body>Specifies length range.
+</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_SMjQMdDfEeG5N8Ba4_HXBQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-kmDQCCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_BgCPoCf_EeKwQbWvvMx0hA" name="DataOutputHandling_to_RecordTransferM" memberEnd="_BgCPoSf_EeKwQbWvvMx0hA _BgC2sif_EeKwQbWvvMx0hA">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_BgC2sif_EeKwQbWvvMx0hA" name="RecordTransferM" visibility="public" type="_yBlDYIE6EeC4Tq9V97HaFw" aggregation="composite" association="_BgCPoCf_EeKwQbWvvMx0hA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BgI9USf_EeKwQbWvvMx0hA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BgI9UCf_EeKwQbWvvMx0hA" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_BgCPoSf_EeKwQbWvvMx0hA" name="DataOutputHandling" visibility="public" association="_BgCPoCf_EeKwQbWvvMx0hA">
+          <type xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0RIKREeK3wcU1QErItg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BgEE0Sf_EeKwQbWvvMx0hA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BgEE0Cf_EeKwQbWvvMx0hA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_af0PICo9EeKcv7wtFnaZFQ" name="AlarmLevel">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_af0PISo9EeKcv7wtFnaZFQ" annotatedElement="_af0PICo9EeKcv7wtFnaZFQ">
+          <body>Specifies alarm level range.
+</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_af0PIio9EeKcv7wtFnaZFQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_g37fcGGuEeKf2PmxyIzdfg" name="MessageStore_to_FilebasedJob" memberEnd="_g38GgGGuEeKf2PmxyIzdfg _g38tkGGuEeKf2PmxyIzdfg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_g38tkGGuEeKf2PmxyIzdfg" name="MessageStore" visibility="public" type="_qwcgYKQeEeCOnvxuUx5QTQ" association="_g37fcGGuEeKf2PmxyIzdfg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_g4BmEGGuEeKf2PmxyIzdfg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_g4A_AWGuEeKf2PmxyIzdfg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_PP1x8GGvEeKf2PmxyIzdfg" name="MessageStore_to_BlockbasedJob" memberEnd="_PP1x8WGvEeKf2PmxyIzdfg _PP2ZAmGvEeKf2PmxyIzdfg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_PP2ZAmGvEeKf2PmxyIzdfg" name="MessageStore" visibility="public" type="_qwcgYKQeEeCOnvxuUx5QTQ" association="_PP1x8GGvEeKf2PmxyIzdfg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PP7RgmGvEeKf2PmxyIzdfg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PP7RgWGvEeKf2PmxyIzdfg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_qgxk0GG1EeKf2PmxyIzdfg" name="BlockBasedJob_to_StatisticsInfo" memberEnd="_qgyL4GG1EeKf2PmxyIzdfg _qgyy8WG1EeKf2PmxyIzdfg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_qgyy8WG1EeKf2PmxyIzdfg" name="BlockBasedJob" visibility="public" type="_DDeS4IJTEeC4Tq9V97HaFw" association="_qgxk0GG1EeKf2PmxyIzdfg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qg3rcGG1EeKf2PmxyIzdfg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qg3EYWG1EeKf2PmxyIzdfg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="__swaYGG1EeKf2PmxyIzdfg" name="FilebasedJob_to_StatisticsInfo" memberEnd="__sxBcGG1EeKf2PmxyIzdfg __sxogWG1EeKf2PmxyIzdfg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="__sxogWG1EeKf2PmxyIzdfg" name="StatisticsInfo" visibility="public" type="_Ux74sIJTEeC4Tq9V97HaFw" association="__swaYGG1EeKf2PmxyIzdfg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__s2hAWG1EeKf2PmxyIzdfg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__s2hAGG1EeKf2PmxyIzdfg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_bn9jwGSlEeK3d40sJcAnjw" name="HashPadding">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_lJWacGSlEeK3d40sJcAnjw" annotatedElement="_bn9jwGSlEeK3d40sJcAnjw">
+          <body>This derived data type is used for the attributes iPadding and oPadding. </body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_boBOIGSlEeK3d40sJcAnjw">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_GSyKkMUWEeW_V_4toor9vg" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_GS5fUMUWEeW_V_4toor9vg" name="BASIC"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_JbnjwMUWEeW_V_4toor9vg" client="_GS5fUMUWEeW_V_4toor9vg" supplier="_H-8KYMUWEeW_V_4toor9vg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_H-01oMUWEeW_V_4toor9vg" name="Features">
+        <packagedElement xmi:type="uml:Class" xmi:id="_H-8KYMUWEeW_V_4toor9vg" name="CPI_HIDDEN"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_0tSnQIW5Ed-FBpQGdJXi3g">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_us-cUCo6Eeu3bJ1648roRQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_us-cUSo6Eeu3bJ1648roRQ" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_us-cUio6Eeu3bJ1648roRQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_us-cUyo6Eeu3bJ1648roRQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_us-cVCo6Eeu3bJ1648roRQ" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_us-cVSo6Eeu3bJ1648roRQ" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0tT1YIW5Ed-FBpQGdJXi3g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_ypU1UIE5EeC4Tq9V97HaFw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pfhLMN6MEeehtLhJYaltnA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pfhLMd6MEeehtLhJYaltnA" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pfhLMt6MEeehtLhJYaltnA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pfhyQN6MEeehtLhJYaltnA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pfhyQd6MEeehtLhJYaltnA" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pfhyQt6MEeehtLhJYaltnA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vL0dQA0aEea5gOG6g0mLVQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vL0dQQ0aEea5gOG6g0mLVQ" key="Version" value="1.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vL0dQg0aEea5gOG6g0mLVQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vL0dQw0aEea5gOG6g0mLVQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vL0dRA0aEea5gOG6g0mLVQ" key="Date" value="2016-02-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vL0dRQ0aEea5gOG6g0mLVQ" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ypWqgIE5EeC4Tq9V97HaFw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_HzruMBtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="Managed Object Model for Data Record Management function" subTitle="" docNo="19089-CXA 117 0045/7" docRev="C" createdBy="XHARBAV" docLang="Uen" docDate="2020-12-09"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_HzsVQBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Package="_yBVy0IE6EeC4Tq9V97HaFw" author="Harika Bavana" contact="XHARBAV" date="2020-12-09" docNo="" revision="C" version="2" release="1" organization="" correction="0"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HzsVQRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_yB07AIE6EeC4Tq9V97HaFw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_HztjYBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_DDeS4IJTEeC4Tq9V97HaFw"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HztjYRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_DD8M8IJTEeC4Tq9V97HaFw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_HztjYhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_Ux74sIJTEeC4Tq9V97HaFw"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HzuKcBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_UyQBwIJTEeC4Tq9V97HaFw"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HzuKcRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_e3CuMIJYEeC4Tq9V97HaFw"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HzuKchtEEeWvQYFW8NSCww" hideGroupName="" specification="" isPersistent="false" base_Property="_syiYsIJYEeC4Tq9V97HaFw"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_HzuxgBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Association="_itzu8IJZEeC4Tq9V97HaFw" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvApkBtEEeWvQYFW8NSCww" base_Property="_4K0GQIJdEeCBdspLDGU8wg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvBQoBtEEeWvQYFW8NSCww" base_Property="_OgZBIIJeEeCBdspLDGU8wg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HzuxgRtEEeWvQYFW8NSCww" hideGroupName="" specification="" dependencies="" base_Operation="_nI0D8IMEEeCBdspLDGU8wg"/>
+  <CoreMWProfile:CmwAction xmi:id="_HvBQoRtEEeWvQYFW8NSCww" base_Operation="_nI0D8IMEEeCBdspLDGU8wg" admOpId="1"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvB3sBtEEeWvQYFW8NSCww" base_Property="_7imDAIkDEeC5zsciqtUSLw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvB3sRtEEeWvQYFW8NSCww" base_Property="_P4lrwIkEEeC5zsciqtUSLw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvB3shtEEeWvQYFW8NSCww" base_Property="_dIT1YIkEEeC5zsciqtUSLw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvB3sxtEEeWvQYFW8NSCww" base_Property="_rdDtYIkEEeC5zsciqtUSLw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvCewBtEEeWvQYFW8NSCww" base_Property="_5kwn4IkEEeC5zsciqtUSLw"/>
+  <ECIMBaseProfile:EcimInstances xmi:id="_HzvYkBtEEeWvQYFW8NSCww" base_Package="_DLluEImbEeC5zsciqtUSLw" version="1" release="1" correction="0"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_Hzv_oBtEEeWvQYFW8NSCww" base_InstanceSpecification="_O1MOcImbEeC5zsciqtUSLw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_Hzv_oRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Enumeration="_q1MTMKENEeCMrYFGDJTSDA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HzwmsBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_q1MTMqENEeCMrYFGDJTSDA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HzwmsRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_q1MTNaENEeCMrYFGDJTSDA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HzwmshtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_q1MTOKENEeCMrYFGDJTSDA"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_HzwmsxtEEeWvQYFW8NSCww" hideGroupName="" base_Class="_qwcgYKQeEeCOnvxuUx5QTQ" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HzxNwBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_qwcgYqQeEeCOnvxuUx5QTQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvCewRtEEeWvQYFW8NSCww" base_Property="_qwcgbqQeEeCOnvxuUx5QTQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HzxNwRtEEeWvQYFW8NSCww" base_Property="_qwcgbqQeEeCOnvxuUx5QTQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvCewhtEEeWvQYFW8NSCww" base_Property="_qwcgeKQeEeCOnvxuUx5QTQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HzxNwhtEEeWvQYFW8NSCww" base_Property="_qwcgeKQeEeCOnvxuUx5QTQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvCewxtEEeWvQYFW8NSCww" base_Property="_qwcgh6QeEeCOnvxuUx5QTQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_Hzx00BtEEeWvQYFW8NSCww" base_Property="_qwcgh6QeEeCOnvxuUx5QTQ"/>
+  <CoreMWProfile:CmwClass xmi:id="_HvDF0BtEEeWvQYFW8NSCww" base_Class="_yBlDYIE6EeC4Tq9V97HaFw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_Hzx00RtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_syHh8IJYEeC4Tq9V97HaFw" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_HvDF0RtEEeWvQYFW8NSCww" base_Class="_syHh8IJYEeC4Tq9V97HaFw"/>
+  <CoreMWProfile:CmwClass xmi:id="_HvDF0htEEeWvQYFW8NSCww" base_Class="_qwcgYKQeEeCOnvxuUx5QTQ"/>
+  <CoreMWProfile:CmwClass xmi:id="_HvDF0xtEEeWvQYFW8NSCww" base_Class="_Ux74sIJTEeC4Tq9V97HaFw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_Hzx00htEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_e2k0IIJYEeC4Tq9V97HaFw" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_HvDs4BtEEeWvQYFW8NSCww" base_Class="_e2k0IIJYEeC4Tq9V97HaFw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Hzyb4BtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_7imDAIkDEeC5zsciqtUSLw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Hzyb4RtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_P4lrwIkEEeC5zsciqtUSLw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_Hzyb4htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_KZhjgMdBEeGLz76AwAlVaQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvDs4RtEEeWvQYFW8NSCww" base_Property="_KZhjgMdBEeGLz76AwAlVaQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HzzC8BtEEeWvQYFW8NSCww" hideGroupName="" specification="" isRestricted="true" base_Property="_OgZBIIJeEeCBdspLDGU8wg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HzzC8RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_CB7J8MdCEeGLz76AwAlVaQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvDs4htEEeWvQYFW8NSCww" base_Property="_CB7J8MdCEeGLz76AwAlVaQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HzzC8htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_zhMkEMdEEeGLz76AwAlVaQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvDs4xtEEeWvQYFW8NSCww" base_Property="_zhMkEMdEEeGLz76AwAlVaQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HzzqABtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="__5q8oMdEEeGLz76AwAlVaQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvET8BtEEeWvQYFW8NSCww" base_Property="__5q8oMdEEeGLz76AwAlVaQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HzzqARtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_LA_PUMdFEeGLz76AwAlVaQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvET8RtEEeWvQYFW8NSCww" base_Property="_LA_PUMdFEeGLz76AwAlVaQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HzzqAhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_VmaV4MdFEeGLz76AwAlVaQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvET8htEEeWvQYFW8NSCww" base_Property="_VmaV4MdFEeGLz76AwAlVaQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HzzqAxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_gsfScMdFEeGLz76AwAlVaQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvET8xtEEeWvQYFW8NSCww" base_Property="_gsfScMdFEeGLz76AwAlVaQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Hz0REBtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_dIT1YIkEEeC5zsciqtUSLw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Hz0RERtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_rdDtYIkEEeC5zsciqtUSLw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Hz0REhtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_5kwn4IkEEeC5zsciqtUSLw"/>
+  <CoreMWProfile:CmwClass xmi:id="_HvE7ABtEEeWvQYFW8NSCww" base_Class="_DDeS4IJTEeC4Tq9V97HaFw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_Hz0RExtEEeWvQYFW8NSCww" hideGroupName="" specification="" isRestricted="true" base_Property="_4K0GQIJdEeCBdspLDGU8wg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_Hz04IBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_vj6t0MdSEeGLz76AwAlVaQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvE7ARtEEeWvQYFW8NSCww" base_Property="_vj6t0MdSEeGLz76AwAlVaQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_Hz04IRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" precondition="" sideEffects="" takesEffect="" base_Property="_1w08AMdSEeGLz76AwAlVaQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvE7AhtEEeWvQYFW8NSCww" base_Property="_1w08AMdSEeGLz76AwAlVaQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_Hz04IhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="__jr9MMdSEeGLz76AwAlVaQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvE7AxtEEeWvQYFW8NSCww" base_Property="__jr9MMdSEeGLz76AwAlVaQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_Hz04IxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_MHajgMdTEeGLz76AwAlVaQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvFiEBtEEeWvQYFW8NSCww" base_Property="_MHajgMdTEeGLz76AwAlVaQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_Hz1fMBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" length="1..15" pattern="^[a-zA-Z]+[0-9]*$" base_DataType="_j07BAMdbEeGLz76AwAlVaQ"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_Hz1fMRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" range="1..2048" base_DataType="_x7QCgMdbEeGLz76AwAlVaQ"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_Hz2GQBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" range="0..65535" base_DataType="__rRc0MdbEeGLz76AwAlVaQ"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_Hz2GQRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" range="0..65535" base_DataType="_qF2XEMdcEeGLz76AwAlVaQ"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_Hz2GQhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" range="1..7200" base_DataType="_V0UiIMddEeGLz76AwAlVaQ"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_H0IaIBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" range="1..86400" base_DataType="_2cQnMMdpEeGLz76AwAlVaQ"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_H0JBMBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" range="64..32768" base_DataType="_uat9MMdqEeGLz76AwAlVaQ"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_H0JBMRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" range="0..16777216" base_DataType="_C-AbEMdrEeGLz76AwAlVaQ"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_H0JBMhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_LKf1wMf3EeGdk_xbmJQ8zg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_H0JoQBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_4L-T0M_ZEeGy_eZiDkQwYQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_H0JoQRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_4MEacM_ZEeGy_eZiDkQwYQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_H0JoQhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_HUUzAM_aEeGy_eZiDkQwYQ"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_H0JoQxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_PMzgQM_cEeGy_eZiDkQwYQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_H0KPUBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_PM5m4c_cEeGy_eZiDkQwYQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_H0KPURtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rwEscM_cEeGy_eZiDkQwYQ"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_H0KPUhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" range="0..255" base_DataType="_9RB4gNDeEeG5N8Ba4_HXBQ"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_H0K2YBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" range="512..32768" base_DataType="_SMcigNDfEeG5N8Ba4_HXBQ"/>
+  <CoreMWProfile:CmwMom xmi:id="_HvFiERtEEeWvQYFW8NSCww" base_Package="_yBVy0IE6EeC4Tq9V97HaFw" immNamespace="MOM_NAME"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvFiEhtEEeWvQYFW8NSCww" base_Property="_r3gS4Cf8EeKwQbWvvMx0hA" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_H0K2YRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_r3gS4Cf8EeKwQbWvvMx0hA"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_H0K2YhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_BgCPoCf_EeKwQbWvvMx0hA" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_H0LdcBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" range="1..100" base_DataType="_af0PICo9EeKcv7wtFnaZFQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_H0LdcRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_avt9kGEKEeKf2PmxyIzdfg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvFiExtEEeWvQYFW8NSCww" base_Property="_avt9kGEKEeKf2PmxyIzdfg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_H0LdchtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_g37fcGGuEeKf2PmxyIzdfg" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_H0MEgBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_PP1x8GGvEeKf2PmxyIzdfg" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_H0MEgRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_qgxk0GG1EeKf2PmxyIzdfg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_H0MEghtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="__swaYGG1EeKf2PmxyIzdfg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_H0MEgxtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_RTEpAGSkEeK3d40sJcAnjw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvGJIBtEEeWvQYFW8NSCww" base_Property="_RTEpAGSkEeK3d40sJcAnjw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_H0MrkBtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_x67sAGSkEeK3d40sJcAnjw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvGJIRtEEeWvQYFW8NSCww" base_Property="_x67sAGSkEeK3d40sJcAnjw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_H0MrkRtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" length="1..128" pattern="[a-z]*[\\]*[0-9]*[a-z]*" base_DataType="_bn9jwGSlEeK3d40sJcAnjw"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_H0MrkhtEEeWvQYFW8NSCww" base_InstanceSpecification="_04K5oHVBEeKWC87wTVCCSw"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_H0MrkxtEEeWvQYFW8NSCww" base_InstanceSpecification="_jZw5UHVSEeKWC87wTVCCSw"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_H0NSoBtEEeWvQYFW8NSCww" base_InstanceSpecification="_zFzUYHVSEeKWC87wTVCCSw"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_H0NSoRtEEeWvQYFW8NSCww" base_InstanceSpecification="_-0qvQHVSEeKWC87wTVCCSw"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_H0NSohtEEeWvQYFW8NSCww" base_InstanceSpecification="_KAcEIHVTEeKWC87wTVCCSw"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_H0NSoxtEEeWvQYFW8NSCww" base_InstanceSpecification="_WEzN4HVTEeKWC87wTVCCSw"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_H0N5sBtEEeWvQYFW8NSCww" base_InstanceSpecification="_3RVrQHVTEeKWC87wTVCCSw"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_H0N5sRtEEeWvQYFW8NSCww" base_InstanceSpecification="_1F-xgHVUEeKWC87wTVCCSw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvGJIhtEEeWvQYFW8NSCww" base_Property="_OxNkIHVWEeKWC87wTVCCSw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_H0N5shtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_OxNkIHVWEeKWC87wTVCCSw"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_H0OgwBtEEeWvQYFW8NSCww" base_Dependency="_HDAHcHdoEeKI95dkCMD57g"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_H0OgwRtEEeWvQYFW8NSCww" base_Dependency="_LItYkHdoEeKI95dkCMD57g"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_H0OgwhtEEeWvQYFW8NSCww" base_Dependency="_NQF70HdoEeKI95dkCMD57g"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_H0OgwxtEEeWvQYFW8NSCww" base_Dependency="_PU_y0HdoEeKI95dkCMD57g"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_H0PH0BtEEeWvQYFW8NSCww" base_Dependency="_RZLREHdoEeKI95dkCMD57g"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_H0PH0RtEEeWvQYFW8NSCww" base_Dependency="_UIIxsHdoEeKI95dkCMD57g"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_H0PH0htEEeWvQYFW8NSCww" base_Dependency="_V6jxkHdoEeKI95dkCMD57g"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_H0PH0xtEEeWvQYFW8NSCww" base_Dependency="_XpmtUHdoEeKI95dkCMD57g"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_H0Pu4BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_AJoLsMExEeKZn61hTTn96w"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvGJIxtEEeWvQYFW8NSCww" base_Property="_AJoLsMExEeKZn61hTTn96w" isConfigurable="true"/>
+  <CoreMWProfile:CmwModel xmi:id="_HvGwMBtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_H0Pu4RtEEeWvQYFW8NSCww" base_Class="_yBlDYIE6EeC4Tq9V97HaFw" isSystemCreated="true"/>
+  <CoreMWProfile:CmwContribution xmi:id="_HvGwMRtEEeWvQYFW8NSCww" base_Association="_BgCPoCf_EeKwQbWvvMx0hA"/>
+  <ECIMBaseProfile:EcimGeneralization xmi:id="_H0Pu4htEEeWvQYFW8NSCww" base_Generalization="_bz2MMC1HEeSZ68tpNAKG2g"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_H0QV8BtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="hidden" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_uGUI4G8wEeS4i-x4fbss1w"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvGwMhtEEeWvQYFW8NSCww" base_Property="_uGUI4G8wEeS4i-x4fbss1w" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvHXQBtEEeWvQYFW8NSCww" base_Property="_yB07AIE6EeC4Tq9V97HaFw" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvHXQRtEEeWvQYFW8NSCww" base_Property="_DD8M8IJTEeC4Tq9V97HaFw" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvHXQhtEEeWvQYFW8NSCww" base_Property="_UyQBwIJTEeC4Tq9V97HaFw" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvHXQxtEEeWvQYFW8NSCww" base_Property="_e3CuMIJYEeC4Tq9V97HaFw" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvH-UBtEEeWvQYFW8NSCww" base_Property="_syiYsIJYEeC4Tq9V97HaFw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HvH-URtEEeWvQYFW8NSCww" base_Property="_qwcgYqQeEeCOnvxuUx5QTQ" isPersistent="true"/>
+  <Documentation:Documentation xmi:id="_7nfeIBtDEeWvQYFW8NSCww" base_Comment="_1-YFkIE5EeC4Tq9V97HaFw"/>
+  <Documentation:Documentation xmi:id="_7nfeIRtDEeWvQYFW8NSCww" base_Comment="_yBY2IYE6EeC4Tq9V97HaFw"/>
+  <Documentation:Documentation xmi:id="_7nfeIxtDEeWvQYFW8NSCww" base_Comment="_yB3-UYE6EeC4Tq9V97HaFw"/>
+  <Documentation:Documentation xmi:id="_7nfeJBtDEeWvQYFW8NSCww" base_Comment="_DDhWMYJTEeC4Tq9V97HaFw"/>
+  <Documentation:Documentation xmi:id="_7nfeJRtDEeWvQYFW8NSCww" base_Comment="_DD_QQYJTEeC4Tq9V97HaFw"/>
+  <Documentation:Documentation xmi:id="_7nfeJhtDEeWvQYFW8NSCww" base_Comment="_Ux-8AYJTEeC4Tq9V97HaFw"/>
+  <Documentation:Documentation xmi:id="_7nfeJxtDEeWvQYFW8NSCww" base_Comment="_UyTFEYJTEeC4Tq9V97HaFw"/>
+  <Documentation:Documentation xmi:id="_7nfeKBtDEeWvQYFW8NSCww" base_Comment="_e2oegIJYEeC4Tq9V97HaFw"/>
+  <Documentation:Documentation xmi:id="_7nfeKRtDEeWvQYFW8NSCww" base_Comment="_e3INwYJYEeC4Tq9V97HaFw"/>
+  <Documentation:Documentation xmi:id="_7nfeKhtDEeWvQYFW8NSCww" base_Comment="_syKlQIJYEeC4Tq9V97HaFw"/>
+  <Documentation:Documentation xmi:id="_7nfeKxtDEeWvQYFW8NSCww" base_Comment="_sylcAIJYEeC4Tq9V97HaFw"/>
+  <Documentation:Documentation xmi:id="_7nfeLBtDEeWvQYFW8NSCww" base_Comment="_4K3JkoJdEeCBdspLDGU8wg"/>
+  <Documentation:Documentation xmi:id="_7nfeLRtDEeWvQYFW8NSCww" base_Comment="_OgcrgIJeEeCBdspLDGU8wg"/>
+  <Documentation:Documentation xmi:id="_7nfeLhtDEeWvQYFW8NSCww" base_Comment="_nI2gMoMEEeCBdspLDGU8wg"/>
+  <Documentation:Documentation xmi:id="_7nfeLxtDEeWvQYFW8NSCww" base_Comment="_7ipGUokDEeC5zsciqtUSLw"/>
+  <Documentation:Documentation xmi:id="_7nfeMBtDEeWvQYFW8NSCww" base_Comment="_P4ovE4kEEeC5zsciqtUSLw"/>
+  <Documentation:Documentation xmi:id="_7nfeMRtDEeWvQYFW8NSCww" base_Comment="_dIW4sYkEEeC5zsciqtUSLw"/>
+  <Documentation:Documentation xmi:id="_7nfeMhtDEeWvQYFW8NSCww" base_Comment="_rdGwsYkEEeC5zsciqtUSLw"/>
+  <Documentation:Documentation xmi:id="_7nfeMxtDEeWvQYFW8NSCww" base_Comment="_5kzEI4kEEeC5zsciqtUSLw"/>
+  <Documentation:Documentation xmi:id="_7nfeNBtDEeWvQYFW8NSCww" base_Comment="_q1MTMaENEeCMrYFGDJTSDA"/>
+  <Documentation:Documentation xmi:id="_7nfeNRtDEeWvQYFW8NSCww" base_Comment="_q1MTM6ENEeCMrYFGDJTSDA"/>
+  <Documentation:Documentation xmi:id="_7nfeNhtDEeWvQYFW8NSCww" base_Comment="_q1MTNqENEeCMrYFGDJTSDA"/>
+  <Documentation:Documentation xmi:id="_7nfeNxtDEeWvQYFW8NSCww" base_Comment="_q1MTOaENEeCMrYFGDJTSDA"/>
+  <Documentation:Documentation xmi:id="_7nfeORtDEeWvQYFW8NSCww" base_Comment="_qwcgYaQeEeCOnvxuUx5QTQ"/>
+  <Documentation:Documentation xmi:id="_7nfeOhtDEeWvQYFW8NSCww" base_Comment="_qwcgY6QeEeCOnvxuUx5QTQ"/>
+  <Documentation:Documentation xmi:id="_7nfeOxtDEeWvQYFW8NSCww" base_Comment="_qwcgb6QeEeCOnvxuUx5QTQ"/>
+  <Documentation:Documentation xmi:id="_7nfePBtDEeWvQYFW8NSCww" base_Comment="_qwcgeaQeEeCOnvxuUx5QTQ"/>
+  <Documentation:Documentation xmi:id="_7nfePRtDEeWvQYFW8NSCww" base_Comment="_qwcgiKQeEeCOnvxuUx5QTQ"/>
+  <Documentation:Documentation xmi:id="_7nfeQBtDEeWvQYFW8NSCww" base_Comment="_CB-0UsdCEeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeQRtDEeWvQYFW8NSCww" base_Comment="_zhQOcMdEEeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeQhtDEeWvQYFW8NSCww" base_Comment="__5unAMdEEeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeQxtDEeWvQYFW8NSCww" base_Comment="_LBC5sMdFEeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeRBtDEeWvQYFW8NSCww" base_Comment="_VmdZMsdFEeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeRRtDEeWvQYFW8NSCww" base_Comment="_gsiVwMdFEeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeRhtDEeWvQYFW8NSCww" base_Comment="_vj9xIcdSEeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeRxtDEeWvQYFW8NSCww" base_Comment="_1w3_UsdSEeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeSBtDEeWvQYFW8NSCww" base_Comment="__jvAgcdSEeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeSRtDEeWvQYFW8NSCww" base_Comment="_MHeN4cdTEeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeSxtDEeWvQYFW8NSCww" base_Comment="_j0-EUcdbEeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeTBtDEeWvQYFW8NSCww" base_Comment="_qF5aYcdcEeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeTRtDEeWvQYFW8NSCww" base_Comment="_V0XlcMddEeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeThtDEeWvQYFW8NSCww" base_Comment="_PhtfIMdeEeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeTxtDEeWvQYFW8NSCww" base_Comment="_Q9nccMdeEeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeUBtDEeWvQYFW8NSCww" base_Comment="_2cTqgcdpEeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeURtDEeWvQYFW8NSCww" base_Comment="_uaxAgcdqEeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeUhtDEeWvQYFW8NSCww" base_Comment="_C-DeYcdrEeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeUxtDEeWvQYFW8NSCww" base_Comment="_IFXZoMdvEeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeVBtDEeWvQYFW8NSCww" base_Comment="_T_VfAMd0EeGLz76AwAlVaQ"/>
+  <Documentation:Documentation xmi:id="_7nfeVRtDEeWvQYFW8NSCww" base_Comment="_4MBXIc_ZEeGy_eZiDkQwYQ"/>
+  <Documentation:Documentation xmi:id="_7nfeVhtDEeWvQYFW8NSCww" base_Comment="_HUYdYc_aEeGy_eZiDkQwYQ"/>
+  <Documentation:Documentation xmi:id="_7nfeVxtDEeWvQYFW8NSCww" base_Comment="_JlXBgM_aEeGy_eZiDkQwYQ"/>
+  <Documentation:Documentation xmi:id="_7nfeWBtDEeWvQYFW8NSCww" base_Comment="_PM2jkc_cEeGy_eZiDkQwYQ"/>
+  <Documentation:Documentation xmi:id="_7nfeWRtDEeWvQYFW8NSCww" base_Comment="_lZtAQM_cEeGy_eZiDkQwYQ"/>
+  <Documentation:Documentation xmi:id="_7nfeWhtDEeWvQYFW8NSCww" base_Comment="_rwHvwc_cEeGy_eZiDkQwYQ"/>
+  <Documentation:Documentation xmi:id="_7nfeWxtDEeWvQYFW8NSCww" base_Comment="_9RE70NDeEeG5N8Ba4_HXBQ"/>
+  <Documentation:Documentation xmi:id="_7nfeXBtDEeWvQYFW8NSCww" base_Comment="_SMgM4dDfEeG5N8Ba4_HXBQ"/>
+  <Documentation:Documentation xmi:id="_7nfeXRtDEeWvQYFW8NSCww" base_Comment="_7C9JYCf8EeKwQbWvvMx0hA"/>
+  <Documentation:Documentation xmi:id="_7nfeXhtDEeWvQYFW8NSCww" base_Comment="_af0PISo9EeKcv7wtFnaZFQ"/>
+  <Documentation:Documentation xmi:id="_7nfeXxtDEeWvQYFW8NSCww" base_Comment="_avyPAmEKEeKf2PmxyIzdfg"/>
+  <Documentation:Documentation xmi:id="_7nfeYBtDEeWvQYFW8NSCww" base_Comment="_lJWacGSlEeK3d40sJcAnjw"/>
+  <Documentation:Documentation xmi:id="_7nfeYRtDEeWvQYFW8NSCww" base_Comment="_1lqb4GSlEeK3d40sJcAnjw"/>
+  <Documentation:Documentation xmi:id="_7nfeYhtDEeWvQYFW8NSCww" base_Comment="_23q2UGSlEeK3d40sJcAnjw"/>
+  <Documentation:Documentation xmi:id="_7nfeYxtDEeWvQYFW8NSCww" base_Comment="_OxR1kXVWEeKWC87wTVCCSw"/>
+  <Documentation:Documentation xmi:id="_7nfeZBtDEeWvQYFW8NSCww" base_Comment="_AJuSUMExEeKZn61hTTn96w"/>
+  <Documentation:Documentation xmi:id="_7nfeZRtDEeWvQYFW8NSCww" base_Comment="_uGnq4G8wEeS4i-x4fbss1w"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_GS44QMUWEeW_V_4toor9vg" base_Package="_GSyKkMUWEeW_V_4toor9vg"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_GS--4MUWEeW_V_4toor9vg" base_Class="_GS5fUMUWEeW_V_4toor9vg"/>
+  <ECIMBaseProfile:EcimFeatures xmi:id="_H-7jUMUWEeW_V_4toor9vg" base_Package="_H-01oMUWEeW_V_4toor9vg"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_H_Bp8MUWEeW_V_4toor9vg" base_Class="_H-8KYMUWEeW_V_4toor9vg"/>
+</xmi:XMI>

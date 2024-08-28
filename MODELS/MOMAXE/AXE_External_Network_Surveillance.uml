@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="AxeExtNetworkSurveillance">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NRAMoQwOEdmFcaeZXPdWAQ" source="uml2.diagrams"/>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NYQo0WvBEeK_psk_X1_33w" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NYQo0mvBEeK_psk_X1_33w" key="com.ericsson.ecim.coremw.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_SmBuMGvBEeK_psk_X1_33w" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>&lt;p>AXE External Network Surveillance Model&lt;/p></body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_8JbBoIW5Ed-FBpQGdJXi3g">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OS1OUIXLEd-lToFzlKoOsA" name="" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_hEEKYIKREeK3wcU1QErItg" name="AxeExtNetworkSurveillance">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hEEx54KREeK3wcU1QErItg" annotatedElement="_hEEKYIKREeK3wcU1QErItg">
+        <body>Network Surveillance Management function MOM.</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hEEx6IKREeK3wcU1QErItg" name="ExternalNetworkSurveillanceM">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hEEx6YKREeK3wcU1QErItg" source="uml2.diagrams"/>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hEEx6oKREeK3wcU1QErItg" annotatedElement="_hEEx6IKREeK3wcU1QErItg">
+          <body>Represents the root MOC for Network Surveillance Management function MOM.
+Network Surveillance Management function pings all default gateways for the network adapter used for external communication.
+If PS is configured, gateway configured on the separated network are monitored as well.
+Alarms are raised when routers not responding and a failover is requested when none of the routers responds to the active node.
+If PS is configured, the failover algorithm is based on a configurable parameter that sets a priority between the two external networks.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hEEx64KREeK3wcU1QErItg" name="isSurveillanceActive" visibility="public" type="_hEEyL4KREeK3wcU1QErItg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hEEx7IKREeK3wcU1QErItg" annotatedElement="_hEEx64KREeK3wcU1QErItg">
+            <body>Specifies the current status of Network Surveillance Management function.
+Default value is YES, meaning that external network surveillance is active after first APG installation.
+In BSP default value is NO, meaning that external network surveillance is not active.
+
+The modification can fail due to one of the following reasons:
+Not allowed operation for this system configuration: The attribute change is not allowed in BSP.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mylQwFv4EeOrdvfhgXt3gQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hEEx7YKREeK3wcU1QErItg" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_hEEx74KREeK3wcU1QErItg" name="YES" instance="_hEEyMYKREeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hEEx8IKREeK3wcU1QErItg" name="failoverCount" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hEEx8YKREeK3wcU1QErItg" annotatedElement="_hEEx8IKREeK3wcU1QErItg">
+            <body>Specifies the number of performed failovers.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ojEhsFweEeOrdvfhgXt3gQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hEEx84KREeK3wcU1QErItg" name="externalNetworkSurveillanceMId" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hEEx9IKREeK3wcU1QErItg" annotatedElement="_hEEx84KREeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hEEx9YKREeK3wcU1QErItg" name="failoverPriority" type="_hEEyJ4KREeK3wcU1QErItg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hEEx9oKREeK3wcU1QErItg" annotatedElement="_hEEx9YKREeK3wcU1QErItg">
+            <body>Specifies the public network to be prioritized by the failover algorithm in case physical separation support is configured.
+By default, public network on ETH0/ETH1 has higher priority than the physically separated public network.
+In BSP, no physical separation support can be configured, hence this attribute cannot be modified.
+
+A failover is performed during the following conditions
+(a) If the routers connected to the prioritized network are not responding 
+on the active node but are responding on passive node, the failover is ordered. 
+(b) If the not prioritized network is not receiving response by its routers on active node, the failover is ordered only if on passive node both networks are receiving response by the respective routers.
+(c) If both networks are not working on the active node the failover is ordered only if at least 
+one network is receiving response by the respective routers on passive node.
+
+The modification can fail due to one of the following reasons:
+Not allowed operation for this system configuration: The attribute change is not allowed in BSP or when PS support is not configured.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iztAYFv4EeOrdvfhgXt3gQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hEEx94KREeK3wcU1QErItg" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_hEEx-YKREeK3wcU1QErItg" name="PUBLIC_NET" instance="_hEEyKYKREeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_uU6jIDK3EeSyftCCr8VQCA" name="Nsf_to_Par" visibility="public" type="_hEEyNYKREeK3wcU1QErItg" aggregation="composite" association="_uU58EDK3EeSyftCCr8VQCA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uU9mcTK3EeSyftCCr8VQCA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uU9mcDK3EeSyftCCr8VQCA" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_hEEx_YKREeK3wcU1QErItg" name="resetFailoverCount">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hEEx_oKREeK3wcU1QErItg" annotatedElement="_hEEx_YKREeK3wcU1QErItg">
+            <body>Resets the attribute failoverCount to zero.
+Whenever Network Surveillance Management function triggers a failover the attribute failoverCount is incremented
+and no other failover is performed for 60 minutes post the failover trigger time.
+After 60 minutes, the attribute failoverCount is reset to zero and a new failover might be triggered.
+The action allows resetting the attribute without waiting 60 minutes.
+The action is not allowed in BSP.
+
+The action can fail due to one of the following reasons:
+Not allowed operation for this system configuration : The action is not allowed in BSP.</body>
+          </ownedComment>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_hEEx_4KREeK3wcU1QErItg" name="Instances">
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_hEEyHIKREeK3wcU1QErItg" name="ensRootObj" classifier="_hEEx6IKREeK3wcU1QErItg">
+          <slot xmi:type="uml:Slot" xmi:id="_hEEyHYKREeK3wcU1QErItg" definingFeature="_hEEx84KREeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralString" xmi:id="_hEEyHoKREeK3wcU1QErItg" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_hEEyH4KREeK3wcU1QErItg" name="networkSurveillanceParametersInstance" classifier="_hEEyNYKREeK3wcU1QErItg">
+          <slot xmi:type="uml:Slot" xmi:id="_hEEyIIKREeK3wcU1QErItg" definingFeature="_hEEyR4KREeK3wcU1QErItg">
+            <value xmi:type="uml:InstanceValue" xmi:id="_hEEyIYKREeK3wcU1QErItg" type="_hEEyL4KREeK3wcU1QErItg" instance="_hEEyMYKREeK3wcU1QErItg"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_hEEyIoKREeK3wcU1QErItg" definingFeature="_hEEyTIKREeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralString" xmi:id="_hEEyI4KREeK3wcU1QErItg" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_hEEyJIKREeK3wcU1QErItg" definingFeature="_hEEyUIKREeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_hEEyJYKREeK3wcU1QErItg">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_hEEyJoKREeK3wcU1QErItg" client="_hEEyH4KREeK3wcU1QErItg" supplier="_hEEyHIKREeK3wcU1QErItg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_hEEyJ4KREeK3wcU1QErItg" name="PriorityType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hEEyKIKREeK3wcU1QErItg" annotatedElement="_hEEyJ4KREeK3wcU1QErItg">
+          <body>Lists the possible failover algorithms used to supervise the APG network in case the physical separation support is configured.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hEEyKYKREeK3wcU1QErItg" name="PUBLIC_NET">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hEEyKoKREeK3wcU1QErItg" annotatedElement="_hEEyKYKREeK3wcU1QErItg">
+            <body>The public network connected to NIC(s) ETH0/ETH1 has higher priority than the one connected to NIC ETH2 in the failover algorithm. A failover is ordered only in case the network on ETH0/ETH1 is still reachable by APG.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_hEEyK4KREeK3wcU1QErItg"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hEEyLIKREeK3wcU1QErItg" name="PUBLIC2_NET">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hEEyLYKREeK3wcU1QErItg" annotatedElement="_hEEyLIKREeK3wcU1QErItg">
+            <body>The public network connected to NIC(s) ETH2 has higher priority than the one connected to NIC ETH0/ETH1 in the failover algorithm. A failover is ordered only in case the network on ETH2 is still reachable by APG.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_hEEyLoKREeK3wcU1QErItg" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_hEEyL4KREeK3wcU1QErItg" name="StatusType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hEEyMIKREeK3wcU1QErItg" annotatedElement="_hEEyL4KREeK3wcU1QErItg">
+          <body>StatusType is an enumeration having values NO and YES.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hEEyMYKREeK3wcU1QErItg" name="YES">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_hEEyMoKREeK3wcU1QErItg" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hEEyM4KREeK3wcU1QErItg" name="NO">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_hEEyNIKREeK3wcU1QErItg"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hEEyNYKREeK3wcU1QErItg" name="NetworkSurveillanceParameters">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hEEyNoKREeK3wcU1QErItg" annotatedElement="_hEEyNYKREeK3wcU1QErItg">
+          <body>This class holds the Network surveillance parameters.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_RiRRwMQZEeWHWfw_NwU0PQ" constrainedElement="_hEEyN4KREeK3wcU1QErItg _hEEyH4KREeK3wcU1QErItg _hEEyJoKREeK3wcU1QErItg _hEEyNYKREeK3wcU1QErItg _uU6jIDK3EeSyftCCr8VQCA _uU7xQTK3EeSyftCCr8VQCA _uU58EDK3EeSyftCCr8VQCA _hEEyUIKREeK3wcU1QErItg _hEEyP4KREeK3wcU1QErItg _hEEyQ4KREeK3wcU1QErItg _hEEyR4KREeK3wcU1QErItg _hEEyO4KREeK3wcU1QErItg">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_RiR40MQZEeWHWfw_NwU0PQ">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hEEyN4KREeK3wcU1QErItg" name="routerResponse">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hEEyOIKREeK3wcU1QErItg" annotatedElement="_hEEyN4KREeK3wcU1QErItg">
+            <body>If pinging of the gateway fails consecutively for above mentioned number of times then the gateway is considered as not reachable and alarm is raised.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hEEyOYKREeK3wcU1QErItg"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_hEEyOoKREeK3wcU1QErItg" value="5"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hEEyO4KREeK3wcU1QErItg" name="resetTime">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hEEyPIKREeK3wcU1QErItg" annotatedElement="_hEEyO4KREeK3wcU1QErItg">
+            <body>This parameter specifies time interval in minutes after which the failover count is reset.
+If the difference between last failover time and current time exceeds resetTime, then failoverCount attribute is reset to zero by External Network Surveillance Service.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hEEyPYKREeK3wcU1QErItg"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_hEEyPoKREeK3wcU1QErItg" value="60"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hEEyP4KREeK3wcU1QErItg" name="pingPeriod">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hEEyQIKREeK3wcU1QErItg" annotatedElement="_hEEyP4KREeK3wcU1QErItg">
+            <body>This parameter specifies the surveillance frequency in seconds.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hEEyQYKREeK3wcU1QErItg"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_hEEyQoKREeK3wcU1QErItg" value="60"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hEEyQ4KREeK3wcU1QErItg" name="maxFailoverAttempts">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hEEyRIKREeK3wcU1QErItg" annotatedElement="_hEEyQ4KREeK3wcU1QErItg">
+            <body>This parameter specifies the maximum number of failovers that can be allowed to perform by External Network Surveillance Service.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hEEyRYKREeK3wcU1QErItg"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_hEEyRoKREeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hEEyR4KREeK3wcU1QErItg" name="isSurveillanceEnabled" type="_hEEyL4KREeK3wcU1QErItg" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hEEySIKREeK3wcU1QErItg" annotatedElement="_hEEyR4KREeK3wcU1QErItg">
+            <body>This parameter specifies current status of External Network Surveillance.
+If isSurveillanceEnabled is YES and isSurveillanceActive is YES, External Network Surveillance activity is enabled.
+If isSurveillanceEnabled is NO, External Network Surveillance activity is disabled.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hEEySoKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hEEySYKREeK3wcU1QErItg" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_hEEyS4KREeK3wcU1QErItg" name="YES" instance="_hEEyMYKREeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hEEyTIKREeK3wcU1QErItg" name="networkSurveillanceParametersId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hEEyTYKREeK3wcU1QErItg" annotatedElement="_hEEyTIKREeK3wcU1QErItg">
+            <body>Key attribute for the class NetworkSurveillanceParameters</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hEEyT4KREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hEEyToKREeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hEEyUIKREeK3wcU1QErItg" name="failoverCount" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hEEyUYKREeK3wcU1QErItg" annotatedElement="_hEEyUIKREeK3wcU1QErItg">
+            <body>This parameter specifies the number of failovers performed by External Network Survellience Service</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hEEyU4KREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hEEyUoKREeK3wcU1QErItg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_hEEyVIKREeK3wcU1QErItg"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_hEEyVYKREeK3wcU1QErItg" name="SuperVisionHandling_to_ExternalNetworkSurveillance" memberEnd="_hEEx-oKREeK3wcU1QErItg _hEEyVoKREeK3wcU1QErItg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_hEEyVoKREeK3wcU1QErItg" name="externalNetworkSurveillance" visibility="public" type="_hEEx6IKREeK3wcU1QErItg" aggregation="composite" association="_hEEyVYKREeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hEEyWIKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hEEyV4KREeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_hEEx-oKREeK3wcU1QErItg" name="superVisionHandling" visibility="public" association="_hEEyVYKREeK3wcU1QErItg">
+          <type xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hEEx_IKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hEEx-4KREeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_uU58EDK3EeSyftCCr8VQCA" name="NsfParam_to_NsfM" memberEnd="_uU6jIDK3EeSyftCCr8VQCA _uU7xQTK3EeSyftCCr8VQCA">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_uU7xQTK3EeSyftCCr8VQCA" name="Nsf_to_Par" visibility="public" type="_hEEx6IKREeK3wcU1QErItg" association="_uU58EDK3EeSyftCCr8VQCA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uVKawTK3EeSyftCCr8VQCA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uVKawDK3EeSyftCCr8VQCA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_IJ1iwMQZEeWHWfw_NwU0PQ" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_IJ83gMQZEeWHWfw_NwU0PQ" name="NATIVE"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_xNCBIMg8EeWSN5hWjYHzjg" client="_IJ83gMQZEeWHWfw_NwU0PQ" supplier="_KGAUgMQZEeWHWfw_NwU0PQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_KF4YsMQZEeWHWfw_NwU0PQ" name="Features">
+        <packagedElement xmi:type="uml:Class" xmi:id="_KGAUgMQZEeWHWfw_NwU0PQ" name="CPI_HIDDEN"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_cikwQHVqEeCBgp9CYCosRQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FwMgUCo7EeuHNtpH3nGt-Q" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FwMgUSo7EeuHNtpH3nGt-Q" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FwMgUio7EeuHNtpH3nGt-Q" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FwMgUyo7EeuHNtpH3nGt-Q" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FwMgVCo7EeuHNtpH3nGt-Q" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FwMgVSo7EeuHNtpH3nGt-Q" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ciq24HVqEeCBgp9CYCosRQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_NZTxsGvBEeK_psk_X1_33w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qZoqEN6MEeehtLhJYaltnA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qZoqEd6MEeehtLhJYaltnA" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qZoqEt6MEeehtLhJYaltnA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qZoqE96MEeehtLhJYaltnA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qZoqFN6MEeehtLhJYaltnA" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qZoqFd6MEeehtLhJYaltnA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0bhZMMPGEee-MNJ3JBpygA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0bhZMcPGEee-MNJ3JBpygA" key="Version" value="1.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0bhZMsPGEee-MNJ3JBpygA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0bhZM8PGEee-MNJ3JBpygA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0bhZNMPGEee-MNJ3JBpygA" key="Date" value="2016-02-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0bhZNcPGEee-MNJ3JBpygA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NwF6AGvBEeK_psk_X1_33w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_ImHQsBtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="Managed Object Model for Network Surveillance Management Function" subTitle=" " docNo="19089-CXA 117 0035/5" docRev="D" createdBy="XHARBAV" docLang="Uen" docDate="2020-12-14"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_ImH3wRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Package="_hEEKYIKREeK3wcU1QErItg" author="Harika Bavana" contact="XHARBAV" date="2020-12-14" docNo="" revision="" version="2" release="2" organization="" correction="0"/>
+  <CoreMWProfile:CmwMom xmi:id="_IiKk0BtEEeWvQYFW8NSCww" base_Package="_hEEKYIKREeK3wcU1QErItg" immNamespace="MOM_NAME"/>
+  <CoreMWProfile:CmwClass xmi:id="_IiLL4BtEEeWvQYFW8NSCww" base_Class="_hEEx6IKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_ImIe0BtEEeWvQYFW8NSCww" hideGroupName="" specification="" isNotifiable="true" base_Property="_hEEx64KREeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IiLL4htEEeWvQYFW8NSCww" base_Property="_hEEx64KREeK3wcU1QErItg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IiLL4xtEEeWvQYFW8NSCww" base_Property="_hEEx8IKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_ImJF4BtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_hEEx8IKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_ImJF4RtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_hEEx84KREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_ImJs8BtEEeWvQYFW8NSCww" hideGroupName="" specification="" isNotifiable="true" base_Property="_hEEx9YKREeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IiLy8BtEEeWvQYFW8NSCww" base_Property="_hEEx9YKREeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_ImJs8htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Operation="_hEEx_YKREeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAction xmi:id="_IiLy8RtEEeWvQYFW8NSCww" base_Operation="_hEEx_YKREeK3wcU1QErItg" admOpId="1"/>
+  <ECIMBaseProfile:EcimInstances xmi:id="_ImKUABtEEeWvQYFW8NSCww" base_Package="_hEEx_4KREeK3wcU1QErItg" version="1" release="0" correction="0"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_ImKUARtEEeWvQYFW8NSCww" base_InstanceSpecification="_hEEyHIKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_ImKUAhtEEeWvQYFW8NSCww" base_InstanceSpecification="_hEEyH4KREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_ImK7EBtEEeWvQYFW8NSCww" base_Dependency="_hEEyJoKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_ImK7ERtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_hEEyJ4KREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_ImLiIBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_hEEyKYKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_ImLiIRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_hEEyLIKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_ImLiIhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_hEEyL4KREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_ImMJMBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_hEEyMYKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_ImMJMRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_hEEyM4KREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_ImMJMhtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" base_Class="_hEEyNYKREeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwClass xmi:id="_IiLy8htEEeWvQYFW8NSCww" base_Class="_hEEyNYKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_ImMwQBtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" dependencies="" base_Property="_hEEyN4KREeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IiMaABtEEeWvQYFW8NSCww" base_Property="_hEEyN4KREeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_ImMwQRtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" base_Property="_hEEyO4KREeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IiMaARtEEeWvQYFW8NSCww" base_Property="_hEEyO4KREeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_ImMwQhtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" base_Property="_hEEyP4KREeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IiMaAhtEEeWvQYFW8NSCww" base_Property="_hEEyP4KREeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_ImNXUBtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" base_Property="_hEEyQ4KREeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IiMaAxtEEeWvQYFW8NSCww" base_Property="_hEEyQ4KREeK3wcU1QErItg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IiNBEBtEEeWvQYFW8NSCww" base_Property="_hEEyR4KREeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_ImNXURtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" base_Property="_hEEyR4KREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_ImNXUhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_hEEyTIKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_ImNXUxtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" base_Property="_hEEyUIKREeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IiNBERtEEeWvQYFW8NSCww" base_Property="_hEEyUIKREeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_ImN-YBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_hEEyVYKREeK3wcU1QErItg" isNotifiable="true"/>
+  <CoreMWProfile:CmwModel xmi:id="_IiNBEhtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwContribution xmi:id="_IiNoIBtEEeWvQYFW8NSCww" base_Association="_hEEyVYKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_ImN-YRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_hEEx6IKREeK3wcU1QErItg" isLegacyRoot="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_ImN-YhtEEeWvQYFW8NSCww" hideGroupName="HIDDEN" specification="" statusInformation="" base_Association="_uU58EDK3EeSyftCCr8VQCA" isNotifiable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IiNoIRtEEeWvQYFW8NSCww" base_Property="_hEEx84KREeK3wcU1QErItg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IiNoIxtEEeWvQYFW8NSCww" base_Property="_hEEyTIKREeK3wcU1QErItg" isPersistent="true"/>
+  <Documentation:Documentation xmi:id="_760p0BtDEeWvQYFW8NSCww" base_Comment="_SmBuMGvBEeK_psk_X1_33w"/>
+  <Documentation:Documentation xmi:id="_760p0RtDEeWvQYFW8NSCww" base_Comment="_hEEx54KREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_760p0htDEeWvQYFW8NSCww" base_Comment="_hEEx6oKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_760p0xtDEeWvQYFW8NSCww" base_Comment="_hEEx7IKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_760p1BtDEeWvQYFW8NSCww" base_Comment="_hEEx8YKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_760p1RtDEeWvQYFW8NSCww" base_Comment="_hEEx9IKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_760p1htDEeWvQYFW8NSCww" base_Comment="_hEEx9oKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_760p1xtDEeWvQYFW8NSCww" base_Comment="_hEEx_oKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_760p2BtDEeWvQYFW8NSCww" base_Comment="_hEEyKIKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_760p2RtDEeWvQYFW8NSCww" base_Comment="_hEEyKoKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_760p2htDEeWvQYFW8NSCww" base_Comment="_hEEyLYKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_760p2xtDEeWvQYFW8NSCww" base_Comment="_hEEyMIKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_760p3BtDEeWvQYFW8NSCww" base_Comment="_hEEyNoKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_760p3RtDEeWvQYFW8NSCww" base_Comment="_hEEyOIKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_760p3htDEeWvQYFW8NSCww" base_Comment="_hEEyPIKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_760p3xtDEeWvQYFW8NSCww" base_Comment="_hEEyQIKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_760p4BtDEeWvQYFW8NSCww" base_Comment="_hEEyRIKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_760p4RtDEeWvQYFW8NSCww" base_Comment="_hEEySIKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_760p4htDEeWvQYFW8NSCww" base_Comment="_hEEyTYKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_760p4xtDEeWvQYFW8NSCww" base_Comment="_hEEyUYKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_IJ8QcMQZEeWHWfw_NwU0PQ" base_Package="_IJ1iwMQZEeWHWfw_NwU0PQ"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_IKBwAMQZEeWHWfw_NwU0PQ" base_Class="_IJ83gMQZEeWHWfw_NwU0PQ"/>
+  <ECIMBaseProfile:EcimFeatures xmi:id="_KF_tcMQZEeWHWfw_NwU0PQ" base_Package="_KF4YsMQZEeWHWfw_NwU0PQ"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_KGF0EMQZEeWHWfw_NwU0PQ" base_Class="_KGAUgMQZEeWHWfw_NwU0PQ"/>
+</xmi:XMI>

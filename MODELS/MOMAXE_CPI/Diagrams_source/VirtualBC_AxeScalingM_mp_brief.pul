@@ -1,0 +1,39 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/Virtual_N-1_AxeScalingManagement_mp_brief.svg
+
+top to bottom direction
+hide circle
+hide class members
+hide enum methods
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+
+''Class and Enum
+class "SysM" as ComSysM__SysM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20SysM]] 
+class "CrM" as ComSysM__CrM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20CrM]] 
+class "ComputeResourceRole" as ComSysM__ComputeResourceRole [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20ComputeResourceRole]] 
+class "Role" as ComSysM__Role [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20Role]] 
+'''show ComSysM__CrM attributes
+'''show ComSysM__ComputeResourceRole attributes
+'''show ComSysM__Role attributes
+''Class - Attributes
+'''ComSysM__CrM : <<Id>> crMId : string [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM.crMId?title=class%20CrM]] 
+'''ComSysM__ComputeResourceRole : <<Id>> computeResourceRoleId : string [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM.computeResourceRoleId?title=class%20ComputeResourceRole]] 
+'''ComSysM__ComputeResourceRole : <<RW>> provides : ManagedObject [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM.provides?title=class%20ComputeResourceRole]] 
+'''ComSysM__ComputeResourceRole : <<RO>> uses : ManagedObject [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM.uses?title=class%20ComputeResourceRole]] 
+'''ComSysM__Role : <<Id>> roleId : string [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM.roleId?title=class%20Role]] 
+'''ComSysM__Role : <<RO>> isProvidedBy : ManagedObject[*] [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM.isProvidedBy?title=class%20Role]] 
+''Class - Compositions
+ComSysM__SysM *-- "1" ComSysM__CrM
+ComSysM__CrM *-- "*" ComSysM__ComputeResourceRole
+ComSysM__CrM *-- "*" ComSysM__Role
+''Class - Associations
+ComSysM__ComputeResourceRole "*" -- "0..1" ComSysM__Role
+
+@enduml 

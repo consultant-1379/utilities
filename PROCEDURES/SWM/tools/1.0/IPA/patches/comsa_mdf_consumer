@@ -1,0 +1,351 @@
+#! /bin/sh
+## Copyright (C) 2011 by Ericsson AB
+## S - 125 26  STOCKHOLM
+## SWEDEN, tel int + 46 10 719 0000
+##
+## The copyright to the computer program herein is the property of
+## Ericsson AB. The program may be used and/or copied only with the
+## written permission from Ericsson AB, or in accordance with the terms
+## and conditions stipulated in the agreement/contract under which the
+## program has been supplied.
+##
+## All rights reserved.
+##
+##  Author ejnolsz 2012-09-07
+##
+
+## example-model-consumer <modeltype> {done|{add|delete|modify} <model>}
+##   example-consumer callbackScript
+##
+##   add <model>: add model to consumer
+##   done: cleans up the <modeltype> temporary data-area
+##   modify <model>: modify existing consumer model
+##   modeltype: Example Model type
+##   delete <model>: delete model from consumer
+##   model: the model file is piped via stdin
+##
+##   Exit codes:
+##               0 - OK
+##               1 - Consumer Not Ready
+##               2 - Model Error
+##
+
+# Set defaults
+READTIMEOUT=30
+
+MODELERROR=2
+TAG=COMSA_MDF_CONSUMER
+
+model_type=$1
+action=$2
+tmpDir=/opt/comsa/mdf_temp_$model_type
+model_file=$tmpDir/model
+storage=/home/comsa
+PERSISTENT_STORAGE_API="/usr/share/pso/storage-paths"
+PERSISTENT_STORAGE_API_CONFIG="${PERSISTENT_STORAGE_API}/config"
+PERSISTENT_STORAGE_API_SOFTWARE="${PERSISTENT_STORAGE_API}/software"
+
+MAPDIR=/usr/share/ericsson/cba/id-mapping
+
+UIDMAPF=${MAPDIR}/uid.map.defs
+GIDMAPF=${MAPDIR}/gid.map.defs
+
+if [ -f ${PERSISTENT_STORAGE_API_CONFIG} ]; then
+        CONF_REPOS=`cat $PERSISTENT_STORAGE_API_CONFIG`
+        storage="${CONF_REPOS}/comsa_for_coremw-apr9010555"
+        soft_repo=`cat $PERSISTENT_STORAGE_API_SOFTWARE`
+        repository30="${soft_repo}/comsa_for_coremw-apr9010555/repository"  #repository of COMSA3.0
+fi
+repository="${storage}/repository"
+
+# TMP_REPOSITORY is the location where the temporary model files will be stored for the add, delete and modify operations
+TMP_REPOSITORY="$storage/comsa_mdf/"
+addedModelFiles="$TMP_REPOSITORY/addedModelFiles"
+deletedModelFiles="$TMP_REPOSITORY/deletedModelFiles"
+
+com_mim_tool="/opt/com/bin/com_mim_tool"
+comsaMimTool="/usr/bin/comsa-mim-tool"
+com_config_model="${CONF_REPOS}/com-apr9010443/etc/model/model_file_list.cfg"
+
+#define utilchown
+if ([ -f $UIDMAPF ] && [ -f $GIDMAPF ]) ; then
+    utilchown=$(which chown 2> /dev/null)
+else
+    utilchown=/bin/true
+fi
+
+ch_own_mod() {
+    local ch_own_mod_enter=`ls -l -d $4`
+    if [ -f $UIDMAPF ] && [ -f $GIDMAPF ] ; then
+        if [ -f $4 ] ; then
+            $utilchown $2:$3 $4
+            chmod $1 $4
+        fi
+    fi
+    local ch_own_mod_exit=`ls -l -d $4`
+}
+
+ch_own_mod_dir() {
+    local ch_own_mod_dir_enter=`ls -l -d $4`
+    #The second argument($2) can be "username" or "-R username"
+    if [ -f $UIDMAPF ] && [ -f $GIDMAPF ] ; then
+        if [ ! -d $4 ]; then
+            mkdir -p $4
+            $utilchown $2:$3 $4
+        else
+            local owner=`ls -l -d $4 | awk '{ print $3" "$4 }'`
+            if [ "$owner" != "${2#-* } $3" ] ; then
+                $utilchown $2:$3 $4
+            fi
+        fi
+        chmod $1 $4
+    fi
+    local ch_own_mod_dir_exit=`ls -l -d $4`
+}
+
+# Create temporary work area for model type
+# Set IFS to null at the beginning. This will prevent read from trying to
+# parse "words" out of the input line
+saveModelFile() {
+        test -d $tmpDir || mkdir -p $tmpDir
+        ch_own_mod_dir 770 root com-core $tmpDir
+        test -f $model_file && rm $model_file
+        IFS=
+        line=""
+        while read -t $READTIMEOUT -r line
+        do
+                echo "$line" >> $model_file
+        done
+        if [ ${#line} != 0 ]; then
+                echo "$line" >> $model_file
+        fi
+        test -r $model_file || die "Model File not found" $MODELERROR
+        unset IFS
+}
+
+# Argument 1 is operation type {add || modify}
+# Argument 2 is source file
+# Argument 3 is the file name of the new file
+# Result: copy files under $TMP_REPOSITORY/$operation/ which will be 'operated' while calling done_()
+addModelFile() {
+        destination=$TMP_REPOSITORY/$1
+        test -d $destination || mkdir -p $destination
+        ch_own_mod_dir 770 root com-core $TMP_REPOSITORY
+        ch_own_mod_dir 770 root com-core $destination
+        test -f $2 || die "model file $2 does not exist" $MODELERROR
+        cp $2 $destination/$3
+        ch_own_mod 660 root com-core $destination/$3
+}
+
+# Argument 1 is operation type: <add || delete || modify || modify_add>
+# Argument 2 is the file name with absolute path to be 'operated'
+# Result: create a file list under $TMP_REPOSITORY/$operation/ with files to be 'operated' while calling done_()
+populateFileList() {
+        destination=$TMP_REPOSITORY/$1
+        destinationFile=$destination/$1_file_list
+        test -d $destination || mkdir -p $destination
+        ch_own_mod_dir 770 root com-core $TMP_REPOSITORY
+        ch_own_mod_dir 770 root com-core $destination
+        echo $2 >> $destinationFile
+        test -f $destinationFile || die "$destinationFile not found" $MODELERROR
+        ch_own_mod 660 root com-core $destinationFile
+}
+
+# Argument 1 is model file name
+getMomName() {
+        momNameAll=`grep '<mim ' $1 | awk -F ' name=\"' '{print $2}' | cut -d\" -f1`
+        if [[ $momNameAll = "" ]]; then
+                die "MOM name not found in model file $1" $MODELERROR
+        fi
+
+        arr=($momNameAll)
+        momName=${arr[0]}
+}
+
+# Argument 1: file name with absolute path to be imported to COM (as read from add_file_list)
+# INFO: add the model file using com-mim-tool add $fileName using the path to comsa repository
+com_add() {
+        opthandler="--modelHandler=MW_OAM"
+        optmoversion="--managedObjectVersion=3"
+        opttxversion="--transactionalResourceVersion=1"
+        test -f $1 || die "Model file $1 to be added does not exist" $MODELERROR
+        $com_mim_tool --addModelFile=$1 $opthandler $optmoversion $opttxversion || die "com_add(): Failed to add $1 with $com_mim_tool" $MODELERROR
+        echo $1 >> $addedModelFiles
+        ch_own_mod 660 root com-core $addedModelFiles
+}
+
+# Argument 1: file name with the absolute path as argument to be removed from COM.
+# The function removes the model file specified from COM models using com-mim-tool
+com_delete() {
+        test -f $1 || die "Model file $1 to be deleted does not exist" $MODELERROR
+        opthandler="--modelHandler=MW_OAM"
+        $com_mim_tool --removeModelFile=$1 $opthandler || die "com_delete(): Failed to remove $f1 with $com_mim_tool" $MODELERROR
+        echo $1 >> $deletedModelFiles
+        ch_own_mod 660 root com-core $deletedModelFiles
+}
+
+deleteModelFilesFromFileSystem() {
+        log "comsa_mdf_consumer deleteModelFilesFromFileSystem() called"
+                if [ -f $deletedModelFiles ]; then
+                        if [ -f $addedModelFiles ]; then
+                                for line in `cat $deletedModelFiles`
+                                do
+                                        if [[ `grep -l $line $addedModelFiles` = "" ]]; then
+                                                test -f $line && rm $line
+                                        fi
+                                done
+                        else
+                                for line in `cat $deletedModelFiles`
+                                do
+                                        test -f $line && rm $line
+                                done
+                        fi
+                fi
+                rm -rf $TMP_REPOSITORY
+}
+
+mdf_add() {
+        log "comsa_mdf_consumer mdf_add() called"
+        local err=0
+        saveModelFile
+        getMomName $model_file
+        newFileName=$momName"_mp.xml"
+        mv -f $model_file $repository/$newFileName
+        ch_own_mod 660 root com-core $repository/$newFileName
+        populateFileList add $repository/$newFileName
+        log "comsa_mdf_consumer mdf_add() done"
+        exit $err
+}
+
+mdf_delete() {
+        log "comsa_mdf_consumer mdf_delete() called"
+        local err=0
+        saveModelFile
+        getMomName $model_file
+        # Search imported model file in COM SA repository that contains the $momName
+                fileNameAll=`grep -Rl "<mim.* name=\"$momName\"" $repository`  #returns absolute path
+                if [[ $fileNameAll = "" ]]; then
+                        die "Model file containing MOM name $momName not found in COM SA repository" $MODELERROR
+        fi
+                for fileName in $fileNameAll
+                do
+                        if grep -q $fileName $com_config_model; then
+                                populateFileList delete $fileName
+                                break
+                        fi
+                done
+        log "comsa_mdf_consumer mdf_delete() done"
+        exit $err
+}
+
+mdf_modify() {
+        log "comsa_mdf_consumer mdf_modify() called"
+        local err=0
+        local found=0
+        saveModelFile
+        getMomName $model_file
+        newFileName=$momName"_mp.xml"
+        addModelFile modify $model_file $newFileName
+        # Search imported model file in COM SA repository that contains the $momName
+        fileName1=`grep -Rl "<mim.* name=\"$momName\"" $repository`  #returns absolute path
+        if [ -f ${PERSISTENT_STORAGE_API_CONFIG} ]; then
+                fileName2=`grep -Rl "<mim.* name=\"$momName\"" $repository30`  #returns absolute path
+        fi
+        fileNameAll="$fileName1"" ""$fileName2"  #returns absolute path
+        if [[ $fileNameAll = "" ]]; then
+                # We do not call die because the modify operation is idempotent.
+                log "Model file containing MOM name $momName not found in COM SA repository $MODELERROR"
+        fi
+        for fileName in $fileNameAll
+        do
+                if grep -q $fileName $com_config_model; then
+                        found=1
+                        populateFileList modify $fileName
+                        break
+                fi
+        done
+        # Incase install and reinstall
+        if [[ $found -eq 0 ]]; then
+                populateFileList modify ""
+        fi
+        log "comsa_mdf_consumer mdf_modify() done"
+        exit $err
+}
+
+mdf_done() {
+        log "comsa_mdf_consumer mdf_done() called"
+        done_
+        log "comsa_mdf_consumer mdf_done() complete"
+        exit 0
+}
+
+done_() {
+        log "done_() called"
+        # DELETE
+        if [ -f $TMP_REPOSITORY/delete/delete_file_list ]; then
+                for line in `cat $TMP_REPOSITORY/delete/delete_file_list`
+                do
+                        com_delete $line
+                done
+        fi
+        # ADD
+        if [ -f $TMP_REPOSITORY/add/add_file_list ]; then
+                for line in `cat $TMP_REPOSITORY/add/add_file_list`
+                do
+                        com_add $line
+                done
+        fi
+        # MODIFY
+        if [ -f $TMP_REPOSITORY/modify/modify_file_list ]; then
+                for line in `cat $TMP_REPOSITORY/modify/modify_file_list`
+                do
+                        com_delete $line;
+                done
+                for fil in `ls $TMP_REPOSITORY/modify/ | grep -v modify_file_list`
+                do
+                        cp $TMP_REPOSITORY/modify/$fil $repository
+                        ch_own_mod 660 root com-core $repository/$fil
+                        com_add $repository/$fil
+                done
+        fi
+        # COMMIT
+        output=$($com_mim_tool --commit ; echo $?)
+        if [[ $output != "0" ]]; then
+                for line in `cat $TMP_REPOSITORY/add/add_file_list`
+                do
+                    test -f $line && rm -f $line
+                done
+                rm -rf $TMP_REPOSITORY
+                log "Executing $com_mim_tool --commit  returned: $output $MODELERROR"
+                die "done_(): $com_mim_tool --commit failed." $MODELERROR
+        else
+                deleteModelFilesFromFileSystem
+        fi
+        log "done_() complete"
+        exit 0
+}
+
+log() {
+        logger -p user.info -t $TAG "$@"
+}
+
+help() {
+        grep '^##' $0 | cut -c3-
+        exit 0
+}
+
+# Argument 1: The logmessage
+# Argument 2: optional errorcode. If omitted exit code 1 will be used
+die() {
+        logger -s -p user.err -t $TAG "ERROR ($0): $1"
+        test ! -z $2 && exit $2 || exit 1
+}
+
+case "$action" in
+        add)    mdf_add $@ ;;
+        modify) mdf_modify $@ ;;
+        delete) mdf_delete $@ ;;
+        done)   mdf_done $@ ;;
+        delete_model_files)  deleteModelFilesFromFileSystem $@ ;;
+        *) help ;;
+esac

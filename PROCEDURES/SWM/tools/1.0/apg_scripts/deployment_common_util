@@ -1,0 +1,147 @@
+#!/bin/bash
+#
+# Copyright (c) 2013 Ericsson AB.
+# All rights reserved.
+#
+# The information in this document is the property of Ericsson.
+# Except as specifically authorized in writing by Ericsson, the
+# receiver of this document shall keep the information contained
+# herein confidential and shall protect the same in whole or in
+# part from disclosure and dissemination to third parties.
+# Disclosure and dissemination to the receiver's employees shall
+# only be made on a strict need to know basis.
+#
+#
+# deployment_common_util: common utilities that used by campaign generator
+#
+
+delete_tag_content() {
+	local tag=$1
+	local file=$2
+	sed -i "/@@${tag}_start/,/@@${tag}_stop/d" $file
+}
+
+delete_tag() {
+	local tag=$1
+	local file=$2
+	sed -i -e "/@@${tag}_start/d" -e "/@@${tag}_stop/d" $file
+}
+
+delete_tag_simple() {
+	local tag=$1
+	local file=$2
+	sed -i "/@@${tag}/d" $file
+}
+
+build_node_template() {
+	local group=$1
+	local in_file=$2
+	local tag=$3
+	local match=""
+
+	mkdir -p tmp
+
+	if [ $group = "sc" ]; then
+		match="SC"
+	elif [ $group = "pl" ]; then
+		match="PL"
+	fi
+
+	# extract the per-node template and clean up the original file
+	sed -n "/@@${group}_nodes_${tag}_template_start/,/@@${group}_nodes_${tag}_template_stop/p" $in_file > tmp/nodes.part.xml
+
+	delete_tag ${group}_nodes_${tag}_template tmp/nodes.part.xml
+	delete_tag_content ${group}_nodes_${tag}_template $in_file
+	delete_tag ${group}_nodes_${tag}_template $in_file
+
+	# build the template for each node
+	for PLI in $(cmw-status -v node | fgrep "Node=$match" | sort); do
+		NODE_NAME=$(echo $PLI | sed 's/.*=\(.*\),.*/\1/')
+		NODE_TYPE=$(echo $NODE_NAME | cut -b -2)
+		INDEX=$(echo $NODE_NAME | sed 's/.*-\(.*\)$/\1/')
+		sed -e "s/@@INDEX/${INDEX}/" \
+			-e "s/@@NODE_NAME/${NODE_NAME}/" \
+			-e "s/@@NODE_TYPE/${NODE_TYPE}/" \
+			tmp/nodes.part.xml >> tmp/nodes.xml
+	done
+
+	# insert it back into the original file
+	local line_number=$(($(grep -n "@@${group}_nodes_${tag}_template_here" $in_file | cut -f 1 -d:)-1))
+	sed -i "${line_number}r tmp/nodes.xml" $in_file
+
+	delete_tag_simple ${group}_nodes_${tag}_template_here $in_file
+
+	rm tmp/nodes.part.xml tmp/nodes.xml
+}
+
+build_entity_template() {
+	local group=$1
+	local in_file=$2
+	local tag=$3
+	if [ -z $4 ]; then
+		cmd="cmw-utility immfind -c $tag safApp=ERIC-LDE"
+	else
+		cmd="cmw-utility immfind -c $tag safSg=$4,safApp=ERIC-LDE"
+		tag=$3_$4
+	fi
+
+	local objects=$(eval $cmd)
+	# if object does not exist, set empty value for objects.
+	# content and tag will be remove later, below for loop.
+	if [ -n $4 ]; then
+		if [[ $objects == *"SA_AIS_ERR_NOT_EXIST"* ]]; then
+			objects=()
+		fi
+	fi
+
+	for object in $objects; do
+		if [[ $tag == 'SaAmfCompCsType' ]]; then
+			# escapes a backslash with double backslash for the sed command later on
+			object=$(echo $object | sed 's/\,/\\\\\,/')
+		fi
+		if [[ $object == *SC-* ]]; then
+			NODE_TYPE="SC"
+		else
+			NODE_TYPE="PL"
+		fi
+		# extract the entity template to entity part file and clean it
+		sed -n "/@@${group}_nodes_${tag}_template_start/,/@@${group}_nodes_${tag}_template_stop/p" $in_file >> tmp/entity.part.xml
+		delete_tag ${group}_nodes_${tag}_template tmp/entity.part.xml
+		# apply real object to entity part file
+		sed -i "s/@@${group}_lde_${tag}_objects/${object}/" tmp/entity.part.xml
+		sed -i "s/@@${group}_lde_${tag}_NODE_TYPE/${NODE_TYPE}/" tmp/entity.part.xml
+	done
+
+	delete_tag_content ${group}_nodes_${tag}_template $in_file
+	delete_tag ${group}_nodes_${tag}_template $in_file
+
+	if [ ${#objects[@]} -ne 0  ]; then
+		# insert entity part file into original file
+		local line_number=$(($(grep -n "@@${group}_nodes_${tag}_template_here" $in_file | cut -f 1 -d:)-1))
+		sed -i "${line_number}r tmp/entity.part.xml" $in_file
+	fi
+
+	delete_tag_simple ${group}_nodes_${tag}_template_here $in_file
+	rm -f tmp/entity.part.xml
+}
+
+insert_pl_nodelist() {
+	local file=$1
+	mkdir -p tmp
+
+	while ( grep "@@add_pl_nodelist_here" $file &>/dev/null ); do
+		cp $file tmp/campaign_tail.xml
+		sed -i "1,/@@add_pl_nodelist_here/d" tmp/campaign_tail.xml
+		sed -i "/@@add_pl_nodelist_here/,$ d" $file
+		for PLI in $(cmw-status -v node | fgrep "Node=PL" | sort); do
+			PL=$(echo $PLI| cut -d '=' -f 2| cut -d ',' -f 1)
+			echo -n -e "\t\t\t\t\t\t\t\t<plmExecEnv " >> $file
+			echo -n 'amfNode="safAmfNode='${PL} >> $file
+			echo ',safAmfCluster=myAmfCluster"/>' >> $file
+		done
+		cat tmp/campaign_tail.xml >> $file
+		rm tmp/campaign_tail.xml
+	done
+}
+
+# end of file

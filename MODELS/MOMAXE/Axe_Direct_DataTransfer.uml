@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_gjKAwHYqEeW9ocbmwLVU1g" name="AxeDirectDataTransfer">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_4tevYHYtEeW9ocbmwLVU1g" annotatedElement="_gjKAwHYqEeW9ocbmwLVU1g">
+      <body>Direct Data Transfer Management function MOM.</body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_gjKAwXYqEeW9ocbmwLVU1g">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_gjKAwnYqEeW9ocbmwLVU1g" name="" client="_gjKAwHYqEeW9ocbmwLVU1g">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_RqHzIHYuEeW9ocbmwLVU1g" name="AxeDirectDataTransfer">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_4K31oHyQEeWLHqaNbK2lGw" annotatedElement="_RqHzIHYuEeW9ocbmwLVU1g">
+        <body>Direct Data Transfer Management function MOM.
+</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_bd9PQHYvEeW9ocbmwLVU1g" name="DirectDataTransferM">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_beFyIHYvEeW9ocbmwLVU1g" annotatedElement="_bd9PQHYvEeW9ocbmwLVU1g">
+          <body>Represents the root MOC for the Direct Data Transfer Management function MOM.
+It is system instantiated and it is a container MOC without any attribute. 
+The function aims to receive data records from CP(s), to aggregate them in sequence of chunks in a volatile storage, and after data formatting, to send them to a mediation node either using block based transfer mode or file based transfer mode.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_beHAQHYvEeW9ocbmwLVU1g" name="directDataTransferMId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_beQKMHYvEeW9ocbmwLVU1g" annotatedElement="_beHAQHYvEeW9ocbmwLVU1g">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_beQKMXYvEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_beQxQHYvEeW9ocbmwLVU1g" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_Nd830H04EeWLHqaNbK2lGw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_G9BBEHvdEeWLHqaNbK2lGw" name="DataSource" visibility="public" type="_zk1dwHYxEeW9ocbmwLVU1g" aggregation="composite" association="_G866cHvdEeWLHqaNbK2lGw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bal4gHvdEeWLHqaNbK2lGw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_balRcHvdEeWLHqaNbK2lGw" value="2"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_zk1dwHYxEeW9ocbmwLVU1g" name="DataSource">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_zk69UXYxEeW9ocbmwLVU1g" annotatedElement="_zk1dwHYxEeW9ocbmwLVU1g">
+          <body>Represents the source of data produced by application source.
+It allows configuring the maximum size of a data record. The number of data records source that can be handled is limited to two.
+
+Creation or Deletion of MO can fail due to one of the following reasons:
+- DataSource definition is not valid for this system configuration : This message appears when an attempt is made to define data source on a invalid system configuration.
+- DataSource name is already defined for a MessageStore : This message appears when an attempt is made to define data source name same as the existing message store name.
+- Cannot delete a non-empty DataSource, &lt;DN> : This message appears when an attempt is made to delete a data source for which data is not transferred yet or in case the DataSink MO child is defined
+- Cannot delete DataSource, &lt;DN> : This message appears when it is not possible to delete data source.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_5LYIEMUYEeW_V_4toor9vg" constrainedElement="_us_BUHceEeW9ocbmwLVU1g">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_5LZWMMUYEeW_V_4toor9vg">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_zk7kYHYxEeW9ocbmwLVU1g" name="dataSourceId" visibility="public" type="_KTwxEHcUEeW9ocbmwLVU1g" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_zk_10XYxEeW9ocbmwLVU1g" annotatedElement="_zk7kYHYxEeW9ocbmwLVU1g">
+            <body>Holds the name used when identifying the MO.
+This attribute holds the name of the Data Source.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zk_10nYxEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zlAc4HYxEeW9ocbmwLVU1g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_BPkIgHcbEeW9ocbmwLVU1g" name="recordSize" visibility="public" type="_yhyFcHcaEeW9ocbmwLVU1g" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_BQEe0XcbEeW9ocbmwLVU1g" annotatedElement="_BPkIgHcbEeW9ocbmwLVU1g">
+            <body>Specifies the maximum size of a record sent by the application source.
+The value is expressed in bytes.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9ujjEHceEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BQFs8XcbEeW9ocbmwLVU1g" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_BQFF4HcbEeW9ocbmwLVU1g" value="4096"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_us_BUHceEeW9ocbmwLVU1g" name="alarmLevel" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_utSjUXceEeW9ocbmwLVU1g" annotatedElement="_us_BUHceEeW9ocbmwLVU1g">
+            <body>Specifies at what storage level in the DataSource an alarm is initiated. 
+The value is given in percent of Data Source. 
+Size of the Data Source is determined by numberOfRecords * recordSize * numberOfCheckPointFiles.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8QcmUHceEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_utTKYnceEeW9ocbmwLVU1g" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_utTKYHceEeW9ocbmwLVU1g" value="25"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_y7GskHvJEeWLHqaNbK2lGw" name="transferProgress" visibility="public" type="_Vdn0kHiMEeW9ocbmwLVU1g" aggregation="composite" association="_y7E3YHvJEeWLHqaNbK2lGw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y7Jv4XvJEeWLHqaNbK2lGw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y7Jv4HvJEeWLHqaNbK2lGw" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_yLSpIHvdEeWLHqaNbK2lGw" name="dataSink" visibility="public" type="_45QbQHfSEeW9ocbmwLVU1g" aggregation="composite" association="_yLQM4HvdEeWLHqaNbK2lGw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yLVFYXvdEeWLHqaNbK2lGw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yLVFYHvdEeWLHqaNbK2lGw" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_KTwxEHcUEeW9ocbmwLVU1g" name="DataSourceName">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_KT4F0XcUEeW9ocbmwLVU1g" annotatedElement="_KTwxEHcUEeW9ocbmwLVU1g">
+          <body>Describes the name format for a Data Source.
+It is an alphanumeric format made by capital letters which optionally ends with digits</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_KT57AHcUEeW9ocbmwLVU1g">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_yhyFcHcaEeW9ocbmwLVU1g" name="DataSizeRange">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_yh4zIXcaEeW9ocbmwLVU1g" annotatedElement="_yhyFcHcaEeW9ocbmwLVU1g">
+          <body>Represents the size range, expressed in bytes, of either a Data Source record or of a Data Chunk.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_yh6BQHcaEeW9ocbmwLVU1g">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_45QbQHfSEeW9ocbmwLVU1g" name="DataSink">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_49kTgHfSEeW9ocbmwLVU1g" annotatedElement="_45QbQHfSEeW9ocbmwLVU1g">
+          <body>Represents a set of homogeneous data peers for the direct data transfer.
+It allows configuring parameters controlling the communication with these nodes.
+
+
+Creation or Deletion of MO can fail due to one of the following reasons:
+- Either a FilePeer or BlockPeer must be defined for the DataSink, &lt;DN> : This message appears when an attempt is made to define data sink without file or block peer.
+- Peers must be of same type for the DataSink, &lt;DN> : This message appears when an attempt is made to define DataSink with both FilePeer and BlockPeer.
+- Cannot delete the only available Peer in the DataSink, &lt;DN> : This message appears when an attempt is made to delete only available file or block peer in data sink.
+- dataChunkSize cannot be smaller than recordSize, &lt;DN> : This message appears in case of the value of dataChunkSize attribute is smaller than the value of recordSize attribute of DataSource MO.
+- dataLengthType cannot be set to EVEN for a DataSink where FilePeer is defined, &lt;DN> : This message appears when data sink is defined with file peer and the value of DataLengthType attribute is set to EVEN.
+</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_49k6kHfSEeW9ocbmwLVU1g" name="dataSinkId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_49n94nfSEeW9ocbmwLVU1g" annotatedElement="_49k6kHfSEeW9ocbmwLVU1g">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_49ok8HfSEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_49ok8XfSEeW9ocbmwLVU1g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_afCNIHfVEeW9ocbmwLVU1g" name="retryAttempts" visibility="public" type="_Lfx_kHfVEeW9ocbmwLVU1g" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_afL-IHfVEeW9ocbmwLVU1g" annotatedElement="_afCNIHfVEeW9ocbmwLVU1g">
+            <body>Specifies the number of send attempts to the active peer in case of communication errors.
+This attribute indicates how many times the ME retries to send the data to the active remote destination, when communication errors occur, before considering it faulty.
+If multiple peers are configured, the ME automatically switches to the next available one.
+In case all configured peers are faulty, the ME tries cyclically to reconnect to one of them by interrogating each of them in an alternating way.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_afMlMXfVEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_afNMQHfVEeW9ocbmwLVU1g" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_afMlMHfVEeW9ocbmwLVU1g" value="10"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_MnF-MHfbEeW9ocbmwLVU1g" name="retryDelay" visibility="public" type="_p902YHfVEeW9ocbmwLVU1g" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Mnb8cXfbEeW9ocbmwLVU1g" annotatedElement="_MnF-MHfbEeW9ocbmwLVU1g">
+            <body>Specifies the delay in seconds between each send retry in case a communication failure happens.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MndKkHfbEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MndKkXfbEeW9ocbmwLVU1g" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_MncjgHfbEeW9ocbmwLVU1g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_gjrTQHidEeW9ocbmwLVU1g" name="progressReport" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gkH_MHidEeW9ocbmwLVU1g" annotatedElement="_gjrTQHidEeW9ocbmwLVU1g">
+            <body>Specifies the progress report of the switchActivePeer action.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_K7KyoEVwEeC0EevVhLHxGg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gkImQHidEeW9ocbmwLVU1g"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gkImQXidEeW9ocbmwLVU1g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_HQ7qIHuyEeWLHqaNbK2lGw" name="blockPeer" visibility="public" type="_lpxdoHiNEeW9ocbmwLVU1g" aggregation="composite" association="_HLqvoHuyEeWLHqaNbK2lGw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HQ_7kHuyEeWLHqaNbK2lGw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HQ_UgHuyEeWLHqaNbK2lGw" value="2"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_sq04wHuyEeWLHqaNbK2lGw" name="filePeer" visibility="public" type="_JWDrMHifEeW9ocbmwLVU1g" aggregation="composite" association="_sqx1cHuyEeWLHqaNbK2lGw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sq5KMHuyEeWLHqaNbK2lGw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sq4jIHuyEeWLHqaNbK2lGw" value="2"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_KHyGAHuzEeWLHqaNbK2lGw" name="outputFormat" visibility="public" type="_3LcioHijEeW9ocbmwLVU1g" aggregation="composite" association="_KHvpwHuzEeWLHqaNbK2lGw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KHz7MXuzEeWLHqaNbK2lGw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KHz7MHuzEeWLHqaNbK2lGw" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_2JitoHiLEeW9ocbmwLVU1g" name="switchActivePeer" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_2J5S8XiLEeW9ocbmwLVU1g" annotatedElement="_2JitoHiLEeW9ocbmwLVU1g">
+            <body>Switches the active peer.
+The remote destination is switched from the current active peer to the other configured peer which will be marked as active.
+During transfer failures the switch takes effect when all send retries have been performed.</body>
+          </ownedComment>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Lfx_kHfVEeW9ocbmwLVU1g" name="RetryAttempts">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Lf5UUHfVEeW9ocbmwLVU1g" annotatedElement="_Lfx_kHfVEeW9ocbmwLVU1g">
+          <body>Represents the number of send attempts towards a Peer before considering it faulty.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_Lf6icHfVEeW9ocbmwLVU1g">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_p902YHfVEeW9ocbmwLVU1g" name="RetryDelay">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_p98yMXfVEeW9ocbmwLVU1g" annotatedElement="_p902YHfVEeW9ocbmwLVU1g">
+          <body>Represents the delay between send attempts on connection errors towards the remote destination.
+The delay is expressed in seconds.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_p9-AUHfVEeW9ocbmwLVU1g">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Vdn0kHiMEeW9ocbmwLVU1g" name="TransferProgress">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_VdxlkHiMEeW9ocbmwLVU1g" annotatedElement="_Vdn0kHiMEeW9ocbmwLVU1g">
+          <body>Representing the progress of data records sending to a specific mediation node.
+</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_VdyzsHiMEeW9ocbmwLVU1g" name="transferProgressId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Vd46UXiMEeW9ocbmwLVU1g" annotatedElement="_VdyzsHiMEeW9ocbmwLVU1g">
+            <body>Holds the name used when identifying the MO.
+Represents the default name of the application source of the data stream.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Vd5hYHiMEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Vd5hYXiMEeW9ocbmwLVU1g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_oW-gMHiMEeW9ocbmwLVU1g" name="lastReceivedMessage" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_oXO-4XiMEeW9ocbmwLVU1g" annotatedElement="_oW-gMHiMEeW9ocbmwLVU1g">
+            <body>Specifies the identification number of the last message received from the application source.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxV08CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AMIXcHiNEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oXQNAHiMEeW9ocbmwLVU1g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_RIcHkHiNEeW9ocbmwLVU1g" name="lastSentMessage" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_RIntwHiNEeW9ocbmwLVU1g" annotatedElement="_RIcHkHiNEeW9ocbmwLVU1g">
+            <body>Specifies the identification number of the last message successfully sent to the remote destination.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxV08CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RIntwXiNEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RIoU0HiNEeW9ocbmwLVU1g" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_lpxdoHiNEeW9ocbmwLVU1g" name="BlockPeer">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_lp6AgXiNEeW9ocbmwLVU1g" annotatedElement="_lpxdoHiNEeW9ocbmwLVU1g">
+          <body>Represents a mediation node supporting the block based transfer mode.
+
+The first defined BlockPeer MO is used for the transfer, hence its status is set to ACTIVE, while the status of the second defined BlockPeer MO acts as a stand-by destination and its status is set to PASSIVE by the ME.
+
+The switch between the ACTIVE and PASSIVE BlockPeer MO can be triggered either by the MS through the switchActivePeer action in the parent DataSink MO or by the ME itself in case the ACTIVE BlockPeer becomes FAULTY.
+
+Creation or Deletion of MO can fail due to one of the following reasons:
+- Cannot define BlockPeer for the DataSink where File Peer is already defined, &lt;DN> : This message appears when block peer is created for a data sink to which file peer already present.
+- Cannot delete BlockPeer with status ACTIVE, &lt;DN> : This message appears when an attempt is made to delete a block peer whose status is active.
+- Cannot delete Peer, &lt;DN> : This message appears when it is not possible to delete block peer.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_lp7OoHiNEeW9ocbmwLVU1g" name="blockPeerId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_lqCjYXiNEeW9ocbmwLVU1g" annotatedElement="_lp7OoHiNEeW9ocbmwLVU1g">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lqDKcHiNEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lqDKcXiNEeW9ocbmwLVU1g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_DxQOkHiOEeW9ocbmwLVU1g" name="ipAddress" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_DxVuIXiOEeW9ocbmwLVU1g" annotatedElement="_DxQOkHiOEeW9ocbmwLVU1g">
+            <body>Specifies the address of the remote system for the data to be sent to. The argument can be either an Internet Protocol Version 4 (IPv4) address or an Internet Protocol Version 6 (IPv6) address.&#xD;
+&#xD;
+An IPv4 address is a 32-bit address written in dot-decimal notation expressed as a.b.c.d&#xD;
+where:&#xD;
+&#xD;
+	Each of a, b, c, d fields is a decimal value representing 8-bit part of the address. &quot;a&quot; is the most significant field. &#xD;
+&#xD;
+	The allowed decimal range for each field is 0-255.&#xD;
+&#xD;
+An IPv6 address is a 128-bit address written in colon-hexadecimal notation expressed as as a:b:c:d:e:f:g:h&#xD;
+where:&#xD;
+&#xD;
+	Each of a, b, c, d, e, f, g, h fields is one to four hexadecimal digits representing 16-bit part of the 128-bit address. &quot;a&quot; is the most significant field.&#xD;
+&#xD;
+	The allowed hexadecimal digits are 0-9, a-f, A-F.&#xD;
+&#xD;
+	One or more consecutive 16-bit fields of zeros can be replaced by &quot;::&quot;. The &quot;::&quot; can only appear once in an address.&#xD;
+&#xD;
+	Leading zeroes in a field are optional, but there must be at least one numeral in every field (except in fields for which &quot;::&quot; notation is used).</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_W7AsoJddEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DxWVMHiOEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DxWVMXiOEeW9ocbmwLVU1g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_K6YsEHicEeW9ocbmwLVU1g" name="status" visibility="public" type="__bmAcHiOEeW9ocbmwLVU1g" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_K6lgYXicEeW9ocbmwLVU1g" annotatedElement="_K6YsEHicEeW9ocbmwLVU1g">
+            <body>Specifies whether this BlockPeer MO is currently used for the data transfer.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_K6mugHicEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_K6mugXicEeW9ocbmwLVU1g" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_K6mHcHicEeW9ocbmwLVU1g" name="PASSIVE" instance="__bwYgHiOEeW9ocbmwLVU1g"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_TEpF0HieEeW9ocbmwLVU1g" name="connectionVerify" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_TFEjoHieEeW9ocbmwLVU1g" annotatedElement="_TEpF0HieEeW9ocbmwLVU1g">
+            <body>Verifies the connection to this peer.
+
+The action can fail due to one of the following reasons: 
+- Error connecting to remote host: When the connection to the configured remote host fails.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_aBEscHieEeW9ocbmwLVU1g" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_aBduAHieEeW9ocbmwLVU1g" annotatedElement="_aBEscHieEeW9ocbmwLVU1g">
+              <body>true: destination reachable.
+false: destination not reachable.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aBeVEHieEeW9ocbmwLVU1g" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aBeVEXieEeW9ocbmwLVU1g" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="__bmAcHiOEeW9ocbmwLVU1g" name="PeerStatus">
+        <ownedComment xmi:type="uml:Comment" xmi:id="__bvKYHiOEeW9ocbmwLVU1g" annotatedElement="__bmAcHiOEeW9ocbmwLVU1g">
+          <body>Defines all possible states of a File or Block Peer.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="__bwYgHiOEeW9ocbmwLVU1g" name="PASSIVE" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="__b3GMHiOEeW9ocbmwLVU1g" annotatedElement="__bwYgHiOEeW9ocbmwLVU1g">
+            <body>Peer is not currently involved in the transfer.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="__b3tQHiOEeW9ocbmwLVU1g"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_FkFBoHiPEeW9ocbmwLVU1g" name="ACTIVE" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_FkeqQHiPEeW9ocbmwLVU1g" annotatedElement="_FkFBoHiPEeW9ocbmwLVU1g">
+            <body>Peer is currently used for the data transfer.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_FkfRUHiPEeW9ocbmwLVU1g" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_MTqfEHiPEeW9ocbmwLVU1g" name="FAULTY" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_MT03IHiPEeW9ocbmwLVU1g" annotatedElement="_MTqfEHiPEeW9ocbmwLVU1g">
+            <body>Peer connection is faulty suspected.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_MT1eMHiPEeW9ocbmwLVU1g" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_JWDrMHifEeW9ocbmwLVU1g" name="FilePeer">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_JWM1IXifEeW9ocbmwLVU1g" annotatedElement="_JWDrMHifEeW9ocbmwLVU1g">
+          <body>Represents a mediation node supporting the file based transfer mode.
+
+The first defined FilePeer MO is used for the transfer, hence its status is set to ACTIVE, while the status of the second defined FilePeer MO acts as a stand-by destination and its status is set to PASSIVE by the ME.
+
+The switch between the ACTIVE and PASSIVE FilePeer MO can be triggered either by the MS through the switchActivePeer action in the parent DataSink MO or by the ME itself in case the ACTIVE FilePeer MO becomes FAULTY.
+
+Creation or Deletion of MO can fail due to one of the following reasons:
+- Cannot define FilePeer for the DataSink where BlockPeer is already defined, &lt;DN> : This message appears when file peer is created for a data sink to which block peer already present.
+- FileFormat is mandatory for the DataSink where FilePeer is defined, &lt;DN> : This message appears when the FileFormat instance is not defined during file peer creation.
+- Cannot delete FilePeer with status ACTIVE, &lt;DN> : This message appears when an attempt is made to delete a file peer whose status is active.
+- Cannot delete Peer, &lt;DN> : This message appears when it is not possible to delete file peer.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_JWNcMHifEeW9ocbmwLVU1g" name="filePeerId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_JWRGkHifEeW9ocbmwLVU1g" annotatedElement="_JWNcMHifEeW9ocbmwLVU1g">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JWRGkXifEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JWRGknifEeW9ocbmwLVU1g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_afn0MHifEeW9ocbmwLVU1g" name="ipAddress" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_af_AkXifEeW9ocbmwLVU1g" annotatedElement="_afn0MHifEeW9ocbmwLVU1g">
+            <body>Specifies the address of the remote system for the data to be sent to. The argument can be either an Internet Protocol Version 4 (IPv4) address or an Internet Protocol Version 6 (IPv6) address.&#xD;
+&#xD;
+An IPv4 address is a 32-bit address written in dot-decimal notation expressed as a.b.c.d&#xD;
+where:&#xD;
+&#xD;
+	Each of a, b, c, d fields is a decimal value representing 8-bit part of the address. &quot;a&quot; is the most significant field. &#xD;
+&#xD;
+	The allowed decimal range for each field is 0-255.&#xD;
+&#xD;
+An IPv6 address is a 128-bit address written in colon-hexadecimal notation expressed as as a:b:c:d:e:f:g:h&#xD;
+where:&#xD;
+&#xD;
+	Each of a, b, c, d, e, f, g, h fields is one to four hexadecimal digits representing 16-bit part of the 128-bit address. &quot;a&quot; is the most significant field.&#xD;
+&#xD;
+	The allowed hexadecimal digits are 0-9, a-f, A-F.&#xD;
+&#xD;
+	One or more consecutive 16-bit fields of zeros can be replaced by &quot;::&quot;. The &quot;::&quot; can only appear once in an address.&#xD;
+&#xD;
+	Leading zeroes in a field are optional, but there must be at least one numeral in every field (except in fields for which &quot;::&quot; notation is used).</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_W7AsoJddEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_af_noHifEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_agAOsHifEeW9ocbmwLVU1g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_okHCoHifEeW9ocbmwLVU1g" name="password" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_okOXYHifEeW9ocbmwLVU1g" annotatedElement="_okHCoHifEeW9ocbmwLVU1g">
+            <body>Specifies a password for the login to the remote host.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_eS1LUJf4EeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_okOXYXifEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_okO-cHifEeW9ocbmwLVU1g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_JKSDkHigEeW9ocbmwLVU1g" name="portNumber" visibility="public" type="_4Adb4HifEeW9ocbmwLVU1g" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_JKhUIXigEeW9ocbmwLVU1g" annotatedElement="_JKSDkHigEeW9ocbmwLVU1g">
+            <body>Specifies the TCP port number on the remote system to connect to.
+
+The default value is 22 for SFTP.
+
+The default value is 21 for FTP.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JKh7MHigEeW9ocbmwLVU1g"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JKiiQHigEeW9ocbmwLVU1g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_lY7DkHigEeW9ocbmwLVU1g" name="remoteFolderPath" visibility="public" type="_bJVqIHigEeW9ocbmwLVU1g" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_lZH34HigEeW9ocbmwLVU1g" annotatedElement="_lY7DkHigEeW9ocbmwLVU1g">
+            <body>Specifies the path to the folder in the remote FTP or SFTP area.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lZIe8HigEeW9ocbmwLVU1g"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lZIe8XigEeW9ocbmwLVU1g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_wttxkHigEeW9ocbmwLVU1g" name="status" visibility="public" type="__bmAcHiOEeW9ocbmwLVU1g" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_wt2UcHigEeW9ocbmwLVU1g" annotatedElement="_wttxkHigEeW9ocbmwLVU1g">
+            <body>Specifies whether this FilePeer MO is currently used for the data transfer.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wt2UcnigEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wt27gHigEeW9ocbmwLVU1g" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_wt2UcXigEeW9ocbmwLVU1g" name="PASSIVE" instance="__bwYgHiOEeW9ocbmwLVU1g"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_PzZ3MHihEeW9ocbmwLVU1g" name="transferProtocol" visibility="public" type="_96jmUHigEeW9ocbmwLVU1g" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_PzqV4HihEeW9ocbmwLVU1g" annotatedElement="_PzZ3MHihEeW9ocbmwLVU1g">
+            <body>Specifies the transfer type to be used for file transfer.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pzq88HihEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pzq88XihEeW9ocbmwLVU1g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_dMtaoHihEeW9ocbmwLVU1g" name="username" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_dM62AXihEeW9ocbmwLVU1g" annotatedElement="_dMtaoHihEeW9ocbmwLVU1g">
+            <body>Specifies the user name for the login to the remote host.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dM7dEHihEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dM7dEXihEeW9ocbmwLVU1g" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_UQlXsHiiEeW9ocbmwLVU1g" name="connectionVerify" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_UQuhoHiiEeW9ocbmwLVU1g" annotatedElement="_UQlXsHiiEeW9ocbmwLVU1g">
+            <body>Verifies the connection to this peer.
+
+The action can fail due to one of the following reasons: 
+- Error connecting to remote host: When the connection to the configured remote host fails;
+- Logon failure on remote host: When the login to remote host fails.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZPRfQHiiEeW9ocbmwLVU1g" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_ZPb3UHiiEeW9ocbmwLVU1g" annotatedElement="_ZPRfQHiiEeW9ocbmwLVU1g">
+              <body>true: destination reachable.
+false: destination not reachable.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZPceYHiiEeW9ocbmwLVU1g" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZPdFcHiiEeW9ocbmwLVU1g" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_4Adb4HifEeW9ocbmwLVU1g" name="FileTransferDestinationPortRange">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_4AlXsHifEeW9ocbmwLVU1g" annotatedElement="_4Adb4HifEeW9ocbmwLVU1g">
+          <body>Represents the TCP port range for outgoing connections towards remote destinations.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_4Aml0HifEeW9ocbmwLVU1g">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_bJVqIHigEeW9ocbmwLVU1g" name="RemoteFolderPath">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_bJc-4HigEeW9ocbmwLVU1g" annotatedElement="_bJVqIHigEeW9ocbmwLVU1g">
+          <body>Represents the remote folder path allowed for File Transfer.
+The remote folder path can be empty or made by alphanumeric characters optionally surrounded by slashes</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_bJeNAHigEeW9ocbmwLVU1g">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_96jmUHigEeW9ocbmwLVU1g" name="FileTransferProtocol">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_9649gHigEeW9ocbmwLVU1g" annotatedElement="_96jmUHigEeW9ocbmwLVU1g">
+          <body>Defines all protocols allowed for the File Transfer.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_965kkHigEeW9ocbmwLVU1g" name="SFTP" visibility="public">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_96_rMXigEeW9ocbmwLVU1g"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Bl-vMHihEeW9ocbmwLVU1g" name="FTP" visibility="public">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_BmJHQHihEeW9ocbmwLVU1g" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_3LcioHijEeW9ocbmwLVU1g" name="OutputFormat">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_3LipQnijEeW9ocbmwLVU1g" annotatedElement="_3LcioHijEeW9ocbmwLVU1g">
+          <body>Representing the logic for data chunks aggregation. It allows defining the size of chunks and the size of blocks/files.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_3Lj3YHijEeW9ocbmwLVU1g" name="outputFormatId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_3LnhwnijEeW9ocbmwLVU1g" annotatedElement="_3Lj3YHijEeW9ocbmwLVU1g">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3LoI0HijEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3LoI0XijEeW9ocbmwLVU1g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jaYWcHikEeW9ocbmwLVU1g" name="dataChunkSize" visibility="public" type="_yhyFcHcaEeW9ocbmwLVU1g" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_jaiugXikEeW9ocbmwLVU1g" annotatedElement="_jaYWcHikEeW9ocbmwLVU1g">
+            <body>Specifies the maximum size of a data chunk sent to the remote destination.
+The value is expressed in bytes.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jajVkXikEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jaj8oHikEeW9ocbmwLVU1g" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_jajVkHikEeW9ocbmwLVU1g" value="32768"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_JJkfoHilEeW9ocbmwLVU1g" name="dataLengthType" visibility="public" type="_yKD28HikEeW9ocbmwLVU1g" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_JJ5PwHilEeW9ocbmwLVU1g" annotatedElement="_JJkfoHilEeW9ocbmwLVU1g">
+            <body>Specifies whether the data length is fixed, variable or variable with even number of bytes.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JJ520HilEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JJ520XilEeW9ocbmwLVU1g" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_JJ5PwXilEeW9ocbmwLVU1g" name="VARIABLE" instance="_5nR2cHikEeW9ocbmwLVU1g"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hqROQHilEeW9ocbmwLVU1g" name="holdTime" visibility="public" type="_YFba8HilEeW9ocbmwLVU1g" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hqpBsHilEeW9ocbmwLVU1g" annotatedElement="_hqROQHilEeW9ocbmwLVU1g">
+            <body>Specifies the data hold time, expressed in seconds, before data is sent to the remote destination.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hqpowXilEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hqqP0HilEeW9ocbmwLVU1g" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_hqpowHilEeW9ocbmwLVU1g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_8nN84HilEeW9ocbmwLVU1g" name="paddingChar" visibility="public" type="_uM6PcHilEeW9ocbmwLVU1g" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_8nb_UHilEeW9ocbmwLVU1g" annotatedElement="_8nN84HilEeW9ocbmwLVU1g">
+            <body>Holds the padding character.
+This attribute specifies the decimal value of a character that is intended to represent the padding characters to be used as extra bytes to make the output data conform to its length type.
+Padding characters are used to fill the unused bytes in an output data having either fixed or even length type.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8ncmYXilEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8ndNcHilEeW9ocbmwLVU1g" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_8ncmYHilEeW9ocbmwLVU1g"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__ufV8Hu9EeWLHqaNbK2lGw" name="fileFormat" visibility="public" type="_PDJv4HiqEeW9ocbmwLVU1g" aggregation="composite" association="__uWMAHu9EeWLHqaNbK2lGw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__uhLIXu9EeWLHqaNbK2lGw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__uhLIHu9EeWLHqaNbK2lGw" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_yKD28HikEeW9ocbmwLVU1g" name="LenghtType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_yKWx4HikEeW9ocbmwLVU1g" annotatedElement="_yKD28HikEeW9ocbmwLVU1g">
+          <body>Represents the length type of the output data buffer.
+There are three types of buffer datatypes: variable, fixed and even.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_yKXY8HikEeW9ocbmwLVU1g" name="FIXED" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_yKdfkXikEeW9ocbmwLVU1g" annotatedElement="_yKXY8HikEeW9ocbmwLVU1g">
+            <body>This enumeration value represents the fixed length data type.
+Fixed means that data length is arbitrarily fixed to a maximum value:output data is formatted using the same amount of memory whether this maximum is reached or not.
+If needed padding characters are added to match the fixed length.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_yKeGoHikEeW9ocbmwLVU1g"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_5nR2cHikEeW9ocbmwLVU1g" name="VARIABLE" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_5nbAYHikEeW9ocbmwLVU1g" annotatedElement="_5nR2cHikEeW9ocbmwLVU1g">
+            <body>This enumeration value represents the variable length data type.
+Variable means that data length is not arbitrarily fixed: output data is formatted using varying amounts of memory depending on the actual size.
+No padding characters are added to the output data.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_5nbncHikEeW9ocbmwLVU1g" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="__YCUIHikEeW9ocbmwLVU1g" name="EVEN" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="__YMsMHikEeW9ocbmwLVU1g" annotatedElement="__YCUIHikEeW9ocbmwLVU1g">
+            <body>This enumeration value represents the even length data type.
+Even means that data length is not arbitrarily fixed, but it is always even. 
+If needed a padding character is added to match the even length.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="__YNTQHikEeW9ocbmwLVU1g" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_YFba8HilEeW9ocbmwLVU1g" name="DataHoldTime">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_YFiIoHilEeW9ocbmwLVU1g" annotatedElement="_YFba8HilEeW9ocbmwLVU1g">
+          <body>Describes the valid range of values to be used as hold time expressed in seconds.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_YFj90HilEeW9ocbmwLVU1g">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_uM6PcHilEeW9ocbmwLVU1g" name="PaddingChar">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_uNEngHilEeW9ocbmwLVU1g" annotatedElement="_uM6PcHilEeW9ocbmwLVU1g">
+          <body>Represents the padding characters in the output data.
+Padding characters are extra bytes used to make the output data conform to its length type and length.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_uNF1oHilEeW9ocbmwLVU1g">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_PDJv4HiqEeW9ocbmwLVU1g" name="FileFormat">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_PDTg4HiqEeW9ocbmwLVU1g" annotatedElement="_PDJv4HiqEeW9ocbmwLVU1g">
+          <body>Represents the advanced settings for the files generated during a File Transfer.
+A file contains at least one data chunk and can reach the maximum size specified by the fileSize attribute.
+File names are based on the template attribute in which the Management System can set the use of sequence numbers helpful to sort files in the receiving system. 
+In detail, sequence numbers can be either transient, meaning that numbering restarts in case of AP restart, or persistent, meaning that numbering persists on AP restart.
+
+
+
+Creation or Deletion of MO can fail due to one of the following reasons:
+- Cannot define FileFormat for the DataSink where BlockPeer is defined, &lt;DN> : This message appears when an attempt is made to create a file format instance for block peer.
+- Cannot delete FileFormat for the DataSink where FilePeer is defined, &lt;DN> : This message appears when an attempt is made to delete FileFormat instance from OutputFormat MO present in data sink to which file peer is present.
+- template is invalid for FileFormat, &lt;DN> : This message appears when an attempt is made to set the value of template attribute to a invalid value.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_PDUvAHiqEeW9ocbmwLVU1g" name="fileFormatId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_PDa1oXiqEeW9ocbmwLVU1g" annotatedElement="_PDUvAHiqEeW9ocbmwLVU1g">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PDbcsHiqEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PDcDwHiqEeW9ocbmwLVU1g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_qNHm0HiqEeW9ocbmwLVU1g" name="fileSize" visibility="public" type="_gTEYgHiqEeW9ocbmwLVU1g" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_qNWQUHiqEeW9ocbmwLVU1g" annotatedElement="_qNHm0HiqEeW9ocbmwLVU1g">
+            <body>Specifies the maximum size that a file, to be stored into the remote destination, can reach.
+The value is expressed in kilobytes (KB).</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qNW3YHiqEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qNW3YXiqEeW9ocbmwLVU1g" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_qNWQUXiqEeW9ocbmwLVU1g" value="1024"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_1fJ7wHiqEeW9ocbmwLVU1g" name="startupSequenceNumber" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_1fer4XiqEeW9ocbmwLVU1g" annotatedElement="_1fJ7wHiqEeW9ocbmwLVU1g">
+            <body>Specifies the start value and rollover value of the transient or persistent sequence number. 
+The sequence number format and placement in the file name is specified in the template attribute.
+When the sequence number reaches its maximum value it starts again from a rollover value as specified in the startup sequence number attribute. 
+The transient or persistent sequence number format should be specified in the template attribute.
+For template format having n,nnnn,p or pppp maximum value is 9999, for nnnnnn or pppppp maximum value is 999999, for nnnnnnnn or pppppppp maximum value is 99999999.
+This attribute is considered only if any sequence number is specified in the template attribute.
+
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1ff6AHiqEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1ff6AXiqEeW9ocbmwLVU1g" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_1ffS8HiqEeW9ocbmwLVU1g"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_BFUGkHirEeW9ocbmwLVU1g" name="template" visibility="public" type="_4KlKcMNMEeWD8aCDVcc9IQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_BFnBgHirEeW9ocbmwLVU1g" annotatedElement="_BFUGkHirEeW9ocbmwLVU1g">
+            <body>Specifies the template for file naming on the remote destination.
+The template is made of a combination of tag elements and strings.
+A string is a user defined custom text.
+
+Tag elements are surrounded by two percentage symbols as shown below:
+%CpName%
+This element is the default name of the CP source of data.
+
+%YYYY%
+This element gives the year in four digits
+
+%YY%
+This element gives the year in two digits
+
+%MM%
+This element gives the month (01 through 12)
+
+%DD%
+This element gives the day of month (01 through 31)
+
+%hh%
+This element gives the hour (00 through 23) 
+
+%mm% 
+This element gives the minute (00 through 59)
+
+%ss% 
+This element gives the second (00 through 59)
+
+%nnnnnnnn%
+This element gives the transient sequence number with fixed length (00000000 through 99999999)
+
+%nnnnnn%
+This element gives the transient sequence number with fixed length (000000 through 999999)
+
+%nnnn%
+This element gives the transient sequence number with fixed length (0000 through 9999)
+
+%n%
+This element gives the transient sequence number with flexible length (0 through 9999)
+
+%pppppppp%
+This element gives the persistent sequence number with fixed length (00000000 through 99999999)
+
+%pppppp%
+This element gives the persistent sequence number with fixed length (000000 through 999999)
+
+%pppp%
+This element gives the persistent sequence number with fixed length (range 0000 - 9999)
+
+%p%
+This element gives the persistent sequence number with flexible length (range 0 - 9999)
+
+Each element may only be used once. Only one of %YYYY% and %YY% can be used.
+Only one of %nnnnnnnn%, %nnnnnn%, %nnnn%, %n%, %pppppppp%, %pppppp%, %pppp% and %p% can be used.
+Transient sequence number means that it gets reset whenever the node is rebooted, while persistent sequence number means that it does not get reset when the node is rebooted. 
+The template is case sensitive.
+
+
+Following examples show the usage of the template attribute.
+
+Example 1:
+The output for a template set to: %CpName%+MSC_NE-%MM%%DD%-%hh%%mm%.%pppp% 
+will be like: BC1+MSC_NE-0131-2310.3451
+
+Example 2:
+The output for a template set to: MSC_NE-%YYYY%-%MM%-%DD%-%hh%.%mm%.%ss%.%n%
+will be like: MSC_NE-2015-01-29-11.20.15.304 </body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BFnokXirEeW9ocbmwLVU1g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BFoPoHirEeW9ocbmwLVU1g" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_EqIl8MNOEeWD8aCDVcc9IQ" value="%CpName%+DDT-%YY%%MM%%DD%%hh%%mm%%ss%%pppp%"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_gTEYgHiqEeW9ocbmwLVU1g" name="FileSizeRange">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_gTJRAHiqEeW9ocbmwLVU1g" annotatedElement="_gTEYgHiqEeW9ocbmwLVU1g">
+          <body>Represents the size range of files stored to the remote destination.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_gTJ4EHiqEeW9ocbmwLVU1g">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_HLqvoHuyEeWLHqaNbK2lGw" name="DataSink_to_BlockPeer" visibility="public" memberEnd="_HQ7qIHuyEeWLHqaNbK2lGw _HQ84QXuyEeWLHqaNbK2lGw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_HQ84QXuyEeWLHqaNbK2lGw" name="dataSink" visibility="public" type="_45QbQHfSEeW9ocbmwLVU1g" association="_HLqvoHuyEeWLHqaNbK2lGw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HRV50XuyEeWLHqaNbK2lGw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HRV50HuyEeWLHqaNbK2lGw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_sqx1cHuyEeWLHqaNbK2lGw" name="DataSink_to_FilePeer" visibility="public" memberEnd="_sq04wHuyEeWLHqaNbK2lGw _sq2t8XuyEeWLHqaNbK2lGw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_sq2t8XuyEeWLHqaNbK2lGw" name="dataSink_FilePeer" visibility="public" type="_45QbQHfSEeW9ocbmwLVU1g" association="_sqx1cHuyEeWLHqaNbK2lGw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_srDiQXuyEeWLHqaNbK2lGw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_srDiQHuyEeWLHqaNbK2lGw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_KHvpwHuzEeWLHqaNbK2lGw" name="DataSink_to_OutputFormat" visibility="public" memberEnd="_KHyGAHuzEeWLHqaNbK2lGw _KHytEnuzEeWLHqaNbK2lGw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_KHytEnuzEeWLHqaNbK2lGw" name="dataSink_OutputFormat" visibility="public" type="_45QbQHfSEeW9ocbmwLVU1g" association="_KHvpwHuzEeWLHqaNbK2lGw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KH6B0HuzEeWLHqaNbK2lGw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KH5awHuzEeWLHqaNbK2lGw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="__uWMAHu9EeWLHqaNbK2lGw" name="OutputFormat_to_FileFormat" visibility="public" memberEnd="__ufV8Hu9EeWLHqaNbK2lGw __uf9AXu9EeWLHqaNbK2lGw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="__uf9AXu9EeWLHqaNbK2lGw" name="outputFormat" visibility="public" type="_3LcioHijEeW9ocbmwLVU1g" association="__uWMAHu9EeWLHqaNbK2lGw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__umqsHu9EeWLHqaNbK2lGw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__umDoHu9EeWLHqaNbK2lGw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_y7E3YHvJEeWLHqaNbK2lGw" name="DataSource_to_TransferProgress" visibility="public" memberEnd="_y7GskHvJEeWLHqaNbK2lGw _y7H6sXvJEeWLHqaNbK2lGw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_y7H6sXvJEeWLHqaNbK2lGw" name="dataSource_transferProgress" visibility="public" type="_zk1dwHYxEeW9ocbmwLVU1g" association="_y7E3YHvJEeWLHqaNbK2lGw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y7QdkXvJEeWLHqaNbK2lGw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y7QdkHvJEeWLHqaNbK2lGw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_6YliEHvaEeWLHqaNbK2lGw" name="DataOutputHandling_to_DirectDataTransfer" memberEnd="_6YuE8HvaEeWLHqaNbK2lGw _6YvTEXvaEeWLHqaNbK2lGw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_6YuE8HvaEeWLHqaNbK2lGw" name="dataOutputHandling" visibility="public" association="_6YliEHvaEeWLHqaNbK2lGw">
+          <type xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0RIKREeK3wcU1QErItg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WshcUHvcEeWLHqaNbK2lGw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WsgOMHvcEeWLHqaNbK2lGw" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_6YvTEXvaEeWLHqaNbK2lGw" name="directDataTransfer_dataOutputHandling" visibility="public" type="_bd9PQHYvEeW9ocbmwLVU1g" aggregation="composite" association="_6YliEHvaEeWLHqaNbK2lGw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V7QXcHvcEeWLHqaNbK2lGw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V3vwcHvcEeWLHqaNbK2lGw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_G866cHvdEeWLHqaNbK2lGw" name="DirectDataTransferM_to_DataSource" visibility="public" memberEnd="_G9BBEHvdEeWLHqaNbK2lGw _G9C2QHvdEeWLHqaNbK2lGw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_G9C2QHvdEeWLHqaNbK2lGw" name="directDataTransfer_dataSource" visibility="public" type="_bd9PQHYvEeW9ocbmwLVU1g" association="_G866cHvdEeWLHqaNbK2lGw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XPGIcHvdEeWLHqaNbK2lGw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XPE6UHvdEeWLHqaNbK2lGw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_yLQM4HvdEeWLHqaNbK2lGw" name="DataSource_to_DataSink" visibility="public" memberEnd="_yLSpIHvdEeWLHqaNbK2lGw _yLT3QXvdEeWLHqaNbK2lGw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_yLT3QXvdEeWLHqaNbK2lGw" name="dataSource_dataSink" visibility="public" type="_zk1dwHYxEeW9ocbmwLVU1g" association="_yLQM4HvdEeWLHqaNbK2lGw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yLe2YHvdEeWLHqaNbK2lGw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yLePUHvdEeWLHqaNbK2lGw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_vhM1oHyGEeWLHqaNbK2lGw" name="DirectDataTransferInstances">
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_Dcv-EHyHEeWLHqaNbK2lGw" name="directDataTransferMInstance" classifier="_bd9PQHYvEeW9ocbmwLVU1g">
+          <slot xmi:type="uml:Slot" xmi:id="_DdoH0HyHEeWLHqaNbK2lGw" definingFeature="_beHAQHYvEeW9ocbmwLVU1g">
+            <value xmi:type="uml:LiteralString" xmi:id="_Ddp9AHyHEeWLHqaNbK2lGw" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_4KlKcMNMEeWD8aCDVcc9IQ" name="TemplateType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_4LKZQMNMEeWD8aCDVcc9IQ" annotatedElement="_4KlKcMNMEeWD8aCDVcc9IQ">
+          <body>Represents the format allowed for the template.
+The template is made by alphanumeric characters, and special characters: plus (+), dash (-) and point (.). Some alphanumeric characters can be surrounded by the percentage symbol (%).</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_4LQf4MNMEeWD8aCDVcc9IQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_ws6uAMUYEeW_V_4toor9vg" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_wtBbsMUYEeW_V_4toor9vg" name="BASIC"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_z2fuEMUYEeW_V_4toor9vg" client="_wtBbsMUYEeW_V_4toor9vg" supplier="_yCidIMUYEeW_V_4toor9vg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_yCZTMMUYEeW_V_4toor9vg" name="Features">
+        <packagedElement xmi:type="uml:Class" xmi:id="_yCidIMUYEeW_V_4toor9vg" name="CPI_HIDDEN"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_gjKAw3YqEeW9ocbmwLVU1g">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gjKAxHYqEeW9ocbmwLVU1g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_gjKAxXYqEeW9ocbmwLVU1g">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gjKAxnYqEeW9ocbmwLVU1g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_gjKAx3YqEeW9ocbmwLVU1g">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9NFPwCo6EeuHNtpH3nGt-Q" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9NFPwSo6EeuHNtpH3nGt-Q" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9NFPwio6EeuHNtpH3nGt-Q" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9NFPwyo6EeuHNtpH3nGt-Q" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9NFPxCo6EeuHNtpH3nGt-Q" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9NFPxSo6EeuHNtpH3nGt-Q" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gjKAyHYqEeW9ocbmwLVU1g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_gjKAyXYqEeW9ocbmwLVU1g">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_sgNVAN6MEeehtLhJYaltnA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sgNVAd6MEeehtLhJYaltnA" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sgNVAt6MEeehtLhJYaltnA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sgNVA96MEeehtLhJYaltnA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sgNVBN6MEeehtLhJYaltnA" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sgNVBd6MEeehtLhJYaltnA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_OdRHIA1AEeaoz_rugtTOZQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OdRHIQ1AEeaoz_rugtTOZQ" key="Version" value="1.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OdRHIg1AEeaoz_rugtTOZQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OdRHIw1AEeaoz_rugtTOZQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OdRHJA1AEeaoz_rugtTOZQ" key="Date" value="2016-02-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OdRHJQ1AEeaoz_rugtTOZQ" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gjKAynYqEeW9ocbmwLVU1g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_gjKAy3YqEeW9ocbmwLVU1g" base_Model="_gjKAwHYqEeW9ocbmwLVU1g" title="Managed Object Model for Direct Data Transfer Management Function" subTitle="" docNo="19089-CXA 117 0053/12" docRev="B" createdBy="XHARBAV" approvedBy="" docLang="Uen" docDate="2020-12-09"/>
+  <CoreMWProfile:CmwModel xmi:id="_gjKAzHYqEeW9ocbmwLVU1g" base_Model="_gjKAwHYqEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimModel xmi:id="_gjKAzXYqEeW9ocbmwLVU1g" base_Model="_gjKAwHYqEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwModel xmi:id="_gjKAznYqEeW9ocbmwLVU1g" base_Model="_gjKAwHYqEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_RqY44HYuEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" base_Package="_RqHzIHYuEeW9ocbmwLVU1g" author="Harika Bavana" contact="XHARBAV" date="2020-12-09" docNo="19089-CXA 117 0053" revision="C" version="1" release="1" organization="" correction="0"/>
+  <CoreMWProfile:CmwMom xmi:id="_RqZf8HYuEeW9ocbmwLVU1g" base_Package="_RqHzIHYuEeW9ocbmwLVU1g" immNamespace="MOM_NAME"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_beEkAHYvEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" base_Class="_bd9PQHYvEeW9ocbmwLVU1g" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_beFLEHYvEeW9ocbmwLVU1g" base_Class="_bd9PQHYvEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_beO8EHYvEeW9ocbmwLVU1g" base_Property="_beHAQHYvEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_bePjIHYvEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_beHAQHYvEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_zk6WQHYxEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" base_Class="_zk1dwHYxEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwClass xmi:id="_zk69UHYxEeW9ocbmwLVU1g" base_Class="_zk1dwHYxEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_zk_OwHYxEeW9ocbmwLVU1g" base_Property="_zk7kYHYxEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_zk_10HYxEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_zk7kYHYxEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_KT4F0HcUEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" length="1..15" pattern="^[A-Z]+[0-9]*$" base_DataType="_KTwxEHcUEeW9ocbmwLVU1g" patternErrorMsg=""/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_yh4zIHcaEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" range="512..32768" base_DataType="_yhyFcHcaEeW9ocbmwLVU1g" unit="byte" multiplicationFactor="" resolution=""/>
+  <CoreMWProfile:CmwAttribute xmi:id="_BQCpoHcbEeW9ocbmwLVU1g" base_Property="_BPkIgHcbEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_BQEe0HcbEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isRestricted="true" base_Property="_BPkIgHcbEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_utR8QHceEeW9ocbmwLVU1g" base_Property="_us_BUHceEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_utSjUHceEeW9ocbmwLVU1g" hideGroupName="APGHIDDEN" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" range="" unit="" resolution="" multiplicationFactor="" base_Property="_us_BUHceEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_49jscHfSEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" base_Class="_45QbQHfSEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwClass xmi:id="_49jscXfSEeW9ocbmwLVU1g" base_Class="_45QbQHfSEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_49n94HfSEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_49k6kHfSEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_49n94XfSEeW9ocbmwLVU1g" base_Property="_49k6kHfSEeW9ocbmwLVU1g" isPersistent="true"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_Lf4tQHfVEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" range="0..100" base_DataType="_Lfx_kHfVEeW9ocbmwLVU1g" unit="" multiplicationFactor="" resolution=""/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_afLXEHfVEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_afCNIHfVEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_afLXEXfVEeW9ocbmwLVU1g" base_Property="_afCNIHfVEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_p98yMHfVEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" range="1..60" base_DataType="_p902YHfVEeW9ocbmwLVU1g" unit="seconds" multiplicationFactor="" resolution=""/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_MnbVYHfbEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_MnF-MHfbEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Mnb8cHfbEeW9ocbmwLVU1g" base_Property="_MnF-MHfbEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_2J4E0HiLEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_2JitoHiLEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAction xmi:id="_2J5S8HiLEeW9ocbmwLVU1g" base_Operation="_2JitoHiLEeW9ocbmwLVU1g" admOpId="1"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_VdwXcHiMEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" base_Class="_Vdn0kHiMEeW9ocbmwLVU1g" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_Vdw-gHiMEeW9ocbmwLVU1g" base_Class="_Vdn0kHiMEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Vd4TQHiMEeW9ocbmwLVU1g" base_Property="_VdyzsHiMEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_Vd46UHiMEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_VdyzsHiMEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_oXNwwHiMEeW9ocbmwLVU1g" base_Property="_oW-gMHiMEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_oXO-4HiMEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" range="" unit="" resolution="" multiplicationFactor="" isNotifiable="true" base_Property="_oW-gMHiMEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_RIl4kHiNEeW9ocbmwLVU1g" base_Property="_RIcHkHiNEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_RInGsHiNEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" range="" unit="" resolution="" multiplicationFactor="" isNotifiable="true" base_Property="_RIcHkHiNEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_lp5ZcHiNEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" base_Class="_lpxdoHiNEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwClass xmi:id="_lp6AgHiNEeW9ocbmwLVU1g" base_Class="_lpxdoHiNEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_lqB8UHiNEeW9ocbmwLVU1g" base_Property="_lp7OoHiNEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_lqCjYHiNEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_lp7OoHiNEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_DxVHEHiOEeW9ocbmwLVU1g" base_Property="_DxQOkHiOEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_DxVuIHiOEeW9ocbmwLVU1g" hideGroupName="" specification="RFC 791" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isRestricted="true" base_Property="_DxQOkHiOEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="__bujUHiOEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" base_Enumeration="__bmAcHiOEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="__b2fIHiOEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="__bwYgHiOEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_FkeDMHiPEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_FkFBoHiPEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_MT0QEHiPEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_MTqfEHiPEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_K6kSQHicEeW9ocbmwLVU1g" base_Property="_K6YsEHicEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_K6lgYHicEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_K6YsEHicEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_gkGKAHidEeW9ocbmwLVU1g" base_Property="_gjrTQHidEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_gkHYIHidEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_gjrTQHidEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_TFDVgHieEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_TEpF0HieEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAction xmi:id="_TFD8kHieEeW9ocbmwLVU1g" base_Operation="_TEpF0HieEeW9ocbmwLVU1g" admOpId="2"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_aBcf4HieEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_aBEscHieEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_JWMOEHifEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" base_Class="_JWDrMHifEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwClass xmi:id="_JWM1IHifEeW9ocbmwLVU1g" base_Class="_JWDrMHifEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JWQfgHifEeW9ocbmwLVU1g" base_Property="_JWNcMHifEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_JWQfgXifEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_JWNcMHifEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_af9ycHifEeW9ocbmwLVU1g" base_Property="_afn0MHifEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_af_AkHifEeW9ocbmwLVU1g" hideGroupName="" specification="RFC 791" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isRestricted="true" base_Property="_afn0MHifEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_okNJQHifEeW9ocbmwLVU1g" base_Property="_okHCoHifEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_okNwUHifEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_okHCoHifEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_4AkwoHifEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" range="1..65535" base_DataType="_4Adb4HifEeW9ocbmwLVU1g" unit="" multiplicationFactor="" resolution=""/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JKgGAHigEeW9ocbmwLVU1g" base_Property="_JKSDkHigEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_JKhUIHigEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_JKSDkHigEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_bJcX0HigEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" length="0..255" pattern="^(\/?\w+\/?)*$" base_DataType="_bJVqIHigEeW9ocbmwLVU1g" patternErrorMsg=""/>
+  <CoreMWProfile:CmwAttribute xmi:id="_lZGCsHigEeW9ocbmwLVU1g" base_Property="_lY7DkHigEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_lZHQ0HigEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_lY7DkHigEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_wt1GUHigEeW9ocbmwLVU1g" base_Property="_wttxkHigEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_wt1tYHigEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_wttxkHigEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_963vYHigEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" base_Enumeration="_96jmUHigEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_96_rMHigEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_965kkHigEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_BmIgMHihEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_Bl-vMHihEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_PzpHwHihEeW9ocbmwLVU1g" base_Property="_PzZ3MHihEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_Pzpu0HihEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isRestricted="true" base_Property="_PzZ3MHihEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dM5n4HihEeW9ocbmwLVU1g" base_Property="_dMtaoHihEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_dM62AHihEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" patternErrorMsg="" isNotifiable="true" base_Property="_dMtaoHihEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_UQtTgHiiEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_UQlXsHiiEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAction xmi:id="_UQt6kHiiEeW9ocbmwLVU1g" base_Operation="_UQlXsHiiEeW9ocbmwLVU1g" admOpId="3"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_ZPbQQHiiEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" range="" unit="" resolution="" base_Parameter="_ZPRfQHiiEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_3LipQHijEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" base_Class="_3LcioHijEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwClass xmi:id="_3LipQXijEeW9ocbmwLVU1g" base_Class="_3LcioHijEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_3LnhwHijEeW9ocbmwLVU1g" base_Property="_3Lj3YHijEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_3LnhwXijEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_3Lj3YHijEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_jahgYHikEeW9ocbmwLVU1g" base_Property="_jaYWcHikEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_jaiugHikEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_jaYWcHikEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_yKWK0HikEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" base_Enumeration="_yKD28HikEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_yKdfkHikEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_yKXY8HikEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_5naZUHikEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_5nR2cHikEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="__YMFIHikEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="__YCUIHikEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JJ3akHilEeW9ocbmwLVU1g" base_Property="_JJkfoHilEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_JJ4osHilEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_JJkfoHilEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_YFhhkHilEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" range="1..60" base_DataType="_YFba8HilEeW9ocbmwLVU1g" unit="seconds" multiplicationFactor="" resolution=""/>
+  <CoreMWProfile:CmwAttribute xmi:id="_hqnzkHilEeW9ocbmwLVU1g" base_Property="_hqROQHilEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_hqoaoHilEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_hqROQHilEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_uNEAcHilEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" range="0..255" base_DataType="_uM6PcHilEeW9ocbmwLVU1g" unit="" multiplicationFactor="" resolution=""/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8naKIHilEeW9ocbmwLVU1g" base_Property="_8nN84HilEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_8nbYQHilEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_8nN84HilEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_PDS50HiqEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" base_Class="_PDJv4HiqEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwClass xmi:id="_PDS50XiqEeW9ocbmwLVU1g" base_Class="_PDJv4HiqEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_PDaOkHiqEeW9ocbmwLVU1g" base_Property="_PDUvAHiqEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_PDa1oHiqEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_PDUvAHiqEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_gTIp8HiqEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" range="64..32768" base_DataType="_gTEYgHiqEeW9ocbmwLVU1g" unit="KB" multiplicationFactor="" resolution=""/>
+  <CoreMWProfile:CmwAttribute xmi:id="_qNUbIHiqEeW9ocbmwLVU1g" base_Property="_qNHm0HiqEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_qNVpQHiqEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_qNHm0HiqEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_1fddwHiqEeW9ocbmwLVU1g" base_Property="_1fJ7wHiqEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_1fer4HiqEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" range="" unit="" resolution="" multiplicationFactor="" isNotifiable="true" base_Property="_1fJ7wHiqEeW9ocbmwLVU1g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_BFlzYHirEeW9ocbmwLVU1g" base_Property="_BFUGkHirEeW9ocbmwLVU1g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_BFmacHirEeW9ocbmwLVU1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" patternErrorMsg="" isNotifiable="true" base_Property="_BFUGkHirEeW9ocbmwLVU1g"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_HRS2gHuyEeWLHqaNbK2lGw" hideGroupName="" specification="" statusInformation="" base_Association="_HLqvoHuyEeWLHqaNbK2lGw"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_srAe8HuyEeWLHqaNbK2lGw" hideGroupName="" specification="" statusInformation="" base_Association="_sqx1cHuyEeWLHqaNbK2lGw"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_KH4MoHuzEeWLHqaNbK2lGw" hideGroupName="" specification="" statusInformation="" base_Association="_KHvpwHuzEeWLHqaNbK2lGw"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="__uk1gHu9EeWLHqaNbK2lGw" hideGroupName="" specification="" statusInformation="" base_Association="__uWMAHu9EeWLHqaNbK2lGw"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_y7PPcHvJEeWLHqaNbK2lGw" hideGroupName="" specification="" statusInformation="" base_Association="_y7E3YHvJEeWLHqaNbK2lGw"/>
+  <CoreMWProfile:CmwContribution xmi:id="_6Y3O4HvaEeWLHqaNbK2lGw" base_Association="_6YliEHvaEeWLHqaNbK2lGw"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_6Y318HvaEeWLHqaNbK2lGw" hideGroupName="" specification="" statusInformation="" base_Association="_6YliEHvaEeWLHqaNbK2lGw"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_G9KyEHvdEeWLHqaNbK2lGw" hideGroupName="" specification="" statusInformation="" base_Association="_G866cHvdEeWLHqaNbK2lGw"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_yLcaIHvdEeWLHqaNbK2lGw" hideGroupName="" specification="" statusInformation="" base_Association="_yLQM4HvdEeWLHqaNbK2lGw"/>
+  <ECIMBaseProfile:EcimInstances xmi:id="_vhZC4HyGEeWLHqaNbK2lGw" base_Package="_vhM1oHyGEeWLHqaNbK2lGw" version="1" release="0" correction="0"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_Dc3S0HyHEeWLHqaNbK2lGw" base_InstanceSpecification="_Dcv-EHyHEeWLHqaNbK2lGw"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_4LGH0MNMEeWD8aCDVcc9IQ" hideGroupName="" specification="" statusInformation="" length="" pattern="^(\%?\.?\+?\-?\w+\%?\.?\+?\-?)*$" base_DataType="_4KlKcMNMEeWD8aCDVcc9IQ" patternErrorMsg=""/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_wtA0oMUYEeW_V_4toor9vg" base_Package="_ws6uAMUYEeW_V_4toor9vg"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_wtG7QMUYEeW_V_4toor9vg" base_Class="_wtBbsMUYEeW_V_4toor9vg"/>
+  <ECIMBaseProfile:EcimFeatures xmi:id="_yCh2EMUYEeW_V_4toor9vg" base_Package="_yCZTMMUYEeW_V_4toor9vg"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_yCnVoMUYEeW_V_4toor9vg" base_Class="_yCidIMUYEeW_V_4toor9vg"/>
+</xmi:XMI>

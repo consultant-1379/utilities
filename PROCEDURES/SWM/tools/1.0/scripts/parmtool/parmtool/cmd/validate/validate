@@ -1,0 +1,176 @@
+#!/bin/bash 
+##
+# ------------------------------------------------------------------------
+#     Copyright (C) 2015 Ericsson AB. All rights reserved.
+# ------------------------------------------------------------------------
+##
+# Name:
+#       validate
+# Description:
+#         This validate command is used to validate 
+#					the requested input paramters of APG 
+##
+# Usage:
+# . <parmtool_root>/parmtool validate --file <filename>
+# . <parmtool_root>/parmtool validate --item-list lvalue1=rvalue1[,lvalueN=rvalueN]
+# . <parmtool_root>/parmtool validate --file <inputfile>
+#                                     --item-list lvalue1=rvalue1[,lvalueN=rvalueN]
+##
+# Changelog:
+# - Wed Nov 18 2015 - Pratap Reddy (xpraupp)
+#   First Version
+##
+
+. $LIB_COMMON_DIR/parmtool_common.sh
+
+
+# ------------------------------------------------------------------------------
+function usage(){
+  cat $MAN_DIR/validate.man
+}
+
+# ------------------------------------------------------------------------------
+function validate_params() {
+
+  local ITEM_ARRAY=()
+  [ $OPT_FILE -eq $TRUE ] && parse_file
+
+  # In case of only L_VALUE validation( i.e validate --item-list ap_type)
+  # script based validation skipped.
+  if ! $CMD_ECHO "$ITEM_LIST" | $CMD_GREP -qP '^[^[:space:]=]+=[^[:space:]=]+'
+  then
+    LVALUE_PRINT=$TRUE
+  fi
+
+  OIFS=$IFS; IFS=,
+  ITEM_ARRAY=( $ITEM_LIST )
+  IFS=$OIFS
+	# Convert text based input parameters to XML format
+  $CMD_T2XCONVERTER "${ITEM_ARRAY[@]}" $OUTFILE
+
+  if ! $CMD_XMLLINT --schema $APG_SCHEMA $OUTFILE &>/dev/null; then
+   	abort "Invalid Configuration!!!"
+  fi
+
+  # In case of GET API, script validation is skipped
+  # In case of SET and VALIDATE API's, script validation is manadatory
+  if ! isSCRIPT_VALIDATION_OFF; then
+    # Script-based validation of non-file input (e.g. single item) 
+    # against the parameters present on the APG.
+    source $CMD_SCRIPT_BASED_VALIDATION "${ITEM_ARRAY[@]}" || \
+     abort "Script based validation failed"
+  fi
+
+	return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function parse_file() {
+
+  local COUNT=0
+  local ITEM_ARRAY=()
+  while read ITEM
+  do
+    FILE_ITEMS[$COUNT]=$ITEM
+    ((COUNT++))
+  done < $INFILE
+
+  # Mixed usage of validate(--item-list and --file togther), 
+  # merge them with the ones in --item-list. And also if 
+  # the parameter is present in both switches,file parameter 
+  # will be overwritten with item list.
+  if [ $OPT_ITEM -eq $TRUE ]; then
+	  OIFS=$IFS; IFS=,
+ 	  ITEM_ARRAY=( $ITEM_LIST ); IFS=$OIFS
+    for ITEM in "${FILE_ITEMS[@]}"; do
+      L_VAL=$($CMD_ECHO "$ITEM" | $CMD_AWK -F'=' '{print $1}')
+      if $CMD_ECHO "${ITEM_ARRAY[@]}" | $CMD_GREP -wq $L_VAL; then
+        ITEM_LIST=$($CMD_ECHO ${ITEM_ARRAY[@]/$L_VAL*=.*/$ITEM})
+      else
+        ITEM_LIST+=" $ITEM"
+      fi
+	  done
+	else
+    ITEM_LIST="${FILE_ITEMS[@]}"
+  fi
+}
+
+# ------------------------------------------------------------------------------
+function isSCRIPT_VALIDATION_OFF() {
+  local RCODE=$FALSE
+  [ $LVALUE_PRINT -eq $TRUE ] && RCODE=$TRUE	
+	
+  return $RCODE
+}
+
+# ------------------------------------------------------------------------------
+function invoke() {
+
+  # Validate the parameters 
+  validate_params
+}
+
+# ------------------------------------------------------------------------------
+function parse_cmdline(){
+
+  local LONG_OPTIONS='help item-list: file: '
+  [ $# -le 0 ] && usage && abort 'missing parameter'
+
+  $CMD_GETOPT --quiet --quiet-output --longoptions="$LONG_OPTIONS" -- "$@"
+  EXIT_CODE=$?
+  [ $EXIT_CODE -ne $TRUE ] && usage && abort "Command line parameter error"
+
+  local ARGS="$@"
+  eval set -- "$ARGS"
+
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --file)
+        [ $OPT_FILE -eq $TRUE ] && usage_error "--file option repeated"
+        OPT_FILE=$TRUE
+        INFILE="$2"
+        [ -z "$INFILE" ] && usage_error "Command line parameter error"
+        [ ! -s $INFILE ] && abort "FILE ($INFILE) is empty"
+
+        check_file_format $INFILE || \
+          usage_error "FILE ($INFILE) format is not supported"
+        shift
+      ;;
+      --item-list)
+          [ $OPT_ITEM -eq $TRUE ] && usage_error "--item-list option repeated"
+          OPT_ITEM=$TRUE
+          ITEM_LIST="$2"
+          [ -z "$ITEM_LIST" ] && usage_error "--item-list option requires parameters"
+
+          check_itemlist_format $ITEM_LIST || \
+           usage_error "Invalid item list format"
+          shift
+			;;
+      --help)
+        usage && exit $TRUE
+      ;;
+      --)
+        # end of argument list
+        usage_error "Command line parameter error"
+        break
+      ;;
+      *)
+        abort "unrecognized option ($1)"
+      ;;
+    esac
+    shift
+  done
+}
+
+OPT_FILE=$FALSE
+OPT_ITEM=$FALSE
+INFILE=''
+OUTFILE='/tmp/parmtool_tmp.xml'
+LVALUE_PRINT=$FALSE
+
+parse_cmdline $@
+
+invoke
+
+# always return true if we are here.
+exit $TRUE

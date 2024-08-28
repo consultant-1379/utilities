@@ -1,0 +1,1760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <notation:Diagram xmi:id="_XMfv8GgfEeWh_IKdJv1FQA" type="PapyrusUMLClassDiagram" name="LdapAuthenticationInstances" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_XMfv8WgfEeWh_IKdJv1FQA" type="InstanceSpecification_Shape" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfv8mgfEeWh_IKdJv1FQA" type="InstanceSpecification_NameLabel">
+        <element xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmNWmxEeSpLem6SWiOww"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfv82gfEeWh_IKdJv1FQA" type="InstanceSpecification_SlotCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_XMfv9GgfEeWh_IKdJv1FQA" type="Slot_SlotLabel">
+          <element xmi:type="uml:Slot" href="ComLdapAuthentication.uml#_lsZmNmmxEeSpLem6SWiOww"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfv9WgfEeWh_IKdJv1FQA" type="Slot_SlotLabel">
+          <element xmi:type="uml:Slot" href="ComLdapAuthentication.uml#_lsZmOGmxEeSpLem6SWiOww"/>
+        </children>
+        <element xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmNWmxEeSpLem6SWiOww"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_BFlNMMD1EeWQ5fgWrWqk0w" type="InstanceSpecification_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_BFlNMcD1EeWQ5fgWrWqk0w" y="5"/>
+      </children>
+      <element xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmNWmxEeSpLem6SWiOww"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XMfv9mgfEeWh_IKdJv1FQA" x="243" y="158"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_XMfv92gfEeWh_IKdJv1FQA" type="InstanceSpecification_Shape" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfv-GgfEeWh_IKdJv1FQA" type="InstanceSpecification_NameLabel">
+        <element xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmKmmxEeSpLem6SWiOww"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfv-WgfEeWh_IKdJv1FQA" type="InstanceSpecification_SlotCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_XMfv-mgfEeWh_IKdJv1FQA" type="Slot_SlotLabel">
+          <element xmi:type="uml:Slot" href="ComLdapAuthentication.uml#_lsZmLWmxEeSpLem6SWiOww"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfv-2gfEeWh_IKdJv1FQA" type="Slot_SlotLabel">
+          <element xmi:type="uml:Slot" href="ComLdapAuthentication.uml#_lsZmK2mxEeSpLem6SWiOww"/>
+        </children>
+        <element xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmKmmxEeSpLem6SWiOww"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_BFlNMsD1EeWQ5fgWrWqk0w" type="InstanceSpecification_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_BFlNM8D1EeWQ5fgWrWqk0w" y="5"/>
+      </children>
+      <element xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmKmmxEeSpLem6SWiOww"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XMfv_GgfEeWh_IKdJv1FQA" x="255" y="425"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_XMfv_WgfEeWh_IKdJv1FQA" type="InstanceSpecification_Shape" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfv_mgfEeWh_IKdJv1FQA" type="InstanceSpecification_NameLabel">
+        <element xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmL2mxEeSpLem6SWiOww"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfv_2gfEeWh_IKdJv1FQA" type="InstanceSpecification_SlotCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_XMfwAGgfEeWh_IKdJv1FQA" type="Slot_SlotLabel">
+          <element xmi:type="uml:Slot" href="ComLdapAuthentication.uml#_lsZmMmmxEeSpLem6SWiOww"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwAWgfEeWh_IKdJv1FQA" type="Slot_SlotLabel">
+          <element xmi:type="uml:Slot" href="ComLdapAuthentication.uml#_lsZmMGmxEeSpLem6SWiOww"/>
+        </children>
+        <element xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmL2mxEeSpLem6SWiOww"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_BFlNNMD1EeWQ5fgWrWqk0w" type="InstanceSpecification_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_BFlNNcD1EeWQ5fgWrWqk0w" y="5"/>
+      </children>
+      <element xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmL2mxEeSpLem6SWiOww"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XMfwAmgfEeWh_IKdJv1FQA" x="267" y="693"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_XMfwA2gfEeWh_IKdJv1FQA" type="InstanceSpecification_Shape" fontName="Sans Serif" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwBGgfEeWh_IKdJv1FQA" type="InstanceSpecification_NameLabel">
+        <element xmi:type="uml:InstanceSpecification" href="ComSecM.uml#_-RfUwGmfEeCVrLpBeTEsyQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwBWgfEeWh_IKdJv1FQA" type="InstanceSpecification_SlotCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_XMfwBmgfEeWh_IKdJv1FQA" type="Slot_SlotLabel">
+          <element xmi:type="uml:Slot" href="ComSecM.uml#_E2E_10IeEeSbbd8-yy4Wqg"/>
+        </children>
+        <element xmi:type="uml:InstanceSpecification" href="ComSecM.uml#_-RfUwGmfEeCVrLpBeTEsyQ"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_BFlNNsD1EeWQ5fgWrWqk0w" type="InstanceSpecification_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_BFlNN8D1EeWQ5fgWrWqk0w" y="5"/>
+      </children>
+      <element xmi:type="uml:InstanceSpecification" href="ComSecM.uml#_-RfUwGmfEeCVrLpBeTEsyQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XMfwB2gfEeWh_IKdJv1FQA" x="291" y="24"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_XMfwCGgfEeWh_IKdJv1FQA" type="InstanceSpecification_Shape" fontName="Sans" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwCWgfEeWh_IKdJv1FQA" type="InstanceSpecification_NameLabel">
+        <element xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmPGmxEeSpLem6SWiOww"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwCmgfEeWh_IKdJv1FQA" type="InstanceSpecification_SlotCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_XMfwC2gfEeWh_IKdJv1FQA" type="Slot_SlotLabel">
+          <element xmi:type="uml:Slot" href="ComLdapAuthentication.uml#_lsZmPWmxEeSpLem6SWiOww"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwDGgfEeWh_IKdJv1FQA" type="Slot_SlotLabel">
+          <element xmi:type="uml:Slot" href="ComLdapAuthentication.uml#_lsZmQWmxEeSpLem6SWiOww"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwDWgfEeWh_IKdJv1FQA" type="Slot_SlotLabel">
+          <element xmi:type="uml:Slot" href="ComLdapAuthentication.uml#_lsZmP2mxEeSpLem6SWiOww"/>
+        </children>
+        <element xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmPGmxEeSpLem6SWiOww"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_BFlNOMD1EeWQ5fgWrWqk0w" type="InstanceSpecification_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_BFlNOcD1EeWQ5fgWrWqk0w" y="5"/>
+      </children>
+      <element xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmPGmxEeSpLem6SWiOww"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XMfwDmgfEeWh_IKdJv1FQA" x="741" y="839"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_BI3KsMD1EeWQ5fgWrWqk0w" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_BI3KscD1EeWQ5fgWrWqk0w" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BI3Ks8D1EeWQ5fgWrWqk0w" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmNWmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BI3KssD1EeWQ5fgWrWqk0w" x="443" y="158"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_BI-fcMD1EeWQ5fgWrWqk0w" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_BI-fccD1EeWQ5fgWrWqk0w" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BI-fc8D1EeWQ5fgWrWqk0w" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmO2mxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BI-fcsD1EeWQ5fgWrWqk0w" x="443" y="58"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_BJGbQMD1EeWQ5fgWrWqk0w" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_BJGbQcD1EeWQ5fgWrWqk0w" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BJGbQ8D1EeWQ5fgWrWqk0w" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmKmmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BJGbQsD1EeWQ5fgWrWqk0w" x="455" y="425"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_BJQMQMD1EeWQ5fgWrWqk0w" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_BJQMQcD1EeWQ5fgWrWqk0w" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BJQMQ8D1EeWQ5fgWrWqk0w" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmOmmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BJQMQsD1EeWQ5fgWrWqk0w" x="455" y="325"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_BJYvIMD1EeWQ5fgWrWqk0w" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_BJYvIcD1EeWQ5fgWrWqk0w" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BJYvI8D1EeWQ5fgWrWqk0w" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmL2mxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BJYvIsD1EeWQ5fgWrWqk0w" x="467" y="693"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_BJp04MD1EeWQ5fgWrWqk0w" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_BJp04cD1EeWQ5fgWrWqk0w" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BJp048D1EeWQ5fgWrWqk0w" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:InstanceSpecification" href="ComSecM.uml#_-RfUwGmfEeCVrLpBeTEsyQ"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BJp04sD1EeWQ5fgWrWqk0w" x="491" y="24"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_BJzl4MD1EeWQ5fgWrWqk0w" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_BJzl4cD1EeWQ5fgWrWqk0w" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BJzl48D1EeWQ5fgWrWqk0w" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmPGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BJzl4sD1EeWQ5fgWrWqk0w" x="941" y="839"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_BJ8IwMD1EeWQ5fgWrWqk0w" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_BJ8IwcD1EeWQ5fgWrWqk0w" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BJ8Iw8D1EeWQ5fgWrWqk0w" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmQ2mxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BJ8IwsD1EeWQ5fgWrWqk0w" x="941" y="739"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="__jTpUMM9EeWHWfw_NwU0PQ" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="__jTpUcM9EeWHWfw_NwU0PQ" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="__jUQYMM9EeWHWfw_NwU0PQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="__jTpUsM9EeWHWfw_NwU0PQ" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_fesaMMTmEeWHWfw_NwU0PQ" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_fesaMcTmEeWHWfw_NwU0PQ" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_fesaM8TmEeWHWfw_NwU0PQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fesaMsTmEeWHWfw_NwU0PQ" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_gyh0EMT7EeWHWfw_NwU0PQ" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_gyh0EcT7EeWHWfw_NwU0PQ" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_gyh0E8T7EeWHWfw_NwU0PQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gyh0EsT7EeWHWfw_NwU0PQ" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_vAjJMMhBEeWSN5hWjYHzjg" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_vAjJMchBEeWSN5hWjYHzjg" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_vAjwQMhBEeWSN5hWjYHzjg" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vAjJMshBEeWSN5hWjYHzjg" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_qsHlcMmHEeWpzo_LDGaclw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_qsHlccmHEeWpzo_LDGaclw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_qsHlc8mHEeWpzo_LDGaclw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qsHlcsmHEeWpzo_LDGaclw" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_W7h1MMwLEeWu4Mltt1YoDw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_W7h1McwLEeWu4Mltt1YoDw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_W7h1M8wLEeWu4Mltt1YoDw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_W7h1MswLEeWu4Mltt1YoDw" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_DOrh4NJzEeW1u6PPvn5xCQ" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_DOrh4dJzEeW1u6PPvn5xCQ" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_DOsI8NJzEeW1u6PPvn5xCQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DOrh4tJzEeW1u6PPvn5xCQ" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_9naVkNxxEeW1u6PPvn5xCQ" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_9naVkdxxEeW1u6PPvn5xCQ" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_9naVk9xxEeW1u6PPvn5xCQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9naVktxxEeW1u6PPvn5xCQ" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="__QaTsNxxEeW1u6PPvn5xCQ" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="__QaTsdxxEeW1u6PPvn5xCQ" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="__QaTs9xxEeW1u6PPvn5xCQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="__QaTstxxEeW1u6PPvn5xCQ" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="__QtOoNxxEeW1u6PPvn5xCQ" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="__QtOodxxEeW1u6PPvn5xCQ" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="__QtOo9xxEeW1u6PPvn5xCQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="__QtOotxxEeW1u6PPvn5xCQ" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_BdHb0NxyEeW1u6PPvn5xCQ" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_BdHb0dxyEeW1u6PPvn5xCQ" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BdHb09xyEeW1u6PPvn5xCQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BdHb0txyEeW1u6PPvn5xCQ" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_hWO40N47EeWUGIrmkA0HFw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_hWO40d47EeWUGIrmkA0HFw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_hWO40947EeWUGIrmkA0HFw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hWO40t47EeWUGIrmkA0HFw" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_UxBi0BbFEeawGtplo4xWPw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_UxBi0RbFEeawGtplo4xWPw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_UxBi0xbFEeawGtplo4xWPw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UxBi0hbFEeawGtplo4xWPw" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_WqMD4BbFEeawGtplo4xWPw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_WqMD4RbFEeawGtplo4xWPw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_WqMD4xbFEeawGtplo4xWPw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WqMD4hbFEeawGtplo4xWPw" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_Wqe-0BbFEeawGtplo4xWPw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Wqe-0RbFEeawGtplo4xWPw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Wqe-0xbFEeawGtplo4xWPw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Wqe-0hbFEeawGtplo4xWPw" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_y4l4kNRdEeaFScuhhBXuZA" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_y4l4kdRdEeaFScuhhBXuZA" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_y4mfoNRdEeaFScuhhBXuZA" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_y4l4ktRdEeaFScuhhBXuZA" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_iDCFEPnKEeaBkc7agBP7XQ" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_iDCFEfnKEeaBkc7agBP7XQ" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_iDCFE_nKEeaBkc7agBP7XQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iDCFEvnKEeaBkc7agBP7XQ" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_SBjw8BYjEeelH5JmniTZOA" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_SBjw8RYjEeelH5JmniTZOA" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_SBjw8xYjEeelH5JmniTZOA" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SBjw8hYjEeelH5JmniTZOA" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_Lc2ugIqTEeiPILvj0fE88g" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Lc2ugYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Lc3VkIqTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Lc2ugoqTEeiPILvj0fE88g" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_ylBLkI5eEeiPILvj0fE88g" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_ylBLkY5eEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_ylByoI5eEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ylBLko5eEeiPILvj0fE88g" x="467" y="593"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_AyAQkMWHEei2P8x_igBn3g" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_AyAQkcWHEei2P8x_igBn3g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_AyAQk8WHEei2P8x_igBn3g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AyAQksWHEei2P8x_igBn3g" x="467" y="593"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_XMfwD2gfEeWh_IKdJv1FQA"/>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_BFlNOsD1EeWQ5fgWrWqk0w" name="diagram_compatibility_version" stringValue="1.2.0"/>
+    <element xmi:type="uml:Package" href="ComLdapAuthentication.uml#_lsY-4GmxEeSpLem6SWiOww"/>
+    <edges xmi:type="notation:Connector" xmi:id="_XMfwEGgfEeWh_IKdJv1FQA" type="Dependency_Edge" source="_XMfv92gfEeWh_IKdJv1FQA" target="_XMfv8WgfEeWh_IKdJv1FQA" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwEWgfEeWh_IKdJv1FQA" type="Dependency_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwEmgfEeWh_IKdJv1FQA" y="-7"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_XMfwE2gfEeWh_IKdJv1FQA" fontName="Sans"/>
+      <element xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmOmmxEeSpLem6SWiOww"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XMfwFGgfEeWh_IKdJv1FQA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_XMfwFWgfEeWh_IKdJv1FQA" type="Dependency_Edge" source="_XMfv_WgfEeWh_IKdJv1FQA" target="_XMfv92gfEeWh_IKdJv1FQA" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwFmgfEeWh_IKdJv1FQA" type="Dependency_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwF2gfEeWh_IKdJv1FQA" y="-7"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_XMfwGGgfEeWh_IKdJv1FQA" fontName="Sans"/>
+      <element xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XMfwGWgfEeWh_IKdJv1FQA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_XMfwGmgfEeWh_IKdJv1FQA" type="Dependency_Edge" source="_XMfv8WgfEeWh_IKdJv1FQA" target="_XMfwA2gfEeWh_IKdJv1FQA" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwG2gfEeWh_IKdJv1FQA" type="Dependency_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwHGgfEeWh_IKdJv1FQA" y="-9"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_XMfwHWgfEeWh_IKdJv1FQA" fontName="Sans Serif" fontHeight="8"/>
+      <element xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmO2mxEeSpLem6SWiOww"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XMfwHmgfEeWh_IKdJv1FQA" points="[2, 0, 2, 118]$[2, -113, 2, 5]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XMfwH2gfEeWh_IKdJv1FQA"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XMfwIGgfEeWh_IKdJv1FQA"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_XMfwIWgfEeWh_IKdJv1FQA" type="Dependency_Edge" source="_XMfwCGgfEeWh_IKdJv1FQA" target="_XMfv92gfEeWh_IKdJv1FQA" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwImgfEeWh_IKdJv1FQA" type="Dependency_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwI2gfEeWh_IKdJv1FQA" y="-9"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_XMfwJGgfEeWh_IKdJv1FQA" fontName="Sans" fontHeight="8"/>
+      <element xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmQ2mxEeSpLem6SWiOww"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XMfwJWgfEeWh_IKdJv1FQA" points="[2, 0, 419, 151]$[2, -101, 419, 50]$[-415, -101, 2, 50]$[-415, -146, 2, 5]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XMfwJmgfEeWh_IKdJv1FQA"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XMfwJ2gfEeWh_IKdJv1FQA"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_BI3KtMD1EeWQ5fgWrWqk0w" type="StereotypeCommentLink" source="_XMfv8WgfEeWh_IKdJv1FQA" target="_BI3KsMD1EeWQ5fgWrWqk0w">
+      <styles xmi:type="notation:FontStyle" xmi:id="_BI3KtcD1EeWQ5fgWrWqk0w"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BI3KucD1EeWQ5fgWrWqk0w" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmNWmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BI3KtsD1EeWQ5fgWrWqk0w" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BI3Kt8D1EeWQ5fgWrWqk0w"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BI3KuMD1EeWQ5fgWrWqk0w"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_BI-fdMD1EeWQ5fgWrWqk0w" type="StereotypeCommentLink" source="_XMfwGmgfEeWh_IKdJv1FQA" target="_BI-fcMD1EeWQ5fgWrWqk0w">
+      <styles xmi:type="notation:FontStyle" xmi:id="_BI-fdcD1EeWQ5fgWrWqk0w"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BI-fecD1EeWQ5fgWrWqk0w" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmO2mxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BI-fdsD1EeWQ5fgWrWqk0w" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BI-fd8D1EeWQ5fgWrWqk0w"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BI-feMD1EeWQ5fgWrWqk0w"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_BJHCUMD1EeWQ5fgWrWqk0w" type="StereotypeCommentLink" source="_XMfv92gfEeWh_IKdJv1FQA" target="_BJGbQMD1EeWQ5fgWrWqk0w">
+      <styles xmi:type="notation:FontStyle" xmi:id="_BJHCUcD1EeWQ5fgWrWqk0w"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BJHCVcD1EeWQ5fgWrWqk0w" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmKmmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BJHCUsD1EeWQ5fgWrWqk0w" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BJHCU8D1EeWQ5fgWrWqk0w"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BJHCVMD1EeWQ5fgWrWqk0w"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_BJQMRMD1EeWQ5fgWrWqk0w" type="StereotypeCommentLink" source="_XMfwEGgfEeWh_IKdJv1FQA" target="_BJQMQMD1EeWQ5fgWrWqk0w">
+      <styles xmi:type="notation:FontStyle" xmi:id="_BJQMRcD1EeWQ5fgWrWqk0w"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BJQMScD1EeWQ5fgWrWqk0w" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmOmmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BJQMRsD1EeWQ5fgWrWqk0w" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BJQMR8D1EeWQ5fgWrWqk0w"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BJQMSMD1EeWQ5fgWrWqk0w"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_BJYvJMD1EeWQ5fgWrWqk0w" type="StereotypeCommentLink" source="_XMfv_WgfEeWh_IKdJv1FQA" target="_BJYvIMD1EeWQ5fgWrWqk0w">
+      <styles xmi:type="notation:FontStyle" xmi:id="_BJYvJcD1EeWQ5fgWrWqk0w"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BJYvKcD1EeWQ5fgWrWqk0w" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmL2mxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BJYvJsD1EeWQ5fgWrWqk0w" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BJYvJ8D1EeWQ5fgWrWqk0w"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BJYvKMD1EeWQ5fgWrWqk0w"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_BJgq9MD1EeWQ5fgWrWqk0w" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA">
+      <styles xmi:type="notation:FontStyle" xmi:id="_BJgq9cD1EeWQ5fgWrWqk0w"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BJgq-cD1EeWQ5fgWrWqk0w" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BJgq9sD1EeWQ5fgWrWqk0w" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BJgq98D1EeWQ5fgWrWqk0w"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BJgq-MD1EeWQ5fgWrWqk0w"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_BJp05MD1EeWQ5fgWrWqk0w" type="StereotypeCommentLink" source="_XMfwA2gfEeWh_IKdJv1FQA" target="_BJp04MD1EeWQ5fgWrWqk0w">
+      <styles xmi:type="notation:FontStyle" xmi:id="_BJp05cD1EeWQ5fgWrWqk0w"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BJp06cD1EeWQ5fgWrWqk0w" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:InstanceSpecification" href="ComSecM.uml#_-RfUwGmfEeCVrLpBeTEsyQ"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BJp05sD1EeWQ5fgWrWqk0w" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BJp058D1EeWQ5fgWrWqk0w"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BJp06MD1EeWQ5fgWrWqk0w"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_BJzl5MD1EeWQ5fgWrWqk0w" type="StereotypeCommentLink" source="_XMfwCGgfEeWh_IKdJv1FQA" target="_BJzl4MD1EeWQ5fgWrWqk0w">
+      <styles xmi:type="notation:FontStyle" xmi:id="_BJzl5cD1EeWQ5fgWrWqk0w"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BJzl6cD1EeWQ5fgWrWqk0w" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:InstanceSpecification" href="ComLdapAuthentication.uml#_lsZmPGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BJzl5sD1EeWQ5fgWrWqk0w" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BJzl58D1EeWQ5fgWrWqk0w"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BJzl6MD1EeWQ5fgWrWqk0w"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_BJ8IxMD1EeWQ5fgWrWqk0w" type="StereotypeCommentLink" source="_XMfwIWgfEeWh_IKdJv1FQA" target="_BJ8IwMD1EeWQ5fgWrWqk0w">
+      <styles xmi:type="notation:FontStyle" xmi:id="_BJ8v0MD1EeWQ5fgWrWqk0w"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BJ8v1MD1EeWQ5fgWrWqk0w" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmQ2mxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BJ8v0cD1EeWQ5fgWrWqk0w" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BJ8v0sD1EeWQ5fgWrWqk0w"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BJ8v08D1EeWQ5fgWrWqk0w"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="__jUQYcM9EeWHWfw_NwU0PQ" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="__jTpUMM9EeWHWfw_NwU0PQ">
+      <styles xmi:type="notation:FontStyle" xmi:id="__jUQYsM9EeWHWfw_NwU0PQ"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="__jUQZsM9EeWHWfw_NwU0PQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__jUQY8M9EeWHWfw_NwU0PQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__jUQZMM9EeWHWfw_NwU0PQ"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__jUQZcM9EeWHWfw_NwU0PQ"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_fesaNMTmEeWHWfw_NwU0PQ" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="_fesaMMTmEeWHWfw_NwU0PQ">
+      <styles xmi:type="notation:FontStyle" xmi:id="_fetBQMTmEeWHWfw_NwU0PQ"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_fetBRMTmEeWHWfw_NwU0PQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_fetBQcTmEeWHWfw_NwU0PQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_fetBQsTmEeWHWfw_NwU0PQ"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_fetBQ8TmEeWHWfw_NwU0PQ"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_gyh0FMT7EeWHWfw_NwU0PQ" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="_gyh0EMT7EeWHWfw_NwU0PQ">
+      <styles xmi:type="notation:FontStyle" xmi:id="_gyibIMT7EeWHWfw_NwU0PQ"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_gyibJMT7EeWHWfw_NwU0PQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gyibIcT7EeWHWfw_NwU0PQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gyibIsT7EeWHWfw_NwU0PQ"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gyibI8T7EeWHWfw_NwU0PQ"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_vAjwQchBEeWSN5hWjYHzjg" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="_vAjJMMhBEeWSN5hWjYHzjg">
+      <styles xmi:type="notation:FontStyle" xmi:id="_vAjwQshBEeWSN5hWjYHzjg"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_vAjwRshBEeWSN5hWjYHzjg" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vAjwQ8hBEeWSN5hWjYHzjg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vAjwRMhBEeWSN5hWjYHzjg"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vAjwRchBEeWSN5hWjYHzjg"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_qsIMgMmHEeWpzo_LDGaclw" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="_qsHlcMmHEeWpzo_LDGaclw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_qsIMgcmHEeWpzo_LDGaclw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_qsIzksmHEeWpzo_LDGaclw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qsIMgsmHEeWpzo_LDGaclw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qsIzkMmHEeWpzo_LDGaclw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qsIzkcmHEeWpzo_LDGaclw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_W7h1NMwLEeWu4Mltt1YoDw" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="_W7h1MMwLEeWu4Mltt1YoDw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_W7h1NcwLEeWu4Mltt1YoDw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_W7icQMwLEeWu4Mltt1YoDw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_W7h1NswLEeWu4Mltt1YoDw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_W7h1N8wLEeWu4Mltt1YoDw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_W7h1OMwLEeWu4Mltt1YoDw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_DOsI8dJzEeW1u6PPvn5xCQ" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="_DOrh4NJzEeW1u6PPvn5xCQ">
+      <styles xmi:type="notation:FontStyle" xmi:id="_DOsI8tJzEeW1u6PPvn5xCQ"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_DOsI9tJzEeW1u6PPvn5xCQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_DOsI89JzEeW1u6PPvn5xCQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_DOsI9NJzEeW1u6PPvn5xCQ"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_DOsI9dJzEeW1u6PPvn5xCQ"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_9naVlNxxEeW1u6PPvn5xCQ" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="_9naVkNxxEeW1u6PPvn5xCQ">
+      <styles xmi:type="notation:FontStyle" xmi:id="_9naVldxxEeW1u6PPvn5xCQ"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_9na8otxxEeW1u6PPvn5xCQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9naVltxxEeW1u6PPvn5xCQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9na8oNxxEeW1u6PPvn5xCQ"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9na8odxxEeW1u6PPvn5xCQ"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="__Qa6wNxxEeW1u6PPvn5xCQ" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="__QaTsNxxEeW1u6PPvn5xCQ">
+      <styles xmi:type="notation:FontStyle" xmi:id="__Qa6wdxxEeW1u6PPvn5xCQ"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="__Qa6xdxxEeW1u6PPvn5xCQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__Qa6wtxxEeW1u6PPvn5xCQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__Qa6w9xxEeW1u6PPvn5xCQ"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__Qa6xNxxEeW1u6PPvn5xCQ"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="__QtOpNxxEeW1u6PPvn5xCQ" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="__QtOoNxxEeW1u6PPvn5xCQ">
+      <styles xmi:type="notation:FontStyle" xmi:id="__QtOpdxxEeW1u6PPvn5xCQ"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="__QtOqdxxEeW1u6PPvn5xCQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__QtOptxxEeW1u6PPvn5xCQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__QtOp9xxEeW1u6PPvn5xCQ"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__QtOqNxxEeW1u6PPvn5xCQ"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_BdHb1NxyEeW1u6PPvn5xCQ" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="_BdHb0NxyEeW1u6PPvn5xCQ">
+      <styles xmi:type="notation:FontStyle" xmi:id="_BdHb1dxyEeW1u6PPvn5xCQ"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BdHb2dxyEeW1u6PPvn5xCQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BdHb1txyEeW1u6PPvn5xCQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BdHb19xyEeW1u6PPvn5xCQ"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BdHb2NxyEeW1u6PPvn5xCQ"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_hWO41N47EeWUGIrmkA0HFw" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="_hWO40N47EeWUGIrmkA0HFw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_hWO41d47EeWUGIrmkA0HFw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_hWPf4N47EeWUGIrmkA0HFw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hWO41t47EeWUGIrmkA0HFw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hWO41947EeWUGIrmkA0HFw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hWO42N47EeWUGIrmkA0HFw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_UxBi1BbFEeawGtplo4xWPw" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="_UxBi0BbFEeawGtplo4xWPw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_UxBi1RbFEeawGtplo4xWPw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_UxCJ4BbFEeawGtplo4xWPw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_UxBi1hbFEeawGtplo4xWPw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UxBi1xbFEeawGtplo4xWPw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UxBi2BbFEeawGtplo4xWPw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_WqMD5BbFEeawGtplo4xWPw" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="_WqMD4BbFEeawGtplo4xWPw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_WqMD5RbFEeawGtplo4xWPw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_WqMD6RbFEeawGtplo4xWPw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WqMD5hbFEeawGtplo4xWPw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WqMD5xbFEeawGtplo4xWPw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WqMD6BbFEeawGtplo4xWPw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_Wqe-1BbFEeawGtplo4xWPw" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="_Wqe-0BbFEeawGtplo4xWPw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_Wqe-1RbFEeawGtplo4xWPw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Wqe-2RbFEeawGtplo4xWPw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Wqe-1hbFEeawGtplo4xWPw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Wqe-1xbFEeawGtplo4xWPw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Wqe-2BbFEeawGtplo4xWPw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_y4mfodRdEeaFScuhhBXuZA" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="_y4l4kNRdEeaFScuhhBXuZA">
+      <styles xmi:type="notation:FontStyle" xmi:id="_y4mfotRdEeaFScuhhBXuZA"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_y4nGsNRdEeaFScuhhBXuZA" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_y4mfo9RdEeaFScuhhBXuZA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_y4mfpNRdEeaFScuhhBXuZA"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_y4mfpdRdEeaFScuhhBXuZA"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_iDCFFPnKEeaBkc7agBP7XQ" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="_iDCFEPnKEeaBkc7agBP7XQ">
+      <styles xmi:type="notation:FontStyle" xmi:id="_iDCFFfnKEeaBkc7agBP7XQ"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_iDCsIvnKEeaBkc7agBP7XQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_iDCFFvnKEeaBkc7agBP7XQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_iDCsIPnKEeaBkc7agBP7XQ"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_iDCsIfnKEeaBkc7agBP7XQ"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_SBjw9BYjEeelH5JmniTZOA" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="_SBjw8BYjEeelH5JmniTZOA">
+      <styles xmi:type="notation:FontStyle" xmi:id="_SBjw9RYjEeelH5JmniTZOA"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_SBkYABYjEeelH5JmniTZOA" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SBjw9hYjEeelH5JmniTZOA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SBjw9xYjEeelH5JmniTZOA"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SBjw-BYjEeelH5JmniTZOA"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_Lc38oIqTEeiPILvj0fE88g" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="_Lc2ugIqTEeiPILvj0fE88g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_Lc38oYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Lc4jsoqTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Lc38ooqTEeiPILvj0fE88g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Lc4jsIqTEeiPILvj0fE88g"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Lc4jsYqTEeiPILvj0fE88g"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_ylByoY5eEeiPILvj0fE88g" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="_ylBLkI5eEeiPILvj0fE88g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_ylByoo5eEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_ylBypo5eEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ylByo45eEeiPILvj0fE88g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ylBypI5eEeiPILvj0fE88g"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ylBypY5eEeiPILvj0fE88g"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_AyBesMWHEei2P8x_igBn3g" type="StereotypeCommentLink" source="_XMfwFWgfEeWh_IKdJv1FQA" target="_AyAQkMWHEei2P8x_igBn3g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_AyBescWHEei2P8x_igBn3g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_AyCFwcWHEei2P8x_igBn3g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Dependency" href="ComLdapAuthentication.uml#_lsZmNGmxEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_AyBessWHEei2P8x_igBn3g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_AyBes8WHEei2P8x_igBn3g"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_AyCFwMWHEei2P8x_igBn3g"/>
+    </edges>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_XMfwKGgfEeWh_IKdJv1FQA" type="PapyrusUMLClassDiagram" name="ComLdapAuthentication" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_XMfwKWgfEeWh_IKdJv1FQA" type="Class_Shape" fontName="Segoe UI" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwKmgfEeWh_IKdJv1FQA" type="Class_NameLabel">
+        <element xmi:type="uml:Class" href="ComSecM.uml#_uY-DUN26Ed-W85zyLt2pLQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwK2gfEeWh_IKdJv1FQA" visible="false" type="Class_AttributeCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_XMfwLGgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComSecM.uml#_uaAlIN26Ed-W85zyLt2pLQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwLWgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComSecM.uml#_5w3hIN3lEd-W85zyLt2pLQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwLmgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComSecM.uml#_OXNy4CpvEeKMu_hdrwvWBQ"/>
+        </children>
+        <element xmi:type="uml:Class" href="ComSecM.uml#_uY-DUN26Ed-W85zyLt2pLQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwL2gfEeWh_IKdJv1FQA" visible="false" type="Class_OperationCompartment">
+        <element xmi:type="uml:Class" href="ComSecM.uml#_uY-DUN26Ed-W85zyLt2pLQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwMGgfEeWh_IKdJv1FQA" visible="false" type="Class_NestedClassifierCompartment">
+        <element xmi:type="uml:Class" href="ComSecM.uml#_uY-DUN26Ed-W85zyLt2pLQ"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwMWgfEeWh_IKdJv1FQA" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_XMfwMmgfEeWh_IKdJv1FQA"/>
+        <element xmi:type="uml:Class" href="ComSecM.uml#_uY-DUN26Ed-W85zyLt2pLQ"/>
+      </children>
+      <element xmi:type="uml:Class" href="ComSecM.uml#_uY-DUN26Ed-W85zyLt2pLQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XMfwM2gfEeWh_IKdJv1FQA" x="240" y="50"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_XMfwNGgfEeWh_IKdJv1FQA" type="Class_Shape" fontName="Segoe UI" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwNWgfEeWh_IKdJv1FQA" type="Class_NameLabel">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_pfxAQN3cEd-W85zyLt2pLQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwNmgfEeWh_IKdJv1FQA" type="Class_AttributeCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_XMfwN2gfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_reIxcN3cEd-W85zyLt2pLQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwOGgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_6NZLwNU3Ed-fE6CEjdaU8A"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwOWgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_6NZLxtU3Ed-fE6CEjdaU8A"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwOmgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_SdsD0HzTEeKLS_OMjoXlUg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwO2gfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_n4TIoN3bEd-W85zyLt2pLQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwPGgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_WYeVUO3vEeGj2aCQfoWdPQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwPWgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_6NZLxNU3Ed-fE6CEjdaU8A"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwPmgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_J2APgDT7EeSof55F5crVQg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwP2gfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_HvHtQOhzEeGe761FTjBHwg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwQGgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_0jnjcO3dEeGj2aCQfoWdPQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwQWgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_AMPMYO3eEeGj2aCQfoWdPQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwRWgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_6NZLwtU3Ed-fE6CEjdaU8A"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwRmgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_6NZLyNU3Ed-fE6CEjdaU8A"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwR2gfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_j3AVgHzSEeKLS_OMjoXlUg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwSGgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_Va9PIN3REd-W85zyLt2pLQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwSmgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_aZoesGpVEeSpLem6SWiOww"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwS2gfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_6Xm3MGpVEeSpLem6SWiOww"/>
+        </children>
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_pfxAQN3cEd-W85zyLt2pLQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwTGgfEeWh_IKdJv1FQA" type="Class_OperationCompartment">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_pfxAQN3cEd-W85zyLt2pLQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwTWgfEeWh_IKdJv1FQA" visible="false" type="Class_NestedClassifierCompartment">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_pfxAQN3cEd-W85zyLt2pLQ"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwTmgfEeWh_IKdJv1FQA" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_XMfwT2gfEeWh_IKdJv1FQA"/>
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_pfxAQN3cEd-W85zyLt2pLQ"/>
+      </children>
+      <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_pfxAQN3cEd-W85zyLt2pLQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XMfwUGgfEeWh_IKdJv1FQA" x="177" y="329"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_XMfwUWgfEeWh_IKdJv1FQA" type="Class_Shape" fontName="Segoe UI" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwUmgfEeWh_IKdJv1FQA" type="Class_NameLabel">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#__uYQYPWqEd-bZPa-5ixdPA"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwU2gfEeWh_IKdJv1FQA" type="Class_AttributeCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_XMfwVGgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#__wKZEPWqEd-bZPa-5ixdPA"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwVWgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_6NZL1dU3Ed-fE6CEjdaU8A"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwVmgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_HrLu4PWrEd-bZPa-5ixdPA"/>
+        </children>
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#__uYQYPWqEd-bZPa-5ixdPA"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwV2gfEeWh_IKdJv1FQA" type="Class_OperationCompartment">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#__uYQYPWqEd-bZPa-5ixdPA"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwWGgfEeWh_IKdJv1FQA" visible="false" type="Class_NestedClassifierCompartment">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#__uYQYPWqEd-bZPa-5ixdPA"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwWWgfEeWh_IKdJv1FQA" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_XMfwWmgfEeWh_IKdJv1FQA"/>
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#__uYQYPWqEd-bZPa-5ixdPA"/>
+      </children>
+      <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#__uYQYPWqEd-bZPa-5ixdPA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XMfwW2gfEeWh_IKdJv1FQA" x="164" y="152"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_XMfwXGgfEeWh_IKdJv1FQA" type="Class_Shape" fontName="Segoe UI" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwXWgfEeWh_IKdJv1FQA" type="Class_NameLabel">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_eMHY8LdUEd-gvvrqzvkuGQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwXmgfEeWh_IKdJv1FQA" type="Class_AttributeCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_XMfwX2gfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_eNggELdUEd-gvvrqzvkuGQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwYGgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_rORnsLdUEd-gvvrqzvkuGQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwYWgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_vioY0LdUEd-gvvrqzvkuGQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwYmgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_kKqbALdUEd-gvvrqzvkuGQ"/>
+        </children>
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_eMHY8LdUEd-gvvrqzvkuGQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwY2gfEeWh_IKdJv1FQA" type="Class_OperationCompartment">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_eMHY8LdUEd-gvvrqzvkuGQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwZGgfEeWh_IKdJv1FQA" visible="false" type="Class_NestedClassifierCompartment">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_eMHY8LdUEd-gvvrqzvkuGQ"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwZWgfEeWh_IKdJv1FQA" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_XMfwZmgfEeWh_IKdJv1FQA"/>
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_eMHY8LdUEd-gvvrqzvkuGQ"/>
+      </children>
+      <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_eMHY8LdUEd-gvvrqzvkuGQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XMfwZ2gfEeWh_IKdJv1FQA" x="24" y="899"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_XMfwaGgfEeWh_IKdJv1FQA" type="Class_Shape" fontName="Segoe UI" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwaWgfEeWh_IKdJv1FQA" type="Class_NameLabel">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_Il93AA4VEeKuGPHIMM7ANw"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwamgfEeWh_IKdJv1FQA" type="Class_AttributeCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_XMfwa2gfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_ImwhMA4VEeKuGPHIMM7ANw"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwbGgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_RAzVUA4VEeKuGPHIMM7ANw"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwbWgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_tCheMA4WEeKuGPHIMM7ANw"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwbmgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_3XmhAAKmEeS8OL177_7iuw"/>
+        </children>
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_Il93AA4VEeKuGPHIMM7ANw"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwb2gfEeWh_IKdJv1FQA" type="Class_OperationCompartment">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_Il93AA4VEeKuGPHIMM7ANw"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwcGgfEeWh_IKdJv1FQA" visible="false" type="Class_NestedClassifierCompartment">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_Il93AA4VEeKuGPHIMM7ANw"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwcWgfEeWh_IKdJv1FQA" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_XMfwcmgfEeWh_IKdJv1FQA"/>
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_Il93AA4VEeKuGPHIMM7ANw"/>
+      </children>
+      <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_Il93AA4VEeKuGPHIMM7ANw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XMfwc2gfEeWh_IKdJv1FQA" x="522" y="887"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_XMfwdGgfEeWh_IKdJv1FQA" type="Enumeration_Shape" fontName="Segoe UI" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwdWgfEeWh_IKdJv1FQA" type="Enumeration_NameLabel">
+        <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_H7RR4CppEeKMu_hdrwvWBQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwdmgfEeWh_IKdJv1FQA" type="Enumeration_LiteralCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_XMfwd2gfEeWh_IKdJv1FQA" type="EnumerationLiteral_LiteralLabel">
+          <element xmi:type="uml:EnumerationLiteral" href="ComLdapAuthentication.uml#_H7RR4ippEeKMu_hdrwvWBQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfweGgfEeWh_IKdJv1FQA" type="EnumerationLiteral_LiteralLabel">
+          <element xmi:type="uml:EnumerationLiteral" href="ComLdapAuthentication.uml#_H7RR5SppEeKMu_hdrwvWBQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfweWgfEeWh_IKdJv1FQA" type="EnumerationLiteral_LiteralLabel">
+          <element xmi:type="uml:EnumerationLiteral" href="ComLdapAuthentication.uml#_H7RR6CppEeKMu_hdrwvWBQ"/>
+        </children>
+        <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_H7RR4CppEeKMu_hdrwvWBQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwemgfEeWh_IKdJv1FQA" visible="false">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QlmJ8IqTEeiPILvj0fE88g" source="PapyrusCSSForceValue">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QlmJ8YqTEeiPILvj0fE88g" key="type" value="true"/>
+        </eAnnotations>
+        <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_H7RR4CppEeKMu_hdrwvWBQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwe2gfEeWh_IKdJv1FQA" visible="false">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QlmJ8oqTEeiPILvj0fE88g" source="PapyrusCSSForceValue">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QlmJ84qTEeiPILvj0fE88g" key="type" value="true"/>
+        </eAnnotations>
+        <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_H7RR4CppEeKMu_hdrwvWBQ"/>
+      </children>
+      <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_H7RR4CppEeKMu_hdrwvWBQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XMfwfGgfEeWh_IKdJv1FQA" x="535" y="291"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_XMfwfWgfEeWh_IKdJv1FQA" type="Enumeration_Shape" fontName="Segoe UI" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwfmgfEeWh_IKdJv1FQA" type="Enumeration_NameLabel">
+        <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_7bizUHzREeKLS_OMjoXlUg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwf2gfEeWh_IKdJv1FQA" type="Enumeration_LiteralCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_XMfwgGgfEeWh_IKdJv1FQA" type="EnumerationLiteral_LiteralLabel">
+          <element xmi:type="uml:EnumerationLiteral" href="ComLdapAuthentication.uml#_7detAXzREeKLS_OMjoXlUg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwgWgfEeWh_IKdJv1FQA" type="EnumerationLiteral_LiteralLabel">
+          <element xmi:type="uml:EnumerationLiteral" href="ComLdapAuthentication.uml#_FI2mIHzSEeKLS_OMjoXlUg"/>
+        </children>
+        <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_7bizUHzREeKLS_OMjoXlUg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwgmgfEeWh_IKdJv1FQA" visible="false">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QlmJ9IqTEeiPILvj0fE88g" source="PapyrusCSSForceValue">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QlmxAIqTEeiPILvj0fE88g" key="type" value="true"/>
+        </eAnnotations>
+        <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_7bizUHzREeKLS_OMjoXlUg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwg2gfEeWh_IKdJv1FQA" visible="false">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QlmxAYqTEeiPILvj0fE88g" source="PapyrusCSSForceValue">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QlmxAoqTEeiPILvj0fE88g" key="type" value="true"/>
+        </eAnnotations>
+        <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_7bizUHzREeKLS_OMjoXlUg"/>
+      </children>
+      <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_7bizUHzREeKLS_OMjoXlUg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XMfwhGgfEeWh_IKdJv1FQA" x="535" y="583"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_XMfwhWgfEeWh_IKdJv1FQA" type="Enumeration_Shape" fontName="Segoe UI" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwhmgfEeWh_IKdJv1FQA" type="Enumeration_NameLabel">
+        <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_qwNQwAKoEeS8OL177_7iuw"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwh2gfEeWh_IKdJv1FQA" type="Enumeration_LiteralCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_XMfwiGgfEeWh_IKdJv1FQA" type="EnumerationLiteral_LiteralLabel">
+          <element xmi:type="uml:EnumerationLiteral" href="ComLdapAuthentication.uml#_qwgLsQKoEeS8OL177_7iuw"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwiWgfEeWh_IKdJv1FQA" type="EnumerationLiteral_LiteralLabel">
+          <element xmi:type="uml:EnumerationLiteral" href="ComLdapAuthentication.uml#_tPsyAAKoEeS8OL177_7iuw"/>
+        </children>
+        <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_qwNQwAKoEeS8OL177_7iuw"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwimgfEeWh_IKdJv1FQA" visible="false">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QlmxA4qTEeiPILvj0fE88g" source="PapyrusCSSForceValue">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QlmxBIqTEeiPILvj0fE88g" key="type" value="true"/>
+        </eAnnotations>
+        <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_qwNQwAKoEeS8OL177_7iuw"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwi2gfEeWh_IKdJv1FQA" visible="false">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QlmxBYqTEeiPILvj0fE88g" source="PapyrusCSSForceValue">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QlmxBoqTEeiPILvj0fE88g" key="type" value="true"/>
+        </eAnnotations>
+        <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_qwNQwAKoEeS8OL177_7iuw"/>
+      </children>
+      <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_qwNQwAKoEeS8OL177_7iuw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XMfwjGgfEeWh_IKdJv1FQA" x="535" y="705"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_XMfwjWgfEeWh_IKdJv1FQA" type="Enumeration_Shape" fontName="Sans" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwjmgfEeWh_IKdJv1FQA" type="Enumeration_NameLabel">
+        <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_sJ2_EGpVEeSpLem6SWiOww"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwj2gfEeWh_IKdJv1FQA" type="Enumeration_LiteralCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_XMfwkGgfEeWh_IKdJv1FQA" type="EnumerationLiteral_LiteralLabel">
+          <element xmi:type="uml:EnumerationLiteral" href="ComLdapAuthentication.uml#_sJ2_EmpVEeSpLem6SWiOww"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwkWgfEeWh_IKdJv1FQA" type="EnumerationLiteral_LiteralLabel">
+          <element xmi:type="uml:EnumerationLiteral" href="ComLdapAuthentication.uml#_sJ2_FWpVEeSpLem6SWiOww"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfwkmgfEeWh_IKdJv1FQA" type="EnumerationLiteral_LiteralLabel">
+          <element xmi:type="uml:EnumerationLiteral" href="ComLdapAuthentication.uml#_sJ2_GGpVEeSpLem6SWiOww"/>
+        </children>
+        <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_sJ2_EGpVEeSpLem6SWiOww"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwk2gfEeWh_IKdJv1FQA" visible="false">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QlmxB4qTEeiPILvj0fE88g" source="PapyrusCSSForceValue">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QlmxCIqTEeiPILvj0fE88g" key="type" value="true"/>
+        </eAnnotations>
+        <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_sJ2_EGpVEeSpLem6SWiOww"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfwlGgfEeWh_IKdJv1FQA" visible="false">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QlmxCYqTEeiPILvj0fE88g" source="PapyrusCSSForceValue">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QlmxCoqTEeiPILvj0fE88g" key="type" value="true"/>
+        </eAnnotations>
+        <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_sJ2_EGpVEeSpLem6SWiOww"/>
+      </children>
+      <element xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_sJ2_EGpVEeSpLem6SWiOww"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XMfwlWgfEeWh_IKdJv1FQA" x="535" y="437"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_QsTO4IqTEeiPILvj0fE88g" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QsTO4YqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QsTO44qTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComSecM.uml#_uY-DUN26Ed-W85zyLt2pLQ"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QsTO4oqTEeiPILvj0fE88g" x="440" y="50"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_Qs_LYIqTEeiPILvj0fE88g" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qs_LYYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Qs_LY4qTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComLdapAuthentication.uml#_pfxAQN3cEd-W85zyLt2pLQ"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qs_LYoqTEeiPILvj0fE88g" x="377" y="329"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_QyRUAIqTEeiPILvj0fE88g" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QyRUAYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QyRUA4qTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="ComLdapAuthentication.uml#_xWASEPWpEd-bZPa-5ixdPA"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QyRUAoqTEeiPILvj0fE88g" x="377" y="229"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_QyevYIqTEeiPILvj0fE88g" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QyevYYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QyevY4qTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="ComLdapAuthentication.uml#_Z18zQA4kEeKuGPHIMM7ANw"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QyevYoqTEeiPILvj0fE88g" x="377" y="229"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_Qyy4cIqTEeiPILvj0fE88g" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qyy4cYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Qyy4c4qTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComLdapAuthentication.uml#__uYQYPWqEd-bZPa-5ixdPA"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qyy4coqTEeiPILvj0fE88g" x="364" y="152"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_Qz6SwIqTEeiPILvj0fE88g" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qz6SwYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Qz6Sw4qTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="ComLdapAuthentication.uml#_SB0ykPWrEd-bZPa-5ixdPA"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qz6SwoqTEeiPILvj0fE88g" x="364" y="52"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_Q0GgAIqTEeiPILvj0fE88g" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Q0GgAYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Q0GgA4qTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="ComLdapAuthentication.uml#_i6rmEPWrEd-bZPa-5ixdPA"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Q0GgAoqTEeiPILvj0fE88g" x="364" y="52"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_Q0dFUIqTEeiPILvj0fE88g" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Q0dFUYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Q0dFU4qTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComLdapAuthentication.uml#_eMHY8LdUEd-gvvrqzvkuGQ"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Q0dFUoqTEeiPILvj0fE88g" x="224" y="899"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_Q2AkgIqTEeiPILvj0fE88g" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Q2AkgYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Q2Akg4qTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComLdapAuthentication.uml#_Il93AA4VEeKuGPHIMM7ANw"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Q2AkgoqTEeiPILvj0fE88g" x="722" y="887"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_Q3cH4IqTEeiPILvj0fE88g" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Q3cH4YqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Q3cH44qTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_H7RR4CppEeKMu_hdrwvWBQ"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Q3cH4oqTEeiPILvj0fE88g" x="735" y="291"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_Q4EaAIqTEeiPILvj0fE88g" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Q4EaAYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Q4EaA4qTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_7bizUHzREeKLS_OMjoXlUg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Q4EaAoqTEeiPILvj0fE88g" x="735" y="583"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_Q4po0IqTEeiPILvj0fE88g" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Q4po0YqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Q4po04qTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_qwNQwAKoEeS8OL177_7iuw"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Q4po0oqTEeiPILvj0fE88g" x="735" y="705"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_Q5G70IqTEeiPILvj0fE88g" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Q5G70YqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Q5G704qTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_sJ2_EGpVEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Q5G70oqTEeiPILvj0fE88g" x="735" y="437"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_XMfwlmgfEeWh_IKdJv1FQA"/>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_Qln_IIqTEeiPILvj0fE88g" name="diagram_compatibility_version" stringValue="1.2.0"/>
+    <element xmi:type="uml:Package" href="ComLdapAuthentication.uml#_RBAq0N26Ed-W85zyLt2pLQ"/>
+    <edges xmi:type="notation:Connector" xmi:id="_XMfwl2gfEeWh_IKdJv1FQA" type="Association_Edge" source="_XMfwUWgfEeWh_IKdJv1FQA" target="_XMfwNGgfEeWh_IKdJv1FQA" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwmGgfEeWh_IKdJv1FQA" visible="false" type="Association_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwmWgfEeWh_IKdJv1FQA" y="-21"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwmmgfEeWh_IKdJv1FQA" type="Association_TargetMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwm2gfEeWh_IKdJv1FQA" y="15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwnGgfEeWh_IKdJv1FQA" visible="false" type="Association_TargetRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwnWgfEeWh_IKdJv1FQA" x="2" y="-100"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwnmgfEeWh_IKdJv1FQA" type="Association_SourceMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwn2gfEeWh_IKdJv1FQA" y="15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwoGgfEeWh_IKdJv1FQA" visible="false" type="Association_SourceRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwoWgfEeWh_IKdJv1FQA" x="-3" y="-41"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_XMfwomgfEeWh_IKdJv1FQA" fontName="Segoe UI"/>
+      <element xmi:type="uml:Association" href="ComLdapAuthentication.uml#_SB0ykPWrEd-bZPa-5ixdPA"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XMfwo2gfEeWh_IKdJv1FQA" points="[7, 4, 8, -76]$[7, 78, 8, -2]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XMfwpGgfEeWh_IKdJv1FQA"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XMfwpWgfEeWh_IKdJv1FQA"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_XMfwpmgfEeWh_IKdJv1FQA" type="Association_Edge" source="_XMfwUWgfEeWh_IKdJv1FQA" target="_XMfwKWgfEeWh_IKdJv1FQA" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwp2gfEeWh_IKdJv1FQA" visible="false" type="Association_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwqGgfEeWh_IKdJv1FQA" y="-21"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwqWgfEeWh_IKdJv1FQA" type="Association_TargetMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwqmgfEeWh_IKdJv1FQA" y="15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwq2gfEeWh_IKdJv1FQA" visible="false" type="Association_TargetRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwrGgfEeWh_IKdJv1FQA" x="2" y="-87"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwrWgfEeWh_IKdJv1FQA" type="Association_SourceMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwrmgfEeWh_IKdJv1FQA" y="15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwr2gfEeWh_IKdJv1FQA" visible="false" type="Association_SourceRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwsGgfEeWh_IKdJv1FQA" x="2" y="-78"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_XMfwsWgfEeWh_IKdJv1FQA" fontName="Segoe UI"/>
+      <element xmi:type="uml:Association" href="ComLdapAuthentication.uml#_i6rmEPWrEd-bZPa-5ixdPA"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XMfwsmgfEeWh_IKdJv1FQA" points="[-7, -6, 6, 80]$[-7, -85, 6, 1]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XMfws2gfEeWh_IKdJv1FQA"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XMfwtGgfEeWh_IKdJv1FQA"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_XMfwtWgfEeWh_IKdJv1FQA" type="Association_Edge" source="_XMfwNGgfEeWh_IKdJv1FQA" target="_XMfwXGgfEeWh_IKdJv1FQA" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwtmgfEeWh_IKdJv1FQA" visible="false" type="Association_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwt2gfEeWh_IKdJv1FQA" y="-7"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwuGgfEeWh_IKdJv1FQA" type="Association_TargetMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwuWgfEeWh_IKdJv1FQA" x="-4" y="8"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwumgfEeWh_IKdJv1FQA" visible="false" type="Association_TargetRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwu2gfEeWh_IKdJv1FQA" y="-15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwvGgfEeWh_IKdJv1FQA" type="Association_SourceMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwvWgfEeWh_IKdJv1FQA" x="-5" y="26"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwvmgfEeWh_IKdJv1FQA" visible="false" type="Association_SourceRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwv2gfEeWh_IKdJv1FQA" y="-15"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_XMfwwGgfEeWh_IKdJv1FQA" fontName="Segoe UI" fontHeight="8"/>
+      <element xmi:type="uml:Association" href="ComLdapAuthentication.uml#_xWASEPWpEd-bZPa-5ixdPA"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XMfwwWgfEeWh_IKdJv1FQA" points="[-54, 170, 130, -150]$[-54, 209, 130, -111]$[-138, 209, 46, -111]$[-138, 260, 46, -60]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_XMfwwmgfEeWh_IKdJv1FQA" type="Association_Edge" source="_XMfwNGgfEeWh_IKdJv1FQA" target="_XMfwaGgfEeWh_IKdJv1FQA" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfww2gfEeWh_IKdJv1FQA" visible="false" type="Association_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwxGgfEeWh_IKdJv1FQA" y="-7"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwxWgfEeWh_IKdJv1FQA" type="Association_TargetMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwxmgfEeWh_IKdJv1FQA" x="-3" y="9"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwx2gfEeWh_IKdJv1FQA" visible="false" type="Association_TargetRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwyGgfEeWh_IKdJv1FQA" y="-15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwyWgfEeWh_IKdJv1FQA" type="Association_SourceMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwymgfEeWh_IKdJv1FQA" x="-5" y="27"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfwy2gfEeWh_IKdJv1FQA" visible="false" type="Association_SourceRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMfwzGgfEeWh_IKdJv1FQA" y="-15"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_XMfwzWgfEeWh_IKdJv1FQA" fontName="Segoe UI" fontHeight="8"/>
+      <element xmi:type="uml:Association" href="ComLdapAuthentication.uml#_Z18zQA4kEeKuGPHIMM7ANw"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XMfwzmgfEeWh_IKdJv1FQA" points="[34, 170, -166, -150]$[34, 209, -166, -111]$[123, 209, -77, -111]$[123, 260, -77, -60]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_QsTO5IqTEeiPILvj0fE88g" type="StereotypeCommentLink" source="_XMfwKWgfEeWh_IKdJv1FQA" target="_QsTO4IqTEeiPILvj0fE88g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_QsTO5YqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QsT18IqTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComSecM.uml#_uY-DUN26Ed-W85zyLt2pLQ"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QsTO5oqTEeiPILvj0fE88g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QsTO54qTEeiPILvj0fE88g"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QsTO6IqTEeiPILvj0fE88g"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_Qs_LZIqTEeiPILvj0fE88g" type="StereotypeCommentLink" source="_XMfwNGgfEeWh_IKdJv1FQA" target="_Qs_LYIqTEeiPILvj0fE88g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_Qs_LZYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Qs_LaYqTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComLdapAuthentication.uml#_pfxAQN3cEd-W85zyLt2pLQ"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Qs_LZoqTEeiPILvj0fE88g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Qs_LZ4qTEeiPILvj0fE88g"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Qs_LaIqTEeiPILvj0fE88g"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_QyRUBIqTEeiPILvj0fE88g" type="StereotypeCommentLink" source="_XMfwtWgfEeWh_IKdJv1FQA" target="_QyRUAIqTEeiPILvj0fE88g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_QyRUBYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QyR7EIqTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="ComLdapAuthentication.uml#_xWASEPWpEd-bZPa-5ixdPA"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QyRUBoqTEeiPILvj0fE88g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QyRUB4qTEeiPILvj0fE88g"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QyRUCIqTEeiPILvj0fE88g"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_QyevZIqTEeiPILvj0fE88g" type="StereotypeCommentLink" source="_XMfwwmgfEeWh_IKdJv1FQA" target="_QyevYIqTEeiPILvj0fE88g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_QyevZYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QyevaYqTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="ComLdapAuthentication.uml#_Z18zQA4kEeKuGPHIMM7ANw"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QyevZoqTEeiPILvj0fE88g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QyevZ4qTEeiPILvj0fE88g"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QyevaIqTEeiPILvj0fE88g"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_Qyy4dIqTEeiPILvj0fE88g" type="StereotypeCommentLink" source="_XMfwUWgfEeWh_IKdJv1FQA" target="_Qyy4cIqTEeiPILvj0fE88g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_Qyy4dYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Qyy4eYqTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComLdapAuthentication.uml#__uYQYPWqEd-bZPa-5ixdPA"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Qyy4doqTEeiPILvj0fE88g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Qyy4d4qTEeiPILvj0fE88g"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Qyy4eIqTEeiPILvj0fE88g"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_Qz6SxIqTEeiPILvj0fE88g" type="StereotypeCommentLink" source="_XMfwl2gfEeWh_IKdJv1FQA" target="_Qz6SwIqTEeiPILvj0fE88g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_Qz6SxYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Qz650IqTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="ComLdapAuthentication.uml#_SB0ykPWrEd-bZPa-5ixdPA"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Qz6SxoqTEeiPILvj0fE88g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Qz6Sx4qTEeiPILvj0fE88g"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Qz6SyIqTEeiPILvj0fE88g"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_Q0GgBIqTEeiPILvj0fE88g" type="StereotypeCommentLink" source="_XMfwpmgfEeWh_IKdJv1FQA" target="_Q0GgAIqTEeiPILvj0fE88g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_Q0GgBYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Q0HHEIqTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="ComLdapAuthentication.uml#_i6rmEPWrEd-bZPa-5ixdPA"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Q0GgBoqTEeiPILvj0fE88g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Q0GgB4qTEeiPILvj0fE88g"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Q0GgCIqTEeiPILvj0fE88g"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_Q0dFVIqTEeiPILvj0fE88g" type="StereotypeCommentLink" source="_XMfwXGgfEeWh_IKdJv1FQA" target="_Q0dFUIqTEeiPILvj0fE88g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_Q0dFVYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Q0dFWYqTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComLdapAuthentication.uml#_eMHY8LdUEd-gvvrqzvkuGQ"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Q0dFVoqTEeiPILvj0fE88g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Q0dFV4qTEeiPILvj0fE88g"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Q0dFWIqTEeiPILvj0fE88g"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_Q2AkhIqTEeiPILvj0fE88g" type="StereotypeCommentLink" source="_XMfwaGgfEeWh_IKdJv1FQA" target="_Q2AkgIqTEeiPILvj0fE88g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_Q2AkhYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Q2AkiYqTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComLdapAuthentication.uml#_Il93AA4VEeKuGPHIMM7ANw"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Q2AkhoqTEeiPILvj0fE88g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Q2Akh4qTEeiPILvj0fE88g"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Q2AkiIqTEeiPILvj0fE88g"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_Q3cH5IqTEeiPILvj0fE88g" type="StereotypeCommentLink" source="_XMfwdGgfEeWh_IKdJv1FQA" target="_Q3cH4IqTEeiPILvj0fE88g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_Q3cH5YqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Q3cH6YqTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_H7RR4CppEeKMu_hdrwvWBQ"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Q3cH5oqTEeiPILvj0fE88g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Q3cH54qTEeiPILvj0fE88g"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Q3cH6IqTEeiPILvj0fE88g"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_Q4EaBIqTEeiPILvj0fE88g" type="StereotypeCommentLink" source="_XMfwfWgfEeWh_IKdJv1FQA" target="_Q4EaAIqTEeiPILvj0fE88g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_Q4EaBYqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Q4EaCYqTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_7bizUHzREeKLS_OMjoXlUg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Q4EaBoqTEeiPILvj0fE88g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Q4EaB4qTEeiPILvj0fE88g"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Q4EaCIqTEeiPILvj0fE88g"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_Q4po1IqTEeiPILvj0fE88g" type="StereotypeCommentLink" source="_XMfwhWgfEeWh_IKdJv1FQA" target="_Q4po0IqTEeiPILvj0fE88g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_Q4po1YqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Q4qP4IqTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_qwNQwAKoEeS8OL177_7iuw"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Q4po1oqTEeiPILvj0fE88g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Q4po14qTEeiPILvj0fE88g"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Q4po2IqTEeiPILvj0fE88g"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_Q5G71IqTEeiPILvj0fE88g" type="StereotypeCommentLink" source="_XMfwjWgfEeWh_IKdJv1FQA" target="_Q5G70IqTEeiPILvj0fE88g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_Q5G71YqTEeiPILvj0fE88g"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_Q5G72YqTEeiPILvj0fE88g" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Enumeration" href="ComLdapAuthentication.uml#_sJ2_EGpVEeSpLem6SWiOww"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Q5G71oqTEeiPILvj0fE88g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Q5G714qTEeiPILvj0fE88g"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Q5G72IqTEeiPILvj0fE88g"/>
+    </edges>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_XMfwz2gfEeWh_IKdJv1FQA" type="PapyrusUMLClassDiagram" name="ComLdapAuthentication" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_XMfw0GgfEeWh_IKdJv1FQA" type="Class_Shape" fontName="Segoe UI" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfw0WgfEeWh_IKdJv1FQA" type="Class_NameLabel">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#__uYQYPWqEd-bZPa-5ixdPA"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfw0mgfEeWh_IKdJv1FQA" visible="false" type="Class_AttributeCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_XMfw02gfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#__wKZEPWqEd-bZPa-5ixdPA"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw1GgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_6NZL1dU3Ed-fE6CEjdaU8A"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw1WgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_HrLu4PWrEd-bZPa-5ixdPA"/>
+        </children>
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#__uYQYPWqEd-bZPa-5ixdPA"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfw1mgfEeWh_IKdJv1FQA" visible="false" type="Class_OperationCompartment">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#__uYQYPWqEd-bZPa-5ixdPA"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfw12gfEeWh_IKdJv1FQA" visible="false" type="Class_NestedClassifierCompartment">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#__uYQYPWqEd-bZPa-5ixdPA"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfw2GgfEeWh_IKdJv1FQA" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_XMfw2WgfEeWh_IKdJv1FQA"/>
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#__uYQYPWqEd-bZPa-5ixdPA"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_2SkQ0LlEEeWr2cQC7pIWdw" type="Class_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_2SkQ0blEEeWr2cQC7pIWdw" y="5"/>
+      </children>
+      <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#__uYQYPWqEd-bZPa-5ixdPA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XMfw2mgfEeWh_IKdJv1FQA" x="354" y="-25"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_XMfw22gfEeWh_IKdJv1FQA" type="Class_Shape" fontName="Segoe UI" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfw3GgfEeWh_IKdJv1FQA" type="Class_NameLabel">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_pfxAQN3cEd-W85zyLt2pLQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfw3WgfEeWh_IKdJv1FQA" visible="false" type="Class_AttributeCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_XMfw3mgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_reIxcN3cEd-W85zyLt2pLQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw32gfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_6NZLwNU3Ed-fE6CEjdaU8A"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw4GgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_6NZLxtU3Ed-fE6CEjdaU8A"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw4WgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_SdsD0HzTEeKLS_OMjoXlUg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw4mgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_n4TIoN3bEd-W85zyLt2pLQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw42gfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_WYeVUO3vEeGj2aCQfoWdPQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw5GgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_6NZLxNU3Ed-fE6CEjdaU8A"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw5WgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_J2APgDT7EeSof55F5crVQg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw5mgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_HvHtQOhzEeGe761FTjBHwg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw52gfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_0jnjcO3dEeGj2aCQfoWdPQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw6GgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_AMPMYO3eEeGj2aCQfoWdPQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw7GgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_6NZLwtU3Ed-fE6CEjdaU8A"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw7WgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_6NZLyNU3Ed-fE6CEjdaU8A"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw7mgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_j3AVgHzSEeKLS_OMjoXlUg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw72gfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_Va9PIN3REd-W85zyLt2pLQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw8WgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_aZoesGpVEeSpLem6SWiOww"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw8mgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_6Xm3MGpVEeSpLem6SWiOww"/>
+        </children>
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_pfxAQN3cEd-W85zyLt2pLQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfw82gfEeWh_IKdJv1FQA" visible="false" type="Class_OperationCompartment">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_pfxAQN3cEd-W85zyLt2pLQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfw9GgfEeWh_IKdJv1FQA" visible="false" type="Class_NestedClassifierCompartment">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_pfxAQN3cEd-W85zyLt2pLQ"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfw9WgfEeWh_IKdJv1FQA" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_XMfw9mgfEeWh_IKdJv1FQA"/>
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_pfxAQN3cEd-W85zyLt2pLQ"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_2SkQ0rlEEeWr2cQC7pIWdw" type="Class_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_2SkQ07lEEeWr2cQC7pIWdw" y="5"/>
+      </children>
+      <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_pfxAQN3cEd-W85zyLt2pLQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XMfw92gfEeWh_IKdJv1FQA" x="418" y="76"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_XMfw-GgfEeWh_IKdJv1FQA" type="Class_Shape" fontName="Segoe UI" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfw-WgfEeWh_IKdJv1FQA" type="Class_NameLabel">
+        <element xmi:type="uml:Class" href="ComSecM.uml#_uY-DUN26Ed-W85zyLt2pLQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfw-mgfEeWh_IKdJv1FQA" visible="false" type="Class_AttributeCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_XMfw-2gfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComSecM.uml#_uaAlIN26Ed-W85zyLt2pLQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw_GgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComSecM.uml#_5w3hIN3lEd-W85zyLt2pLQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfw_WgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComSecM.uml#_OXNy4CpvEeKMu_hdrwvWBQ"/>
+        </children>
+        <element xmi:type="uml:Class" href="ComSecM.uml#_uY-DUN26Ed-W85zyLt2pLQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfw_mgfEeWh_IKdJv1FQA" visible="false" type="Class_OperationCompartment">
+        <element xmi:type="uml:Class" href="ComSecM.uml#_uY-DUN26Ed-W85zyLt2pLQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfw_2gfEeWh_IKdJv1FQA" visible="false" type="Class_NestedClassifierCompartment">
+        <element xmi:type="uml:Class" href="ComSecM.uml#_uY-DUN26Ed-W85zyLt2pLQ"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfxAGgfEeWh_IKdJv1FQA" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_XMfxAWgfEeWh_IKdJv1FQA"/>
+        <element xmi:type="uml:Class" href="ComSecM.uml#_uY-DUN26Ed-W85zyLt2pLQ"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_2Sk34LlEEeWr2cQC7pIWdw" type="Class_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_2Sk34blEEeWr2cQC7pIWdw" y="5"/>
+      </children>
+      <element xmi:type="uml:Class" href="ComSecM.uml#_uY-DUN26Ed-W85zyLt2pLQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XMfxAmgfEeWh_IKdJv1FQA" x="382" y="-126"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_XMfxA2gfEeWh_IKdJv1FQA" type="Class_Shape" fontName="Segoe UI" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfxBGgfEeWh_IKdJv1FQA" type="Class_NameLabel">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_eMHY8LdUEd-gvvrqzvkuGQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfxBWgfEeWh_IKdJv1FQA" visible="false" type="Class_AttributeCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_XMfxBmgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_eNggELdUEd-gvvrqzvkuGQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfxB2gfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_rORnsLdUEd-gvvrqzvkuGQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfxCGgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_vioY0LdUEd-gvvrqzvkuGQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfxCWgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_kKqbALdUEd-gvvrqzvkuGQ"/>
+        </children>
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_eMHY8LdUEd-gvvrqzvkuGQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfxCmgfEeWh_IKdJv1FQA" visible="false" type="Class_OperationCompartment">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_eMHY8LdUEd-gvvrqzvkuGQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfxC2gfEeWh_IKdJv1FQA" visible="false" type="Class_NestedClassifierCompartment">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_eMHY8LdUEd-gvvrqzvkuGQ"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfxDGgfEeWh_IKdJv1FQA" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_XMfxDWgfEeWh_IKdJv1FQA"/>
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_eMHY8LdUEd-gvvrqzvkuGQ"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_2Sk34rlEEeWr2cQC7pIWdw" type="Class_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_2Sk347lEEeWr2cQC7pIWdw" y="5"/>
+      </children>
+      <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_eMHY8LdUEd-gvvrqzvkuGQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XMfxDmgfEeWh_IKdJv1FQA" x="329" y="202"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_XMfxD2gfEeWh_IKdJv1FQA" type="Class_Shape" fontName="Segoe UI" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMfxEGgfEeWh_IKdJv1FQA" type="Class_NameLabel">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_Il93AA4VEeKuGPHIMM7ANw"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfxEWgfEeWh_IKdJv1FQA" visible="false" type="Class_AttributeCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_XMfxEmgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_ImwhMA4VEeKuGPHIMM7ANw"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfxE2gfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_RAzVUA4VEeKuGPHIMM7ANw"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfxFGgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_tCheMA4WEeKuGPHIMM7ANw"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_XMfxFWgfEeWh_IKdJv1FQA" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="ComLdapAuthentication.uml#_3XmhAAKmEeS8OL177_7iuw"/>
+        </children>
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_Il93AA4VEeKuGPHIMM7ANw"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMfxFmgfEeWh_IKdJv1FQA" visible="false" type="Class_OperationCompartment">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_Il93AA4VEeKuGPHIMM7ANw"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_XMgXAGgfEeWh_IKdJv1FQA" visible="false" type="Class_NestedClassifierCompartment">
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_Il93AA4VEeKuGPHIMM7ANw"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXAWgfEeWh_IKdJv1FQA" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_XMgXAmgfEeWh_IKdJv1FQA"/>
+        <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_Il93AA4VEeKuGPHIMM7ANw"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_2Sk35LlEEeWr2cQC7pIWdw" type="Class_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_2Sk35blEEeWr2cQC7pIWdw" y="5"/>
+      </children>
+      <element xmi:type="uml:Class" href="ComLdapAuthentication.uml#_Il93AA4VEeKuGPHIMM7ANw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XMgXA2gfEeWh_IKdJv1FQA" x="494" y="202"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_2YEb4LlEEeWr2cQC7pIWdw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_2YEb4blEEeWr2cQC7pIWdw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_2YEb47lEEeWr2cQC7pIWdw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComLdapAuthentication.uml#__uYQYPWqEd-bZPa-5ixdPA"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2YEb4rlEEeWr2cQC7pIWdw" x="554" y="-25"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_2Y3tILlEEeWr2cQC7pIWdw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_2Y3tIblEEeWr2cQC7pIWdw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_2Y3tI7lEEeWr2cQC7pIWdw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="ComLdapAuthentication.uml#_SB0ykPWrEd-bZPa-5ixdPA"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2Y3tIrlEEeWr2cQC7pIWdw" x="554" y="-125"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_2Zbt0LlEEeWr2cQC7pIWdw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_2Zbt0blEEeWr2cQC7pIWdw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_2ZcU4LlEEeWr2cQC7pIWdw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="ComLdapAuthentication.uml#_i6rmEPWrEd-bZPa-5ixdPA"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2Zbt0rlEEeWr2cQC7pIWdw" x="554" y="-125"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_2aoAoLlEEeWr2cQC7pIWdw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_2aoAoblEEeWr2cQC7pIWdw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_2aoAo7lEEeWr2cQC7pIWdw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComLdapAuthentication.uml#_pfxAQN3cEd-W85zyLt2pLQ"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2aoAorlEEeWr2cQC7pIWdw" x="618" y="76"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_2bWZYLlEEeWr2cQC7pIWdw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_2bWZYblEEeWr2cQC7pIWdw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_2bWZY7lEEeWr2cQC7pIWdw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="ComLdapAuthentication.uml#_xWASEPWpEd-bZPa-5ixdPA"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2bWZYrlEEeWr2cQC7pIWdw" x="618" y="-24"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_2bqicLlEEeWr2cQC7pIWdw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_2bqicblEEeWr2cQC7pIWdw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_2bqic7lEEeWr2cQC7pIWdw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="ComLdapAuthentication.uml#_Z18zQA4kEeKuGPHIMM7ANw"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2bqicrlEEeWr2cQC7pIWdw" x="618" y="-24"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_2cOjILlEEeWr2cQC7pIWdw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_2cOjIblEEeWr2cQC7pIWdw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_2cOjI7lEEeWr2cQC7pIWdw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComSecM.uml#_uY-DUN26Ed-W85zyLt2pLQ"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2cOjIrlEEeWr2cQC7pIWdw" x="582" y="-126"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_2c_YILlEEeWr2cQC7pIWdw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_2c_YIblEEeWr2cQC7pIWdw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_2c_YI7lEEeWr2cQC7pIWdw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComLdapAuthentication.uml#_eMHY8LdUEd-gvvrqzvkuGQ"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2c_YIrlEEeWr2cQC7pIWdw" x="529" y="202"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_2dvmELlEEeWr2cQC7pIWdw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_2dvmEblEEeWr2cQC7pIWdw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_2dvmE7lEEeWr2cQC7pIWdw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComLdapAuthentication.uml#_Il93AA4VEeKuGPHIMM7ANw"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2dvmErlEEeWr2cQC7pIWdw" x="694" y="202"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_XMgXBGgfEeWh_IKdJv1FQA"/>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_2Sk35rlEEeWr2cQC7pIWdw" name="diagram_compatibility_version" stringValue="1.2.0"/>
+    <element xmi:type="uml:Model" href="ComLdapAuthentication.uml#_NRAMoAwOEdmFcaeZXPdWAQ"/>
+    <edges xmi:type="notation:Connector" xmi:id="_XMgXBWgfEeWh_IKdJv1FQA" type="Association_Edge" source="_XMfw0GgfEeWh_IKdJv1FQA" target="_XMfw22gfEeWh_IKdJv1FQA" avoidObstructions="true" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXBmgfEeWh_IKdJv1FQA" visible="false" type="Association_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXB2gfEeWh_IKdJv1FQA" y="-7"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXCGgfEeWh_IKdJv1FQA" visible="false" type="Association_TargetMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXCWgfEeWh_IKdJv1FQA" y="15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXCmgfEeWh_IKdJv1FQA" visible="false" type="Association_TargetRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXC2gfEeWh_IKdJv1FQA" y="-15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXDGgfEeWh_IKdJv1FQA" type="Association_SourceMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXDWgfEeWh_IKdJv1FQA" y="15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXDmgfEeWh_IKdJv1FQA" visible="false" type="Association_SourceRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXD2gfEeWh_IKdJv1FQA" y="-15"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_XMgXEGgfEeWh_IKdJv1FQA" fontName="Segoe UI" fontHeight="8"/>
+      <element xmi:type="uml:Association" href="ComLdapAuthentication.uml#_SB0ykPWrEd-bZPa-5ixdPA"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XMgXEWgfEeWh_IKdJv1FQA" points="[-15, 11, -15, -141]$[-15, 76, -15, -76]$[47, 76, 47, -76]$[47, 114, 47, -37]$[14, 114, 14, -37]$[14, 141, 14, -11]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_XMgXEmgfEeWh_IKdJv1FQA" type="Association_Edge" source="_XMfw0GgfEeWh_IKdJv1FQA" target="_XMfw-GgfEeWh_IKdJv1FQA" avoidObstructions="true" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXE2gfEeWh_IKdJv1FQA" visible="false" type="Association_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXFGgfEeWh_IKdJv1FQA" y="-7"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXFWgfEeWh_IKdJv1FQA" type="Association_TargetMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXFmgfEeWh_IKdJv1FQA" y="15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXF2gfEeWh_IKdJv1FQA" visible="false" type="Association_TargetRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXGGgfEeWh_IKdJv1FQA" y="-15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXGWgfEeWh_IKdJv1FQA" visible="false" type="Association_SourceMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXGmgfEeWh_IKdJv1FQA" y="15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXG2gfEeWh_IKdJv1FQA" visible="false" type="Association_SourceRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXHGgfEeWh_IKdJv1FQA" y="-15"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_XMgXHWgfEeWh_IKdJv1FQA" fontName="Segoe UI" fontHeight="8"/>
+      <element xmi:type="uml:Association" href="ComLdapAuthentication.uml#_i6rmEPWrEd-bZPa-5ixdPA"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XMgXHmgfEeWh_IKdJv1FQA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_XMgXH2gfEeWh_IKdJv1FQA" type="Association_Edge" source="_XMfw22gfEeWh_IKdJv1FQA" target="_XMfxA2gfEeWh_IKdJv1FQA" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXIGgfEeWh_IKdJv1FQA" visible="false" type="Association_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXIWgfEeWh_IKdJv1FQA" y="-7"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXImgfEeWh_IKdJv1FQA" visible="false" type="Association_TargetMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXI2gfEeWh_IKdJv1FQA" y="15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXJGgfEeWh_IKdJv1FQA" visible="false" type="Association_TargetRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXJWgfEeWh_IKdJv1FQA" y="-15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXJmgfEeWh_IKdJv1FQA" type="Association_SourceMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXJ2gfEeWh_IKdJv1FQA" y="15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXKGgfEeWh_IKdJv1FQA" visible="false" type="Association_SourceRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXKWgfEeWh_IKdJv1FQA" y="-15"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_XMgXKmgfEeWh_IKdJv1FQA" fontName="Segoe UI" fontHeight="8"/>
+      <element xmi:type="uml:Association" href="ComLdapAuthentication.uml#_xWASEPWpEd-bZPa-5ixdPA"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XMgXK2gfEeWh_IKdJv1FQA" points="[-7, 11, 80, -115]$[-7, 63, 80, -63]$[-76, 63, 11, -63]$[-76, 115, 11, -11]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_XMgXLGgfEeWh_IKdJv1FQA" type="Association_Edge" source="_XMfw22gfEeWh_IKdJv1FQA" target="_XMfxD2gfEeWh_IKdJv1FQA" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXLWgfEeWh_IKdJv1FQA" visible="false" type="Association_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXLmgfEeWh_IKdJv1FQA" y="-7"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXL2gfEeWh_IKdJv1FQA" visible="false" type="Association_TargetMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXMGgfEeWh_IKdJv1FQA" y="15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXMWgfEeWh_IKdJv1FQA" visible="false" type="Association_TargetRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXMmgfEeWh_IKdJv1FQA" y="-15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXM2gfEeWh_IKdJv1FQA" type="Association_SourceMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXNGgfEeWh_IKdJv1FQA" y="15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_XMgXNWgfEeWh_IKdJv1FQA" visible="false" type="Association_SourceRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XMgXNmgfEeWh_IKdJv1FQA" y="-15"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_XMgXN2gfEeWh_IKdJv1FQA" fontName="Segoe UI" fontHeight="8"/>
+      <element xmi:type="uml:Association" href="ComLdapAuthentication.uml#_Z18zQA4kEeKuGPHIMM7ANw"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XMgXOGgfEeWh_IKdJv1FQA" points="[8, 11, -90, -115]$[8, 63, -90, -63]$[88, 63, -10, -63]$[88, 115, -10, -11]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_2YEb5LlEEeWr2cQC7pIWdw" type="StereotypeCommentLink" source="_XMfw0GgfEeWh_IKdJv1FQA" target="_2YEb4LlEEeWr2cQC7pIWdw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_2YEb5blEEeWr2cQC7pIWdw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_2YEb6blEEeWr2cQC7pIWdw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComLdapAuthentication.uml#__uYQYPWqEd-bZPa-5ixdPA"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2YEb5rlEEeWr2cQC7pIWdw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2YEb57lEEeWr2cQC7pIWdw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2YEb6LlEEeWr2cQC7pIWdw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_2Y3tJLlEEeWr2cQC7pIWdw" type="StereotypeCommentLink" source="_XMgXBWgfEeWh_IKdJv1FQA" target="_2Y3tILlEEeWr2cQC7pIWdw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_2Y3tJblEEeWr2cQC7pIWdw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_2Y3tKblEEeWr2cQC7pIWdw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="ComLdapAuthentication.uml#_SB0ykPWrEd-bZPa-5ixdPA"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2Y3tJrlEEeWr2cQC7pIWdw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2Y3tJ7lEEeWr2cQC7pIWdw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2Y3tKLlEEeWr2cQC7pIWdw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_2ZcU4blEEeWr2cQC7pIWdw" type="StereotypeCommentLink" source="_XMgXEmgfEeWh_IKdJv1FQA" target="_2Zbt0LlEEeWr2cQC7pIWdw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_2ZcU4rlEEeWr2cQC7pIWdw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_2ZcU5rlEEeWr2cQC7pIWdw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="ComLdapAuthentication.uml#_i6rmEPWrEd-bZPa-5ixdPA"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2ZcU47lEEeWr2cQC7pIWdw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2ZcU5LlEEeWr2cQC7pIWdw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2ZcU5blEEeWr2cQC7pIWdw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_2aonsLlEEeWr2cQC7pIWdw" type="StereotypeCommentLink" source="_XMfw22gfEeWh_IKdJv1FQA" target="_2aoAoLlEEeWr2cQC7pIWdw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_2aonsblEEeWr2cQC7pIWdw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_2aontblEEeWr2cQC7pIWdw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComLdapAuthentication.uml#_pfxAQN3cEd-W85zyLt2pLQ"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2aonsrlEEeWr2cQC7pIWdw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2aons7lEEeWr2cQC7pIWdw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2aontLlEEeWr2cQC7pIWdw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_2bWZZLlEEeWr2cQC7pIWdw" type="StereotypeCommentLink" source="_XMgXH2gfEeWh_IKdJv1FQA" target="_2bWZYLlEEeWr2cQC7pIWdw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_2bWZZblEEeWr2cQC7pIWdw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_2bWZablEEeWr2cQC7pIWdw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="ComLdapAuthentication.uml#_xWASEPWpEd-bZPa-5ixdPA"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2bWZZrlEEeWr2cQC7pIWdw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2bWZZ7lEEeWr2cQC7pIWdw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2bWZaLlEEeWr2cQC7pIWdw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_2bqidLlEEeWr2cQC7pIWdw" type="StereotypeCommentLink" source="_XMgXLGgfEeWh_IKdJv1FQA" target="_2bqicLlEEeWr2cQC7pIWdw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_2bqidblEEeWr2cQC7pIWdw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_2bqieblEEeWr2cQC7pIWdw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="ComLdapAuthentication.uml#_Z18zQA4kEeKuGPHIMM7ANw"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2bqidrlEEeWr2cQC7pIWdw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2bqid7lEEeWr2cQC7pIWdw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2bqieLlEEeWr2cQC7pIWdw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_2cOjJLlEEeWr2cQC7pIWdw" type="StereotypeCommentLink" source="_XMfw-GgfEeWh_IKdJv1FQA" target="_2cOjILlEEeWr2cQC7pIWdw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_2cOjJblEEeWr2cQC7pIWdw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_2cOjKblEEeWr2cQC7pIWdw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComSecM.uml#_uY-DUN26Ed-W85zyLt2pLQ"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2cOjJrlEEeWr2cQC7pIWdw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2cOjJ7lEEeWr2cQC7pIWdw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2cOjKLlEEeWr2cQC7pIWdw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_2c_YJLlEEeWr2cQC7pIWdw" type="StereotypeCommentLink" source="_XMfxA2gfEeWh_IKdJv1FQA" target="_2c_YILlEEeWr2cQC7pIWdw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_2c_YJblEEeWr2cQC7pIWdw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_2c_YKblEEeWr2cQC7pIWdw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComLdapAuthentication.uml#_eMHY8LdUEd-gvvrqzvkuGQ"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2c_YJrlEEeWr2cQC7pIWdw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2c_YJ7lEEeWr2cQC7pIWdw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2c_YKLlEEeWr2cQC7pIWdw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_2dvmFLlEEeWr2cQC7pIWdw" type="StereotypeCommentLink" source="_XMfxD2gfEeWh_IKdJv1FQA" target="_2dvmELlEEeWr2cQC7pIWdw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_2dvmFblEEeWr2cQC7pIWdw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_2dvmGblEEeWr2cQC7pIWdw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="ComLdapAuthentication.uml#_Il93AA4VEeKuGPHIMM7ANw"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2dvmFrlEEeWr2cQC7pIWdw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2dvmF7lEEeWr2cQC7pIWdw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2dvmGLlEEeWr2cQC7pIWdw"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>

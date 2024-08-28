@@ -1,0 +1,170 @@
+#!/bin/bash
+##
+# ------------------------------------------------------------------------
+#     Copyright (C) 2015 Ericsson AB. All rights reserved.
+# ------------------------------------------------------------------------
+##
+# Description:
+#      script that updates the Ldap fragment from "old style"
+#      (Ldap configuration done via ncdef/tcdef commands, tlsCaCertificate, 
+#      tlsClientCertificate and tlsClientKey attributes defined) to "new style" 
+#      (Ldap configuration done via model, nodeCredential and trustCategory attribute defined)
+##
+##
+# Changelog:
+# - May 27 2015 - SHYAM VINJAMURI (XSHYVIN)
+#       First version.
+##
+#set -x
+
+#Exit codes
+EXIT_SUCCESS=0
+EXIT_FAILURE=1
+
+#Constants
+TRUE=$(true;echo $?)
+FALSE=$(false;echo $?)
+
+#Commands
+CMD_LOGGER="/bin/logger"
+CMD_IMMFIND="/usr/bin/immfind"
+CMD_IMMLIST="/usr/bin/immlist"
+CMD_IMMCFG="/usr/bin/immcfg"
+LOG_TAG='DN_BASED_LDAP'
+
+#######################################################################
+#                             Functions                               #
+#######################################################################
+
+#######################################################################
+# function exit_status($attribute);                                   #
+#                                                                     #
+# Arguments:                                                          #
+# $attribute - to check if the operation on attribute is successful   #
+#######################################################################
+function exit_status() {
+        exit_Status=$?
+        operation=$1
+        attribute=$2
+        #echo $operation
+		if [ $operation == 'a-' ]; then
+			operation=clearing
+		else
+			operation=adding
+		fi
+
+        if [ $exit_Status -eq 0 ]; then
+			echo "$operation the $attribute attribute is done"
+			log "$operation the $attribute attribute is done"
+        else
+			echo "$operation the $attribute attribute is failed"
+			log_error "$operation the $attribute attribute is failed"
+		fi
+}
+
+
+#######################################################################
+# function log($message);                                             #
+#                                                                     #
+# Arguments:                                                          #
+# $message message to append to the system log                        #
+#######################################################################
+function log() {
+	local message="${*:-notice}"
+	local prio='-p user.notice'
+	${CMD_LOGGER} $prio -t $LOG_TAG "$message"
+}
+
+#######################################################################
+# function log_error($message);                                       #
+#                                                                     #
+# Arguments:                                                          #
+# $message error message to append to the system log                  #
+#######################################################################
+function log_error(){
+	local message="${*:-error}"
+	local prio='-p user.err'
+	${CMD_LOGGER} $prio -t $LOG_TAG "$message"
+}
+
+#######################################################################
+# function abort();	
+#	
+# Arguments:
+# $message reason for aborting	
+#######################################################################
+function abort(){
+	echo "$1"
+	exit 1
+}
+
+#######################################################################
+#                               MAIN                                  #
+#######################################################################
+
+# check if the attributes tlsCaCertificate are defined (not null)
+# get the RDN of the TrustedCertificate MO parsing the output
+trusted_cert_file=$( /usr/bin/immlist -a tlsCaCertificate ldapId=1,ldapAuthenticationMethodId=1 | awk -F= '{print $2}')
+
+if [ -f "$trusted_cert_file" ]; then
+	# get the id of the trusted certificate file
+	trusted_cert_id=$( basename $trusted_cert_file | awk -F"_" '{print $4}' | awk -F"." '{print $1}')
+	[ -z "$trusted_cert_id" ] && abort "Trusted certificate id not Found" 
+fi
+
+# check if the attributes tlsClientCertificate and tlsClientKey are defined (not null)
+# get the RDN of the NodeCredential MO parsing
+node_cert_file=$( /usr/bin/immlist -a tlsClientCertificate ldapId=1,ldapAuthenticationMethodId=1 | awk -F= '{print $2}')
+
+if [ -f "$node_cert_file" ]; then
+	# get the id of the node certificate file
+	node_cert_id=$( basename $node_cert_file | awk -F"_" '{print $4}' | awk -F"." '{print $1}')
+	[ -z "$node_cert_id" ] && abort "Node certificate id not Found"
+
+	# get the private key of the active node credential from ldap fragment
+	# output: tlsClientKey=/cluster/storage/system/config/share/sec/cert_storage/private/node_key_id_1.pem
+	node_key=$( /usr/bin/immlist -a tlsClientKey ldapId=1,ldapAuthenticationMethodId=1 | awk -F= '{print $2}')
+	node_key_id=$( basename $node_key | awk -F"_" '{print $4}' | awk -F"." '{print $1}')
+  [ -z "$node_key_id" ] && abort "Trusted certificate id not Found"
+fi
+
+# Checking if NodeCredential and TrustCategory are empty or filled
+trustCategory=$( /usr/bin/immlist -a trustCategory ldapId=1,ldapAuthenticationMethodId=1 | awk -F= '{print $2}')
+nodeCredential=$( /usr/bin/immlist -a nodeCredential ldapId=1,ldapAuthenticationMethodId=1 | awk -F= '{print $2}')
+
+if  [[ $( echo $trustCategory | grep -i "trustCategory") || $( echo $nodeCredential | grep -i "nodeCredential") ]]; then
+	if  [[ $( echo $trusted_cert_file |  grep -i "<EMPTY>")  &&  $(echo $node_cert_file | grep -i "<EMPTY>") ]]; then
+		log "Certificates are already installed and cleared"
+		exit $EXIT_SUCCESS
+	else
+		/usr/bin/immcfg -a tlsClientKey-=$node_key -a tlsClientCertificate-=$node_cert_file ldapId=1,ldapAuthenticationMethodId=1
+		exit_status a- tlsClientKey
+		/usr/bin/immcfg -a tlsCaCertificate-=$trusted_cert_file ldapId=1,ldapAuthenticationMethodId=1
+		exit_status a- tlsCaCertificate
+		log "Certificates are already installed and the values are cleared"
+		exit $EXIT_SUCCESS
+	fi
+else
+	if  [[ $( echo $trusted_cert_file |  grep -i "<EMPTY>") && $(echo $node_cert_file | grep -i "<EMPTY>") ]]; then
+		log_error "Values of tlsCaCertificate, tlsClientCertificate, trustCategory, nodeCredential are null hence certificates are not installed"
+		exit $EXIT_SUCCESS
+	else
+		immcfg -c TrustCategory trustCategoryId=1,certMId=1 1>/dev/null 2>&1
+		TrustCategoryMO_Creation=$?
+		if [ "$TrustCategoryMO_Creation" -eq 0 ]; then
+			immcfg -a trustedCertificates=trustedCertificateId=$trusted_cert_id,certMId=1 trustCategoryId=1,certMId=1
+			exit_status a+ trustedCertificates
+		else
+			immcfg -a trustedCertificates+=trustedCertificateId=$trusted_cert_id,certMId=1 trustCategoryId=1,certMId=1
+			exit_status a+ trustedCertificates
+		fi
+		immcfg -a tlsClientKey-=$node_key -a tlsClientCertificate-=$node_cert_file ldapId=1,ldapAuthenticationMethodId=1
+		exit_status a- tlsClientCertificate
+		immcfg -a tlsCaCertificate-=$trusted_cert_file ldapId=1,ldapAuthenticationMethodId=1
+		exit_status a- tlsCaCertificate
+		immcfg -a nodeCredential=nodeCredentialId=$node_cert_id,certMId=1 ldapId=1,ldapAuthenticationMethodId=1
+		exit_status a+ nodeCredential
+		immcfg -a trustCategory=trustCategoryId=1,certMId=1 ldapId=1,ldapAuthenticationMethodId=1
+		exit_status a+ trustCategory
+	fi
+fi

@@ -1,0 +1,352 @@
+# ------------------------------------------------------------------------
+#     Copyright (C) 2015 Ericsson AB. All rights reserved.
+# ------------------------------------------------------------------------
+##
+# Name:
+#       script_based_validation 
+##
+# Description:
+#	      This file realizes script-based validation: it checks for each
+#       parameter being valid (or not) depending on the other parameters value.
+#       it is sourced to validate script.
+##
+# Usage:
+#  source <parmtool_root>/cmd/validate/script_based_validation <file/items_list>
+#
+##
+# Changelog:
+# - Wed Nov 18 2015 - Pratap Reddy (xpraupp)
+#   First Version
+##
+
+. $LIB_COMMON_DIR/parmtool_common.sh
+
+# In case of new input parameter added, function format
+# for new parameter should be like below:
+#    function validate_<new_input_parameter>() {
+#        ....
+#        ....
+#    }
+# For example:
+# [ mau_type parameter is added as new parameter ]
+#     function validate_mau_type() {
+#        isNULL $mau_type && return $FALSE # Applicable for Mandatory Params
+#        # Below section can used only if new parameter is
+#        # dependent on other paramters
+#        if [ $mau_type == MUB ]; then
+#          [ $installaton_hw != GEP5 ] && \
+#            log_error "Invalid configuration"
+#        fi
+#       return $TRUE
+#     }
+
+# ------------------------------------------------------------------------------
+function validate_installation_hw(){
+		
+  if isNULL $installation_hw; then
+    log_error "installation_hw parameter must not be empty"
+    return $FALSE
+  fi
+
+  if [[ $installation_hw =~ GEP[12] ]]; then
+    [ $datadisk_replication_type != 'MD' ] && \
+      log_error "System configuration not supported for this parameter" && return $FALSE
+
+    [ $drbd_network_capacity != '1G' ] && \
+      log_error "System configuration not supported for this parameter" && return $FALSE
+
+    [ $apg_oam_access != 'FRONTCABLE' ] && \
+      log_error "System configuration not supported for this parameter" && return $FALSE
+  fi
+
+  if [[ $installation_hw =~ GEP5 ]]; then
+    isNULL $shelf_architecture && \
+      log_error "shelf_architecture parameter must not be empty" && return $FALSE
+
+    [ $datadisk_replication_type != 'DRBD' ] && \
+      log_error "GEP5 only support datadisk_replication_type=DRBD" && return $FALSE
+  fi
+    
+  if [[ $installation_hw =~ GEP5_64_1200 ]]; then
+    isNULL $shelf_architecture && \
+      log_error "shelf_architecture parameter must not be empty" && return $FALSE
+
+    [ $shelf_architecture != 'DMX' ] && \
+      log_error "System configuration not supported for this parameter" && return $FALSE
+
+    [ $datadisk_replication_type != 'DRBD' ] && \
+      log_error "System configuration not supported for this parameter" && return $FALSE
+
+    [ $drbd_network_capacity != '10G' ] && \
+      log_error "System configuration not supported for this parameter" && return $FALSE
+
+    isNULL $apg_oam_access && \
+      log_error "apg_oam_access parameter must not be empty" && return $FALSE
+
+    [ $apg_oam_access != 'NOCABLE' ] && \
+      log_error "System configuration not supported for this parameter" && return $FALSE
+  fi
+
+  if [[ $installation_hw =~ VM ]]; then
+    isNULL $shelf_architecture &&\
+      log_error "shelf_architecture parameter must not be empty" && return $FALSE
+
+    [ $shelf_architecture != 'VIRTUALIZED' ] &&	\
+      log_error "System configuration not supported for this parameter" && return $FALSE
+
+    [ $datadisk_replication_type != 'DRBD' ] && \
+      log_error "vAPG can only support datadisk_replication_type=DRBD" && return $FALSE
+
+    [ $drbd_network_capacity != '10G' ] && \
+      log_error "vAPG can only support drbd_network_capacity=10G" && return $FALSE
+
+    isNULL $ap_type && \
+      log_error "ap_type parameter must not be empty" && return $FALSE
+
+    [ $ap_type != 'AP1' ] && \
+      log_error "vAPG can only support ap_type=AP1" && return $FALSE
+		
+    [ $apg_oam_access != 'NOCABLE' ] && \
+      log_error "vAPG can only support apg_oam_access=NOCABLE" && return $FALSE
+  fi
+
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_datadisk_replication_type(){
+
+  isNULL $installation_hw && \
+    log_error "installation_hw parameter must not be empty" && return $FALSE
+
+  if [ $datadisk_replication_type == 'MD' ]; then
+    [[ ! $installation_hw =~ 'GEP1'|'GEP2' ]] && \
+      log_error "GEP1 and GEP2 only support datadisk_replication_type=MD" && return $FALSE
+  fi
+
+  if [ $datadisk_replication_type == 'DRBD' ]; then
+    [[ ! $installation_hw =~ 'GEP5'|'VM' ]] && \
+    log_error "VM and GEP5 only support datadisk_replication_type=DRBD" && return $FALSE
+  fi
+
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_ap_type() {
+  isNULL $installation_hw && \
+    log_error "installation_hw parameter must not be empty" && return $FALSE
+
+  if [ $ap_type == 'AP2' ]; then
+    [[ ! $installation_hw =~ 'GEP1'|'GEP2'|'GEP5' ]] && \
+      log_error "System configuration not supported for this parameter" && return $FALSE
+  fi
+
+  return $TRUE	
+}
+
+# ------------------------------------------------------------------------------
+function validate_shelf_architecture(){
+
+  isNULL $shelf_architecture && \
+    log_error "installation_hw parameter must not be empty" && return $FALSE
+
+  isNULL $installation_hw && \
+    log_error "installation_hw parameter must not be empty" && return $FALSE
+
+  if [ $shelf_architecture == 'VIRTUALIZED' ]; then
+    [[ $installation_hw != VM ]] && \
+      log_error  "System configuration not supported for this parameter" && return $FALSE
+  fi
+
+  if [ $shelf_architecture == 'DMX' ]; then
+    [[ $installation_hw != GEP5_64_1200 ]] && \
+      log_error "System configuration not supported for this parameter" && return $FALSE
+  fi
+		
+  if [[ $shelf_architecture =~ 'SCX'|'SCB-RP' ]]; then
+    [[ ! $installation_hw =~ 'GEP1'|'GEP2'|'GEP5' ]] && \
+      log_error "System configuration not supported for this parameter" && return $FALSE
+  fi
+
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_apg_oam_access() {
+
+  isNULL $installation_hw && \
+    log_error "installation_hw parameter must not be empty" && return $FALSE
+
+  if [ $apg_oam_access == 'FRONTCABLE' ]; then
+    [[ ! $installation_hw =~ 'GEP1'|'GEP2'|'GEP5' ]] && \
+      log_error "System configuration not supported for this parameter" && return $FALSE
+  fi
+
+  if [ $apg_oam_access == 'NOCABLE' ]; then
+    [[ ! $installation_hw =~ 'VM'|'GEP5_64_1200'|'GEP5' ]] && \
+      log_error "System configuration not supported for this parameter" && return $FALSE
+  fi
+
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_shelf_switch() {
+  return $TRUE
+
+}
+
+# ------------------------------------------------------------------------------
+function validate_apz_protocol_type() {
+  isNULL $apz_protocol_type && return $FALSE
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_me_name() {
+  isNULL $me_name && return $FALSE
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_nodeA_MEId() {
+  isNULL $me_name && return $FALSE
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_nodeB_MEId() {
+  isNULL $me_name && return $FALSE
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_drbd_network_capacity() {
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_cached_creds_duration() {
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_cluster_keymap() {
+  isNULL $cluster_keymap && return $FALSE
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_cluster_timezone() {
+  isNULL $cluster_timezone && return $FALSE
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_public_network_ipv4_prefix() {
+  isNULL $public_network_ipv4_prefix && return $FALSE
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_node1_public_network_ipv4_ip_address() {
+  isNULL $node1_public_network_ipv4_ip_address && return $FALSE	
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_default_network_ipv4_gateway_ip_address() {
+  isNULL $default_network_ipv4_gateway_ip_address && return $FALSE
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_system_version() {
+  isNULL $system_version && return $FALSE
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_node2_public_network_ipv4_ip_address() {
+  isNULL $node2_public_network_ipv4_ip_address && return $FALSE
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_cluster_public_network_ipv4_ip_address() {
+  isNULL $cluster_public_network_ipv4_ip_address && return $FALSE
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_system_type() {
+  isNULL $system_type && return $FALSE
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_system_package() {
+  isNULL $system_package && return $FALSE
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function validate_apt_type() {
+  isNULL $apt_type && return $FALSE
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function invoke() {
+ for ITEM in "${ITEM_LIST[@]}"; do
+   eval 'validate_$ITEM'
+   [ $? -ne 0 ] && return $FALSE	
+ done
+
+ return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function get_PSO_Params() {
+
+  # In case of online validation (i.e up and working),
+  # fetches the parameters avaiable in PSO path.
+  local GET_ITEM_LIST="$(parmtool_get_all)"
+  for ITEM in $GET_ITEM_LIST; do
+    eval $ITEM 2>/dev/null
+  done
+}
+
+# ------------------------------------------------------------------------------
+function fetch_parms() {
+
+  local ITEM_COUNT=0
+  local INPUT=( $@ )
+
+  # Here, We are fetching and evaluating all the 
+  # input parameters stored in PSO path. This is 
+  # common for both file and item-list options
+  get_PSO_Params
+
+  # Evaluating all the input parameters and keep only 
+  # left value in ITEM_LIST array.
+  for ITEM in "${INPUT[@]}"; do
+    eval $ITEM 2>/dev/null
+    PARAM=$($CMD_ECHO $ITEM | $CMD_AWK -F'=' '{print $1}')
+    ITEM_LIST[$ITEM_COUNT]=$PARAM
+    ((ITEM_COUNT++))
+  done
+}
+
+##### M A I N #####
+
+ITEM_LIST=''
+
+# Evaluate the argument
+fetch_parms $@
+
+invoke 
+
+# return exit code
+return $?

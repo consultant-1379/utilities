@@ -1,0 +1,14 @@
+				<CompBaseType safCompType="safCompType=ERIC-ComSa-Cmw">
+					<CompType safVersion="safVersion=#COMP_VERSION#">
+						<providesCSType safSupportedCsType="safSupportedCsType=safVersion=1.0.0\,safCSType=#CS_TYPE#" saAmfCtCompCapability="4"/>
+						<compTypeDefaults saAmfCtCompCategory="1" saAmfCtDefDisableRestart="0" saAmfCtDefClcCliTimeout="#CLC_CLI_TIMEOUT_COMSA#" saAmfCtDefCallbackTimeout="#CALLBACK_TIMEOUT_COMSA#" saAmfCtDefQuiescingCompleteTimeout="#QUIESCING_COMPLETE_TIMEOUT#" saAmfCtDefRecoveryOnError="2"/>
+						<instantiateCmd saAmfCtRelPathInstantiateCmd="../../../opt/com/bin/com.sh">
+							<cmdArgv>start</cmdArgv>
+						</instantiateCmd>
+						<cleanupCmd saAmfCtRelPathCleanupCmd="com.sh">
+							<cmdArgv>stop</cmdArgv>
+						</cleanupCmd>
+						<healthCheck safHealthcheckKey="safHealthcheckKey=COM_SA" saAmfHealthcheckPeriod="#HCK_PERIOD#" saAmfHealthcheckMaxDuration="#HCK_MAX_DURATION#"/>
+						<swBundle saAmfCtSwBundle="safSmfBundle=#BUNDLE_NAME#"/>
+					</CompType>
+				</CompBaseType>

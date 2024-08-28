@@ -1,0 +1,5 @@
+		<procInitAction>
+			<doCliCommand command="cmw-model-done" args="--mt COM_R1"/>
+			<undoCliCommand command="/bin/false" args=""/>
+			<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+		</procInitAction>

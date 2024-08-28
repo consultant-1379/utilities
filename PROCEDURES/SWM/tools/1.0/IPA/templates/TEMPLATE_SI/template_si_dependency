@@ -1,0 +1,8 @@
+			<create objectClassName="SaAmfSIDependency" parentObjectDN="safSi=#SAF_SVC_TYPE#,safApp=#SAF_APP#">
+				<attribute name="safDepend" type="SA_IMM_ATTR_SANAMET">
+					<value>safDepend=safSi=#SI_NAME_AGENT#\,safApp=#SAF_APP#</value>
+				</attribute>
+				<attribute name="saAmfToleranceTime" type="SA_IMM_ATTR_SATIMET">
+					<value>0</value>
+				</attribute>
+			</create>

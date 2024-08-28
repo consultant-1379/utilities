@@ -1,0 +1,10 @@
+									<customizationTime>
+										<onStep>
+											<onFirstStep/>
+										</onStep>
+										<atAction>
+											<afterUnlock/>
+										</atAction>
+									</customizationTime>
+									<callback callbackLabel="OsafSmfCbkUtil-UpgradeCmd" time="#SUPERVISION_SCRIPT_TIMEOUT#" stringToPass="$OSAFCAMPAIGNROOT/supervision.sh"/>
+		

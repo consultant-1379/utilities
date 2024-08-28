@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="AxeTimeReference">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NRAMoQwOEdmFcaeZXPdWAQ" source="uml2.diagrams"/>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BxznQGu6EeK_psk_X1_33w" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_BxznQWu6EeK_psk_X1_33w" key="com.ericsson.ecim.coremw.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_L7JOwGu6EeK_psk_X1_33w" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>&lt;p>AXE Time Reference Model&lt;/p></body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_8JbBoIW5Ed-FBpQGdJXi3g">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OS1OUIXLEd-lToFzlKoOsA" name="" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_mDhbIIRLEeKsuaXe_IZiAw" name="AxeTimeReference">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_mDiDG4RLEeKsuaXe_IZiAw" annotatedElement="_mDhbIIRLEeKsuaXe_IZiAw">
+        <body>Time Reference Management function MOM.</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mDiDHIRLEeKsuaXe_IZiAw" name="TimeReferenceM">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_mDiDHYRLEeKsuaXe_IZiAw" annotatedElement="_mDiDHIRLEeKsuaXe_IZiAw">
+          <body>Represents the root MOC for the Time Reference Configuration Management function.
+The function allows configuring the switch boards present into APZ magazine for connecting them to external time servers or the external GPS device in order to provide time of day or high precision synchronization.
+
+NTP is used for communicating with the time servers, while NTPHP is used for communicating with the external GPS device.
+SNTP is used instead between the other switch boards present into an AXE node and the external time servers.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mDiDHoRLEeKsuaXe_IZiAw" name="timeReferenceMId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDiDH4RLEeKsuaXe_IZiAw" annotatedElement="_mDiDHoRLEeKsuaXe_IZiAw">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDiDIYRLEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDiDIIRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mDiDIoRLEeKsuaXe_IZiAw" name="operationalState" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDiDI4RLEeKsuaXe_IZiAw" annotatedElement="_mDiDIoRLEeKsuaXe_IZiAw">
+            <body>Identifies the operative status of the time synchronization service.
+</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#__lAE8JdbEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IwQE0AIaEeaxZcO3_AZzWQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDiDJIRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mDiDJoRLEeKsuaXe_IZiAw" name="administrativeState" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDiDJ4RLEeKsuaXe_IZiAw" annotatedElement="_mDiDJoRLEeKsuaXe_IZiAw">
+            <body>Identifies the administrative state of the service.</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#__k_d4JdbEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDiDKYRLEeKsuaXe_IZiAw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDiDKIRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mDiDKoRLEeKsuaXe_IZiAw" name="changeAdmStateResult" type="_mDiplYRLEeKsuaXe_IZiAw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDiDK4RLEeKsuaXe_IZiAw" annotatedElement="_mDiDKoRLEeKsuaXe_IZiAw">
+            <body>Identifies the last result info about changing of administrative state.
+
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDiDLYRLEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDiDLIRLEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_mDiDLoRLEeKsuaXe_IZiAw" name="EXECUTED" instance="_mDipl4RLEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mDiDMoRLEeKsuaXe_IZiAw" name="netAssociation" visibility="public" type="_mDipQ4RLEeKsuaXe_IZiAw" aggregation="composite" association="_mDipvoRLEeKsuaXe_IZiAw">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDiDM4RLEeKsuaXe_IZiAw" annotatedElement="_mDiDMoRLEeKsuaXe_IZiAw">
+            <body>&lt;p>&lt;span style=&quot;font-size:8pt;&quot;>&lt;/span>&lt;/p></body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDiDNYRLEeKsuaXe_IZiAw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDiDNIRLEeKsuaXe_IZiAw" value="8"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mDipQIRLEeKsuaXe_IZiAw" name="scxTimeServAss" visibility="public" type="_mDipqYRLEeKsuaXe_IZiAw" aggregation="composite" association="_mDipwoRLEeKsuaXe_IZiAw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDipQoRLEeKsuaXe_IZiAw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDipQYRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_kfCD8P_0EeWU073Zd4-03A" name="switchTimeServAss" visibility="public" type="_4TmREP_oEeWU073Zd4-03A" aggregation="composite" association="_bYUk0P_5EeWU073Zd4-03A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kfCD8f_0EeWU073Zd4-03A"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kfCD8v_0EeWU073Zd4-03A" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mDipQ4RLEeKsuaXe_IZiAw" name="NetworkTimeServer">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_mDipRIRLEeKsuaXe_IZiAw" annotatedElement="_mDipQ4RLEeKsuaXe_IZiAw">
+          <body>Represents the set of external time servers which are used to synchronize the time. 
+Up to eight (8) external references can be defined at any time.
+The deletion of the last NetworkTimeServer instance is rejected when the attribute operationalState is set to ENABLED.
+
+Attributes setting can fail due to one of the following reasons:
+-Incorrect IP address : This message appears when incorrect IP value is provided.
+-Cannot delete last NetworkTimeServer when operationalState is ENABLED.
+-Network Time Server IP address already exists : This message appears when already existing network server IP value is provided.
+-Operation not allowed in this system configuration: This message appears when network server IP is provided in wrong system configuration.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mDipRYRLEeKsuaXe_IZiAw" name="networkTimeServerId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipRoRLEeKsuaXe_IZiAw" annotatedElement="_mDipRYRLEeKsuaXe_IZiAw">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDipSIRLEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDipR4RLEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mDipSYRLEeKsuaXe_IZiAw" name="ipAddress" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipSoRLEeKsuaXe_IZiAw" annotatedElement="_mDipSYRLEeKsuaXe_IZiAw">
+            <body>Identifies the IP address of network time server.
+It must be an IPv4 address in a dotted decimal form expressed as a.b.c.d.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="AXE_Common_Library.uml#_V5q_kMZ5EeWApM4R9wQ5kA"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDipTIRLEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDipS4RLEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_8PbA0BtDEeWvQYFW8NSCww" visibility="public" value="0.0.0.0">
+            <name xsi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_mDipToRLEeKsuaXe_IZiAw" name="ExternalReferenceType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_mDipT4RLEeKsuaXe_IZiAw" annotatedElement="_mDipToRLEeKsuaXe_IZiAw">
+          <body>Lists external time reference types.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mDipUIRLEeKsuaXe_IZiAw" name="NOT_CONFIGURED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipUYRLEeKsuaXe_IZiAw" annotatedElement="_mDipUIRLEeKsuaXe_IZiAw">
+            <body>No external refrence type is configured (Default Value).</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_mDipUoRLEeKsuaXe_IZiAw"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mDipU4RLEeKsuaXe_IZiAw" name="NETWORK_REFERENCE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipVIRLEeKsuaXe_IZiAw" annotatedElement="_mDipU4RLEeKsuaXe_IZiAw">
+            <body>AXE time reference uses network time servers as external time references.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_mDipVYRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mDipVoRLEeKsuaXe_IZiAw" name="GPS_REFERENCE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipV4RLEeKsuaXe_IZiAw" annotatedElement="_mDipVoRLEeKsuaXe_IZiAw">
+            <body>Axe time reference uses GPS devices as external time references.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_mDipWIRLEeKsuaXe_IZiAw" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_mDipWYRLEeKsuaXe_IZiAw" name="TimeReferenceStatus">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_mDipWoRLEeKsuaXe_IZiAw" annotatedElement="_mDipWYRLEeKsuaXe_IZiAw">
+          <body>Check the status of the synchronization of the switch boards with the external reference(s).</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mDipW4RLEeKsuaXe_IZiAw" name="NOT_CONNECTED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipXIRLEeKsuaXe_IZiAw" annotatedElement="_mDipW4RLEeKsuaXe_IZiAw">
+            <body>Switch is not connected to any external time reference.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_mDipXYRLEeKsuaXe_IZiAw"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mDipXoRLEeKsuaXe_IZiAw" name="CONNECTED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipX4RLEeKsuaXe_IZiAw" annotatedElement="_mDipXoRLEeKsuaXe_IZiAw">
+            <body>Switch is synchornized with an external time reference.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_mDipYIRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mDipYYRLEeKsuaXe_IZiAw" name="RESYNCH">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipYoRLEeKsuaXe_IZiAw" annotatedElement="_mDipYYRLEeKsuaXe_IZiAw">
+            <body>Switch is resynchronizing with the external time reference. </body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_mDipY4RLEeKsuaXe_IZiAw" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mDipZIRLEeKsuaXe_IZiAw" name="SCXNetworkConfigurationStruct">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_mDipZYRLEeKsuaXe_IZiAw" annotatedElement="_mDipZIRLEeKsuaXe_IZiAw">
+          <body>Specifies network configuration of an SCX on public network. 
+This allow it to reach external network time servers.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mDipZoRLEeKsuaXe_IZiAw" name="ipAddress">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipZ4RLEeKsuaXe_IZiAw" annotatedElement="_mDipZoRLEeKsuaXe_IZiAw">
+            <body>Identifies the IP address of SCX on public network.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="AXE_Common_Library.uml#_V5q_kMZ5EeWApM4R9wQ5kA"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDipaYRLEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDipaIRLEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_8Pbn4BtDEeWvQYFW8NSCww" visibility="public" value="0.0.0.0">
+            <name xsi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mDipa4RLEeKsuaXe_IZiAw" name="netmask">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipbIRLEeKsuaXe_IZiAw" annotatedElement="_mDipa4RLEeKsuaXe_IZiAw">
+            <body>Identifies the netmask of SCX on public network. </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="AXE_Common_Library.uml#_V5q_kMZ5EeWApM4R9wQ5kA"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDipboRLEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDipbYRLEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_8Pbn4RtDEeWvQYFW8NSCww" visibility="public" value="255.255.255.0">
+            <name xsi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mDipcIRLEeKsuaXe_IZiAw" name="gateway">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipcYRLEeKsuaXe_IZiAw" annotatedElement="_mDipcIRLEeKsuaXe_IZiAw">
+            <body>Identifies the gateway SCX uses to reach external network time server.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="AXE_Common_Library.uml#_V5q_kMZ5EeWApM4R9wQ5kA"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDipc4RLEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDipcoRLEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_8PcO8BtDEeWvQYFW8NSCww" visibility="public" value="0.0.0.0">
+            <name xsi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_mDipdYRLEeKsuaXe_IZiAw" name="TimeServiceType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_mDipdoRLEeKsuaXe_IZiAw" annotatedElement="_mDipdYRLEeKsuaXe_IZiAw">
+          <body>List of results about changing of time service type.
+</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mDipd4RLEeKsuaXe_IZiAw" name="NOT_CONFIGURED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipeIRLEeKsuaXe_IZiAw" annotatedElement="_mDipd4RLEeKsuaXe_IZiAw">
+            <body>No time service type is configured (Default Value).</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_mDipeYRLEeKsuaXe_IZiAw"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mDipeoRLEeKsuaXe_IZiAw" name="NTP">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipe4RLEeKsuaXe_IZiAw" annotatedElement="_mDipeoRLEeKsuaXe_IZiAw">
+            <body>Axe time reference uses NTP as type of UTC Reference Clock (URC) time service.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_mDipfIRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mDipfYRLEeKsuaXe_IZiAw" name="NTPHP">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipfoRLEeKsuaXe_IZiAw" annotatedElement="_mDipfYRLEeKsuaXe_IZiAw">
+            <body>Axe Time Reference uses NTPHP as type of URC time service.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_mDipf4RLEeKsuaXe_IZiAw" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mDipgIRLEeKsuaXe_IZiAw" name="ScxTimeReference">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_mDipgYRLEeKsuaXe_IZiAw" annotatedElement="_mDipgIRLEeKsuaXe_IZiAw">
+          <body>Represents the entry point for external IP configuration functionality of SCX.
+There are two instances: one for the SCX board Side A (the SCX board in the slot 0) and one for the SCX board Side B (the SCX board in slot 25) on the shelf (where the AP board is placed) to make them available on the public network.
+
+One or more attributes setting can fail due to one of the following reasons:
+-Incorrect IP address : This message appears when incorrect IP value is provided.
+-Incorrect netmask : This message appears when incorrect netmask value is provided.
+-Incorrect default gateway : This message appears when incorrect gateway value is provided.
+-Operation not allowed in this system configuration : This message appears when this class is configured in a SMX-based APZ magazine.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mDipgoRLEeKsuaXe_IZiAw" name="scxTimeReferenceId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipg4RLEeKsuaXe_IZiAw" annotatedElement="_mDipgoRLEeKsuaXe_IZiAw">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDiphYRLEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDiphIRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mDiphoRLEeKsuaXe_IZiAw" name="timeServiceStatus" type="_mDipWYRLEeKsuaXe_IZiAw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDiph4RLEeKsuaXe_IZiAw" annotatedElement="_mDiphoRLEeKsuaXe_IZiAw">
+            <body>Specifies the time synchronization status.
+It checks the status of time synchronization of the switch boards with the external reference(s).
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDipiYRLEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDipiIRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mDipioRLEeKsuaXe_IZiAw" name="timeReferenceId" type="_mDipkoRLEeKsuaXe_IZiAw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipi4RLEeKsuaXe_IZiAw" annotatedElement="_mDipioRLEeKsuaXe_IZiAw">
+            <body>Identifies the external time server the SCX is synchronized to.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDipjYRLEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDipjIRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mDipjoRLEeKsuaXe_IZiAw" name="networkConfiguration" type="_mDipZIRLEeKsuaXe_IZiAw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipj4RLEeKsuaXe_IZiAw" annotatedElement="_mDipjoRLEeKsuaXe_IZiAw">
+            <body>Specify the network configuration of the additional IP address on the SCX.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDipkYRLEeKsuaXe_IZiAw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDipkIRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_mDipkoRLEeKsuaXe_IZiAw" name="TimeServerReferenceId">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_mDipk4RLEeKsuaXe_IZiAw" annotatedElement="_mDipkoRLEeKsuaXe_IZiAw">
+          <body>External time server reference identifier.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_mDiplIRLEeKsuaXe_IZiAw">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_mDiplYRLEeKsuaXe_IZiAw" name="ChangeAdmStateResultType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_mDiploRLEeKsuaXe_IZiAw" annotatedElement="_mDiplYRLEeKsuaXe_IZiAw">
+          <body>List of results about changing of administrative state.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mDipl4RLEeKsuaXe_IZiAw" name="EXECUTED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipmIRLEeKsuaXe_IZiAw" annotatedElement="_mDipl4RLEeKsuaXe_IZiAw">
+            <body>Indicates a successfully administrative state change. </body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_mDipmYRLEeKsuaXe_IZiAw"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mDipmoRLEeKsuaXe_IZiAw" name="NOT_ALLOWED_BY_CP">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipm4RLEeKsuaXe_IZiAw" annotatedElement="_mDipmoRLEeKsuaXe_IZiAw">
+            <body>Indicates CP has rejected request to change of administrative state.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_mDipnIRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mDipnYRLEeKsuaXe_IZiAw" name="REFERENCE_TYPE_NOT_CONFIGURED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_HXyRYAYdEealwvifnSAz1w" annotatedElement="_mDipnYRLEeKsuaXe_IZiAw">
+            <body>Indicates that reference type is not configured during administrative state change.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_mDipnoRLEeKsuaXe_IZiAw" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mDipn4RLEeKsuaXe_IZiAw" name="SERVICE_TYPE_NOT_CONFIGURED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_MsZloAYdEealwvifnSAz1w" annotatedElement="_mDipn4RLEeKsuaXe_IZiAw">
+            <body>Indicates that service type is not configured during administrative state change.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_mDipoIRLEeKsuaXe_IZiAw" value="3"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mDipoYRLEeKsuaXe_IZiAw" name="NO_REFERENCE_EXIST">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_vEpoMAYdEealwvifnSAz1w" annotatedElement="_mDipoYRLEeKsuaXe_IZiAw">
+            <body>Indicates that no time reference exist during administrative state change.
+</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_mDipooRLEeKsuaXe_IZiAw" value="4"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mDipo4RLEeKsuaXe_IZiAw" name="INVALID_REFERENCE_TYPE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_2X_oEAYfEealwvifnSAz1w" annotatedElement="_mDipo4RLEeKsuaXe_IZiAw">
+            <body>Indicates that invalid reference type is configured during administrative state change.
+</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_mDippIRLEeKsuaXe_IZiAw" value="5"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mDippYRLEeKsuaXe_IZiAw" name="SNMP_FAILURE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_STQHIAYiEealwvifnSAz1w" annotatedElement="_mDippYRLEeKsuaXe_IZiAw">
+            <body>Indicates SNMP communication failure during administrative state change.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_mDippoRLEeKsuaXe_IZiAw" value="6"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mDipp4RLEeKsuaXe_IZiAw" name="INTERNAL_ERROR">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_IYn0kAYjEealwvifnSAz1w" annotatedElement="_mDipp4RLEeKsuaXe_IZiAw">
+            <body>Indicates some internal error during administrative state change.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_mDipqIRLEeKsuaXe_IZiAw" value="7"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mDipqYRLEeKsuaXe_IZiAw" name="ScxTimeService">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_mDipqoRLEeKsuaXe_IZiAw" annotatedElement="_mDipqYRLEeKsuaXe_IZiAw">
+          <body>Is the entry point for the time service configuration.
+It is used to configure the type of external time reference and time service type. It contains two instances of ScxTimeReference, one for each SCX board present in the subrack where the AP board is placed. 
+Time reference uses network time servers or GPS device as reference type. The type of time service can be either NTP or NTPHP.
+
+One or more attributes setting can fail due to one of the following reasons:
+-Cannot modify serviceType when operationalState is ENABLED.
+-Cannot modify referenceType when operationalState is ENABLED.
+-Operation not allowed in this system configuration : This message appears when this class is configured in a SMX-based APZ magazine.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mDipq4RLEeKsuaXe_IZiAw" name="scxTimeServiceId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDiprIRLEeKsuaXe_IZiAw" annotatedElement="_mDipq4RLEeKsuaXe_IZiAw">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDiproRLEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDiprYRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mDipr4RLEeKsuaXe_IZiAw" name="referenceType" type="_mDipToRLEeKsuaXe_IZiAw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDipsIRLEeKsuaXe_IZiAw" annotatedElement="_mDipr4RLEeKsuaXe_IZiAw">
+            <body>Specifies the type of external time reference to synchronize with.
+It cannot be changed if the attribute operationalState in MOC TimeReferenceM is set to ENABLED, that is when the time synchronization is running.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDipsoRLEeKsuaXe_IZiAw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDipsYRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mDips4RLEeKsuaXe_IZiAw" name="serviceType" type="_mDipdYRLEeKsuaXe_IZiAw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mDiptIRLEeKsuaXe_IZiAw" annotatedElement="_mDips4RLEeKsuaXe_IZiAw">
+            <body>Specifies the type of time service.
+It cannot be changed if the attribute operationalState in MOC TimeReferenceM is set to ENABLED, that is when the time synchronization is running.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDiptoRLEeKsuaXe_IZiAw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDiptYRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mDipt4RLEeKsuaXe_IZiAw" name="scxTRefAss" visibility="public" type="_mDipgIRLEeKsuaXe_IZiAw" aggregation="composite" association="_mDipxoRLEeKsuaXe_IZiAw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDipuYRLEeKsuaXe_IZiAw" value="2"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDipuIRLEeKsuaXe_IZiAw" value="2"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_mDipuoRLEeKsuaXe_IZiAw" name="" memberEnd="_mDiDL4RLEeKsuaXe_IZiAw _mDipu4RLEeKsuaXe_IZiAw">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_vWp5IAI2EeaxZcO3_AZzWQ" annotatedElement="_mDipuoRLEeKsuaXe_IZiAw">
+          <body>.</body>
+        </ownedComment>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_mDipu4RLEeKsuaXe_IZiAw" name="axeTref" visibility="public" type="_mDiDHIRLEeKsuaXe_IZiAw" aggregation="composite" association="_mDipuoRLEeKsuaXe_IZiAw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDipvYRLEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDipvIRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_mDiDL4RLEeKsuaXe_IZiAw" name="axeFunc" visibility="public" association="_mDipuoRLEeKsuaXe_IZiAw">
+          <type xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0MIKREeK3wcU1QErItg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDiDMYRLEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDiDMIRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_mDipvoRLEeKsuaXe_IZiAw" name="" memberEnd="_mDiDMoRLEeKsuaXe_IZiAw _mDipv4RLEeKsuaXe_IZiAw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_mDipv4RLEeKsuaXe_IZiAw" name="axeTref" visibility="public" type="_mDiDHIRLEeKsuaXe_IZiAw" association="_mDipvoRLEeKsuaXe_IZiAw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDipwYRLEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDipwIRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_mDipwoRLEeKsuaXe_IZiAw" name="" memberEnd="_mDipQIRLEeKsuaXe_IZiAw _mDipw4RLEeKsuaXe_IZiAw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_mDipw4RLEeKsuaXe_IZiAw" name="axeTref" visibility="public" type="_mDiDHIRLEeKsuaXe_IZiAw" association="_mDipwoRLEeKsuaXe_IZiAw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDipxYRLEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDipxIRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_mDipxoRLEeKsuaXe_IZiAw" name="" memberEnd="_mDipt4RLEeKsuaXe_IZiAw _mDipx4RLEeKsuaXe_IZiAw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_mDipx4RLEeKsuaXe_IZiAw" name="scxTServAss" visibility="public" type="_mDipqYRLEeKsuaXe_IZiAw" association="_mDipxoRLEeKsuaXe_IZiAw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mDipyYRLEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mDipyIRLEeKsuaXe_IZiAw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_mDipyoRLEeKsuaXe_IZiAw" name="Instances">
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_mDip14RLEeKsuaXe_IZiAw" name="AxeTrefInstances" classifier="_mDiDHIRLEeKsuaXe_IZiAw">
+          <slot xmi:type="uml:Slot" xmi:id="_mDip2IRLEeKsuaXe_IZiAw" definingFeature="_mDiDHoRLEeKsuaXe_IZiAw">
+            <value xmi:type="uml:LiteralString" xmi:id="_mDip2YRLEeKsuaXe_IZiAw" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_mDip2oRLEeKsuaXe_IZiAw" definingFeature="_mDiDIoRLEeKsuaXe_IZiAw">
+            <value xmi:type="uml:InstanceValue" xmi:id="_yhbBYIy-EeK16bu24Q1vkg">
+              <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#__lAE8JdbEeC11vgiYYrb4A"/>
+              <instance xmi:type="uml:EnumerationLiteral" href="ECIM_CommonLibrary.uml#__lAE8pdbEeC11vgiYYrb4A"/>
+            </value>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_mDip3IRLEeKsuaXe_IZiAw" definingFeature="_mDiDJoRLEeKsuaXe_IZiAw">
+            <value xmi:type="uml:InstanceValue" xmi:id="_uVb-kIy9EeK16bu24Q1vkg">
+              <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#__k_d4JdbEeC11vgiYYrb4A"/>
+              <instance xmi:type="uml:EnumerationLiteral" href="ECIM_CommonLibrary.uml#__k_d4pdbEeC11vgiYYrb4A"/>
+            </value>
+          </slot>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_JPH2QMg_EeWSN5hWjYHzjg" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_JcnfsMg_EeWSN5hWjYHzjg" name="NATIVE"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_cNT70P_oEeWU073Zd4-03A" name="SwitchTimeReference">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cNT70f_oEeWU073Zd4-03A" annotatedElement="_cNT70P_oEeWU073Zd4-03A">
+          <body>Represents the entry point for external IP configuration of switches.
+There are two instances: one for the switch board Side A (the switch board in the slot 0) and one for the switch board Side B (the switch board in slot 25) on th shelf (where AP board is placed) to make them available on the public network.
+It is used to configure the external IP address of switch on the same network as the external time reference.
+
+One or more attributes setting can fail due to one of the following reasons:
+-Incorrect IP address : This message appears when incorrect IP value is provided.
+-Incorrect netmask : This message appears when incorrect netmask value is provided.
+-Incorrect default gateway : This message appears when incorrect gateway value is provided.
+</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_cNT70v_oEeWU073Zd4-03A" name="switchTimeReferenceId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_cNT70__oEeWU073Zd4-03A" annotatedElement="_cNT70v_oEeWU073Zd4-03A">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cNT71P_oEeWU073Zd4-03A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cNT71f_oEeWU073Zd4-03A" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_cNT71v_oEeWU073Zd4-03A" name="timeServiceStatus" type="_mDipWYRLEeKsuaXe_IZiAw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_cNT71__oEeWU073Zd4-03A" annotatedElement="_cNT71v_oEeWU073Zd4-03A">
+            <body>Specifies the time synchronization status.
+It checks the status of the synchronization of the switch boards with the external reference(s).</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cNT72P_oEeWU073Zd4-03A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cNT72f_oEeWU073Zd4-03A" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_cNT72v_oEeWU073Zd4-03A" name="timeReferenceId" type="_mDipkoRLEeKsuaXe_IZiAw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_cNT72__oEeWU073Zd4-03A" annotatedElement="_cNT72v_oEeWU073Zd4-03A">
+            <body>Identifies the external time server the switch is synchronized to.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cNT73P_oEeWU073Zd4-03A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cNT73f_oEeWU073Zd4-03A" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_cNT73v_oEeWU073Zd4-03A" name="networkConfiguration" type="_HvIK8P_pEeWU073Zd4-03A" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_cNT73__oEeWU073Zd4-03A" annotatedElement="_cNT73v_oEeWU073Zd4-03A">
+            <body>Specify the network configuration of the additional IP address on the switch.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cNT74P_oEeWU073Zd4-03A"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cNT74f_oEeWU073Zd4-03A" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_4TmREP_oEeWU073Zd4-03A" name="SwitchTimeService">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_4TmREf_oEeWU073Zd4-03A" annotatedElement="_4TmREP_oEeWU073Zd4-03A">
+          <body>Is the entry point for the time service configuration.
+It is used to configure the type of external time reference and time service type. It contains two instances of SwitchTimeReference, one for each switch board present in the shelf where the AP board is placed.
+Time reference uses network time servers or GPS device as reference type. The type of time service can be either NTP or NTPHP.
+
+One or more attributes setting can fail due to one of the following reasons:
+-Cannot modify serviceType when operationalState is ENABLED.
+-Cannot modify referenceType when operationalState is ENABLED.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_4TmREv_oEeWU073Zd4-03A" name="switchTimeServiceId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_4TmRE__oEeWU073Zd4-03A" annotatedElement="_4TmREv_oEeWU073Zd4-03A">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4TmRFP_oEeWU073Zd4-03A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4TmRFf_oEeWU073Zd4-03A" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_4TmRFv_oEeWU073Zd4-03A" name="referenceType" type="_mDipToRLEeKsuaXe_IZiAw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_4TmRF__oEeWU073Zd4-03A" annotatedElement="_4TmRFv_oEeWU073Zd4-03A">
+            <body>Specifies the type of external time reference to synchronize with.
+It cannot be changed if the attribute operationalState in MOC TimeReferenceM is set to ENABLED, that is when the time synchronization is running.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4TmRGP_oEeWU073Zd4-03A"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4TmRGf_oEeWU073Zd4-03A" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_4TmRGv_oEeWU073Zd4-03A" name="serviceType" type="_mDipdYRLEeKsuaXe_IZiAw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_4TmRG__oEeWU073Zd4-03A" annotatedElement="_4TmRGv_oEeWU073Zd4-03A">
+            <body>Identifies the type of service.
+It is not allowed to modify serviceType when operationalState is ENABLED.
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4TmRHP_oEeWU073Zd4-03A"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4TmRHf_oEeWU073Zd4-03A" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_4TmRHv_oEeWU073Zd4-03A" name="switchTRefAss" visibility="public" type="_cNT70P_oEeWU073Zd4-03A" aggregation="composite" association="_-2XGgADEEeaxZcO3_AZzWQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4TmRH__oEeWU073Zd4-03A" value="2"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4TmRIP_oEeWU073Zd4-03A" value="2"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_HvIK8P_pEeWU073Zd4-03A" name="SwitchNetworkConfigStruct">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_HvIK8f_pEeWU073Zd4-03A" annotatedElement="_HvIK8P_pEeWU073Zd4-03A">
+          <body>Specifies network configuration of an switch on public network.
+This allow it to reach external network time servers.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_HvIK8v_pEeWU073Zd4-03A" name="ipAddress">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_HvIK8__pEeWU073Zd4-03A" annotatedElement="_HvIK8v_pEeWU073Zd4-03A">
+            <body>Identifies the IP address of switch on public network.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="AXE_Common_Library.uml#_V5q_kMZ5EeWApM4R9wQ5kA"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HvIK9P_pEeWU073Zd4-03A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HvIK9f_pEeWU073Zd4-03A" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_HvIyAP_pEeWU073Zd4-03A" visibility="public" value="0.0.0.0">
+            <name xsi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_HvIyAf_pEeWU073Zd4-03A" name="netmask">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_HvIyAv_pEeWU073Zd4-03A" annotatedElement="_HvIyAf_pEeWU073Zd4-03A">
+            <body>Identifies the netmask of switch on public network. </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="AXE_Common_Library.uml#_V5q_kMZ5EeWApM4R9wQ5kA"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HvIyA__pEeWU073Zd4-03A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HvIyBP_pEeWU073Zd4-03A" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_HvIyBf_pEeWU073Zd4-03A" visibility="public" value="255.255.255.0">
+            <name xsi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_HvIyBv_pEeWU073Zd4-03A" name="gateway">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_HvIyB__pEeWU073Zd4-03A" annotatedElement="_HvIyBv_pEeWU073Zd4-03A">
+            <body>Identifies the gateway switch uses to reach external network time server.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="AXE_Common_Library.uml#_V5q_kMZ5EeWApM4R9wQ5kA"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HvIyCP_pEeWU073Zd4-03A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HvIyCf_pEeWU073Zd4-03A" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_HvIyCv_pEeWU073Zd4-03A" visibility="public" value="0.0.0.0">
+            <name xsi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_bYUk0P_5EeWU073Zd4-03A" memberEnd="_kfCD8P_0EeWU073Zd4-03A _bYUk0f_5EeWU073Zd4-03A">
+        <name xsi:nil="true"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_bYUk0f_5EeWU073Zd4-03A" name="axeTref" visibility="public" type="_mDiDHIRLEeKsuaXe_IZiAw" association="_bYUk0P_5EeWU073Zd4-03A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bYUk0v_5EeWU073Zd4-03A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bYUk0__5EeWU073Zd4-03A" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_-2XGgADEEeaxZcO3_AZzWQ" memberEnd="_-2XGgQDEEeaxZcO3_AZzWQ _4TmRHv_oEeWU073Zd4-03A">
+        <name xsi:nil="true"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_-2XGgQDEEeaxZcO3_AZzWQ" name="switchTServAss" visibility="public" type="_4TmREP_oEeWU073Zd4-03A" association="_-2XGgADEEeaxZcO3_AZzWQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-2XGggDEEeaxZcO3_AZzWQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-2XGgwDEEeaxZcO3_AZzWQ" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_cikwQHVqEeCBgp9CYCosRQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_T9G1gCo8EeuCc4NkSoQmqg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_T9G1gSo8EeuCc4NkSoQmqg" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_T9G1gio8EeuCc4NkSoQmqg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_T9G1gyo8EeuCc4NkSoQmqg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_T9G1hCo8EeuCc4NkSoQmqg" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_T9G1hSo8EeuCc4NkSoQmqg" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ciq24HVqEeCBgp9CYCosRQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_By2wIGu6EeK_psk_X1_33w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_sLuSwN6MEeehtLhJYaltnA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sLuSwd6MEeehtLhJYaltnA" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sLuSwt6MEeehtLhJYaltnA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sLuSw96MEeehtLhJYaltnA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sLuSxN6MEeehtLhJYaltnA" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sLuSxd6MEeehtLhJYaltnA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_RaW7MP8aEeWUOugXvTOHsA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RaW7Mf8aEeWUOugXvTOHsA" key="Version" value="1.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RaW7Mv8aEeWUOugXvTOHsA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RaW7M_8aEeWUOugXvTOHsA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RaW7NP8aEeWUOugXvTOHsA" key="Date" value="2016-02-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RaW7Nf8aEeWUOugXvTOHsA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CGpO0Gu6EeK_psk_X1_33w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_JfpgwBtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="Managed Object Model for Time Reference Management Function" subTitle=" " docNo="19089-CXA 117 0003/6" docRev="B" createdBy="XHARBAV" approvedBy="" docLang="Uen" docDate="2020-12-08"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_JfqH0BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Package="_mDhbIIRLEeKsuaXe_IZiAw" author="Harika Bavana" contact="XHARBAV" date="2020-12-08" docNo="" revision="C" version="1" release="3" organization="" correction="0"/>
+  <CoreMWProfile:CmwMom xmi:id="_JpEigRtEEeWvQYFW8NSCww" base_Package="_mDhbIIRLEeKsuaXe_IZiAw" immNamespace="MOM_NAME"/>
+  <CoreMWProfile:CmwClass xmi:id="_JpEightEEeWvQYFW8NSCww" base_Class="_mDiDHIRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_Jfqu4BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_mDiDHoRLEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JpFJkBtEEeWvQYFW8NSCww" base_Property="_mDiDIoRLEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Jfqu4xtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" isNotifiable="true" base_Property="_mDiDIoRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_JfrV8RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_mDiDJoRLEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JpFJkhtEEeWvQYFW8NSCww" base_Property="_mDiDJoRLEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_JfrV8htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_mDiDKoRLEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JpFJkxtEEeWvQYFW8NSCww" base_Property="_mDiDKoRLEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_JpFwoBtEEeWvQYFW8NSCww" base_Class="_mDipQ4RLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_Jfr9ARtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Class="_mDipQ4RLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_Jfr9AhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_mDipRYRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_JfskEBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_mDipToRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_JftLIBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_mDipUIRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_JftLIhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_mDipU4RLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_JftLIxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_mDipVoRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_JftLJBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_mDipWYRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_JftLJhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_mDipW4RLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_JftyMBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_mDipXoRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_JftyMhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_mDipYYRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimStruct xmi:id="_JftyNBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Class="_mDipZIRLEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwStruct xmi:id="_JpFwohtEEeWvQYFW8NSCww" base_Class="_mDipZIRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_JfuZQBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_mDipZoRLEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_JpGXsBtEEeWvQYFW8NSCww" base_Property="_mDipZoRLEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_JfuZQhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_mDipa4RLEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_JpGXsRtEEeWvQYFW8NSCww" base_Property="_mDipa4RLEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_JfuZQxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_mDipcIRLEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_JpGXshtEEeWvQYFW8NSCww" base_Property="_mDipcIRLEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_JfuZRRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_mDipdYRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_JfvAUBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_mDipd4RLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_JfvAURtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_mDipeoRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_JfvAUxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_mDipfYRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_JfvAVBtEEeWvQYFW8NSCww" hideGroupName="" specification="" status="DEPRECATED" statusInformation="The MOC SwitchTimeReference should be used instead." base_Class="_mDipgIRLEeKsuaXe_IZiAw" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_JpGXsxtEEeWvQYFW8NSCww" base_Class="_mDipgIRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_JfvnYRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_mDipgoRLEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JpG-wRtEEeWvQYFW8NSCww" base_Property="_mDiphoRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_JfvnYhtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" isNotifiable="true" base_Property="_mDiphoRLEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JpG-whtEEeWvQYFW8NSCww" base_Property="_mDipioRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_JfvnZBtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" base_Property="_mDipioRLEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JpG-wxtEEeWvQYFW8NSCww" base_Property="_mDipjoRLEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_JfvnZRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_mDipjoRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_JfwOcRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" length="" pattern="" base_DataType="_mDipkoRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_JfwOchtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_mDiplYRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_JfwOdBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_mDipl4RLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_Jfw1gBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_mDipmoRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_Jfw1ghtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_mDipnYRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_Jfw1gxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_mDipn4RLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_Jfw1hBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_mDipoYRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_JfxckBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_mDipo4RLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_JfxckRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_mDippYRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_JfyDoBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_mDipp4RLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_JfyDoRtEEeWvQYFW8NSCww" hideGroupName="" specification="" status="DEPRECATED" statusInformation="The MOC SwitchTimeService should be used instead." base_Class="_mDipqYRLEeKsuaXe_IZiAw" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_JpG-xBtEEeWvQYFW8NSCww" base_Class="_mDipqYRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_JfyDoxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_mDipq4RLEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JpHl0BtEEeWvQYFW8NSCww" base_Property="_mDipr4RLEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_JfyDpBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_mDipr4RLEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JpHl0htEEeWvQYFW8NSCww" base_Property="_mDips4RLEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_JfyqsBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_mDips4RLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_JfyqsRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_mDipuoRLEeKsuaXe_IZiAw" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_JfyqshtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_mDipvoRLEeKsuaXe_IZiAw" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_JfzRwBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_mDipwoRLEeKsuaXe_IZiAw" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_JfzRwRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_mDipxoRLEeKsuaXe_IZiAw" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimInstances xmi:id="_JfzRwhtEEeWvQYFW8NSCww" base_Package="_mDipyoRLEeKsuaXe_IZiAw" version="1" release="0" correction="0"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_Jfz40RtEEeWvQYFW8NSCww" base_InstanceSpecification="_mDip14RLEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwModel xmi:id="_JpHl0xtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwContribution xmi:id="_JpIM4BtEEeWvQYFW8NSCww" base_Association="_mDipuoRLEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_Jfz40htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Class="_mDiDHIRLEeKsuaXe_IZiAw" isLegacyRoot="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JpIM4RtEEeWvQYFW8NSCww" base_Property="_mDiDHoRLEeKsuaXe_IZiAw" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JpIM4xtEEeWvQYFW8NSCww" base_Property="_mDipRYRLEeKsuaXe_IZiAw" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JpIz8BtEEeWvQYFW8NSCww" base_Property="_mDipgoRLEeKsuaXe_IZiAw" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JpJbABtEEeWvQYFW8NSCww" base_Property="_mDipq4RLEeKsuaXe_IZiAw" isPersistent="true"/>
+  <Documentation:Documentation xmi:id="_8PhugBtDEeWvQYFW8NSCww" base_Comment="_L7JOwGu6EeK_psk_X1_33w"/>
+  <Documentation:Documentation xmi:id="_8PhugRtDEeWvQYFW8NSCww" base_Comment="_mDiDG4RLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhughtDEeWvQYFW8NSCww" base_Comment="_mDiDHYRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhugxtDEeWvQYFW8NSCww" base_Comment="_mDiDH4RLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhuhBtDEeWvQYFW8NSCww" base_Comment="_mDiDI4RLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhuhRtDEeWvQYFW8NSCww" base_Comment="_mDiDJ4RLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhuhhtDEeWvQYFW8NSCww" base_Comment="_mDiDK4RLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhuhxtDEeWvQYFW8NSCww" base_Comment="_mDiDM4RLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhuiBtDEeWvQYFW8NSCww" base_Comment="_mDipRIRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhuiRtDEeWvQYFW8NSCww" base_Comment="_mDipRoRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhuihtDEeWvQYFW8NSCww" base_Comment="_mDipSoRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhuixtDEeWvQYFW8NSCww" base_Comment="_mDipT4RLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhujBtDEeWvQYFW8NSCww" base_Comment="_mDipUYRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhujRtDEeWvQYFW8NSCww" base_Comment="_mDipVIRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhujhtDEeWvQYFW8NSCww" base_Comment="_mDipV4RLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhujxtDEeWvQYFW8NSCww" base_Comment="_mDipWoRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhukBtDEeWvQYFW8NSCww" base_Comment="_mDipXIRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhukRtDEeWvQYFW8NSCww" base_Comment="_mDipX4RLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhukhtDEeWvQYFW8NSCww" base_Comment="_mDipYoRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhukxtDEeWvQYFW8NSCww" base_Comment="_mDipZYRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhulBtDEeWvQYFW8NSCww" base_Comment="_mDipZ4RLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhulRtDEeWvQYFW8NSCww" base_Comment="_mDipbIRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhulhtDEeWvQYFW8NSCww" base_Comment="_mDipcYRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhulxtDEeWvQYFW8NSCww" base_Comment="_mDipdoRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhumBtDEeWvQYFW8NSCww" base_Comment="_mDipeIRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhumRtDEeWvQYFW8NSCww" base_Comment="_mDipe4RLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhumhtDEeWvQYFW8NSCww" base_Comment="_mDipfoRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhumxtDEeWvQYFW8NSCww" base_Comment="_mDipgYRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhunBtDEeWvQYFW8NSCww" base_Comment="_mDipg4RLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhunRtDEeWvQYFW8NSCww" base_Comment="_mDiph4RLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhunhtDEeWvQYFW8NSCww" base_Comment="_mDipi4RLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhunxtDEeWvQYFW8NSCww" base_Comment="_mDipj4RLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhuoBtDEeWvQYFW8NSCww" base_Comment="_mDipk4RLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhuoRtDEeWvQYFW8NSCww" base_Comment="_mDiploRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhuohtDEeWvQYFW8NSCww" base_Comment="_mDipmIRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhuoxtDEeWvQYFW8NSCww" base_Comment="_mDipm4RLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhupBtDEeWvQYFW8NSCww" base_Comment="_mDipqoRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhupRtDEeWvQYFW8NSCww" base_Comment="_mDiprIRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhuphtDEeWvQYFW8NSCww" base_Comment="_mDipsIRLEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_8PhupxtDEeWvQYFW8NSCww" base_Comment="_mDiptIRLEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_yiMCsMZ6EeWApM4R9wQ5kA" base_Property="_mDipSYRLEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_yiN34MZ6EeWApM4R9wQ5kA" isRestricted="true" base_Property="_mDipSYRLEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_yiN34cZ6EeWApM4R9wQ5kA" base_Property="_mDipSYRLEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_Jcj1UMg_EeWSN5hWjYHzjg" base_Package="_JPH2QMg_EeWSN5hWjYHzjg"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_Jcs_QMg_EeWSN5hWjYHzjg" base_Class="_JcnfsMg_EeWSN5hWjYHzjg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_cNVxAP_oEeWU073Zd4-03A" hideGroupName="" specification="" statusInformation="" base_Class="_cNT70P_oEeWU073Zd4-03A" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_cNYNQP_oEeWU073Zd4-03A" base_Class="_cNT70P_oEeWU073Zd4-03A"/>
+  <Documentation:Documentation xmi:id="_cNZbYP_oEeWU073Zd4-03A" base_Comment="_cNT70f_oEeWU073Zd4-03A"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_cNapgP_oEeWU073Zd4-03A" hideGroupName="" specification="" statusInformation="" base_Property="_cNT70v_oEeWU073Zd4-03A"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_cNb3oP_oEeWU073Zd4-03A" base_Property="_cNT70v_oEeWU073Zd4-03A" isPersistent="true"/>
+  <Documentation:Documentation xmi:id="_cNdFwP_oEeWU073Zd4-03A" base_Comment="_cNT70__oEeWU073Zd4-03A"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_cNds0P_oEeWU073Zd4-03A" base_Property="_cNT71v_oEeWU073Zd4-03A"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_cNfiAP_oEeWU073Zd4-03A" isPersistent="false" hideGroupName="" specification="" statusInformation="" isNotifiable="true" base_Property="_cNT71v_oEeWU073Zd4-03A"/>
+  <Documentation:Documentation xmi:id="_cNh-QP_oEeWU073Zd4-03A" base_Comment="_cNT71__oEeWU073Zd4-03A"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_cNjzcP_oEeWU073Zd4-03A" base_Property="_cNT72v_oEeWU073Zd4-03A"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_cNlBkP_oEeWU073Zd4-03A" isPersistent="false" hideGroupName="" specification="" statusInformation="" base_Property="_cNT72v_oEeWU073Zd4-03A"/>
+  <Documentation:Documentation xmi:id="_cNnd0P_oEeWU073Zd4-03A" base_Comment="_cNT72__oEeWU073Zd4-03A"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_cNor8P_oEeWU073Zd4-03A" base_Property="_cNT73v_oEeWU073Zd4-03A" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_cNqhIP_oEeWU073Zd4-03A" hideGroupName="" specification="" statusInformation="" base_Property="_cNT73v_oEeWU073Zd4-03A"/>
+  <Documentation:Documentation xmi:id="_cNsWUP_oEeWU073Zd4-03A" base_Comment="_cNT73__oEeWU073Zd4-03A"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_4TotUP_oEeWU073Zd4-03A" hideGroupName="" specification="" statusInformation="" base_Class="_4TmREP_oEeWU073Zd4-03A" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_4TrJkP_oEeWU073Zd4-03A" base_Class="_4TmREP_oEeWU073Zd4-03A"/>
+  <Documentation:Documentation xmi:id="_4TsXsP_oEeWU073Zd4-03A" base_Comment="_4TmREf_oEeWU073Zd4-03A"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_4TuM4P_oEeWU073Zd4-03A" hideGroupName="" specification="" statusInformation="" base_Property="_4TmREv_oEeWU073Zd4-03A"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_4TwCEP_oEeWU073Zd4-03A" base_Property="_4TmREv_oEeWU073Zd4-03A" isPersistent="true"/>
+  <Documentation:Documentation xmi:id="_4TxQMP_oEeWU073Zd4-03A" base_Comment="_4TmRE__oEeWU073Zd4-03A"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_4TyeUP_oEeWU073Zd4-03A" base_Property="_4TmRFv_oEeWU073Zd4-03A" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_4TzscP_oEeWU073Zd4-03A" hideGroupName="" specification="" statusInformation="" base_Property="_4TmRFv_oEeWU073Zd4-03A"/>
+  <Documentation:Documentation xmi:id="_4T2IsP_oEeWU073Zd4-03A" base_Comment="_4TmRF__oEeWU073Zd4-03A"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_4T3W0P_oEeWU073Zd4-03A" base_Property="_4TmRGv_oEeWU073Zd4-03A" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_4T4k8P_oEeWU073Zd4-03A" hideGroupName="" specification="" statusInformation="" base_Property="_4TmRGv_oEeWU073Zd4-03A"/>
+  <Documentation:Documentation xmi:id="_4T7BMP_oEeWU073Zd4-03A" base_Comment="_4TmRG__oEeWU073Zd4-03A"/>
+  <ECIMBaseProfile:EcimStruct xmi:id="_HvKAIP_pEeWU073Zd4-03A" hideGroupName="" specification="" statusInformation="" base_Class="_HvIK8P_pEeWU073Zd4-03A"/>
+  <CoreMWProfile:CmwStruct xmi:id="_HvL1UP_pEeWU073Zd4-03A" base_Class="_HvIK8P_pEeWU073Zd4-03A"/>
+  <Documentation:Documentation xmi:id="_HvMcYP_pEeWU073Zd4-03A" base_Comment="_HvIK8f_pEeWU073Zd4-03A"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_HvNqgP_pEeWU073Zd4-03A" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_HvIK8v_pEeWU073Zd4-03A"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_HvPfsP_pEeWU073Zd4-03A" base_Property="_HvIK8v_pEeWU073Zd4-03A" isConfigurable="true"/>
+  <Documentation:Documentation xmi:id="_HvQt0P_pEeWU073Zd4-03A" base_Comment="_HvIK8__pEeWU073Zd4-03A"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_HvR78P_pEeWU073Zd4-03A" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_HvIyAf_pEeWU073Zd4-03A"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_HvTxIP_pEeWU073Zd4-03A" base_Property="_HvIyAf_pEeWU073Zd4-03A" isConfigurable="true"/>
+  <Documentation:Documentation xmi:id="_HvUYMP_pEeWU073Zd4-03A" base_Comment="_HvIyAv_pEeWU073Zd4-03A"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_HvWNYP_pEeWU073Zd4-03A" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_HvIyBv_pEeWU073Zd4-03A"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_HvYCkP_pEeWU073Zd4-03A" base_Property="_HvIyBv_pEeWU073Zd4-03A" isConfigurable="true"/>
+  <Documentation:Documentation xmi:id="_HvZQsP_pEeWU073Zd4-03A" base_Comment="_HvIyB__pEeWU073Zd4-03A"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_bYXBEP_5EeWU073Zd4-03A" hideGroupName="" specification="" statusInformation="" base_Association="_bYUk0P_5EeWU073Zd4-03A" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_-2dNIADEEeaxZcO3_AZzWQ" hideGroupName="" specification="" statusInformation="" base_Association="_-2XGgADEEeaxZcO3_AZzWQ" canCreate="false" canDelete="false" isNotifiable="true"/>
+</xmi:XMI>

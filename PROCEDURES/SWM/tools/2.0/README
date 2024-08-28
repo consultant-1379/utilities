@@ -1,0 +1,92 @@
+ ___  __ 
+|__  /__` |\/|
+|___ .__/ |  |
+___  __   __       __ 
+ |  /  \ /  \ |   /__`
+ |  \__/ \__/ |__ .__/
+
+
+README
+  ESM stands for Enhanced Software Management and represents the end to
+  end flow for the development and the deploy of a CBA based system.
+  Tools in this folder allows: the definition of a CBA System Model (CSM)
+  for APG, the software packaging into a CBA System Package 2.0 (CSP2.0)
+  and the creation of an Installation PAckage (IPA) to be deployed on the
+  installation server (PXE).
+  
+  Find out the details to use the SwM2.0 tool-chain in the following UG 
+  Title: APG Software Packing (SP)
+  Docnr: 1/1553-LZY 214 5161
+
+FILES
+  * modules.sh            - To be sourced for loading needed software modules;
+  * common.sh             - Environment variables shared by all tools;
+  * createDpRepo.sh       - Prepares the DP-repo;
+  * createCsm.sh          - Contains embedded rules for creating the APG CSM Model
+                            using the DP-repo;
+  * applyPatches.sh       - Apply a patch in LDE runtime package to remove completely ECIM Equipment (waiting for the solution in CoreMW 4.7)
+  * createCsp.sh          - Creates the CSP2.0 package;
+  * createAitlpa.sh       - Creates the IPA to be deployed on the PXE Server.
+  
+  Lauch tools with option --help to get detailed info.
+
+PREREQUISITES:
+
+  Create under $SWM_2_HOME/workspace/am-ws the configuration file ArtifactManager.cfg
+  User can copy the template ArtifactManager.cfg.template file available in $SWM_2_HOME/workspace/am-ws 
+  location and update it with user values
+
+  1) Copy the files:
+     cp ArtifactManager_ap.cfg.template ArtifactManager_ap.cfg and
+     cp ArtifactManager_all.cfg.template ArtifactManager_all.cfg
+
+  2) Fetch the encrypted password from  https://arm.deac.rnd.ericsson.se/artifactory/  and update in ArtifactManager_ap.cfg
+
+  3) Fetch the encrypted password from  https://arm.rnd.ki.sw.ericsson.se/artifactory/ and update in ArtifactManager_all.cfg
+
+  4) In both the copied files, Replace the path in the variables cachelocation and softwareRepo with current user's path
+     for e.g. if the repository exists in /home/<username>/GIT_DIR/utilities path then
+     softwareRepo = file:///home/<username>/GIT_DIR/utilities/PROCEDURES/SWM/workspace/local-sw
+     and cachelocation = /home/<username>/GIT_DIR/utilities/PROCEDURES/SWM/workspace/am-cache
+
+  Follow the instructions in the template ArtifactManager.cfg.template  
+ 
+  check-out $SWM_2_HOME/tool/model/apg-version.yml file.
+  Update product-number column with current R-state, Here product number is constant only modify R-state.
+
+  For example how to modify in apg-version.yml
+  Current R-state, product-number: CXP9040501R7A02
+  Modifiled R-state, product-number: CXP9040501R7A03 
+  contents of apg-version.yml
+    systems: 
+    - uid: APG43L 
+      name: APG43L 
+      version: 3.6.0 
+      product-number: CXP9040501R7A03 
+      description: APG43L 
+
+   After modifying "product-number" attribute check-in  apg-version.yml  file.
+  
+HOW-TO
+  source modules.sh
+  ./createDpRepo.sh
+  ./createCsm.sh
+  ./applyPatches.sh
+  ./createCsp.sh
+  ./createAitlpa.sh
+  
+
+CONTACT
+  If you have problems, questions, ideas or suggestions, please contact us
+  at the following mail address: Genesis/TEI <PDLAESARTE@pdl.internal.ericsson.com>
+
+WEB SITE
+  Visit the CBA's confluence page for more info:
+        https://confluence.lmera.ericsson.se/display/CBA/CBA+for+Developers
+		
+  Visit the ericoll page for APG related info:
+        https://ericoll.internal.ericsson.com/sites/AXE_18_Release/Documents/Forms/AllItems.aspx?RootFolder=%2Fsites%2FAXE%5F18%5FRelease%2FDocuments%2FFeautures%20Folder%2FESM
+
+NOTICE
+  Copyright (C) 2018 Ericsson AB. All rights reserved.
+

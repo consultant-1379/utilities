@@ -1,0 +1,14 @@
+							<CompBaseType safCompType="safCompType=#COMP_TYPE_NAME#">
+								<CompType safVersion="safVersion=#COMP_VERSION#">
+									<providesCSType saAmfCtCompCapability="1" saAmfCtDefNumMaxActiveCsi="0" saAmfCtDefNumMaxStandbyCsi="0" safSupportedCsType="safSupportedCsType=safVersion=1.0.0\,safCSType=#CS_TYPE#"/>
+									<compTypeDefaults saAmfCtCompCategory="1" saAmfCtDefCallbackTimeout="#CALLBACK_TIMEOUT#" saAmfCtDefClcCliTimeout="#CLC_CLI_TIMEOUT#" saAmfCtDefDisableRestart="0" saAmfCtDefInstantiationLevel="0" saAmfCtDefQuiescingCompleteTimeout="#QUIESCING_COMPLETE_TIMEOUT#" saAmfCtDefRecoveryOnError="#RECOVERY_ON_ERROR#"/>
+									<instantiateCmd saAmfCtRelPathInstantiateCmd="#CLC_NAME#">
+										<cmdArgv>instantiate</cmdArgv>
+									</instantiateCmd>
+									<cleanupCmd saAmfCtRelPathCleanupCmd="#CLC_NAME#">
+										<cmdArgv>cleanup</cmdArgv>
+									</cleanupCmd>
+									<healthCheck saAmfHealthcheckPeriod="#HCK_PERIOD#" saAmfHealthcheckMaxDuration="#HCK_MAX_DURATION#" safHealthcheckKey="safHealthcheckKey=#HCK#"/>
+									<swBundle saAmfCtSwBundle="safSmfBundle=#NEW_BUNDLE_NAME#"/>
+								</CompType>
+							</CompBaseType>

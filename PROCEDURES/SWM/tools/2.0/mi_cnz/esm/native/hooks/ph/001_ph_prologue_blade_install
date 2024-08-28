@@ -1,0 +1,1684 @@
+#!/bin/bash
+##
+# ------------------------------------------------------------------------
+#     Copyright (C) 2012 Ericsson AB. All rights reserved.
+# ------------------------------------------------------------------------
+##
+# Name:
+#       001_ph_prologue_blade_install
+# Description:
+#       A script to configure the cluster.
+# Note:
+#	Sourced via LOTC cluster install script execution during
+#	the pre installation phase.
+##
+# Usage:
+#	Used during APG43L maiden installation.
+##
+# Output:
+#       None.
+##
+# Changelog:
+# - Wed Mar 20 2019 - Neelam Kumar(xneelku)
+#   	Updated cluster.conf with kernel-cmdline options to enable the patches.
+# - Wed Sep 05 2018 - Pratap Reddy Uppada(xpraupp)
+#   	Updating cluster.conf with kernel-cmdline options
+# - Mon Feb 12 2018 - Sowjanya Medak (XSOWMED)
+#	Renamed gep7lasgep5-64 in factoryparams.conf to turbo_boost_cp
+# - Mon Jan 22 2018 - Raghavendra Koduri (XKODRAG)
+#	Support for additional parameter ge7lasge5-64 in factoryparams.conf
+#   Support for GEP7_128_1600 hardware
+# - Thu July 05 2017 Raghavendra Koduri (XKODRAG)
+#	Modified to support GEP7 boards
+# - Thu Jan 14 2016 Sindhuja Palla (XSINPAL)
+#	Impacts to support SMX architecture
+# - Wed Nov 18 2015 - Sindhuja Palla (XSINPAL)
+#   Updated ph_read_parse_conf_file for mau_type in factoryparam.conf
+# - Mon Mar 09 2015 - Giuseppe Pontillo (QGIUPON)
+#   Adaptation for APG-VM
+# - Tue Dec 30 2014 - Pranshu Sinha (XPRANSI)
+#   Added solution for ARP leakage issue
+# - Thu Nov 19 2015 - Roni Newatia (XRONNEW)
+#   Modified to support GEP5-64-1200
+# - Mon Mar 09 2015 - Giuseppe Pontillo (QGIUPON)
+#   Adaptation for APG-VM
+# - Tue Dec 30 2014 - Pranshu Sinha (XPRANSI)
+#   Added solution for ARP leakage issue
+# - Mon Apr 7 2014 - Pratap Reddy (XPRAUPP)
+#   cableless changes
+# - Wed Mar 12 2014 - Antonio Buoncunto (eanbuon)
+#   Addded handling of ap2_oam option
+# - Sat Feb 1 2014 - Stefano Volpe (estevol)
+#   Added configurable TIPC vlan tag
+# - Fri Jan 10 2014 - Malangsha Shaik (xmalsha)
+#   Updated to support 10g network configuration
+# - Mon Jun 24 2013 - Fabio Ronca (efabron)
+#	Impact to manage two cluster.conf template
+# - Tue Jun 18 2013 - Fabio Imperato (efabimp)
+#   Update to calculate APUBs MAC addresses ethernet interfaces from APUB base MAC address
+# - Tue Jun 11 2013 - Fabio Ronca (efabron)
+#	Update to define the 10Gbit Ethernet Interfaces for GEP5 APUBs 
+# - Wed May 29 2013 - Fabio Ronca (efabron)
+#	Update to align new printout of cluster config -v command delivered in LDEwS 2.2 PRA
+# - Tue Feb 07 2012 - Paolo Palmieri (epaopal)
+#	First version.
+##
+
+# Non-initialized variables are forbidden
+#set -u
+set -x
+
+function generate_mvl_mac() {
+  mvl_num=$1
+
+  node_num=$2
+
+  if [ "$mvl_num" == "mvl0" ] && [ "$node_num" == "node1" ];     then
+          sec_bit_to_set="00"
+  elif [ "$mvl_num" == "mvl1" ] && [ "$node_num" == "node1" ];     then
+          sec_bit_to_set="01"
+  elif [ "$mvl_num" == "mvl0" ] && [ "$node_num" == "node2" ];     then
+          sec_bit_to_set="02"
+  elif [ "$mvl_num" == "mvl1" ] && [ "$node_num" == "node2" ];     then
+          sec_bit_to_set="03"
+  fi
+
+  ap_type=$(cat /etc/factoryparam.conf | grep ap_type | cut -d = -f 2)
+  if [ "$ap_type" == "AP1" ];     then
+          ap_num=0
+  elif [ "$ap_type" == "AP2" ];     then
+          ap_num=1
+  fi
+  new_mac=""$ap_num"2:"$sec_bit_to_set":41:50:47:4C"
+  echo $new_mac
+}
+
+function generate_random_MAC() {
+  local MAC="$1"
+  local RNDMAC=$( (date; cat /proc/interrupts) | md5sum | sed -r 's/^(.{10}).*$/\1/; s/([0-9a-f]{2})/\1:/g; s/:$//;' )
+  echo "${MAC:0:2}:$RNDMAC" | tr '[:lower:]' '[:upper:]'
+}
+
+function set_LAA_bit() {
+  # Local variables
+  local MAC="$1"
+  local NIBBLE=$( echo ${MAC:1:1} )
+
+  case "$NIBBLE" in
+  0) NIBBLE="2"
+    ;;
+  1) NIBBLE="3"
+    ;;
+  4) NIBBLE="6"
+    ;;
+  5) NIBBLE="7"
+    ;;
+  8) NIBBLE="a"
+    ;;
+  9) NIBBLE="b"
+    ;;
+  c|C) NIBBLE="e"
+    ;;
+  d|D) NIBBLE="f"
+    ;;
+  *) MAC=$( generate_random_MAC $MAC)
+    ;;
+  esac
+  local LAAMAC=$( echo ${MAC:0:1} )$NIBBLE$( echo ${MAC:2} )
+  echo "$LAAMAC"
+}
+
+function comment_line() {
+  echo "--- comment_line($1, $2) begin"
+  
+  # Local variables
+  local FILE=$1
+  local STATEMENT=$2
+  
+  # Statement comment
+  if [ -f "$FILE" ]; then
+    if [ "`cat $FILE | grep \"$STATEMENT\"`" ]; then
+      sed -i "/$STATEMENT/s/^/#/" $FILE
+    else
+      abort "Statement \"$STATEMENT\" not found in \"$FILE\""
+    fi
+  else
+    abort "File \"$FILE\" not found"
+  fi 
+
+  echo "--- comment_line($1, $2) end"
+}
+
+function remove_line() {
+  echo "--- remove_line($1, $2, $3) begin"
+  
+  # Local variables
+  local FILE=$1
+  local STATEMENT=$2
+  local BLANK_LINE=$3
+  
+  # Line to remove
+  if [ -f "$FILE" ]; then
+    if [ "`cat $FILE | grep \"$STATEMENT\"`" ]; then
+      if [ $BLANK_LINE == y ]; then 
+        sed -i "/$STATEMENT/,+1d" $FILE
+      else
+        sed -i "/$STATEMENT/d" $FILE
+      fi
+    else
+      abort "Statement \"$STATEMENT\" not found in \"$FILE\""
+    fi
+  else
+    abort "File \"$FILE\" not found"
+  fi 
+
+  echo "--- remove_line($1, $2, $3) end"
+}
+
+function str_replace() {
+  echo "--- str_replace($1, $2, $3) begin"
+
+  # Local variables
+  local FILE=$1
+  local STATEMENT=$2
+  local REPLACEMENT=$3
+
+  # Statement replace
+  if [ -f "$FILE" ]; then
+    if [ "`cat $FILE | grep \"$STATEMENT\"`" ]; then
+      sed -i "s@$STATEMENT@$REPLACEMENT@g" $FILE
+    else
+      abort "Statement \"$STATEMENT\" not found in \"$FILE\""
+    fi
+  else
+    abort "File \"$FILE\" not found"
+  fi
+
+  echo "--- str_replace($1, $2, $3) end"
+}
+
+function is10G(){
+	local rCode=$FALSE
+	local TMPMI='/tmp/installation'
+	if [[ $INSTALLATION_HW == GEP4* || $INSTALLATION_HW == GEP5* || $INSTALLATION_HW == GEP7* ]]; then
+		local SHELF_SWITCH=$(cat $TMPMI/shelf_switch)
+		local SHELF_ARCH=$(cat $TMPMI/shelf_architecture)
+		[[ $SHELF_ARCH == 'SCX' || $SHELF_ARCH == 'SMX' || $SHELF_ARCH == 'DMX' ]] &&  {
+			[[ "$SHELF_SWITCH" =~ "CMX"  || "$SHELF_SWITCH" =~ "SMX" ]] && rCode=$TRUE
+		}
+	fi
+	return $rCode
+}
+
+function isBSP(){
+	local rCode=$FALSE
+	local TMPMI='/tmp/installation'
+	local apShelfManager=$(cat $TMPMI/shelf_architecture)
+	
+	[ "$apShelfManager" == "DMX" ] && rCode=$TRUE
+	
+	return $rCode
+}
+
+function isCLFEnabled(){
+  local rCode=$FALSE
+  local TMPMI='/tmp/installation'
+  if [[ $INSTALLATION_HW == GEP4* || $INSTALLATION_HW == GEP5* || $INSTALLATION_HW == GEP7* ]]; then
+    local apShelfManager=$(cat $TMPMI/shelf_architecture)
+    local SHELF_SWITCH=$(cat $TMPMI/shelf_switch)
+    local apgOaMaccess=$(cat $TMPMI/apg_oam_access)
+    [[ "$apShelfManager" == "DMX" || "$apShelfManager" == "SMX" ||  "$apShelfManager" == "SCX" ]] && {
+      [ "$apgOaMaccess" == "NOCABLE" ] && rCode=$TRUE
+    }
+  fi
+
+  return $rCode
+}
+
+
+# ---------------------------------------------------------------------------- #
+# cluster.conf parameters                                                      #
+# ---------------------------------------------------------------------------- #
+#
+# <cluster_timezone> OPTIONAL (default: UTC)
+# 
+# <public_network_ipv4_address> MANDATORY (default: 10.246.15.0)
+# <public_network_ipv4_prefix> MANDATORY (default: 24)
+# 
+# <public2_network_ipv4_address> OPTIONAL (default: Not configured)
+# <public2_network_ipv4_prefix> OPTIONAL (default: Not configured)
+# 
+# <physep_network_ipv4_address> OPTIONAL (default: Not configured)
+# <physep_network_ipv4_prefix> OPTIONAL (default: Not configured)
+# 
+# <node1_mac_address_eth0> MANDATORY (default: Fetched via OS during MI)
+# <node1_mac_address_eth1> MANDATORY (default: Fetched via OS during MI)
+# <node1_mac_address_eth2> MANDATORY (default: Fetched via OS during MI)
+# <node1_mac_address_eth3> MANDATORY (default: Fetched via OS during MI)
+# <node1_mac_address_eth4> MANDATORY (default: Fetched via OS during MI)
+# <node1_mac_address_eth5> MANDATORY (default: Fetched via OS during MI)
+# <node1_mac_address_eth6> MANDATORY (default: Fetched via OS during MI)
+# 
+# <node2_mac_address_eth0> MANDATORY (default: Fetched via IPMI bus during MI)
+# <node2_mac_address_eth1> MANDATORY (default: Fetched via IPMI bus during MI)
+# <node2_mac_address_eth2> MANDATORY (default: Fetched via IPMI bus during MI)
+# <node2_mac_address_eth3> MANDATORY (default: Fetched via IPMI bus during MI)
+# <node2_mac_address_eth4> MANDATORY (default: Fetched via IPMI bus during MI)
+# <node2_mac_address_eth5> MANDATORY (default: Fetched via IPMI bus during MI)
+# <node2_mac_address_eth6> MANDATORY (default: Fetched via IPMI bus during MI)
+# 
+# <node1_mac_address_mvl0> MANDATORY (default: Automatically evaluated)
+# <node1_mac_address_mvl1> MANDATORY (default: Automatically evaluated)
+# <node1_mac_address_mvl2> MANDATORY (default: Automatically evaluated)
+# 
+# <node2_mac_address_mvl0> MANDATORY (default: Automatically evaluated)
+# <node2_mac_address_mvl1> MANDATORY (default: Automatically evaluated)
+# <node2_mac_address_mvl2> MANDATORY (default: Automatically evaluated)
+# 
+# <node1_public_network_ipv4_ip_address> MANDATORY (default: 10.246.15.30)
+# <node2_public_network_ipv4_ip_address> MANDATORY (default: 10.246.15.31)
+# 
+# <cluster_public_network_ipv4_ip_address> MANDATORY (default: 10.246.15.32)
+# 
+# <node1_public2_network_ipv4_ip_address> OPTIONAL (default: Not configured)
+# <node2_public2_network_ipv4_ip_address> OPTIONAL (default: Not configured)
+# 
+# <cluster_public2_network_ipv4_ip_address> OPTIONAL (default: Not configured)
+# 
+# <physep_network_ipv4_gateway_ip_address> OPTIONAL (default: Not configured)
+# 
+# <default_network_ipv4_gateway_ip_address> MANDATORY (default: 10.246.15.1)
+# 
+# <cluster_keymap> OPTIONAL (default: US)
+#
+# <tipc_vlantag> MANDATORY (default: Not configured)
+# 
+# ---------------------------------------------------------------------------- #
+# LEGENDA                                                                      #
+# ---------------------------------------------------------------------------- #
+# MANDATORY means that the parameter is mandatory in cluster.conf              #
+# OPTIONAL means that the parameter is optional in cluster.conf                #
+# ---------------------------------------------------------------------------- #
+function configure_cluster() {
+  echo "--- configure_cluster($1) begin"
+
+  # Local variables
+  local FILE=$1
+
+  if [ -z "$CLUSTER_TIMEZONE" ]; then
+    abort "Empty cluster_timezone value"
+  fi
+  str_replace "$FILE" "<cluster_timezone>" "$CLUSTER_TIMEZONE"
+
+  if [ -z "$PUBLIC_NETWORK_IPV4_ADDRESS" ]; then
+    abort "Empty public_network_ipv4_address value"
+  fi
+  str_replace "$FILE" "<public_network_ipv4_address>" "$PUBLIC_NETWORK_IPV4_ADDRESS"
+  if [ -z "$PUBLIC_NETWORK_IPV4_PREFIX" ]; then
+    abort "Empty public_network_ipv4_prefix value"
+  fi
+  str_replace "$FILE" "<public_network_ipv4_prefix>" "$PUBLIC_NETWORK_IPV4_PREFIX"
+
+  if [ ! -z "$PUBLIC2_NETWORK_IPV4_ADDRESS" ]; then
+    str_replace "$FILE" "<public2_network_ipv4_address>" "$PUBLIC2_NETWORK_IPV4_ADDRESS"
+  fi
+  if [ ! -z "$PUBLIC2_NETWORK_IPV4_PREFIX" ]; then
+    str_replace "$FILE" "<public2_network_ipv4_prefix>" "$PUBLIC2_NETWORK_IPV4_PREFIX"
+  fi
+
+  if [ ! -z "$PHYSEP_NETWORK_IPV4_ADDRESS" ]; then
+    str_replace "$FILE" "<physep_network_ipv4_address>" "$PHYSEP_NETWORK_IPV4_ADDRESS"
+  fi
+  if [ ! -z "$PHYSEP_NETWORK_IPV4_PREFIX" ]; then
+    str_replace "$FILE" "<physep_network_ipv4_prefix>" "$PHYSEP_NETWORK_IPV4_PREFIX"
+  fi
+
+#GEP7 doesnt contains front ports eth0 and eth1
+if [[ $INSTALLATION_HW != GEP7* ]]; then
+  if [ ! -z "$NODE1_MAC_ADDRESS_ETH0" ]; then
+    str_replace "$FILE" "<node1_mac_address_eth0>" "$NODE1_MAC_ADDRESS_ETH0"
+  else
+    abort "Empty node 1 MAC address eth0 value"
+  fi
+  if [ ! -z "$NODE1_MAC_ADDRESS_ETH1" ]; then
+    str_replace "$FILE" "<node1_mac_address_eth1>" "$NODE1_MAC_ADDRESS_ETH1"
+  else
+    abort "Empty node 1 MAC address eth1 value"
+  fi
+fi
+  if [ ! -z "$NODE1_MAC_ADDRESS_ETH2" ]; then
+    str_replace "$FILE" "<node1_mac_address_eth2>" "$NODE1_MAC_ADDRESS_ETH2"
+  else
+    abort "Empty node 1 MAC address eth2 value"
+  fi
+  if [ ! -z "$NODE1_MAC_ADDRESS_ETH3" ]; then
+    str_replace "$FILE" "<node1_mac_address_eth3>" "$NODE1_MAC_ADDRESS_ETH3"
+  else
+    abort "Empty node 1 MAC address eth3 value"
+  fi
+  if [ ! -z "$NODE1_MAC_ADDRESS_ETH4" ]; then
+    str_replace "$FILE" "<node1_mac_address_eth4>" "$NODE1_MAC_ADDRESS_ETH4"
+  else
+    abort "Empty node 1 MAC address eth4 value"
+  fi
+
+  if [[ $INSTALLATION_HW == GEP4* || $INSTALLATION_HW == GEP5* || $INSTALLATION_HW == GEP7* ]]; then
+    if [ ! -z "$NODE1_MAC_ADDRESS_ETH5" ]; then
+      str_replace "$FILE" "<node1_mac_address_eth5>" "$NODE1_MAC_ADDRESS_ETH5"
+    else
+      abort "Empty node 1 MAC address eth5 value"
+    fi
+    if [ ! -z "$NODE1_MAC_ADDRESS_ETH6" ]; then
+      str_replace "$FILE" "<node1_mac_address_eth6>" "$NODE1_MAC_ADDRESS_ETH6"
+    else
+      abort "Empty node 1 MAC address eth6 value"
+    fi
+    if [[ "$INSTALLATION_HW" == "GEP5_64_1200" || $INSTALLATION_HW == GEP7* ]];then
+	if [ ! -z "$NODE1_MAC_ADDRESS_ETH7" ]; then
+	 str_replace "$FILE" "<node1_mac_address_eth7>" "$NODE1_MAC_ADDRESS_ETH7"
+        else
+         abort "Empty node 1 MAC address eth7 value"
+        fi
+        if [ ! -z "$NODE1_MAC_ADDRESS_ETH8" ]; then
+         str_replace "$FILE" "<node1_mac_address_eth8>" "$NODE1_MAC_ADDRESS_ETH8"
+        else
+         abort "Empty node 1 MAC address eth8 value"
+        fi
+    fi
+  fi
+
+  # Automatic MACs generation for node1
+#  local MAC_LIST=""
+#  for (( i=0; i<5; i++ )); do
+#    MAC_LIST+=$( cat /sys/class/net/eth$i/address | tr '[:lower:]' '[:upper:]' )" "
+#  done
+#  MAC_LIST=$( echo $MAC_LIST | tr '[:blank:]' "\n" | sort | tr "\n" " " )
+#  eval set -- $MAC_LIST
+#  str_replace "$FILE" "<node1_mac_address_eth0>" "$4"
+#  str_replace "$FILE" "<node1_mac_address_eth1>" "$5"
+#  str_replace "$FILE" "<node1_mac_address_eth2>" "$3"
+#  str_replace "$FILE" "<node1_mac_address_eth3>" "$1"
+#  str_replace "$FILE" "<node1_mac_address_eth4>" "$2"
+#  # Copying mac addresses values for node 1
+#  echo "$4" > /tmp/installation/node1_mac_address_eth0
+#  echo "$5" > /tmp/installation/node1_mac_address_eth1
+#  echo "$3" > /tmp/installation/node1_mac_address_eth2
+#  echo "$1" > /tmp/installation/node1_mac_address_eth3
+#  echo "$2" > /tmp/installation/node1_mac_address_eth4
+
+#GEP7 doesnt contains front ports eth0 and eth1
+  if [[ $INSTALLATION_HW != GEP7* ]]; then
+    if [ ! -z "$NODE2_MAC_ADDRESS_ETH0" ]; then
+      str_replace "$FILE" "<node2_mac_address_eth0>" "$NODE2_MAC_ADDRESS_ETH0"  
+    else
+      abort "Empty node 2 MAC address eth0 value"
+    fi
+    if [ ! -z "$NODE2_MAC_ADDRESS_ETH1" ]; then
+      str_replace "$FILE" "<node2_mac_address_eth1>" "$NODE2_MAC_ADDRESS_ETH1"
+    else
+      abort "Empty node 2 MAC address eth1 value"
+    fi
+  fi
+  if [ ! -z "$NODE2_MAC_ADDRESS_ETH2" ]; then
+    str_replace "$FILE" "<node2_mac_address_eth2>" "$NODE2_MAC_ADDRESS_ETH2"
+  else
+    abort "Empty node 2 MAC address eth2 value"
+  fi
+  if [ ! -z "$NODE2_MAC_ADDRESS_ETH3" ]; then
+    str_replace "$FILE" "<node2_mac_address_eth3>" "$NODE2_MAC_ADDRESS_ETH3"
+  else
+    abort "Empty node 2 MAC address eth3 value"
+  fi
+  if [ ! -z "$NODE2_MAC_ADDRESS_ETH4" ]; then
+    str_replace "$FILE" "<node2_mac_address_eth4>" "$NODE2_MAC_ADDRESS_ETH4"
+  else
+    abort "Empty node 2 MAC address eth4 value"
+  fi
+
+  if [[ $INSTALLATION_HW == GEP4* || $INSTALLATION_HW == GEP5* || $INSTALLATION_HW == GEP7* ]]; then
+    if [ ! -z "$NODE2_MAC_ADDRESS_ETH5" ]; then
+      str_replace "$FILE" "<node2_mac_address_eth5>" "$NODE2_MAC_ADDRESS_ETH5"
+    else
+      abort "Empty node 2 MAC address eth5 value"
+    fi
+    if [ ! -z "$NODE2_MAC_ADDRESS_ETH6" ]; then
+      str_replace "$FILE" "<node2_mac_address_eth6>" "$NODE2_MAC_ADDRESS_ETH6"
+    else
+      abort "Empty node 2 MAC address eth6 value"
+    fi
+    if [[ "$INSTALLATION_HW" == "GEP5_64_1200" || $INSTALLATION_HW == GEP7* ]];then
+        if [ ! -z "$NODE2_MAC_ADDRESS_ETH7" ]; then
+         str_replace "$FILE" "<node2_mac_address_eth7>" "$NODE2_MAC_ADDRESS_ETH7"
+        else
+         abort "Empty node 2 MAC address eth7 value"
+        fi
+        if [ ! -z "$NODE2_MAC_ADDRESS_ETH8" ]; then
+         str_replace "$FILE" "<node2_mac_address_eth8>" "$NODE2_MAC_ADDRESS_ETH8"
+        else
+         abort "Empty node 2 MAC address eth8 value"
+        fi
+    fi
+  fi
+
+  # Automatic MACs generation for node1
+#  if [ ! -z "$NODE1_MAC_ADDRESS_MVL0" ]; then
+#    str_replace "$FILE" "<node1_mac_address_mvl0>" "$NODE1_MAC_ADDRESS_MVL0"
+#  fi
+#  if [ ! -z "$NODE1_MAC_ADDRESS_MVL1" ]; then
+#    str_replace "$FILE" "<node1_mac_address_mvl1>" "$NODE1_MAC_ADDRESS_MVL1"
+#  fi
+
+# Fix inserted for ARP leakage issue
+
+  switch_type=$(cat /etc/factoryparam.conf | grep shelf_architecture | cut -d = -f 2)
+  apt_type=$(cat /etc/factoryparam.conf | grep apt_type | cut -d = -f 2)
+  if [ "$switch_type" == "SCB" ] && [ "$apt_type" == "BSC" ];  then
+        str_replace "$FILE" "<node1_mac_address_mvl0>" $( generate_mvl_mac mvl0 node1 )
+        str_replace "$FILE" "<node1_mac_address_mvl1>" $( generate_mvl_mac mvl1 node1 )
+        echo "$( generate_mvl_mac mvl0 node1 )" > /tmp/installation/node1_mac_address_mvl0
+        echo "$( generate_mvl_mac mvl1 node1 )" > /tmp/installation/node1_mac_address_mvl1
+        str_replace "$FILE" "<node2_mac_address_mvl0>" $( generate_mvl_mac mvl0 node2 )
+        str_replace "$FILE" "<node2_mac_address_mvl1>" $( generate_mvl_mac mvl1 node2 )
+        echo "$( generate_mvl_mac mvl0 node2 )" > /tmp/installation/node2_mac_address_mvl0
+        echo "$( generate_mvl_mac mvl1 node2 )" > /tmp/installation/node2_mac_address_mvl1
+  else
+        str_replace "$FILE" "<node1_mac_address_mvl0>" $( set_LAA_bit "$NODE1_MAC_ADDRESS_ETH3" )
+        str_replace "$FILE" "<node1_mac_address_mvl1>" $( set_LAA_bit "$NODE1_MAC_ADDRESS_ETH4" )
+        echo "$( set_LAA_bit "$NODE1_MAC_ADDRESS_ETH3" )" > /tmp/installation/node1_mac_address_mvl0
+        echo "$( set_LAA_bit "$NODE1_MAC_ADDRESS_ETH4" )" > /tmp/installation/node1_mac_address_mvl1
+        str_replace "$FILE" "<node2_mac_address_mvl0>" $( set_LAA_bit "$NODE2_MAC_ADDRESS_ETH3" )
+        str_replace "$FILE" "<node2_mac_address_mvl1>" $( set_LAA_bit "$NODE2_MAC_ADDRESS_ETH4" )
+        echo "$( set_LAA_bit "$NODE2_MAC_ADDRESS_ETH3" )" > /tmp/installation/node2_mac_address_mvl0
+        echo "$( set_LAA_bit "$NODE2_MAC_ADDRESS_ETH4" )" > /tmp/installation/node2_mac_address_mvl1
+  fi
+  if  ! isSIMULATED ; then
+	  str_replace "$FILE" "<node1_mac_address_mvl2>" $( set_LAA_bit "$NODE1_MAC_ADDRESS_ETH2" )
+    str_replace "$FILE" "<node2_mac_address_mvl2>" $( set_LAA_bit "$NODE2_MAC_ADDRESS_ETH2" )
+  fi
+  echo "$( set_LAA_bit "$NODE1_MAC_ADDRESS_ETH2" )" > /tmp/installation/node1_mac_address_mvl2
+  echo "$( set_LAA_bit "$NODE2_MAC_ADDRESS_ETH2" )" > /tmp/installation/node2_mac_address_mvl2
+
+  # Not available in this phase!
+#  if [ ! -z "$NODE2_MAC_ADDRESS_MVL0" ]; then
+#    str_replace "$FILE" "<node2_mac_address_mvl0>" "$NODE2_MAC_ADDRESS_MVL0"
+#  fi
+#  if [ ! -z "$NODE2_MAC_ADDRESS_MVL1" ]; then
+#    str_replace "$FILE" "<node2_mac_address_mvl1>" "$NODE2_MAC_ADDRESS_MVL1"
+#  fi
+
+  if [ -z "$NODE1_PUBLIC_NETWORK_IPV4_IP_ADDRESS" ]; then
+    abort "Empty node1_public_network_ipv4_ip_address value"
+  fi
+  
+  str_replace "$FILE" "<node1_public_network_ipv4_ip_address>" "$NODE1_PUBLIC_NETWORK_IPV4_IP_ADDRESS"
+  if [ -z "$NODE2_PUBLIC_NETWORK_IPV4_IP_ADDRESS" ]; then
+    abort "Empty node2_public_network_ipv4_ip_address value"
+  fi
+  str_replace "$FILE" "<node2_public_network_ipv4_ip_address>" "$NODE2_PUBLIC_NETWORK_IPV4_IP_ADDRESS"
+
+  if [ -z "$CLUSTER_PUBLIC_NETWORK_IPV4_IP_ADDRESS" ]; then
+    abort "Empty cluster_public_network_ipv4_ip_address value"
+  fi
+  str_replace "$FILE" "<cluster_public_network_ipv4_ip_address>" "$CLUSTER_PUBLIC_NETWORK_IPV4_IP_ADDRESS"
+
+  if [ ! -z "$NODE1_PUBLIC2_NETWORK_IPV4_IP_ADDRESS" ]; then
+    str_replace "$FILE" "<node1_public2_network_ipv4_ip_address>" "$NODE1_PUBLIC2_NETWORK_IPV4_IP_ADDRESS"
+  fi
+  if [ ! -z "$NODE2_PUBLIC2_NETWORK_IPV4_IP_ADDRESS" ]; then
+    str_replace "$FILE" "<node2_public2_network_ipv4_ip_address>" "$NODE2_PUBLIC2_NETWORK_IPV4_IP_ADDRESS"
+  fi
+
+  if [ ! -z "$CLUSTER_PUBLIC2_NETWORK_IPV4_IP_ADDRESS" ]; then
+    str_replace "$FILE" "<cluster_public2_network_ipv4_ip_address>" "$CLUSTER_PUBLIC2_NETWORK_IPV4_IP_ADDRESS"
+  fi
+
+  if [ ! -z "$PHYSEP_NETWORK_IPV4_GATEWAY_IP_ADDRESS" ]; then
+    str_replace "$FILE" "<physep_network_ipv4_gateway_ip_address>" "$PHYSEP_NETWORK_IPV4_GATEWAY_IP_ADDRESS"
+  fi
+
+  if [ -z "$DEFAULT_NETWORK_IPV4_GATEWAY_IP_ADDRESS" ]; then
+    abort "Empty default_network_ipv4_gateway_ip_address value"
+  fi
+  str_replace "$FILE" "<default_network_ipv4_gateway_ip_address>" "$DEFAULT_NETWORK_IPV4_GATEWAY_IP_ADDRESS"
+
+  is10G && {
+  	[ -z "$NETWORK_10G_VLANTAG" ] && abort "Empty network_10g_vlantag value"
+  	str_replace "$FILE" "<network_10g_vlantag>" "$NETWORK_10G_VLANTAG" 
+  }  
+  
+  if [ -z "$TIPC_VLANTAG" ]; then
+  	abort "Empty tipc_vlantag value"
+  fi
+  str_replace "$FILE" "<tipc_vlantag>" "$TIPC_VLANTAG" 
+
+	isBSP && {
+		[ -z "$BGCI_A_NETWORK" ] && abort "Empty bgci_a_network value"
+  	str_replace "$FILE" "<bgci_a_network>" "$BGCI_A_NETWORK" 
+  	str_replace "$FILE" "<bgci_a_subnet>" "$(echo "$BGCI_A_NETWORK" | awk -F. '{print $1"."$2"."$3}')"
+  	
+  	[ -z "$BGCI_B_NETWORK" ] && abort "Empty bgci_b_network value"
+  	str_replace "$FILE" "<bgci_b_network>" "$BGCI_B_NETWORK" 
+  	str_replace "$FILE" "<bgci_b_subnet>" "$(echo "$BGCI_B_NETWORK" | awk -F. '{print $1"."$2"."$3}')"
+	}
+	
+	isCLFEnabled && {
+    [ -z "$OAM_VLANID" ] && abort "Empty oam_vlanid value"
+    str_replace "$FILE" "<oam_vlanid>" "$OAM_VLANID"
+  }
+
+  if [ -z "$CLUSTER_KEYMAP" ]; then
+    abort "Empty cluster_keymap value"
+  fi
+  str_replace "$FILE" "<cluster_keymap>" "$CLUSTER_KEYMAP"
+
+  # Append kernel-cmd line options to cluster.conf
+  #/usr/bin/sed -i '$ i\kernel-cmdline all nospectre_v2 nospec nopti nospec_store_bypass_disable eagerfpu=off l1tf=off' $FILE
+  #[ $? -ne 0 ] && abort "failure while inserting kernel-cmdline options"
+
+  echo "--- configure_cluster($FILE) end"
+}
+
+# ---------------------------------------------------------------------------- #
+# siteparam.conf parameters                                                    #
+# ---------------------------------------------------------------------------- #
+#
+# cluster_timezone=UTC MANDATORY
+# 
+# public_network_ipv4_address=10.246.15.0 MANDATORY
+# public_network_ipv4_prefix=24 MANDATORY
+# 
+# public2_network_ipv4_address= OPTIONAL
+# public2_network_ipv4_prefix= OPTIONAL
+# 
+# physep_network_ipv4_address= OPTIONAL
+# physep_network_ipv4_prefix= OPTIONAL
+#
+# node1_base_mac_address= OPTIONAL
+# node2_base_mac_address= OPTIONAL
+# 
+# node1_mac_address_eth0= OPTIONAL
+# node1_mac_address_eth1= OPTIONAL
+# node1_mac_address_eth2= OPTIONAL
+# node1_mac_address_eth3= OPTIONAL
+# node1_mac_address_eth4= OPTIONAL
+# node1_mac_address_eth5= OPTIONAL
+# node1_mac_address_eth6= OPTIONAL
+# 
+# node2_mac_address_eth0= OPTIONAL
+# node2_mac_address_eth1= OPTIONAL
+# node2_mac_address_eth2= OPTIONAL
+# node2_mac_address_eth3= OPTIONAL
+# node2_mac_address_eth4= OPTIONAL
+# node2_mac_address_eth5= OPTIONAL
+# node2_mac_address_eth6= OPTIONAL
+# 
+# node1_mac_address_mvl0= OPTIONAL
+# node1_mac_address_mvl1= OPTIONAL
+# node1_mac_address_mvl2= OPTIONAL
+# 
+# node2_mac_address_mvl0= OPTIONAL
+# node2_mac_address_mvl1= OPTIONAL
+# node2_mac_address_mvl2= OPTIONAL
+# 
+# node1_public_network_ipv4_ip_address=10.246.15.30 MANDATORY
+# node2_public_network_ipv4_ip_address=10.246.15.31 MANDATORY
+# 
+# cluster_public_network_ipv4_ip_address=10.246.15.32 MANDATORY
+# 
+# node1_public2_network_ipv4_ip_address= OPTIONAL
+# node2_public2_network_ipv4_ip_address= OPTIONAL
+# 
+# cluster_public2_network_ipv4_ip_address= OPTIONAL
+# 
+# physep_network_ipv4_gateway_ip_address= OPTIONAL
+# 
+# default_network_ipv4_gateway_ip_address=10.246.15.1 MANDATORY
+# 
+# cluster_keymap=us MANDATORY
+# network_10g_vlantag= MANDATORY FOR BSP
+#
+# tipc_vlantag=33 MANDATORY
+#
+# oam_vlanid= MANDATORY
+#
+# ---------------------------------------------------------------------------- #
+# factoryparam.conf parameters                                                 #
+# ---------------------------------------------------------------------------- #
+#
+# me_name=1 MANDATORY
+#
+# shelf_id=1.2.0.4 MANDATORY
+# shelf_architecture=SCB MANDATORY
+#
+# system_type=SCP MANDATORY
+# system_version=APG43L x.y.z MANDATORY_RO
+# system_package=CXP9030042 RxN MANDATORY_RO
+#
+# mi_package=CXC1371350 RxN MANDATORY_RO
+#
+# apt_type=BSC MANDATORY
+# ap_type=AP1 MANDATORY
+# mau_type=MAUB OPTIONAL
+# ap2_oam=YES MANDATORY FOR AP2
+# apg_oam_access= NOCABLE MANDATORY FOR BSP
+# apz_protocol_type=APZ21255_OR_LATER_TCPIP MANDATORY_RO
+#
+# installation_type=MI MANDATORY_RO
+# installation_hw=GEP2 MANDATORY FOR NOT VIRTUALIZED ENVIRONMENT;EMPTY FOR VIRTUALIZED ENVIRONMENT
+# virtual_env_profile= MANDATORY FOR VIRTUALIZED ENVIRONMENT;EMPTY FOR NOT VIRTUALIZED ENVIRONMENT
+# deployment_environment=NOT_SIMULATED/SIMULATED MANDATORY
+# installation_root=/tftpboot MANDATORY
+# turbo_boost_cp=TRUE/FALSE; TRUE IS APPLICABLE ONLY FOR GEP7
+#
+# ---------------------------------------------------------------------------- #
+# LEGENDA                                                                      #
+# ---------------------------------------------------------------------------- #
+# MANDATORY[_RO] means that the parameter is [read only and] mandatory for     #
+#                maiden installation.                                          #
+# OPTIONAL       means that the parameter is optional for maiden installation. #
+# ---------------------------------------------------------------------------- #
+#
+# ---------------------------------------------------------------------------- #
+# NOTES                                                                        #
+# ---------------------------------------------------------------------------- #
+# 1. Shown values for parameters are the default ones.                         #
+# ---------------------------------------------------------------------------- #
+function ph_read_parse_conf_file() {
+  echo "--- ph_read_parse_conf_file($1) begin"
+
+  # Local variables
+  local FILE=$1
+  local linenr=0
+
+  while read cline
+  do
+    linenr=$(expr $linenr + 1);
+    local line=$(echo ${cline%%;*})
+    if [ ! -z "$line" ]; then
+      local myname=$(trim ${line%%=*})
+      local myvalue=$(echo ${line#*=} | tr -d '\n')
+      if [ ! -z  $myname ]; then
+        case $myname in
+
+        # --- SITE PARAMETERS ------------------------------------------------ #
+        cluster_timezone)
+          CLUSTER_TIMEZONE=$myvalue
+          if [ -z "$CLUSTER_TIMEZONE" ]; then
+            CLUSTER_TIMEZONE="UTC"
+          fi
+          echo "$CLUSTER_TIMEZONE" > /tmp/installation/cluster_timezone
+          ;;
+
+        public_network_ipv4_address)
+          PUBLIC_NETWORK_IPV4_ADDRESS=$myvalue
+          if [ -z "$PUBLIC_NETWORK_IPV4_ADDRESS" ]; then
+            PUBLIC_NETWORK_IPV4_ADDRESS="10.246.15.0"
+          fi
+          echo "$PUBLIC_NETWORK_IPV4_ADDRESS" > /tmp/installation/public_network_ipv4_address
+          ;;
+        public_network_ipv4_prefix)
+          PUBLIC_NETWORK_IPV4_PREFIX=$myvalue
+          if [ -z "$PUBLIC_NETWORK_IPV4_PREFIX" ]; then
+            PUBLIC_NETWORK_IPV4_PREFIX="24"
+          fi
+          echo "$PUBLIC_NETWORK_IPV4_PREFIX" > /tmp/installation/public_network_ipv4_prefix
+          ;;
+
+        public2_network_ipv4_address)
+          PUBLIC2_NETWORK_IPV4_ADDRESS=$myvalue
+          echo "$PUBLIC2_NETWORK_IPV4_ADDRESS" > /tmp/installation/public2_network_ipv4_address
+          ;;
+        public2_network_ipv4_prefix)
+          PUBLIC2_NETWORK_IPV4_PREFIX=$myvalue
+          echo "$PUBLIC2_NETWORK_IPV4_PREFIX" > /tmp/installation/public2_network_ipv4_prefix
+          ;;
+
+        physep_network_ipv4_address)
+          PHYSEP_NETWORK_IPV4_ADDRESS=$myvalue
+          echo "$PHYSEP_NETWORK_IPV4_ADDRESS" > /tmp/installation/physep_network_ipv4_address
+          ;;
+        physep_network_ipv4_prefix)
+          PHYSEP_NETWORK_IPV4_PREFIX=$myvalue
+          echo "$PHYSEP_NETWORK_IPV4_PREFIX" > /tmp/installation/physep_network_ipv4_prefix
+          ;;
+        node1_base_mac_address)
+          NODE1_BASE_MAC_ADDRESS=$myvalue
+          echo "$NODE1_BASE_MAC_ADDRESS" > /tmp/installation/node1_base_mac_address
+	  	  ;;
+        node2_base_mac_address)
+          NODE2_BASE_MAC_ADDRESS=$myvalue
+          echo "$NODE2_BASE_MAC_ADDRESS" > /tmp/installation/node2_base_mac_address
+	  	  ;;
+        node1_mac_address_eth0)
+          NODE1_MAC_ADDRESS_ETH0=$myvalue
+          echo "$NODE1_MAC_ADDRESS_ETH0" > /tmp/installation/node1_mac_address_eth0
+          ;;
+        node1_mac_address_eth1)
+          NODE1_MAC_ADDRESS_ETH1=$myvalue
+          echo "$NODE1_MAC_ADDRESS_ETH1" > /tmp/installation/node1_mac_address_eth1
+          ;;
+        node1_mac_address_eth2)
+          NODE1_MAC_ADDRESS_ETH2=$myvalue
+          echo "$NODE1_MAC_ADDRESS_ETH2" > /tmp/installation/node1_mac_address_eth2
+          ;;
+        node1_mac_address_eth3)
+          NODE1_MAC_ADDRESS_ETH3=$myvalue
+          echo "$NODE1_MAC_ADDRESS_ETH3" > /tmp/installation/node1_mac_address_eth3
+          ;;
+        node1_mac_address_eth4)
+          NODE1_MAC_ADDRESS_ETH4=$myvalue
+          echo "$NODE1_MAC_ADDRESS_ETH4" > /tmp/installation/node1_mac_address_eth4
+          ;;
+        node1_mac_address_eth5)         
+	  NODE1_MAC_ADDRESS_ETH5=$myvalue
+          echo "$NODE1_MAC_ADDRESS_ETH5" > /tmp/installation/node1_mac_address_eth5 	 
+	  	  ;;
+        node1_mac_address_eth6)
+	  NODE1_MAC_ADDRESS_ETH6=$myvalue
+          echo "$NODE1_MAC_ADDRESS_ETH6" > /tmp/installation/node1_mac_address_eth6
+          ;;
+
+        node1_mac_address_eth7)
+	  NODE1_MAC_ADDRESS_ETH7=$myvalue
+          echo "$NODE1_MAC_ADDRESS_ETH7" > /tmp/installation/node1_mac_address_eth7
+          ;;
+
+        node1_mac_address_eth8)
+	  NODE1_MAC_ADDRESS_ETH8=$myvalue
+          echo "$NODE1_MAC_ADDRESS_ETH8" > /tmp/installation/node1_mac_address_eth8
+          ;;
+        node2_mac_address_eth0)
+          NODE2_MAC_ADDRESS_ETH0=$myvalue
+          echo "$NODE2_MAC_ADDRESS_ETH0" > /tmp/installation/node2_mac_address_eth0
+          ;;
+        node2_mac_address_eth1)
+          NODE2_MAC_ADDRESS_ETH1=$myvalue
+          echo "$NODE2_MAC_ADDRESS_ETH1" > /tmp/installation/node2_mac_address_eth1
+          ;;
+        node2_mac_address_eth2)
+          NODE2_MAC_ADDRESS_ETH2=$myvalue
+          echo "$NODE2_MAC_ADDRESS_ETH2" > /tmp/installation/node2_mac_address_eth2
+          ;;
+        node2_mac_address_eth3)
+          NODE2_MAC_ADDRESS_ETH3=$myvalue
+          echo "$NODE2_MAC_ADDRESS_ETH3" > /tmp/installation/node2_mac_address_eth3
+          ;;
+        node2_mac_address_eth4)
+          NODE2_MAC_ADDRESS_ETH4=$myvalue
+          echo "$NODE2_MAC_ADDRESS_ETH4" > /tmp/installation/node2_mac_address_eth4
+          ;;
+        node2_mac_address_eth5)
+    	  NODE2_MAC_ADDRESS_ETH5=$myvalue
+          echo "$NODE2_MAC_ADDRESS_ETH5" > /tmp/installation/node2_mac_address_eth5      
+	  ;;
+        node2_mac_address_eth6)
+ 	  NODE2_MAC_ADDRESS_ETH6=$myvalue
+          echo "$NODE2_MAC_ADDRESS_ETH6" > /tmp/installation/node2_mac_address_eth6
+          ;;
+        node2_mac_address_eth7)
+ 	  NODE2_MAC_ADDRESS_ETH7=$myvalue
+          echo "$NODE2_MAC_ADDRESS_ETH7" > /tmp/installation/node2_mac_address_eth7
+          ;;
+        node2_mac_address_eth8)
+ 	  NODE2_MAC_ADDRESS_ETH8=$myvalue
+          echo "$NODE2_MAC_ADDRESS_ETH8" > /tmp/installation/node2_mac_address_eth8
+          ;;
+        node1_mac_address_mvl0)
+          NODE1_MAC_ADDRESS_MVL0=$myvalue
+          echo "$NODE1_MAC_ADDRESS_MVL0" > /tmp/installation/node1_mac_address_mvl0
+          ;;
+        node1_mac_address_mvl1)
+          NODE1_MAC_ADDRESS_MVL1=$myvalue
+          echo "$NODE1_MAC_ADDRESS_MVL1" > /tmp/installation/node1_mac_address_mvl1
+          ;;
+        node1_mac_address_mvl2)
+          NODE1_MAC_ADDRESS_MVL2=$myvalue
+          echo "$NODE1_MAC_ADDRESS_MVL2" > /tmp/installation/node1_mac_address_mvl2
+          ;;
+        node2_mac_address_mvl0)
+          NODE2_MAC_ADDRESS_MVL0=$myvalue
+          echo "$NODE2_MAC_ADDRESS_MVL0" > /tmp/installation/node2_mac_address_mvl0
+          ;;
+        node2_mac_address_mvl1)
+          NODE2_MAC_ADDRESS_MVL1=$myvalue
+          echo "$NODE2_MAC_ADDRESS_MVL1" > /tmp/installation/node2_mac_address_mvl1
+          ;;
+        node2_mac_address_mvl2)
+          NODE2_MAC_ADDRESS_MVL2=$myvalue
+          echo "$NODE2_MAC_ADDRESS_MVL2" > /tmp/installation/node2_mac_address_mvl2
+          ;;
+
+        node1_public_network_ipv4_ip_address)
+          NODE1_PUBLIC_NETWORK_IPV4_IP_ADDRESS=$myvalue
+          if [ -z "$NODE1_PUBLIC_NETWORK_IPV4_IP_ADDRESS" ]; then
+            NODE1_PUBLIC_NETWORK_IPV4_IP_ADDRESS="10.246.15.30"
+          fi
+          echo "$NODE1_PUBLIC_NETWORK_IPV4_IP_ADDRESS" > /tmp/installation/node1_public_network_ipv4_ip_address
+          ;;
+        node2_public_network_ipv4_ip_address)
+          NODE2_PUBLIC_NETWORK_IPV4_IP_ADDRESS=$myvalue
+          if [ -z "$NODE2_PUBLIC_NETWORK_IPV4_IP_ADDRESS" ]; then
+            NODE2_PUBLIC_NETWORK_IPV4_IP_ADDRESS="10.246.15.31"
+          fi
+          echo "$NODE2_PUBLIC_NETWORK_IPV4_IP_ADDRESS" > /tmp/installation/node2_public_network_ipv4_ip_address
+          ;;
+
+        cluster_public_network_ipv4_ip_address)
+          CLUSTER_PUBLIC_NETWORK_IPV4_IP_ADDRESS=$myvalue
+          if [ -z "$CLUSTER_PUBLIC_NETWORK_IPV4_IP_ADDRESS" ]; then
+            CLUSTER_PUBLIC_NETWORK_IPV4_IP_ADDRESS="10.246.15.32"
+          fi
+          echo "$CLUSTER_PUBLIC_NETWORK_IPV4_IP_ADDRESS" > /tmp/installation/cluster_public_network_ipv4_ip_address
+          ;;
+
+        node1_public2_network_ipv4_ip_address)
+          NODE1_PUBLIC2_NETWORK_IPV4_IP_ADDRESS=$myvalue
+          echo "$NODE1_PUBLIC2_NETWORK_IPV4_IP_ADDRESS" > /tmp/installation/node1_public2_network_ipv4_ip_address
+          ;;
+        node2_public2_network_ipv4_ip_address)
+          NODE2_PUBLIC2_NETWORK_IPV4_IP_ADDRESS=$myvalue
+          echo "$NODE2_PUBLIC2_NETWORK_IPV4_IP_ADDRESS" > /tmp/installation/node2_public2_network_ipv4_ip_address
+          ;;
+
+        cluster_public2_network_ipv4_ip_address)
+          CLUSTER_PUBLIC2_NETWORK_IPV4_IP_ADDRESS=$myvalue
+          echo "$CLUSTER_PUBLIC2_NETWORK_IPV4_IP_ADDRESS" > /tmp/installation/cluster_public2_network_ipv4_ip_address
+          ;;
+
+        physep_network_ipv4_gateway_ip_address)
+          PHYSEP_NETWORK_IPV4_GATEWAY_IP_ADDRESS=$myvalue
+          echo "$PHYSEP_NETWORK_IPV4_GATEWAY_IP_ADDRESS" > /tmp/installation/physep_network_ipv4_gateway_ip_address
+          ;;
+
+        default_network_ipv4_gateway_ip_address)
+          DEFAULT_NETWORK_IPV4_GATEWAY_IP_ADDRESS=$myvalue
+          if [ -z "$DEFAULT_NETWORK_IPV4_GATEWAY_IP_ADDRESS" ]; then
+            DEFAULT_NETWORK_IPV4_GATEWAY_IP_ADDRESS="10.246.15.1"
+          fi
+          echo "$DEFAULT_NETWORK_IPV4_GATEWAY_IP_ADDRESS" > /tmp/installation/default_network_ipv4_gateway_ip_address
+          ;;
+
+        network_10g_vlantag)
+          NETWORK_10G_VLANTAG=$myvalue
+          echo "$NETWORK_10G_VLANTAG" > /tmp/installation/network_10g_vlantag
+          ;;
+          
+        tipc_vlantag)
+          TIPC_VLANTAG=$myvalue
+          echo "$TIPC_VLANTAG" > /tmp/installation/tipc_vlantag
+          ;;
+          
+        bgci_a_network)
+          BGCI_A_NETWORK=$myvalue
+          echo "$BGCI_A_NETWORK" > /tmp/installation/bgci_a_network
+          ;;
+          
+        bgci_b_network)
+          BGCI_B_NETWORK=$myvalue
+          echo "$BGCI_B_NETWORK" > /tmp/installation/bgci_b_network
+          ;;
+	
+				oam_vlanid)
+          OAM_VLANID=$myvalue
+          echo "$OAM_VLANID" > /tmp/installation/oam_vlanid
+          ;;
+
+        cluster_keymap)
+          CLUSTER_KEYMAP=$myvalue
+          if [ -z "$CLUSTER_KEYMAP" ]; then
+            CLUSTER_KEYMAP="us"
+          fi
+          echo "$CLUSTER_KEYMAP" > /tmp/installation/cluster_keymap
+          ;;
+
+        # --- FACTORY PARAMETERS --------------------------------------------- #
+        me_name)
+          ME_NAME=$myvalue
+          if [ -z "$ME_NAME" ]; then
+            ME_NAME="1"
+          fi
+          echo "$ME_NAME" > /tmp/installation/me_name
+          ;;
+
+        shelf_id)
+          SHELF_ID=$myvalue
+          if [ -z "$SHELF_ID" ]; then
+            SHELF_ID="1.2.0.4"
+          fi
+          echo "$SHELF_ID" > /tmp/installation/shelf_id
+          ;;
+		  
+        shelf_architecture)
+          SHELF_ARCHITECTURE=$myvalue
+          echo "$SHELF_ARCHITECTURE" > /tmp/installation/shelf_architecture
+          ;;
+
+        shelf_switch)
+          SHELF_SWITCH=$myvalue
+	  	  echo "$SHELF_SWITCH" > /tmp/installation/shelf_switch
+          ;;
+
+        system_type)
+          SYSTEM_TYPE=$myvalue
+          if [ -z "$SYSTEM_TYPE" ]; then
+            SYSTEM_TYPE="SCP"
+          fi
+          echo "$SYSTEM_TYPE" > /tmp/installation/system_type
+          ;;
+		  
+        system_version)
+          SYSTEM_VERSION=$myvalue
+          if [ -z "$SYSTEM_VERSION" ]; then
+            SYSTEM_VERSION="APG43L x.y.z"
+          fi
+          echo "$SYSTEM_VERSION" > /tmp/installation/system_version
+          ;;
+		  
+				system_package)
+          SYSTEM_PACKAGE=$myvalue
+          if [ -z "$SYSTEM_PACKAGE" ]; then
+            SYSTEM_PACKAGE="CXP9030042 RxN"
+          fi
+          echo "$SYSTEM_PACKAGE" > /tmp/installation/system_package
+          ;;
+
+				my_package)
+          MY_PACKAGE=$myvalue
+          if [ -z "$MY_PACKAGE" ]; then
+            MY_PACKAGE="CXC1371350 RxN"
+          fi
+          echo "$MY_PACKAGE" > /tmp/installation/my_package
+          ;;
+
+				apt_type)
+          APT_TYPE=$myvalue
+          if [ -z "$APT_TYPE" ]; then
+            APT_TYPE="BSC"
+          fi
+          echo "$APT_TYPE" > /tmp/installation/apt_type
+          ;;
+
+				ap_type)
+          AP_TYPE=$myvalue
+          if [ -z "$AP_TYPE" ]; then
+            AP_TYPE="AP1"
+          fi
+          echo "$AP_TYPE" > /tmp/installation/ap_type
+          ;;
+
+		  		mau_type)
+          MAU_TYPE=$myvalue
+          if [ -z "MAU_TYPE" ]; then
+            MAU_TYPE="MAUB"
+          fi
+          echo "$MAU_TYPE" > /tmp/installation/mau_type
+          ;; 
+		  
+		  		ap2_oam)
+          AP2_OAM=$myvalue
+					if [ -z "$AP2_OAM" ]; then
+            AP2_OAM="YES"
+          fi
+          echo "$AP2_OAM" > /tmp/installation/ap2_oam
+          ;;
+	 
+				apg_oam_access)
+          APG_OAM_ACCESS=$myvalue
+          if [ -z "$APG_OAM_ACCESS" ]; then
+            APG_OAM_ACCESS="FRONTCABLE"
+          fi
+          echo "$APG_OAM_ACCESS" > /tmp/installation/apg_oam_access
+          ;;
+ 
+        apz_protocol_type)
+          APZ_PROTOCOL_TYPE=$myvalue
+          if [ -z "$APZ_PROTOCOL_TYPE" ]; then
+            APZ_PROTOCOL_TYPE="APZ21255_OR_LATER_TCPIP"
+          fi
+          echo "$APZ_PROTOCOL_TYPE" > /tmp/installation/apz_protocol_type
+          ;;
+
+        installation_type)
+          INSTALLATION_TYPE=$myvalue
+          if [ -z "$INSTALLATION_TYPE" ]; then
+            INSTALLATION_TYPE="MI"
+          fi
+          echo "$INSTALLATION_TYPE" > /tmp/installation/installation_type
+          ;;
+		  
+        installation_hw)
+          INSTALLATION_HW=$myvalue
+          if [ -z "$INSTALLATION_HW" ]; then
+            INSTALLATION_HW="GEP2"
+          fi
+          echo "$INSTALLATION_HW" > /tmp/installation/installation_hw
+          ;;
+		  
+        turbo_boost_cp)
+          TURBO_BOOST_CP=$myvalue
+          if [ -z "$TURBO_BOOST_CP" ]; then
+            TURBO_BOOST_CP="FALSE"
+          fi
+          echo "$TURBO_BOOST_CP" > /tmp/installation/turbo_boost_cp
+          ;;
+		  
+        installation_root)
+          INSTALLATION_ROOT=$myvalue
+          if [ -z "$INSTALLATION_ROOT" ]; then
+            INSTALLATION_ROOT="/tftpboot"
+          fi
+          echo "$INSTALLATION_ROOT" > /tmp/installation/installation_root
+          ;;
+
+	 	datadisk_replication_type)
+          DDISK_REPLICATION_TYPE=$myvalue
+          echo "$DDISK_REPLICATION_TYPE" > /tmp/installation/datadisk_replication_type
+          ;;
+		  
+		virtual_env_profile)
+          VIRTUAL_ENV_PROFILE=$myvalue
+          if [ -z "$VIRTUAL_ENV_PROFILE" ]; then
+            VIRTUAL_ENV_PROFILE="VE0"
+          fi
+          echo "$VIRTUAL_ENV_PROFILE" > /tmp/installation/virtual_env_profile
+          ;;
+		  
+		deployment_environment)
+          DEPLOYMENT_ENVIRONMENT=$myvalue
+          if [ -z "$DEPLOYMENT_ENVIRONMENT" ]; then
+            DEPLOYMENT_ENVIRONMENT="NOT_SIMULATED"
+          fi
+          echo "$DEPLOYMENT_ENVIRONMENT" > /tmp/installation/deployment_environment
+          ;;
+
+        # --- DEFAULT -------------------------------------------------------- #
+        *)
+          abort "The \"$myname\" attribute with \"$myvalue\" value is not managed"
+          ;;
+        esac
+      fi
+    fi
+  done < $FILE
+
+  echo "--- ph_read_parse_conf_file($1) end"
+}
+
+# converts a MAC address (in the form FF:FF:FF:FF:FF:FF) to an hex string
+function mac2hex(){
+        if [ $# -gt 0 ]; then
+                local MAC="${1}"
+                echo "$MAC" | sed 's@[^0-9A-Fa-f]@@g'
+                return $TRUE
+        fi
+        return $FALSE
+}
+
+# converts an hex string to a MAC address (in the form FF:FF:FF:FF:FF:FF)
+function hex2mac(){
+        if [ $# -gt 0 ]; then
+                local HEX="000000000000${1}"
+                HEX=${HEX: -12}
+                printf "%02s:%02s:%02s:%02s:%02s:%02s" ${HEX:0:2} ${HEX:2:2} ${HEX:4:2} ${HEX:6:2} ${HEX:8:2} ${HEX:10:2}
+                return $TRUE
+        fi
+        return $FALSE
+}
+
+# calculates APUB MAC addresses from APUB Base MAC address
+
+function eval_MAC_addr(){
+
+	echo "--- eval_MAC_addr($1, nodeID: $2) begin"
+
+ 	local base_mac=$1  
+        
+ 	local temp_mac=$(mac2hex $base_mac)
+
+   	case $2 in
+ 
+ 	1)
+		if [[ $INSTALLATION_HW == GEP1 ]]; then
+			NODE1_MAC_ADDRESS_ETH3=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 1)))
+		 	NODE1_MAC_ADDRESS_ETH0=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 4)))
+		 	NODE1_MAC_ADDRESS_ETH1=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 5)))	    
+		 	NODE1_MAC_ADDRESS_ETH2=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 3)))	
+		 	NODE1_MAC_ADDRESS_ETH4=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 2)))
+		fi
+		if [[ $INSTALLATION_HW == GEP2 ]]; then
+			NODE1_MAC_ADDRESS_ETH3=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 1)))
+		 	NODE1_MAC_ADDRESS_ETH0=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 5)))
+		 	NODE1_MAC_ADDRESS_ETH1=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 6)))	    
+		 	NODE1_MAC_ADDRESS_ETH2=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 3)))	
+		 	NODE1_MAC_ADDRESS_ETH4=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 2)))
+		fi	
+		if [[ $INSTALLATION_HW == GEP4* || $INSTALLATION_HW == GEP5* ]]; then
+			NODE1_MAC_ADDRESS_ETH3=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 1)))
+		 	NODE1_MAC_ADDRESS_ETH0=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 8)))
+		 	NODE1_MAC_ADDRESS_ETH1=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 9)))	    
+		 	NODE1_MAC_ADDRESS_ETH2=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 3)))	
+		 	NODE1_MAC_ADDRESS_ETH4=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 2)))
+		 	NODE1_MAC_ADDRESS_ETH5=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 5)))	
+			NODE1_MAC_ADDRESS_ETH6=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 6)))	
+			if [ "$INSTALLATION_HW" == "GEP5_64_1200" ];then
+				NODE1_MAC_ADDRESS_ETH7=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 15)))
+				NODE1_MAC_ADDRESS_ETH8=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 16)))
+			fi
+		fi
+		
+          	if [[ $INSTALLATION_HW == GEP7* ]]; then
+			NODE1_MAC_ADDRESS_ETH3=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 1)))   
+		 	NODE1_MAC_ADDRESS_ETH2=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 5)))	
+		 	NODE1_MAC_ADDRESS_ETH4=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 2)))
+		 	NODE1_MAC_ADDRESS_ETH5=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 7)))	
+			NODE1_MAC_ADDRESS_ETH6=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 8)))	
+			NODE1_MAC_ADDRESS_ETH7=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 12)))
+			NODE1_MAC_ADDRESS_ETH8=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 13)))
+		fi
+
+		NODE1_MAC_ADDRESS_ETH3=$(hex2mac $NODE1_MAC_ADDRESS_ETH3)
+		echo "$NODE1_MAC_ADDRESS_ETH3" > /tmp/installation/node1_mac_address_eth3
+		NODE1_MAC_ADDRESS_ETH2=$(hex2mac $NODE1_MAC_ADDRESS_ETH2)		
+		echo "$NODE1_MAC_ADDRESS_ETH2" > /tmp/installation/node1_mac_address_eth2
+		NODE1_MAC_ADDRESS_ETH4=$(hex2mac $NODE1_MAC_ADDRESS_ETH4)
+		echo "$NODE1_MAC_ADDRESS_ETH4" > /tmp/installation/node1_mac_address_eth4
+		if [[ ! -z "$NODE1_MAC_ADDRESS_ETH0" ]]; then
+		  NODE1_MAC_ADDRESS_ETH0=$(hex2mac $NODE1_MAC_ADDRESS_ETH0)
+		  echo "$NODE1_MAC_ADDRESS_ETH0" > /tmp/installation/node1_mac_address_eth0		  
+		fi
+		if [[ ! -z "$NODE1_MAC_ADDRESS_ETH1" ]]; then
+		  NODE1_MAC_ADDRESS_ETH1=$(hex2mac $NODE1_MAC_ADDRESS_ETH1)
+		  echo "$NODE1_MAC_ADDRESS_ETH1" > /tmp/installation/node1_mac_address_eth1
+		fi
+		if [[ ! -z "$NODE1_MAC_ADDRESS_ETH5" ]]; then
+			NODE1_MAC_ADDRESS_ETH5=$(hex2mac $NODE1_MAC_ADDRESS_ETH5)
+			echo "$NODE1_MAC_ADDRESS_ETH5" > /tmp/installation/node1_mac_address_eth5
+		fi
+		if [[ ! -z "$NODE1_MAC_ADDRESS_ETH6" ]]; then
+			NODE1_MAC_ADDRESS_ETH6=$(hex2mac $NODE1_MAC_ADDRESS_ETH6)
+			echo "$NODE1_MAC_ADDRESS_ETH6" > /tmp/installation/node1_mac_address_eth6
+		fi
+		if [[ ! -z "$NODE1_MAC_ADDRESS_ETH7" ]]; then
+			NODE1_MAC_ADDRESS_ETH7=$(hex2mac $NODE1_MAC_ADDRESS_ETH7)
+			echo "$NODE1_MAC_ADDRESS_ETH7" > /tmp/installation/node1_mac_address_eth7
+		fi
+		if [[ ! -z "$NODE1_MAC_ADDRESS_ETH8" ]]; then
+			NODE1_MAC_ADDRESS_ETH8=$(hex2mac $NODE1_MAC_ADDRESS_ETH8)
+			echo "$NODE1_MAC_ADDRESS_ETH8" > /tmp/installation/node1_mac_address_eth8
+		fi
+  ;;
+ 
+  2)
+		if [[ $INSTALLATION_HW == GEP1 ]]; then
+			NODE2_MAC_ADDRESS_ETH3=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 1)))
+			NODE2_MAC_ADDRESS_ETH0=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 4)))
+			NODE2_MAC_ADDRESS_ETH1=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 5)))    
+			NODE2_MAC_ADDRESS_ETH2=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 3)))
+			NODE2_MAC_ADDRESS_ETH4=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 2)))
+		fi 
+		if [[ $INSTALLATION_HW == GEP2 ]]; then
+			NODE2_MAC_ADDRESS_ETH3=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 1)))
+			NODE2_MAC_ADDRESS_ETH0=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 5)))
+			NODE2_MAC_ADDRESS_ETH1=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 6)))    
+			NODE2_MAC_ADDRESS_ETH2=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 3)))
+			NODE2_MAC_ADDRESS_ETH4=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 2)))
+		fi       
+	 	if [[ $INSTALLATION_HW == GEP4* || $INSTALLATION_HW == GEP5* ]]; then
+			NODE2_MAC_ADDRESS_ETH3=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 1)))
+			NODE2_MAC_ADDRESS_ETH0=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 8)))
+			NODE2_MAC_ADDRESS_ETH1=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 9)))    
+			NODE2_MAC_ADDRESS_ETH2=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 3)))
+			NODE2_MAC_ADDRESS_ETH4=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 2)))
+			NODE2_MAC_ADDRESS_ETH5=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 5)))
+			NODE2_MAC_ADDRESS_ETH6=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 6)))
+	        if [ "$INSTALLATION_HW" == "GEP5_64_1200" ];then
+            		NODE2_MAC_ADDRESS_ETH7=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 15)))
+           		NODE2_MAC_ADDRESS_ETH8=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 16)))
+          	fi
+		fi
+		if [[ $INSTALLATION_HW == GEP7* ]]; then
+			NODE2_MAC_ADDRESS_ETH3=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 1)))   
+		 	NODE2_MAC_ADDRESS_ETH2=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 5)))	
+		 	NODE2_MAC_ADDRESS_ETH4=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 2)))
+		 	NODE2_MAC_ADDRESS_ETH5=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 7)))	
+			NODE2_MAC_ADDRESS_ETH6=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 8)))	
+			NODE2_MAC_ADDRESS_ETH7=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 12)))
+			NODE2_MAC_ADDRESS_ETH8=$(/usr/bin/printf "%x\n" $((0x$temp_mac + 13)))
+		fi
+		NODE2_MAC_ADDRESS_ETH3=$(hex2mac $NODE2_MAC_ADDRESS_ETH3)
+		echo "$NODE2_MAC_ADDRESS_ETH3" > /tmp/installation/node2_mac_address_eth3
+		NODE2_MAC_ADDRESS_ETH2=$(hex2mac $NODE2_MAC_ADDRESS_ETH2)
+		echo "$NODE2_MAC_ADDRESS_ETH2" > /tmp/installation/node2_mac_address_eth2
+		NODE2_MAC_ADDRESS_ETH4=$(hex2mac $NODE2_MAC_ADDRESS_ETH4)
+		echo "$NODE2_MAC_ADDRESS_ETH4" > /tmp/installation/node2_mac_address_eth4
+		if [[ ! -z "$NODE2_MAC_ADDRESS_ETH0" ]]; then		
+		  NODE2_MAC_ADDRESS_ETH0=$(hex2mac $NODE2_MAC_ADDRESS_ETH0)
+		  echo "$NODE2_MAC_ADDRESS_ETH0" > /tmp/installation/node2_mac_address_eth0
+		fi
+		if [[ ! -z "$NODE2_MAC_ADDRESS_ETH1" ]]; then
+     	           NODE2_MAC_ADDRESS_ETH1=$(hex2mac $NODE2_MAC_ADDRESS_ETH1) 
+     	  	   echo "$NODE2_MAC_ADDRESS_ETH1" > /tmp/installation/node2_mac_address_eth1
+		fi
+		if [[ ! -z "$NODE2_MAC_ADDRESS_ETH5" ]]; then
+			NODE2_MAC_ADDRESS_ETH5=$(hex2mac $NODE2_MAC_ADDRESS_ETH5)
+			echo "$NODE2_MAC_ADDRESS_ETH5" > /tmp/installation/node2_mac_address_eth5
+		fi
+		if [[ ! -z "$NODE2_MAC_ADDRESS_ETH6" ]]; then
+			NODE2_MAC_ADDRESS_ETH6=$(hex2mac $NODE2_MAC_ADDRESS_ETH6)
+			echo "$NODE2_MAC_ADDRESS_ETH6" > /tmp/installation/node2_mac_address_eth6
+                fi
+		if [[ ! -z "$NODE2_MAC_ADDRESS_ETH7" ]]; then
+      		   NODE2_MAC_ADDRESS_ETH7=$(hex2mac $NODE2_MAC_ADDRESS_ETH7)
+         	   echo "$NODE2_MAC_ADDRESS_ETH7" > /tmp/installation/node2_mac_address_eth7
+     		fi
+		if [[ ! -z "$NODE2_MAC_ADDRESS_ETH8" ]]; then
+		   NODE2_MAC_ADDRESS_ETH8=$(hex2mac $NODE2_MAC_ADDRESS_ETH8)
+                   echo "$NODE2_MAC_ADDRESS_ETH8" > /tmp/installation/node2_mac_address_eth8
+    		fi
+	;;
+
+  *)
+ 		abort "The node: $2 is not present within cluster"
+ 	;;
+ 	esac
+
+ 	echo "--- eval_MAC_addr($1, nodeID: $2) end"
+
+}
+
+# The function checks if all APUBs MAC addresses are filled or not in siteparam.conf file. The function returns:
+# 0 if all MAC addresses are filled
+# 1 if all MAC addresses are empty
+# 2 if at least one MAC address is empty or filled 
+
+function check_list_mac_addr(){
+  echo "--- check_list_mac_addr() begin"
+
+  if [[ $INSTALLATION_HW == GEP7* ]]; then
+    # on GEP5_64_1200 APUBs
+     if [[ -n "$NODE1_MAC_ADDRESS_ETH2" && -n "$NODE1_MAC_ADDRESS_ETH3" && -n "$NODE1_MAC_ADDRESS_ETH4" && -n "$NODE1_MAC_ADDRESS_ETH5" && -n "$NODE1_MAC_ADDRESS_ETH6" && -n "$NODE1_MAC_ADDRESS_ETH7" && -n "$NODE1_MAC_ADDRESS_ETH8" && -n "$NODE2_MAC_ADDRESS_ETH2" && -n "$NODE2_MAC_ADDRESS_ETH3" && -n "$NODE2_MAC_ADDRESS_ETH4" && -n "$NODE2_MAC_ADDRESS_ETH5" && -n "$NODE2_MAC_ADDRESS_ETH6" && -n "$NODE2_MAC_ADDRESS_ETH7" && -n "$NODE2_MAC_ADDRESS_ETH8" ]]; then
+       return 0
+     elif [[ -z "$NODE1_MAC_ADDRESS_ETH2" && -z "$NODE1_MAC_ADDRESS_ETH3" && -z "$NODE1_MAC_ADDRESS_ETH4" && -z "$NODE1_MAC_ADDRESS_ETH5" && -z "$NODE1_MAC_ADDRESS_ETH6" && -z "$NODE1_MAC_ADDRESS_ETH7" && -z "$NODE1_MAC_ADDRESS_ETH8" && -z "$NODE2_MAC_ADDRESS_ETH2" && -z "$NODE2_MAC_ADDRESS_ETH3" && -z "$NODE2_MAC_ADDRESS_ETH4" && -z "$NODE2_MAC_ADDRESS_ETH5" && -z "$NODE2_MAC_ADDRESS_ETH6" && -z "$NODE2_MAC_ADDRESS_ETH7" && -z "$NODE2_MAC_ADDRESS_ETH8" ]]; then
+       return 1
+     else
+       return 2
+     fi
+  elif [ "$INSTALLATION_HW" == "GEP5_64_1200" ]; then
+    # on GEP5_64_1200 APUBs
+     if [[ -n "$NODE1_MAC_ADDRESS_ETH0" && -n "$NODE1_MAC_ADDRESS_ETH1" && -n "$NODE1_MAC_ADDRESS_ETH2" && -n "$NODE1_MAC_ADDRESS_ETH3" && -n "$NODE1_MAC_ADDRESS_ETH4" && -n "$NODE1_MAC_ADDRESS_ETH5" && -n "$NODE1_MAC_ADDRESS_ETH6" && -n "$NODE1_MAC_ADDRESS_ETH7" && -n "$NODE1_MAC_ADDRESS_ETH8" && -n "$NODE2_MAC_ADDRESS_ETH0" && -n "$NODE2_MAC_ADDRESS_ETH1" && -n "$NODE2_MAC_ADDRESS_ETH2" && -n "$NODE2_MAC_ADDRESS_ETH3" && -n "$NODE2_MAC_ADDRESS_ETH4" && -n "$NODE2_MAC_ADDRESS_ETH5" && -n "$NODE2_MAC_ADDRESS_ETH6" && -n "$NODE2_MAC_ADDRESS_ETH7" && -n "$NODE2_MAC_ADDRESS_ETH8" ]]; then
+       return 0
+     elif [[ -z "$NODE1_MAC_ADDRESS_ETH0" && -z "$NODE1_MAC_ADDRESS_ETH1" && -z "$NODE1_MAC_ADDRESS_ETH2" && -z "$NODE1_MAC_ADDRESS_ETH3" && -z "$NODE1_MAC_ADDRESS_ETH4" && -z "$NODE1_MAC_ADDRESS_ETH5" && -z "$NODE1_MAC_ADDRESS_ETH6" && -z "$NODE1_MAC_ADDRESS_ETH7" && -z "$NODE1_MAC_ADDRESS_ETH8" && -z "$NODE2_MAC_ADDRESS_ETH0" && -z "$NODE2_MAC_ADDRESS_ETH1" && -z "$NODE2_MAC_ADDRESS_ETH2" && -z "$NODE2_MAC_ADDRESS_ETH3" && -z "$NODE2_MAC_ADDRESS_ETH4" && -z "$NODE2_MAC_ADDRESS_ETH5" && -z "$NODE2_MAC_ADDRESS_ETH6" && -z "$NODE2_MAC_ADDRESS_ETH7" && -z "$NODE2_MAC_ADDRESS_ETH8" ]]; then
+       return 1
+     else
+       return 2
+     fi
+  elif [[ $INSTALLATION_HW == GEP4* || $INSTALLATION_HW == GEP5* ]]; then
+    # on GEP5 APUBs
+     if [[ -n "$NODE1_MAC_ADDRESS_ETH0" && -n "$NODE1_MAC_ADDRESS_ETH1" && -n "$NODE1_MAC_ADDRESS_ETH2" && -n "$NODE1_MAC_ADDRESS_ETH3" && -n "$NODE1_MAC_ADDRESS_ETH4" && -n "$NODE1_MAC_ADDRESS_ETH5" && -n "$NODE1_MAC_ADDRESS_ETH6" && -n "$NODE2_MAC_ADDRESS_ETH0" && -n "$NODE2_MAC_ADDRESS_ETH1" && -n "$NODE2_MAC_ADDRESS_ETH2" && -n "$NODE2_MAC_ADDRESS_ETH3" && -n "$NODE2_MAC_ADDRESS_ETH4" && -n "$NODE2_MAC_ADDRESS_ETH5" && -n "$NODE2_MAC_ADDRESS_ETH6" ]]; then
+       return 0
+     elif [[ -z "$NODE1_MAC_ADDRESS_ETH0" && -z "$NODE1_MAC_ADDRESS_ETH1" && -z "$NODE1_MAC_ADDRESS_ETH2" && -z "$NODE1_MAC_ADDRESS_ETH3" && -z "$NODE1_MAC_ADDRESS_ETH4" && -z "$NODE1_MAC_ADDRESS_ETH5" && -z "$NODE1_MAC_ADDRESS_ETH6" && -z "$NODE2_MAC_ADDRESS_ETH0" && -z "$NODE2_MAC_ADDRESS_ETH1" && -z "$NODE2_MAC_ADDRESS_ETH2" && -z "$NODE2_MAC_ADDRESS_ETH3" && -z "$NODE2_MAC_ADDRESS_ETH4" && -z "$NODE2_MAC_ADDRESS_ETH5" && -z "$NODE2_MAC_ADDRESS_ETH6" ]]; then
+       return 1
+     else
+       return 2
+     fi
+  else
+    #on GEP1 and GEP2 APUBs
+    if [[ -n "$NODE1_MAC_ADDRESS_ETH0" && -n "$NODE1_MAC_ADDRESS_ETH1" && -n "$NODE1_MAC_ADDRESS_ETH2" && -n "$NODE1_MAC_ADDRESS_ETH3" && -n "$NODE1_MAC_ADDRESS_ETH4" && -n "$NODE2_MAC_ADDRESS_ETH0" && -n "$NODE2_MAC_ADDRESS_ETH1" && -n "$NODE2_MAC_ADDRESS_ETH2" && -n "$NODE2_MAC_ADDRESS_ETH3" && -n "$NODE2_MAC_ADDRESS_ETH4" ]]; then
+      return 0
+    elif [[ -z "$NODE1_MAC_ADDRESS_ETH0" && -z "$NODE1_MAC_ADDRESS_ETH1" && -z "$NODE1_MAC_ADDRESS_ETH2" && -z "$NODE1_MAC_ADDRESS_ETH3" && -z "$NODE1_MAC_ADDRESS_ETH4" && -z "$NODE2_MAC_ADDRESS_ETH0" && -z "$NODE2_MAC_ADDRESS_ETH1" && -z "$NODE2_MAC_ADDRESS_ETH2" && -z "$NODE2_MAC_ADDRESS_ETH3" && -z "$NODE2_MAC_ADDRESS_ETH4" ]]; then
+       return 1
+    else
+      return 2
+    fi
+  fi
+
+  echo "--- check_list_mac_addr() end"
+
+}
+
+# check if both APUBs base mac addresses and all APUBs mac address ethernet interfaces are inserted. In case both are inserted the hook execution fails
+function check_mac_addr(){
+  echo "--- check_mac_addr() begin"
+ 
+  check_list_mac_addr
+  local CHECK_MAC_LIST=$?
+ 
+  	 
+  if [[ -n "$NODE1_BASE_MAC_ADDRESS" && -n "$NODE2_BASE_MAC_ADDRESS" ]]; then
+    if [[ $CHECK_MAC_LIST -eq 0 || $CHECK_MAC_LIST -eq 2 ]]; then
+      abort "Only base MAC addresses must be filled"
+    fi
+  elif [[ -z "$NODE1_BASE_MAC_ADDRESS" && -z "$NODE2_BASE_MAC_ADDRESS" && $CHECK_MAC_LIST -ne 0 ]]; then
+    abort "All MAC addresses must be filled"
+  elif [[ -n "$NODE1_BASE_MAC_ADDRESS" && -z "$NODE2_BASE_MAC_ADDRESS" && $CHECK_MAC_LIST -eq 2 || -z "$NODE1_BASE_MAC_ADDRESS" && -n "$NODE2_BASE_MAC_ADDRESS" && $CHECK_MAC_LIST -eq 2 ]]; then
+    abort "Both base MAC addresses must be filled and all the other MAC addresses must be empty"
+  elif [[ -n "$NODE1_BASE_MAC_ADDRESS" && -z "$NODE2_BASE_MAC_ADDRESS" && $CHECK_MAC_LIST -eq 1 || -z "$NODE1_BASE_MAC_ADDRESS" && -n "$NODE2_BASE_MAC_ADDRESS" && $CHECK_MAC_LIST -eq 1 ]]; then
+    abort "Both base MAC addresses must be filled"
+  elif [[ -n "$NODE1_BASE_MAC_ADDRESS" && -z "$NODE2_BASE_MAC_ADDRESS" && $CHECK_MAC_LIST -eq 0 || -z "$NODE1_BASE_MAC_ADDRESS" && -n "$NODE2_BASE_MAC_ADDRESS" && $CHECK_MAC_LIST -eq 0 ]]; then
+    abort "At least one between APUBs base MAC addresses or all APUBs MAC addresses must be filled"
+  fi   
+ 
+  echo "--- check_mac_addr() end"
+}
+
+function init_siteparams() {
+  echo "--- init_siteparams() begin"
+
+  CLUSTER_TIMEZONE=""
+  PUBLIC_NETWORK_IPV4_ADDRESS=""
+  PUBLIC_NETWORK_IPV4_PREFIX=""
+  PUBLIC2_NETWORK_IPV4_ADDRESS=""
+  PUBLIC2_NETWORK_IPV4_PREFIX=""
+  PHYSEP_NETWORK_IPV4_ADDRESS=""
+  PHYSEP_NETWORK_IPV4_PREFIX=""
+  NODE1_BASE_MAC_ADDRESS=""
+  NODE2_BASE_MAC_ADDRESS=""
+  NODE1_MAC_ADDRESS_ETH0=""
+  NODE1_MAC_ADDRESS_ETH1=""
+  NODE1_MAC_ADDRESS_ETH2=""
+  NODE1_MAC_ADDRESS_ETH3=""
+  NODE1_MAC_ADDRESS_ETH4=""
+  NODE1_MAC_ADDRESS_ETH5=""
+  NODE1_MAC_ADDRESS_ETH6=""
+  NODE1_MAC_ADDRESS_ETH7=""
+  NODE1_MAC_ADDRESS_ETH8=""
+  NODE2_MAC_ADDRESS_ETH0=""
+  NODE2_MAC_ADDRESS_ETH1=""
+  NODE2_MAC_ADDRESS_ETH2=""
+  NODE2_MAC_ADDRESS_ETH3=""
+  NODE2_MAC_ADDRESS_ETH4=""
+  NODE2_MAC_ADDRESS_ETH5=""
+  NODE2_MAC_ADDRESS_ETH6=""
+  NODE2_MAC_ADDRESS_ETH7=""
+  NODE2_MAC_ADDRESS_ETH8=""
+  NODE1_MAC_ADDRESS_MVL0=""
+  NODE1_MAC_ADDRESS_MVL1=""
+  NODE1_MAC_ADDRESS_MVL2=""
+  NODE2_MAC_ADDRESS_MVL0=""
+  NODE2_MAC_ADDRESS_MVL1=""
+  NODE2_MAC_ADDRESS_MVL2=""
+  NODE1_PUBLIC_NETWORK_IPV4_IP_ADDRESS=""
+  NODE2_PUBLIC_NETWORK_IPV4_IP_ADDRESS=""
+  CLUSTER_PUBLIC_NETWORK_IPV4_IP_ADDRESS=""
+  NODE1_PUBLIC2_NETWORK_IPV4_IP_ADDRESS=""
+  NODE2_PUBLIC2_NETWORK_IPV4_IP_ADDRESS=""
+  CLUSTER_PUBLIC2_NETWORK_IPV4_IP_ADDRESS=""
+  PHYSEP_NETWORK_IPV4_GATEWAY_IP_ADDRESS=""
+  DEFAULT_NETWORK_IPV4_GATEWAY_IP_ADDRESS=""
+  NETWORK_10G_VLANTAG=""
+  TIPC_VLANTAG=""
+	OAM_VLANID=""
+  BGCI_A_NETWORK=""
+  BGCI_B_NETWORK=""
+  CLUSTER_KEYMAP=""
+
+  echo "--- init_siteparams() end"
+}
+
+function init_factoryparams() {
+  echo "--- init_factoryparams() begin"
+
+  ME_NAME=""
+  SHELF_ID=""
+  SHELF_ARCHITECTURE=""
+  SHELF_SWITCH=""
+  SYSTEM_TYPE=""
+  SYSTEM_VERSION=""
+  SYSTEM_PACKAGE=""
+  MI_PACKAGE=""
+  APT_TYPE=""
+  AP_TYPE=""
+  MAU_TYPE=""
+  AP2_OAM=""
+	APG_OAM_ACCESS=""
+  APZ_PROTOCOL_TYPE=""
+  INSTALLATION_TYPE=""
+  INSTALLATION_ROOT=""
+  DDISK_REPLICATION_TYPE=""
+  TURBO_BOOST_CP=""
+
+  echo "--- init_factoryparams() end"
+}
+
+function get_hook_path() {
+  local FOLDER="${HOOKS_DIR}"
+  if [ "${FOLDER}" == "" ]; then
+    FOLDER="/tmp/hooks_execute_dir"
+    if [ -d ${FOLDER} ]; then
+      echo "${FOLDER}"
+    else
+      echo "ERROR: The hook path is not configured by LOTC!"; echo "Aborting"; echo ""; exit 1
+    fi
+  else
+    if [ -d ${FOLDER} ]; then
+      echo "${FOLDER}"
+    else
+      echo "ERROR: The hook path is wrongly provided by LOTC!"; echo "Aborting"; echo ""; exit 1
+    fi
+  fi
+}
+
+function get_repo_path() {
+  local FOLDER=$( cluster install --repo-path )
+  if [ $? -ne 0 ]; then
+    FOLDER="/tmp/installation_repo"
+    if [ -d ${FOLDER} ]; then
+      echo "${FOLDER}"
+    else
+      echo "ERROR: The hook path is not configured by LOTC!"; echo "Aborting"; echo ""; exit 1
+    fi
+  else
+    if [ -d ${FOLDER} ]; then
+      echo "${FOLDER}"
+    else
+      echo "ERROR: The hook path is wrongly provided by LOTC!"; echo "Aborting"; echo ""; exit 1
+    fi
+  fi
+}
+
+function init_system() {
+  # Parameters initialization
+  init_siteparams
+  init_factoryparams
+
+  # Common functions sourcing
+  local common_functions="${HOOK_PATH}/non_exec-common_functions"
+  . ${common_functions}
+}
+
+function gep_switch_support(){
+	# if hw-type is GEP4/GEP5/GEP7 and shelf_architecture is DMX/SCX
+	# shelf_switch parameter should not be empty
+	local tmpPath='/tmp/installation'
+	if [[ $INSTALLATION_HW == GEP4* || $INSTALLATION_HW == GEP5* || $INSTALLATION_HW == GEP7*  ]]; then
+		local SHELF_ARCH=$( cat $tmpPath/shelf_architecture)
+		local SHELF_SWITCH=$( cat $tmpPath/shelf_switch)
+    [[ $SHELF_ARCH == 'SCX' || $SHELF_ARCH == 'SMX' || $SHELF_ARCH == 'DMX' ]] &&  {
+        [[  -z "$SHELF_SWITCH" ]] && abort "Empty shelf_switch value"
+    }
+  fi
+
+}
+
+function drbd_gep_support(){
+	# if hw-type is GEP4/GEP5/GEP7, then the replication_type must be DRBD
+	local tmpPath='/tmp/installation'
+	[ -f $tmpPath/datadisk_replication_type ] && {
+		local hw_type=$( cat $tmpPath/installation_hw)
+		local rep_type=$( cat $tmpPath/datadisk_replication_type)
+		[ ! -z "$rep_type" ] && {
+		    if [[ $hw_type =~ "GEP5" || $hw_type =~ "GEP7" ]] ; then
+			 [[ $rep_type != "DRBD" ]] && abort "data disk replication type ($rep_type) not supported on $hw_type"
+			fi	
+		}
+
+		# comment the below two lines to enable DRBD support on GEP1 and GEP2
+		[ ! -z "$rep_type" ] && {
+			if [[ "$hw_type" == "GEP1" || "$hw_type" == "GEP2" ]]; then
+				if [ "$rep_type" != "MD" ]; then
+					scabort "data disk replication type ($rep_type) not supported on $hw_type"
+				fi;
+			fi;
+		}
+	}
+}
+
+#                                              __    __   _______   _   __    _
+#                                             |  \  /  | |  ___  | | | |  \  | |
+#                                             |   \/   | | |___| | | | |   \ | |
+#                                             | |\  /| | |  ___  | | | | |\ \| |
+#                                             | | \/ | | | |   | | | | | | \   |
+#                                             |_|    |_| |_|   |_| |_| |_|  \__|
+#
+main() {
+  echo "--- main() begin"
+
+  # Local variables
+  local SITEPARAM_CONF="siteparam.conf"
+  local FACTORYPARAM_CONF="factoryparam.conf"
+  local REPO_PATH=$( get_repo_path )
+  local HOOK_PATH=$( get_hook_path )
+  local NODE_ID=$( cat /etc/cluster/nodes/this/id )
+  local CLUSTER_TEMPLATE=""
+
+  # Patch to avoid script execution on node 2
+  if [ "$NODE_ID" = "2" ]; then
+   echo "--  This hook should not be performed on node 2"
+   echo "--- main() end"
+   exit $TRUE
+  fi
+  
+  # Initialize the system
+  init_system
+
+  if [ -f /etc/cluster/options/download_path ]; then
+    local DOWNLOAD_PATH=$(trim $(</etc/cluster/options/download_path))
+    # If missing add a trailing / to trimmed DOWNLOAD_PATH
+    DOWNLOAD_PATH=${DOWNLOAD_PATH%/}/
+  fi
+  echo "-   DOWNLOAD_PATH $DOWNLOAD_PATH"
+
+  # Creating our temporary folder
+  mkdir -p /tmp/installation
+
+  # Setup the network - NOTE: To be removed!!!
+  setup_network
+
+  echo "--  downloading and parsing $SITEPARAM_CONF"
+  download ${DOWNLOAD_PATH}etc/$SITEPARAM_CONF /etc
+  if [ ! -s /etc/$SITEPARAM_CONF ]; then
+    rm /etc/$SITEPARAM_CONF
+  else
+    ph_read_parse_conf_file /etc/$SITEPARAM_CONF
+  fi
+
+  echo "--  downloading and parsing $FACTORYPARAM_CONF"
+  download ${DOWNLOAD_PATH}etc/$FACTORYPARAM_CONF /etc
+  if [ ! -s /etc/$FACTORYPARAM_CONF ]; then
+    rm /etc/$FACTORYPARAM_CONF
+  else
+    ph_read_parse_conf_file /etc/$FACTORYPARAM_CONF
+  fi
+ 
+  # check shelf_switch parameter support for GEP5 and GEP7
+  gep_switch_support
+
+  # check if drbd is supported on specific hardware
+  drbd_gep_support
+
+  CURR_PATH=$( pwd )
+  echo "--  current path:  $CURR_PATH"
+  echo "--  external path: $HOOK_PATH"
+
+  pushd $HOOK_PATH >/dev/null 2>&1
+
+  CLUSTER_TEMPLATE="non_exec-clusterconf_template"
+
+  if [ -r ./$CLUSTER_TEMPLATE ]; then
+   
+    check_mac_addr
+ 
+    if [[ ! -z "$NODE1_BASE_MAC_ADDRESS" ]];then
+    eval_MAC_addr $NODE1_BASE_MAC_ADDRESS 1
+    fi
+    if [[ ! -z "$NODE2_BASE_MAC_ADDRESS" ]];then     
+    eval_MAC_addr $NODE2_BASE_MAC_ADDRESS 2
+    fi
+    # Copy cluster.conf file in destination folder
+    #install -m 644 ./non_exec-clusterconf_01_template /tmp/cluster.test
+    install -m 644 ./$CLUSTER_TEMPLATE ${REPO_PATH}/etc/cluster.conf
+    # Configure the cluster.conf file
+    #configure_cluster /tmp/cluster.test
+    configure_cluster ${REPO_PATH}/etc/cluster.conf
+    local TMP=$( mktemp --tmpdir mi_clusterconfig_validate_output_XXXXX )
+    if [ -f ${TMP} ]; then
+      cluster config -v -V -f ${REPO_PATH}/etc/cluster.conf  2>&1
+      [ $? -ne $TRUE ] && abort "The cluster config validation tool exits with error"
+			
+			cluster config -v -V -f ${REPO_PATH}/etc/cluster.conf | grep -E '^Warning' -A2 > ${TMP}
+      if [ -s ${TMP} ]; then
+        echo "--" >>${TMP}
+        while read line; do
+					if [ "$line" == '--' ]; then
+                        case $oldline in
+               "at least two IP addresses should be used in order to"*)
+                  echo "legit warning found"
+                  ;;
+               "ip address 192.168.200.1 is already assigned on line"*)
+                  echo "legit warning found"
+                  ;;
+               *)
+                  rm -f ${TMP}
+                  abort "unexpected warning while validating cluster.conf"
+                  ;;
+            esac
+          fi
+          oldline=$line
+          done < <(cat ${TMP})
+    fi
+    rm -f ${TMP}
+    else
+      abort "Unable to create a temporary file"
+    fi
+			
+      #local COUNT=$( cat ${TMP} | wc -l )
+      #[ ${COUNT} -ne 0 ] && abort "The cluster configuration is not valid"
+      #rm ${TMP}
+    #else
+     # abort "Unable to create a temporary file"
+    #fi
+    # See if the cluster.conf file is containing sufficient informations
+    #cluster config --create -f /etc/cluster.conf 2>/dev/null
+    cluster config --create -f ${REPO_PATH}/etc/cluster.conf
+  else
+    abort "Unable to copy the cluster.conf template"
+  fi
+  if  ! isSIMULATED ; then
+  # IPMI configuration tool execution
+  if [ -r ./non_exec-ic.tgz ]; then
+    tar -xzf ./non_exec-ic.tgz
+    pushd ic >/dev/null 2>&1
+    if [ -x ./ipmiconf ]; then
+      ./ipmiconf
+      [ $? -ne $TRUE ] && abort "Failure while executing the ipmiconf tool on node 1"
+    else
+      abort "Unable to execute the ipmiconf tool"
+    fi
+    popd >/dev/null 2>&1
+  else
+    abort "Unable to read the ic.tgz file"
+ fi
+  fi
+  
+  popd >/dev/null 2>&1
+
+  echo "--- main() end"
+}
+
+# Main
+
+echo "APG43L: Pre-installation prologue install hook."
+
+main "@"
+exit $TRUE
+
+# End of file

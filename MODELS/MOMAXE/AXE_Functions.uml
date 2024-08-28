@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="AxeFunctions">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NRAMoQwOEdmFcaeZXPdWAQ" source="uml2.diagrams"/>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TWmJIWu5EeK_psk_X1_33w" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_TWmJImu5EeK_psk_X1_33w" key="com.ericsson.ecim.coremw.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_WsxawGu5EeK_psk_X1_33w" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>&lt;p>AXE Functions Model&lt;/p></body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_8JbBoIW5Ed-FBpQGdJXi3g">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OS1OUIXLEd-lToFzlKoOsA" name="" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_tAMlMIKREeK3wcU1QErItg" name="AxeFunctions">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_tANzv4KREeK3wcU1QErItg" annotatedElement="_tAMlMIKREeK3wcU1QErItg">
+        <body>AXE Functions MOM.</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_tANz4IKREeK3wcU1QErItg" name="ApNodeNumber">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_tANz4YKREeK3wcU1QErItg" annotatedElement="_tANz4IKREeK3wcU1QErItg">
+          <body>This enumeration describes the possible AP name in a multi-AP configuration.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_CiAdQL3nEeWQ5fgWrWqk0w" constrainedElement="_tANz4IKREeK3wcU1QErItg _w61hEBo3EeOqlKrjEliTUw">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_CiBEUL3nEeWQ5fgWrWqk0w">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_tANz4oKREeK3wcU1QErItg" name="AP1">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_tANz44KREeK3wcU1QErItg" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_tANz5IKREeK3wcU1QErItg" name="AP2">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_tANz5YKREeK3wcU1QErItg" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_tANz8YKREeK3wcU1QErItg" name="AxeFunctions">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_tANz8oKREeK3wcU1QErItg" annotatedElement="_tANz8YKREeK3wcU1QErItg">
+          <body>Represents the root MOC for AXE Functions Management function MOM.
+
+AXE Functions Management consists of AXE specific functions aiming to configure and operate an AXE node.
+
+The AXE specific functions are structured in five function layers and each of them is a functions set belonging to it:
+  
+Data Output Handling. Functions set handling statistical counters collection, and data transfer with local media or remote destination. DataOutputHandling is the root MOC for the related MOM.
+
+Security Handling. Functions set allowing to configure the audit logging, the hardening and the user authority on APG. SecurityHandling is the root MOC for the related MOM.
+
+Supervision Handling. Functions set providing, in the applicable APG configurations, the handling of externally generated alarms in the AXE node and supervision of network interfaces used to communicate with a MS.
+
+System Component Handling. Functions set allowing to administer the HW, MW and SW configuration for the different components in the AXE node. SystemComponentHandling is the root MOC for the related MOM.
+
+System Handling. Functions set providing basic configurations for handling the AXE node, like license management and alphanumeric device administration. SystemHandling is the root MOC for the related MOM.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_YsBoYL3nEeWQ5fgWrWqk0w">
+          <constrainedElement xmi:type="uml:Property" href="#_tAN0GYKREeK3wcU1QErItg"/>
+          <constrainedElement xmi:type="uml:Slot" href="#_tAOasIKREeK3wcU1QErItg"/>
+          <constrainedElement xmi:type="uml:Property" href="#_tAN0HYKREeK3wcU1QErItg"/>
+          <constrainedElement xmi:type="uml:Enumeration" href="AXE_Common_Library.uml#_6wRcMoKMEeK3wcU1QErItg"/>
+          <constrainedElement xmi:type="uml:Slot" href="#_tAOatIKREeK3wcU1QErItg"/>
+          <constrainedElement xmi:type="uml:Property" href="#_tAN0FYKREeK3wcU1QErItg"/>
+          <constrainedElement xmi:type="uml:Enumeration" href="AXE_Common_Library.uml#_6wRcX4KMEeK3wcU1QErItg"/>
+          <constrainedElement xmi:type="uml:Property" href="#_zstlEBoyEeOqlKrjEliTUw"/>
+          <constrainedElement xmi:type="uml:Enumeration" href="#_w61hEBo3EeOqlKrjEliTUw"/>
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_YsDdkL3nEeWQ5fgWrWqk0w">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_-ja98MaQEeWApM4R9wQ5kA" constrainedElement="_HvUt8FjgEeOrdvfhgXt3gQ _tAOasoKREeK3wcU1QErItg _tAN0EYKREeK3wcU1QErItg _jP3uUFjfEeOrdvfhgXt3gQ _ZU7eENTbEeK94Odgnk0vIA">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_-jcMEMaQEeWApM4R9wQ5kA">
+            <language>Optionality</language>
+            <body>if-feature NOT VIRTUAL_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tANz84KREeK3wcU1QErItg" name="axeFunctionsId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tANz9IKREeK3wcU1QErItg" annotatedElement="_tANz84KREeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tANz9oKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tANz9YKREeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tANz-oKREeK3wcU1QErItg" name="securityHandling" visibility="public" type="_tAN0JoKREeK3wcU1QErItg" aggregation="composite" association="_tAN0LIKREeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tANz_IKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tANz-4KREeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tANz_YKREeK3wcU1QErItg" name="systemHandling" visibility="public" type="_tAN0MIKREeK3wcU1QErItg" aggregation="composite" association="_tAN0NoKREeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tANz_4KREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tANz_oKREeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tAN0AIKREeK3wcU1QErItg" name="supervisionHandling" visibility="public" type="_tAN0OoKREeK3wcU1QErItg" aggregation="composite" association="_tAN0QIKREeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0AoKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0AYKREeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tAN0A4KREeK3wcU1QErItg" name="dataOutputHandling" visibility="public" type="_tAN0RIKREeK3wcU1QErItg" aggregation="composite" association="_tAN0SoKREeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0BYKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0BIKREeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tAN0BoKREeK3wcU1QErItg" name="systemComponentHandling" visibility="public" type="_tAN0ToKREeK3wcU1QErItg" aggregation="composite" association="_tAN0VIKREeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0CIKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0B4KREeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tAN0CYKREeK3wcU1QErItg" name="systemType" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tAN0CoKREeK3wcU1QErItg" annotatedElement="_tAN0CYKREeK3wcU1QErItg">
+            <body>Specifies the AXE system type.
+</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="AXE_Common_Library.uml#_6wRcIoKMEeK3wcU1QErItg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0DIKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0C4KREeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tAN0DYKREeK3wcU1QErItg" name="axeApplication" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tAN0DoKREeK3wcU1QErItg" annotatedElement="_tAN0DYKREeK3wcU1QErItg">
+            <body>Specifies the AXE node type.
+</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="AXE_Common_Library.uml#_6wRcKIKMEeK3wcU1QErItg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0EIKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0D4KREeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tAN0EYKREeK3wcU1QErItg" name="apgShelfArchitecture" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tAN0EoKREeK3wcU1QErItg" annotatedElement="_tAN0EYKREeK3wcU1QErItg">
+            <body>Specifies the shelf infrastructure in which APG is located.</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="AXE_Common_Library.uml#_eaWyAMwjEeKsD5y1ehptiw"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0FIKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0E4KREeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tAN0FYKREeK3wcU1QErItg" name="apzProtocolType" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tAN0FoKREeK3wcU1QErItg" annotatedElement="_tAN0FYKREeK3wcU1QErItg">
+            <body>Specifies the CP type that the AP is connected to and the protocol to be used when communicating with the CP.</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="AXE_Common_Library.uml#_6wRcX4KMEeK3wcU1QErItg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0GIKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0F4KREeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tAN0GYKREeK3wcU1QErItg" name="apNodeNumber" type="_tANz4IKREeK3wcU1QErItg" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tAN0GoKREeK3wcU1QErItg" annotatedElement="_tAN0GYKREeK3wcU1QErItg">
+            <body>Specifies the possible name of APG in a multi-APG configuration.
+
+The value can be one of the following:
+- AP1 
+- AP2&#xD;
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0HIKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0G4KREeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tAN0HYKREeK3wcU1QErItg" name="apHwVersion" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tAN0HoKREeK3wcU1QErItg" annotatedElement="_tAN0HYKREeK3wcU1QErItg">
+            <body>Specifies APG HW version.
+</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="AXE_Common_Library.uml#_6wRcMoKMEeK3wcU1QErItg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0IIKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0H4KREeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_DtXfwNTbEeK94Odgnk0vIA" name="ap" visibility="public" type="_QbszkNTbEeK94Odgnk0vIA" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Dt_K0NTbEeK94Odgnk0vIA" annotatedElement="_DtXfwNTbEeK94Odgnk0vIA">
+            <body>Specifies the APG identity a user is logged in.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fgpJQC1IEeq55oTiC4HiEg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DuEqYNTbEeK94Odgnk0vIA" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_g0rrIBsQEeWKrYmCTarwHw" name="AP1" instance="_Qb3ysNTbEeK94Odgnk0vIA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_zstlEBoyEeOqlKrjEliTUw" name="dataDiskReplicationType" visibility="public" type="_w61hEBo3EeOqlKrjEliTUw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_zs39IRoyEeOqlKrjEliTUw" annotatedElement="_zstlEBoyEeOqlKrjEliTUw">
+            <body>Indicates the data disk replication type</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gcDooC1IEeq55oTiC4HiEg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zs81ohoyEeOqlKrjEliTUw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_KmQn4BqwEeOqlKrjEliTUw" name="MD" instance="_w6_SEBo3EeOqlKrjEliTUw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jP3uUFjfEeOrdvfhgXt3gQ" name="apgOamAccess" visibility="public" type="_HvUt8FjgEeOrdvfhgXt3gQ" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_jRSqoVjfEeOrdvfhgXt3gQ" annotatedElement="_jP3uUFjfEeOrdvfhgXt3gQ">
+            <body>Specifies how the APG is accessed from an MS for OaM activities. Either via front cables or via backplane connection.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wEgYcC0tEeq55oTiC4HiEg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jRZYUFjfEeOrdvfhgXt3gQ" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_MqJCIFjgEeOrdvfhgXt3gQ" name="FRONTCABLE" instance="_HwgZsFjgEeOrdvfhgXt3gQ"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_tAN0IoKREeK3wcU1QErItg" name="" memberEnd="_tANz94KREeK3wcU1QErItg _tAN0I4KREeK3wcU1QErItg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_tAN0I4KREeK3wcU1QErItg" name="axeFunctions" visibility="public" type="_tANz8YKREeK3wcU1QErItg" aggregation="composite" association="_tAN0IoKREeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0JYKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0JIKREeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_tANz94KREeK3wcU1QErItg" name="systemFunctions" visibility="public" association="_tAN0IoKREeK3wcU1QErItg">
+          <type xmi:type="uml:Class" href="ComTop.uml#_ETwJsJmNEd-RhrgDerFWug"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tANz-YKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tANz-IKREeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_tAN0JoKREeK3wcU1QErItg" name="SecurityHandling">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_tAN0J4KREeK3wcU1QErItg" annotatedElement="_tAN0JoKREeK3wcU1QErItg">
+          <body>Represents the root MOC for Security Handling function MOM.
+
+Security Handling is an AXE specific function layer consisting of functions set allowing to configure the AP sessions properties, audit logging, TS users policy and user authority for MML sessions.
+
+It allows defining the welcome message text.
+
+One or more attributes setting can fail due to one of the following reasons:
+	- Unreasonable value: Welcome message contains invalid special characters.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tAN0KIKREeK3wcU1QErItg" name="securityHandlingId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tAN0KYKREeK3wcU1QErItg" annotatedElement="_tAN0KIKREeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0K4KREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0KoKREeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_8nBUsHWMEemU9pZb8jWUsg" name="welcomeMessage" visibility="public" type="_Q8V4IPeGEeOT0ZN8HAfbgw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_EElScHWNEemU9pZb8jWUsg" annotatedElement="_8nBUsHWMEemU9pZb8jWUsg">
+            <body>Specifies the welcome message to be displayed before entering the password in all session types.
+The welcome message is not displayed when a TLS-based session type is opened.
+
+The welcome message contains the operator legal notice and it might optionally contain the privacy notice as well, according to company policies and local country regulations, which sets the right expectations for users regarding authorized and acceptable use of the node.
+The privacy notice is to be showed in the countries where the usage of the product may require providing Notice of privacy policy. 
+
+When configuring this attribute, the tag &quot;&lt;BR>&quot; can be used to insert a line break into the string at the time it is shown in the session.
+
+The default value of this attribute consists of the legal notice string only.
+
+The welcome message string is always shown between a default sequence of wildcard characters &quot;*&quot;.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8nE_EXWMEemU9pZb8jWUsg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8nE_EnWMEemU9pZb8jWUsg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="__EvUUHWMEemU9pZb8jWUsg" value="IF YOU ARE NOT AN AUTHORIZED USER, PLEASE EXIT IMMEDIATELY."/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_tAN0LIKREeK3wcU1QErItg" name="" memberEnd="_tANz-oKREeK3wcU1QErItg _tAN0LYKREeK3wcU1QErItg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_tAN0LYKREeK3wcU1QErItg" name="apzFunctions" visibility="public" type="_tANz8YKREeK3wcU1QErItg" association="_tAN0LIKREeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0L4KREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0LoKREeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_tAN0MIKREeK3wcU1QErItg" name="SystemHandling">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_tAN0MYKREeK3wcU1QErItg" annotatedElement="_tAN0MIKREeK3wcU1QErItg">
+          <body>Represents the root MOC for System Handling function MOM.
+
+System Handling is an AXE specific function layer providing basic configurations for handling the AXE node, like license management and alphanumeric device administration.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tAN0MoKREeK3wcU1QErItg" name="systemHandlingId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tAN0M4KREeK3wcU1QErItg" annotatedElement="_tAN0MoKREeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0NYKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0NIKREeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_tAN0NoKREeK3wcU1QErItg" name="" memberEnd="_tANz_YKREeK3wcU1QErItg _tAN0N4KREeK3wcU1QErItg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_tAN0N4KREeK3wcU1QErItg" name="axeFunctions" visibility="public" type="_tANz8YKREeK3wcU1QErItg" association="_tAN0NoKREeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0OYKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0OIKREeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_tAN0OoKREeK3wcU1QErItg" name="SupervisionHandling">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_tAN0O4KREeK3wcU1QErItg" annotatedElement="_tAN0OoKREeK3wcU1QErItg">
+          <body>Represents the root MOC for Supervision Handling function MOM.
+
+Supervision Handling is an AXE specific function layer consisting of functions set providing, in the applicable APG configurations, the handling of externally generated alarms in the AXE node and supervision of network interfaces used to communicate with a MS.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tAN0PIKREeK3wcU1QErItg" name="supervisionHandlingId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tAN0PYKREeK3wcU1QErItg" annotatedElement="_tAN0PIKREeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0P4KREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0PoKREeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_tAN0QIKREeK3wcU1QErItg" name="" memberEnd="_tAN0AIKREeK3wcU1QErItg _tAN0QYKREeK3wcU1QErItg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_tAN0QYKREeK3wcU1QErItg" name="axeFunctions" visibility="public" type="_tANz8YKREeK3wcU1QErItg" association="_tAN0QIKREeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0Q4KREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0QoKREeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_tAN0RIKREeK3wcU1QErItg" name="DataOutputHandling">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_tAN0RYKREeK3wcU1QErItg" annotatedElement="_tAN0RIKREeK3wcU1QErItg">
+          <body>Represents the root MOC for Data Output Handling function MOM.
+
+Data Output Handling is an AXE specific function layer consisting of functions set handling statistical counters collection, and data transfer with local media or remote destination.
+</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tAN0RoKREeK3wcU1QErItg" name="dataOutputHandlingId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tAN0R4KREeK3wcU1QErItg" annotatedElement="_tAN0RoKREeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0SYKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0SIKREeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_tAN0SoKREeK3wcU1QErItg" name="" memberEnd="_tAN0A4KREeK3wcU1QErItg _tAN0S4KREeK3wcU1QErItg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_tAN0S4KREeK3wcU1QErItg" name="axeFunctions" visibility="public" type="_tANz8YKREeK3wcU1QErItg" association="_tAN0SoKREeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0TYKREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0TIKREeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_tAN0ToKREeK3wcU1QErItg" name="SystemComponentHandling">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_tAN0T4KREeK3wcU1QErItg" annotatedElement="_tAN0ToKREeK3wcU1QErItg">
+          <body>Represents the root MOC for System Component Handling function MOM.
+
+System Component Handling is an AXE specific function layer allowing to administer the different components present in an AXE node.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tAN0UIKREeK3wcU1QErItg" name="systemComponentHandlingId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tAN0UYKREeK3wcU1QErItg" annotatedElement="_tAN0UIKREeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0U4KREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0UoKREeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_tAN0VIKREeK3wcU1QErItg" name="" memberEnd="_tAN0BoKREeK3wcU1QErItg _tAN0VYKREeK3wcU1QErItg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_tAN0VYKREeK3wcU1QErItg" name="axeFunctions" visibility="public" type="_tANz8YKREeK3wcU1QErItg" association="_tAN0VIKREeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tAN0V4KREeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tAN0VoKREeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_tAN0WIKREeK3wcU1QErItg" name="Instance">
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_tAOaq4KREeK3wcU1QErItg" name="AxeFunctions" classifier="_tANz8YKREeK3wcU1QErItg">
+          <slot xmi:type="uml:Slot" xmi:id="_tAOarIKREeK3wcU1QErItg" definingFeature="_tANz84KREeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralString" xmi:id="_tAOarYKREeK3wcU1QErItg" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_tAOaroKREeK3wcU1QErItg" definingFeature="_tAN0CYKREeK3wcU1QErItg">
+            <value xmi:type="uml:InstanceValue" xmi:id="_l8ZNsJCnEeKsTJNJdpSKxw">
+              <type xmi:type="uml:Enumeration" href="AXE_Common_Library.uml#_6wRcIoKMEeK3wcU1QErItg"/>
+              <instance xmi:type="uml:EnumerationLiteral" href="AXE_Common_Library.uml#_6wRcJIKMEeK3wcU1QErItg"/>
+            </value>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_tAOasIKREeK3wcU1QErItg" definingFeature="_tAN0GYKREeK3wcU1QErItg">
+            <value xmi:type="uml:InstanceValue" xmi:id="_tAOasYKREeK3wcU1QErItg" type="_tANz4IKREeK3wcU1QErItg" instance="_tANz4oKREeK3wcU1QErItg"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_tAOasoKREeK3wcU1QErItg" definingFeature="_tAN0EYKREeK3wcU1QErItg">
+            <value xmi:type="uml:InstanceValue" xmi:id="_dnl0sA0eEeaoz_rugtTOZQ">
+              <type xmi:type="uml:Enumeration" href="AXE_Common_Library.uml#_eaWyAMwjEeKsD5y1ehptiw"/>
+              <instance xmi:type="uml:EnumerationLiteral" href="AXE_Common_Library.uml#_eaWyAswjEeKsD5y1ehptiw"/>
+            </value>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_tAOatIKREeK3wcU1QErItg" definingFeature="_tAN0FYKREeK3wcU1QErItg">
+            <value xmi:type="uml:InstanceValue" xmi:id="_THfWoMwjEeKsD5y1ehptiw">
+              <type xmi:type="uml:Enumeration" href="AXE_Common_Library.uml#_6wRcX4KMEeK3wcU1QErItg"/>
+              <instance xmi:type="uml:EnumerationLiteral" href="AXE_Common_Library.uml#_6wSDMYKMEeK3wcU1QErItg"/>
+            </value>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_tAOatoKREeK3wcU1QErItg" definingFeature="_tAN0DYKREeK3wcU1QErItg">
+            <value xmi:type="uml:InstanceValue" xmi:id="_vEhesMwiEeKsD5y1ehptiw">
+              <type xmi:type="uml:Enumeration" href="AXE_Common_Library.uml#_6wRcKIKMEeK3wcU1QErItg"/>
+              <instance xmi:type="uml:EnumerationLiteral" href="AXE_Common_Library.uml#_6wRcLoKMEeK3wcU1QErItg"/>
+            </value>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_tAOauIKREeK3wcU1QErItg" name="DataOutputHandling" classifier="_tAN0RIKREeK3wcU1QErItg">
+          <slot xmi:type="uml:Slot" xmi:id="_tAOauYKREeK3wcU1QErItg" definingFeature="_tAN0RoKREeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralString" xmi:id="_tAOauoKREeK3wcU1QErItg" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_tAOau4KREeK3wcU1QErItg" client="_tAOauIKREeK3wcU1QErItg" supplier="_tAOaq4KREeK3wcU1QErItg"/>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_tAOavIKREeK3wcU1QErItg" name="SecurityHandling" classifier="_tAN0JoKREeK3wcU1QErItg">
+          <slot xmi:type="uml:Slot" xmi:id="_tAOavYKREeK3wcU1QErItg" definingFeature="_tAN0KIKREeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralString" xmi:id="_tAOavoKREeK3wcU1QErItg" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_tAOav4KREeK3wcU1QErItg" client="_tAOavIKREeK3wcU1QErItg" supplier="_tAOaq4KREeK3wcU1QErItg"/>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_tAOawIKREeK3wcU1QErItg" name="SupervisionHandling" classifier="_tAN0OoKREeK3wcU1QErItg">
+          <slot xmi:type="uml:Slot" xmi:id="_tAOawYKREeK3wcU1QErItg" definingFeature="_tAN0PIKREeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralString" xmi:id="_tAOawoKREeK3wcU1QErItg" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_tAOaw4KREeK3wcU1QErItg" client="_tAOawIKREeK3wcU1QErItg" supplier="_tAOaq4KREeK3wcU1QErItg"/>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_tAOaxIKREeK3wcU1QErItg" name="SystemComponentH" classifier="_tAN0ToKREeK3wcU1QErItg">
+          <slot xmi:type="uml:Slot" xmi:id="_tAOaxYKREeK3wcU1QErItg" definingFeature="_tAN0UIKREeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralString" xmi:id="_tAOaxoKREeK3wcU1QErItg" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_tAOax4KREeK3wcU1QErItg" client="_tAOaxIKREeK3wcU1QErItg" supplier="_tAOaq4KREeK3wcU1QErItg"/>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_tAOayIKREeK3wcU1QErItg" name="SystemHandling" classifier="_tAN0MIKREeK3wcU1QErItg">
+          <slot xmi:type="uml:Slot" xmi:id="_tAOayYKREeK3wcU1QErItg" definingFeature="_tAN0MoKREeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralString" xmi:id="_tAOayoKREeK3wcU1QErItg" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_tAOay4KREeK3wcU1QErItg" client="_tAOayIKREeK3wcU1QErItg" supplier="_tAOaq4KREeK3wcU1QErItg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_QbszkNTbEeK94Odgnk0vIA" name="ApgIdentity">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Qby6MdTbEeK94Odgnk0vIA" annotatedElement="_QbszkNTbEeK94Odgnk0vIA">
+          <body>Defines the identity of an APG.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Qb3ysNTbEeK94Odgnk0vIA" name="AP1">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_twqtANTcEeK94Odgnk0vIA" annotatedElement="_Qb3ysNTbEeK94Odgnk0vIA">
+            <body>Indicates AP1.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_Qb8rMdTbEeK94Odgnk0vIA" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ZU7eENTbEeK94Odgnk0vIA" name="AP2">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_aQqe0NnDEeK2J87MOfIPgA" annotatedElement="_ZU7eENTbEeK94Odgnk0vIA">
+            <body>Indicates AP2.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_ZVCLwdTbEeK94Odgnk0vIA" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_-lwrwADXEeOOVufodQG2Ew" name="ApNodeIdentity">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_-l4AgQDXEeOOVufodQG2Ew" annotatedElement="_-lwrwADXEeOOVufodQG2Ew">
+          <body>Indicates the AP node identity.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_-l85AQDXEeOOVufodQG2Ew" name="A">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_-mBKcADXEeOOVufodQG2Ew" annotatedElement="_-l85AQDXEeOOVufodQG2Ew">
+            <body>Node A.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_-mE00QDXEeOOVufodQG2Ew" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_DFniQADYEeOOVufodQG2Ew" name="B">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_DFuP8QDYEeOOVufodQG2Ew" annotatedElement="_DFniQADYEeOOVufodQG2Ew">
+            <body>Node B.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_DFzIcQDYEeOOVufodQG2Ew" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_w61hEBo3EeOqlKrjEliTUw" name="DataDiskReplication">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_w66ZkRo3EeOqlKrjEliTUw" annotatedElement="_w61hEBo3EeOqlKrjEliTUw">
+          <body>Type of data disk replication</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_w6_SEBo3EeOqlKrjEliTUw" name="MD">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_H3O10BqwEeOqlKrjEliTUw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_z9c9gBo3EeOqlKrjEliTUw" name="DRBD">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_I8ZHEBqwEeOqlKrjEliTUw" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_HvUt8FjgEeOrdvfhgXt3gQ" name="ApgOamAccessType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_HwaTEVjgEeOrdvfhgXt3gQ" annotatedElement="_HvUt8FjgEeOrdvfhgXt3gQ">
+          <body>Lists the possible ways to reach APG from MS for OaM activities.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_HwgZsFjgEeOrdvfhgXt3gQ" name="FRONTCABLE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ShtScFjgEeOrdvfhgXt3gQ" annotatedElement="_HwgZsFjgEeOrdvfhgXt3gQ">
+            <body>Front cables are used.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_HwmgUVjgEeOrdvfhgXt3gQ"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Qt4kYFjgEeOrdvfhgXt3gQ" name="NOCABLE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_QuCVYVjgEeOrdvfhgXt3gQ" annotatedElement="_Qt4kYFjgEeOrdvfhgXt3gQ">
+            <body>No front cables are used.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_QuKRMVjgEeOrdvfhgXt3gQ" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Q8V4IPeGEeOT0ZN8HAfbgw" name="WelcomeMessage">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Q9u_QPeGEeOT0ZN8HAfbgw" annotatedElement="_Q8V4IPeGEeOT0ZN8HAfbgw">
+          <body>Specifies the pattern to follow for welcomeMessage attribute.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_Q97zkPeGEeOT0ZN8HAfbgw">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_2okKEL3mEeWQ5fgWrWqk0w" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_4S_k4MaUEeWApM4R9wQ5kA" name="NATIVE"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_7Il5AMaUEeWApM4R9wQ5kA" client="_4S_k4MaUEeWApM4R9wQ5kA" supplier="_5vPnIL3mEeWQ5fgWrWqk0w"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_BRr-MMaVEeWApM4R9wQ5kA" name="VIRTUAL"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_DiJk8MaVEeWApM4R9wQ5kA" client="_BRr-MMaVEeWApM4R9wQ5kA" supplier="_5vPnIL3mEeWQ5fgWrWqk0w"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_GtPn8MaVEeWApM4R9wQ5kA" client="_BRr-MMaVEeWApM4R9wQ5kA" supplier="_otd-UMaQEeWApM4R9wQ5kA"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_bTX2QAZCEeat1ZFMh3LFxg" name="" client="_4S_k4MaUEeWApM4R9wQ5kA" supplier="_XpDgoAZCEeat1ZFMh3LFxg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_5vLVsL3mEeWQ5fgWrWqk0w" name="Features">
+        <packagedElement xmi:type="uml:Class" xmi:id="_5vPnIL3mEeWQ5fgWrWqk0w" name="CPI_HIDDEN"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_otd-UMaQEeWApM4R9wQ5kA" name="VIRTUAL_HIDDEN"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_XpDgoAZCEeat1ZFMh3LFxg" name="NATIVE_HIDDEN"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_cikwQHVqEeCBgp9CYCosRQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IXVhsCo7EeuHNtpH3nGt-Q" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IXVhsSo7EeuHNtpH3nGt-Q" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IXVhsio7EeuHNtpH3nGt-Q" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IXVhsyo7EeuHNtpH3nGt-Q" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IXVhtCo7EeuHNtpH3nGt-Q" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IXVhtSo7EeuHNtpH3nGt-Q" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ciq24HVqEeCBgp9CYCosRQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_TXv_sGu5EeK_psk_X1_33w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qrRMoN6MEeehtLhJYaltnA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qrRMod6MEeehtLhJYaltnA" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qrRMot6MEeehtLhJYaltnA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qrRMo96MEeehtLhJYaltnA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qrRMpN6MEeehtLhJYaltnA" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qrRMpd6MEeehtLhJYaltnA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Ie9qAAVbEeat1ZFMh3LFxg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Ie9qAQVbEeat1ZFMh3LFxg" key="Version" value="1.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Ie9qAgVbEeat1ZFMh3LFxg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Ie9qAwVbEeat1ZFMh3LFxg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Ie9qBAVbEeat1ZFMh3LFxg" key="Date" value="2016-02-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Ie9qBQVbEeat1ZFMh3LFxg" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TumZcGu5EeK_psk_X1_33w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_n139sJpLEeWH1aCgkhXSNw" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="Managed Object Model for AXE Functions" subTitle="  " docNo="2/19089-CXA 117 0043/8" docRev="B" createdBy="XHARBAV" docLang="Uen" docDate="2020-12-08"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_n139sZpLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Package="_tAMlMIKREeK3wcU1QErItg" author="Harika Bavana" contact="XHARBAV" date="2020-12-08" docNo="" revision="A" version="3" release="4" organization="-" correction="0"/>
+  <CoreMWProfile:CmwMom xmi:id="_n139sppLEeWH1aCgkhXSNw" base_Package="_tAMlMIKREeK3wcU1QErItg" immNamespace="NONE"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_n139s5pLEeWH1aCgkhXSNw" hideGroupName="APGHIDDEN" specification="" statusInformation="" base_Enumeration="_tANz4IKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_n139tJpLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_tANz4oKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_n139tZpLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_tANz5IKREeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwClass xmi:id="_n139tppLEeWH1aCgkhXSNw" base_Class="_tANz8YKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_n139t5pLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Property="_tANz84KREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_n139uJpLEeWH1aCgkhXSNw" hideGroupName="" specification="" base_Property="_tAN0CYKREeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_n14kwJpLEeWH1aCgkhXSNw" base_Property="_tAN0CYKREeK3wcU1QErItg" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_n14kwZpLEeWH1aCgkhXSNw" hideGroupName="" specification="" base_Property="_tAN0DYKREeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_n14kwppLEeWH1aCgkhXSNw" base_Property="_tAN0DYKREeK3wcU1QErItg" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_n14kw5pLEeWH1aCgkhXSNw" hideGroupName="" specification="" base_Property="_tAN0EYKREeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_n14kxJpLEeWH1aCgkhXSNw" base_Property="_tAN0EYKREeK3wcU1QErItg" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_n14kxZpLEeWH1aCgkhXSNw" hideGroupName="APG_HIDDEN" specification="" base_Property="_tAN0FYKREeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_n14kxppLEeWH1aCgkhXSNw" base_Property="_tAN0FYKREeK3wcU1QErItg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_n14kx5pLEeWH1aCgkhXSNw" base_Property="_tAN0GYKREeK3wcU1QErItg" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_n14kyJpLEeWH1aCgkhXSNw" hideGroupName="APG_HIDDEN" specification="" statusInformation="" base_Property="_tAN0GYKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_n14kyZpLEeWH1aCgkhXSNw" isPersistent="false" hideGroupName="APGHIDDEN" specification="" statusInformation="" base_Property="_tAN0HYKREeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_n14kyppLEeWH1aCgkhXSNw" base_Property="_tAN0HYKREeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_n14ky5pLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Association="_tAN0IoKREeK3wcU1QErItg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_n14kzJpLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Class="_tAN0JoKREeK3wcU1QErItg" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_n15L0JpLEeWH1aCgkhXSNw" base_Class="_tAN0JoKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_n15L0ZpLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Property="_tAN0KIKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_n15L0ppLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Association="_tAN0LIKREeK3wcU1QErItg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_n15L05pLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Class="_tAN0MIKREeK3wcU1QErItg" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_n15L1JpLEeWH1aCgkhXSNw" base_Class="_tAN0MIKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_n15L1ZpLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Property="_tAN0MoKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_n15L1ppLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Association="_tAN0NoKREeK3wcU1QErItg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_n15L15pLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Class="_tAN0OoKREeK3wcU1QErItg" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_n15L2JpLEeWH1aCgkhXSNw" base_Class="_tAN0OoKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_n15L2ZpLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Property="_tAN0PIKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_n15L2ppLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Association="_tAN0QIKREeK3wcU1QErItg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_n15L25pLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Class="_tAN0RIKREeK3wcU1QErItg" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_n15y4JpLEeWH1aCgkhXSNw" base_Class="_tAN0RIKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_n15y4ZpLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Property="_tAN0RoKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_n15y4ppLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Association="_tAN0SoKREeK3wcU1QErItg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_n15y45pLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Class="_tAN0ToKREeK3wcU1QErItg" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_n15y5JpLEeWH1aCgkhXSNw" base_Class="_tAN0ToKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_n15y5ZpLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Property="_tAN0UIKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_n15y5ppLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Association="_tAN0VIKREeK3wcU1QErItg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimInstances xmi:id="_n15y55pLEeWH1aCgkhXSNw" base_Package="_tAN0WIKREeK3wcU1QErItg" version="2" release="0" correction="0"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_n15y6JpLEeWH1aCgkhXSNw" base_InstanceSpecification="_tAOaq4KREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_n15y6ZpLEeWH1aCgkhXSNw" base_InstanceSpecification="_tAOauIKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_n15y6ppLEeWH1aCgkhXSNw" base_Dependency="_tAOau4KREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_n16Z8JpLEeWH1aCgkhXSNw" base_InstanceSpecification="_tAOavIKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_n16Z8ZpLEeWH1aCgkhXSNw" base_Dependency="_tAOav4KREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_n16Z8ppLEeWH1aCgkhXSNw" base_InstanceSpecification="_tAOawIKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_n16Z85pLEeWH1aCgkhXSNw" base_Dependency="_tAOaw4KREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_n16Z9JpLEeWH1aCgkhXSNw" base_InstanceSpecification="_tAOaxIKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_n16Z9ZpLEeWH1aCgkhXSNw" base_Dependency="_tAOax4KREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_n16Z9ppLEeWH1aCgkhXSNw" base_InstanceSpecification="_tAOayIKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_n16Z95pLEeWH1aCgkhXSNw" base_Dependency="_tAOay4KREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_n16Z-JpLEeWH1aCgkhXSNw" isPersistent="false" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_DtXfwNTbEeK94Odgnk0vIA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_n16Z-ZpLEeWH1aCgkhXSNw" base_Property="_DtXfwNTbEeK94Odgnk0vIA" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_n16Z-ppLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Enumeration="_QbszkNTbEeK94Odgnk0vIA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_n16Z-5pLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_Qb3ysNTbEeK94Odgnk0vIA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_n16Z_JpLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_ZU7eENTbEeK94Odgnk0vIA"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_n16Z_ZpLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Enumeration="_-lwrwADXEeOOVufodQG2Ew"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_n17BAJpLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_-l85AQDXEeOOVufodQG2Ew"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_n17BAZpLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_DFniQADYEeOOVufodQG2Ew"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_n17BAppLEeWH1aCgkhXSNw" isPersistent="false" hideGroupName="APG_HIDDEN" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_zstlEBoyEeOqlKrjEliTUw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_n17BA5pLEeWH1aCgkhXSNw" base_Property="_zstlEBoyEeOqlKrjEliTUw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_n17BBJpLEeWH1aCgkhXSNw" hideGroupName="hidden" specification="" statusInformation="" base_Enumeration="_w61hEBo3EeOqlKrjEliTUw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_n17BBZpLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_w6_SEBo3EeOqlKrjEliTUw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_n17BBppLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_z9c9gBo3EeOqlKrjEliTUw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_n17BB5pLEeWH1aCgkhXSNw" isPersistent="false" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_jP3uUFjfEeOrdvfhgXt3gQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_n17BCJpLEeWH1aCgkhXSNw" base_Property="_jP3uUFjfEeOrdvfhgXt3gQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_n17BCZpLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Enumeration="_HvUt8FjgEeOrdvfhgXt3gQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_n17BCppLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_HwgZsFjgEeOrdvfhgXt3gQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_n17BC5pLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_Qt4kYFjgEeOrdvfhgXt3gQ"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_n17BDJpLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" length="0..2000" pattern="^[^\\`]*$" base_DataType="_Q8V4IPeGEeOT0ZN8HAfbgw"/>
+  <CoreMWProfile:CmwModel xmi:id="_n17oEJpLEeWH1aCgkhXSNw" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwContribution xmi:id="_n17oEZpLEeWH1aCgkhXSNw" base_Association="_tAN0IoKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_n17oEppLEeWH1aCgkhXSNw" hideGroupName="" specification="" statusInformation="" base_Class="_tANz8YKREeK3wcU1QErItg" isSystemCreated="true" isLegacyRoot="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_n17oE5pLEeWH1aCgkhXSNw" base_Property="_tANz84KREeK3wcU1QErItg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_n17oFJpLEeWH1aCgkhXSNw" base_Property="_tAN0KIKREeK3wcU1QErItg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_n17oFZpLEeWH1aCgkhXSNw" base_Property="_tAN0MoKREeK3wcU1QErItg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_n17oFppLEeWH1aCgkhXSNw" base_Property="_tAN0PIKREeK3wcU1QErItg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_n17oF5pLEeWH1aCgkhXSNw" base_Property="_tAN0RoKREeK3wcU1QErItg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_n17oGJpLEeWH1aCgkhXSNw" base_Property="_tAN0UIKREeK3wcU1QErItg" isPersistent="true"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_Iw8nsBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Package="_tAMlMIKREeK3wcU1QErItg" author="" contact="" date="2015-02-13" docNo="" revision="" version="3" release="1" organization="" correction="0"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Iw_rABtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_tAN0EYKREeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_IxLRMRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" length="0..2000" pattern="^[^\\`]*$" base_DataType="_Q8V4IPeGEeOT0ZN8HAfbgw"/>
+  <Documentation:Documentation xmi:id="_8BQB8BtDEeWvQYFW8NSCww" base_Comment="_WsxawGu5EeK_psk_X1_33w"/>
+  <Documentation:Documentation xmi:id="_8BQB8RtDEeWvQYFW8NSCww" base_Comment="_tANzv4KREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQB8htDEeWvQYFW8NSCww" base_Comment="_tANz4YKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQB8xtDEeWvQYFW8NSCww" base_Comment="_tANz8oKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQB9BtDEeWvQYFW8NSCww" base_Comment="_tANz9IKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQB9RtDEeWvQYFW8NSCww" base_Comment="_tAN0CoKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQB9htDEeWvQYFW8NSCww" base_Comment="_tAN0DoKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQB9xtDEeWvQYFW8NSCww" base_Comment="_tAN0EoKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQB-BtDEeWvQYFW8NSCww" base_Comment="_tAN0FoKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQB-RtDEeWvQYFW8NSCww" base_Comment="_tAN0GoKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQB-htDEeWvQYFW8NSCww" base_Comment="_tAN0HoKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQB-xtDEeWvQYFW8NSCww" base_Comment="_tAN0J4KREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQB_BtDEeWvQYFW8NSCww" base_Comment="_tAN0KYKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQB_RtDEeWvQYFW8NSCww" base_Comment="_tAN0MYKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQB_htDEeWvQYFW8NSCww" base_Comment="_tAN0M4KREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQB_xtDEeWvQYFW8NSCww" base_Comment="_tAN0O4KREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQCABtDEeWvQYFW8NSCww" base_Comment="_tAN0PYKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQCARtDEeWvQYFW8NSCww" base_Comment="_tAN0RYKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQCAhtDEeWvQYFW8NSCww" base_Comment="_tAN0R4KREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQCAxtDEeWvQYFW8NSCww" base_Comment="_tAN0T4KREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQCBBtDEeWvQYFW8NSCww" base_Comment="_tAN0UYKREeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8BQCBRtDEeWvQYFW8NSCww" base_Comment="_Dt_K0NTbEeK94Odgnk0vIA"/>
+  <Documentation:Documentation xmi:id="_8BQCBhtDEeWvQYFW8NSCww" base_Comment="_Qby6MdTbEeK94Odgnk0vIA"/>
+  <Documentation:Documentation xmi:id="_8BQCBxtDEeWvQYFW8NSCww" base_Comment="_twqtANTcEeK94Odgnk0vIA"/>
+  <Documentation:Documentation xmi:id="_8BQCCBtDEeWvQYFW8NSCww" base_Comment="_aQqe0NnDEeK2J87MOfIPgA"/>
+  <Documentation:Documentation xmi:id="_8BQCCRtDEeWvQYFW8NSCww" base_Comment="_-l4AgQDXEeOOVufodQG2Ew"/>
+  <Documentation:Documentation xmi:id="_8BQCChtDEeWvQYFW8NSCww" base_Comment="_-mBKcADXEeOOVufodQG2Ew"/>
+  <Documentation:Documentation xmi:id="_8BQCCxtDEeWvQYFW8NSCww" base_Comment="_DFuP8QDYEeOOVufodQG2Ew"/>
+  <Documentation:Documentation xmi:id="_8BQCDBtDEeWvQYFW8NSCww" base_Comment="_zs39IRoyEeOqlKrjEliTUw"/>
+  <Documentation:Documentation xmi:id="_8BQCDRtDEeWvQYFW8NSCww" base_Comment="_w66ZkRo3EeOqlKrjEliTUw"/>
+  <Documentation:Documentation xmi:id="_8BQCDhtDEeWvQYFW8NSCww" base_Comment="_jRSqoVjfEeOrdvfhgXt3gQ"/>
+  <Documentation:Documentation xmi:id="_8BQCDxtDEeWvQYFW8NSCww" base_Comment="_HwaTEVjgEeOrdvfhgXt3gQ"/>
+  <Documentation:Documentation xmi:id="_8BQCEBtDEeWvQYFW8NSCww" base_Comment="_QuCVYVjgEeOrdvfhgXt3gQ"/>
+  <Documentation:Documentation xmi:id="_8BQCERtDEeWvQYFW8NSCww" base_Comment="_ShtScFjgEeOrdvfhgXt3gQ"/>
+  <Documentation:Documentation xmi:id="_8BQCEhtDEeWvQYFW8NSCww" base_Comment="_Q9u_QPeGEeOT0ZN8HAfbgw"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_2ore0L3mEeWQ5fgWrWqk0w" base_Package="_2okKEL3mEeWQ5fgWrWqk0w"/>
+  <ECIMBaseProfile:EcimFeatures xmi:id="_5vPAEL3mEeWQ5fgWrWqk0w" base_Package="_5vLVsL3mEeWQ5fgWrWqk0w"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_5vSqcL3mEeWQ5fgWrWqk0w" base_Class="_5vPnIL3mEeWQ5fgWrWqk0w"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_otkE8MaQEeWApM4R9wQ5kA" base_Class="_otd-UMaQEeWApM4R9wQ5kA"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_4TD2UMaUEeWApM4R9wQ5kA" base_Class="_4S_k4MaUEeWApM4R9wQ5kA"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_BRxdwMaVEeWApM4R9wQ5kA" base_Class="_BRr-MMaVEeWApM4R9wQ5kA"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_XpJAMAZCEeat1ZFMh3LFxg" base_Class="_XpDgoAZCEeat1ZFMh3LFxg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_8nEYAHWMEemU9pZb8jWUsg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_8nBUsHWMEemU9pZb8jWUsg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8nE_EHWMEemU9pZb8jWUsg" base_Property="_8nBUsHWMEemU9pZb8jWUsg" isConfigurable="true"/>
+</xmi:XMI>

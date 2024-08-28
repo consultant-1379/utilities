@@ -1,0 +1,33 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeDataTransfer_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+class "FileTransferManager" as AxeDataTransfer__FileTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferManager]] 
+class "FileTransferQueue" as AxeDataTransfer__FileTransferQueue [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferQueue]] 
+class "AdvancedFileTransferQueueInfo" as AxeDataTransfer__AdvancedFileTransferQueueInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20AdvancedFileTransferQueueInfo]] 
+class "FileTransferManager" as AxeDataTransfer__FileTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferManager]] 
+class "FileTransferQueue" as AxeDataTransfer__FileTransferQueue [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferQueue]] 
+AxeDataTransfer__FileTransferManager *-- "0..70" AxeDataTransfer__FileTransferQueue
+class "FileTransferManager" as AxeDataTransfer__FileTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferManager]] 
+class "FileTransferQueue" as AxeDataTransfer__FileTransferQueue [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferQueue]] 
+class "AdvancedFileTransferQueueInfo" as AxeDataTransfer__AdvancedFileTransferQueueInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20AdvancedFileTransferQueueInfo]] 
+AxeDataTransfer__FileTransferQueue *-- "1" AxeDataTransfer__AdvancedFileTransferQueueInfo
+class "FileTransferManager" as AxeDataTransfer__FileTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferManager]] 
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+class "FileTransferManager" as AxeDataTransfer__FileTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferManager]] 
+AxeDataTransfer__DataTransferM *-- "1" AxeDataTransfer__FileTransferManager
+class "DataOutputHandling" as AxeFunctions__DataOutputHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20DataOutputHandling]] 
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+AxeFunctions__DataOutputHandling *-- "1" AxeDataTransfer__DataTransferM
+@enduml 

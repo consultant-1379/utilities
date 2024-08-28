@@ -1,0 +1,39 @@
+		<upgradeProcedure saSmfExecLevel="2" safSmfProcedure="safSmfProc=SingleStepCOM">
+			<outageInfo>
+				<acceptableServiceOutage>
+						<all/>
+				</acceptableServiceOutage>
+					<procedurePeriod saSmfProcPeriod="600000000"/>
+			</outageInfo>
+			<procInitAction>
+				<doCliCommand command="cmw-model-modify" args="#COM_BUNDLE# --mt IMM_R1 IMM_R2 IMM_R3" />
+				<undoCliCommand command="/bin/false"/>
+				<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+			</procInitAction>
+			<procInitAction>
+				<doCliCommand command="cmw-model-done" args="--mt IMM_R1 IMM_R2 IMM_R3" />
+				<undoCliCommand command="/bin/false"/>
+				<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+			</procInitAction>
+                        <procInitAction>
+                                   <doCliCommand command="$OSAFCAMPAIGNROOT/preinstall.sh" args="#COM_BUNDLE#"/>
+                                   <undoCliCommand command="/bin/false"/>
+                                   <plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+                        </procInitAction>
+			<upgradeMethod>
+					<singleStepUpgrade>
+						<upgradeScope>
+						<forAddRemove>
+						<deactivationUnit/>
+						<activationUnit>
+							<swAdd bundleDN="safSmfBundle=#COM_BUNDLE#" pathnamePrefix="#COM_PATH#">
+								<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+								<plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster"/>
+							</swAdd>
+						</activationUnit>
+						</forAddRemove>
+					</upgradeScope>
+					<upgradeStep/>
+				</singleStepUpgrade>
+				</upgradeMethod>
+	        	</upgradeProcedure>

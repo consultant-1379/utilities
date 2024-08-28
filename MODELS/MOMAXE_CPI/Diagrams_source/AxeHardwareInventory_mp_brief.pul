@@ -1,0 +1,30 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeHardwareInventory_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "HardwareInventoryM" as AxeHardwareInventory__HardwareInventoryM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHardwareInventory?title=class%20HardwareInventoryM]] 
+class "ShelfInfo" as AxeHardwareInventory__ShelfInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHardwareInventory?title=class%20ShelfInfo]] 
+class "BladeInfo" as AxeHardwareInventory__BladeInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHardwareInventory?title=class%20BladeInfo]] 
+class "PowerFanModuleInfo" as AxeHardwareInventory__PowerFanModuleInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHardwareInventory?title=class%20PowerFanModuleInfo]] 
+class "HardwareInventoryM" as AxeHardwareInventory__HardwareInventoryM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHardwareInventory?title=class%20HardwareInventoryM]] 
+class "ShelfInfo" as AxeHardwareInventory__ShelfInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHardwareInventory?title=class%20ShelfInfo]] 
+AxeHardwareInventory__HardwareInventoryM *-- "0..15" AxeHardwareInventory__ShelfInfo
+class "ShelfInfo" as AxeHardwareInventory__ShelfInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHardwareInventory?title=class%20ShelfInfo]] 
+class "BladeInfo" as AxeHardwareInventory__BladeInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHardwareInventory?title=class%20BladeInfo]] 
+AxeHardwareInventory__ShelfInfo *-- "1..28" AxeHardwareInventory__BladeInfo
+class "ShelfInfo" as AxeHardwareInventory__ShelfInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHardwareInventory?title=class%20ShelfInfo]] 
+class "PowerFanModuleInfo" as AxeHardwareInventory__PowerFanModuleInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHardwareInventory?title=class%20PowerFanModuleInfo]] 
+AxeHardwareInventory__ShelfInfo *-- "1..2" AxeHardwareInventory__PowerFanModuleInfo
+class "SystemComponentHandling" as AxeFunctions__SystemComponentHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemComponentHandling]] 
+class "HardwareInventoryM" as AxeHardwareInventory__HardwareInventoryM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHardwareInventory?title=class%20HardwareInventoryM]] 
+AxeFunctions__SystemComponentHandling *-- "0..1" AxeHardwareInventory__HardwareInventoryM
+@enduml 

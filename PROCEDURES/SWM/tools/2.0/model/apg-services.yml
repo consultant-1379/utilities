@@ -1,0 +1,486 @@
+csm-version: '1.3'
+services:
+- uid: apg.cba.lib.aggregation.service
+  name: apg.cba.lib.aggregation.service
+  description: Group CBA libraries needed before APG Service installation
+  components:
+  - name: apg.sec.certm.agent.lib
+    instance-of: apg.sec.certm.agent.lib
+  - name: apg.com.oam.lib
+    instance-of: apg.com.oam.lib
+  - name: apg.sec.certm.oi.lib
+    instance-of: apg.sec.certm.oi.lib
+  - name: apg.sec.ldap.oi.lib
+    instance-of: apg.sec.ldap.oi.lib
+  - name: sec.certm.agent
+    instance-of: sec.certm.agent
+- uid: apg.base.lib.aggregation.service
+  name: apg.base.lib.aggregation.service
+  description: Group APG basic libraries needed before APG Service installation
+  components:
+  - name: apos.osconf
+    instance-of: apos.osconf
+  - name: apos.osext
+    instance-of: apos.osext
+  - name: apos.oscmd
+    instance-of: apos.oscmd
+  - name: acs.lct.lib
+    instance-of: acs.lct.lib
+  - name: acs.aeh
+    instance-of: acs.aeh
+  - name: acs.apgcc
+    instance-of: acs.apgcc
+  - name: acs.trautl
+    instance-of: acs.trautl
+  - name: acs.prc
+    instance-of: acs.prc
+  - name: acs.bur
+    instance-of: acs.bur
+  - name: acs.acs
+    instance-of: acs.acs
+  - name: acs.aprc
+    instance-of: acs.aprc
+  - name: acs.hcs
+    instance-of: acs.hcs
+  - name: acs.jtp
+    instance-of: acs.jtp
+  - name: acs.nclib
+    instance-of: acs.nclib
+  - name: acs.usafm
+    instance-of: acs.usafm
+  - name: acs.swr
+    instance-of: acs.swr
+  - name: aes.ohi
+    instance-of: aes.ohi
+  - name: aes.gcc
+    instance-of: aes.gcc
+  - name: mas.cptaspapi
+    instance-of: mas.cptaspapi
+  - name: mas.cptaspmml
+    instance-of: mas.cptaspmml
+  - name: mas.cptmp2d
+    instance-of: mas.cptmp2d
+  - name: mas.cptmp3d
+    instance-of: mas.cptmp3d
+  - name: mas.cptmp4d
+    instance-of: mas.cptmp4d
+  - name: fixs.fixelhcmd
+    instance-of: fixs.fixelhcmd
+  - name: cps.tesrvcmd
+    instance-of: cps.tesrvcmd
+  - name: pes.cfetcmd
+    instance-of: pes.cfetcmd
+  - name: cphw.mausl
+    instance-of: cphw.mausl
+  - name: cphw.mauso
+    instance-of: cphw.mauso
+  - name: cphw.syscon
+    instance-of: cphw.syscon
+  - name: cps.clogcmd
+    instance-of: cps.clogcmd
+  - name: ext.tinycore
+    instance-of: ext.tinycore
+  - name: bsc.evhandlclient
+    instance-of: bsc.evhandlclient
+- uid: apg.nbi.aggregation.service
+  name: apg.nbi.aggregation.service
+  description: APG NBI Services
+  components:
+  - name: apos.haagent
+    instance-of: apos.haagent
+  - name: apos.hadevmon
+    instance-of: apos.hadevmon
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: com-oam-sshdmgr
+    instance-of: com.oam.sshdmgr
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: com-oam-tlsdmgr
+    instance-of: com.oam.tlsdmgr
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: Sec-CertM-Oi
+    instance-of: sec.certm.oi
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: com-model-delivery
+    instance-of: com.model.delivery
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: com-oam-server
+    instance-of: com.oam.server
+    attributes:
+      OAM_IP: "%{oam-ip}"
+      DISABLE_ALARM_ALERT_EVENTS: "true"
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: com-oam-vsftpdmgr
+    instance-of: com.oam.vsftpdmgr
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: sec.certm.applier
+    instance-of: sec.certm.applier
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: com-reencrypt-participant
+    instance-of: com.reencrypt.participant
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: acs.lct
+    instance-of: acs.lct
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: acs.cs
+    instance-of: acs.cs
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: acs.alog
+    instance-of: acs.alog
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: fms.cpf
+    instance-of: fms.cpf
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: mas.cptaspcentral
+    instance-of: mas.cptaspcentral
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: mas.cptaspcentrala
+    instance-of: mas.cptaspcentrala
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: mas.cptaspcentralb
+    instance-of: mas.cptaspcentralb
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: mas.cptaspcentralc
+    instance-of: mas.cptaspcentralc
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: mas.misclh
+    instance-of: mas.misclh
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: mcs.adhadm
+    instance-of: mcs.adhadm
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: mcs.apcmh
+    instance-of: mcs.apcmh
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: acs.trapds
+    instance-of: acs.trapds
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: acs.mtz
+    instance-of: acs.mtz
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: aes.dbo
+    instance-of: aes.dbo
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: aes.cdh
+    instance-of: aes.cdh
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: aes.afp
+    instance-of: aes.afp
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: fixs.amih
+    instance-of: fixs.amih
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: fixs.cch
+    instance-of: fixs.cch
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: fixs.cmxh
+    instance-of: fixs.cmxh
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: fixs.trefc
+    instance-of: fixs.trefc
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: fixs.ith
+    instance-of: fixs.ith
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: mas.msrmh
+    instance-of: mas.msrmh
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: cps.busrv
+    instance-of: cps.busrv
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: acs.aca
+    instance-of: acs.aca
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: acs.apsesh
+    instance-of: acs.apsesh
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: acs.asec
+    instance-of: acs.asec
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: acs.emf
+    instance-of: acs.emf
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: acs.hc
+    instance-of: acs.hc
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: acs.lm
+    instance-of: acs.lm
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: acs.nsf
+    instance-of: acs.nsf
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: acs.rtr
+    instance-of: acs.rtr
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: acs.sch
+    instance-of: acs.sch
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: acs.xbrm
+    instance-of: acs.xbrm
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: acs.ssu
+    instance-of: acs.ssu
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: aes.ddt
+    instance-of: aes.ddt
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: cphw.gprshm
+    instance-of: cphw.gprshm
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: cphw.mausc
+    instance-of: cphw.mausc
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: cps.buap
+    instance-of: cps.buap
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: cps.buftpd
+    instance-of: cps.buftpd
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: cps.fcsrv
+    instance-of: cps.fcsrv
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: cqs.cqph
+    instance-of: cqs.cqph
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: cqs.cqrh
+    instance-of: cqs.cqrh
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: mcs.aiap
+    instance-of: mcs.aiap
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: mcs.alda
+    instance-of: mcs.alda
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: mcs.alec
+    instance-of: mcs.alec
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: ocs.ipnaadm
+    instance-of: ocs.ipnaadm
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: pes.clh
+    instance-of: pes.clh
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: sts.sgs
+    instance-of: sts.sgs
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: sts.stsconv
+    instance-of: sts.stsconv
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: sts.stsmain
+    instance-of: sts.stsmain
+    promotion-order:
+      after:
+      - apos.haagent
+  - name: sts.stsprov
+    instance-of: sts.stsprov
+    promotion-order:
+      after:
+      - apos.haagent
+  availability-properties:
+    monitor-period: 240 s
+    max-failure-nr: 7
+- uid: apg.dsd.service
+  name: apg.dsd.service
+  description: APG DSD Service
+  components:
+  - name: acs.dsd
+    instance-of: acs.dsd
+  availability-properties:
+    monitor-period: 240 s
+    max-failure-nr: 2
+- uid: apg.alh.service
+  name: apg.alh.service
+  description: APG ALH Service
+  components:
+  - name: acs.alh
+    instance-of: acs.alh
+  availability-properties:
+    monitor-period: 240 s
+    max-failure-nr: 2
+- uid: apg.logm.service
+  name: apg.logm.service
+  description: APG LOGM Service
+  components:
+  - name: acs.logm
+    instance-of: acs.logm
+  availability-properties:
+    monitor-period: 240 s
+    max-failure-nr: 2
+- uid: apg.apbm.service
+  name: apg.apbm.service
+  description: APG APBM Service
+  components:
+  - name: acs.apbm
+    instance-of: acs.apbm
+  availability-properties:
+    monitor-period: 240 s
+    max-failure-nr: 2
+- uid: apg.csync.service
+  name: apg.csync.service
+  description: APG CSYNC Service
+  components:
+  - name: acs.csync
+    instance-of: acs.csync
+  availability-properties:
+    monitor-period: 240 s
+    max-failure-nr: 2
+- uid: apg.hbeat.service
+  name: apg.hbeat.service
+  description: APG HBEAT Service
+  components:
+  - name: acs.hbeat
+    instance-of: acs.hbeat
+  availability-properties:
+    monitor-period: 240 s
+    max-failure-nr: 2
+- uid: apg.usa.service
+  name: apg.usa.service
+  description: APG USA Service
+  components:
+  - name: acs.usa
+    instance-of: acs.usa
+  availability-properties:
+    monitor-period: 240 s
+    max-failure-nr: 2
+- uid: apg.maus1.service
+  name: apg.maus1.service
+  description: APG MAUS1 Service
+  components:
+  - name: cphw.maus1
+    instance-of: cphw.maus1
+  availability-properties:
+    monitor-period: 240 s
+    max-failure-nr: 2
+- uid: apg.maus2.service
+  name: apg.maus2.service
+  description: APG MAUS2 Service
+  components:
+  - name: cphw.maus2
+    instance-of: cphw.maus2
+  availability-properties:
+    monitor-period: 240 s
+    max-failure-nr: 2
+- uid: apg.tocap.service
+  name: apg.tocap.service
+  description: APG TOCAP Service
+  components:
+  - name: ocs.tocap
+    instance-of: ocs.tocap
+  availability-properties:
+    monitor-period: 240 s
+    max-failure-nr: 2

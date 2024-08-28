@@ -1,0 +1,13 @@
+		<procInitAction>
+        		<immCCB ccbFlags="0">
+				<create objectClassName="SaAmfApplication" parentObjectDN="=">
+					<attribute name="safApp" type="SA_IMM_ATTR_SASTRINGT">
+						<value>safApp=#SAF_APP#</value>
+					</attribute>
+					<attribute name="saAmfAppType" type="SA_IMM_ATTR_SANAMET">
+						<value>safVersion=#SAF_VERSION#,safAppType=#APP_TYPE#</value>
+					</attribute>
+					<attribute name="saAmfApplicationAdminState" type="SA_IMM_ATTR_SAUINT32T">
+						<value>1</value>
+					</attribute>
+				</create>

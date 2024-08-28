@@ -1,0 +1,28 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeFunctions_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "SystemHandling" as AxeFunctions__SystemHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling]] 
+class "AlphanumericDeviceM" as AxeAlphanumericDevice__AlphanumericDeviceM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20AlphanumericDeviceM]] 
+AxeFunctions__SystemHandling *-- "1" AxeAlphanumericDevice__AlphanumericDeviceM
+class "CpFileSystemM" as AxeCpFileSystem__CpFileSystemM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CpFileSystemM]] 
+AxeFunctions__SystemHandling *-- "1" AxeCpFileSystem__CpFileSystemM
+class "CpReloadM" as AxeCpReload__CpReloadM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpReload?title=class%20CpReloadM]] 
+AxeFunctions__SystemHandling *-- "1" AxeCpReload__CpReloadM
+class "FunctionDistributionM" as AxeFunctionDistribution__FunctionDistributionM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctionDistribution?title=class%20FunctionDistributionM]] 
+AxeFunctions__SystemHandling *-- "1" AxeFunctionDistribution__FunctionDistributionM
+class "LicenseM" as AxeLicenseManagement__LicenseM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeLicenseManagement?title=class%20LicenseM]] 
+AxeFunctions__SystemHandling *-- "1" AxeLicenseManagement__LicenseM
+class "TimeReferenceM" as AxeTimeReference__TimeReferenceM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeTimeReference?title=class%20TimeReferenceM]] 
+AxeFunctions__SystemHandling *-- "1" AxeTimeReference__TimeReferenceM
+
+@enduml 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+	<upgradeCampaign safSmfCampaign="safSmfCampaign=#UP_CAMPAIGN_NAME#">
+     <!-- CMW_CAMPAIGN_XML_INCLUDE_IF_CMD($OSAFCAMPAIGNROOT/enable_auto_backup_restore.sh) -->
+     <!-- CMW_CAMPAIGN_XML_INCLUDE_FI_CMD -->
+		<campaignInfo>
+			<campaignPeriod/>
+			</campaignInfo>
+				<campaignInitialization>
+					<addToImm>
+						<amfEntityTypes>
+						

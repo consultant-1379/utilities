@@ -1,0 +1,2006 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="BladeSwManagement">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NRAMoQwOEdmFcaeZXPdWAQ" source="uml2.diagrams"/>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_KwwfQGu6EeK_psk_X1_33w" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_KwwfQWu6EeK_psk_X1_33w" key="com.ericsson.ecim.coremw.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_amxVsGu6EeK_psk_X1_33w" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>&lt;p>Blade SW Management Model&lt;/p></body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_8JbBoIW5Ed-FBpQGdJXi3g">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OS1OUIXLEd-lToFzlKoOsA" name="" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_rDb1QIRMEeKsuaXe_IZiAw" name="BladeSwManagement">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_rDcclYRMEeKsuaXe_IZiAw" annotatedElement="_rDb1QIRMEeKsuaXe_IZiAw">
+        <body>Blade SW Management function MOM.</body>
+      </ownedComment>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_spuiIL6FEeWQ5fgWrWqk0w" constrainedElement="_rDdER4RMEeKsuaXe_IZiAw">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_spvwQL6FEeWQ5fgWrWqk0w">
+          <language>Optionality</language>
+          <body>if-feature NOT CPI_HIDDEN</body>
+        </specification>
+      </ownedRule>
+      <packagedElement xmi:type="uml:Class" xmi:id="_rDccloRMEeKsuaXe_IZiAw" name="BladeSwM">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDccl4RMEeKsuaXe_IZiAw" annotatedElement="_rDccloRMEeKsuaXe_IZiAw">
+          <body>Represents the root MOC for Blade SW Management function MOM.
+It handles the SW packages used to upgrade AXE managed blades.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDccmIRMEeKsuaXe_IZiAw" name="bladeSwMId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDccmYRMEeKsuaXe_IZiAw" annotatedElement="_rDccmIRMEeKsuaXe_IZiAw">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDccm4RMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDccmoRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDccn4RMEeKsuaXe_IZiAw" name="asyncActionProgress" type="_rDcc4oRMEeKsuaXe_IZiAw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDccoIRMEeKsuaXe_IZiAw" annotatedElement="_rDccn4RMEeKsuaXe_IZiAw">
+            <body>Specifies the query progress of import upgrade package action</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDccooRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDccoYRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDcco4RMEeKsuaXe_IZiAw" name="apMSwAss" visibility="public" type="_rDcdDYRMEeKsuaXe_IZiAw" aggregation="composite" association="_rDdqo4RMEeKsuaXe_IZiAw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDccpYRMEeKsuaXe_IZiAw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDccpIRMEeKsuaXe_IZiAw" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDccpoRMEeKsuaXe_IZiAw" name="cpMSwAss" visibility="public" type="_rDdDa4RMEeKsuaXe_IZiAw" aggregation="composite" association="_rDdqp4RMEeKsuaXe_IZiAw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDccqIRMEeKsuaXe_IZiAw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDccp4RMEeKsuaXe_IZiAw" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDccqYRMEeKsuaXe_IZiAw" name="bladeSwPersAss" visibility="public" type="_rDdD84RMEeKsuaXe_IZiAw" aggregation="composite" association="_rDdqq4RMEeKsuaXe_IZiAw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDccq4RMEeKsuaXe_IZiAw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDccqoRMEeKsuaXe_IZiAw" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDccrIRMEeKsuaXe_IZiAw" name="ipnaAss" visibility="public" type="_rDdqvYRMEeKsuaXe_IZiAw" aggregation="composite" association="_rDdqw4RMEeKsuaXe_IZiAw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDccroRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDccrYRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_rDccr4RMEeKsuaXe_IZiAw" name="importUpgradePackage">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDccsIRMEeKsuaXe_IZiAw" annotatedElement="_rDccr4RMEeKsuaXe_IZiAw">
+            <body>Allows to create a new ApManagedSwPackage or CpManagedSwPackage MO, depending on Functional Board Name (FBN) provided as input.
+
+The action can be invoked when there is no other action in progress on this MO and returns immediately (i.e. it is an  asynchronous action).
+
+The action can fail due to one of the following reasons:
+	- Configuration not supported: The specified FBN is not applicable to current system configuration.
+	- Import Package action already running : Another import operation is already in progress.
+	- Invalid file path or file name: The specified file name does not exists on the corresponding NBI folder.
+	- Invalid file format: The specified file name extension is not valid (only .zip, .tar and .tar.gz extensions are accepted).
+
+The progress of the action can be tracked via the attribute asyncActionProgress.
+
+The upgrade package is expected to be stored in the exposed file system under the folder related to the FBN the package applies to. See the 'sw_packages' related attributes in the  NorthBoundFolders MO for more information.
+
+The upgrade package is removed only in case of succes. It's up to the remote MS to remove it in case of failure.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rDccsYRMEeKsuaXe_IZiAw" name="fbn" type="_rDdqx4RMEeKsuaXe_IZiAw">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_rDccsoRMEeKsuaXe_IZiAw" annotatedElement="_rDccsYRMEeKsuaXe_IZiAw">
+              <body>Functional Board Name (FBN) 
+This parameter identifies the functional board name this upgrade package is applicable to.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcctIRMEeKsuaXe_IZiAw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDccs4RMEeKsuaXe_IZiAw" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rDcctYRMEeKsuaXe_IZiAw" name="fileName">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_rDcctoRMEeKsuaXe_IZiAw" annotatedElement="_rDcctYRMEeKsuaXe_IZiAw">
+              <body>Upgrade package file name to import.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDccuIRMEeKsuaXe_IZiAw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcct4RMEeKsuaXe_IZiAw" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rDccuYRMEeKsuaXe_IZiAw" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_rDccuoRMEeKsuaXe_IZiAw" annotatedElement="_rDccuYRMEeKsuaXe_IZiAw">
+              <body>Return value:
+
+EXECUTED = action successfully ordered
+FAILED =  action unsuccessfully ordered</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDccvIRMEeKsuaXe_IZiAw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDccu4RMEeKsuaXe_IZiAw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_rDccvYRMEeKsuaXe_IZiAw" name="" memberEnd="_rDccnIRMEeKsuaXe_IZiAw _rDccvoRMEeKsuaXe_IZiAw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_rDccvoRMEeKsuaXe_IZiAw" name="bladeSwManagement" visibility="public" type="_rDccloRMEeKsuaXe_IZiAw" aggregation="composite" association="_rDccvYRMEeKsuaXe_IZiAw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDccwIRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDccv4RMEeKsuaXe_IZiAw" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_rDccnIRMEeKsuaXe_IZiAw" name="axeFunctions" visibility="public" association="_rDccvYRMEeKsuaXe_IZiAw">
+          <type xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0ToKREeK3wcU1QErItg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDccnoRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDccnYRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_rDccwYRMEeKsuaXe_IZiAw" name="SwUpgradeState">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDccwoRMEeKsuaXe_IZiAw" annotatedElement="_rDccwYRMEeKsuaXe_IZiAw">
+          <body>-</body>
+        </ownedComment>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDccw4RMEeKsuaXe_IZiAw">
+          <body>Lists software upgrade states.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDccxIRMEeKsuaXe_IZiAw" name="IDLE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDccxYRMEeKsuaXe_IZiAw" annotatedElement="_rDccxIRMEeKsuaXe_IZiAw">
+            <body>Idle state.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDccxoRMEeKsuaXe_IZiAw"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDccx4RMEeKsuaXe_IZiAw" name="PREPARING">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDccyIRMEeKsuaXe_IZiAw" annotatedElement="_rDccx4RMEeKsuaXe_IZiAw">
+            <body>Prepare ongoing state.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDccyYRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDccyoRMEeKsuaXe_IZiAw" name="PREPARED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDccy4RMEeKsuaXe_IZiAw" annotatedElement="_rDccyoRMEeKsuaXe_IZiAw">
+            <body>Prepare completed state.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDcczIRMEeKsuaXe_IZiAw" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDcczYRMEeKsuaXe_IZiAw" name="ACTIVATING">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcczoRMEeKsuaXe_IZiAw" annotatedElement="_rDcczYRMEeKsuaXe_IZiAw">
+            <body>Activate ongoing state.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDccz4RMEeKsuaXe_IZiAw" value="3"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDcc04RMEeKsuaXe_IZiAw" name="CANCELLING">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcc1IRMEeKsuaXe_IZiAw" annotatedElement="_rDcc04RMEeKsuaXe_IZiAw">
+            <body>Cancel ongoing state.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDcc1YRMEeKsuaXe_IZiAw" value="5"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDcc1oRMEeKsuaXe_IZiAw" name="CANCELLED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcc14RMEeKsuaXe_IZiAw" annotatedElement="_rDcc1oRMEeKsuaXe_IZiAw">
+            <body>Cancel completed state.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDcc2IRMEeKsuaXe_IZiAw" value="6"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDcc2YRMEeKsuaXe_IZiAw" name="ROLLBACK_IN_PROGRESS">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcc2oRMEeKsuaXe_IZiAw" annotatedElement="_rDcc2YRMEeKsuaXe_IZiAw">
+            <body>Rollback ongoing state.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDcc24RMEeKsuaXe_IZiAw" value="7"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDcc3IRMEeKsuaXe_IZiAw" name="ROLLBACK_COMPLETED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcc3YRMEeKsuaXe_IZiAw" annotatedElement="_rDcc3IRMEeKsuaXe_IZiAw">
+            <body>Rollback completed state.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDcc3oRMEeKsuaXe_IZiAw" value="8"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDcc34RMEeKsuaXe_IZiAw" name="UNKNOWN">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcc4IRMEeKsuaXe_IZiAw" annotatedElement="_rDcc34RMEeKsuaXe_IZiAw">
+            <body>Default state. 
+This represents an upgrade state not known. It can occur when both upgrade and rollback fail and it's not possible to determine actual upgrade package on that board.
+In this state it's possible to try a new upgrade attempt invoking prepare action.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDcc4YRMEeKsuaXe_IZiAw" value="9"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_9Gmt0MwsEeKNVPFwINKTDw" name="FAILED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_9Gv3wcwsEeKNVPFwINKTDw" annotatedElement="_9Gmt0MwsEeKNVPFwINKTDw">
+            <body>Failed State.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_9G1XUcwsEeKNVPFwINKTDw" value="10"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_cawysN8EEeKqO6e0iFyovw" name="ACTIVATED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ca4HcN8EEeKqO6e0iFyovw" annotatedElement="_cawysN8EEeKqO6e0iFyovw">
+            <body>Activate completed state.
+</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_ca8_8d8EEeKqO6e0iFyovw" value="4"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_rDcc4oRMEeKsuaXe_IZiAw" name="BladeSwMAsyncActionResult">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDcc44RMEeKsuaXe_IZiAw" annotatedElement="_rDcc4oRMEeKsuaXe_IZiAw">
+          <body>Represents the progress of import upgrade package action.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDcc5IRMEeKsuaXe_IZiAw" name="result" type="_rDcdAoRMEeKsuaXe_IZiAw">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcc5YRMEeKsuaXe_IZiAw" annotatedElement="_rDcc5IRMEeKsuaXe_IZiAw">
+            <body>Specifies the result state of completed import upgrade package action.
+This field has a value NOT_AVAILABLE if the action has been never used.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcc54RMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcc5oRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_rDcc6IRMEeKsuaXe_IZiAw" name="NOT_AVAILABLE" instance="_rDcdCoRMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDcc6YRMEeKsuaXe_IZiAw" name="resultInfo" type="_rDdDw4RMEeKsuaXe_IZiAw">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcc6oRMEeKsuaXe_IZiAw" annotatedElement="_rDcc6YRMEeKsuaXe_IZiAw">
+            <body>Specifes the description of the outcome/result of import upgrade package action.
+E.g., it can contain an error message if the action failed.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcc7IRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcc64RMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_rDcc7YRMEeKsuaXe_IZiAw" name="EXECUTED" instance="_rDdDxYRMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDcc7oRMEeKsuaXe_IZiAw" name="state" type="_rDcc94RMEeKsuaXe_IZiAw">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcc74RMEeKsuaXe_IZiAw" annotatedElement="_rDcc7oRMEeKsuaXe_IZiAw">
+            <body>Specifes the current state of import upgrade package action.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcc8YRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcc8IRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_rDcc8oRMEeKsuaXe_IZiAw" name="NOT_AVAILABLE" instance="_rDcc_4RMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDcc84RMEeKsuaXe_IZiAw" name="timeActionCompleted">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcc9IRMEeKsuaXe_IZiAw" annotatedElement="_rDcc84RMEeKsuaXe_IZiAw">
+            <body>Specifies the date and time when the import upgrade package action was completed (successfully or unsuccessfully). </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvs5dcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcc9oRMEeKsuaXe_IZiAw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcc9YRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_rDcc94RMEeKsuaXe_IZiAw" name="ActionStateType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDcc-IRMEeKsuaXe_IZiAw" annotatedElement="_rDcc94RMEeKsuaXe_IZiAw">
+          <body>Lists the possible states of an action.
+</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDcc-YRMEeKsuaXe_IZiAw" name="RUNNING">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcc-oRMEeKsuaXe_IZiAw" annotatedElement="_rDcc-YRMEeKsuaXe_IZiAw">
+            <body>Action ongoing.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDcc-4RMEeKsuaXe_IZiAw"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDcc_IRMEeKsuaXe_IZiAw" name="FINISHED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcc_YRMEeKsuaXe_IZiAw" annotatedElement="_rDcc_IRMEeKsuaXe_IZiAw">
+            <body>Action completed (successfully or unsuccessfully).</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDcc_oRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDcc_4RMEeKsuaXe_IZiAw" name="NOT_AVAILABLE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdAIRMEeKsuaXe_IZiAw" annotatedElement="_rDcc_4RMEeKsuaXe_IZiAw">
+            <body>No information available.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDcdAYRMEeKsuaXe_IZiAw" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_rDcdAoRMEeKsuaXe_IZiAw" name="ActionResultState">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdA4RMEeKsuaXe_IZiAw" annotatedElement="_rDcdAoRMEeKsuaXe_IZiAw">
+          <body>Lists the different results of an action.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDcdBIRMEeKsuaXe_IZiAw" name="SUCCESS">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdBYRMEeKsuaXe_IZiAw" annotatedElement="_rDcdBIRMEeKsuaXe_IZiAw">
+            <body>Upgrade package successfully imported.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDcdBoRMEeKsuaXe_IZiAw"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDcdB4RMEeKsuaXe_IZiAw" name="FAILURE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdCIRMEeKsuaXe_IZiAw" annotatedElement="_rDcdB4RMEeKsuaXe_IZiAw">
+            <body>Failed to import the upgrade package.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDcdCYRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDcdCoRMEeKsuaXe_IZiAw" name="NOT_AVAILABLE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdC4RMEeKsuaXe_IZiAw" annotatedElement="_rDcdCoRMEeKsuaXe_IZiAw">
+            <body>No information available.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDcdDIRMEeKsuaXe_IZiAw" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_rDcdDYRMEeKsuaXe_IZiAw" name="ApManagedSwPackage">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdDoRMEeKsuaXe_IZiAw" annotatedElement="_rDcdDYRMEeKsuaXe_IZiAw">
+          <body>Represents the attributes and actions to describe and control the process of changing the software configuration of a board which upgrade is handled by APG.
+
+The sequence in which a Software upgrade executes is:
+
+1. Prepare
+2. Activate 
+3. Commit</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_7GwMYL6FEeWQ5fgWrWqk0w" constrainedElement="_rDcdI4RMEeKsuaXe_IZiAw _pFj8IDavEeW-8sp2aToZ1Q">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_7GyBkL6FEeWQ5fgWrWqk0w">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDcdD4RMEeKsuaXe_IZiAw" name="apManagedSwPackageId" type="_rDdD2oRMEeKsuaXe_IZiAw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdEIRMEeKsuaXe_IZiAw" annotatedElement="_rDcdD4RMEeKsuaXe_IZiAw">
+            <body>Holds the name used when identifying the MO. 
+It is composed by product number and revision of the upgrade package, for example CXP012345_R1A01.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdEoRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcdEYRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDcdE4RMEeKsuaXe_IZiAw" name="isDefaultPackage" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdFIRMEeKsuaXe_IZiAw" annotatedElement="_rDcdE4RMEeKsuaXe_IZiAw">
+            <body>Specifies whether this upgrade package is the default package for the specific board type. 
+The default package is the one used as default when a new board of that type is defined in the system.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdFoRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcdFYRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_rDcdF4RMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDcdGIRMEeKsuaXe_IZiAw" name="functionalBoardName" type="_rDdD4IRMEeKsuaXe_IZiAw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdGYRMEeKsuaXe_IZiAw" annotatedElement="_rDcdGIRMEeKsuaXe_IZiAw">
+            <body>Specifies the functional board name which this package applies to.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdG4RMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcdGoRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDcdHIRMEeKsuaXe_IZiAw" name="productIdentity" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdHYRMEeKsuaXe_IZiAw" annotatedElement="_rDcdHIRMEeKsuaXe_IZiAw">
+            <body>Specifies the product number and revision of software within the upgrade package.
+e.g. CXC012345_R1A01</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdH4RMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcdHoRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDcdIIRMEeKsuaXe_IZiAw" name="repAss" visibility="public" type="_rDcdX4RMEeKsuaXe_IZiAw" aggregation="composite" association="_rDdqe4RMEeKsuaXe_IZiAw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdIoRMEeKsuaXe_IZiAw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcdIYRMEeKsuaXe_IZiAw" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDcdI4RMEeKsuaXe_IZiAw" name="loadModuleFileName" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdJIRMEeKsuaXe_IZiAw" annotatedElement="_rDcdI4RMEeKsuaXe_IZiAw">
+            <body>Specifies the path of load module File Name.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdJoRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcdJYRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_7OrVgBtDEeWvQYFW8NSCww" visibility="public" value="-">
+            <name xsi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDcdKIRMEeKsuaXe_IZiAw" name="usedBy" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdKYRMEeKsuaXe_IZiAw" annotatedElement="_rDcdKIRMEeKsuaXe_IZiAw">
+            <body>Specifies the list of boards where this software package is running on.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdK4RMEeKsuaXe_IZiAw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ufc5AMwsEeKNVPFwINKTDw" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDcdLIRMEeKsuaXe_IZiAw" name="asyncActionProgress" type="_rDdET4RMEeKsuaXe_IZiAw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdLYRMEeKsuaXe_IZiAw" annotatedElement="_rDcdLIRMEeKsuaXe_IZiAw">
+            <body>Specifies the current progress of actions.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdL4RMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcdLoRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDcdMIRMEeKsuaXe_IZiAw" name="packageStatus" type="_rDdqtYRMEeKsuaXe_IZiAw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdMYRMEeKsuaXe_IZiAw" annotatedElement="_rDcdMIRMEeKsuaXe_IZiAw">
+            <body>Specifies the status of the Software Package. It is FAULTY in case Load Module is missing on the File System, otherwise it is VALID.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdM4RMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcdMoRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_rDcdNIRMEeKsuaXe_IZiAw" name="VALID" instance="_rDdqt4RMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_pFj8IDavEeW-8sp2aToZ1Q" name="swVerType" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_pPNAUDavEeW-8sp2aToZ1Q" annotatedElement="_pFj8IDavEeW-8sp2aToZ1Q">
+            <body>Version type.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-kmDQCCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_So-qoCyVEeq45_hWjZVtlA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pPOOcTavEeW-8sp2aToZ1Q" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_vxVmEOI6EeatPvzz5VMDQg" value="2"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_rDcdNYRMEeKsuaXe_IZiAw" name="prepareUpgrade">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdNoRMEeKsuaXe_IZiAw" annotatedElement="_rDcdNYRMEeKsuaXe_IZiAw">
+            <body>Allows to prepare the board for the activation of current upgrade package.
+
+The action is monitored by a supervision timer.
+Executing prepare() does not have any negative impact on the in service performance of that board.
+
+The action returns immediately after invocation. The progress of the action can be tracked via the specific progress report object. The action returns FALSE if the action could not start for any reason (e.g., another parallel action is in progress), otherwise returns TRUE.
+</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rDcdN4RMEeKsuaXe_IZiAw" name="shelf" type="_10ezwOSFEeKPpNuHv1-AJg">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdOIRMEeKsuaXe_IZiAw" annotatedElement="_rDcdN4RMEeKsuaXe_IZiAw">
+              <body>The shelf address of a board to upgrade with this package (e.g. &quot;1.2.0.4&quot;)</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdOoRMEeKsuaXe_IZiAw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcdOYRMEeKsuaXe_IZiAw" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rDcdO4RMEeKsuaXe_IZiAw" name="slot" type="_rDdD3YRMEeKsuaXe_IZiAw">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdPIRMEeKsuaXe_IZiAw" annotatedElement="_rDcdO4RMEeKsuaXe_IZiAw">
+              <body>The slot number of a board to upgrade with this package (e.g. &quot;0&quot;)</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdPoRMEeKsuaXe_IZiAw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcdPYRMEeKsuaXe_IZiAw" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_OTGBgFHQEeOIq77AzuXb7g" name="upgradeType" type="_4NsTkMwrEeKNVPFwINKTDw">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_7rldkFIAEeOIq77AzuXb7g" annotatedElement="_OTGBgFHQEeOIq77AzuXb7g">
+              <body>Indicates the type of load module upgrade. It can be either a NORMAL upgrade or an INITIAL_INSTALLATION upgrade for intial installation of the board.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OTr3YFHQEeOIq77AzuXb7g"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OTr3YVHQEeOIq77AzuXb7g" value="1"/>
+            <defaultValue xmi:type="uml:InstanceValue" xmi:id="_OTrQUVHQEeOIq77AzuXb7g" name="NORMAL_UPGRADE" instance="_4OC44cwrEeKNVPFwINKTDw"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_eo7xQFIBEeOIq77AzuXb7g" name="force">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_q3I-EFICEeOIq77AzuXb7g" annotatedElement="_eo7xQFIBEeOIq77AzuXb7g">
+              <body>Indicates if the upgrade should be forced regardless the status of the other blade(s) in the same cluster. If the upgrade is forced, all checks regarding the status of the cluster, the blade belongs to, will be skipped and the upgrade will be started even if the other blade(s) in the cluster (if any) are not in a proper state (that means that functionalities provided from this type of blade may be temporary interrupted).</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_epCe8VIBEeOIq77AzuXb7g"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_epDGAFIBEeOIq77AzuXb7g" value="1"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_epCe8FIBEeOIq77AzuXb7g"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_rDcdP4RMEeKsuaXe_IZiAw" name="activate">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdQIRMEeKsuaXe_IZiAw" annotatedElement="_rDcdP4RMEeKsuaXe_IZiAw">
+            <body>Allows to take current upgrade package into operation on the specified board.
+
+This action can be invoked when the state is PREPARED. If the action is invoked in a state where it has no meaning or it could not start for any other reason, it returns FALSE, otherwise returns TRUE. 
+The progress of the action can be tracked via the specific progress report object. 
+
+The action is monitored by a supervision timer.
+If activation fails for any reason then an automatic rollback occurs.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rDcdQYRMEeKsuaXe_IZiAw" name="shelf" type="_10ezwOSFEeKPpNuHv1-AJg">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdQoRMEeKsuaXe_IZiAw" annotatedElement="_rDcdQYRMEeKsuaXe_IZiAw">
+              <body>The shelf address of a board to upgrade with this package (e.g. &quot;1.2.0.4&quot;)</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdRIRMEeKsuaXe_IZiAw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcdQ4RMEeKsuaXe_IZiAw" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rDcdRYRMEeKsuaXe_IZiAw" name="slot" type="_rDdD3YRMEeKsuaXe_IZiAw">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdRoRMEeKsuaXe_IZiAw" annotatedElement="_rDcdRYRMEeKsuaXe_IZiAw">
+              <body>The slot number of a board to upgrade with this package ((e.g. &quot;0&quot;)</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdSIRMEeKsuaXe_IZiAw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcdR4RMEeKsuaXe_IZiAw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_rDcdSYRMEeKsuaXe_IZiAw" name="cancel">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdSoRMEeKsuaXe_IZiAw" annotatedElement="_rDcdSYRMEeKsuaXe_IZiAw">
+            <body>Allows to cancel an ongoing upgrade. The consequence is that the specific board stops the operation and revert back to the previous software version.
+
+It's allowed when the upgrade is in PREPARED or ACTIVATED state and returns immediately after invocation.
+If the action is invoked in a state where it has no meaning or it could not start for any other reason, it returns FALSE, otherwise returns TRUE. 
+The progress of the action can be tracked via the specific progress report object. </body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rDcdS4RMEeKsuaXe_IZiAw" name="shelf" type="_10ezwOSFEeKPpNuHv1-AJg">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdTIRMEeKsuaXe_IZiAw" annotatedElement="_rDcdS4RMEeKsuaXe_IZiAw">
+              <body>The shelf address of a board to upgrade with this package (e.g. &quot;1.2.0.4&quot;)</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdToRMEeKsuaXe_IZiAw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcdTYRMEeKsuaXe_IZiAw" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rDcdT4RMEeKsuaXe_IZiAw" name="slot" type="_rDdD3YRMEeKsuaXe_IZiAw">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdUIRMEeKsuaXe_IZiAw" annotatedElement="_rDcdT4RMEeKsuaXe_IZiAw">
+              <body>The slot number of a board to upgrade with this package (e.g. &quot;0&quot;)</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdUoRMEeKsuaXe_IZiAw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcdUYRMEeKsuaXe_IZiAw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_rDcdU4RMEeKsuaXe_IZiAw" name="commitUpgrade">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdVIRMEeKsuaXe_IZiAw" annotatedElement="_rDcdU4RMEeKsuaXe_IZiAw">
+            <body>Allows to complete the upgrade procedure on the board. This operation must be invoked regardless of upgrade result.
+It's allowed when the upgrade status is ACTIVATED, CANCELLED and ROLLBACK_COMPLETED.  
+The action returns true or false when it has completed (synchronous).</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rDcdVYRMEeKsuaXe_IZiAw" name="shelf" type="_10ezwOSFEeKPpNuHv1-AJg">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdVoRMEeKsuaXe_IZiAw" annotatedElement="_rDcdVYRMEeKsuaXe_IZiAw">
+              <body>The shelf address of a board to upgrade with this package (e.g. &quot;1.2.0.4&quot;)</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdWIRMEeKsuaXe_IZiAw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcdV4RMEeKsuaXe_IZiAw" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rDcdWYRMEeKsuaXe_IZiAw" name="slot" type="_rDdD3YRMEeKsuaXe_IZiAw">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdWoRMEeKsuaXe_IZiAw" annotatedElement="_rDcdWYRMEeKsuaXe_IZiAw">
+              <body>The slot number of a board to upgrade with this package (e.g. &quot;0&quot;)</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdXIRMEeKsuaXe_IZiAw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcdW4RMEeKsuaXe_IZiAw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_rDcdXYRMEeKsuaXe_IZiAw" name="setAsDefault">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdXoRMEeKsuaXe_IZiAw" annotatedElement="_rDcdXYRMEeKsuaXe_IZiAw">
+            <body>Allows to configure this upgrade package as default package for this board type (specified by its functional board name).
+</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_s6kQwGDcEeOcIKhTORmAjw" name="prepare" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tC8JoGDcEeOcIKhTORmAjw" annotatedElement="_s6kQwGDcEeOcIKhTORmAjw">
+            <body>Allows to prepare the board for the activation of current upgrade package.
+This action is deprecated, prepareUpgrade should be used instead.
+
+The action is monitored by a supervision timer.
+Executing prepare() does not have any negative impact on the in service performance of that board.
+
+The action returns immediately after invocation. The progress of the action can be tracked via the specific progress report object. The action returns FALSE if the action could not start for any reason (e.g., another parallel action is in progress), otherwise returns TRUE.
+</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_eGkbgGDdEeOcIKhTORmAjw" name="shelf" type="_10ezwOSFEeKPpNuHv1-AJg">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_eGkbgWDdEeOcIKhTORmAjw" annotatedElement="_eGkbgGDdEeOcIKhTORmAjw">
+              <body>The shelf address of a board to upgrade with this package (e.g. &quot;1.2.0.4&quot;)</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eGkbg2DdEeOcIKhTORmAjw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eGkbgmDdEeOcIKhTORmAjw" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_eGlpoGDdEeOcIKhTORmAjw" name="slot" type="_rDdD3YRMEeKsuaXe_IZiAw">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_eGmQsGDdEeOcIKhTORmAjw" annotatedElement="_eGlpoGDdEeOcIKhTORmAjw">
+              <body>The slot number of a board to upgrade with this package (e.g. &quot;0&quot;)</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eGmQsmDdEeOcIKhTORmAjw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eGmQsWDdEeOcIKhTORmAjw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_rDcdX4RMEeKsuaXe_IZiAw" name="ReportProgress">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdYIRMEeKsuaXe_IZiAw" annotatedElement="_rDcdX4RMEeKsuaXe_IZiAw">
+          <body>Represents the progress of ongoing upgrade procedure.
+An instance is created for each board when the upgrade starts and is kept also after upgrade completion. 
+This instance is deleted whenever a new upgrade procedure is started on the board it refers to.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_RvfT0L6GEeWQ5fgWrWqk0w" constrainedElement="_rDdDZ4RMEeKsuaXe_IZiAw">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_Rvgh8L6GEeWQ5fgWrWqk0w">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDcdYYRMEeKsuaXe_IZiAw" name="reportProgressId" type="_3BaIkOe0EeKvC7nlYxYoFQ" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdYoRMEeKsuaXe_IZiAw" annotatedElement="_rDcdYYRMEeKsuaXe_IZiAw">
+            <body>Holds the name used when identifying the MO. 
+It is composed by shelf number and slot position of the board, for example 1.2.0.4_0.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdZIRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcdY4RMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDcdZYRMEeKsuaXe_IZiAw" name="resultInfo" type="_rDdDrIRMEeKsuaXe_IZiAw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdZoRMEeKsuaXe_IZiAw" annotatedElement="_rDcdZYRMEeKsuaXe_IZiAw">
+            <body>Specifies the outcome/result of upgrade package procedure.
+E.g., it can contain an error message if the action failed.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdaIRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcdZ4RMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_rDcdaYRMEeKsuaXe_IZiAw" name="EXECUTED" instance="_rDdDroRMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDcdaoRMEeKsuaXe_IZiAw" name="result" type="_rDdDpIRMEeKsuaXe_IZiAw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcda4RMEeKsuaXe_IZiAw" annotatedElement="_rDcdaoRMEeKsuaXe_IZiAw">
+            <body>Specifies the result state of upgrade package procedure.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDcdbYRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDcdbIRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_rDcdboRMEeKsuaXe_IZiAw" name="OK" instance="_rDdDpoRMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDcdb4RMEeKsuaXe_IZiAw" name="state" type="_rDccwYRMEeKsuaXe_IZiAw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDcdcIRMEeKsuaXe_IZiAw" annotatedElement="_rDcdb4RMEeKsuaXe_IZiAw">
+            <body>Specifies the current state of upgrade package procedure.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdDYYRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdDYIRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_rDdDYoRMEeKsuaXe_IZiAw" name="UNKNOWN" instance="_rDcc34RMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdDY4RMEeKsuaXe_IZiAw" name="timeUpgradeCompleted" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDZIRMEeKsuaXe_IZiAw" annotatedElement="_rDdDY4RMEeKsuaXe_IZiAw">
+            <body>Specifies the date and time when the upgrade package procedure was completed (successfully or unsuccessfully).</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvs5dcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdDZoRMEeKsuaXe_IZiAw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdDZYRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdDZ4RMEeKsuaXe_IZiAw" name="lastErrorCode" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDaIRMEeKsuaXe_IZiAw" annotatedElement="_rDdDZ4RMEeKsuaXe_IZiAw">
+            <body>last error code</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-kmDQCCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdDaoRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdDaYRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Ne-hEFKNEeOV7qjz4W1Tzg" name="upgradeType" visibility="public" type="_4NsTkMwrEeKNVPFwINKTDw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_XLS1YFKNEeOV7qjz4W1Tzg" annotatedElement="_Ne-hEFKNEeOV7qjz4W1Tzg">
+            <body>Specifies the type of load module upgrade. It can be either a NORMAL upgrade or an INITIAL upgrade for intial installation of the board.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NfF10VKNEeOV7qjz4W1Tzg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NfF10lKNEeOV7qjz4W1Tzg" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_NfF10FKNEeOV7qjz4W1Tzg" name="NORMAL_UPGRADE" instance="_4OC44cwrEeKNVPFwINKTDw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_gFP4oFKNEeOV7qjz4W1Tzg" name="forcedUpgrade" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_oB1UsFKNEeOV7qjz4W1Tzg" annotatedElement="_gFP4oFKNEeOV7qjz4W1Tzg">
+            <body>Specifies if the upgrade has been forced regardless the status of the other board in the same cluster.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gFV_QlKNEeOV7qjz4W1Tzg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gFWmUFKNEeOV7qjz4W1Tzg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_gFV_QVKNEeOV7qjz4W1Tzg"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_rDdDa4RMEeKsuaXe_IZiAw" name="CpManagedSwPackage">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDbIRMEeKsuaXe_IZiAw" annotatedElement="_rDdDa4RMEeKsuaXe_IZiAw">
+          <body>Represents the attributes and actions to support the process of changing the software configuration of a board which upgrade is handled by CP.
+APG contributes to this process.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_sIQskL9xEeWQ5fgWrWqk0w" constrainedElement="_rDdDfoRMEeKsuaXe_IZiAw _ts8W8DavEeW-8sp2aToZ1Q">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_sIR6sL9xEeWQ5fgWrWqk0w">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdDbYRMEeKsuaXe_IZiAw" name="cpManagedSwPackageId" type="_rDdD2oRMEeKsuaXe_IZiAw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDboRMEeKsuaXe_IZiAw" annotatedElement="_rDdDbYRMEeKsuaXe_IZiAw">
+            <body>Holds the name used when identifying the MO. 
+It is composed by product number and revision of the upgrade package, for example CXP012345_R1A01.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdDcIRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdDb4RMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdDcYRMEeKsuaXe_IZiAw" name="isDefaultPackage" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDcoRMEeKsuaXe_IZiAw" annotatedElement="_rDdDcYRMEeKsuaXe_IZiAw">
+            <body>Specifies whether this upgrade package is the default package for the specific board type. 
+The default package is the one used as default when a new board of that type is defined in the system.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdDdIRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdDc4RMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_rDdDdYRMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdDdoRMEeKsuaXe_IZiAw" name="functionalBoardName" type="_rDdD64RMEeKsuaXe_IZiAw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDd4RMEeKsuaXe_IZiAw" annotatedElement="_rDdDdoRMEeKsuaXe_IZiAw">
+            <body>Specifies the functional board name which this package applies to.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdDeYRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdDeIRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdDeoRMEeKsuaXe_IZiAw" name="productIdentity" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDe4RMEeKsuaXe_IZiAw" annotatedElement="_rDdDeoRMEeKsuaXe_IZiAw">
+            <body>Specifies the product number and revision of software within the upgrade package.
+e.g. CXC012345_R1A01</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdDfYRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdDfIRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdDfoRMEeKsuaXe_IZiAw" name="loadModuleFileName" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDf4RMEeKsuaXe_IZiAw" annotatedElement="_rDdDfoRMEeKsuaXe_IZiAw">
+            <body>Specifies the path of load module File Name.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdDgYRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdDgIRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_7Or8kBtDEeWvQYFW8NSCww" visibility="public" value="-">
+            <name xsi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdDg4RMEeKsuaXe_IZiAw" name="usedBy" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDhIRMEeKsuaXe_IZiAw" annotatedElement="_rDdDg4RMEeKsuaXe_IZiAw">
+            <body>Specifies the list of boards where this software package is running on.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdDhoRMEeKsuaXe_IZiAw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdDhYRMEeKsuaXe_IZiAw" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdDh4RMEeKsuaXe_IZiAw" name="asyncActionProgress" type="_rDdET4RMEeKsuaXe_IZiAw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDiIRMEeKsuaXe_IZiAw" annotatedElement="_rDdDh4RMEeKsuaXe_IZiAw">
+            <body>Specifies the current progress of actions.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdDioRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdDiYRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdDi4RMEeKsuaXe_IZiAw" name="packageStatus" type="_rDdqtYRMEeKsuaXe_IZiAw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDjIRMEeKsuaXe_IZiAw" annotatedElement="_rDdDi4RMEeKsuaXe_IZiAw">
+            <body>Specifies the status of the Software Package. It is FAULTY in case Load Module is missing on the File System, otherwise it is VALID.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdDjoRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdDjYRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_rDdDj4RMEeKsuaXe_IZiAw" name="VALID" instance="_rDdqt4RMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ts8W8DavEeW-8sp2aToZ1Q" name="swVerType" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ts8W8TavEeW-8sp2aToZ1Q" annotatedElement="_ts8W8DavEeW-8sp2aToZ1Q">
+            <body>Version type.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-kmDQCCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bja2ECyVEeq45_hWjZVtlA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ts8W8zavEeW-8sp2aToZ1Q" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_ts8W9DavEeW-8sp2aToZ1Q"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_rDdDkIRMEeKsuaXe_IZiAw" name="prepare">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDkYRMEeKsuaXe_IZiAw" annotatedElement="_rDdDkIRMEeKsuaXe_IZiAw">
+            <body>Allows to prepare a board  in the specified shelf and slot for the activation of current upgrade package.
+This action is deprecated, prepareUpgrade should be used instead.
+
+It returns true or false when it has completed (synchronous).</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rDdDkoRMEeKsuaXe_IZiAw" name="shelf" type="_10ezwOSFEeKPpNuHv1-AJg">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDk4RMEeKsuaXe_IZiAw" annotatedElement="_rDdDkoRMEeKsuaXe_IZiAw">
+              <body>The shelf address of a board to upgrade with this package (e.g. &quot;1.2.0.4&quot;)</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_C-JAMGDeEeOcIKhTORmAjw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdDlIRMEeKsuaXe_IZiAw" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rDdDloRMEeKsuaXe_IZiAw" name="slot" type="_rDdD3YRMEeKsuaXe_IZiAw">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDl4RMEeKsuaXe_IZiAw" annotatedElement="_rDdDloRMEeKsuaXe_IZiAw">
+              <body>The slot number of a board to upgrade with this package (e.g. &quot;0&quot;)</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DnpQMGDeEeOcIKhTORmAjw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdDmIRMEeKsuaXe_IZiAw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_rDdDmoRMEeKsuaXe_IZiAw" name="prepareShelf">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDm4RMEeKsuaXe_IZiAw" annotatedElement="_rDdDmoRMEeKsuaXe_IZiAw">
+            <body>Allows to prepare all boards of this board type (specified by its functional board name) in the specified shelf for the activation of current upgrade package.
+This action is deprecated, prepareUpgrade should be used instead.
+
+It returns true or false when it has completed (synchronous).</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rDdDnIRMEeKsuaXe_IZiAw" name="shelf" type="_10ezwOSFEeKPpNuHv1-AJg">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDnYRMEeKsuaXe_IZiAw" annotatedElement="_rDdDnIRMEeKsuaXe_IZiAw">
+              <body>The shelf address of a board to upgrade with this package (e.g. &quot;1.2.0.4&quot;)</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdDn4RMEeKsuaXe_IZiAw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdDnoRMEeKsuaXe_IZiAw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_rDdDoIRMEeKsuaXe_IZiAw" name="prepareAll">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDoYRMEeKsuaXe_IZiAw" annotatedElement="_rDdDoIRMEeKsuaXe_IZiAw">
+            <body>Allows to prepare all boards of this board type (specified by its functional board name) for the activation of current upgrade package.
+This action is deprecated, prepareUpgrade should be used instead.
+
+It returns true or false when it has completed (synchronous).</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_rDdDooRMEeKsuaXe_IZiAw" name="setAsDefault">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDo4RMEeKsuaXe_IZiAw" annotatedElement="_rDdDooRMEeKsuaXe_IZiAw">
+            <body>Allows to configure this upgrade package as default package for this board type (specified by its functional board name).
+</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_2h6wEGDdEeOcIKhTORmAjw" name="prepareUpgrade" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_72Jp0GDdEeOcIKhTORmAjw" annotatedElement="_2h6wEGDdEeOcIKhTORmAjw">
+            <body>Allows to prepare a board  in the specified shelf and slot for the activation of current upgrade package.
+It returns true or false when it has completed (synchronous).
+
+The action can fail due to one of the following reasons:
+	- Invalid parameter: Specified parameter combination is not valid.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="__2EcAGDdEeOcIKhTORmAjw" name="shelf" type="_10ezwOSFEeKPpNuHv1-AJg">
+            <ownedComment xmi:type="uml:Comment" xmi:id="__2EcAWDdEeOcIKhTORmAjw" annotatedElement="__2EcAGDdEeOcIKhTORmAjw">
+              <body>The shelf address of a board to upgrade with this package (e.g. &quot;1.2.0.4&quot;). If not specified (or if value &quot;ALL&quot; is provided) the action applies to all boards of this board type (specified by its functional board name).</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__2EcA2DdEeOcIKhTORmAjw"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__2EcAmDdEeOcIKhTORmAjw" value="1"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_PgHdIH6lEeOLl_5HQ7wu4w" value="ALL"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="__2FDEGDdEeOcIKhTORmAjw" name="slot" type="_rDdD3YRMEeKsuaXe_IZiAw">
+            <ownedComment xmi:type="uml:Comment" xmi:id="__2FDEWDdEeOcIKhTORmAjw" annotatedElement="__2FDEGDdEeOcIKhTORmAjw">
+              <body>The slot number of a board to upgrade with this package (e.g. &quot;0&quot;). It can be provided only in combination with parameter shelf. If not specified (or if value &quot;ALL&quot; is provided) the action applies to all boards of this board type (specified by its functional board name) in the specified shelf.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__2FDE2DdEeOcIKhTORmAjw"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__2FDEmDdEeOcIKhTORmAjw" value="1"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_RkXM0H6lEeOLl_5HQ7wu4w" value="ALL"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_rDdDpIRMEeKsuaXe_IZiAw" name="SwUpgradeResult">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDpYRMEeKsuaXe_IZiAw" annotatedElement="_rDdDpIRMEeKsuaXe_IZiAw">
+          <body>Lists upgrade procedure results.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdDpoRMEeKsuaXe_IZiAw" name="OK">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDp4RMEeKsuaXe_IZiAw" annotatedElement="_rDdDpoRMEeKsuaXe_IZiAw">
+            <body>Upgrade procedure is successful.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdDqIRMEeKsuaXe_IZiAw"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdDqYRMEeKsuaXe_IZiAw" name="NOT_OK">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDqoRMEeKsuaXe_IZiAw" annotatedElement="_rDdDqYRMEeKsuaXe_IZiAw">
+            <body>Upgrade procedure is unsuccessful either because manually cancelled or failed.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdDq4RMEeKsuaXe_IZiAw" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_rDdDrIRMEeKsuaXe_IZiAw" name="SwUpgradeResultInfo">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDrYRMEeKsuaXe_IZiAw" annotatedElement="_rDdDrIRMEeKsuaXe_IZiAw">
+          <body>Lists upgrade procedure result descriptions.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdDroRMEeKsuaXe_IZiAw" name="EXECUTED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDr4RMEeKsuaXe_IZiAw" annotatedElement="_rDdDroRMEeKsuaXe_IZiAw">
+            <body>Upgrade executed.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdDsIRMEeKsuaXe_IZiAw"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdDsYRMEeKsuaXe_IZiAw" name="PREPARE_FAILURE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDsoRMEeKsuaXe_IZiAw" annotatedElement="_rDdDsYRMEeKsuaXe_IZiAw">
+            <body>Upgrade failed on prepare action.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdDs4RMEeKsuaXe_IZiAw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdDtIRMEeKsuaXe_IZiAw" name="ACTIVATE_FAILURE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDtYRMEeKsuaXe_IZiAw" annotatedElement="_rDdDtIRMEeKsuaXe_IZiAw">
+            <body>Upgrade failed on activate action.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdDtoRMEeKsuaXe_IZiAw" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdDt4RMEeKsuaXe_IZiAw" name="ROLLBACK_FAILURE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDuIRMEeKsuaXe_IZiAw" annotatedElement="_rDdDt4RMEeKsuaXe_IZiAw">
+            <body>Upgrade failed and automatic rollback failed.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdDuYRMEeKsuaXe_IZiAw" value="3"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdDuoRMEeKsuaXe_IZiAw" name="CANCEL_FAILURE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDu4RMEeKsuaXe_IZiAw" annotatedElement="_rDdDuoRMEeKsuaXe_IZiAw">
+            <body>Upgrade cancelled and rollback failed.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdDvIRMEeKsuaXe_IZiAw" value="4"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdDvYRMEeKsuaXe_IZiAw" name="MANUALLY_CANCELLED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDvoRMEeKsuaXe_IZiAw" annotatedElement="_rDdDvYRMEeKsuaXe_IZiAw">
+            <body>Upgrade not executed since manually cancelled.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdDv4RMEeKsuaXe_IZiAw" value="5"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdDwIRMEeKsuaXe_IZiAw" name="COMMIT_FAILURE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDwYRMEeKsuaXe_IZiAw" annotatedElement="_rDdDwIRMEeKsuaXe_IZiAw">
+            <body>Upgrade failed on commit action.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdDwoRMEeKsuaXe_IZiAw" value="6"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_rDdDw4RMEeKsuaXe_IZiAw" name="ImportResultInfo">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDxIRMEeKsuaXe_IZiAw" annotatedElement="_rDdDw4RMEeKsuaXe_IZiAw">
+          <body>Lists the different result descriptions of import upgrade package action.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdDxYRMEeKsuaXe_IZiAw" name="EXECUTED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDxoRMEeKsuaXe_IZiAw" annotatedElement="_rDdDxYRMEeKsuaXe_IZiAw">
+            <body>Import upgrade package action successfully executed.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdDx4RMEeKsuaXe_IZiAw"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdDyIRMEeKsuaXe_IZiAw" name="INTERNAL_ERROR">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDyYRMEeKsuaXe_IZiAw" annotatedElement="_rDdDyIRMEeKsuaXe_IZiAw">
+            <body>A general error occurred.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdDyoRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdDy4RMEeKsuaXe_IZiAw" name="INVALID_PACKAGE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDzIRMEeKsuaXe_IZiAw" annotatedElement="_rDdDy4RMEeKsuaXe_IZiAw">
+            <body>Upgrade package not found or Metadata within upgrade package is invalid.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdDzYRMEeKsuaXe_IZiAw" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdDzoRMEeKsuaXe_IZiAw" name="PACKAGE_ALREADY_INSTALLED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdDz4RMEeKsuaXe_IZiAw" annotatedElement="_rDdDzoRMEeKsuaXe_IZiAw">
+            <body>The Upgrade Package is already imported.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdD0IRMEeKsuaXe_IZiAw" value="3"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdD0YRMEeKsuaXe_IZiAw" name="MAXIMUM_LOAD_MODULES_INSTALLED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdD0oRMEeKsuaXe_IZiAw" annotatedElement="_rDdD0YRMEeKsuaXe_IZiAw">
+            <body>Maximum Number of Upgrade Packages already installed for that Functional Board Name.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdD04RMEeKsuaXe_IZiAw" value="4"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdD1IRMEeKsuaXe_IZiAw" name="DISK_QUOTA_EXCEEDED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdD1YRMEeKsuaXe_IZiAw" annotatedElement="_rDdD1IRMEeKsuaXe_IZiAw">
+            <body>The specified quota for the directory has been exceeded.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdD1oRMEeKsuaXe_IZiAw" value="5"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdD14RMEeKsuaXe_IZiAw" name="BACKUP_ONGOING">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdD2IRMEeKsuaXe_IZiAw" annotatedElement="_rDdD14RMEeKsuaXe_IZiAw">
+            <body>Backup operation is in progress.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdD2YRMEeKsuaXe_IZiAw" value="6"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_xg3WQMFWEeK1XoxofujlNw" name="INVALID_CONFIGURATION">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_xg_5IcFWEeK1XoxofujlNw" annotatedElement="_xg3WQMFWEeK1XoxofujlNw">
+            <body>System configuration not supported.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_xhFYscFWEeK1XoxofujlNw" value="7"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_2n3sUMFWEeK1XoxofujlNw" name="FBN_NOT_ALLOWED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_2oAPMMFWEeK1XoxofujlNw" annotatedElement="_2n3sUMFWEeK1XoxofujlNw">
+            <body>Functional Board Name not allowed in this system configuration.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_2oFuwcFWEeK1XoxofujlNw" value="8"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_rDdD2oRMEeKsuaXe_IZiAw" name="PackageIdentity">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDdD24RMEeKsuaXe_IZiAw" annotatedElement="_rDdD2oRMEeKsuaXe_IZiAw">
+          <body>Cxp number.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_rDdD3IRMEeKsuaXe_IZiAw">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_rDdD3YRMEeKsuaXe_IZiAw" name="SlotNumber">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDdD3oRMEeKsuaXe_IZiAw" annotatedElement="_rDdD3YRMEeKsuaXe_IZiAw">
+          <body>A slot number must be a value either in the range 0-25 or 26 or 28.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_rDdD34RMEeKsuaXe_IZiAw">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_rDdD4IRMEeKsuaXe_IZiAw" name="FunctionalBoardNameApManaged">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDdD4YRMEeKsuaXe_IZiAw" annotatedElement="_rDdD4IRMEeKsuaXe_IZiAw">
+          <body>Lists the functional board names of the blades the AP managed software package applies to.
+</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdD4oRMEeKsuaXe_IZiAw" name="SCXB">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdD44RMEeKsuaXe_IZiAw" annotatedElement="_rDdD4oRMEeKsuaXe_IZiAw">
+            <body>It is SCX board.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdD5IRMEeKsuaXe_IZiAw" value="340"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdD5YRMEeKsuaXe_IZiAw" name="IPTB">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdD5oRMEeKsuaXe_IZiAw" annotatedElement="_rDdD5YRMEeKsuaXe_IZiAw">
+            <body>It is IPT board.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdD54RMEeKsuaXe_IZiAw" value="350"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdD6IRMEeKsuaXe_IZiAw" name="CMXB">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdD6YRMEeKsuaXe_IZiAw" annotatedElement="_rDdD6IRMEeKsuaXe_IZiAw">
+            <body>It is CMX board.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdD6oRMEeKsuaXe_IZiAw" value="380"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_gITvAMFWEeK1XoxofujlNw" name="IPLB">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gIbDwMFWEeK1XoxofujlNw" annotatedElement="_gITvAMFWEeK1XoxofujlNw">
+            <body>It is IPLB.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_gIhxcMFWEeK1XoxofujlNw" value="390"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_LmWt0DhVEeaodprnndtvQg" name="SMXB" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Lmq24DhVEeaodprnndtvQg" annotatedElement="_LmWt0DhVEeaodprnndtvQg">
+            <body>It is SMX board.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_3l_hUDkZEeaodprnndtvQg" value="400"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_rDdD64RMEeKsuaXe_IZiAw" name="FunctionalBoardNameCpManaged">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDdD7IRMEeKsuaXe_IZiAw" annotatedElement="_rDdD64RMEeKsuaXe_IZiAw">
+          <body>Lists the functional board names of the blades the CP managed software package applies to.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdD7YRMEeKsuaXe_IZiAw" name="EPB1">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdD7oRMEeKsuaXe_IZiAw" annotatedElement="_rDdD7YRMEeKsuaXe_IZiAw">
+            <body>Evo Processing Board 1 (EPB1).
+</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdD74RMEeKsuaXe_IZiAw" value="360"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdD8IRMEeKsuaXe_IZiAw" name="EVOET">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdD8YRMEeKsuaXe_IZiAw" annotatedElement="_rDdD8IRMEeKsuaXe_IZiAw">
+            <body>Evo Exchange Terminal (EvoET) Board.
+</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdD8oRMEeKsuaXe_IZiAw" value="370"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_rDdD84RMEeKsuaXe_IZiAw" name="BladeSwPersistanceValue">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDdD9IRMEeKsuaXe_IZiAw" annotatedElement="_rDdD84RMEeKsuaXe_IZiAw">
+          <body>Represents the Blade information used for persistence.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_5ybWgL9xEeWQ5fgWrWqk0w" constrainedElement="_rDdD84RMEeKsuaXe_IZiAw _rDdqq4RMEeKsuaXe_IZiAw _rDccqYRMEeKsuaXe_IZiAw _rDdqrIRMEeKsuaXe_IZiAw">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_5ydLsL9xEeWQ5fgWrWqk0w">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdD9YRMEeKsuaXe_IZiAw" name="bladeSwPersistanceValueId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdD9oRMEeKsuaXe_IZiAw" annotatedElement="_rDdD9YRMEeKsuaXe_IZiAw">
+            <body>Value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdD-IRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdD94RMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdD-YRMEeKsuaXe_IZiAw" name="magazine" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdD-oRMEeKsuaXe_IZiAw" annotatedElement="_rDdD-YRMEeKsuaXe_IZiAw">
+            <body>magazine</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdD_IRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdD-4RMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_7OsjoBtDEeWvQYFW8NSCww" visibility="public" value="-">
+            <name xsi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdD_oRMEeKsuaXe_IZiAw" name="slot" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdD_4RMEeKsuaXe_IZiAw" annotatedElement="_rDdD_oRMEeKsuaXe_IZiAw">
+            <body>slot</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-kmDQCCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdEAYRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdEAIRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_rDdEAoRMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdEA4RMEeKsuaXe_IZiAw" name="ipmiState" type="_rDdER4RMEeKsuaXe_IZiAw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdEBIRMEeKsuaXe_IZiAw" annotatedElement="_rDdEA4RMEeKsuaXe_IZiAw">
+            <body>ipmi state</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdEBoRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdEBYRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_rDdEB4RMEeKsuaXe_IZiAw" name="UNKNOWN" instance="_rDdESYRMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdECIRMEeKsuaXe_IZiAw" name="fanUpperState" type="_rDdER4RMEeKsuaXe_IZiAw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdECYRMEeKsuaXe_IZiAw" annotatedElement="_rDdECIRMEeKsuaXe_IZiAw">
+            <body>pfm Upper State</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdEC4RMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdECoRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_rDdEDIRMEeKsuaXe_IZiAw" name="UNKNOWN" instance="_rDdESYRMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdEDYRMEeKsuaXe_IZiAw" name="fanLowerState" type="_rDdER4RMEeKsuaXe_IZiAw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdEDoRMEeKsuaXe_IZiAw" annotatedElement="_rDdEDYRMEeKsuaXe_IZiAw">
+            <body>pfm Lower state</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdEEIRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdED4RMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_rDdEEYRMEeKsuaXe_IZiAw" name="UNKNOWN" instance="_rDdESYRMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdEEoRMEeKsuaXe_IZiAw" name="powerUpperState" type="_rDdER4RMEeKsuaXe_IZiAw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdEE4RMEeKsuaXe_IZiAw" annotatedElement="_rDdEEoRMEeKsuaXe_IZiAw">
+            <body>power upper state</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdEFYRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdEFIRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdEFoRMEeKsuaXe_IZiAw" name="powerLowerState" type="_rDdER4RMEeKsuaXe_IZiAw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdEF4RMEeKsuaXe_IZiAw" annotatedElement="_rDdEFoRMEeKsuaXe_IZiAw">
+            <body>power lower state</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdEGYRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdEGIRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdEGoRMEeKsuaXe_IZiAw" name="ipmiUpgradeResult" type="_rDdqr4RMEeKsuaXe_IZiAw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdEG4RMEeKsuaXe_IZiAw" annotatedElement="_rDdEGoRMEeKsuaXe_IZiAw">
+            <body>ipmi firmeare upgrade result</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdEHYRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdEHIRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_rDdEHoRMEeKsuaXe_IZiAw" name="OK" instance="_rDdqsYRMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdEH4RMEeKsuaXe_IZiAw" name="ipmiUpgradeTime" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdEIIRMEeKsuaXe_IZiAw" annotatedElement="_rDdEH4RMEeKsuaXe_IZiAw">
+            <body>ipmi firmware upgrade time</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvs5dcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdEIoRMEeKsuaXe_IZiAw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdEIYRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdEI4RMEeKsuaXe_IZiAw" name="fanUpperUpgradeResult" type="_rDdqr4RMEeKsuaXe_IZiAw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdEJIRMEeKsuaXe_IZiAw" annotatedElement="_rDdEI4RMEeKsuaXe_IZiAw">
+            <body>fan Upper Upgrade Result</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdEJoRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdEJYRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_rDdEJ4RMEeKsuaXe_IZiAw" name="OK" instance="_rDdqsYRMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdEKIRMEeKsuaXe_IZiAw" name="powerUpperUpgradeResult" type="_rDdqr4RMEeKsuaXe_IZiAw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdEKYRMEeKsuaXe_IZiAw" annotatedElement="_rDdEKIRMEeKsuaXe_IZiAw">
+            <body>power Upper Upgrade Result</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdEK4RMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdEKoRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_rDdELIRMEeKsuaXe_IZiAw" name="OK" instance="_rDdqsYRMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdELYRMEeKsuaXe_IZiAw" name="fanLowerUpgradeResult" type="_rDdqr4RMEeKsuaXe_IZiAw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdELoRMEeKsuaXe_IZiAw" annotatedElement="_rDdELYRMEeKsuaXe_IZiAw">
+            <body>fan Lower Upgrade Result</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdEMIRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdEL4RMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_rDdEMYRMEeKsuaXe_IZiAw" name="OK" instance="_rDdqsYRMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdEMoRMEeKsuaXe_IZiAw" name="powerLowerUpgradeResult" type="_rDdqr4RMEeKsuaXe_IZiAw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdEM4RMEeKsuaXe_IZiAw" annotatedElement="_rDdEMoRMEeKsuaXe_IZiAw">
+            <body>power Lower Upgrade Result</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdENYRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdENIRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_rDdENoRMEeKsuaXe_IZiAw" name="OK" instance="_rDdqsYRMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdEN4RMEeKsuaXe_IZiAw" name="currentCxp" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdEOIRMEeKsuaXe_IZiAw" annotatedElement="_rDdEN4RMEeKsuaXe_IZiAw">
+            <body>currentCxp</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdEOoRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdEOYRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_7OtKsBtDEeWvQYFW8NSCww" visibility="public" value="-">
+            <name xsi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdEPIRMEeKsuaXe_IZiAw" name="expectCxp" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdEPYRMEeKsuaXe_IZiAw" annotatedElement="_rDdEPIRMEeKsuaXe_IZiAw">
+            <body>expectedCxp</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdEP4RMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdEPoRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_7OtKsRtDEeWvQYFW8NSCww" visibility="public" value="-">
+            <name xsi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_rDdEQYRMEeKsuaXe_IZiAw" name="reset">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdEQoRMEeKsuaXe_IZiAw" annotatedElement="_rDdEQYRMEeKsuaXe_IZiAw">
+            <body>reset board</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_rDdEQ4RMEeKsuaXe_IZiAw" name="block">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdERIRMEeKsuaXe_IZiAw" annotatedElement="_rDdEQ4RMEeKsuaXe_IZiAw">
+            <body>block</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_rDdERYRMEeKsuaXe_IZiAw" name="deblock">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdERoRMEeKsuaXe_IZiAw" annotatedElement="_rDdERYRMEeKsuaXe_IZiAw">
+            <body>deblock</body>
+          </ownedComment>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_rDdER4RMEeKsuaXe_IZiAw" name="FwUpgradeState">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDdESIRMEeKsuaXe_IZiAw" annotatedElement="_rDdER4RMEeKsuaXe_IZiAw">
+          <body>Lists possible firmware upgrade states.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdESYRMEeKsuaXe_IZiAw" name="UNKNOWN">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_vdmHoNzZEeKqO6e0iFyovw" annotatedElement="_rDdESYRMEeKsuaXe_IZiAw">
+            <body>Unknow firmware upgrade state.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdESoRMEeKsuaXe_IZiAw"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdES4RMEeKsuaXe_IZiAw" name="IDLE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_sHXLoNzZEeKqO6e0iFyovw" annotatedElement="_rDdES4RMEeKsuaXe_IZiAw">
+            <body>Firmware upgrade in Idle state.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdETIRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdETYRMEeKsuaXe_IZiAw" name="ONGOING">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tbOnQNzZEeKqO6e0iFyovw" annotatedElement="_rDdETYRMEeKsuaXe_IZiAw">
+            <body>Firmware upgrade in progress.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdEToRMEeKsuaXe_IZiAw" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_rDdET4RMEeKsuaXe_IZiAw" name="ManagedSwPackageActionResult">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDdEUIRMEeKsuaXe_IZiAw" annotatedElement="_rDdET4RMEeKsuaXe_IZiAw">
+          <body>Represents the progress of software upgrade actions.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdEUYRMEeKsuaXe_IZiAw" name="state" type="_rDcc94RMEeKsuaXe_IZiAw">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdEUoRMEeKsuaXe_IZiAw" annotatedElement="_rDdEUYRMEeKsuaXe_IZiAw">
+            <body>Specifies the current state of action.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdEVIRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdEU4RMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_rDdEVYRMEeKsuaXe_IZiAw" name="NOT_AVAILABLE" instance="_rDcc_4RMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdEVoRMEeKsuaXe_IZiAw" name="result" type="_rDcdAoRMEeKsuaXe_IZiAw" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdEV4RMEeKsuaXe_IZiAw" annotatedElement="_rDdEVoRMEeKsuaXe_IZiAw">
+            <body>Specifies the result state of completed action.
+This field has a value NOT_AVAILABLE if the action has been never used.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdEWYRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdEWIRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_rDdEWoRMEeKsuaXe_IZiAw" name="NOT_AVAILABLE" instance="_rDcdCoRMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdEW4RMEeKsuaXe_IZiAw" name="timeActionCompleted" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdEXIRMEeKsuaXe_IZiAw" annotatedElement="_rDdEW4RMEeKsuaXe_IZiAw">
+            <body>Specifies the date and time when the action was completed (successfully or unsuccessfully). </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvs5dcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdEXoRMEeKsuaXe_IZiAw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdEXYRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdEX4RMEeKsuaXe_IZiAw" name="resultInfo" type="_rDdEZIRMEeKsuaXe_IZiAw">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdEYIRMEeKsuaXe_IZiAw" annotatedElement="_rDdEX4RMEeKsuaXe_IZiAw">
+            <body>Specifies the description of the outcome/result of action.
+E.g., it can contain an error message if the action failed.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdEYoRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdEYYRMEeKsuaXe_IZiAw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_rDdEY4RMEeKsuaXe_IZiAw" name="EXECUTED" instance="_rDdEZoRMEeKsuaXe_IZiAw"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_rDdEZIRMEeKsuaXe_IZiAw" name="ActionResultInfo">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDdEZYRMEeKsuaXe_IZiAw" annotatedElement="_rDdEZIRMEeKsuaXe_IZiAw">
+          <body>Lists the different result descriptions of an action.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdEZoRMEeKsuaXe_IZiAw" name="EXECUTED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdEZ4RMEeKsuaXe_IZiAw" annotatedElement="_rDdEZoRMEeKsuaXe_IZiAw">
+            <body>Action executed successfully.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdEaIRMEeKsuaXe_IZiAw"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdEaYRMEeKsuaXe_IZiAw" name="HARDWARE_NOT_PRESENT">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_vZEpcNzYEeKqO6e0iFyovw" annotatedElement="_rDdEaYRMEeKsuaXe_IZiAw">
+            <body>Specified Hardware is not present.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdEaoRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdEa4RMEeKsuaXe_IZiAw" name="SNMP_FAILURE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_82jiQNzYEeKqO6e0iFyovw" annotatedElement="_rDdEa4RMEeKsuaXe_IZiAw">
+            <body>Failure in SNMP communication.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdEbIRMEeKsuaXe_IZiAw" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdEbYRMEeKsuaXe_IZiAw" name="LM_ALREADY_PRESENT">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_xe34UNzYEeKqO6e0iFyovw" annotatedElement="_rDdEbYRMEeKsuaXe_IZiAw">
+            <body>Load Module already imported.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdEboRMEeKsuaXe_IZiAw" value="3"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdEb4RMEeKsuaXe_IZiAw" name="UPGRADE_ALREADY_ONGOING">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_BpnBkNzZEeKqO6e0iFyovw" annotatedElement="_rDdEb4RMEeKsuaXe_IZiAw">
+            <body>An upgrade operation is already in progress.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdEcIRMEeKsuaXe_IZiAw" value="4"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdEcYRMEeKsuaXe_IZiAw" name="WRONG_ACTION_IN_THIS_STATE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_F6IbkNzZEeKqO6e0iFyovw" annotatedElement="_rDdEcYRMEeKsuaXe_IZiAw">
+            <body>Specified action cannot be executed in current state.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdEcoRMEeKsuaXe_IZiAw" value="5"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdqcIRMEeKsuaXe_IZiAw" name="ONE_INSTALLED_PACKAGE_IS_FAULTY">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdqcYRMEeKsuaXe_IZiAw" annotatedElement="_rDdqcIRMEeKsuaXe_IZiAw">
+            <body>There is at least one faulty package.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdqcoRMEeKsuaXe_IZiAw" value="6"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdqc4RMEeKsuaXe_IZiAw" name="BACKUP_ONGOING">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdqdIRMEeKsuaXe_IZiAw" annotatedElement="_rDdqc4RMEeKsuaXe_IZiAw">
+            <body>Backup operation is in progress.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdqdYRMEeKsuaXe_IZiAw" value="7"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdqdoRMEeKsuaXe_IZiAw" name="NO_REPLY_FROM_CS">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_240_kNzYEeKqO6e0iFyovw" annotatedElement="_rDdqdoRMEeKsuaXe_IZiAw">
+            <body>Failure in communication with Configuration Service.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdqd4RMEeKsuaXe_IZiAw" value="8"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdqeIRMEeKsuaXe_IZiAw" name="NOT_ALLOWED_BY_CP">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdqeYRMEeKsuaXe_IZiAw" annotatedElement="_rDdqeIRMEeKsuaXe_IZiAw">
+            <body>Upgrade Rejected by CP.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdqeoRMEeKsuaXe_IZiAw" value="9"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_epGqALDXEeK3aZ58ypMvyg" name="PACKAGE_NOT_APPLICABLE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_665t4NzYEeKqO6e0iFyovw" annotatedElement="_epGqALDXEeK3aZ58ypMvyg">
+            <body>The operation is not appliable to the selected package.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_eum1EbDXEeK3aZ58ypMvyg" value="10"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_D2cC4MwtEeKNVPFwINKTDw" name="COMMUNICATION_FAILURE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_0EBVoNzYEeKqO6e0iFyovw" annotatedElement="_D2cC4MwtEeKNVPFwINKTDw">
+            <body>Failure in communication.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_D2iJgcwtEeKNVPFwINKTDw" value="11"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_KjTKYH6QEeOLl_5HQ7wu4w" name="BLADE_BLOCKED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_KjeJgX6QEeOLl_5HQ7wu4w" annotatedElement="_KjTKYH6QEeOLl_5HQ7wu4w">
+            <body>The action cannot be executed because the selected blade is blocked</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_KjmFUH6QEeOLl_5HQ7wu4w" value="13"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ml9j4H6QEeOLl_5HQ7wu4w" name="OTHER_BLADE_IN_CLUSTER_NOT_ACTIVE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mmFfsX6QEeOLl_5HQ7wu4w" annotatedElement="_ml9j4H6QEeOLl_5HQ7wu4w">
+            <body>The action is rejected because the other blade in cluster is not in a proper working state</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_mmLmUX6QEeOLl_5HQ7wu4w" value="12"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_rDdqe4RMEeKsuaXe_IZiAw" name="" memberEnd="_rDcdIIRMEeKsuaXe_IZiAw _rDdqfIRMEeKsuaXe_IZiAw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_rDdqfIRMEeKsuaXe_IZiAw" name="apAss" visibility="public" type="_rDcdDYRMEeKsuaXe_IZiAw" association="_rDdqe4RMEeKsuaXe_IZiAw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdqfoRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdqfYRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_rDdqf4RMEeKsuaXe_IZiAw" name="BladeSwMinstances">
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_rDdqnIRMEeKsuaXe_IZiAw" name="bladeSwMinstance" classifier="_rDccloRMEeKsuaXe_IZiAw">
+          <slot xmi:type="uml:Slot" xmi:id="_rDdqnYRMEeKsuaXe_IZiAw" definingFeature="_rDccmIRMEeKsuaXe_IZiAw">
+            <value xmi:type="uml:LiteralString" xmi:id="_rDdqnoRMEeKsuaXe_IZiAw" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_rDdqn4RMEeKsuaXe_IZiAw" name="cpRelatedSwInstance" classifier="_rDdqvYRMEeKsuaXe_IZiAw">
+          <slot xmi:type="uml:Slot" xmi:id="_rDdqoIRMEeKsuaXe_IZiAw" definingFeature="_rDdqv4RMEeKsuaXe_IZiAw">
+            <value xmi:type="uml:LiteralString" xmi:id="_rDdqoYRMEeKsuaXe_IZiAw" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_rDdqooRMEeKsuaXe_IZiAw" client="_rDdqn4RMEeKsuaXe_IZiAw" supplier="_rDdqnIRMEeKsuaXe_IZiAw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_rDdqo4RMEeKsuaXe_IZiAw" name="" memberEnd="_rDcco4RMEeKsuaXe_IZiAw _rDdqpIRMEeKsuaXe_IZiAw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_rDdqpIRMEeKsuaXe_IZiAw" name="bladeSwAss" visibility="public" type="_rDccloRMEeKsuaXe_IZiAw" association="_rDdqo4RMEeKsuaXe_IZiAw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdqpoRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdqpYRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_rDdqp4RMEeKsuaXe_IZiAw" name="CpManagedSW_to_BladeSw" memberEnd="_rDccpoRMEeKsuaXe_IZiAw _rDdqqIRMEeKsuaXe_IZiAw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_rDdqqIRMEeKsuaXe_IZiAw" name="bladeSwAss" visibility="public" type="_rDccloRMEeKsuaXe_IZiAw" association="_rDdqp4RMEeKsuaXe_IZiAw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdqqoRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdqqYRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_rDdqq4RMEeKsuaXe_IZiAw" name="BladeSwPersistent" memberEnd="_rDccqYRMEeKsuaXe_IZiAw _rDdqrIRMEeKsuaXe_IZiAw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_rDdqrIRMEeKsuaXe_IZiAw" name="bladeSwAss" visibility="public" type="_rDccloRMEeKsuaXe_IZiAw" association="_rDdqq4RMEeKsuaXe_IZiAw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdqroRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdqrYRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_rDdqr4RMEeKsuaXe_IZiAw" name="FwUpgradeResult">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDdqsIRMEeKsuaXe_IZiAw" annotatedElement="_rDdqr4RMEeKsuaXe_IZiAw">
+          <body>Lists possible firmware upgrade results.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdqsYRMEeKsuaXe_IZiAw" name="OK">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ppqaINzZEeKqO6e0iFyovw" annotatedElement="_rDdqsYRMEeKsuaXe_IZiAw">
+            <body>Firmware upgrade successfully completed.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdqsoRMEeKsuaXe_IZiAw"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdqs4RMEeKsuaXe_IZiAw" name="NOT_OK">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mMAngNzZEeKqO6e0iFyovw" annotatedElement="_rDdqs4RMEeKsuaXe_IZiAw">
+            <body>Firmware upgrade failed.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdqtIRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_rDdqtYRMEeKsuaXe_IZiAw" name="PackageStatus">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDdqtoRMEeKsuaXe_IZiAw" annotatedElement="_rDdqtYRMEeKsuaXe_IZiAw">
+          <body>Lists possible package status.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdqt4RMEeKsuaXe_IZiAw" name="VALID">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdquIRMEeKsuaXe_IZiAw" annotatedElement="_rDdqt4RMEeKsuaXe_IZiAw">
+            <body>Valid package.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdquYRMEeKsuaXe_IZiAw"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdquoRMEeKsuaXe_IZiAw" name="FAULTY">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdqu4RMEeKsuaXe_IZiAw" annotatedElement="_rDdquoRMEeKsuaXe_IZiAw">
+            <body>Faulty package, corresponding load module is missing on the File System.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdqvIRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_rDdqvYRMEeKsuaXe_IZiAw" name="CpRelatedSwManager">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDdqvoRMEeKsuaXe_IZiAw" annotatedElement="_rDdqvYRMEeKsuaXe_IZiAw">
+          <body>hidden class</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_F3zz8L9yEeWQ5fgWrWqk0w" constrainedElement="_rDdqvYRMEeKsuaXe_IZiAw _rDdqw4RMEeKsuaXe_IZiAw _rDdqxIRMEeKsuaXe_IZiAw _rDccrIRMEeKsuaXe_IZiAw _rDdqn4RMEeKsuaXe_IZiAw _rDdqooRMEeKsuaXe_IZiAw">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_F323QL9yEeWQ5fgWrWqk0w">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rDdqv4RMEeKsuaXe_IZiAw" name="cpRelatedSwManagerId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdqwIRMEeKsuaXe_IZiAw" annotatedElement="_rDdqv4RMEeKsuaXe_IZiAw">
+            <body>Value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdqwoRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdqwYRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_rDdqw4RMEeKsuaXe_IZiAw" name="CpRelatedSwM_to_BladeSW" memberEnd="_rDccrIRMEeKsuaXe_IZiAw _rDdqxIRMEeKsuaXe_IZiAw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_rDdqxIRMEeKsuaXe_IZiAw" name="bladeSWAss" visibility="public" type="_rDccloRMEeKsuaXe_IZiAw" association="_rDdqw4RMEeKsuaXe_IZiAw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rDdqxoRMEeKsuaXe_IZiAw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDdqxYRMEeKsuaXe_IZiAw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_rDdqx4RMEeKsuaXe_IZiAw" name="FunctionalBoardNameImported">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rDdqyIRMEeKsuaXe_IZiAw" annotatedElement="_rDdqx4RMEeKsuaXe_IZiAw">
+          <body>Lists the functional board names of the blades for which Upgrade Packages can be imported.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdqyYRMEeKsuaXe_IZiAw" name="SCXB">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdqyoRMEeKsuaXe_IZiAw" annotatedElement="_rDdqyYRMEeKsuaXe_IZiAw">
+            <body>It is SCX board.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdqy4RMEeKsuaXe_IZiAw" value="340"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdqzIRMEeKsuaXe_IZiAw" name="IPTB">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdqzYRMEeKsuaXe_IZiAw" annotatedElement="_rDdqzIRMEeKsuaXe_IZiAw">
+            <body>It is IPT board.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdqzoRMEeKsuaXe_IZiAw" value="350"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdqz4RMEeKsuaXe_IZiAw" name="CMXB">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdq0IRMEeKsuaXe_IZiAw" annotatedElement="_rDdqz4RMEeKsuaXe_IZiAw">
+            <body>It is CMX board.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdq0YRMEeKsuaXe_IZiAw" value="380"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdq0oRMEeKsuaXe_IZiAw" name="EPB1">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdq04RMEeKsuaXe_IZiAw" annotatedElement="_rDdq0oRMEeKsuaXe_IZiAw">
+            <body>It is EPB1.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdq1IRMEeKsuaXe_IZiAw" value="360"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdq1YRMEeKsuaXe_IZiAw" name="EVOET">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdq1oRMEeKsuaXe_IZiAw" annotatedElement="_rDdq1YRMEeKsuaXe_IZiAw">
+            <body>It is EvoET board.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdq14RMEeKsuaXe_IZiAw" value="370"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_rDdq24RMEeKsuaXe_IZiAw" name="IPNA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rDdq3IRMEeKsuaXe_IZiAw" annotatedElement="_rDdq24RMEeKsuaXe_IZiAw">
+            <body>It is IPNA board.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_rDdq3YRMEeKsuaXe_IZiAw" value="150"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_j2CP0JFEEeKaiZaiRc-o5g" name="CPUB">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_j2HIUZFEEeKaiZaiRc-o5g" annotatedElement="_j2CP0JFEEeKaiZaiRc-o5g">
+            <body>It is CPU board.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_j2KysZFEEeKaiZaiRc-o5g" value="200"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_jNbs4MFWEeK1XoxofujlNw" name="IPLB">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_jNjosMFWEeK1XoxofujlNw" annotatedElement="_jNbs4MFWEeK1XoxofujlNw">
+            <body>It is IPLB.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_jNqWYMFWEeK1XoxofujlNw" value="390"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_gcFxIDhWEeaodprnndtvQg" name="SMXB" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gcFxIThWEeaodprnndtvQg" annotatedElement="_gcFxIDhWEeaodprnndtvQg">
+            <body>It is SMX board.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_57xF4DkZEeaodprnndtvQg" value="400"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_4NsTkMwrEeKNVPFwINKTDw" name="SwUpgradeType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_4N5u8MwrEeKNVPFwINKTDw" annotatedElement="_4NsTkMwrEeKNVPFwINKTDw">
+          <body>Lists possible upgrade types.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_4OC44cwrEeKNVPFwINKTDw" name="NORMAL_UPGRADE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_4OI_gcwrEeKNVPFwINKTDw" annotatedElement="_4OC44cwrEeKNVPFwINKTDw">
+            <body>Upgrade preserving configuration data and according supported upgrade path.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_4OOfEcwrEeKNVPFwINKTDw"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_-wvJ0MwrEeKNVPFwINKTDw" name="INITIAL_INSTALLATION">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_-w4TwcwrEeKNVPFwINKTDw" annotatedElement="_-wvJ0MwrEeKNVPFwINKTDw">
+            <body>Upgrade that overrides everything on the blade (current SW and configuration data).</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_-w-aYcwrEeKNVPFwINKTDw" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_10ezwOSFEeKPpNuHv1-AJg" name="ShelfAddress">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6gBV0OSFEeKPpNuHv1-AJg" annotatedElement="_10ezwOSFEeKPpNuHv1-AJg">
+          <body>It is used to defined the shelf address for the magazine where the board is placed. 
+The address is made up from the address plugs in the magazine.
+Expressed as a.b.c.d where 
+a
+Address plug 0
+Integer 0-15, 255. When address plug is not present this value is 255 for GESB board and 0 for all other boards.
+b
+Address plug 1
+Integer 0-15, 255. When address plug is not present this value is 255 for GESB board and 0 for all other boards.
+c
+Address plug 2. Shall always be zero.
+Integer 0
+d
+Address plug 3
+Integer 0-15, 255. When address plug is not present this value is 255 for GESB board and 0 for all other boards.
+</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_10s2MOSFEeKPpNuHv1-AJg">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_3BaIkOe0EeKvC7nlYxYoFQ" name="ShelfAndSlot">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_3HneQOe0EeKvC7nlYxYoFQ" annotatedElement="_3BaIkOe0EeKvC7nlYxYoFQ">
+          <body>A shelf address and a slot number separated by &quot;_&quot; character, e.g.: 1.2.0.4_25</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_3HuzAOe0EeKvC7nlYxYoFQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_gHyrkL6FEeWQ5fgWrWqk0w" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_gH6nYL6FEeWQ5fgWrWqk0w" name="NATIVE"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_abbKMMg_EeWSN5hWjYHzjg" client="_gH6nYL6FEeWQ5fgWrWqk0w" supplier="_iQmyML6FEeWQ5fgWrWqk0w"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_iQe2YL6FEeWQ5fgWrWqk0w" name="Features">
+        <packagedElement xmi:type="uml:Class" xmi:id="_iQmyML6FEeWQ5fgWrWqk0w" name="CPI_HIDDEN"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_cikwQHVqEeCBgp9CYCosRQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hOVs8Co6Eeu3bJ1648roRQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hOVs8So6Eeu3bJ1648roRQ" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hOVs8io6Eeu3bJ1648roRQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hOVs8yo6Eeu3bJ1648roRQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hOVs9Co6Eeu3bJ1648roRQ" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hOVs9So6Eeu3bJ1648roRQ" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ciq24HVqEeCBgp9CYCosRQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Kx02QGu6EeK_psk_X1_33w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_olGxYN6MEeehtLhJYaltnA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_olGxYd6MEeehtLhJYaltnA" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_olGxYt6MEeehtLhJYaltnA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_olGxY96MEeehtLhJYaltnA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_olGxZN6MEeehtLhJYaltnA" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_olGxZd6MEeehtLhJYaltnA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_XiXpUDhUEeaodprnndtvQg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XiXpUThUEeaodprnndtvQg" key="Version" value="1.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XiXpUjhUEeaodprnndtvQg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XiXpUzhUEeaodprnndtvQg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XiXpVDhUEeaodprnndtvQg" key="Date" value="2016-02-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XiXpVThUEeaodprnndtvQg" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LGh68Gu6EeK_psk_X1_33w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_HFQh8BtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="Managed Object Model for Blade SW Management Function" subTitle="  " docNo="CXA 117 0026/6" docRev="C" createdBy="XHARBAV" approvedBy="" docLang="Uen" docDate="2020-12-08"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_HFRwEBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Package="_rDb1QIRMEeKsuaXe_IZiAw" author="Harika Bavana" contact="XHARBAV" date="2020-12-08" docNo="CXA 117 0026/6" revision="C" version="2" release="4" organization="" correction="0"/>
+  <CoreMWProfile:CmwMom xmi:id="_G_USABtEEeWvQYFW8NSCww" base_Package="_rDb1QIRMEeKsuaXe_IZiAw" immNamespace="MOM_NAME"/>
+  <CoreMWProfile:CmwClass xmi:id="_G_U5EBtEEeWvQYFW8NSCww" base_Class="_rDccloRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HFRwERtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDccmIRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_VgIBtEEeWvQYFW8NSCww" base_Property="_rDccn4RMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFS-MBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDccn4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HFTlQBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Operation="_rDccr4RMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAction xmi:id="_G_VgIRtEEeWvQYFW8NSCww" base_Operation="_rDccr4RMEeKsuaXe_IZiAw" admOpId="1"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HFTlQRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_rDccsYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HFTlQhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_rDcctYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_HFUMUBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_rDccuYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_HFUMURtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_rDccvYRMEeKsuaXe_IZiAw" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HFUzYBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Enumeration="_rDccwYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFVacBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_rDccxIRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFVacRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_rDccx4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFVachtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_rDccyoRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFWBgBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_rDcczYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFWBgRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_rDcc04RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFWBghtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_rDcc1oRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFWBgxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDcc2YRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFWokBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_rDcc3IRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFWokRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDcc34RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimStruct xmi:id="_HFXPoBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Class="_rDcc4oRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwStruct xmi:id="_G_WHMBtEEeWvQYFW8NSCww" base_Class="_rDcc4oRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_HFXPoRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDcc5IRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_G_WuQBtEEeWvQYFW8NSCww" base_Property="_rDcc5IRMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_HFX2sBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDcc6YRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_G_WuQRtEEeWvQYFW8NSCww" base_Property="_rDcc6YRMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_HFX2sRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDcc7oRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_G_XVUBtEEeWvQYFW8NSCww" base_Property="_rDcc7oRMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_HFX2shtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDcc84RMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_G_XVURtEEeWvQYFW8NSCww" base_Property="_rDcc84RMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HFYdwBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_rDcc94RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFYdwRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDcc-YRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFYdwhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDcc_IRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFYdwxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDcc_4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HFZE0BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_rDcdAoRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFZE0RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDcdBIRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFZE0htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDcdB4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFZr4BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDcdCoRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_HFZr4RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Class="_rDcdDYRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwClass xmi:id="_G_XVUhtEEeWvQYFW8NSCww" base_Class="_rDcdDYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HFaS8BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDcdD4RMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_X8YBtEEeWvQYFW8NSCww" base_Property="_rDcdE4RMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFaS8RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDcdE4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFaS8htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDcdGIRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_X8YRtEEeWvQYFW8NSCww" base_Property="_rDcdGIRMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_X8YhtEEeWvQYFW8NSCww" base_Property="_rDcdHIRMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFa6ABtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDcdHIRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_YjcBtEEeWvQYFW8NSCww" base_Property="_rDcdI4RMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFa6ARtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" base_Property="_rDcdI4RMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_YjcRtEEeWvQYFW8NSCww" base_Property="_rDcdKIRMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFa6AhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDcdKIRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_YjchtEEeWvQYFW8NSCww" base_Property="_rDcdLIRMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFa6AxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDcdLIRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFbhEBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDcdMIRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_ZKgBtEEeWvQYFW8NSCww" base_Property="_rDcdMIRMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAction xmi:id="_G_ZKgRtEEeWvQYFW8NSCww" base_Operation="_rDcdNYRMEeKsuaXe_IZiAw" admOpId="1"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HFbhERtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Operation="_rDcdNYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HFbhEhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_rDcdN4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HFcIIBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_rDcdO4RMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAction xmi:id="_G_ZKgxtEEeWvQYFW8NSCww" base_Operation="_rDcdP4RMEeKsuaXe_IZiAw" admOpId="2"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HFcIIRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Operation="_rDcdP4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HFcIIhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_rDcdQYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HFcvMBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_rDcdRYRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAction xmi:id="_G_ZxkBtEEeWvQYFW8NSCww" base_Operation="_rDcdSYRMEeKsuaXe_IZiAw" admOpId="3"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HFcvMRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Operation="_rDcdSYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HFcvMhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_rDcdS4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HFcvMxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_rDcdT4RMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAction xmi:id="_G_ZxkRtEEeWvQYFW8NSCww" base_Operation="_rDcdU4RMEeKsuaXe_IZiAw" admOpId="4"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HFdWQBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Operation="_rDcdU4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HFdWQRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_rDcdVYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HFdWQhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_rDcdWYRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAction xmi:id="_G_ZxkhtEEeWvQYFW8NSCww" base_Operation="_rDcdXYRMEeKsuaXe_IZiAw" admOpId="5"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HFd9UBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Operation="_rDcdXYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_HFd9URtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Class="_rDcdX4RMEeKsuaXe_IZiAw" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_G_ZxkxtEEeWvQYFW8NSCww" base_Class="_rDcdX4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HFd9UhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDcdYYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFekYBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDcdZYRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_aYoBtEEeWvQYFW8NSCww" base_Property="_rDcdZYRMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFfLcBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDcdaoRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_aYoRtEEeWvQYFW8NSCww" base_Property="_rDcdaoRMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFfLcRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDcdb4RMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_a_sBtEEeWvQYFW8NSCww" base_Property="_rDcdb4RMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFfLchtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdDY4RMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_a_sRtEEeWvQYFW8NSCww" base_Property="_rDdDY4RMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_a_shtEEeWvQYFW8NSCww" base_Property="_rDdDZ4RMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFfygBtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" base_Property="_rDdDZ4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_HFfygRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Class="_rDdDa4RMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwClass xmi:id="_G_bmwBtEEeWvQYFW8NSCww" base_Class="_rDdDa4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HFfyghtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdDbYRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_bmwRtEEeWvQYFW8NSCww" base_Property="_rDdDcYRMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFfygxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdDcYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFgZkBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdDdoRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_bmwhtEEeWvQYFW8NSCww" base_Property="_rDdDdoRMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_bmxBtEEeWvQYFW8NSCww" base_Property="_rDdDeoRMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFgZkRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdDeoRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_cN0BtEEeWvQYFW8NSCww" base_Property="_rDdDfoRMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFgZkhtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" base_Property="_rDdDfoRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_cN0RtEEeWvQYFW8NSCww" base_Property="_rDdDg4RMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFhAoBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdDg4RMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_cN0htEEeWvQYFW8NSCww" base_Property="_rDdDh4RMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFhAoRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdDh4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HFhAohtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdDi4RMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_c04BtEEeWvQYFW8NSCww" base_Property="_rDdDi4RMEeKsuaXe_IZiAw" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAction xmi:id="_G_c04RtEEeWvQYFW8NSCww" base_Operation="_rDdDkIRMEeKsuaXe_IZiAw" admOpId="1"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HFhnsBtEEeWvQYFW8NSCww" hideGroupName="" specification="" status="DEPRECATED" statusInformation="DEPRECATED" base_Operation="_rDdDkIRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HFhnsRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_rDdDkoRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HFhnshtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_rDdDloRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAction xmi:id="_G_c04htEEeWvQYFW8NSCww" base_Operation="_rDdDmoRMEeKsuaXe_IZiAw" admOpId="2"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HFiOwBtEEeWvQYFW8NSCww" hideGroupName="" specification="" status="DEPRECATED" statusInformation="DEPRECATED" base_Operation="_rDdDmoRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HFiOwRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_rDdDnIRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAction xmi:id="_G_db8BtEEeWvQYFW8NSCww" base_Operation="_rDdDoIRMEeKsuaXe_IZiAw" admOpId="3"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HFiOwhtEEeWvQYFW8NSCww" hideGroupName="" specification="" status="DEPRECATED" statusInformation="DEPRECATED" base_Operation="_rDdDoIRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAction xmi:id="_G_db8RtEEeWvQYFW8NSCww" base_Operation="_rDdDooRMEeKsuaXe_IZiAw" admOpId="4"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HFiOwxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Operation="_rDdDooRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HFi10BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_rDdDpIRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFi10RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdDpoRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFi10htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdDqYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HFjc4BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_rDdDrIRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFjc4RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdDroRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFjc4htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdDsYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFkD8BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdDtIRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFkD8RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdDt4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFkD8htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdDuoRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFkD8xtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdDvYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFkrABtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdDwIRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HFkrARtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_rDdDw4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFkrAhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdDxYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFlSEBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdDyIRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFlSERtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdDy4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFlSEhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdDzoRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFlSExtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdD0YRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFl5IBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdD1IRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFl5IRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdD14RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_HFmgMBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" length="" pattern="" base_DataType="_rDdD2oRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_HFmgMRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" length="" pattern="^([0-9]|[1][0-9]|2[0-6]|28)|ALL$" base_DataType="_rDdD3YRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HFmgMhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Enumeration="_rDdD4IRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFnHQBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdD4oRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFnHQRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdD5YRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFnHQhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdD6IRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HFnuUBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Enumeration="_rDdD64RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFnuURtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdD7YRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFnuUhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdD8IRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwClass xmi:id="_G_db8htEEeWvQYFW8NSCww" base_Class="_rDdD84RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_HFoVYBtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" base_Class="_rDdD84RMEeKsuaXe_IZiAw" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HFoVYRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdD9YRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_eDABtEEeWvQYFW8NSCww" base_Property="_rDdD-YRMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HFoVYhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdD-YRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_eDAhtEEeWvQYFW8NSCww" base_Property="_rDdD_oRMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HFo8cBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdD_oRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_eDAxtEEeWvQYFW8NSCww" base_Property="_rDdEA4RMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HFo8cRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdEA4RMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_eqEBtEEeWvQYFW8NSCww" base_Property="_rDdECIRMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HFo8chtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdECIRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_eqERtEEeWvQYFW8NSCww" base_Property="_rDdEDYRMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HFpjgBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdEDYRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_fRIBtEEeWvQYFW8NSCww" base_Property="_rDdEEoRMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HFpjgRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdEEoRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_fRIRtEEeWvQYFW8NSCww" base_Property="_rDdEFoRMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HFpjghtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdEFoRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_fRIhtEEeWvQYFW8NSCww" base_Property="_rDdEGoRMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HFqKkBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdEGoRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_f4MBtEEeWvQYFW8NSCww" base_Property="_rDdEH4RMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HFqKkRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdEH4RMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_f4MRtEEeWvQYFW8NSCww" base_Property="_rDdEI4RMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HFqKkhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdEI4RMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_f4MhtEEeWvQYFW8NSCww" base_Property="_rDdEKIRMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HFqxoBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdEKIRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_gfQBtEEeWvQYFW8NSCww" base_Property="_rDdELYRMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HFqxoRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdELYRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_gfQhtEEeWvQYFW8NSCww" base_Property="_rDdEMoRMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HFqxohtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdEMoRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_gfQxtEEeWvQYFW8NSCww" base_Property="_rDdEN4RMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HFqxoxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdEN4RMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_hGUBtEEeWvQYFW8NSCww" base_Property="_rDdEPIRMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HFrYsBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdEPIRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAction xmi:id="_G_hGURtEEeWvQYFW8NSCww" base_Operation="_rDdEQYRMEeKsuaXe_IZiAw" admOpId="1"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HFrYsRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Operation="_rDdEQYRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAction xmi:id="_G_hGUhtEEeWvQYFW8NSCww" base_Operation="_rDdEQ4RMEeKsuaXe_IZiAw" admOpId="2"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HFrYshtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Operation="_rDdEQ4RMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwAction xmi:id="_G_htYBtEEeWvQYFW8NSCww" base_Operation="_rDdERYRMEeKsuaXe_IZiAw" admOpId="3"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HFr_wBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Operation="_rDdERYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HFr_wRtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" base_Enumeration="_rDdER4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFr_whtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdESYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFsm0BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdES4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFsm0RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdETYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimStruct xmi:id="_HFsm0htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Class="_rDdET4RMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwStruct xmi:id="_G_htYRtEEeWvQYFW8NSCww" base_Class="_rDdET4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_HFsm0xtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdEUYRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_G_htYhtEEeWvQYFW8NSCww" base_Property="_rDdEUYRMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_HFtN4BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdEVoRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_G_iUcBtEEeWvQYFW8NSCww" base_Property="_rDdEVoRMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_HFtN4RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdEW4RMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_G_iUchtEEeWvQYFW8NSCww" base_Property="_rDdEW4RMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_HFtN4htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdEX4RMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_G_iUcxtEEeWvQYFW8NSCww" base_Property="_rDdEX4RMEeKsuaXe_IZiAw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HFt08BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_rDdEZIRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFt08RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdEZoRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFt08htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdEaYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFucABtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdEa4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFucARtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdEbYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFucAhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdEb4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFucAxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdEcYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFvDEBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdqcIRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFvDERtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdqc4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFvDEhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_rDdqdoRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFvqIBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_rDdqeIRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_HFvqIRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_rDdqe4RMEeKsuaXe_IZiAw" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimInstances xmi:id="_HFwRMBtEEeWvQYFW8NSCww" base_Package="_rDdqf4RMEeKsuaXe_IZiAw" version="1" release="0" correction="0"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_HFwRMRtEEeWvQYFW8NSCww" base_InstanceSpecification="_rDdqnIRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_HFw4QBtEEeWvQYFW8NSCww" base_InstanceSpecification="_rDdqn4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_HFw4QRtEEeWvQYFW8NSCww" base_Dependency="_rDdqooRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_HFw4QhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_rDdqo4RMEeKsuaXe_IZiAw" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_HFxfUBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_rDdqp4RMEeKsuaXe_IZiAw" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_HFxfURtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" base_Association="_rDdqq4RMEeKsuaXe_IZiAw" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HFxfUhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_rDdqr4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFyGYBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdqsYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFyGYRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdqs4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HFyGYhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_rDdqtYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFytcBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdqt4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFytcRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdquoRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_HFytchtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" base_Class="_rDdqvYRMEeKsuaXe_IZiAw"/>
+  <CoreMWProfile:CmwClass xmi:id="_G_i7gBtEEeWvQYFW8NSCww" base_Class="_rDdqvYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HFzUgBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_rDdqv4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_HFzUgRtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" base_Association="_rDdqw4RMEeKsuaXe_IZiAw" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HFzUghtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_rDdqx4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFzUgxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdqyYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFz7kBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdqzIRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFz7kRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdqz4RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HFz7khtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdq0oRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HF0ioBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdq1YRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HF0ioRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_rDdq24RMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HF0iohtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_gITvAMFWEeK1XoxofujlNw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HF0ioxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_jNbs4MFWEeK1XoxofujlNw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HF1JsBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_xg3WQMFWEeK1XoxofujlNw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HF1JsRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_2n3sUMFWEeK1XoxofujlNw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HF1JshtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_4NsTkMwrEeKNVPFwINKTDw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HF1wwBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_4OC44cwrEeKNVPFwINKTDw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HF1wwRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_-wvJ0MwrEeKNVPFwINKTDw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HF1wwhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_9Gmt0MwsEeKNVPFwINKTDw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HF2X0BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_D2cC4MwtEeKNVPFwINKTDw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HF2X0RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_j2CP0JFEEeKaiZaiRc-o5g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HF2X0htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_cawysN8EEeKqO6e0iFyovw"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_HF2X0xtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" length="" pattern="\b^(255|[0-9]|[1][0-5]){1}\.(255|[0-9]|[1][0-5]){1}\.(0)\.(255|[0-9]|[1][0-5]){1}|ALL$\b" base_DataType="_10ezwOSFEeKPpNuHv1-AJg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HF2-4BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_epGqALDXEeK3aZ58ypMvyg"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_HF2-4RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" length="" pattern="\b^(255|[0-9]|[1][0-5]){1}\.(255|[0-9]|[1][0-5]){1}\.(0)\.(255|[0-9]|[1][0-5]){1}\_([0-9]|[1][0-9]|2[0-6]|28)$\b" base_DataType="_3BaIkOe0EeKvC7nlYxYoFQ"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HF2-4htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_OTGBgFHQEeOIq77AzuXb7g"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HF3l8BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_eo7xQFIBEeOIq77AzuXb7g"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HF3l8RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_Ne-hEFKNEeOV7qjz4W1Tzg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_i7gRtEEeWvQYFW8NSCww" base_Property="_Ne-hEFKNEeOV7qjz4W1Tzg" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HF3l8htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_gFP4oFKNEeOV7qjz4W1Tzg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_i7ghtEEeWvQYFW8NSCww" base_Property="_gFP4oFKNEeOV7qjz4W1Tzg" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HF4NABtEEeWvQYFW8NSCww" hideGroupName="" specification="" status="DEPRECATED" statusInformation="DEPRECATED" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_s6kQwGDcEeOcIKhTORmAjw"/>
+  <CoreMWProfile:CmwAction xmi:id="_G_i7gxtEEeWvQYFW8NSCww" base_Operation="_s6kQwGDcEeOcIKhTORmAjw" admOpId="1"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HF4NARtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_eGkbgGDdEeOcIKhTORmAjw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HF4NAhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_eGlpoGDdEeOcIKhTORmAjw"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HF4NAxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_2h6wEGDdEeOcIKhTORmAjw"/>
+  <CoreMWProfile:CmwAction xmi:id="_G_jikBtEEeWvQYFW8NSCww" base_Operation="_2h6wEGDdEeOcIKhTORmAjw" admOpId="5"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HF40EBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="__2EcAGDdEeOcIKhTORmAjw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HF40ERtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="__2FDEGDdEeOcIKhTORmAjw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HF40EhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_KjTKYH6QEeOLl_5HQ7wu4w"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HF5bIBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_ml9j4H6QEeOLl_5HQ7wu4w"/>
+  <CoreMWProfile:CmwModel xmi:id="_G_jikRtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwContribution xmi:id="_G_kJoBtEEeWvQYFW8NSCww" base_Association="_rDccvYRMEeKsuaXe_IZiAw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_HF5bIRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Class="_rDccloRMEeKsuaXe_IZiAw" isLegacyRoot="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_kJohtEEeWvQYFW8NSCww" base_Property="_rDccmIRMEeKsuaXe_IZiAw" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_kJoxtEEeWvQYFW8NSCww" base_Property="_rDcdD4RMEeKsuaXe_IZiAw" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_kwsBtEEeWvQYFW8NSCww" base_Property="_rDcdYYRMEeKsuaXe_IZiAw" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_kwsRtEEeWvQYFW8NSCww" base_Property="_rDdDbYRMEeKsuaXe_IZiAw" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_lXwBtEEeWvQYFW8NSCww" base_Property="_rDdD9YRMEeKsuaXe_IZiAw" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_G_lXwRtEEeWvQYFW8NSCww" base_Property="_rDdqv4RMEeKsuaXe_IZiAw" isPersistent="true"/>
+  <Documentation:Documentation xmi:id="_7PB60BtDEeWvQYFW8NSCww" base_Comment="_amxVsGu6EeK_psk_X1_33w"/>
+  <Documentation:Documentation xmi:id="_7PB60RtDEeWvQYFW8NSCww" base_Comment="_rDcclYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB60htDEeWvQYFW8NSCww" base_Comment="_rDccl4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB60xtDEeWvQYFW8NSCww" base_Comment="_rDccmYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB61BtDEeWvQYFW8NSCww" base_Comment="_rDccoIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB61RtDEeWvQYFW8NSCww" base_Comment="_rDccsIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB61htDEeWvQYFW8NSCww" base_Comment="_rDccsoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB61xtDEeWvQYFW8NSCww" base_Comment="_rDcctoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB62BtDEeWvQYFW8NSCww" base_Comment="_rDccuoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB62htDEeWvQYFW8NSCww" base_Comment="_rDccw4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB62xtDEeWvQYFW8NSCww" base_Comment="_rDccxYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB63BtDEeWvQYFW8NSCww" base_Comment="_rDccyIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB63RtDEeWvQYFW8NSCww" base_Comment="_rDccy4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB63htDEeWvQYFW8NSCww" base_Comment="_rDcczoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB63xtDEeWvQYFW8NSCww" base_Comment="_rDcc1IRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB64BtDEeWvQYFW8NSCww" base_Comment="_rDcc14RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB64RtDEeWvQYFW8NSCww" base_Comment="_rDcc2oRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB64htDEeWvQYFW8NSCww" base_Comment="_rDcc3YRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB64xtDEeWvQYFW8NSCww" base_Comment="_rDcc4IRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB65BtDEeWvQYFW8NSCww" base_Comment="_rDcc44RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB65RtDEeWvQYFW8NSCww" base_Comment="_rDcc5YRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB65htDEeWvQYFW8NSCww" base_Comment="_rDcc6oRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB65xtDEeWvQYFW8NSCww" base_Comment="_rDcc74RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB66BtDEeWvQYFW8NSCww" base_Comment="_rDcc9IRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB66RtDEeWvQYFW8NSCww" base_Comment="_rDcc-IRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB66htDEeWvQYFW8NSCww" base_Comment="_rDcc-oRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB66xtDEeWvQYFW8NSCww" base_Comment="_rDcc_YRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB67BtDEeWvQYFW8NSCww" base_Comment="_rDcdAIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB67RtDEeWvQYFW8NSCww" base_Comment="_rDcdA4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB67htDEeWvQYFW8NSCww" base_Comment="_rDcdBYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB67xtDEeWvQYFW8NSCww" base_Comment="_rDcdCIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB68BtDEeWvQYFW8NSCww" base_Comment="_rDcdC4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB68RtDEeWvQYFW8NSCww" base_Comment="_rDcdDoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB68htDEeWvQYFW8NSCww" base_Comment="_rDcdEIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB68xtDEeWvQYFW8NSCww" base_Comment="_rDcdFIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB69BtDEeWvQYFW8NSCww" base_Comment="_rDcdGYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB69RtDEeWvQYFW8NSCww" base_Comment="_rDcdHYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB69htDEeWvQYFW8NSCww" base_Comment="_rDcdJIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB69xtDEeWvQYFW8NSCww" base_Comment="_rDcdKYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB6-BtDEeWvQYFW8NSCww" base_Comment="_rDcdLYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB6-RtDEeWvQYFW8NSCww" base_Comment="_rDcdMYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB6-htDEeWvQYFW8NSCww" base_Comment="_rDcdNoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB6-xtDEeWvQYFW8NSCww" base_Comment="_rDcdOIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB6_BtDEeWvQYFW8NSCww" base_Comment="_rDcdPIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB6_RtDEeWvQYFW8NSCww" base_Comment="_rDcdQIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB6_htDEeWvQYFW8NSCww" base_Comment="_rDcdQoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB6_xtDEeWvQYFW8NSCww" base_Comment="_rDcdRoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7ABtDEeWvQYFW8NSCww" base_Comment="_rDcdSoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7ARtDEeWvQYFW8NSCww" base_Comment="_rDcdTIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7AhtDEeWvQYFW8NSCww" base_Comment="_rDcdUIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7AxtDEeWvQYFW8NSCww" base_Comment="_rDcdVIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7BBtDEeWvQYFW8NSCww" base_Comment="_rDcdVoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7BRtDEeWvQYFW8NSCww" base_Comment="_rDcdWoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7BhtDEeWvQYFW8NSCww" base_Comment="_rDcdXoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7BxtDEeWvQYFW8NSCww" base_Comment="_rDcdYIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7CBtDEeWvQYFW8NSCww" base_Comment="_rDcdYoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7CRtDEeWvQYFW8NSCww" base_Comment="_rDcdZoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7ChtDEeWvQYFW8NSCww" base_Comment="_rDcda4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7CxtDEeWvQYFW8NSCww" base_Comment="_rDcdcIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7DBtDEeWvQYFW8NSCww" base_Comment="_rDdDZIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7DRtDEeWvQYFW8NSCww" base_Comment="_rDdDaIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7DhtDEeWvQYFW8NSCww" base_Comment="_rDdDbIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7DxtDEeWvQYFW8NSCww" base_Comment="_rDdDboRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7EBtDEeWvQYFW8NSCww" base_Comment="_rDdDcoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7ERtDEeWvQYFW8NSCww" base_Comment="_rDdDd4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7EhtDEeWvQYFW8NSCww" base_Comment="_rDdDe4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7ExtDEeWvQYFW8NSCww" base_Comment="_rDdDf4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7FBtDEeWvQYFW8NSCww" base_Comment="_rDdDhIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7FRtDEeWvQYFW8NSCww" base_Comment="_rDdDiIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7FhtDEeWvQYFW8NSCww" base_Comment="_rDdDjIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7FxtDEeWvQYFW8NSCww" base_Comment="_rDdDkYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7GBtDEeWvQYFW8NSCww" base_Comment="_rDdDk4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7GRtDEeWvQYFW8NSCww" base_Comment="_rDdDl4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7GhtDEeWvQYFW8NSCww" base_Comment="_rDdDm4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7GxtDEeWvQYFW8NSCww" base_Comment="_rDdDnYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7HBtDEeWvQYFW8NSCww" base_Comment="_rDdDoYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7HRtDEeWvQYFW8NSCww" base_Comment="_rDdDo4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7HhtDEeWvQYFW8NSCww" base_Comment="_rDdDpYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7HxtDEeWvQYFW8NSCww" base_Comment="_rDdDp4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7IBtDEeWvQYFW8NSCww" base_Comment="_rDdDqoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7IRtDEeWvQYFW8NSCww" base_Comment="_rDdDrYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7IhtDEeWvQYFW8NSCww" base_Comment="_rDdDr4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7IxtDEeWvQYFW8NSCww" base_Comment="_rDdDsoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7JBtDEeWvQYFW8NSCww" base_Comment="_rDdDtYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7JRtDEeWvQYFW8NSCww" base_Comment="_rDdDuIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7JhtDEeWvQYFW8NSCww" base_Comment="_rDdDu4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7JxtDEeWvQYFW8NSCww" base_Comment="_rDdDvoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7KBtDEeWvQYFW8NSCww" base_Comment="_rDdDwYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7KRtDEeWvQYFW8NSCww" base_Comment="_rDdDxIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7KhtDEeWvQYFW8NSCww" base_Comment="_rDdDxoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7KxtDEeWvQYFW8NSCww" base_Comment="_rDdDyYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7LBtDEeWvQYFW8NSCww" base_Comment="_rDdDzIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7LRtDEeWvQYFW8NSCww" base_Comment="_rDdDz4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7LhtDEeWvQYFW8NSCww" base_Comment="_rDdD0oRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7LxtDEeWvQYFW8NSCww" base_Comment="_rDdD1YRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7MBtDEeWvQYFW8NSCww" base_Comment="_rDdD2IRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7MRtDEeWvQYFW8NSCww" base_Comment="_rDdD24RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PB7MxtDEeWvQYFW8NSCww" base_Comment="_rDdD3oRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh4BtDEeWvQYFW8NSCww" base_Comment="_rDdD4YRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh4RtDEeWvQYFW8NSCww" base_Comment="_rDdD44RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh4htDEeWvQYFW8NSCww" base_Comment="_rDdD5oRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh4xtDEeWvQYFW8NSCww" base_Comment="_rDdD6YRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh5BtDEeWvQYFW8NSCww" base_Comment="_rDdD7IRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh5RtDEeWvQYFW8NSCww" base_Comment="_rDdD7oRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh5htDEeWvQYFW8NSCww" base_Comment="_rDdD8YRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh5xtDEeWvQYFW8NSCww" base_Comment="_rDdD9IRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh6BtDEeWvQYFW8NSCww" base_Comment="_rDdD9oRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh6RtDEeWvQYFW8NSCww" base_Comment="_rDdD-oRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh6htDEeWvQYFW8NSCww" base_Comment="_rDdD_4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh6xtDEeWvQYFW8NSCww" base_Comment="_rDdEBIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh7BtDEeWvQYFW8NSCww" base_Comment="_rDdECYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh7RtDEeWvQYFW8NSCww" base_Comment="_rDdEDoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh7htDEeWvQYFW8NSCww" base_Comment="_rDdEE4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh7xtDEeWvQYFW8NSCww" base_Comment="_rDdEF4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh8BtDEeWvQYFW8NSCww" base_Comment="_rDdEG4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh8RtDEeWvQYFW8NSCww" base_Comment="_rDdEIIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh8htDEeWvQYFW8NSCww" base_Comment="_rDdEJIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh8xtDEeWvQYFW8NSCww" base_Comment="_rDdEKYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh9BtDEeWvQYFW8NSCww" base_Comment="_rDdELoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh9RtDEeWvQYFW8NSCww" base_Comment="_rDdEM4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh9htDEeWvQYFW8NSCww" base_Comment="_rDdEOIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh9xtDEeWvQYFW8NSCww" base_Comment="_rDdEPYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh-BtDEeWvQYFW8NSCww" base_Comment="_rDdEQoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh-RtDEeWvQYFW8NSCww" base_Comment="_rDdERIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh-htDEeWvQYFW8NSCww" base_Comment="_rDdERoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh-xtDEeWvQYFW8NSCww" base_Comment="_rDdESIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh_BtDEeWvQYFW8NSCww" base_Comment="_rDdEUIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh_RtDEeWvQYFW8NSCww" base_Comment="_rDdEUoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh_htDEeWvQYFW8NSCww" base_Comment="_rDdEV4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCh_xtDEeWvQYFW8NSCww" base_Comment="_rDdEXIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiABtDEeWvQYFW8NSCww" base_Comment="_rDdEYIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiAhtDEeWvQYFW8NSCww" base_Comment="_rDdEZYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiAxtDEeWvQYFW8NSCww" base_Comment="_rDdEZ4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiBRtDEeWvQYFW8NSCww" base_Comment="_rDdqcYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiBhtDEeWvQYFW8NSCww" base_Comment="_rDdqdIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiBxtDEeWvQYFW8NSCww" base_Comment="_rDdqeYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiCBtDEeWvQYFW8NSCww" base_Comment="_rDdqsIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiCRtDEeWvQYFW8NSCww" base_Comment="_rDdqtoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiChtDEeWvQYFW8NSCww" base_Comment="_rDdquIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiCxtDEeWvQYFW8NSCww" base_Comment="_rDdqu4RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiDBtDEeWvQYFW8NSCww" base_Comment="_rDdqvoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiDRtDEeWvQYFW8NSCww" base_Comment="_rDdqwIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiDhtDEeWvQYFW8NSCww" base_Comment="_rDdqyIRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiDxtDEeWvQYFW8NSCww" base_Comment="_rDdqyoRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiEBtDEeWvQYFW8NSCww" base_Comment="_rDdqzYRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiERtDEeWvQYFW8NSCww" base_Comment="_rDdq0IRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiEhtDEeWvQYFW8NSCww" base_Comment="_rDdq04RMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiExtDEeWvQYFW8NSCww" base_Comment="_rDdq1oRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiFBtDEeWvQYFW8NSCww" base_Comment="_gIbDwMFWEeK1XoxofujlNw"/>
+  <Documentation:Documentation xmi:id="_7PCiFRtDEeWvQYFW8NSCww" base_Comment="_jNjosMFWEeK1XoxofujlNw"/>
+  <Documentation:Documentation xmi:id="_7PCiFhtDEeWvQYFW8NSCww" base_Comment="_xg_5IcFWEeK1XoxofujlNw"/>
+  <Documentation:Documentation xmi:id="_7PCiFxtDEeWvQYFW8NSCww" base_Comment="_2oAPMMFWEeK1XoxofujlNw"/>
+  <Documentation:Documentation xmi:id="_7PCiGBtDEeWvQYFW8NSCww" base_Comment="_4N5u8MwrEeKNVPFwINKTDw"/>
+  <Documentation:Documentation xmi:id="_7PCiGRtDEeWvQYFW8NSCww" base_Comment="_4OI_gcwrEeKNVPFwINKTDw"/>
+  <Documentation:Documentation xmi:id="_7PCiGhtDEeWvQYFW8NSCww" base_Comment="_-w4TwcwrEeKNVPFwINKTDw"/>
+  <Documentation:Documentation xmi:id="_7PCiGxtDEeWvQYFW8NSCww" base_Comment="_9Gv3wcwsEeKNVPFwINKTDw"/>
+  <Documentation:Documentation xmi:id="_7PCiHBtDEeWvQYFW8NSCww" base_Comment="_rDdq3IRMEeKsuaXe_IZiAw"/>
+  <Documentation:Documentation xmi:id="_7PCiHRtDEeWvQYFW8NSCww" base_Comment="_vZEpcNzYEeKqO6e0iFyovw"/>
+  <Documentation:Documentation xmi:id="_7PCiHhtDEeWvQYFW8NSCww" base_Comment="_xe34UNzYEeKqO6e0iFyovw"/>
+  <Documentation:Documentation xmi:id="_7PCiHxtDEeWvQYFW8NSCww" base_Comment="_0EBVoNzYEeKqO6e0iFyovw"/>
+  <Documentation:Documentation xmi:id="_7PCiIBtDEeWvQYFW8NSCww" base_Comment="_240_kNzYEeKqO6e0iFyovw"/>
+  <Documentation:Documentation xmi:id="_7PCiIRtDEeWvQYFW8NSCww" base_Comment="_665t4NzYEeKqO6e0iFyovw"/>
+  <Documentation:Documentation xmi:id="_7PCiIhtDEeWvQYFW8NSCww" base_Comment="_82jiQNzYEeKqO6e0iFyovw"/>
+  <Documentation:Documentation xmi:id="_7PCiIxtDEeWvQYFW8NSCww" base_Comment="_BpnBkNzZEeKqO6e0iFyovw"/>
+  <Documentation:Documentation xmi:id="_7PCiJBtDEeWvQYFW8NSCww" base_Comment="_F6IbkNzZEeKqO6e0iFyovw"/>
+  <Documentation:Documentation xmi:id="_7PCiJRtDEeWvQYFW8NSCww" base_Comment="_mMAngNzZEeKqO6e0iFyovw"/>
+  <Documentation:Documentation xmi:id="_7PCiJhtDEeWvQYFW8NSCww" base_Comment="_ppqaINzZEeKqO6e0iFyovw"/>
+  <Documentation:Documentation xmi:id="_7PCiJxtDEeWvQYFW8NSCww" base_Comment="_sHXLoNzZEeKqO6e0iFyovw"/>
+  <Documentation:Documentation xmi:id="_7PCiKBtDEeWvQYFW8NSCww" base_Comment="_tbOnQNzZEeKqO6e0iFyovw"/>
+  <Documentation:Documentation xmi:id="_7PCiKRtDEeWvQYFW8NSCww" base_Comment="_vdmHoNzZEeKqO6e0iFyovw"/>
+  <Documentation:Documentation xmi:id="_7PCiKhtDEeWvQYFW8NSCww" base_Comment="_j2HIUZFEEeKaiZaiRc-o5g"/>
+  <Documentation:Documentation xmi:id="_7PCiKxtDEeWvQYFW8NSCww" base_Comment="_ca4HcN8EEeKqO6e0iFyovw"/>
+  <Documentation:Documentation xmi:id="_7PCiLBtDEeWvQYFW8NSCww" base_Comment="_6gBV0OSFEeKPpNuHv1-AJg"/>
+  <Documentation:Documentation xmi:id="_7PCiLRtDEeWvQYFW8NSCww" base_Comment="_3HneQOe0EeKvC7nlYxYoFQ"/>
+  <Documentation:Documentation xmi:id="_7PCiLhtDEeWvQYFW8NSCww" base_Comment="_7rldkFIAEeOIq77AzuXb7g"/>
+  <Documentation:Documentation xmi:id="_7PCiLxtDEeWvQYFW8NSCww" base_Comment="_q3I-EFICEeOIq77AzuXb7g"/>
+  <Documentation:Documentation xmi:id="_7PCiMBtDEeWvQYFW8NSCww" base_Comment="_XLS1YFKNEeOV7qjz4W1Tzg"/>
+  <Documentation:Documentation xmi:id="_7PCiMRtDEeWvQYFW8NSCww" base_Comment="_oB1UsFKNEeOV7qjz4W1Tzg"/>
+  <Documentation:Documentation xmi:id="_7PCiMhtDEeWvQYFW8NSCww" base_Comment="_tC8JoGDcEeOcIKhTORmAjw"/>
+  <Documentation:Documentation xmi:id="_7PCiMxtDEeWvQYFW8NSCww" base_Comment="_eGkbgWDdEeOcIKhTORmAjw"/>
+  <Documentation:Documentation xmi:id="_7PCiNBtDEeWvQYFW8NSCww" base_Comment="_eGmQsGDdEeOcIKhTORmAjw"/>
+  <Documentation:Documentation xmi:id="_7PCiNRtDEeWvQYFW8NSCww" base_Comment="_72Jp0GDdEeOcIKhTORmAjw"/>
+  <Documentation:Documentation xmi:id="_7PCiNhtDEeWvQYFW8NSCww" base_Comment="__2EcAWDdEeOcIKhTORmAjw"/>
+  <Documentation:Documentation xmi:id="_7PCiNxtDEeWvQYFW8NSCww" base_Comment="__2FDEWDdEeOcIKhTORmAjw"/>
+  <Documentation:Documentation xmi:id="_7PCiOBtDEeWvQYFW8NSCww" base_Comment="_KjeJgX6QEeOLl_5HQ7wu4w"/>
+  <Documentation:Documentation xmi:id="_7PCiORtDEeWvQYFW8NSCww" base_Comment="_mmFfsX6QEeOLl_5HQ7wu4w"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_pPJ9ADavEeW-8sp2aToZ1Q" base_Property="_pFj8IDavEeW-8sp2aToZ1Q" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_pPMZQDavEeW-8sp2aToZ1Q" hideGroupName="hidden" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" range="" unit="" resolution="" multiplicationFactor="" isNotifiable="true" base_Property="_pFj8IDavEeW-8sp2aToZ1Q"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ttAoYDavEeW-8sp2aToZ1Q" base_Property="_ts8W8DavEeW-8sp2aToZ1Q" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_ttDrsDavEeW-8sp2aToZ1Q" hideGroupName="hidden" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" range="" unit="" resolution="" multiplicationFactor="" isNotifiable="true" base_Property="_ts8W8DavEeW-8sp2aToZ1Q"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_gH6AUL6FEeWQ5fgWrWqk0w" base_Package="_gHyrkL6FEeWQ5fgWrWqk0w"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_gIAG8L6FEeWQ5fgWrWqk0w" base_Class="_gH6nYL6FEeWQ5fgWrWqk0w"/>
+  <ECIMBaseProfile:EcimFeatures xmi:id="_iQmLIL6FEeWQ5fgWrWqk0w" base_Package="_iQe2YL6FEeWQ5fgWrWqk0w"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_iQsRwL6FEeWQ5fgWrWqk0w" base_Class="_iQmyML6FEeWQ5fgWrWqk0w"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_LmoaoDhVEeaodprnndtvQg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_LmWt0DhVEeaodprnndtvQg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_gcJbgDhWEeaodprnndtvQg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_gcFxIDhWEeaodprnndtvQg"/>
+</xmi:XMI>

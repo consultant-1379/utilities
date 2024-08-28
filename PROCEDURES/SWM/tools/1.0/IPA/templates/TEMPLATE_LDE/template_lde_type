@@ -1,0 +1,193 @@
+				<AppBaseType safAppType="safAppType=ERIC-LDEAppType">
+					<AppType safVersion="safVersion=1.2.0">
+						<serviceGroupType saAmfApptSGTypes="safVersion=1.2.0,safSgType=ERIC-LDESgTypeNoRed"/>
+						<serviceGroupType saAmfApptSGTypes="safVersion=1.0.0,safSgType=ERIC-LDESgType2N"/>
+					</AppType>
+				</AppBaseType>
+				<SGBaseType safSgType="safSgType=ERIC-LDESgTypeNoRed">
+					<SGType safVersion="safVersion=1.2.0">
+						<suType saAmfSgtValidSuTypes="safVersion=1.0.0,safSuType=ERIC-LDESuTypePMCounter"/>
+						<suType saAmfSgtValidSuTypes="safVersion=1.0.0,safSuType=ERIC-LDESuTypeCfsMonitor"/>
+						<suType saAmfSgtValidSuTypes="safVersion=1.0.0,safSuType=ERIC-LDESuTypeBondMonitor"/>
+						<suType saAmfSgtValidSuTypes="safVersion=1.0.0,safSuType=ERIC-LDESuTypeLdeConfig"/>
+						<redundancy saAmfSgtRedundancyModel="5"/>
+						<compRestart saAmfSgtDefCompRestartMax="5" saAmfSgtDefCompRestartProb="100000"/>
+						<suRestart saAmfSgtDefSuRestartMax="5" saAmfSgtDefSuRestartProb="100000"/>
+						<autoAttrs saAmfSgtDefAutoAdjustProb="100000" safAmfSgtDefAutoAdjust="0" safAmfSgtDefAutoRepair="1"/>
+					</SGType>
+				</SGBaseType>
+				<SUBaseType safSuType="safSuType=ERIC-LDESuTypePMCounter">
+					<SUType safVersion="safVersion=1.0.0">
+						<mandatoryAttrs saAmfSutDefSUFailover="0" saAmfSutIsExternal="0"/>
+						<componentType saAmfSutMaxNumComponents="0" saAmfSutMinNumComponents="1" safMemberCompType="safMemberCompType=safVersion=#LDE_BONDMONITOR_RSTATE#\,safCompType=ERIC-LDECompTypePMCounterSC"/>
+						<componentType saAmfSutMaxNumComponents="0" saAmfSutMinNumComponents="1" safMemberCompType="safMemberCompType=safVersion=#LDE_BONDMONITOR_RSTATE#\,safCompType=ERIC-LDECompTypePMCounterPL"/>
+						<supportedSvcType saAmfSutProvidesSvcType="safVersion=1.0.0,safSvcType=ERIC-NoRed-LDE"/>
+					</SUType>
+				</SUBaseType>
+				<CSBaseType safCSType="safCSType=ERIC-PM-Counter">
+					<CSType safVersion="safVersion=1.0.0"/>
+				</CSBaseType>
+				<ServiceBaseType safSvcType="safSvcType=ERIC-NoRed-LDE">
+					<ServiceType safVersion="safVersion=1.0.0">
+						<csType saAmfSvctMaxNumCSIs="0" safMemberCSType="safMemberCSType=safVersion=1.0.0\,safCSType=ERIC-PM-Counter"/>
+					</ServiceType>
+				</ServiceBaseType>
+				<CompBaseType safCompType="safCompType=ERIC-LDECompTypePMCounterSC">
+					<CompType safVersion="safVersion=#LDE_PMCOUNTER_RSTATE#">
+						<providesCSType saAmfCtCompCapability="3" saAmfCtDefNumMaxActiveCsi="1" safSupportedCsType="safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-PM-Counter"/>
+						<compTypeDefaults saAmfCtCompCategory="1" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefDisableRestart="0" saAmfCtDefInstantiationLevel="0" saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtDefRecoveryOnError="2"/>
+						<instantiateCmd saAmfCtRelPathInstantiateCmd="/opt/lde/lde-pm-counter/lde-pm-counter-amf.sh">
+							<cmdArgv>start</cmdArgv>
+						</instantiateCmd>
+						<cleanupCmd saAmfCtRelPathCleanupCmd="/opt/lde/lde-pm-counter/lde-pm-counter-amf.sh">
+							<cmdArgv>stop</cmdArgv>
+						</cleanupCmd>
+						<healthCheck saAmfHealthcheckMaxDuration="180000000000" saAmfHealthcheckPeriod="240000000000" safHealthcheckKey="safHealthcheckKey=LDE_PM-COUNTER"/>
+						<swBundle saAmfCtSwBundle="safSmfBundle=#LDE_BUNDLE#"/>
+					</CompType>
+				</CompBaseType>
+				<!-- Cfs supervision -->
+				<SUBaseType safSuType="safSuType=ERIC-LDESuTypeCfsMonitor">
+					<SUType safVersion="safVersion=1.0.0">
+						<mandatoryAttrs saAmfSutDefSUFailover="0" saAmfSutIsExternal="0"/>
+						<componentType saAmfSutMaxNumComponents="0" saAmfSutMinNumComponents="1" safMemberCompType="safMemberCompType=safVersion=#LDE_CFSMONITOR_RSTATE#\,safCompType=ERIC-LDECompTypeCfsMonitor"/>
+						<supportedSvcType saAmfSutProvidesSvcType="safVersion=1.0.0,safSvcType=ERIC-NoRed-LDE"/>
+					</SUType>
+				</SUBaseType>
+				<CSBaseType safCSType="safCSType=ERIC-CfsMonitor">
+					<CSType safVersion="safVersion=1.0.0"/>
+				</CSBaseType>
+				<ServiceBaseType safSvcType="safSvcType=ERIC-NoRed-LDE">
+					<ServiceType safVersion="safVersion=1.0.0">
+						<csType saAmfSvctMaxNumCSIs="0" safMemberCSType="safMemberCSType=safVersion=1.0.0\,safCSType=ERIC-CfsMonitor"/>
+					</ServiceType>
+				</ServiceBaseType>
+				<CompBaseType safCompType="safCompType=ERIC-LDECompTypeCfsMonitor">
+					<CompType safVersion="safVersion=#LDE_CFSMONITOR_RSTATE#">
+						<providesCSType saAmfCtCompCapability="3" saAmfCtDefNumMaxActiveCsi="1" safSupportedCsType="safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-CfsMonitor"/>
+						<compTypeDefaults saAmfCtCompCategory="8" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefDisableRestart="0" saAmfCtDefInstantiationLevel="0" saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtDefRecoveryOnError="2"/>
+						<instantiateCmd saAmfCtRelPathInstantiateCmd="/usr/lib/ocf/resource.d/ericsson/lde-internal-cfs.sh">
+							<cmdArgv>start</cmdArgv>
+						</instantiateCmd>
+						<terminateCmd saAmfCtRelPathTerminateCmd="/usr/lib/ocf/resource.d/ericsson/lde-internal-cfs.sh">
+							<cmdArgv>stop</cmdArgv>
+						</terminateCmd>
+						<cleanupCmd saAmfCtRelPathCleanupCmd="/usr/lib/ocf/resource.d/ericsson/lde-internal-cfs.sh">
+							<cmdArgv>stop</cmdArgv>
+						</cleanupCmd>
+						<osafHcCmd osafAmfCtRelPathHcCmd="/usr/lib/ocf/resource.d/ericsson/lde-internal-cfs.sh">
+							<cmdArgv>monitor</cmdArgv>
+						</osafHcCmd>
+						<healthCheck saAmfHealthcheckMaxDuration="180000000000" saAmfHealthcheckPeriod="240000000000" safHealthcheckKey="safHealthcheckKey=osafHealthCheck"/>
+						<swBundle saAmfCtSwBundle="safSmfBundle=#LDE_BUNDLE#"/>
+					</CompType>
+				</CompBaseType>
+				<!-- Bonding supervision -->
+				<SUBaseType safSuType="safSuType=ERIC-LDESuTypeBondMonitor">
+					<SUType safVersion="safVersion=1.0.0">
+						<mandatoryAttrs saAmfSutDefSUFailover="0" saAmfSutIsExternal="0"/>
+						<componentType saAmfSutMaxNumComponents="0" saAmfSutMinNumComponents="1" safMemberCompType="safMemberCompType=safVersion=#LDE_PMCOUNTER_RSTATE#\,safCompType=ERIC-LDECompTypeBondMonitor"/>
+						<supportedSvcType saAmfSutProvidesSvcType="safVersion=1.0.0,safSvcType=ERIC-NoRed-LDE"/>
+					</SUType>
+				</SUBaseType>
+				<CSBaseType safCSType="safCSType=ERIC-BondMonitor">
+					<CSType safVersion="safVersion=1.0.0"/>
+				</CSBaseType>
+				<ServiceBaseType safSvcType="safSvcType=ERIC-NoRed-LDE">
+					<ServiceType safVersion="safVersion=1.0.0">
+						<csType saAmfSvctMaxNumCSIs="0" safMemberCSType="safMemberCSType=safVersion=1.0.0\,safCSType=ERIC-BondMonitor"/>
+					</ServiceType>
+				</ServiceBaseType>
+				<CompBaseType safCompType="safCompType=ERIC-LDECompTypeBondMonitor">
+					<CompType safVersion="safVersion=#LDE_BONDMONITOR_RSTATE#">
+						<providesCSType saAmfCtCompCapability="3" saAmfCtDefNumMaxActiveCsi="1" safSupportedCsType="safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-BondMonitor"/>
+						<compTypeDefaults saAmfCtCompCategory="8" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefDisableRestart="0" saAmfCtDefInstantiationLevel="0" saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtDefRecoveryOnError="2"/>
+						<instantiateCmd saAmfCtRelPathInstantiateCmd="/usr/lib/ocf/resource.d/ericsson/lde-bonding-supervision.sh">
+							<cmdArgv>start</cmdArgv>
+						</instantiateCmd>
+						<terminateCmd saAmfCtRelPathTerminateCmd="/usr/lib/ocf/resource.d/ericsson/lde-bonding-supervision.sh">
+							<cmdArgv>stop</cmdArgv>
+						</terminateCmd>
+						<cleanupCmd saAmfCtRelPathCleanupCmd="/usr/lib/ocf/resource.d/ericsson/lde-bonding-supervision.sh">
+							<cmdArgv>stop</cmdArgv>
+						</cleanupCmd>
+						<osafHcCmd osafAmfCtRelPathHcCmd="/usr/lib/ocf/resource.d/ericsson/lde-bonding-supervision.sh">
+							<cmdArgv>monitor</cmdArgv>
+						</osafHcCmd>
+						<healthCheck saAmfHealthcheckMaxDuration="5000000000" saAmfHealthcheckPeriod="60000000000" safHealthcheckKey="safHealthcheckKey=osafHealthCheck"/>
+						<swBundle saAmfCtSwBundle="safSmfBundle=#LDE_BUNDLE#"/>
+					</CompType>
+				</CompBaseType>
+<!-- LDE Config 2N -->
+        <SGBaseType safSgType="safSgType=ERIC-LDESgType2N">
+          <SGType safVersion="safVersion=1.0.0">
+            <suType saAmfSgtValidSuTypes="safVersion=1.0.0,safSuType=ERIC-LDESuType2NLdeConfig"/>
+            <redundancy saAmfSgtRedundancyModel="1"/>
+            <compRestart saAmfSgtDefCompRestartMax="5" saAmfSgtDefCompRestartProb="100000"/>
+            <suRestart saAmfSgtDefSuRestartMax="5" saAmfSgtDefSuRestartProb="100000"/>
+            <autoAttrs saAmfSgtDefAutoAdjustProb="100000" safAmfSgtDefAutoAdjust="0" safAmfSgtDefAutoRepair="1"/>
+          </SGType>
+        </SGBaseType>
+        <SUBaseType safSuType="safSuType=ERIC-LDESuType2NLdeConfig">
+          <SUType safVersion="safVersion=1.0.0">
+            <mandatoryAttrs saAmfSutDefSUFailover="1" saAmfSutIsExternal="0"/>
+            <componentType saAmfSutMinNumComponents="1" safMemberCompType="safMemberCompType=safVersion=#LDE_CONFIG_RSTATE#\,safCompType=ERIC-LDECompType2NLdeConfig"/>
+            <supportedSvcType saAmfSutProvidesSvcType="safVersion=1.0.0,safSvcType=ERIC-2N-LDE"/>
+          </SUType>
+        </SUBaseType>
+        <CSBaseType safCSType="safCSType=ERIC-LdeConfig2N">
+          <CSType safVersion="safVersion=1.0.0"/>
+        </CSBaseType>
+        <ServiceBaseType safSvcType="safSvcType=ERIC-2N-LDE">
+          <ServiceType safVersion="safVersion=1.0.0">
+            <csType safMemberCSType="safMemberCSType=safVersion=1.0.0\,safCSType=ERIC-LdeConfig2N"/>
+          </ServiceType>
+        </ServiceBaseType>
+        <CompBaseType safCompType="safCompType=ERIC-LDECompType2NLdeConfig">
+          <CompType safVersion="safVersion=#LDE_CONFIG_RSTATE#">
+            <providesCSType saAmfCtCompCapability="4" safSupportedCsType="safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-LdeConfig2N"/>
+            <compTypeDefaults saAmfCtCompCategory="1" saAmfCtDefDisableRestart="0" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefCallbackTimeout="30000000000" saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtDefRecoveryOnError="2"/>
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="/opt/lde/lde-config/lde-config-amf.sh">
+              <cmdArgv>instantiate_implementer</cmdArgv>
+            </instantiateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="/opt/lde/lde-config/lde-config-amf.sh">
+              <cmdArgv>cleanup_implementer</cmdArgv>
+            </cleanupCmd>
+            <healthCheck saAmfHealthcheckMaxDuration="180000000000" saAmfHealthcheckPeriod="240000000000" safHealthcheckKey="safHealthcheckKey=LdeConfig2N"/>
+            <swBundle saAmfCtSwBundle="safSmfBundle=#LDE_BUNDLE#"/>
+          </CompType>
+        </CompBaseType>
+        <!-- LDE Config NoRed -->
+        <SUBaseType safSuType="safSuType=ERIC-LDESuTypeLdeConfig">
+          <SUType safVersion="safVersion=1.0.0">
+            <mandatoryAttrs saAmfSutDefSUFailover="0" saAmfSutIsExternal="0"/>
+            <componentType saAmfSutMaxNumComponents="0" saAmfSutMinNumComponents="1" safMemberCompType="safMemberCompType=safVersion=#LDE_CONFIG_RSTATE#\,safCompType=ERIC-LDECompTypeLdeConfig"/>
+            <supportedSvcType saAmfSutProvidesSvcType="safVersion=1.0.0,safSvcType=ERIC-NoRed-LDE"/>
+          </SUType>
+        </SUBaseType>
+        <CSBaseType safCSType="safCSType=ERIC-LdeConfig">
+          <CSType safVersion="safVersion=1.0.0"/>
+        </CSBaseType>
+        <ServiceBaseType safSvcType="safSvcType=ERIC-NoRed-LDE">
+          <ServiceType safVersion="safVersion=1.0.0">
+            <csType saAmfSvctMaxNumCSIs="0" safMemberCSType="safMemberCSType=safVersion=1.0.0\,safCSType=ERIC-LdeConfig"/>
+          </ServiceType>
+        </ServiceBaseType>
+        <CompBaseType safCompType="safCompType=ERIC-LDECompTypeLdeConfig">
+          <CompType safVersion="safVersion=#LDE_CONFIG_RSTATE#">
+            <providesCSType saAmfCtCompCapability="3" saAmfCtDefNumMaxActiveCsi="1" safSupportedCsType="safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-LdeConfig"/>
+            <compTypeDefaults saAmfCtCompCategory="1" saAmfCtDefCallbackTimeout="10000000000" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefDisableRestart="0" saAmfCtDefInstantiationLevel="0" saAmfCtDefQuiescingCompleteTimeout="10000000000" saAmfCtDefRecoveryOnError="2"/>
+            <instantiateCmd saAmfCtRelPathInstantiateCmd="/opt/lde/lde-config/lde-config-amf.sh">
+              <cmdArgv>instantiate_applier</cmdArgv>
+            </instantiateCmd>
+            <terminateCmd saAmfCtRelPathTerminateCmd="/opt/lde/lde-config/lde-config-amf.sh">
+              <cmdArgv>terminate_applier</cmdArgv>
+            </terminateCmd>
+            <cleanupCmd saAmfCtRelPathCleanupCmd="/opt/lde/lde-config/lde-config-amf.sh">
+              <cmdArgv>cleanup_applier</cmdArgv>
+            </cleanupCmd>
+            <healthCheck saAmfHealthcheckMaxDuration="180000000000" saAmfHealthcheckPeriod="240000000000" safHealthcheckKey="safHealthcheckKey=LdeConfigNoRed"/>
+            <swBundle saAmfCtSwBundle="safSmfBundle=#LDE_BUNDLE#"/>
+            </CompType>
+        </CompBaseType>
+

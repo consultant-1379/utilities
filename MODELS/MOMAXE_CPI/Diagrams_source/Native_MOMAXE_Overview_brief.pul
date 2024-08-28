@@ -1,0 +1,78 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/MOMAXE_Overview_2_UG_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "ManagedElement" as ComTop__ManagedElement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20ManagedElement]] 
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "Transport" as ComTop__Transport [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20Transport]] 
+class "SwM" as CmwSwM__SwM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwM?title=class%20SwM]] 
+class "SwInventory" as CmwSwIM__SwInventory [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwInventory]] 
+class "BrM" as BrM__BrM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrM]] 
+class "FileM" as ComFileM__FileM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileM]] 
+class "SecM" as ComSecM__SecM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20SecM]] 
+class "SysM" as ComSysM__SysM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20SysM]] 
+class "HealthCheckM" as AxeHealthCheck__HealthCheckM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20HealthCheckM]] 
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]]
+class "LogM" as CmwLogM__LogM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwLogM?title=class%20LogM]]
+class "DataOutputHandling" as AxeFunctions__DataOutputHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20DataOutputHandling]] 
+class "SecurityHandling" as AxeFunctions__SecurityHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SecurityHandling]] 
+class "SupervisionHandling" as AxeFunctions__SupervisionHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SupervisionHandling]] 
+class "SystemComponentHandling" as AxeFunctions__SystemComponentHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemComponentHandling]] 
+class "SystemHandling" as AxeFunctions__SystemHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling]] 
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+class "SecurityHandling" as AxeFunctions__SecurityHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SecurityHandling]] 
+AxeFunctions__AxeFunctions *-- "1" AxeFunctions__SecurityHandling
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+class "SystemHandling" as AxeFunctions__SystemHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling]] 
+AxeFunctions__AxeFunctions *-- "1" AxeFunctions__SystemHandling
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+class "SupervisionHandling" as AxeFunctions__SupervisionHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SupervisionHandling]] 
+AxeFunctions__AxeFunctions *-- "1" AxeFunctions__SupervisionHandling
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+class "DataOutputHandling" as AxeFunctions__DataOutputHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20DataOutputHandling]] 
+AxeFunctions__AxeFunctions *-- "1" AxeFunctions__DataOutputHandling
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+class "SystemComponentHandling" as AxeFunctions__SystemComponentHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemComponentHandling]] 
+AxeFunctions__AxeFunctions *-- "1" AxeFunctions__SystemComponentHandling
+class "ManagedElement" as ComTop__ManagedElement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20ManagedElement]] 
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+ComTop__ManagedElement *-- "1" ComTop__SystemFunctions
+class "ManagedElement" as ComTop__ManagedElement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20ManagedElement]] 
+class "Transport" as ComTop__Transport [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20Transport]] 
+ComTop__ManagedElement *-- "0..1" ComTop__Transport
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "SwM" as CmwSwM__SwM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwM?title=class%20SwM]] 
+ComTop__SystemFunctions *-- "1" CmwSwM__SwM
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "SwInventory" as CmwSwIM__SwInventory [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwInventory]] 
+ComTop__SystemFunctions *-- "1" CmwSwIM__SwInventory
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+ComTop__SystemFunctions *-- "1" AxeFunctions__AxeFunctions
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "SecM" as ComSecM__SecM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20SecM]] 
+ComTop__SystemFunctions *-- "1" ComSecM__SecM
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "BrM" as BrM__BrM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrM]] 
+ComTop__SystemFunctions *-- "1" BrM__BrM
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "FileM" as ComFileM__FileM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileM]] 
+ComTop__SystemFunctions *-- "1" ComFileM__FileM
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "SysM" as ComSysM__SysM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20SysM]] 
+ComTop__SystemFunctions *-- "1" ComSysM__SysM
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "HealthCheckM" as AxeHealthCheck__HealthCheckM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20HealthCheckM]] 
+ComTop__SystemFunctions *-- "0..1" AxeHealthCheck__HealthCheckM
+class "LogM" as CmwLogM__LogM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwLogM?title=class%20LogM]] 
+ComTop__SystemFunctions *-- "1" CmwLogM__LogM
+@enduml 

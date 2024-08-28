@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_7B7CwPJNEeSAicJMujdFXg http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_VfFY0AQ7EeWao4V-FTuAUg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="MOMAXE_CPI">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NRAMoQwOEdmFcaeZXPdWAQ" source="uml2.diagrams"/>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dPEEwYzDEeK16bu24Q1vkg" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dPEEwozDEeK16bu24Q1vkg" key="com.ericsson.ecim.coremw.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_eqXIoIzEEeK16bu24Q1vkg" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>MOM AXE for generating CPI documentation.
+This file has been deprecated because the MOM profiling can be achieved only by using the headless (i.e. via commands) way to merge the dfferent contributions.</body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_8JbBoIW5Ed-FBpQGdJXi3g">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_mPKMQIzDEeK16bu24Q1vkg">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/ComTop.uml#_UmjfQJmMEd-RhrgDerFWug"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_WSW74IzEEeK16bu24Q1vkg">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/ECIM_SwM.uml#_WllxoODDEd-IkcJqZDg2hA"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_Y7L_UIzEEeK16bu24Q1vkg">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/ECIM_SwIM.uml#_v9gUgAOTEeCfG-0yuYR4Pg"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_3t1r0IzSEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_Functions.uml#_tAMlMIKREeK3wcU1QErItg"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_CW7xcIzTEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_ApSessionManagement.uml#_-4wYwJIUEeKk3M9tNoss1Q"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_WfXNYIzVEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_Data_Transfer.uml#_zQmJEIKNEeK3wcU1QErItg"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_Ymn00IzVEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_Blade_SW_Management.uml#_rDb1QIRMEeKsuaXe_IZiAw"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_aw3e0IzVEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/ComLdapAuthentication.uml#_RBAq0N26Ed-W85zyLt2pLQ"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_crKoUIzVEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/ComLocalAuthorization.uml#_prFCwN24Ed-W85zyLt2pLQ"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_emd3YIzVEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/ComSecM.uml#_12zMwLcsEd-gvvrqzvkuGQ"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_lovnUIzVEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_Alarm_Display.uml#_crUjYHz9EeKz-s53flhbQQ"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_qo-nAIzVEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_Alphanumeric_Device.uml#_23YnoHz9EeKz-s53flhbQQ"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_5ptbQIzVEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_External_Media.uml#_WYzo8IKOEeK3wcU1QErItg"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_XXPbIIzWEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_HW_Inventory.uml#_NMGE8IKSEeK3wcU1QErItg"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_ab3CsIzWEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_Audit_Logging.uml#_s3DpkIKMEeK3wcU1QErItg"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_gccsIIzWEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_NBI_Folders.uml#_4r3WoIRIEeKsuaXe_IZiAw"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_shLCQIzWEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_Local_TS_Users_Policy.uml#_z_YIYIKSEeK3wcU1QErItg"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_8GGIsIzWEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_License_Management.uml#_gKV3oIKSEeK3wcU1QErItg"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="__dMAUIzWEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_Statistical_Counter.uml#_awtqIIRLEeKsuaXe_IZiAw"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_ETzJ8IzXEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_Equipment.uml#_9wfPYIKNEeK3wcU1QErItg"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_MSnaoIzXEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_MML_Authorization.uml#_9gsGkIKSEeK3wcU1QErItg"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_-O3UUI2MEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_CP_File_System.uml#_NqQZ4IKNEeK3wcU1QErItg"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_6kfe4I2NEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_CP_Reload.uml#_daJaMIKNEeK3wcU1QErItg"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_jefXMI2OEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_CP_Reload_Classic.uml#_nPiK8IKNEeK3wcU1QErItg"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_xUZhoI2PEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_External_Alarm_Receiver.uml#_K9uFsIKOEeK3wcU1QErItg"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="__2mm0I2PEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_External_Network_Surveillance.uml#_hEEKYIKREeK3wcU1QErItg"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_eDcY4I2QEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_Time_Reference.uml#_mDhbIIRLEeKsuaXe_IZiAw"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_k4I_0I2QEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/BRM.uml#_qiLpEGuCEeC-4MS_I9Cylg"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_q0UqYI2QEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/ComFileM.uml#_a3F5gOMoEd-kQ-bA_LUmHA"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_uOPzkI2QEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/ComFm.uml#_F4kzEF6gEd-a5KD190br1g"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_2_sbEI2QEeK_A6J_QDOlow">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/ComSysM.uml#_vgXIsKlCEd-n4-IXUFdTxw"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="__PpaoL8KEeKZn61hTTn96w">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_Function_Distribution.uml#_Kmw7YHxFEeKoOLSz24MyWw"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_jy-wYMV8EeKD5YSC_cBdGw">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_Data_Record.uml#_yBVy0IE6EeC4Tq9V97HaFw"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_BIBOYBYnEeOf8vYJ9StD7A">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/SEC_ECIM_CertM.uml#_INiFII6uEeGg6K3Ap7yaBw"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_BvDmcDUPEeSqqdSCQVAroA">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/ECIM_CommonLibrary.uml#_k7blYJaXEeC11vgiYYrb4A"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_FzJuADUPEeSqqdSCQVAroA">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_Common_Library.uml#_6wRcIIKMEeK3wcU1QErItg"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_vlujQEDQEeWIz9fiE21vJA">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/AXE_HealthCheck.uml#_mtEOkHpfEeKI95dkCMD57g"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_7iZ1YL27EeWyqrDfnhcRGg">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/Axe_Direct_DataTransfer.uml#_RqHzIHYuEeW9ocbmwLVU1g"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_pdLVkL3gEeWQ5fgWrWqk0w">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/SecLa.uml#_TD2jQDyyEeOlU-QnzEVRnQ"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_I2lYEDhZEeaodprnndtvQg">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/LDE_TimeM.uml#_jPEZUL72EeOsb7FBQvVQ5A"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_ijvlwDxqEeaodprnndtvQg">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/ECIM_Equipment.uml#_VkWzUKk6Ed-wULkeqnJ_1w"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_lmZecDxqEeaodprnndtvQg">
+      <importedPackage xmi:type="uml:Package" href="../MOMAXE/ECIM_ComputeResource.uml#_ZlTBwGRBEeSQhrRVNgz2zw"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OS1OUIXLEd-lToFzlKoOsA" name="" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_cikwQHVqEeCBgp9CYCosRQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dXVXAPDWEeWx7729Bao3fg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dXVXAfDWEeWx7729Bao3fg" key="Version" value="1.0.8"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dXVXAvDWEeWx7729Bao3fg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dXVXA_DWEeWx7729Bao3fg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dXVXBPDWEeWx7729Bao3fg" key="Date" value="2016-02-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dXVXBfDWEeWx7729Bao3fg" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ciq24HVqEeCBgp9CYCosRQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_F2t8oNruEeW86-Ss0vBmzw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_dQQXkIzDEeK16bu24Q1vkg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dXXMMPDWEeWx7729Bao3fg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dXXMMfDWEeWx7729Bao3fg" key="Version" value="1.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dXXMMvDWEeWx7729Bao3fg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dXXMM_DWEeWx7729Bao3fg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dXXMNPDWEeWx7729Bao3fg" key="Date" value="2016-02-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dXXMNfDWEeWx7729Bao3fg" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_diORUIzDEeK16bu24Q1vkg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_k9LxQNrhEeW86-Ss0vBmzw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_TXlsgB_1EeWU2to1Kk6acA" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="Managed Object Model for APG43L 3.2" subTitle="." docNo="2/19089-CXA 118 03/2" docRev="A" createdBy="TEIBRNS Rosanna Barba" docLang="Uen" docDate="2016-01-18"/>
+  <CoreMWProfile:CmwModel xmi:id="_TbG6kB_1EeWU2to1Kk6acA" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <Documentation:Documentation xmi:id="_npGTUB_0EeWU2to1Kk6acA" base_Comment="_eqXIoIzEEeK16bu24Q1vkg"/>
+</xmi:XMI>

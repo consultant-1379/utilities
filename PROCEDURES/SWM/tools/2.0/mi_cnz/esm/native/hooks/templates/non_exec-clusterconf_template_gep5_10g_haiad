@@ -1,0 +1,234 @@
+#
+# Added explanations / comments and made examples for ERI / Pagani
+# Note: Places where modifications are required are marked with "!- "
+#
+# For information about the file format, see the LOTC User Guide
+#
+# HISTORY
+# Tue, Jan 17, 2012 - epaopal (paolo.palmieri@ericsson.com) - 010000
+# Wed, Sep 05, 2012 - epaopal (paolo.palmieri@ericsson.com) - 010100
+#
+
+# Do not change nodes (hosts) names!
+node 1 control SC-2-1
+node 2 control SC-2-2
+
+# !- Configure timezone here (example is for ERI/Pagani)
+timezone <cluster_timezone>
+
+# The "internal" network is for APG43L cluster services.
+network internal 169.254.208.0/24
+
+# The "internal_10g" network
+network internal_10g 169.254.213.0/24
+
+# The "ipna" and the "ipnb" networks are the APG43L Backplane ones.
+network ipna 192.168.169.0/24
+network ipnb 192.168.170.0/24
+
+# The "sol_a" and the "sol_b" networks are for Serial Over Lan connection.
+network sol_a 169.254.214.0/24
+network sol_b 169.254.215.0/24
+
+# The "public" is the APG43L Public Network.
+# !- Configure public subnet here (example is for ERI/Pagani)
+network public <public_network_ipv4_address>/<public_network_ipv4_prefix>
+
+# The "public2" is the APG43L Public 2 Network.
+# !- Configured via PS commands.
+#network public2 <public2_network_ipv4_address>/<public2_network_ipv4_prefix>
+
+# The "physep" is the APG43L Network for Physical Separation feature.
+# Note: It can be a subnetwork with any number of hosts according to the netmask
+#       (example of a network with a single node: network physep 10.0.2.1/32)
+# !- Configured via PS commands.
+#network physep <physep_network_ipv4_address>/<physep_network_ipv4_prefix>
+
+# debug network for direct-connected LCT
+network debug 192.168.200.0/24
+
+# Default gateway role.
+network default 0.0.0.0/0
+
+# !- Insert MAC addresses for APUB-A (Node 1) here.
+#    Start with ipna and count up as illustrated in examples.
+# ==============================================================================
+# eth0 Publ  - smgrGetMACA APUB A + 7 (example: "...:07")
+interface 1 eth0 ethernet <node1_mac_address_eth0>
+
+# eth1 Publ  - smgrGetMACA APUB A + 8 (example: "...:08"). Former eth2.
+interface 1 eth1 ethernet <node1_mac_address_eth1>
+
+# eth2/debug - smgrGetMACA APUB A + 2 (example: "...:02")
+interface 1 eth2 ethernet <node1_mac_address_eth2>
+
+# ipna       - smgrGetMACA APUB A     (example: "...:00"). Former eth0.
+interface 1 eth3 ethernet <node1_mac_address_eth3>
+
+# ipnb       - smgrGetMACB APUB A + 1 (example: "...:01"). Former eth1.
+interface 1 eth4 ethernet <node1_mac_address_eth4>
+
+# ipna_10G   - smgrGetMACA APUB A + 4 (example: "...:04").  
+interface 1 eth5 ethernet <node1_mac_address_eth5>
+
+# ipnb_10G   - smgrGetMACA APUB A + 5 (example: "...:05").  
+interface 1 eth6 ethernet <node1_mac_address_eth6>
+
+# !- Insert MAC addresses for APUB-B (Node 2) here.
+#    Start with ipna and count up as illustrated in examples.
+# ==============================================================================
+# eth0 Publ  - smgrGetMACA APUB B + 7 (example: "...:07")
+interface 2 eth0 ethernet <node2_mac_address_eth0>
+
+# eth1 Publ  - smgrGetMACA APUB B + 8 (example: "...:08"). Former eth2.
+interface 2 eth1 ethernet <node2_mac_address_eth1>
+
+# eth2/debug - smgrGetMACA APUB B + 2 (example: "...:02")
+interface 2 eth2 ethernet <node2_mac_address_eth2>
+
+# ipna       - smgrGetMACA APUB B     (example: "...:00"). Former eth0.
+interface 2 eth3 ethernet <node2_mac_address_eth3>
+
+# ipnb       - smgrGetMACB APUB B + 1 (example: "...:01"). Former eth1.
+interface 2 eth4 ethernet <node2_mac_address_eth4>
+
+# ipna_10G   - smgrGetMACA APUB B + 4 (example: "...:04")
+interface 2 eth5 ethernet <node2_mac_address_eth5>
+
+# ipnb_10G   - smgrGetMACA APUB B + 5 (example: "...:05")
+interface 2 eth6 ethernet <node2_mac_address_eth6>
+
+# Note: eth1 is the "default public interface" for machines not configured
+#       for teaming.
+# Note: eth5 and eth6 are 10Gbit Ethernet Interfaces available on GEP5 APUBs
+# Note: Above examples are valid only for GEP2 APUBs
+#      (GEP1 APUBs addressing is the same without the hole
+#       in the MAC addresses enumeration).
+
+# !- Insert MACVLAN addresses for APUB-A (Node 1) here.
+#    Map MAC addresses above by setting up the LAA bit.
+# ==============================================================================
+interface 1 mvl0 macvlan eth3 <node1_mac_address_mvl0>
+interface 1 mvl1 macvlan eth4 <node1_mac_address_mvl1>
+interface 1 mvl2 macvlan eth2 <node1_mac_address_mvl2>
+
+# !- Insert MACVLAN addresses for APUB-B (Node 2) here.
+#    Map MAC addresses above by setting up the LAA bit.
+# ==============================================================================
+interface 2 mvl0 macvlan eth3 <node2_mac_address_mvl0>
+interface 2 mvl1 macvlan eth4 <node2_mac_address_mvl1>
+interface 2 mvl2 macvlan eth2 <node2_mac_address_mvl2>
+
+interface control bond0:1 alias
+interface control bond0:2 alias
+interface control bond0:3 alias
+interface control bond0:4 alias
+interface control eth1:1 alias
+interface control eth2:1 alias
+interface control eth3:1 alias
+interface control eth4:1 alias
+interface control eth3:3 alias
+interface control eth4:3 alias
+interface control eth3.<tipc_vlantag> vlan
+interface control eth4.<tipc_vlantag> vlan
+
+#10G interfaces needed EVO and  CMX environment
+interface control eth5.<network_10g_vlantag> vlan
+interface control eth6.<network_10g_vlantag> vlan
+
+interface control bond0 bonding mvl0 mvl1 mode 3
+
+# HAIAD configuration on 10G network interfacea
+haiad 1 network internal_10g ip 169.254.213.1 dev eth5.<network_10g_vlantag> eth6.<network_10g_vlantag>
+haiad 2 network internal_10g ip 169.254.213.2 dev eth5.<network_10g_vlantag> eth6.<network_10g_vlantag>
+
+# eth2 - public2 network is directly mapped to eth2 in order to avoid
+#        VLAN on MACVLAN issue!
+# !- Configured via PS commands.
+#ip 1 eth2 public2 <node1_public2_network_ipv4_ip_address>
+#ip 2 eth2 public2 <node2_public2_network_ipv4_ip_address>
+# eth3
+ip 1 eth3 ipna 192.168.169.1
+ip 2 eth3 ipna 192.168.169.2
+# eth4
+ip 1 eth4 ipnb 192.168.170.1
+ip 2 eth4 ipnb 192.168.170.2
+# bond
+ip 1 bond0 internal 169.254.208.1
+ip 2 bond0 internal 169.254.208.2
+# mvl2 (they must be equal)
+ip 1 mvl2 debug 192.168.200.1
+ip 2 mvl2 debug 192.168.200.1
+
+# !- Insert the IP address for the Public Network, Node 1 (APUB-A) here
+ip 1 eth1 public <node1_public_network_ipv4_ip_address>
+
+# !- Insert the IP address for the Public Network, Node 2 (APUB-B) here
+ip 2 eth1 public <node2_public_network_ipv4_ip_address>
+
+tipc 1 1.1.1 eth3.<tipc_vlantag> eth4.<tipc_vlantag>
+tipc 2 1.1.2 eth3.<tipc_vlantag> eth4.<tipc_vlantag>
+tipc all link_tolerance 3000
+
+# SOL IP addresses
+ip 1 eth3:3 sol_a 169.254.214.1
+ip 1 eth4:3 sol_b 169.254.215.1
+ip 2 eth3:3 sol_a 169.254.214.2
+ip 2 eth4:3 sol_b 169.254.215.2
+
+# Moveable IPs for internal services.
+mip control nfs bond0:1 internal 169.254.208.100
+mip control boot_a bond0:2 internal 169.254.208.101
+mip control boot_b bond0:3 internal 169.254.208.102
+mip control la-ldap bond0:4 internal 169.254.208.121
+
+# Moveable IPs for IPnA and IPnB networks.
+mip control primary_sc-a eth3:1 ipna 192.168.169.33
+mip control primary_sc-b eth4:1 ipnb 192.168.170.33
+
+# !- Insert the moveable IP for the Public Network, Cluster here.
+mip control nbi eth1:1 public <cluster_public_network_ipv4_ip_address>
+
+# Moveable IP for the Public 2 Network.
+# !- Configured via PS commands.
+#mip control primary_ps eth2:1 public2 <cluster_public2_network_ipv4_ip_address>
+
+# Routing path for the physep network traffic.
+# !- Configured via PS commands.
+#route control physep gateway <physep_network_ipv4_gateway_ip_address>
+
+# !- Insert the IP Address for the Default Gateway in the Public Network here
+#    (example is for ERI/Pagani)
+route control default gateway <default_network_ipv4_gateway_ip_address>
+
+nfs 169.254.208.100
+boot 169.254.208.101
+boot 169.254.208.102
+
+# Root login enabled on SSH
+ssh.rootlogin control on
+
+# Catch of RPM post installation failure enabled 
+rpm-post-errors on
+
+# Enable GIDs lookup locally on the NFS server
+nfs-manage-gids on
+
+# Do not change!
+default-output serial
+
+# !- Insert the keyboard map if you have a mapping different than (en)glish one
+#    (example is for ERI/Pagani)
+keymap control <cluster_keymap>
+
+# Size limit for coredump
+coredump all unlimited
+
+# Watchdog settings
+watchdog all auto
+shutdown-timeout all 180
+
+# Disable the disk_usage alarms
+alarm control disk_usage 100
+
+# End of file

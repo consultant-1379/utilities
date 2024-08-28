@@ -1,0 +1,6 @@
+    <procWrapupAction>
+      <doCliCommand command="$OSAFCAMPAIGNROOT/activate_su.sh" args="safSu=#SU_NR#,safSg=NoRed_#BLOCK_NAME#,safApp=ERIC-APG" />
+      <undoCliCommand command="/bin/false" />
+      <plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster" />
+    </procWrapupAction>
+    

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Update sudoers file
+if ! grep -q "#includedir /etc/sudoers.d" /cluster/etc/sudoers; then
+	echo -e "\n## Read drop-in files from /etc/sudoers.d" >> /cluster/etc/sudoers
+	echo -e "## (the '#' here does not indicate a comment)" >> /cluster/etc/sudoers
+	echo -e "#includedir /etc/sudoers.d" >> /cluster/etc/sudoers
+fi
+
+exit 0

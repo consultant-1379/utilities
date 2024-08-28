@@ -1,0 +1,24 @@
+				<create objectClassName="SaAmfComp" parentObjectDN="safSu=#SU1_2N#,safSg=#SG_2N#,safApp=#SAF_APP#">
+					<attribute name="safComp" type="SA_IMM_ATTR_SASTRINGT">
+						<value>safComp=#COMP_NAME#</value>
+					</attribute>
+					<attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET">
+						<value>safVersion=#COMP_VERSION#,safCompType=#COMP_TYPE_NAME#</value>
+					</attribute>
+				</create>
+				<create objectClassName="SaAmfHealthcheck" parentObjectDN="safComp=#COMP_NAME#,safSu=#SU1_2N#,safSg=#SG_2N#,safApp=#SAF_APP#">
+					<attribute name="safHealthcheckKey" type="SA_IMM_ATTR_SASTRINGT">
+						<value>safHealthcheckKey=#HCK#</value>
+					</attribute>
+					<attribute name="saAmfHealthcheckPeriod" type="SA_IMM_ATTR_SATIMET">
+						<value>#HCK_PERIOD_2N#</value>
+					</attribute>
+					<attribute name="saAmfHealthcheckMaxDuration" type="SA_IMM_ATTR_SATIMET">
+						<value>#HCK_MAX_DURATION_2N#</value>
+					</attribute>
+				</create>
+				<create objectClassName="SaAmfCompCsType" parentObjectDN="safComp=#COMP_NAME#,safSu=#SU1_2N#,safSg=#SG_2N#,safApp=#SAF_APP#">
+					<attribute name="safSupportedCsType" type="SA_IMM_ATTR_SANAMET">
+						<value>safSupportedCsType=safVersion=#SAF_VERSION#\,safCSType=#CS_TYPE#</value>
+					</attribute>
+				</create>

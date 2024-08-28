@@ -1,0 +1,38 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeAlarmDisplay_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "SoundProperty" as AxeAlarmDisplay__SoundProperty [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlarmDisplay?title=class%20SoundProperty]] 
+class "LocalAlarmDisplay" as AxeAlarmDisplay__LocalAlarmDisplay [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlarmDisplay?title=class%20LocalAlarmDisplay]] 
+class "RemoteAlarmDisplay" as AxeAlarmDisplay__RemoteAlarmDisplay [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlarmDisplay?title=class%20RemoteAlarmDisplay]] 
+class "RemoteAlarmListener" as AxeAlarmDisplay__RemoteAlarmListener [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlarmDisplay?title=class%20RemoteAlarmListener]] 
+class "AlarmDisplayM" as AxeAlarmDisplay__AlarmDisplayM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlarmDisplay?title=class%20AlarmDisplayM]] 
+class "LampProperty" as AxeAlarmDisplay__LampProperty [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlarmDisplay?title=class%20LampProperty]] 
+class "AlarmDisplayM" as AxeAlarmDisplay__AlarmDisplayM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlarmDisplay?title=class%20AlarmDisplayM]] 
+class "SoundProperty" as AxeAlarmDisplay__SoundProperty [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlarmDisplay?title=class%20SoundProperty]] 
+AxeAlarmDisplay__AlarmDisplayM *-- "1..16" AxeAlarmDisplay__SoundProperty
+class "AlarmDisplayM" as AxeAlarmDisplay__AlarmDisplayM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlarmDisplay?title=class%20AlarmDisplayM]] 
+class "RemoteAlarmListener" as AxeAlarmDisplay__RemoteAlarmListener [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlarmDisplay?title=class%20RemoteAlarmListener]] 
+AxeAlarmDisplay__AlarmDisplayM *-- "*" AxeAlarmDisplay__RemoteAlarmListener
+class "AlarmDisplayM" as AxeAlarmDisplay__AlarmDisplayM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlarmDisplay?title=class%20AlarmDisplayM]] 
+class "RemoteAlarmDisplay" as AxeAlarmDisplay__RemoteAlarmDisplay [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlarmDisplay?title=class%20RemoteAlarmDisplay]] 
+AxeAlarmDisplay__AlarmDisplayM *-- "0..96" AxeAlarmDisplay__RemoteAlarmDisplay
+class "AlarmDisplayM" as AxeAlarmDisplay__AlarmDisplayM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlarmDisplay?title=class%20AlarmDisplayM]] 
+class "LampProperty" as AxeAlarmDisplay__LampProperty [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlarmDisplay?title=class%20LampProperty]] 
+AxeAlarmDisplay__AlarmDisplayM *-- "1..16" AxeAlarmDisplay__LampProperty
+class "AlarmDisplayM" as AxeAlarmDisplay__AlarmDisplayM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlarmDisplay?title=class%20AlarmDisplayM]] 
+class "LocalAlarmDisplay" as AxeAlarmDisplay__LocalAlarmDisplay [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlarmDisplay?title=class%20LocalAlarmDisplay]] 
+AxeAlarmDisplay__AlarmDisplayM *-- "*" AxeAlarmDisplay__LocalAlarmDisplay
+class "SupervisionHandling" as AxeFunctions__SupervisionHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SupervisionHandling]] 
+class "AlarmDisplayM" as AxeAlarmDisplay__AlarmDisplayM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlarmDisplay?title=class%20AlarmDisplayM]] 
+AxeFunctions__SupervisionHandling *-- "1" AxeAlarmDisplay__AlarmDisplayM
+@enduml 

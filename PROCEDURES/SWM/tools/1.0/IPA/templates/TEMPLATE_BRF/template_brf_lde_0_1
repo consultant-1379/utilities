@@ -1,0 +1,131 @@
+<!-- BRF LDE PART-->
+<!--                                                                                    -->
+<!--                                                                                    -->
+	<upgradeProcedure saSmfExecLevel="4" safSmfProcedure="safSmfProc=SingleStepBRF_LDE">
+		<outageInfo>
+			<acceptableServiceOutage>
+				<all/>
+			</acceptableServiceOutage>
+			<procedurePeriod saSmfProcPeriod="60000000000"/>
+		</outageInfo>
+		<upgradeMethod>
+			<singleStepUpgrade>
+				<upgradeScope>
+					<forAddRemove>
+						<deactivationUnit/>
+						<activationUnit>
+							<actedOn>
+								<byName objectDN="safSu=Cmw1,safSg=2N,safApp=ERIC-LDE_BRF"/>
+							</actedOn>
+							<added objectClassName="SaAmfApplication" parentObjectDN="=">
+								<attribute name="safApp" type="SA_IMM_ATTR_SASTRINGT">
+									<value>safApp=ERIC-LDE_BRF</value>
+								</attribute>
+								<attribute name="saAmfAppType" type="SA_IMM_ATTR_SANAMET">
+									<value>safVersion=1.0.0,safAppType=ERIC-LDE_BRF</value>
+								</attribute>
+							</added>
+							<added objectClassName="SaAmfSG" parentObjectDN="safApp=ERIC-LDE_BRF">
+								<attribute name="safSg" type="SA_IMM_ATTR_SASTRINGT">
+									<value>safSg=2N</value>
+								</attribute>
+								<attribute name="saAmfSGType" type="SA_IMM_ATTR_SANAMET">
+									<value>safVersion=1.0.0,safSgType=ERIC-LDE_BRF-2N</value>
+								</attribute>
+								<attribute name="saAmfSGSuHostNodeGroup" type="SA_IMM_ATTR_SANAMET">
+									<value>safAmfNodeGroup=SCs,safAmfCluster=myAmfCluster</value>
+								</attribute>
+								<attribute name="saAmfSGNumPrefStandbySUs" type="SA_IMM_ATTR_SAUINT32T">
+									<value>1</value>
+								</attribute>
+								<attribute name="saAmfSGNumPrefInserviceSUs" type="SA_IMM_ATTR_SAUINT32T">
+									<value>2</value>
+								</attribute>
+								<attribute name="saAmfSGNumPrefActiveSUs" type="SA_IMM_ATTR_SAUINT32T">
+									<value>1</value>
+								</attribute>
+								<attribute name="saAmfSGAutoRepair" type="SA_IMM_ATTR_SAUINT32T">
+									<value>1</value>
+								</attribute>
+								<attribute name="saAmfSGAutoAdjust" type="SA_IMM_ATTR_SAUINT32T">
+									<value>0</value>
+								</attribute>
+							</added>
+							<added objectClassName="SaAmfSI" parentObjectDN="safApp=ERIC-LDE_BRF">
+								<attribute name="safSi" type="SA_IMM_ATTR_SASTRINGT">
+									<value>safSi=2N</value>
+								</attribute>
+								<attribute name="saAmfSvcType" type="SA_IMM_ATTR_SANAMET">
+									<value>safVersion=1.0.0,safSvcType=ERIC-LDE_BRF-2N</value>
+								</attribute>
+								<attribute name="saAmfSIRank" type="SA_IMM_ATTR_SAUINT32T">
+									<value>1</value>
+								</attribute>
+								<attribute name="saAmfSIProtectedbySG" type="SA_IMM_ATTR_SANAMET">
+									<value>safSg=2N,safApp=ERIC-LDE_BRF</value>
+								</attribute>
+								<attribute name="saAmfSIPrefStandbyAssignments" type="SA_IMM_ATTR_SAUINT32T">
+									<value>1</value>
+								</attribute>
+								<attribute name="saAmfSIPrefActiveAssignments" type="SA_IMM_ATTR_SAUINT32T">
+									<value>1</value>
+								</attribute>
+							</added>
+							<!-- @@SPECIFIC_SYSTEM_BEGIN -->
+							<added objectClassName="SaAmfCSI" parentObjectDN="safSi=2N,safApp=ERIC-LDE_BRF">
+								<attribute name="safCsi" type="SA_IMM_ATTR_SASTRINGT">
+									<value>safCsi=2N-System</value>
+								</attribute>
+								<attribute name="saAmfCSType" type="SA_IMM_ATTR_SANAMET">
+									<value>safVersion=1.0.0,safCSType=ERIC-LDE_BRF-2N</value>
+								</attribute>
+							</added>
+							<!-- @@SPECIFIC_SYSTEM_END -->
+							<added objectClassName="SaAmfSU" parentObjectDN="safSg=2N,safApp=ERIC-LDE_BRF">
+								<attribute name="safSu" type="SA_IMM_ATTR_SASTRINGT">
+									<value>safSu=Cmw1</value>
+								</attribute>
+								<attribute name="saAmfSUType" type="SA_IMM_ATTR_SANAMET">
+									<value>safVersion=1.0.0,safSuType=ERIC-LDE_BRF-Cmw</value>
+								</attribute>
+								<attribute name="saAmfSURank" type="SA_IMM_ATTR_SAUINT32T">
+									<value>1</value>
+								</attribute>
+								<attribute name="saAmfSUHostNodeOrNodeGroup" type="SA_IMM_ATTR_SANAMET">
+									<value>safAmfNode=SC-1,safAmfCluster=myAmfCluster</value>
+								</attribute>
+								<attribute name="saAmfSUFailover" type="SA_IMM_ATTR_SAUINT32T">
+									<value>1</value>
+								</attribute>
+								<attribute name="saAmfSUAdminState" type="SA_IMM_ATTR_SAUINT32T">
+									<value>3</value>
+								</attribute>
+							</added>
+							<!-- @@SPECIFIC_SYSTEM_BEGIN -->
+							<added objectClassName="SaAmfComp" parentObjectDN="safSu=Cmw1,safSg=2N,safApp=ERIC-LDE_BRF">
+								<attribute name="safComp" type="SA_IMM_ATTR_SASTRINGT">
+									<value>safComp=Cmw-System</value>
+								</attribute>
+								<attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET">
+									<value>safVersion=#BRFLDE_RSTATE#,safCompType=ERIC-LDE_BRF-System</value>
+								</attribute>
+							</added>
+							<added objectClassName="SaAmfCompCsType" parentObjectDN="safComp=Cmw-System,safSu=Cmw1,safSg=2N,safApp=ERIC-LDE_BRF">
+								<attribute name="safSupportedCsType" type="SA_IMM_ATTR_SANAMET">
+									<value>safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-LDE_BRF-2N</value>
+								</attribute>
+							</added>
+							<!-- @@SPECIFIC_SYSTEM_END -->
+							<swAdd bundleDN="safSmfBundle=#BRFLDE_BUNDLE#" pathnamePrefix="/opt/lde-brf">
+								<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+							</swAdd>
+						</activationUnit>
+					</forAddRemove>
+				</upgradeScope>
+				<upgradeStep/>
+			</singleStepUpgrade>
+		</upgradeMethod>
+	</upgradeProcedure>
+<!-- BRF LDE PART-->
+<!--                                                                                    -->
+<!--                                                                                    -->

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <notation:Diagram xmi:id="_761Q4BtDEeWvQYFW8NSCww" type="PapyrusUMLClassDiagram" name="ExternalNetworkSurveillance" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_761Q4RtDEeWvQYFW8NSCww" type="2001" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_761Q4htDEeWvQYFW8NSCww" type="5002">
+        <element xmi:type="uml:InstanceSpecification" href="AXE_External_Network_Surveillance.uml#_hEEyHIKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761Q4xtDEeWvQYFW8NSCww" type="7001">
+        <children xmi:type="notation:Shape" xmi:id="_761Q5BtDEeWvQYFW8NSCww" type="3030">
+          <element xmi:type="uml:Slot" href="AXE_External_Network_Surveillance.uml#_hEEyHYKREeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:InstanceSpecification" href="AXE_External_Network_Surveillance.uml#_hEEyHIKREeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:InstanceSpecification" href="AXE_External_Network_Surveillance.uml#_hEEyHIKREeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_761Q5RtDEeWvQYFW8NSCww" x="194" y="36"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_761Q5htDEeWvQYFW8NSCww" type="2001" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_761Q5xtDEeWvQYFW8NSCww" type="5002">
+        <element xmi:type="uml:InstanceSpecification" href="AXE_External_Network_Surveillance.uml#_hEEyH4KREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761Q6BtDEeWvQYFW8NSCww" type="7001">
+        <children xmi:type="notation:Shape" xmi:id="_761Q6RtDEeWvQYFW8NSCww" type="3030">
+          <element xmi:type="uml:Slot" href="AXE_External_Network_Surveillance.uml#_hEEyIoKREeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_761Q6htDEeWvQYFW8NSCww" type="3030">
+          <element xmi:type="uml:Slot" href="AXE_External_Network_Surveillance.uml#_hEEyJIKREeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_761Q6xtDEeWvQYFW8NSCww" type="3030">
+          <element xmi:type="uml:Slot" href="AXE_External_Network_Surveillance.uml#_hEEyIIKREeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:InstanceSpecification" href="AXE_External_Network_Surveillance.uml#_hEEyH4KREeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:InstanceSpecification" href="AXE_External_Network_Surveillance.uml#_hEEyH4KREeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_761Q7BtDEeWvQYFW8NSCww" x="90" y="466"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_761Q7RtDEeWvQYFW8NSCww"/>
+    <element xmi:type="uml:Package" href="AXE_External_Network_Surveillance.uml#_hEEx_4KREeK3wcU1QErItg"/>
+    <edges xmi:type="notation:Connector" xmi:id="_761Q7htDEeWvQYFW8NSCww" type="4008" source="_761Q5htDEeWvQYFW8NSCww" target="_761Q4RtDEeWvQYFW8NSCww" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_761Q7xtDEeWvQYFW8NSCww" type="6026">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_761Q8BtDEeWvQYFW8NSCww" y="-5"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_761Q8RtDEeWvQYFW8NSCww" fontName="Sans"/>
+      <element xmi:type="uml:Dependency" href="AXE_External_Network_Surveillance.uml#_hEEyJoKREeK3wcU1QErItg"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_761Q8htDEeWvQYFW8NSCww" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_761Q8xtDEeWvQYFW8NSCww" type="PapyrusUMLClassDiagram" name="Supervision Handling, External Network Surveillance" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_761Q9BtDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_761Q9RtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_External_Network_Surveillance.uml#_hEEx6IKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761Q9htDEeWvQYFW8NSCww" visible="false" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_761Q9xtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Network_Surveillance.uml#_hEEx64KREeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_761Q-BtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Network_Surveillance.uml#_hEEx8IKREeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_761Q-RtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Network_Surveillance.uml#_hEEx84KREeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_761Q-htDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Network_Surveillance.uml#_hEEx9YKREeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_External_Network_Surveillance.uml#_hEEx6IKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761Q-xtDEeWvQYFW8NSCww" visible="false" type="7018">
+        <children xmi:type="notation:Shape" xmi:id="_761Q_BtDEeWvQYFW8NSCww" type="3013">
+          <element xmi:type="uml:Operation" href="AXE_External_Network_Surveillance.uml#_hEEx_YKREeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_External_Network_Surveillance.uml#_hEEx6IKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761Q_RtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_External_Network_Surveillance.uml#_hEEx6IKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_761Q_htDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_761Q_xtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_External_Network_Surveillance.uml#_hEEx6IKREeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_External_Network_Surveillance.uml#_hEEx6IKREeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_761RABtDEeWvQYFW8NSCww" x="194" y="279" height="29"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_761RARtDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RAhtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761RAxtDEeWvQYFW8NSCww" visible="false" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_761RBBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_Functions.uml#_tAN0PIKREeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761RBRtDEeWvQYFW8NSCww" visible="false" type="7018">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761RBhtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RBxtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_761RCBtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_761RCRtDEeWvQYFW8NSCww" x="231" y="170"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_761RChtDEeWvQYFW8NSCww"/>
+    <element xmi:type="uml:Package" href="AXE_External_Network_Surveillance.uml#_hEEKYIKREeK3wcU1QErItg"/>
+    <edges xmi:type="notation:Connector" xmi:id="_761RCxtDEeWvQYFW8NSCww" type="4001" source="_761Q9BtDEeWvQYFW8NSCww" target="_761RARtDEeWvQYFW8NSCww" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RDBtDEeWvQYFW8NSCww" visible="false" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_761RDRtDEeWvQYFW8NSCww" y="-9"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RDhtDEeWvQYFW8NSCww" visible="false" type="6034">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_761RDxtDEeWvQYFW8NSCww" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_761REBtDEeWvQYFW8NSCww" visible="false" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_761RERtDEeWvQYFW8NSCww" y="-20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_761REhtDEeWvQYFW8NSCww" visible="false" type="6033">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_761RExtDEeWvQYFW8NSCww" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RFBtDEeWvQYFW8NSCww" visible="false" type="6005">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_761RFRtDEeWvQYFW8NSCww" y="-20"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_761RFhtDEeWvQYFW8NSCww" fontName="Sans" fontHeight="8"/>
+      <element xmi:type="uml:Association" href="AXE_External_Network_Surveillance.uml#_hEEyVYKREeK3wcU1QErItg"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_761RFxtDEeWvQYFW8NSCww" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_761RGBtDEeWvQYFW8NSCww" type="PapyrusUMLClassDiagram" name="Supervision Handling, External Network Surveillance_UC" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_761RGRtDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RGhtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_External_Network_Surveillance.uml#_hEEx6IKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761RGxtDEeWvQYFW8NSCww" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_761RHBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Network_Surveillance.uml#_hEEx64KREeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_761RHRtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Network_Surveillance.uml#_hEEx8IKREeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_761RHhtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Network_Surveillance.uml#_hEEx84KREeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_761RHxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Network_Surveillance.uml#_hEEx9YKREeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_External_Network_Surveillance.uml#_hEEx6IKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761RIBtDEeWvQYFW8NSCww" type="7018">
+        <children xmi:type="notation:Shape" xmi:id="_761RIRtDEeWvQYFW8NSCww" type="3013">
+          <element xmi:type="uml:Operation" href="AXE_External_Network_Surveillance.uml#_hEEx_YKREeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_External_Network_Surveillance.uml#_hEEx6IKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761RIhtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_External_Network_Surveillance.uml#_hEEx6IKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RIxtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_761RJBtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_External_Network_Surveillance.uml#_hEEx6IKREeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_External_Network_Surveillance.uml#_hEEx6IKREeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_761RJRtDEeWvQYFW8NSCww" x="51" y="285"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_761RJhtDEeWvQYFW8NSCww" type="2006" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RJxtDEeWvQYFW8NSCww" type="5023">
+        <element xmi:type="uml:Enumeration" href="AXE_External_Network_Surveillance.uml#_hEEyJ4KREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761RKBtDEeWvQYFW8NSCww" type="7015">
+        <children xmi:type="notation:Shape" xmi:id="_761RKRtDEeWvQYFW8NSCww" type="3017">
+          <element xmi:type="uml:EnumerationLiteral" href="AXE_External_Network_Surveillance.uml#_hEEyKYKREeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_761RKhtDEeWvQYFW8NSCww" type="3017">
+          <element xmi:type="uml:EnumerationLiteral" href="AXE_External_Network_Surveillance.uml#_hEEyLIKREeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Enumeration" href="AXE_External_Network_Surveillance.uml#_hEEyJ4KREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761RKxtDEeWvQYFW8NSCww" visible="false">
+        <element xmi:type="uml:Enumeration" href="AXE_External_Network_Surveillance.uml#_hEEyJ4KREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761RLBtDEeWvQYFW8NSCww" visible="false">
+        <element xmi:type="uml:Enumeration" href="AXE_External_Network_Surveillance.uml#_hEEyJ4KREeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Enumeration" href="AXE_External_Network_Surveillance.uml#_hEEyJ4KREeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_761RLRtDEeWvQYFW8NSCww" x="753" y="121"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_761RLhtDEeWvQYFW8NSCww" type="2006" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RLxtDEeWvQYFW8NSCww" type="5023">
+        <element xmi:type="uml:Enumeration" href="AXE_External_Network_Surveillance.uml#_hEEyL4KREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761RMBtDEeWvQYFW8NSCww" type="7015">
+        <children xmi:type="notation:Shape" xmi:id="_761RMRtDEeWvQYFW8NSCww" type="3017">
+          <element xmi:type="uml:EnumerationLiteral" href="AXE_External_Network_Surveillance.uml#_hEEyMYKREeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_761RMhtDEeWvQYFW8NSCww" type="3017">
+          <element xmi:type="uml:EnumerationLiteral" href="AXE_External_Network_Surveillance.uml#_hEEyM4KREeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Enumeration" href="AXE_External_Network_Surveillance.uml#_hEEyL4KREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761RMxtDEeWvQYFW8NSCww" visible="false">
+        <element xmi:type="uml:Enumeration" href="AXE_External_Network_Surveillance.uml#_hEEyL4KREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761RNBtDEeWvQYFW8NSCww" visible="false">
+        <element xmi:type="uml:Enumeration" href="AXE_External_Network_Surveillance.uml#_hEEyL4KREeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Enumeration" href="AXE_External_Network_Surveillance.uml#_hEEyL4KREeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_761RNRtDEeWvQYFW8NSCww" x="899" y="328"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_761RNhtDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RNxtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761ROBtDEeWvQYFW8NSCww" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_761RORtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_Functions.uml#_tAN0PIKREeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761ROhtDEeWvQYFW8NSCww" type="7018">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761ROxtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RPBtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_761RPRtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_761RPhtDEeWvQYFW8NSCww" x="109" y="72"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_761RPxtDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RQBtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_External_Network_Surveillance.uml#_hEEyNYKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761RQRtDEeWvQYFW8NSCww" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_761RQhtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Network_Surveillance.uml#_hEEyN4KREeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_761RQxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Network_Surveillance.uml#_hEEyO4KREeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_761RRBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Network_Surveillance.uml#_hEEyP4KREeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_761RRRtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Network_Surveillance.uml#_hEEyQ4KREeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_761RRhtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Network_Surveillance.uml#_hEEyR4KREeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_761RRxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Network_Surveillance.uml#_hEEyTIKREeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_761RSBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Network_Surveillance.uml#_hEEyUIKREeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_External_Network_Surveillance.uml#_hEEyNYKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761RSRtDEeWvQYFW8NSCww" type="7018">
+        <element xmi:type="uml:Class" href="AXE_External_Network_Surveillance.uml#_hEEyNYKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_761RShtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_External_Network_Surveillance.uml#_hEEyNYKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RSxtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_761RTBtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_External_Network_Surveillance.uml#_hEEyNYKREeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_External_Network_Surveillance.uml#_hEEyNYKREeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_761RTRtDEeWvQYFW8NSCww" x="218" y="589"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_761RThtDEeWvQYFW8NSCww"/>
+    <element xmi:type="uml:Package" href="AXE_External_Network_Surveillance.uml#_hEEKYIKREeK3wcU1QErItg"/>
+    <edges xmi:type="notation:Connector" xmi:id="_761RTxtDEeWvQYFW8NSCww" type="4001" source="_761RGRtDEeWvQYFW8NSCww" target="_761RNhtDEeWvQYFW8NSCww" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RUBtDEeWvQYFW8NSCww" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_761RURtDEeWvQYFW8NSCww" y="-9"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RUhtDEeWvQYFW8NSCww" type="6034">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_761RUxtDEeWvQYFW8NSCww" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RVBtDEeWvQYFW8NSCww" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_761RVRtDEeWvQYFW8NSCww" y="-20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RVhtDEeWvQYFW8NSCww" type="6033">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_761RVxtDEeWvQYFW8NSCww" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RWBtDEeWvQYFW8NSCww" type="6005">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_761RWRtDEeWvQYFW8NSCww" y="-20"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_761RWhtDEeWvQYFW8NSCww" fontName="Sans" fontHeight="8"/>
+      <element xmi:type="uml:Association" href="AXE_External_Network_Surveillance.uml#_hEEyVYKREeK3wcU1QErItg"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_761RWxtDEeWvQYFW8NSCww" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_761RXBtDEeWvQYFW8NSCww" type="4001" source="_761RGRtDEeWvQYFW8NSCww" target="_761RPxtDEeWvQYFW8NSCww" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RXRtDEeWvQYFW8NSCww" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_761RXhtDEeWvQYFW8NSCww" y="-9"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RXxtDEeWvQYFW8NSCww" type="6034">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_761RYBtDEeWvQYFW8NSCww" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RYRtDEeWvQYFW8NSCww" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_761RYhtDEeWvQYFW8NSCww" y="-20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RYxtDEeWvQYFW8NSCww" type="6033">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_761RZBtDEeWvQYFW8NSCww" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_761RZRtDEeWvQYFW8NSCww" type="6005">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_761RZhtDEeWvQYFW8NSCww" y="-20"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_761RZxtDEeWvQYFW8NSCww" fontName="Sans" fontHeight="8"/>
+      <element xmi:type="uml:Association" href="AXE_External_Network_Surveillance.uml#_uU58EDK3EeSyftCCr8VQCA"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_761RaBtDEeWvQYFW8NSCww" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>

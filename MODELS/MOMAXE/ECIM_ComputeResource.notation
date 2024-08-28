@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_BA-dFjLPEeaOiqsd1YH7eQ" type="PapyrusUMLClassDiagram" name="Compute_Resource_Class" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_BA-dFzLPEeaOiqsd1YH7eQ" type="2008" fontName="Segoe UI" fontHeight="8" lineColor="14263149" lineWidth="1">
+    <children xmi:type="notation:DecorationNode" xmi:id="_BA-dGDLPEeaOiqsd1YH7eQ" type="5029">
+      <element xmi:type="uml:Class" href="ECIM_ComputeResource.uml#_oozdMGRBEeSQhrRVNgz2zw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_BA-dGTLPEeaOiqsd1YH7eQ" type="7017">
+      <children xmi:type="notation:Shape" xmi:id="_BA-dGjLPEeaOiqsd1YH7eQ" type="3012">
+        <element xmi:type="uml:Property" href="ECIM_ComputeResource.uml#_opQJIWRBEeSQhrRVNgz2zw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_BA-dGzLPEeaOiqsd1YH7eQ" type="3012">
+        <element xmi:type="uml:Property" href="ECIM_ComputeResource.uml#_zVmXEGRBEeSQhrRVNgz2zw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_BA-dHDLPEeaOiqsd1YH7eQ" type="3012">
+        <element xmi:type="uml:Property" href="ECIM_ComputeResource.uml#_yR0c4GmGEeSzNYXA7PeIVA"/>
+      </children>
+      <element xmi:type="uml:Class" href="ECIM_ComputeResource.uml#_oozdMGRBEeSQhrRVNgz2zw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_BA-dHTLPEeaOiqsd1YH7eQ" type="7018">
+      <element xmi:type="uml:Class" href="ECIM_ComputeResource.uml#_oozdMGRBEeSQhrRVNgz2zw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_BA-dHjLPEeaOiqsd1YH7eQ" visible="false" type="7019">
+      <element xmi:type="uml:Class" href="ECIM_ComputeResource.uml#_oozdMGRBEeSQhrRVNgz2zw"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_BA-dHzLPEeaOiqsd1YH7eQ" visible="false">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_BA-dIDLPEeaOiqsd1YH7eQ"/>
+      <element xmi:type="uml:Class" href="ECIM_ComputeResource.uml#_oozdMGRBEeSQhrRVNgz2zw"/>
+    </children>
+    <element xmi:type="uml:Class" href="ECIM_ComputeResource.uml#_oozdMGRBEeSQhrRVNgz2zw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BA-dIjLPEeaOiqsd1YH7eQ" x="557" y="342"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_BA-dIzLPEeaOiqsd1YH7eQ" type="2008" fontName="Segoe UI" fontHeight="8" lineColor="14263149" lineWidth="1">
+    <children xmi:type="notation:DecorationNode" xmi:id="_BA-dJDLPEeaOiqsd1YH7eQ" type="5029">
+      <element xmi:type="uml:Class" href="ECIM_Equipment.uml#_VlZVIKk6Ed-wULkeqnJ_1w"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_BA-dJTLPEeaOiqsd1YH7eQ" type="7017">
+      <children xmi:type="notation:Shape" xmi:id="_BA-dJjLPEeaOiqsd1YH7eQ" type="3012">
+        <element xmi:type="uml:Property" href="ECIM_Equipment.uml#_Vne_0Kk6Ed-wULkeqnJ_1w"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_BA-dJzLPEeaOiqsd1YH7eQ" type="3012">
+        <element xmi:type="uml:Property" href="ECIM_Equipment.uml#_7oRvMNfFEd-MaoRsjoih-Q"/>
+      </children>
+      <element xmi:type="uml:Class" href="ECIM_Equipment.uml#_VlZVIKk6Ed-wULkeqnJ_1w"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_BA-dKDLPEeaOiqsd1YH7eQ" type="7018">
+      <element xmi:type="uml:Class" href="ECIM_Equipment.uml#_VlZVIKk6Ed-wULkeqnJ_1w"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_BA-dKTLPEeaOiqsd1YH7eQ" visible="false" type="7019">
+      <element xmi:type="uml:Class" href="ECIM_Equipment.uml#_VlZVIKk6Ed-wULkeqnJ_1w"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_BA-dKjLPEeaOiqsd1YH7eQ" visible="false">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_BA-dKzLPEeaOiqsd1YH7eQ"/>
+      <element xmi:type="uml:Class" href="ECIM_Equipment.uml#_VlZVIKk6Ed-wULkeqnJ_1w"/>
+    </children>
+    <element xmi:type="uml:Class" href="ECIM_Equipment.uml#_VlZVIKk6Ed-wULkeqnJ_1w"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BA-dLTLPEeaOiqsd1YH7eQ" x="570" y="126"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_BA-dLjLPEeaOiqsd1YH7eQ"/>
+  <element xmi:type="uml:Model" href="ECIM_ComputeResource.uml#_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <edges xmi:type="notation:Connector" xmi:id="_BA-dLzLPEeaOiqsd1YH7eQ" type="4001" source="_BA-dFzLPEeaOiqsd1YH7eQ" target="_BA-dIzLPEeaOiqsd1YH7eQ" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+    <children xmi:type="notation:DecorationNode" xmi:id="_BA-dMDLPEeaOiqsd1YH7eQ" type="6002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_BA-dMTLPEeaOiqsd1YH7eQ" y="-7"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_BA-dMjLPEeaOiqsd1YH7eQ" type="6034">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_BA-dMzLPEeaOiqsd1YH7eQ" y="15"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_BA-dNDLPEeaOiqsd1YH7eQ" type="6003">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_BA-dNTLPEeaOiqsd1YH7eQ" y="-64"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_BA-dNjLPEeaOiqsd1YH7eQ" type="6033">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_BA-dNzLPEeaOiqsd1YH7eQ" y="15"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_BA-dODLPEeaOiqsd1YH7eQ" type="6005">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_BA-dOTLPEeaOiqsd1YH7eQ" y="-50"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_BA-dOjLPEeaOiqsd1YH7eQ" fontName="Segoe UI" fontHeight="8"/>
+    <element xmi:type="uml:Association" href="ECIM_ComputeResource.uml#_ESvNoGRCEeSQhrRVNgz2zw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BA-dOzLPEeaOiqsd1YH7eQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+  </edges>
+</notation:Diagram>

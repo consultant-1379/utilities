@@ -1,0 +1,155 @@
+#
+# Sample /etc/sudoers file.
+#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# See the sudoers man page for the details on how to write a sudoers file.
+#
+
+##
+# User alias specification
+##
+
+##
+# Runas alias specification
+##
+
+##
+# Host alias specification
+##
+
+##
+# Cmnd alias specification
+##
+
+#Alias section
+
+Cmnd_Alias COMGROUPLIST = \ 
+		/opt/ap/acs/bin/acs_hcs_hcstart.sh, \ 
+		/opt/ap/acs/bin/acease, \
+		/opt/ap/acs/bin/aehevls, \
+		/opt/ap/acs/bin/aehls, \
+		/opt/ap/acs/bin/alist, \
+		/opt/ap/acs/bin/alogfind, \ 
+		/opt/ap/acs/bin/aloglist, \
+		/opt/ap/acs/bin/alogpchg, \
+		/opt/ap/acs/bin/alogpls, \
+		/opt/ap/acs/bin/alogset, \
+		/opt/ap/acs/bin/bios_set, \
+		/opt/ap/acs/bin/burbackup, \
+		/opt/ap/acs/bin/burrestore, \
+		/opt/ap/acs/bin/cpgls, \
+		/opt/ap/acs/bin/cpls, \
+		/opt/ap/acs/bin/csadm, \
+		/opt/ap/acs/bin/dsdls, \
+		/opt/ap/acs/bin/hwcls, \
+		/opt/ap/acs/bin/hwiprint, \
+		/opt/ap/acs/bin/hwmscbls, \
+		/opt/ap/acs/bin/hwmxls, \
+		/opt/ap/acs/bin/ipsecdef, \
+		/opt/ap/acs/bin/ipsecls, \
+		/opt/ap/acs/bin/ipsecrm, \
+		/opt/ap/acs/bin/ispprint, \
+		/opt/ap/acs/bin/license_install, \
+		/opt/ap/acs/bin/mktr, \
+		/opt/ap/acs/bin/msdls, \
+		/opt/ap/acs/bin/mtzln, \
+		/opt/ap/acs/bin/opensession, \
+		/opt/ap/acs/bin/prcboot, \
+		/opt/ap/acs/bin/prcstate, \
+		/opt/ap/acs/bin/rtrch, \
+		/opt/ap/acs/bin/rtrdef, \
+		/opt/ap/acs/bin/rtrfe, \
+		/opt/ap/acs/bin/rtrls, \
+		/opt/ap/acs/bin/rtrrm, \
+		/opt/ap/acs/bin/show_licenses, \
+		/opt/ap/acs/bin/swrprint, \
+		/opt/ap/acs/bin/wssadm, \
+		/opt/ap/aes/bin/afpdef, \
+		/opt/ap/aes/bin/afpls, \
+		/opt/ap/aes/bin/afprm, \
+		/opt/ap/aes/bin/cdhdsls, \
+		/opt/ap/aes/bin/cdhls, \
+		/opt/ap/apos/bin/apos_date, \
+		/opt/ap/apos/bin/bioschg, \
+		/opt/ap/apos/bin/check_ldap_availability, \
+		/opt/ap/apos/bin/ldapconfig.sh, \
+		/opt/ap/apos/bin/netdef, \
+		/opt/ap/apos/bin/netls, \
+		/opt/ap/apos/bin/nss_ufbs, \
+		/opt/ap/apos/bin/ping, \
+		/opt/ap/apos/bin/psdef, \
+		/opt/ap/apos/bin/psls, \
+		/opt/ap/apos/bin/psrm, \
+		/opt/ap/apos/bin/raidmgr, \
+		/opt/ap/apos/bin/rifdef, \
+		/opt/ap/apos/bin/rifls, \
+		/opt/ap/apos/bin/rifrm, \
+		/opt/ap/apos/bin/snrinit, \
+		/opt/ap/apos/bin/traceroute, \
+		/opt/ap/apos/bin/tzch, \
+		/opt/ap/apos/bin/tzls, \
+		/opt/ap/apos/bin/unzip, \
+		/opt/ap/apos/bin/ver, \
+		/opt/ap/apos/bin/vlanch, \
+		/opt/ap/apos/bin/vlandef, \
+		/opt/ap/apos/bin/vlanls, \
+		/opt/ap/apos/bin/vlanrm, \
+		/opt/ap/apos/conf/apos_cache-exp.sh, \
+		/opt/ap/cps/bin/bupidls, \
+		/opt/ap/cps/bin/cmdlls, \
+		/opt/ap/cps/bin/tesrvls, \
+		/opt/ap/cps/bin/tesrvtran, \
+		/opt/ap/cqs/bin/cqrhils, \
+		/opt/ap/cqs/bin/cqrhlls, \
+		/opt/ap/ext/evhandlclient/bin/evhandlclient, \
+		/opt/ap/fixs/bin/fixerls, \
+		/opt/ap/fixs/bin/fwprint, \
+		/opt/ap/fixs/bin/fwupgexec, \
+		/opt/ap/fixs/bin/ipmifwprint, \
+		/opt/ap/fixs/bin/ipmiupgexec, \
+		/opt/ap/fixs/bin/pfmfwprint, \
+		/opt/ap/fixs/bin/pfmupgexec, \
+		/opt/ap/fixs/bin/xcountls, \
+		/opt/ap/fms/bin/cpfcp, \
+		/opt/ap/fms/bin/cpfls, \
+		/opt/ap/fms/bin/cpfmkfile, \
+		/opt/ap/fms/bin/cpfport, \
+		/opt/ap/fms/bin/cpfrename, \
+		/opt/ap/fms/bin/cpfrm, \
+		/opt/ap/mas/bin/crdls, \
+		/opt/ap/mas/bin/mas_cptaspmml, \
+		/opt/ap/mas/bin/misclhls, \
+		/opt/ap/mcs/bin/cpdtest, \
+		/opt/ap/mcs/bin/mml, \
+		/opt/ap/ocs/bin/ipnaadm, \
+		/opt/ap/osu/bin/osumgr, \
+		/opt/ap/pes/bin/cfeted, \
+		/opt/ap/pes/bin/clhls, \
+		/opt/ap/pes/bin/clhtran, \
+		/opt/ap/pes/bin/rpls, \
+		/opt/ap/pes/bin/rptran, \
+		/opt/ap/pes/bin/sells, \
+		/opt/ap/pes/bin/seltran, \
+		/opt/ap/pes/bin/xpuls, \
+		/opt/ap/pes/bin/xputran, \
+		/opt/ap/sts/bin/stmmp, \
+		/opt/ap/sts/bin/stmotd, \
+		/opt/ap/sts/bin/stmotls, \
+		/opt/ap/sts/bin/stmpts, \
+		/opt/ap/sts/bin/stmrp, \
+		/opt/ap/sts/bin/stmttu
+
+##
+# User specification
+##
+# Com Group List available commands
+%system-oam	ALL = (root) NOPASSWD: COMGROUPLIST
+
+# Com-Emergency Group List available commands
+%com-emergency	ALL = (root) NOPASSWD: COMGROUPLIST
+
+# swmgr command --- available only to apgswmgr and root
+%system-oam  ALL = (apgswmgr) NOPASSWD: /opt/ap/apos/bin/swmgr
+%com-emergency ALL   = (apgswmgr) NOPASSWD: /opt/ap/apos/bin/swmgr
+

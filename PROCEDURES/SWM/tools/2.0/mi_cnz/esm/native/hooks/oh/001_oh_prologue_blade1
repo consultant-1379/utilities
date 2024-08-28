@@ -1,0 +1,442 @@
+#!/bin/bash
+##
+# ------------------------------------------------------------------------
+#     Copyright (C) 2012 Ericsson AB. All rights reserved.
+# ------------------------------------------------------------------------
+##
+# Name:
+#       001_oh_prologue_blade1
+# Description:
+#       A script to download all software.
+# Note:
+#       Sourced via LOTC cluster install script execution during
+#       the post installation phase.
+##
+# Usage:
+#       Used during APG43L maiden installation.
+##
+# Output:
+#       None.
+##
+# Changelog:
+# - Thu July 05 2017 Raghavendra Koduri (XKODRAG)
+#	Modified to support GEP7 boards
+# - Mon May 06 2013
+#   Partition tool impacts - parsing of new installation.conf file
+# - Tue Mar 13 2012 - Paolo Palmieri (epaopal)
+#       First version.
+##
+
+# Non-initialized variables are forbidden
+#set -u
+set -x
+
+function ph_read_parse_installation_params_gep5() {
+  echo "--- ph_read_parse_installation_params($1) begin"
+
+  # Local variables
+  local FILE=$1
+  local linenr=0
+
+  # Clean /tmp/installation/partition_info file
+  local PARTITION_FILE="/tmp/installation/partition_info"
+  if [ -a $PARTITION_FILE ]; then
+  	rm -f $PARTITION_FILE
+  fi	
+
+  while read cline
+  do
+    linenr=$(expr $linenr + 1);
+    local line=$(echo ${cline%%;*})
+    if [ ! -z "$line" ]; then
+	  local keyword=`echo $line | awk -F' ' '{print $1}'`
+      local myname=$(trim ${line%%=*})
+      local myvalue=$(echo ${line#*=} | tr -d '\n')
+	  if [ -n "$myname" ]; then
+	   if [ -n "$keyword" ]; then
+        case $myname in
+
+        # --- INSTALLATION PARAMETERS ---------------------------------------- #
+        root_password_hash)
+          ROOT_PASSWORD_HASH=$myvalue
+          echo "$ROOT_PASSWORD_HASH" > /tmp/installation/root_password_hash
+          ;;
+
+        standalone_install)
+          STANDALONE_INSTALL=$myvalue
+          echo "$STANDALONE_INSTALL" > /tmp/installation/standalone_install
+          ;;
+
+        standalone_volatile_logs)
+          STANDALONE_VOLATILE_LOGS=$myvalue
+          echo "$STANDALONE_VOLATILE_LOGS" > /tmp/installation/standalone_volatile_logs
+          ;;
+
+        cluster_install_reboot)
+          CLUSTER_INSTALL_REBOOT=$myvalue
+          echo "$CLUSTER_INSTALL_REBOOT" > /tmp/installation/cluster_install_reboot
+          ;;
+
+        disk_cache)
+          DISK_CACHE=$myvalue
+          echo "$DISK_CACHE" > /tmp/installation/disk_cache
+          ;;
+
+        control_rpm_name)
+          CONTROL_RPM_NAME=$myvalue
+          echo "$CONTROL_RPM_NAME" > /tmp/installation/control_rpm_name
+          ;;
+
+        payload_rpm_name)
+          PAYLOAD_RPM_NAME=$myvalue
+          echo "$PAYLOAD_RPM_NAME" > /tmp/installation/payload_rpm_name
+          ;;
+
+        download_path)
+          DOWNLOAD_PATH=$myvalue
+          echo "$DOWNLOAD_PATH" > /tmp/installation/download_path
+          ;;
+		 
+		 # --- Partition tool -------------------------------------------------------- #
+		*)
+	   case $keyword in
+	   	 
+		 # --- INSTALLATION PARAMETERS ---------------------------------------- #
+		disk|partition|drbd|filesystem|option|map|pv|lv|vg)
+		  echo "$line" >> /tmp/installation/partition_info
+		  ;;
+										   
+        # --- DEFAULT -------------------------------------------------------- #
+        *)
+          abort "The \"$myname\" attribute with \"$myvalue\" value is not managed"
+          ;;
+        esac
+		;;
+	  esac
+	  fi
+	  fi
+	fi
+  done < $FILE
+
+  echo "--- ph_read_parse_installation_params($1) end"
+}
+
+function ph_read_parse_installation_params() {
+  echo "--- ph_read_parse_installation_params($1) begin"
+
+  # Local variables
+  local FILE=$1
+  local linenr=0
+
+  while read cline
+  do
+    linenr=$(expr $linenr + 1);
+    local line=$(echo ${cline%%;*})
+    if [ ! -z "$line" ]; then
+      local myname=$(trim ${line%%=*})
+      local myvalue=$(echo ${line#*=} | tr -d '\n')
+      if [ ! -z  $myname ]; then
+        case $myname in
+
+        # --- INSTALLATION PARAMETERS ---------------------------------------- #
+        root_password_hash)
+          ROOT_PASSWORD_HASH=$myvalue
+          echo "$ROOT_PASSWORD_HASH" > /tmp/installation/root_password_hash
+          ;;
+
+        standalone_install)
+          STANDALONE_INSTALL=$myvalue
+          echo "$STANDALONE_INSTALL" > /tmp/installation/standalone_install
+          ;;
+
+        standalone_volatile_logs)
+          STANDALONE_VOLATILE_LOGS=$myvalue
+          echo "$STANDALONE_VOLATILE_LOGS" > /tmp/installation/standalone_volatile_logs
+          ;;
+
+        disk_device_path)
+          DISK_DEVICE_PATH=$myvalue
+          echo "$DISK_DEVICE_PATH" > /tmp/installation/disk_device_path
+          ;;
+
+        partition_boot_size)
+          PARTITION_BOOT_SIZE=$myvalue
+          echo "$PARTITION_BOOT_SIZE" > /tmp/installation/partition_boot_size
+          ;;
+
+        partition_log_size)
+          PARTITION_LOG_SIZE=$myvalue
+	      echo "$PARTITION_LOG_SIZE" > /tmp/installation/partition_log_size
+          ;;
+
+        partition_root_size)
+          PARTITION_ROOT_SIZE=$myvalue
+          echo "$PARTITION_ROOT_SIZE" > /tmp/installation/partition_root_size
+          ;;
+
+        partition_swap_size)
+          PARTITION_SWAP_SIZE=$myvalue
+          echo "$PARTITION_SWAP_SIZE" > /tmp/installation/partition_swap_size
+          ;;
+
+        shared_metadata_size)
+          SHARED_METADATA_SIZE=$myvalue
+          echo "$SHARED_METADATA_SIZE" > /tmp/installation/shared_metadata_size
+          ;;
+
+        shared_filesystem_size)
+          SHARED_FILESYSTEM_SIZE=$myvalue
+          echo "$SHARED_FILESYSTEM_SIZE" > /tmp/installation/shared_filesystem_size
+          ;;
+
+        cluster_install_reboot)
+          CLUSTER_INSTALL_REBOOT=$myvalue
+          echo "$CLUSTER_INSTALL_REBOOT" > /tmp/installation/cluster_install_reboot
+          ;;
+
+        disk_cache)
+          DISK_CACHE=$myvalue
+          echo "$DISK_CACHE" > /tmp/installation/disk_cache
+          ;;
+
+        control_rpm_name)
+          CONTROL_RPM_NAME=$myvalue
+          echo "$CONTROL_RPM_NAME" > /tmp/installation/control_rpm_name
+          ;;
+
+        payload_rpm_name)
+         PAYLOAD_RPM_NAME=$myvalue
+         echo "$PAYLOAD_RPM_NAME" > /tmp/installation/payload_rpm_name
+          ;;
+
+        download_path)
+          DOWNLOAD_PATH=$myvalue
+          echo "$DOWNLOAD_PATH" > /tmp/installation/download_path
+          ;;
+
+        # --- DEFAULT -------------------------------------------------------- #
+        *)
+          abort "The \"$myname\" attribute with \"$myvalue\" value is not managed"
+          ;;
+        esac
+      fi
+    fi
+  done < $FILE
+
+  echo "--- ph_read_parse_installation_params($1) end"
+}
+
+function ph_read_parse_installation_params_old() {
+  local LOTC_INSTALLATION_PARAMS=$(cat << HEREDOC
+    ROOT_PASSWORD_HASH
+    STANDALONE_INSTALL
+    STANDALONE_VOLATILE_LOGS
+    DISK_DEVICE_PATH
+    PART_SIZE_BOOT
+    PART_SIZE_LOG
+    PART_SIZE_ROOT
+    PART_SIZE_SWAP
+    PART_SIZE_DRBDDATA
+    PART_SIZE_DRBDMETA
+    CLUSTER_INSTALL_REBOOT
+    DISK_CACHE
+    DETACHED
+    CONTROL_RPM_NAME
+    PAYLOAD_RPM_NAME
+    DOWNLOAD_PATH
+    CLUSTER_INSTALL_DEBUG
+    CLUSTER_INSTALL_SHADOW
+    DEF_DISK_SIZE
+HEREDOC
+)
+  local PARAM
+  local FILE_NAME
+
+  for PARAM in $LOTC_INSTALLATION_PARAMS; do
+    if [ -n "${!PARAM}" ]; then
+      FILE_NAME=$(echo ${PARAM} | tr '[:upper:]' '[:lower:]' )
+      echo "${!PARAM}" > /tmp/installation/$FILE_NAME
+    fi
+  done
+}
+
+function get_param_path() {
+  # To be managed if LOTC will provide an API
+  echo "/cluster/etc"
+}
+
+function get_hook_path() {
+  local FOLDER="${HOOKS_DIR}"
+  if [ "${FOLDER}" == "" ]; then
+    FOLDER="/tmp/hooks_execute_dir"
+    if [ -d ${FOLDER} ]; then
+      echo "${FOLDER}"
+    else
+      echo "ERROR: The hook path is not configured by LOTC!"; echo "Aborting"; echo ""; exit 1
+    fi
+  else
+    if [ -d ${FOLDER} ]; then
+      echo "${FOLDER}"
+    else
+      echo "ERROR: The hook path is wrongly provided by LOTC!"; echo "Aborting"; echo ""; exit 1
+    fi
+  fi
+}
+
+function get_repo_path() {
+  local FOLDER=$( cluster install --repo-path )
+  if [ $? -ne 0 ]; then
+    FOLDER="/tmp/installation_repo"
+    if [ -d ${FOLDER} ]; then
+      echo "${FOLDER}"
+    else
+      echo "ERROR: The hook path is not configured by LOTC!"; echo "Aborting"; echo ""; exit 1
+    fi
+  else
+    if [ -d ${FOLDER} ]; then
+      echo "${FOLDER}"
+    else
+      echo "ERROR: The hook path is wrongly provided by LOTC!"; echo "Aborting"; echo ""; exit 1
+    fi
+  fi
+}
+
+function init_installationparams() {
+  echo "--- init_installationparams() begin"
+
+  ROOT_PASSWORD_HASH=""
+  STANDALONE_INSTALL=""
+  STANDALONE_VOLATILE_LOGS=""
+  DISK_DEVICE_PATH=""
+  PARTITION_BOOT_SIZE=""
+  PARTITION_LOG_SIZE=""
+  PARTITION_ROOT_SIZE=""
+  PARTITION_SWAP_SIZE=""
+  SHARED_METADATA_SIZE=""
+  SHARED_FILESYSTEM_SIZE=""
+  CLUSTER_INSTALL_REBOOT=""
+  DISK_CACHE=""
+  CONTROL_RPM_NAME=""
+  PAYLOAD_RPM_NAME=""
+  DOWNLOAD_PATH=""
+
+  echo "--- init_installationparams() end"
+}
+
+function init_system() {
+  # Parameters initialization
+  init_installationparams
+
+  # Common functions sourcing
+  local hook_path=$( get_hook_path )
+  local common_functions="${hook_path}/non_exec-common_functions"
+  . ${common_functions}
+
+  # fetch hw-type
+  HW_TYPE=$(get_hwtype)
+}
+
+#                                              __    __   _______   _   __    _
+#                                             |  \  /  | |  ___  | | | |  \  | |
+#                                             |   \/   | | |___| | | | |   \ | |
+#                                             | |\  /| | |  ___  | | | | |\ \| |
+#                                             | | \/ | | | |   | | | | | | \   |
+#                                             |_|    |_| |_|   |_| |_| |_|  \__|
+#
+main() {
+  echo "--- main() begin"
+
+  # Local variables
+  local MI_PATH="/cluster/mi"
+  local MI_HOOK="/cluster/hooks"
+  local MI_INST="installation"
+  local MI_LOGS="logs"
+  local MI_SWRE="sw"
+  local SW_TGZ="sw.tar.gz"
+  local NODE_NAME=$( cat /etc/cluster/nodes/this/hostname )
+
+  # Initialize the system
+  init_system
+
+  if [ -f /etc/cluster/options/download_path ]; then
+    local DOWNLOAD_PATH=$(trim $(</etc/cluster/options/download_path))
+    # If missing add a trailing / to trimmed DOWNLOAD_PATH
+    DOWNLOAD_PATH=${DOWNLOAD_PATH%/}/
+  fi
+
+  # Sanity checks
+  if [ ! -d /cluster ]; then
+    abort "The cluster partition is not mounted"
+  fi
+
+  # MI started
+  mkdir -p $MI_PATH/$MI_LOGS
+  status_update "Installation procedure started"
+
+  # Collecting LOTC installation parameters
+  #ph_read_parse_installation_params_old
+  local param_path=$( get_param_path )
+  local install_conf="${param_path}/installation.conf"
+  if [[ $HW_TYPE =~ "GEP4" || $HW_TYPE =~ "GEP5" || $HW_TYPE =~ "GEP7" ]]; then
+  	ph_read_parse_installation_params_gep5 ${install_conf}
+  else	
+	ph_read_parse_installation_params ${install_conf}	
+  fi	
+
+  # Saving installation parameters
+  mkdir -p $MI_PATH/$MI_INST
+  if [ -d $MI_PATH/$MI_INST ]; then
+    pushd /tmp/installation >/dev/null 2>&1
+    cp * $MI_PATH/$MI_INST/
+    popd >/dev/null 2>&1
+  else
+    abort "Unable to create the $MI_PATH/$MI_INST folder"
+  fi
+
+  # Managing APG software
+  echo "--  downloading and unpacking software"
+  mkdir -p $MI_PATH/$MI_SWRE
+  if [ -d $MI_PATH/$MI_SWRE ]; then
+    download ${DOWNLOAD_PATH}sw/$SW_TGZ $MI_PATH/$MI_SWRE
+    pushd $MI_PATH/$MI_SWRE >/dev/null 2>&1
+    tar -xzmf $SW_TGZ
+		if [ -f ./DEPLOYMENT.working ]; then
+      rm $SW_TGZ
+			cp DEPLOYMENT.working DEPLOYMENT.ready
+    else
+      abort "Content of $SW_TGZ seems wrong"
+    fi
+    popd >/dev/null 2>&1
+  else
+    abort "Unable to create the $MI_PATH/$MI_SWRE folder"
+  fi
+
+  # Managing blade2 hooks
+  #if [ ! -d $MI_HOOK/2 ]; then
+  #  mkdir $MI_HOOK/2
+  #fi
+  #cp -f $MI_HOOK/*.gz $MI_HOOK/2/
+
+  echo "--- main() end"
+
+  # Copying log files
+  if [ -d $MI_PATH/$MI_LOGS ]; then
+    pushd "$MI_PATH/$MI_LOGS" > /dev/null 2>&1
+    if [ ! -d $NODE_NAME ]; then mkdir $NODE_NAME; fi
+    pushd "$NODE_NAME" > /dev/null 2>&1
+    cp /root/*.log $MI_PATH/$MI_LOGS/$NODE_NAME/
+    popd > /dev/null 2>&1; popd > /dev/null 2>&1
+  else
+    abort "Unable to find the $MI_PATH/$MI_LOGS folder"
+  fi
+}
+
+# Main
+
+echo "APG43L: Post-installation prologue hook for SC-2-1 node."
+HW_TYPE=''
+
+main "@"
+exit $TRUE
+
+# End of file

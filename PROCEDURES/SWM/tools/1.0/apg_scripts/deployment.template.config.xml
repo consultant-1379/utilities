@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploymentConfiguration name="ERIC-SampleDeploymentConfig" provider="ERIC" schemaVersion="1.0" xmlns="http://www.example.org/deploymentConfigurationSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/deploymentConfigurationSchema deploymentConfigurationSchema.xsd ">
+  <roles>
+    <role name="Default-Role" scalable="true" autoAssigned="true" />
+  </roles>
+  <system>
+    <!--
+    <instance name="PL-4" providedRole="Default-Role" />
+    <instance name="PL-5" providedRole="Default-Role" />
+    -->
+  </system>
+</deploymentConfiguration>

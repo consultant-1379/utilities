@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="CmwSwIM">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NRAMoQwOEdmFcaeZXPdWAQ" source="uml2.diagrams"/>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_GCV28AOPEeCfG-0yuYR4Pg" source="com.ibm.xtools.common.ui.reduction.editingCapabilities"/>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_QQgsYAOVEeCfG-0yuYR4Pg">
+      <body>This is the software inventory model.</body>
+    </ownedComment>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_g5K-IA0CEeuA4dxjHbJM1g" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>CoreMW Software Inventory model.
+Copyright(c) 2022 Ericsson AB.
+All rights reserved.</body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_8JbBoIW5Ed-FBpQGdJXi3g">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_v9gUgAOTEeCfG-0yuYR4Pg" name="CmwSwIM">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_wBO98AOTEeCfG-0yuYR4Pg">
+        <body>This is the software inventory model. &#xD;
+It contains the software versions installed on the managed element. For each software version, the software items constituting the software version are listed.</body>
+      </ownedComment>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_mPaDAA0CEeuA4dxjHbJM1g" annotatedElement="_v9gUgAOTEeCfG-0yuYR4Pg">
+        <body>This is the software inventory model. &#xD;
+It contains the software versions installed on the managed element. For each software version, the software items that constitute the software version are listed.</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_4cL7kAOUEeCfG-0yuYR4Pg" name="SwInventory">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_4cqcsAOUEeCfG-0yuYR4Pg" annotatedElement="_4cL7kAOUEeCfG-0yuYR4Pg">
+          <body>A singleton class, the purpose of which is only structural.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_4dfjIAOUEeCfG-0yuYR4Pg" name="swInventoryId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_4duMoAOUEeCfG-0yuYR4Pg">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_39eLkAYyEe2XEcp-ga_Fcg" annotatedElement="_4dfjIAOUEeCfG-0yuYR4Pg">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_S_84sAOWEeCfG-0yuYR4Pg" name="userLabel">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_TAK7IAOWEeCfG-0yuYR4Pg">
+            <body>A label for free usage.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_FsgucAYzEe2XEcp-ga_Fcg" annotatedElement="_S_84sAOWEeCfG-0yuYR4Pg">
+            <body>A label for free usage.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TAJtAAOWEeCfG-0yuYR4Pg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_UqyMYSqyEeCoX8PHLLoVvg" name="items" visibility="public" type="_D87PUAOfEeCfG-0yuYR4Pg" aggregation="composite" association="_UqyMYCqyEeCoX8PHLLoVvg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UqyMYiqyEeCoX8PHLLoVvg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UqyMYyqyEeCoX8PHLLoVvg" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_y4bk0Sq0EeCoX8PHLLoVvg" name="versions" visibility="public" type="_khxUMAOXEeCfG-0yuYR4Pg" aggregation="composite" association="_y4bk0Cq0EeCoX8PHLLoVvg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y4bk0iq0EeCoX8PHLLoVvg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y4bk0yq0EeCoX8PHLLoVvg" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_3_GfgCq7EeCoX8PHLLoVvg" name="active" type="_khxUMAOXEeCfG-0yuYR4Pg" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_3__QUCq7EeCoX8PHLLoVvg">
+            <body>A reference to the active software version of a software domain.&#xD;
+The software of a managed element can be stuctured into more than one software domain. The active software version(s) control the behavior of the managed element .</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_MjsosAYzEe2XEcp-ga_Fcg" annotatedElement="_3_GfgCq7EeCoX8PHLLoVvg">
+            <body>A reference to the active software version of a software domain. &#xD;
+The software of a managed element can be structured into more than one software domain. The active software versions control the behavior of the managed element .</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pBFNoCgjEeKNkapU7yanaw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_siL84CgjEeKNkapU7yanaw" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_khxUMAOXEeCfG-0yuYR4Pg" name="SwVersion">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_kh9hcAOXEeCfG-0yuYR4Pg" annotatedElement="_khxUMAOXEeCfG-0yuYR4Pg">
+          <body>An MO of this class represents the software version of a domain of the software.&#xD;
+If there is only one software domain, the MO represents the overall version of the managed element.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_kiwLoAOXEeCfG-0yuYR4Pg" name="swVersionId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ki3gYQOXEeCfG-0yuYR4Pg">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_oEbVoAY6Ee2QlIp2qZW5Gg" annotatedElement="_kiwLoAOXEeCfG-0yuYR4Pg">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_39aNgAOXEeCfG-0yuYR4Pg" name="userLabel">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_39no4AOXEeCfG-0yuYR4Pg">
+            <body>A label for free usage.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_bs7GEAY9Ee2QlIp2qZW5Gg" annotatedElement="_39aNgAOXEeCfG-0yuYR4Pg">
+            <body>A label for free usage.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_39nB0AOXEeCfG-0yuYR4Pg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_u5wUUAOaEeCfG-0yuYR4Pg" name="administrativeData" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_u59vsAOaEeCfG-0yuYR4Pg">
+            <body>The product identification of the software version.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_dLe2IAY6Ee2QlIp2qZW5Gg" annotatedElement="_u5wUUAOaEeCfG-0yuYR4Pg">
+            <body>The software version product identification.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_CYMYUGxSEeGjja_QGAGUKA"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_u59IoAOaEeCfG-0yuYR4Pg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_1IHekAObEeCfG-0yuYR4Pg" name="timeOfInstallation" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_1IVhAAObEeCfG-0yuYR4Pg">
+            <body>Indicates the time the software version was installed.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_YPeu0AY9Ee2QlIp2qZW5Gg" annotatedElement="_1IHekAObEeCfG-0yuYR4Pg">
+            <body>Indicates the time the software version was installed.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1IUS4QObEeCfG-0yuYR4Pg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WgDToAOcEeCfG-0yuYR4Pg" name="timeOfActivation" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ES0eoCriEeCoX8PHLLoVvg">
+            <body>Indicates the time when the software version was activated. &#xD;
+If no time is presented, then current software version has not been activated.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_RHG98AY9Ee2QlIp2qZW5Gg" annotatedElement="_WgDToAOcEeCfG-0yuYR4Pg">
+            <body>Indicates the time when the software version was activated. &#xD;
+If no time is shown, the current software version is not activated.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WgQH8AOcEeCfG-0yuYR4Pg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_k5Rb8AOcEeCfG-0yuYR4Pg" name="timeOfDeactivation" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Odil8EPrEeClV4QPzec9dw">
+            <body>Indicates the time when the software version was deactivated. &#xD;
+If no time is presented, then current software version has not been deactivated.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_VXBT8AY9Ee2QlIp2qZW5Gg" annotatedElement="_k5Rb8AOcEeCfG-0yuYR4Pg">
+            <body>Indicates the time when the software version was deactivated. &#xD;
+If no time is shown, the current software version is not deactivated.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_k5e3UAOcEeCfG-0yuYR4Pg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_moi9AAOjEeCfG-0yuYR4Pg" name="consistsOf" type="_D87PUAOfEeCfG-0yuYR4Pg" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mowYYQOjEeCfG-0yuYR4Pg">
+            <body>List of references to the software items the software version consists of.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ic1bAAY6Ee2QlIp2qZW5Gg" annotatedElement="_moi9AAOjEeCfG-0yuYR4Pg">
+            <body>List of references to the software items of which the software version consists.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_movxUAOjEeCfG-0yuYR4Pg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mowYYAOjEeCfG-0yuYR4Pg" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_D87PUAOfEeCfG-0yuYR4Pg" name="SwItem">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_D9HckAOfEeCfG-0yuYR4Pg" annotatedElement="_D87PUAOfEeCfG-0yuYR4Pg">
+          <body>A software item holds information about an executable software product.&#xD;
+A software item can also represent a container product that contains other software items, which represent a subordinate container and/or executable software products.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_D-IJMAOfEeCfG-0yuYR4Pg" name="swItemId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_D-TvYQOfEeCfG-0yuYR4Pg">
+            <body>The value component of RDN.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_9z-q8AY9Ee2QlIp2qZW5Gg" annotatedElement="_D-IJMAOfEeCfG-0yuYR4Pg">
+            <body>The value component of RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_UM_kgAOfEeCfG-0yuYR4Pg" name="userLabel">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_UNMY0AOfEeCfG-0yuYR4Pg">
+            <body>A label for free usage.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_EuxS0AY-Ee2QlIp2qZW5Gg" annotatedElement="_UM_kgAOfEeCfG-0yuYR4Pg">
+            <body>A label for free usage.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UNLxwQOfEeCfG-0yuYR4Pg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ygexIAOfEeCfG-0yuYR4Pg" name="administrativeData" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ygsMgAOfEeCfG-0yuYR4Pg">
+            <body>The product identification of the software item.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_z98Z8AY9Ee2QlIp2qZW5Gg" annotatedElement="_ygexIAOfEeCfG-0yuYR4Pg">
+            <body>The software item product identification.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_CYMYUGxSEeGjja_QGAGUKA"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ygrlcAOfEeCfG-0yuYR4Pg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_4Xz5AAahEeCfG-0yuYR4Pg" name="additionalInfo" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_4YAGQAahEeCfG-0yuYR4Pg">
+            <body>Describes any additional relevant aspects of the software item.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_wUzJAAY9Ee2QlIp2qZW5Gg" annotatedElement="_4Xz5AAahEeCfG-0yuYR4Pg">
+            <body>Describes any additional relevant aspects of the software item.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4X_fMAahEeCfG-0yuYR4Pg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_R2vnUEP0EeClV4QPzec9dw" name="consistsOf" type="_D87PUAOfEeCfG-0yuYR4Pg" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_R3o_MEP0EeClV4QPzec9dw">
+            <body>Describes a hierarchical relationship between software items.&#xD;
+An empty value indicates that current software item is not a container that includes subordinate software items.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6NByYAY9Ee2QlIp2qZW5Gg" annotatedElement="_R2vnUEP0EeClV4QPzec9dw">
+            <body>Describes a hierarchical relationship between software items.&#xD;
+An empty value indicates that the current software item is not a container that includes subordinate software items.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R3oYIEP0EeClV4QPzec9dw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R3oYIUP0EeClV4QPzec9dw" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_UqyMYCqyEeCoX8PHLLoVvg" name="SwInventory_to_SwItem" memberEnd="_UqyMYSqyEeCoX8PHLLoVvg _UqyMZCqyEeCoX8PHLLoVvg">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_UskVESqyEeCoX8PHLLoVvg">
+          <body>The software inventory may contain software items.</body>
+        </ownedComment>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_UqyMZCqyEeCoX8PHLLoVvg" name="swItem" visibility="public" type="_4cL7kAOUEeCfG-0yuYR4Pg" association="_UqyMYCqyEeCoX8PHLLoVvg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Uq7WUCqyEeCoX8PHLLoVvg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Uq7WUSqyEeCoX8PHLLoVvg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_y4bk0Cq0EeCoX8PHLLoVvg" name="SwInventory_to_SwVersion" memberEnd="_y4bk0Sq0EeCoX8PHLLoVvg _y4bk1Cq0EeCoX8PHLLoVvg">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_y6qZcSq0EeCoX8PHLLoVvg">
+          <body>The software inventory may contain software versions.</body>
+        </ownedComment>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_y4bk1Cq0EeCoX8PHLLoVvg" name="swVersion" visibility="public" type="_4cL7kAOUEeCfG-0yuYR4Pg" association="_y4bk0Cq0EeCoX8PHLLoVvg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y4bk1Sq0EeCoX8PHLLoVvg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y4lV0Cq0EeCoX8PHLLoVvg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_nZRS4PDCEeC60Z0oa_muIQ" name="SystemFunctions_to_SwInventory" memberEnd="_nZac0PDCEeC60Z0oa_muIQ _nZkN0fDCEeC60Z0oa_muIQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_nZkN0fDCEeC60Z0oa_muIQ" name="systemFunctions" visibility="public" type="_4cL7kAOUEeCfG-0yuYR4Pg" aggregation="composite" association="_nZRS4PDCEeC60Z0oa_muIQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nZtXwvDCEeC60Z0oa_muIQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nZtXwfDCEeC60Z0oa_muIQ" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_nZac0PDCEeC60Z0oa_muIQ" name="swInventory" visibility="public" association="_nZRS4PDCEeC60Z0oa_muIQ">
+          <type xmi:type="uml:Class" href="ComTop.uml#_ETwJsJmNEd-RhrgDerFWug"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nZkN1fDCEeC60Z0oa_muIQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nZkN1PDCEeC60Z0oa_muIQ" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_JXYH0EfhEe62l5Y7CGNADA" name="SwInventory_to_SwVersion" memberEnd="_JXZV8EfhEe62l5Y7CGNADA _JXbLIEfhEe62l5Y7CGNADA">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_JXZV8EfhEe62l5Y7CGNADA" name="active" visibility="public" type="_khxUMAOXEeCfG-0yuYR4Pg" association="_JXYH0EfhEe62l5Y7CGNADA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JXeOcUfhEe62l5Y7CGNADA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JXeOcEfhEe62l5Y7CGNADA" value="*"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_JXbLIEfhEe62l5Y7CGNADA" name="_uniDirBP" visibility="public" type="_4cL7kAOUEeCfG-0yuYR4Pg" association="_JXYH0EfhEe62l5Y7CGNADA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JXjG8kfhEe62l5Y7CGNADA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JXjG8UfhEe62l5Y7CGNADA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_kTqvIEfhEe62l5Y7CGNADA" name="SwVersion_to_SwItem" memberEnd="_kTskUEfhEe62l5Y7CGNADA _kTtLYkfhEe62l5Y7CGNADA">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_kTskUEfhEe62l5Y7CGNADA" name="consistsOf" visibility="public" type="_D87PUAOfEeCfG-0yuYR4Pg" association="_kTqvIEfhEe62l5Y7CGNADA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kTw1wUfhEe62l5Y7CGNADA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kTw1wEfhEe62l5Y7CGNADA" value="*"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_kTtLYkfhEe62l5Y7CGNADA" name="_uniDirBP" visibility="public" type="_khxUMAOXEeCfG-0yuYR4Pg" association="_kTqvIEfhEe62l5Y7CGNADA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kT1uQkfhEe62l5Y7CGNADA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kT1uQUfhEe62l5Y7CGNADA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_CMYEQEfiEe62l5Y7CGNADA" name="SwItem_to_SwItem" memberEnd="_CMZ5cEfiEe62l5Y7CGNADA _CMaggkfiEe62l5Y7CGNADA">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_CMZ5cEfiEe62l5Y7CGNADA" name="_uniDirBP" visibility="public" type="_D87PUAOfEeCfG-0yuYR4Pg" association="_CMYEQEfiEe62l5Y7CGNADA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CMjqckfiEe62l5Y7CGNADA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CMjqcUfiEe62l5Y7CGNADA" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_CMaggkfiEe62l5Y7CGNADA" name="consistsOf" visibility="public" type="_D87PUAOfEeCfG-0yuYR4Pg" association="_CMYEQEfiEe62l5Y7CGNADA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CMeK4UfiEe62l5Y7CGNADA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CMeK4EfiEe62l5Y7CGNADA" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_f_VrwKYkEeKNYs4d0vR5Cw" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_0tSnQIW5Ed-FBpQGdJXi3g">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IksnYAtyEeu1BtlEqNu3fQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IksnYQtyEeu1BtlEqNu3fQ" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IksnYgtyEeu1BtlEqNu3fQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IksnYwtyEeu1BtlEqNu3fQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IksnZAtyEeu1BtlEqNu3fQ" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IksnZQtyEeu1BtlEqNu3fQ" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0tT1YIW5Ed-FBpQGdJXi3g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_f0cqaaYkEeKNYs4d0vR5Cw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2WUIcIi3EeiIle3H1CwUZw" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2WUIcYi3EeiIle3H1CwUZw" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2WUIcoi3EeiIle3H1CwUZw" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2WUIc4i3EeiIle3H1CwUZw" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2WUIdIi3EeiIle3H1CwUZw" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2WUIdYi3EeiIle3H1CwUZw" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_f0fGoKYkEeKNYs4d0vR5Cw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_NQtbYEvHEeWWw86opcPjYw" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" createdBy="xnikvap" approvedBy="" docDate="2022-08-17"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_NQtbYUvHEeWWw86opcPjYw" hideGroupName="" specification="" base_Package="_v9gUgAOTEeCfG-0yuYR4Pg" author="xnikvap" contact="" date="2022-08-17" docNo="" revision="A" version="3" release="2" organization="" ecimMomName="ECIM_SwIM" ecimMomVersion="1" ecimMomRelease="2" ecimMomCorrection="2" correction="0"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_NQtbYkvHEeWWw86opcPjYw" hideGroupName="" specification="" base_Property="_4dfjIAOUEeCfG-0yuYR4Pg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_NQtbY0vHEeWWw86opcPjYw" hideGroupName="" specification="" isNotifiable="true" base_Property="_S_84sAOWEeCfG-0yuYR4Pg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_NQtbZEvHEeWWw86opcPjYw" hideGroupName="" specification="" base_Class="_khxUMAOXEeCfG-0yuYR4Pg" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_NQziAEvHEeWWw86opcPjYw" hideGroupName="" specification="" base_Property="_kiwLoAOXEeCfG-0yuYR4Pg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_NQziAUvHEeWWw86opcPjYw" hideGroupName="" specification="" isNotifiable="true" base_Property="_39aNgAOXEeCfG-0yuYR4Pg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_NQziAkvHEeWWw86opcPjYw" hideGroupName="" specification="" base_Class="_D87PUAOfEeCfG-0yuYR4Pg" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_NQziA0vHEeWWw86opcPjYw" hideGroupName="" specification="" base_Property="_D-IJMAOfEeCfG-0yuYR4Pg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_NQziBEvHEeWWw86opcPjYw" hideGroupName="" specification="" isNotifiable="true" base_Property="_UM_kgAOfEeCfG-0yuYR4Pg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_NQziBUvHEeWWw86opcPjYw" hideGroupName="" specification="" isNotifiable="true" base_Property="_4Xz5AAahEeCfG-0yuYR4Pg"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_NQziBkvHEeWWw86opcPjYw" hideGroupName="" specification="" base_Association="_UqyMYCqyEeCoX8PHLLoVvg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_NQziB0vHEeWWw86opcPjYw" hideGroupName="" specification="" base_Association="_y4bk0Cq0EeCoX8PHLLoVvg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_NQziCEvHEeWWw86opcPjYw" hideGroupName="" specification="" isNotifiable="true" base_Property="_u5wUUAOaEeCfG-0yuYR4Pg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_NQziCUvHEeWWw86opcPjYw" hideGroupName="" specification="" isNotifiable="true" base_Property="_1IHekAObEeCfG-0yuYR4Pg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_NQziCkvHEeWWw86opcPjYw" hideGroupName="" specification="" isNotifiable="true" base_Property="_WgDToAOcEeCfG-0yuYR4Pg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_NQziC0vHEeWWw86opcPjYw" hideGroupName="" specification="" isNotifiable="true" base_Property="_k5Rb8AOcEeCfG-0yuYR4Pg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_NQziDEvHEeWWw86opcPjYw" hideGroupName="" specification="" isNotifiable="true" isAssociationEnd="true" base_Property="_moi9AAOjEeCfG-0yuYR4Pg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_NQziDUvHEeWWw86opcPjYw" hideGroupName="" specification="" isNotifiable="true" base_Property="_ygexIAOfEeCfG-0yuYR4Pg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_NQziDkvHEeWWw86opcPjYw" hideGroupName="" specification="" isNotifiable="true" isAssociationEnd="true" base_Property="_R2vnUEP0EeClV4QPzec9dw"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_NQziD0vHEeWWw86opcPjYw" hideGroupName="" specification="" statusInformation="" base_Association="_nZRS4PDCEeC60Z0oa_muIQ" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_NQziEEvHEeWWw86opcPjYw" hideGroupName="" specification="" isNotifiable="true" isAssociationEnd="true" base_Property="_3_GfgCq7EeCoX8PHLLoVvg"/>
+  <CoreMWProfile:CmwMom xmi:id="_NNkAwUvHEeWWw86opcPjYw" base_Package="_v9gUgAOTEeCfG-0yuYR4Pg" immNamespace="MOM_NAME"/>
+  <CoreMWProfile:CmwClass xmi:id="_NNkAwkvHEeWWw86opcPjYw" base_Class="_4cL7kAOUEeCfG-0yuYR4Pg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_NNkAw0vHEeWWw86opcPjYw" base_Property="_S_84sAOWEeCfG-0yuYR4Pg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_NNkAxEvHEeWWw86opcPjYw" base_Property="_3_GfgCq7EeCoX8PHLLoVvg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_NNkAxUvHEeWWw86opcPjYw" base_Class="_khxUMAOXEeCfG-0yuYR4Pg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_NNkAxkvHEeWWw86opcPjYw" base_Property="_39aNgAOXEeCfG-0yuYR4Pg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_NNkAx0vHEeWWw86opcPjYw" base_Property="_u5wUUAOaEeCfG-0yuYR4Pg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_NNkAyEvHEeWWw86opcPjYw" base_Property="_1IHekAObEeCfG-0yuYR4Pg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_NNkAyUvHEeWWw86opcPjYw" base_Property="_WgDToAOcEeCfG-0yuYR4Pg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_NNkAykvHEeWWw86opcPjYw" base_Property="_k5Rb8AOcEeCfG-0yuYR4Pg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_NNkAy0vHEeWWw86opcPjYw" base_Property="_moi9AAOjEeCfG-0yuYR4Pg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_NNkAzEvHEeWWw86opcPjYw" base_Class="_D87PUAOfEeCfG-0yuYR4Pg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_NNkAzUvHEeWWw86opcPjYw" base_Property="_UM_kgAOfEeCfG-0yuYR4Pg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_NNkAzkvHEeWWw86opcPjYw" base_Property="_ygexIAOfEeCfG-0yuYR4Pg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_NNkAz0vHEeWWw86opcPjYw" base_Property="_4Xz5AAahEeCfG-0yuYR4Pg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_NNkA0EvHEeWWw86opcPjYw" base_Property="_R2vnUEP0EeClV4QPzec9dw" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwModel xmi:id="_NNkA0UvHEeWWw86opcPjYw" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwContribution xmi:id="_NNkA0kvHEeWWw86opcPjYw" base_Association="_nZRS4PDCEeC60Z0oa_muIQ"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_NQziEUvHEeWWw86opcPjYw" hideGroupName="" specification="" base_Class="_4cL7kAOUEeCfG-0yuYR4Pg" isSystemCreated="true" isLegacyRoot="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_NNkA00vHEeWWw86opcPjYw" base_Property="_4dfjIAOUEeCfG-0yuYR4Pg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_NNkA1EvHEeWWw86opcPjYw" base_Property="_kiwLoAOXEeCfG-0yuYR4Pg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_NNkA1UvHEeWWw86opcPjYw" base_Property="_D-IJMAOfEeCfG-0yuYR4Pg" isPersistent="true"/>
+  <Documentation:Documentation xmi:id="_Laqf1UvHEeWWw86opcPjYw" base_Comment="_wBO98AOTEeCfG-0yuYR4Pg"/>
+  <Documentation:Documentation xmi:id="_Laqf1kvHEeWWw86opcPjYw" base_Comment="_4cqcsAOUEeCfG-0yuYR4Pg"/>
+  <Documentation:Documentation xmi:id="_Laqf10vHEeWWw86opcPjYw" base_Comment="_4duMoAOUEeCfG-0yuYR4Pg"/>
+  <Documentation:Documentation xmi:id="_Laqf2EvHEeWWw86opcPjYw" base_Comment="_QQgsYAOVEeCfG-0yuYR4Pg"/>
+  <Documentation:Documentation xmi:id="_Laqf2UvHEeWWw86opcPjYw" base_Comment="_TAK7IAOWEeCfG-0yuYR4Pg"/>
+  <Documentation:Documentation xmi:id="_Laqf2kvHEeWWw86opcPjYw" base_Comment="_kh9hcAOXEeCfG-0yuYR4Pg"/>
+  <Documentation:Documentation xmi:id="_Laqf20vHEeWWw86opcPjYw" base_Comment="_ki3gYQOXEeCfG-0yuYR4Pg"/>
+  <Documentation:Documentation xmi:id="_Laqf3EvHEeWWw86opcPjYw" base_Comment="_39no4AOXEeCfG-0yuYR4Pg"/>
+  <Documentation:Documentation xmi:id="_Laqf3UvHEeWWw86opcPjYw" base_Comment="_u59vsAOaEeCfG-0yuYR4Pg"/>
+  <Documentation:Documentation xmi:id="_Laqf3kvHEeWWw86opcPjYw" base_Comment="_1IVhAAObEeCfG-0yuYR4Pg"/>
+  <Documentation:Documentation xmi:id="_Laqf30vHEeWWw86opcPjYw" base_Comment="_D9HckAOfEeCfG-0yuYR4Pg"/>
+  <Documentation:Documentation xmi:id="_Laqf4EvHEeWWw86opcPjYw" base_Comment="_D-TvYQOfEeCfG-0yuYR4Pg"/>
+  <Documentation:Documentation xmi:id="_Laqf4UvHEeWWw86opcPjYw" base_Comment="_UNMY0AOfEeCfG-0yuYR4Pg"/>
+  <Documentation:Documentation xmi:id="_Laqf4kvHEeWWw86opcPjYw" base_Comment="_ygsMgAOfEeCfG-0yuYR4Pg"/>
+  <Documentation:Documentation xmi:id="_Laqf40vHEeWWw86opcPjYw" base_Comment="_mowYYQOjEeCfG-0yuYR4Pg"/>
+  <Documentation:Documentation xmi:id="_Laqf5EvHEeWWw86opcPjYw" base_Comment="_4YAGQAahEeCfG-0yuYR4Pg"/>
+  <Documentation:Documentation xmi:id="_Laqf5UvHEeWWw86opcPjYw" base_Comment="_UskVESqyEeCoX8PHLLoVvg"/>
+  <Documentation:Documentation xmi:id="_Laqf5kvHEeWWw86opcPjYw" base_Comment="_y6qZcSq0EeCoX8PHLLoVvg"/>
+  <Documentation:Documentation xmi:id="_Laqf50vHEeWWw86opcPjYw" base_Comment="_3__QUCq7EeCoX8PHLLoVvg"/>
+  <Documentation:Documentation xmi:id="_Laqf6EvHEeWWw86opcPjYw" base_Comment="_ES0eoCriEeCoX8PHLLoVvg"/>
+  <Documentation:Documentation xmi:id="_Laqf6UvHEeWWw86opcPjYw" base_Comment="_Odil8EPrEeClV4QPzec9dw"/>
+  <Documentation:Documentation xmi:id="_Laqf6kvHEeWWw86opcPjYw" base_Comment="_R3o_MEP0EeClV4QPzec9dw"/>
+  <ECIMBaseProfile:EcimUniDirAssociationEnd xmi:id="_JXdnYEfhEe62l5Y7CGNADA" base_Property="_JXZV8EfhEe62l5Y7CGNADA"/>
+  <ECIMBaseProfile:EcimUniDirAssociation xmi:id="_JXgDoEfhEe62l5Y7CGNADA" hideGroupName="" specification="" statusInformation="" base_Association="_JXYH0EfhEe62l5Y7CGNADA"/>
+  <ECIMBaseProfile:EcimUniDirAssociationEnd xmi:id="_JXjG8EfhEe62l5Y7CGNADA" base_Property="_JXbLIEfhEe62l5Y7CGNADA"/>
+  <ECIMBaseProfile:EcimUniDirAssociationEnd xmi:id="_kTwOsEfhEe62l5Y7CGNADA" base_Property="_kTskUEfhEe62l5Y7CGNADA"/>
+  <ECIMBaseProfile:EcimUniDirAssociation xmi:id="_kTzSAEfhEe62l5Y7CGNADA" hideGroupName="" specification="" statusInformation="" base_Association="_kTqvIEfhEe62l5Y7CGNADA"/>
+  <ECIMBaseProfile:EcimUniDirAssociationEnd xmi:id="_kT1uQEfhEe62l5Y7CGNADA" base_Property="_kTtLYkfhEe62l5Y7CGNADA"/>
+  <ECIMBaseProfile:EcimUniDirAssociationEnd xmi:id="_CMdj0EfiEe62l5Y7CGNADA" base_Property="_CMaggkfiEe62l5Y7CGNADA"/>
+  <ECIMBaseProfile:EcimUniDirAssociation xmi:id="_CMgnIEfiEe62l5Y7CGNADA" hideGroupName="" specification="" statusInformation="" base_Association="_CMYEQEfiEe62l5Y7CGNADA"/>
+  <ECIMBaseProfile:EcimUniDirAssociationEnd xmi:id="_CMjqcEfiEe62l5Y7CGNADA" base_Property="_CMZ5cEfiEe62l5Y7CGNADA"/>
+</xmi:XMI>

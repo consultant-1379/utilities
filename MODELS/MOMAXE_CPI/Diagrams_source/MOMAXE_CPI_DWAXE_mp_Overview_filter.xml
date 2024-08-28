@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <filter>
+    <picture name="MOMAXE_Overview">
+      <mim name="ComTop">
+        <class name="ManagedElement" selectAllAttr="true"/>
+        <class name="SystemFunctions" selectAllAttr="true"/>
+        <class name="Transport" selectAllAttr="true"/>
+      </mim>
+      <mim name="CmwSwM">
+        <class name="SwM" selectAllAttr="true"/>
+      </mim>
+      <mim name="CmwSwIM">
+        <class name="SwInventory" selectAllAttr="true"/>
+      </mim>
+      <mim name="AxeFunctions">
+        <class name="AxeFunctions" selectAllAttr="true"/>
+        <class name="SecurityHandling" selectAllAttr="true"/>
+        <class name="SystemHandling" selectAllAttr="true"/>
+        <class name="SupervisionHandling" selectAllAttr="true"/>
+        <class name="DataOutputHandling" selectAllAttr="true"/>
+        <class name="SystemComponentHandling" selectAllAttr="true"/>
+      </mim>
+      <mim name="ComSecM">
+        <class name="SecM" selectAllAttr="true"/>
+      </mim>
+      <mim name="BrM">
+        <class name="BrM" selectAllAttr="true"/>
+      </mim>
+      <mim name="ComFileM">
+        <class name="FileM" selectAllAttr="true"/>
+      </mim>
+      <mim name="ComFm"/>
+      <mim name="ComSysM">
+        <class name="SysM" selectAllAttr="true"/>
+      </mim>
+      <mim name="AxeHealthCheck">
+        <class name="HealthCheckM" selectAllAttr="true"/>
+      </mim>
+    </picture>
+  </filter>

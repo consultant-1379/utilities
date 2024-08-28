@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2008, v.4002-->
+<!DOCTYPE doc PUBLIC "-//ERICSSON//DTD XSEIF 1/FAD 110 05 R6//EN"
+ "XSEIF_R6.dtd" [
+<!ENTITY cright "&copy; Ericsson AB 2016-2018. All rights reserved. No part of this document may be reproduced in any form without the written permission of the copyright owner.">
+]>
+<?Pub UDT _bookmark _target?>
+<doc version="XSEIF R6"
+xmlns="urn:x-ericsson:r2:reg-doc:1551-fad.110.05:en:*">
+<meta-data>
+<confidentiality class="ericsson-internal"/>
+<doc-name>TERMINOLOGY</doc-name>
+<doc-id>
+<doc-no type="registration">1/0033-CXA 118 03/5</doc-no><language
+code="en"/><rev>A</rev>
+<date><y>2017</y><m>803</m><d>23</d></date>
+</doc-id>
+<company-id>
+<business-unit>BNET</business-unit>
+<company-name></company-name>
+<company-symbol logotype="ericsson"></company-symbol>
+</company-id>
+<title>Glossary of Terms and Acronyms</title>
+<subtitle>Managed Object Model AXE</subtitle>
+<drafted-by>
+<person>
+<name>TEISERF Francesco Sessa</name><signature>TEISERF</signature>
+</person>
+</drafted-by>
+<approved-by approved="no">
+<person>
+<name>BDGSEBF (Antonio Fresa)</name><signature></signature>
+</person>
+</approved-by>
+<checked-by checked="yes">
+<person>
+<name></name><signature></signature>
+<location></location><company></company><department></department>
+</person>
+</checked-by>
+<factual-supervisor responsible="department">
+<person>
+<name></name><signature></signature>
+<location></location><company></company><department></department>
+</person>
+</factual-supervisor>
+<revision-history suppress="no">
+<rev-info>
+<rev>PA1</rev>
+<date><y>2015</y><m>03</m><d>06</d></date>
+<signature>teiserf</signature>
+<description><dp>New doc for APG43L 3.2.</dp>
+</description>
+</rev-info>
+</revision-history>
+</meta-data>
+<front>
+<title-page>
+<copyright><p>&cright;</p>
+</copyright>
+<disclaimer>
+<p>The contents of this document are subject to revision without notice
+due to continued progress in methodology, design and manufacturing.
+Ericsson shall have no liability for any error or damage of any kind
+resulting from the use of this document.</p>
+</disclaimer>
+</title-page>
+</front>
+<body>
+<chl><title xml:id="id_40ua">Introduction</title>
+<p>This document defines the terms and acronyms used in the Managed
+Object Model (MOM) for AXE management and related documentation for
+APG43L.</p>
+</chl>
+<chl><title xml:id="id_hinw">Terms</title><def-list>
+<dl-item>
+<term>Blade</term><def><p>It is a board plus an operating system.
+A blade is the smallest unit recognized into an Ericsson magazine.</p>
+</def>
+</dl-item>
+<dl-item>
+<term>Cluster CP</term><def><p>A CP that is a member of a CP Cluster.</p>
+</def>
+</dl-item>
+<dl-item>
+<term>CP Cluster</term><def><p>A CP Cluster is a set of Cluster CPs
+that provide CP functionality. It is implemented using a variable
+number of Cluster CPs (3-64).</p>
+</def>
+</dl-item>
+<dl-item>
+<term>Dual-Sided CP</term><def><p>A 1+1 redundant CP (A+B side).</p>
+</def>
+</dl-item>
+<dl-item>
+<term>Multi-CP System</term><def><p>A system that includes several
+types of CPs, regardless if the CPs are Single-Sided CPs or Dual-Sided
+CPs.</p>
+</def>
+</dl-item>
+<dl-item>
+<term>Sinle-CP System</term><def><p>A system that includes only one
+type of CP, regardless if the CP is a Single-Sided CP or a Dual-Sided
+CP.</p>
+</def>
+</dl-item>
+<dl-item>
+<term>Single-Sided CP</term><def><p>A Cluster CP without redundancy
+on a CP board level.</p>
+</def>
+</dl-item>
+</def-list>
+</chl>
+</body>
+<back>
+<glossary xml:id="refglossary">
+<glossary-list>
+<gl-item>
+<term>ACL</term><expansion><p>Access Control List</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>AD</term><expansion><p>Alphanumeric Device</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>ALOG</term><expansion><p>Audit Logging</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>AP</term><expansion><p>Adjunct Processor</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>APG</term><expansion><p>Adjunct Processor Group</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>APUB</term><expansion><p>Adjunct Processor Unit Board</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>APT</term><expansion><p>Switching System of AXE</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>APZ</term><expansion><p>Control System of AXE</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>BFD</term><expansion><p>Bidirectional Forwarding Detection</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>BGW</term><expansion><p>Billing Gateway</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>BIOS</term><expansion><p>Basic Input/Output System</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>BRP</term><expansion><p>Basic Recording Period</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>BSP</term><expansion><p>Blade Server Platform</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>BSC</term><expansion><p>Base Station Controller</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>CA</term><expansion><p>Certification Authority</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>CCF</term><expansion><p>Command Classification File</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>CDR</term><expansion><p>Call Data Record</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>CLOG</term><expansion><p>Cluster Command Log</p><?Pub Caret1?>
+</expansion>
+</gl-item>
+<gl-item>
+<term>CMP</term><expansion><p>Certificate Management Protocol</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>CMX</term><expansion><p>Component Main Switch</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>CN</term><expansion><p>Common Name</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>COCA</term><expansion><p>Command Category</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>COM</term><expansion><p>Common Operation and Maintenance</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>CLI</term><expansion><p>Command Line Interface</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>CP</term><expansion><p>Central Processor</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>CPI</term><expansion><p>Customer Product Information</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>CPU</term><expansion><p>Central Processor Unit</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>CSL</term><expansion><p>Cluster Session Lock</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>CSR</term><expansion><p>Customer Support Request</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>DBMS</term><expansion><p>Data Base Management System</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>DMX</term><expansion><p>Distributed Main Switch</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>DN</term><expansion><p>Distinguished Name</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>DST</term><expansion><p>Daylight Saving Time</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>DTD</term><expansion><p>Document Type Definition</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>DVD</term><expansion><p>Digital Versatile Disc</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>ECDSA</term><expansion><p>Elliptic Curve Digital Signature Algorithm </p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>ECLI</term><expansion><p>Ericsson Command-Line Interface </p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>EGEM</term><expansion><p>Enhanced Generic Ericsson Magazine</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>EGEM2</term><expansion><p>Enhanced Generic Ericsson Magazine
+2</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>EPB1</term><expansion><p>Evo Processing Board 1</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>EvoET</term><expansion><p>Evo Exchange Terminal</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>FQDN</term><expansion><p>Fully Qualified Domain Name</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>FTP</term><expansion><p>File Transfer Protocol</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>FW</term><expansion><p>Firmware</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>GEA</term><expansion><p>Generic Ericsson Alarm</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>GED</term><expansion><p>Generic Ericsson Disk</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>GPS</term><expansion><p>Global Positioning System</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>HLR</term><expansion><p>Home Location Register</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>HW</term><expansion><p>Hardware</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>IO</term><expansion><p>Input/Output</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>IP</term><expansion><p>Internet Protocol</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>IPLB</term><expansion><p>IP Load Balancer</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>IPMI</term><expansion><p> Intelligent Platform Management Interface</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>IPNA</term><expansion><p>Inter Platform Network Adaptor</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>IP-STP</term><expansion><p>Internet Protocol - Signalling Transfer
+Point</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>IPT</term><expansion><p>Integrated Protocol Tracer</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>ISP</term><expansion><p>In-Service Performance</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>LAG</term><expansion><p>Link Aggregation Group</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>LDAP</term><expansion><p>Lightweight Directory Access Protocol</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>LDIF</term><expansion><p>LDAP Data Interchange Format</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>MAC</term><expansion><p>Media Access Control</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>MAU</term><expansion><p>Maintenance Unit</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>ME</term><expansion><p>Managed Element</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>MIM</term><expansion><p>Management Information Model</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>MML</term><expansion><p>Man-Machine Language</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>MO</term><expansion><p>Managed Object</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>MOC</term><expansion><p>Managed Object Class</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>MOM</term><expansion><p>Management Object Model</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>MS</term><expansion><p>Management System</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>MSC</term><expansion><p>Mobile Switching Center</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>MSC-S</term><expansion><p>Mobile Switching Center-Server</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>MTU</term><expansion><p>Maximum Transmission Unit</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>MW</term><expansion><p>Middleware</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>NE</term><expansion><p>Network Element</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>NIC</term><expansion><p>Network Interface Card</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>NFV</term><expansion><p>Network Functions Virtualization</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>NFVI</term><expansion><p>Network Function Virtualization Infrastructure</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>NFVO</term><expansion><p>NFV Orchestrator</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>NMC</term><expansion><p>Network Management Control</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>NTP</term><expansion><p>Network Time Protocol</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>NTPHP</term><expansion><p>Network Time Protocol High Precision</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>OaM</term><expansion><p>Operation and Maintenance</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>OT</term><expansion><p>Object Type</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>PC</term><expansion><p>Peg Counter</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>PFM</term><expansion><p>Power and Fan Module</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>PKI</term><expansion><p>Public Key Infrastructure</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>PRCA</term><expansion><p>Printout Category</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>PDS</term><expansion><p>Printout Destination Service</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>PS</term><expansion><p>Physical Separation</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>RA</term><expansion><p>Registration Authority</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>RSA</term><expansion><p>Rivest Shamir Adleman</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>RAID</term><expansion><p>Redundant Array of Independent Disks</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>RDBMS</term><expansion><p>Relational Database Management System</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>RDN</term><expansion><p>Relative Distinguished Name</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>RFU</term><expansion><p>Remote FW Upgrade</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>RPC</term><expansion><p>Remote Procedure Call</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>SCB</term><expansion><p>Switch Core Board</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>SCEP</term><expansion><p>Simple Certificate Enrollment Protocol</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>SCX</term><expansion><p>System Control Switch</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>SCXB</term><expansion><p>System Control Switch Board</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>SCR</term><expansion><p>Statistical Counter Rules</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>SFTP</term><expansion><p>Secure File Transfer Protocol</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>SMX</term><expansion><p>System control and Main Switch </p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>SMXB</term><expansion><p>System control and Main Switch Board</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>SNMP</term><expansion><p>Simple Network Management Protocol</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>SNTP</term><expansion><p>Simple Network Time Protocol</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>ST</term><expansion><p>Status Counter</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>STS</term><expansion><p>Statistics and Traffic Measurement</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>SW</term><expansion><p>Software</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>TQ</term><expansion><p>Transfer Queue</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>TLS</term><expansion><p>Transport Layer Security</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>TS</term><expansion><p>Troubleshooting</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>TSC</term><expansion><p>Transit Switching Center</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>TSC-S</term><expansion><p>Transit Switching Center-Server</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>UML</term><expansion><p>Unified Modeling Language</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>UP</term><expansion><p>Upgrade Package</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>UTC</term><expansion><p>Coordinated Universal Time</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>UUID</term><expansion><p>Universal Unique Identifier</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>URI</term><expansion><p>Uniform Resource Identifier</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>VIM</term><expansion><p>Virtualized Infrastructure Manager </p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>VLAN</term><expansion><p>Virtual Local Area Network</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>VM</term><expansion><p>Virtual Machine</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>VNF</term><expansion><p>Virtual Network Function </p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>VR</term><expansion><p>Virtual Router</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>VRRP</term><expansion><p>Virtual Router Redundancy Protocol</p>
+</expansion>
+</gl-item>
+<gl-item>
+<term>XML</term><expansion><p>Extensible Markup Language</p>
+</expansion>
+</gl-item>
+</glossary-list>
+</glossary>
+<reference>
+<p>-</p>
+<reference-list>
+<rf-subsection></rf-subsection>
+</reference-list>
+</reference>
+</back>
+</doc>
+<?Pub *0000015366 0?>

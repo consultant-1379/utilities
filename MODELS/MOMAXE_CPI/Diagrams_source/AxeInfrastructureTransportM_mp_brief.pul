@@ -1,0 +1,113 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeInfrastructureTransportM_mp_brief.svg
+top to bottom direction
+hide members
+hide circle
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "TransportM" as AxeInfrastructureTransportM__TransportM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20TransportM]] 
+class "Bridge" as AxeInfrastructureTransportM__Bridge [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Bridge]] 
+class "BridgePort" as AxeInfrastructureTransportM__BridgePort [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20BridgePort]] 
+class "Vlan" as AxeInfrastructureTransportM__Vlan [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Vlan]] 
+class "EthernetPort" as AxeInfrastructureTransportM__EthernetPort [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20EthernetPort]] 
+class "Aggregator" as AxeInfrastructureTransportM__Aggregator [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Aggregator]] 
+class "Router" as AxeInfrastructureTransportM__Router [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Router]] 
+class "BfdSessionIPv4" as AxeInfrastructureTransportM__BfdSessionIPv4 [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20BfdSessionIPv4]] 
+class "BfdProfile" as AxeInfrastructureTransportM__BfdProfile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20BfdProfile]] 
+class "AddressIPv4" as AxeInfrastructureTransportM__AddressIPv4 [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20AddressIPv4]] 
+class "InterfaceIPv4" as AxeInfrastructureTransportM__InterfaceIPv4 [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20InterfaceIPv4]] 
+class "RouteTableIPv4Static" as AxeInfrastructureTransportM__RouteTableIPv4Static [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20RouteTableIPv4Static]] 
+class "Dst" as AxeInfrastructureTransportM__Dst [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Dst]] 
+class "NextHop" as AxeInfrastructureTransportM__NextHop [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20NextHop]] 
+class "Vrrpv3Session" as AxeInfrastructureTransportM__Vrrpv3Session [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Vrrpv3Session]] 
+class "Vrrpv3Interface" as AxeInfrastructureTransportM__Vrrpv3Interface [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Vrrpv3Interface]] 
+class "AclIpv4" as AxeInfrastructureTransportM__AclIpv4 [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20AclIpv4]] 
+class "AclEntryIpv4" as AxeInfrastructureTransportM__AclEntryIpv4 [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20AclEntryIpv4]] 
+class "TransportM" as AxeInfrastructureTransportM__TransportM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20TransportM]] 
+class "Bridge" as AxeInfrastructureTransportM__Bridge [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Bridge]] 
+AxeInfrastructureTransportM__TransportM *-- "*" AxeInfrastructureTransportM__Bridge
+class "Bridge" as AxeInfrastructureTransportM__Bridge [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Bridge]] 
+class "BridgePort" as AxeInfrastructureTransportM__BridgePort [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20BridgePort]] 
+AxeInfrastructureTransportM__Bridge *-- "*" AxeInfrastructureTransportM__BridgePort
+class "Bridge" as AxeInfrastructureTransportM__Bridge [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Bridge]] 
+class "Vlan" as AxeInfrastructureTransportM__Vlan [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Vlan]] 
+AxeInfrastructureTransportM__Bridge *-- "*" AxeInfrastructureTransportM__Vlan
+class "TransportM" as AxeInfrastructureTransportM__TransportM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20TransportM]] 
+class "EthernetPort" as AxeInfrastructureTransportM__EthernetPort [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20EthernetPort]] 
+AxeInfrastructureTransportM__TransportM *-- "*" AxeInfrastructureTransportM__EthernetPort
+class "TransportM" as AxeInfrastructureTransportM__TransportM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20TransportM]] 
+class "Aggregator" as AxeInfrastructureTransportM__Aggregator [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Aggregator]] 
+AxeInfrastructureTransportM__TransportM *-- "*" AxeInfrastructureTransportM__Aggregator
+class "TransportM" as AxeInfrastructureTransportM__TransportM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20TransportM]] 
+class "Router" as AxeInfrastructureTransportM__Router [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Router]] 
+AxeInfrastructureTransportM__TransportM *-- "*" AxeInfrastructureTransportM__Router
+class "Router" as AxeInfrastructureTransportM__Router [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Router]] 
+class "BfdProfile" as AxeInfrastructureTransportM__BfdProfile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20BfdProfile]] 
+AxeInfrastructureTransportM__Router *-- "*" AxeInfrastructureTransportM__BfdProfile
+class "InterfaceIPv4" as AxeInfrastructureTransportM__InterfaceIPv4 [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20InterfaceIPv4]] 
+class "AddressIPv4" as AxeInfrastructureTransportM__AddressIPv4 [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20AddressIPv4]] 
+AxeInfrastructureTransportM__InterfaceIPv4 *-- "0..1" AxeInfrastructureTransportM__AddressIPv4
+class "Router" as AxeInfrastructureTransportM__Router [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Router]] 
+class "InterfaceIPv4" as AxeInfrastructureTransportM__InterfaceIPv4 [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20InterfaceIPv4]] 
+AxeInfrastructureTransportM__Router *-- "*" AxeInfrastructureTransportM__InterfaceIPv4
+class "RouteTableIPv4Static" as AxeInfrastructureTransportM__RouteTableIPv4Static [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20RouteTableIPv4Static]] 
+class "Dst" as AxeInfrastructureTransportM__Dst [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Dst]] 
+AxeInfrastructureTransportM__RouteTableIPv4Static *-- "*" AxeInfrastructureTransportM__Dst
+class "Dst" as AxeInfrastructureTransportM__Dst [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Dst]] 
+class "NextHop" as AxeInfrastructureTransportM__NextHop [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20NextHop]] 
+AxeInfrastructureTransportM__Dst *-- "*" AxeInfrastructureTransportM__NextHop
+class "Router" as AxeInfrastructureTransportM__Router [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Router]] 
+class "RouteTableIPv4Static" as AxeInfrastructureTransportM__RouteTableIPv4Static [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20RouteTableIPv4Static]] 
+AxeInfrastructureTransportM__Router *-- "0..1" AxeInfrastructureTransportM__RouteTableIPv4Static
+class "InterfaceIPv4" as AxeInfrastructureTransportM__InterfaceIPv4 [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20InterfaceIPv4]] 
+class "Vrrpv3Session" as AxeInfrastructureTransportM__Vrrpv3Session [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Vrrpv3Session]] 
+AxeInfrastructureTransportM__InterfaceIPv4 *-- "*" AxeInfrastructureTransportM__Vrrpv3Session
+class "Router" as AxeInfrastructureTransportM__Router [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Router]] 
+class "AclIpv4" as AxeInfrastructureTransportM__AclIpv4 [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20AclIpv4]] 
+AxeInfrastructureTransportM__Router *-- "*" AxeInfrastructureTransportM__AclIpv4
+class "AclIpv4" as AxeInfrastructureTransportM__AclIpv4 [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20AclIpv4]] 
+class "AclEntryIpv4" as AxeInfrastructureTransportM__AclEntryIpv4 [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20AclEntryIpv4]] 
+AxeInfrastructureTransportM__AclIpv4 *-- "1..*" AxeInfrastructureTransportM__AclEntryIpv4
+class "Router" as AxeInfrastructureTransportM__Router [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Router]] 
+class "BfdSessionIPv4" as AxeInfrastructureTransportM__BfdSessionIPv4 [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20BfdSessionIPv4]] 
+AxeInfrastructureTransportM__Router *-- "*" AxeInfrastructureTransportM__BfdSessionIPv4
+class "TransportM" as AxeInfrastructureTransportM__TransportM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20TransportM]] 
+class "Vrrpv3Interface" as AxeInfrastructureTransportM__Vrrpv3Interface [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Vrrpv3Interface]] 
+AxeInfrastructureTransportM__TransportM *-- "*" AxeInfrastructureTransportM__Vrrpv3Interface
+class "Vrrpv3Interface" as AxeInfrastructureTransportM__Vrrpv3Interface [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Vrrpv3Interface]] 
+class "AddressIPv4" as AxeInfrastructureTransportM__AddressIPv4 [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20AddressIPv4]] 
+AxeInfrastructureTransportM__Vrrpv3Interface *-- "0..1" AxeInfrastructureTransportM__AddressIPv4
+class "SystemComponentHandling" as AxeFunctions__SystemComponentHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemComponentHandling]] 
+class "TransportM" as AxeInfrastructureTransportM__TransportM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20TransportM]] 
+AxeFunctions__SystemComponentHandling *-- "0..1" AxeInfrastructureTransportM__TransportM
+class "Vlan" as AxeInfrastructureTransportM__Vlan [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Vlan]] 
+class "BridgePort" as AxeInfrastructureTransportM__BridgePort [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20BridgePort]] 
+AxeInfrastructureTransportM__Vlan --> "*" AxeInfrastructureTransportM__BridgePort
+class "Vlan" as AxeInfrastructureTransportM__Vlan [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Vlan]] 
+class "BridgePort" as AxeInfrastructureTransportM__BridgePort [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20BridgePort]] 
+AxeInfrastructureTransportM__Vlan --> "*" AxeInfrastructureTransportM__BridgePort
+class "Aggregator" as AxeInfrastructureTransportM__Aggregator [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Aggregator]] 
+class "EthernetPort" as AxeInfrastructureTransportM__EthernetPort [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20EthernetPort]] 
+AxeInfrastructureTransportM__Aggregator --> "*" AxeInfrastructureTransportM__EthernetPort
+class "Aggregator" as AxeInfrastructureTransportM__Aggregator [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Aggregator]] 
+class "EthernetPort" as AxeInfrastructureTransportM__EthernetPort [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20EthernetPort]] 
+AxeInfrastructureTransportM__Aggregator --> "*" AxeInfrastructureTransportM__EthernetPort
+class "InterfaceIPv4" as AxeInfrastructureTransportM__InterfaceIPv4 [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20InterfaceIPv4]] 
+class "AclIpv4" as AxeInfrastructureTransportM__AclIpv4 [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20AclIpv4]] 
+AxeInfrastructureTransportM__InterfaceIPv4 --> "0..1" AxeInfrastructureTransportM__AclIpv4
+class "InterfaceIPv4" as AxeInfrastructureTransportM__InterfaceIPv4 [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20InterfaceIPv4]] 
+class "BfdProfile" as AxeInfrastructureTransportM__BfdProfile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20BfdProfile]] 
+AxeInfrastructureTransportM__InterfaceIPv4 --> "0..1" AxeInfrastructureTransportM__BfdProfile
+class "InterfaceIPv4" as AxeInfrastructureTransportM__InterfaceIPv4 [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20InterfaceIPv4]] 
+class "Vlan" as AxeInfrastructureTransportM__Vlan [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Vlan]] 
+AxeInfrastructureTransportM__InterfaceIPv4 --> "0..1" AxeInfrastructureTransportM__Vlan
+class "Vrrpv3Session" as AxeInfrastructureTransportM__Vrrpv3Session [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Vrrpv3Session]] 
+class "Vrrpv3Interface" as AxeInfrastructureTransportM__Vrrpv3Interface [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20Vrrpv3Interface]] 
+AxeInfrastructureTransportM__Vrrpv3Session --> "1" AxeInfrastructureTransportM__Vrrpv3Interface
+@enduml 

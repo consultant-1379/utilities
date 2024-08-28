@@ -1,0 +1,144 @@
+				<!--  BRF PART -->
+				<!--                                                                                    -->
+				<!--                                                                                    -->
+                <CompBaseType safCompType="safCompType=ERIC-Brf-Control">
+                    <CompType safVersion="safVersion=#BRF_RSTATE#">
+                        <providesCSType saAmfCtCompCapability="4" safSupportedCsType="safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-Brf-2N"/>
+                        <compTypeDefaults saAmfCtCompCategory="1" saAmfCtDefCallbackTimeout="600000000000" saAmfCtDefClcCliTimeout="100000000000" saAmfCtDefDisableRestart="0" saAmfCtDefInstantiationLevel="0" saAmfCtDefQuiescingCompleteTimeout="300000000000" saAmfCtDefRecoveryOnError="2"/>
+                        <instantiateCmd saAmfCtRelPathInstantiateCmd="proxy">
+                            <cmdArgv>start</cmdArgv>
+                        </instantiateCmd>
+                        <terminateCmd saAmfCtRelPathTerminateCmd="proxy">
+                            <cmdArgv>stop</cmdArgv>
+                        </terminateCmd>
+                        <cleanupCmd saAmfCtRelPathCleanupCmd="proxy">
+                            <cmdArgv>cleanup</cmdArgv>
+                        </cleanupCmd>
+                        <healthCheck saAmfHealthcheckMaxDuration="10000000000" saAmfHealthcheckPeriod="30000000000" safHealthcheckKey="safHealthcheckKey=A9FD64E12C"/>
+                        <swBundle saAmfCtSwBundle="safSmfBundle=#BRF_BUNDLE#"/>
+                    </CompType>
+                </CompBaseType>
+                <CompBaseType safCompType="safCompType=ERIC-BrfCmwA-Control">
+                    <CompType safVersion="safVersion=#BRFCMW_RSTATE#">
+                        <providesCSType saAmfCtCompCapability="4" safSupportedCsType="safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-BrfCmwA-2N"/>
+                        <compTypeDefaults saAmfCtCompCategory="1" saAmfCtDefCallbackTimeout="600000000000" saAmfCtDefClcCliTimeout="100000000000" saAmfCtDefDisableRestart="0" saAmfCtDefInstantiationLevel="0" saAmfCtDefQuiescingCompleteTimeout="300000000000" saAmfCtDefRecoveryOnError="2"/>
+                        <instantiateCmd saAmfCtRelPathInstantiateCmd="proxycmwa">
+                            <cmdArgv>start</cmdArgv>
+                        </instantiateCmd>
+                        <terminateCmd saAmfCtRelPathTerminateCmd="proxycmwa">
+                            <cmdArgv>stop</cmdArgv>
+                        </terminateCmd>
+                        <cleanupCmd saAmfCtRelPathCleanupCmd="proxycmwa">
+                            <cmdArgv>cleanup</cmdArgv>
+                        </cleanupCmd>
+                        <healthCheck saAmfHealthcheckMaxDuration="10000000000" saAmfHealthcheckPeriod="30000000000" safHealthcheckKey="safHealthcheckKey=A9FD64E12D"/>
+                        <swBundle saAmfCtSwBundle="safSmfBundle=#BRFCMW_BUNDLE#"/>
+                    </CompType>
+                </CompBaseType>
+                <CompBaseType safCompType="safCompType=ERIC-Brfp-Control">
+                    <CompType safVersion="safVersion=#BRFP_RSTATE#">
+                        <providesCSType saAmfCtCompCapability="6" safSupportedCsType="safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-Brfp-NR"/>
+                        <compTypeDefaults saAmfCtCompCategory="1" saAmfCtDefCallbackTimeout="600000000000" saAmfCtDefClcCliTimeout="100000000000" saAmfCtDefDisableRestart="0" saAmfCtDefInstantiationLevel="0" saAmfCtDefQuiescingCompleteTimeout="300000000000" saAmfCtDefRecoveryOnError="2"/>
+                        <instantiateCmd saAmfCtRelPathInstantiateCmd="brfp_proxy">
+                            <cmdArgv>start</cmdArgv>
+                        </instantiateCmd>
+                        <terminateCmd saAmfCtRelPathTerminateCmd="brfp_proxy">
+                            <cmdArgv>stop</cmdArgv>
+                        </terminateCmd>
+                        <cleanupCmd saAmfCtRelPathCleanupCmd="brfp_proxy">
+                            <cmdArgv>cleanup</cmdArgv>
+                        </cleanupCmd>
+                        <healthCheck saAmfHealthcheckMaxDuration="10000000000" saAmfHealthcheckPeriod="30000000000" safHealthcheckKey="safHealthcheckKey=A9FD64E12E"/>
+                        <swBundle saAmfCtSwBundle="safSmfBundle=#BRFP_BUNDLE#"/>
+                    </CompType>
+                </CompBaseType>
+                <SUBaseType safSuType="safSuType=ERIC-Brf-Control">
+                    <SUType safVersion="safVersion=1.0.0">
+                        <mandatoryAttrs saAmfSutDefSUFailover="1" saAmfSutIsExternal="0"/>
+                        <componentType saAmfSutMinNumComponents="1" safMemberCompType="safMemberCompType=safVersion=#BRF_RSTATE#\,safCompType=ERIC-Brf-Control"/>
+                        <supportedSvcType saAmfSutProvidesSvcType="safVersion=1.0.0,safSvcType=ERIC-Brf-2N"/>
+                    </SUType>
+                </SUBaseType>
+                <SUBaseType safSuType="safSuType=ERIC-BrfCmwA-Control">
+                    <SUType safVersion="safVersion=1.0.0">
+                        <mandatoryAttrs saAmfSutDefSUFailover="1" saAmfSutIsExternal="0"/>
+                        <componentType saAmfSutMinNumComponents="1" safMemberCompType="safMemberCompType=safVersion=#BRFCMW_RSTATE#\,safCompType=ERIC-BrfCmwA-Control"/>
+                        <supportedSvcType saAmfSutProvidesSvcType="safVersion=1.0.0,safSvcType=ERIC-BrfCmwA-2N"/>
+                    </SUType>
+                </SUBaseType>
+                <SUBaseType safSuType="safSuType=ERIC-Brfp-Control">
+                    <SUType safVersion="safVersion=1.0.0">
+                        <mandatoryAttrs saAmfSutDefSUFailover="1" saAmfSutIsExternal="0"/>
+                        <componentType saAmfSutMinNumComponents="1" safMemberCompType="safMemberCompType=safVersion=#BRFP_RSTATE#\,safCompType=ERIC-Brfp-Control"/>
+                        <supportedSvcType saAmfSutProvidesSvcType="safVersion=1.0.0,safSvcType=ERIC-Brfp-NR"/>
+                    </SUType>
+                </SUBaseType>
+                <SGBaseType safSgType="safSgType=ERIC-Brf-2N">
+                    <SGType safVersion="safVersion=1.0.0">
+                        <suType saAmfSgtValidSuTypes="safVersion=1.0.0,safSuType=ERIC-Brf-Control"/>
+                        <redundancy saAmfSgtRedundancyModel="1"/>
+                        <compRestart saAmfSgtDefCompRestartMax="10000" saAmfSgtDefCompRestartProb="600000000000"/>
+                        <suRestart saAmfSgtDefSuRestartMax="10000" saAmfSgtDefSuRestartProb="600000000000"/>
+                        <autoAttrs saAmfSgtDefAutoAdjustProb="10000000" safAmfSgtDefAutoAdjust="0" safAmfSgtDefAutoRepair="1"/>
+                    </SGType>
+                </SGBaseType>
+                <SGBaseType safSgType="safSgType=ERIC-BrfCmwA-2N">
+                    <SGType safVersion="safVersion=1.0.0">
+                        <suType saAmfSgtValidSuTypes="safVersion=1.0.0,safSuType=ERIC-BrfCmwA-Control"/>
+                        <redundancy saAmfSgtRedundancyModel="1"/>
+                        <compRestart saAmfSgtDefCompRestartMax="10000" saAmfSgtDefCompRestartProb="600000000000"/>
+                        <suRestart saAmfSgtDefSuRestartMax="10000" saAmfSgtDefSuRestartProb="600000000000"/>
+                        <autoAttrs saAmfSgtDefAutoAdjustProb="10000000" safAmfSgtDefAutoAdjust="0" safAmfSgtDefAutoRepair="1"/>
+                    </SGType>
+                </SGBaseType>
+                <SGBaseType safSgType="safSgType=ERIC-Brfp-NR">
+                    <SGType safVersion="safVersion=1.0.0">
+                        <suType saAmfSgtValidSuTypes="safVersion=1.0.0,safSuType=ERIC-Brfp-Control"/>
+                        <redundancy saAmfSgtRedundancyModel="5"/>
+                        <compRestart saAmfSgtDefCompRestartMax="10000" saAmfSgtDefCompRestartProb="600000000000"/>
+                        <suRestart saAmfSgtDefSuRestartMax="10000" saAmfSgtDefSuRestartProb="600000000000"/>
+                        <autoAttrs saAmfSgtDefAutoAdjustProb="10000000" safAmfSgtDefAutoAdjust="0" safAmfSgtDefAutoRepair="1"/>
+                    </SGType>
+                </SGBaseType>
+                <AppBaseType safAppType="safAppType=ERIC-Brf">
+                    <AppType safVersion="safVersion=1.0.0">
+                        <serviceGroupType saAmfApptSGTypes="safVersion=1.0.0,safSgType=ERIC-Brf-2N"/>
+                    </AppType>
+                </AppBaseType>
+                <AppBaseType safAppType="safAppType=ERIC-BrfCmwA">
+                	<AppType safVersion="safVersion=1.0.0">
+                		<serviceGroupType saAmfApptSGTypes="safVersion=1.0.0,safSgType=ERIC-BrfCmwA-2N" />
+                	</AppType>
+                </AppBaseType>
+                <AppBaseType safAppType="safAppType=ERIC-Brfp">
+                	<AppType safVersion="safVersion=1.0.0">
+                    <serviceGroupType saAmfApptSGTypes="safVersion=1.0.0,safSgType=ERIC-Brfp-NR" />
+                 </AppType>
+                </AppBaseType>
+                <CSBaseType safCSType="safCSType=ERIC-Brf-2N">
+                    <CSType safVersion="safVersion=1.0.0"/>
+                </CSBaseType>
+                <CSBaseType safCSType="safCSType=ERIC-BrfCmwA-2N">
+                    <CSType safVersion="safVersion=1.0.0"/>
+                </CSBaseType>
+                <CSBaseType safCSType="safCSType=ERIC-Brfp-NR">
+                    <CSType safVersion="safVersion=1.0.0"/>
+                </CSBaseType>
+                <ServiceBaseType safSvcType="safSvcType=ERIC-Brf-2N">
+                    <ServiceType safVersion="safVersion=1.0.0">
+                        <csType safMemberCSType="safMemberCSType=safVersion=1.0.0\,safCSType=ERIC-Brf-2N"/>
+                    </ServiceType>
+                </ServiceBaseType>
+                <ServiceBaseType safSvcType="safSvcType=ERIC-BrfCmwA-2N">
+                    <ServiceType safVersion="safVersion=1.0.0">
+                        <csType safMemberCSType="safMemberCSType=safVersion=1.0.0\,safCSType=ERIC-BrfCmwA-2N"/>
+                    </ServiceType>
+                </ServiceBaseType>
+                <ServiceBaseType safSvcType="safSvcType=ERIC-Brfp-NR">
+                    <ServiceType safVersion="safVersion=1.0.0">
+                        <csType safMemberCSType="safMemberCSType=safVersion=1.0.0\,safCSType=ERIC-Brfp-NR"/>
+                    </ServiceType>
+                </ServiceBaseType>
+				<!--                                                                                    -->
+				<!--                                                                                    -->
+				<!--  BRF PART -->

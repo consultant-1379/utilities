@@ -1,0 +1,40 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeDataTransfer_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "PrimaryInitiatingDestination" as AxeDataTransfer__PrimaryInitiatingDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20PrimaryInitiatingDestination]] 
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+class "FileTransferManager" as AxeDataTransfer__FileTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferManager]] 
+class "AdvancedInitiatingParameters" as AxeDataTransfer__AdvancedInitiatingParameters [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20AdvancedInitiatingParameters]] 
+class "SecondaryInitiatingDestination" as AxeDataTransfer__SecondaryInitiatingDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20SecondaryInitiatingDestination]] 
+class "InitiatingDestinationSet" as AxeDataTransfer__InitiatingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20InitiatingDestinationSet]] 
+class "InitiatingDestinationSet" as AxeDataTransfer__InitiatingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20InitiatingDestinationSet]] 
+class "SecondaryInitiatingDestination" as AxeDataTransfer__SecondaryInitiatingDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20SecondaryInitiatingDestination]] 
+AxeDataTransfer__InitiatingDestinationSet *-- "0..1" AxeDataTransfer__SecondaryInitiatingDestination
+class "FileTransferManager" as AxeDataTransfer__FileTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferManager]] 
+class "InitiatingDestinationSet" as AxeDataTransfer__InitiatingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20InitiatingDestinationSet]] 
+AxeDataTransfer__FileTransferManager *-- "0..70" AxeDataTransfer__InitiatingDestinationSet
+class "FileTransferManager" as AxeDataTransfer__FileTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferManager]] 
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+class "FileTransferManager" as AxeDataTransfer__FileTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferManager]] 
+AxeDataTransfer__DataTransferM *-- "1" AxeDataTransfer__FileTransferManager
+class "InitiatingDestinationSet" as AxeDataTransfer__InitiatingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20InitiatingDestinationSet]] 
+class "AdvancedInitiatingParameters" as AxeDataTransfer__AdvancedInitiatingParameters [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20AdvancedInitiatingParameters]] 
+AxeDataTransfer__InitiatingDestinationSet *-- "1" AxeDataTransfer__AdvancedInitiatingParameters
+class "InitiatingDestinationSet" as AxeDataTransfer__InitiatingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20InitiatingDestinationSet]] 
+class "PrimaryInitiatingDestination" as AxeDataTransfer__PrimaryInitiatingDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20PrimaryInitiatingDestination]] 
+AxeDataTransfer__InitiatingDestinationSet *-- "1" AxeDataTransfer__PrimaryInitiatingDestination
+class "DataOutputHandling" as AxeFunctions__DataOutputHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20DataOutputHandling]] 
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+AxeFunctions__DataOutputHandling *-- "1" AxeDataTransfer__DataTransferM
+@enduml 

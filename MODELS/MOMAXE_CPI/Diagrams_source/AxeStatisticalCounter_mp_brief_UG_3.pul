@@ -1,0 +1,33 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeStatisticalCounter_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "StatisticalCounterM" as AxeStatisticalCounter__StatisticalCounterM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20StatisticalCounterM]] 
+class "ScrFileManager" as AxeStatisticalCounter__ScrFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFileManager]] 
+class "ScrFile" as AxeStatisticalCounter__ScrFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFile]] 
+class "InUse" as AxeStatisticalCounter__InUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20InUse]] 
+class "ReadyToUse" as AxeStatisticalCounter__ReadyToUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ReadyToUse]] 
+class "ScrFileManager" as AxeStatisticalCounter__ScrFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFileManager]] 
+AxeStatisticalCounter__StatisticalCounterM *-- "1" AxeStatisticalCounter__ScrFileManager
+class "ScrFileManager" as AxeStatisticalCounter__ScrFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFileManager]] 
+class "ReadyToUse" as AxeStatisticalCounter__ReadyToUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ReadyToUse]] 
+AxeStatisticalCounter__ScrFileManager *-- "1" AxeStatisticalCounter__ReadyToUse
+class "ScrFileManager" as AxeStatisticalCounter__ScrFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFileManager]] 
+class "InUse" as AxeStatisticalCounter__InUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20InUse]] 
+AxeStatisticalCounter__ScrFileManager *-- "1" AxeStatisticalCounter__InUse
+class "ReadyToUse" as AxeStatisticalCounter__ReadyToUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ReadyToUse]] 
+class "ScrFile" as AxeStatisticalCounter__ScrFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFile]] 
+AxeStatisticalCounter__ReadyToUse *-- "*" AxeStatisticalCounter__ScrFile
+class "InUse" as AxeStatisticalCounter__InUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20InUse]] 
+class "ScrFile" as AxeStatisticalCounter__ScrFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFile]] 
+AxeStatisticalCounter__InUse *-- "*" AxeStatisticalCounter__ScrFile
+@enduml 

@@ -1,0 +1,69 @@
+          <!-- SEC LA TYPE START -->
+		  <CompBaseType safCompType="safCompType=ERIC-SecLa-Ldap">
+            <CompType safVersion="safVersion=#SEC_LA_LDAP_RSTATE#">
+              <providesCSType saAmfCtCompCapability="7" saAmfCtDefNumMaxActiveCsi="1" saAmfCtDefNumMaxStandbyCsi="1" safSupportedCsType="safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-SecLa-Ldap"/>
+              <compTypeDefaults saAmfCtCompCategory="8" saAmfCtDefCallbackTimeout="610000000000" saAmfCtDefClcCliTimeout="610000000000" saAmfCtDefDisableRestart="0" saAmfCtDefInstantiationLevel="0" saAmfCtDefQuiescingCompleteTimeout="600000000000" saAmfCtDefRecoveryOnError="2"/>
+              <instantiateCmd saAmfCtRelPathInstantiateCmd="bin/sec-ldap-server.sh">
+                <cmdArgv>start</cmdArgv>
+              </instantiateCmd>
+              <terminateCmd saAmfCtRelPathTerminateCmd="bin/sec-ldap-server.sh">
+                <cmdArgv>stop</cmdArgv>
+              </terminateCmd>
+              <cleanupCmd saAmfCtRelPathCleanupCmd="bin/sec-ldap-server.sh">
+                <cmdArgv>cleanup</cmdArgv>
+              </cleanupCmd>
+              <osafHcCmd osafAmfCtRelPathHcCmd="bin/sec-ldap-status.sh"/>
+              <healthCheck saAmfHealthcheckMaxDuration="360000000000" saAmfHealthcheckPeriod="1000000000" safHealthcheckKey="safHealthcheckKey=osafHealthCheck"/>
+              <swBundle saAmfCtSwBundle="safSmfBundle=#SEC_LA_LDAP_BUNDLE#"/>
+            </CompType>
+          </CompBaseType>
+          <CompBaseType safCompType="safCompType=ERIC-SecLa-Oi">
+            <CompType safVersion="safVersion=#SEC_LA_OI_RSTATE#">
+              <providesCSType saAmfCtCompCapability="4" saAmfCtDefNumMaxActiveCsi="1" saAmfCtDefNumMaxStandbyCsi="1" safSupportedCsType="safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-SecLa-Oi"/>
+              <compTypeDefaults saAmfCtCompCategory="1" saAmfCtDefCallbackTimeout="610000000000" saAmfCtDefClcCliTimeout="610000000000" saAmfCtDefDisableRestart="0" saAmfCtDefInstantiationLevel="0" saAmfCtDefQuiescingCompleteTimeout="610000000000" saAmfCtDefRecoveryOnError="2"/>
+              <instantiateCmd saAmfCtRelPathInstantiateCmd="bin/sec-la-oi.sh">
+                <cmdArgv>start</cmdArgv>
+              </instantiateCmd>
+              <cleanupCmd saAmfCtRelPathCleanupCmd="bin/sec-la-oi.sh">
+                <cmdArgv>stop</cmdArgv>
+              </cleanupCmd>
+              <healthCheck saAmfHealthcheckMaxDuration="360000000000" saAmfHealthcheckPeriod="240000000000" safHealthcheckKey="safHealthcheckKey=LaOi"/>
+              <swBundle saAmfCtSwBundle="safSmfBundle=#SEC_LA_OI_BUNDLE#"/>
+            </CompType>
+          </CompBaseType>
+          <SUBaseType safSuType="safSuType=ERIC-SecLa">
+            <SUType safVersion="safVersion=1.0.0">
+              <mandatoryAttrs saAmfSutDefSUFailover="0" saAmfSutIsExternal="0"/>
+              <componentType saAmfSutMaxNumComponents="0" saAmfSutMinNumComponents="1" safMemberCompType="safMemberCompType=safVersion=#SEC_LA_LDAP_RSTATE#\,safCompType=ERIC-SecLa-Ldap"/>
+              <componentType saAmfSutMaxNumComponents="0" saAmfSutMinNumComponents="1" safMemberCompType="safMemberCompType=safVersion=#SEC_LA_OI_RSTATE#\,safCompType=ERIC-SecLa-Oi"/>
+              <supportedSvcType saAmfSutProvidesSvcType="safVersion=1.0.0,safSvcType=ERIC-SecLa"/>
+            </SUType>
+          </SUBaseType>
+          <SGBaseType safSgType="safSgType=ERIC-SecLa">
+            <SGType safVersion="safVersion=1.0.0">
+              <suType saAmfSgtValidSuTypes="safVersion=1.0.0,safSuType=ERIC-SecLa"/>
+              <redundancy saAmfSgtRedundancyModel="1"/>
+              <compRestart saAmfSgtDefCompRestartMax="5" saAmfSgtDefCompRestartProb="100000000000"/>
+              <suRestart saAmfSgtDefSuRestartMax="5" saAmfSgtDefSuRestartProb="1000000000000"/>
+              <autoAttrs saAmfSgtDefAutoAdjustProb="100000" safAmfSgtDefAutoAdjust="0" safAmfSgtDefAutoRepair="0"/>
+            </SGType>
+          </SGBaseType>
+          <AppBaseType safAppType="safAppType=ERIC-SecLa">
+            <AppType safVersion="safVersion=1.0.0">
+              <serviceGroupType saAmfApptSGTypes="safVersion=1.0.0,safSgType=ERIC-SecLa"/>
+            </AppType>
+          </AppBaseType>
+          <CSBaseType safCSType="safCSType=ERIC-SecLa-Ldap">
+            <CSType safVersion="safVersion=1.0.0"/>
+          </CSBaseType>
+          <CSBaseType safCSType="safCSType=ERIC-SecLa-Oi">
+            <CSType safVersion="safVersion=1.0.0"/>
+          </CSBaseType>
+          <ServiceBaseType safSvcType="safSvcType=ERIC-SecLa">
+            <ServiceType safVersion="safVersion=1.0.0">
+              <csType saAmfSvctMaxNumCSIs="0" safMemberCSType="safMemberCSType=safVersion=1.0.0\,safCSType=ERIC-SecLa-Ldap"/>
+              <csType saAmfSvctMaxNumCSIs="0" safMemberCSType="safMemberCSType=safVersion=1.0.0\,safCSType=ERIC-SecLa-Oi"/>
+            </ServiceType>
+          </ServiceBaseType>
+		  <!-- SEC LA TYPE END -->
+

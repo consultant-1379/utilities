@@ -1,0 +1,35 @@
+<!-- BRFE PART-->
+<!--                                                                                    -->
+<!--                                                                                    -->
+<upgradeProcedure  saSmfExecLevel="6" safSmfProcedure="safSmfProc=SingleStepProc-BrfEia">
+      <outageInfo>
+        <acceptableServiceOutage>
+          <all/>
+        </acceptableServiceOutage>
+        <procedurePeriod saSmfProcPeriod="60000000000"/>
+      </outageInfo>
+      <upgradeMethod>
+        <singleStepUpgrade>
+          <upgradeScope>
+            <forAddRemove>
+              <deactivationUnit/>
+              <activationUnit>
+                <swAdd bundleDN="safSmfBundle=#BRFEIA_BUNDLE#" pathnamePrefix="/tmp">
+                  <plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster"/>
+                </swAdd>
+              </activationUnit>
+            </forAddRemove>
+          </upgradeScope>
+          <upgradeStep/>
+        </singleStepUpgrade>
+      </upgradeMethod>
+      <procWrapupAction>
+        <doCliCommand command="$OSAFCAMPAIGNROOT/brfeia-register.sh" args="" />
+        <undoCliCommand command="$OSAFCAMPAIGNROOT/brfeia-unregister.sh" args="" />
+        <plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster" />
+      </procWrapupAction>
+    </upgradeProcedure>
+<!-- BRFE PART-->
+<!--                                                                                    -->
+<!--                                                                                    -->
+

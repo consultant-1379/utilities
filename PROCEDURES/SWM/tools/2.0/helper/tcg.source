@@ -1,0 +1,16 @@
+#
+# HOW TO USE:
+#            source tcg.source
+#
+# Source this file to use tcg tool
+#
+
+## TCSH
+set SWM_HOME=`pwd`
+set SWM_HOME=`echo $SWM_HOME | sed 's@/SWM.*@/SWM@g'`
+setenv PYTHONPATH $SWM_HOME/tools/2.0/helper/tcg/lib/python2.7/tcg/:$PYTHONPATH
+
+## BASH
+#SWM_HOME=$( pwd)
+#SWM_HOME=$( echo $SWM_HOME | sed 's@/SWM.*@/SWM@g')
+#export PYTHONPATH=$SWM_HOME/workspace/am-cache/coremw_x86_64/4.6.0-0392/tmp/sle12/COMMON/rpms/opt/coremw/lib/tcg/lib/python2.7/tcg/

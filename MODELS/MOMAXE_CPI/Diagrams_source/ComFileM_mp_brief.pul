@@ -1,0 +1,33 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/ComFileM_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "FileM" as ComFileM__FileM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileM]] 
+class "LogicalFs" as ComFileM__LogicalFs [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20LogicalFs]] 
+class "FileGroup" as ComFileM__FileGroup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileGroup]] 
+class "FileInformation" as ComFileM__FileInformation [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileInformation]] 
+class "FileM" as ComFileM__FileM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileM]] 
+class "LogicalFs" as ComFileM__LogicalFs [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20LogicalFs]] 
+ComFileM__FileM *-- "1" ComFileM__LogicalFs
+class "FileGroup" as ComFileM__FileGroup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileGroup]] 
+class "FileGroup" as ComFileM__FileGroup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileGroup]] 
+ComFileM__FileGroup *-- "*" ComFileM__FileGroup
+class "FileGroup" as ComFileM__FileGroup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileGroup]] 
+class "FileInformation" as ComFileM__FileInformation [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileInformation]] 
+ComFileM__FileGroup *-- "*" ComFileM__FileInformation
+class "LogicalFs" as ComFileM__LogicalFs [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20LogicalFs]] 
+class "FileGroup" as ComFileM__FileGroup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileGroup]] 
+ComFileM__LogicalFs *-- "*" ComFileM__FileGroup
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "FileM" as ComFileM__FileM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileM]] 
+ComTop__SystemFunctions *-- "1" ComFileM__FileM
+@enduml 

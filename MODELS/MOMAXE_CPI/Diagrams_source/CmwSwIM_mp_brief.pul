@@ -1,0 +1,29 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/CmwSwIM_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "SwInventory" as CmwSwIM__SwInventory [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwInventory]] 
+class "SwVersion" as CmwSwIM__SwVersion [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwVersion]] 
+class "SwItem" as CmwSwIM__SwItem [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwItem]] 
+class "SwInventory" as CmwSwIM__SwInventory [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwInventory]] 
+class "SwItem" as CmwSwIM__SwItem [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwItem]] 
+CmwSwIM__SwInventory *-- "*" CmwSwIM__SwItem
+class "SwInventory" as CmwSwIM__SwInventory [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwInventory]] 
+class "SwVersion" as CmwSwIM__SwVersion [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwVersion]] 
+CmwSwIM__SwInventory *-- "*" CmwSwIM__SwVersion
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "SwInventory" as CmwSwIM__SwInventory [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwInventory]] 
+ComTop__SystemFunctions *-- "1" CmwSwIM__SwInventory
+CmwSwIM__SwInventory --> "1..*" CmwSwIM__SwVersion
+CmwSwIM__SwVersion --> "*" CmwSwIM__SwItem
+CmwSwIM__SwItem --> "*" CmwSwIM__SwItem
+@enduml 

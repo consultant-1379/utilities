@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created with Liquid XML Studio - FREE Community Edition 7.1.6.1440 (http://www.liquid-technologies.com)-->
+<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="APGConfigParms" type="APGConfigParms"/>
+
+  <xs:complexType name="APGConfigParms">
+    <xs:all>
+      <xs:element name="ap_type" type="apTypeT" minOccurs="0" nillable="true"/>
+      <xs:element name="apg_oam_access" type="oamAccessTypeT" minOccurs="0" nillable="true"/>
+      <xs:element name="apt_type" type="aptTypeT" minOccurs="0" nillable="true"/>
+      <xs:element name="apz_protocol_type" type="apzProtocolTypeT" minOccurs="0" nillable="true"/>
+      <xs:element name="cluster_keymap" type="xs:string" minOccurs="0" nillable="true"/>
+      <xs:element name="cluster_public_network_ipv4_ip_address" type="ipv4AddressTypeT" minOccurs="0" nillable="true"/>
+      <xs:element name="cluster_timezone" type="timeZoneTypeT" minOccurs="0" nillable="true"/>
+      <xs:element name="datadisk_replication_type" type="repTypeT" minOccurs="0" nillable="true"/>
+      <xs:element name="default_network_ipv4_gateway_ip_address" type="ipv4AddressTypeT" minOccurs="0" nillable="true"/>
+      <xs:element name="drbd_network_capacity" type="networkTypeT" minOccurs="0" nillable="true"/>
+      <xs:element name="ftp_state" type="xs:integer" minOccurs="0" nillable="true"/>
+      <xs:element name="cached_creds_duration" type="xs:integer" minOccurs="0" nillable="true"/>
+      <xs:element name="installation_hw" type="hwTypeT" minOccurs="0" nillable="true"/>
+      <xs:element name="me_name" type="xs:string" minOccurs="0" nillable="true"/>
+      <xs:element name="nodeA_MEId" type="xs:string" minOccurs="0" nillable="true"/>
+      <xs:element name="nodeB_MEId" type="xs:string" minOccurs="0" nillable="true"/>
+      <xs:element name="node1_public_network_ipv4_ip_address" type="ipv4AddressTypeT" minOccurs="0" nillable="true"/>
+      <xs:element name="node2_public_network_ipv4_ip_address" type="ipv4AddressTypeT" minOccurs="0" nillable="true"/>
+      <xs:element name="public_network_ipv4_prefix" type="xs:int" minOccurs="0" nillable="true"/>
+      <xs:element name="shelf_architecture" type="shelfArchTypeT" minOccurs="0" nillable="true"/>
+      <xs:element name="system_package" type="xs:string" minOccurs="0" nillable="true"/>
+      <xs:element name="system_type" type="sysTypeT" minOccurs="0" nillable="true"/>
+      <xs:element name="system_version" type="xs:string" minOccurs="0" nillable="true"/>
+    </xs:all>
+  </xs:complexType>
+
+ <xs:simpleType name="sysTypeT">
+   <xs:annotation>
+     <xs:documentation>System type values : Single CP or Multiple CP</xs:documentation>
+   </xs:annotation>
+   <xs:restriction base="xs:string">
+     <xs:enumeration value="SCP"/>
+     <xs:enumeration value="MCP"/>
+   </xs:restriction>
+ </xs:simpleType>
+ <xs:simpleType name="apTypeT">
+   <xs:annotation>
+     <xs:documentation>AP type values : Single AP or Dual AP</xs:documentation>
+   </xs:annotation>
+   <xs:restriction base="xs:string">
+     <xs:enumeration value="AP1"/>
+     <xs:enumeration value="AP2"/>
+   </xs:restriction>
+ </xs:simpleType>
+ <xs:simpleType name="oamAccessTypeT">
+   <xs:annotation>
+     <xs:documentation>APG OAM access type values : FRONTCABLE or NOCABLE</xs:documentation>
+   </xs:annotation>
+   <xs:restriction base="xs:string">
+     <xs:enumeration value="FRONTCABLE"/>
+     <xs:enumeration value="NOCABLE"/>
+   </xs:restriction>
+ </xs:simpleType>
+ <xs:simpleType name="aptTypeT">
+   <xs:annotation>
+     <xs:documentation>APT type values : BSC, MSC, HLR, TSC, WIRELINE, IPSTP</xs:documentation>
+   </xs:annotation>
+   <xs:restriction base="xs:string">
+     <xs:enumeration value="BSC"/>
+     <xs:enumeration value="MSC"/>
+     <xs:enumeration value="HLR"/>
+     <xs:enumeration value="TSC"/>
+     <xs:enumeration value="WIRELINE"/>
+     <xs:enumeration value="IPSTP"/>
+   </xs:restriction>
+ </xs:simpleType>
+ <xs:simpleType name="hwTypeT">
+   <xs:annotation>
+     <xs:documentation>Installation HW type values : GEP1, GEP2, GEP5_400, GEP5_1200, GEP7L_400, GEP7L_1600, GEP7_128_1600, VM</xs:documentation>
+   </xs:annotation>
+   <xs:restriction base="xs:string">
+     <xs:enumeration value="GEP1"/>
+     <xs:enumeration value="GEP2"/>
+     <xs:enumeration value="GEP5_400"/>
+     <xs:enumeration value="GEP5_1200"/>
+     <xs:enumeration value="VM"/>
+     <xs:enumeration value="GEP7L_400"/>
+     <xs:enumeration value="GEP7L_1600"/>
+     <xs:enumeration value="GEP7_128_1600"/>
+   </xs:restriction>
+ </xs:simpleType>
+ <xs:simpleType name="repTypeT">
+   <xs:annotation>
+     <xs:documentation>Data disk replication type values : MD or DRBD</xs:documentation>
+   </xs:annotation>
+   <xs:restriction base="xs:string">
+     <xs:enumeration value="MD"/>
+     <xs:enumeration value="DRBD"/>
+   </xs:restriction>
+ </xs:simpleType>
+ <xs:simpleType name="shelfArchTypeT">
+   <xs:annotation>
+     <xs:documentation>Shelf Architecture type values : SCB, SCX, DMX, VIRTUALIZED</xs:documentation>
+   </xs:annotation>
+   <xs:restriction base="xs:string">
+     <xs:enumeration value="VIRTUALIZED"/>
+     <xs:enumeration value="SCB"/>
+     <xs:enumeration value="SCX"/>
+     <xs:enumeration value="DMX"/>
+   </xs:restriction>
+ </xs:simpleType>
+ <xs:simpleType name="shelfSwitchTypeT">
+   <xs:annotation>
+     <xs:documentation>Shelf Switch type values : SCB-RP, SCXB3, CMXB3</xs:documentation>
+   </xs:annotation>
+   <xs:restriction base="xs:string">
+     <xs:enumeration value="SCB-RP"/>
+     <xs:enumeration value="SCXB3"/>
+     <xs:enumeration value="CMXB3"/>
+   </xs:restriction>
+ </xs:simpleType>
+ <xs:simpleType name="apzProtocolTypeT">
+   <xs:annotation>
+     <xs:documentation>APZ protocol type values : APZ21255_OR_LATER_TCPIP, APZ2123X_SDLC, APZ2123X_TCPIP, APZ21240_TCPIP, APZ21250_TCPIP</xs:documentation>
+   </xs:annotation>
+   <xs:restriction base="xs:string">
+     <xs:enumeration value="APZ21255_OR_LATER_TCPIP"/>
+     <xs:enumeration value="APZ2123X_SDLC"/>
+     <xs:enumeration value="APZ2123X_TCPIP"/>
+     <xs:enumeration value="APZ21240_TCPIP"/>
+     <xs:enumeration value="APZ21250_TCPIP"/>
+   </xs:restriction>
+ </xs:simpleType>
+ <xs:simpleType name="deployEnvTypeT">
+   <xs:annotation>
+     <xs:documentation>Deployment Environment type values : NOT_SIMULATED, SIMULATED</xs:documentation>
+   </xs:annotation>
+   <xs:restriction base="xs:string">
+     <xs:enumeration value="NOT_SIMULATED"/>
+     <xs:enumeration value="SIMULATED"/>
+   </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="installationTypeT">
+   <xs:annotation>
+     <xs:documentation>Installation type values : MI, DR, OSU</xs:documentation>
+   </xs:annotation>
+   <xs:restriction base="xs:string">
+     <xs:enumeration value="MI"/>
+     <xs:enumeration value="DR"/>
+     <xs:enumeration value="OSU"/>
+   </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="networkTypeT">
+   <xs:annotation>
+     <xs:documentation>DRBD Network Capacity type values : 1G, 10G</xs:documentation>
+   </xs:annotation>
+   <xs:restriction base="xs:string">
+     <xs:enumeration value="1G"/>
+     <xs:enumeration value="10G"/>
+   </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="ipv4AddressTypeT">
+   <xs:restriction base="xs:string">
+     <xs:pattern value="((1?[0-9]?[0-9]|2[0-4][0-9]|25[0-5]).){3}(1?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])"/>
+   </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="macAddressTypeT">
+  <xs:restriction base="xs:string">
+   <xs:pattern value="([0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}"/>
+  <xs:pattern value=""/>
+  </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="shelfIdTypeT">
+   <xs:restriction base="xs:string">
+     <xs:pattern value="([0-9]\.){3}[0-9]"/>
+   </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="timeZoneTypeT">
+   <xs:restriction base="xs:string">
+     <xs:pattern value="UTC"/>
+   </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="veTypeT">
+   <xs:restriction base="xs:string">
+     <xs:pattern value="VE0"/>
+   </xs:restriction>
+ </xs:simpleType>
+</xs:schema>

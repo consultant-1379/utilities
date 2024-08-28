@@ -1,0 +1,80 @@
+		</addToImm>
+	</campaignInitialization>
+    <upgradeProcedure saSmfExecLevel="1" safSmfProcedure="safSmfProc=SingleStepSECSECM">
+      <outageInfo>
+        <acceptableServiceOutage>
+          <all/>
+        </acceptableServiceOutage>
+        <procedurePeriod saSmfProcPeriod="600000000"/>
+      </outageInfo>
+      <procInitAction>
+        <immCCB ccbFlags="0">
+          <create objectClassName="SaAmfSU" parentObjectDN="safSg=2N,safApp=ERIC-SecSecM">
+            <attribute name="safSu" type="SA_IMM_ATTR_SASTRINGT">
+              <value>safSu=SC-2</value>
+            </attribute>
+            <attribute name="saAmfSUType" type="SA_IMM_ATTR_SANAMET">
+              <value>safVersion=1.0.0,safSuType=ERIC-SecSecM</value>
+            </attribute>
+            <attribute name="saAmfSURank" type="SA_IMM_ATTR_SAUINT32T">
+              <value>0</value>
+            </attribute>
+            <attribute name="saAmfSUHostNodeOrNodeGroup" type="SA_IMM_ATTR_SANAMET">
+              <value>safAmfNode=SC-2,safAmfCluster=myAmfCluster</value>
+            </attribute>
+            <attribute name="saAmfSUFailover" type="SA_IMM_ATTR_SAUINT32T">
+              <value>0</value>
+            </attribute>
+            <attribute name="saAmfSUAdminState" type="SA_IMM_ATTR_SAUINT32T">
+              <value>3</value>
+            </attribute>
+          </create>
+          <create objectClassName="SaAmfComp" parentObjectDN="safSu=SC-2,safSg=2N,safApp=ERIC-SecSecM">
+            <attribute name="safComp" type="SA_IMM_ATTR_SASTRINGT">
+              <value>safComp=SecM-0</value>
+            </attribute>
+            <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET">
+              <value>safVersion=#SEC_SECM_RSTATE#,safCompType=ERIC-SecSecM</value>
+            </attribute>
+          </create>
+          <create objectClassName="SaAmfHealthcheck" parentObjectDN="safComp=SecM-0,safSu=SC-2,safSg=2N,safApp=ERIC-SecSecM">
+            <attribute name="safHealthcheckKey" type="SA_IMM_ATTR_SASTRINGT">
+              <value>safHealthcheckKey=SecSecM</value>
+            </attribute>
+            <attribute name="saAmfHealthcheckPeriod" type="SA_IMM_ATTR_SATIMET">
+              <value>240000000000</value>
+            </attribute>
+            <attribute name="saAmfHealthcheckMaxDuration" type="SA_IMM_ATTR_SATIMET">
+              <value>360000000000</value>
+            </attribute>
+          </create>
+          <create objectClassName="SaAmfCompCsType" parentObjectDN="safComp=SecM-0,safSu=SC-2,safSg=2N,safApp=ERIC-SecSecM">
+            <attribute name="safSupportedCsType" type="SA_IMM_ATTR_SANAMET">
+              <value>safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-SecSecM</value>
+            </attribute>
+          </create>
+
+        </immCCB>
+      </procInitAction>
+      <upgradeMethod>
+        <singleStepUpgrade>
+          <upgradeScope>
+            <forAddRemove>
+              <deactivationUnit/>
+              <activationUnit>
+                <actedOn>
+                  <byName objectDN="safSu=SC-2,safSg=2N,safApp=ERIC-SecSecM"/>
+                </actedOn>
+                <swAdd bundleDN="safSmfBundle=#SEC_SECM_BUNDLE#" pathnamePrefix="/opt/eric/sec-secm-cxp9028976">
+                  <plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster"/>
+                </swAdd>
+                <swAdd bundleDN="safSmfBundle=#SEC_SECM_LN_BUNDLE#"  pathnamePrefix="/opt/eric/sec-secm-cxp9028976">
+                  <plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster"/>
+                </swAdd>
+              </activationUnit>
+            </forAddRemove>
+          </upgradeScope>
+          <upgradeStep/>
+        </singleStepUpgrade>
+      </upgradeMethod>
+		</upgradeProcedure>	

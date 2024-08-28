@@ -1,0 +1,43 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeDataTransfer_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+class "BlockTransferManager" as AxeDataTransfer__BlockTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockTransferManager]] 
+class "BlockTransferQueue" as AxeDataTransfer__BlockTransferQueue [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockTransferQueue]] 
+class "BlockDestinationSet" as AxeDataTransfer__BlockDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockDestinationSet]] 
+class "PrimaryBlockDestination" as AxeDataTransfer__PrimaryBlockDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20PrimaryBlockDestination]] 
+class "AdvancedBlockDestSetInfo" as AxeDataTransfer__AdvancedBlockDestSetInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20AdvancedBlockDestSetInfo]] 
+class "SecondaryBlockDestination" as AxeDataTransfer__SecondaryBlockDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20SecondaryBlockDestination]] 
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+class "BlockTransferManager" as AxeDataTransfer__BlockTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockTransferManager]] 
+AxeDataTransfer__DataTransferM *-- "1" AxeDataTransfer__BlockTransferManager
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+class "BlockTransferManager" as AxeDataTransfer__BlockTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockTransferManager]] 
+class "BlockTransferQueue" as AxeDataTransfer__BlockTransferQueue [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockTransferQueue]] 
+AxeDataTransfer__BlockTransferManager *-- "0..30" AxeDataTransfer__BlockTransferQueue
+class "BlockTransferManager" as AxeDataTransfer__BlockTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockTransferManager]] 
+class "BlockDestinationSet" as AxeDataTransfer__BlockDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockDestinationSet]] 
+AxeDataTransfer__BlockTransferManager *-- "0..30" AxeDataTransfer__BlockDestinationSet
+class "BlockDestinationSet" as AxeDataTransfer__BlockDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockDestinationSet]] 
+class "PrimaryBlockDestination" as AxeDataTransfer__PrimaryBlockDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20PrimaryBlockDestination]] 
+AxeDataTransfer__BlockDestinationSet *-- "1" AxeDataTransfer__PrimaryBlockDestination
+class "BlockDestinationSet" as AxeDataTransfer__BlockDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockDestinationSet]] 
+class "AdvancedBlockDestSetInfo" as AxeDataTransfer__AdvancedBlockDestSetInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20AdvancedBlockDestSetInfo]] 
+AxeDataTransfer__BlockDestinationSet *-- "1" AxeDataTransfer__AdvancedBlockDestSetInfo
+class "BlockDestinationSet" as AxeDataTransfer__BlockDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockDestinationSet]] 
+class "SecondaryBlockDestination" as AxeDataTransfer__SecondaryBlockDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20SecondaryBlockDestination]] 
+AxeDataTransfer__BlockDestinationSet *-- "0..1" AxeDataTransfer__SecondaryBlockDestination
+class "DataOutputHandling" as AxeFunctions__DataOutputHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20DataOutputHandling]] 
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+AxeFunctions__DataOutputHandling *-- "1" AxeDataTransfer__DataTransferM
+@enduml 

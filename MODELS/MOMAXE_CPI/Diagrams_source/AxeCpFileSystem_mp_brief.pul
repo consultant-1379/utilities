@@ -1,0 +1,38 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeCpFileSystem_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "CpFileSystemM" as AxeCpFileSystem__CpFileSystemM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CpFileSystemM]] 
+class "CpVolume" as AxeCpFileSystem__CpVolume [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CpVolume]] 
+class "CompositeFile" as AxeCpFileSystem__CompositeFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CompositeFile]] 
+class "SimpleFile" as AxeCpFileSystem__SimpleFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20SimpleFile]] 
+class "InfiniteFile" as AxeCpFileSystem__InfiniteFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20InfiniteFile]] 
+class "CompositeSubFile" as AxeCpFileSystem__CompositeSubFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CompositeSubFile]] 
+class "CpFileSystemM" as AxeCpFileSystem__CpFileSystemM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CpFileSystemM]] 
+class "CpVolume" as AxeCpFileSystem__CpVolume [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CpVolume]] 
+AxeCpFileSystem__CpFileSystemM *-- "*" AxeCpFileSystem__CpVolume
+class "CpVolume" as AxeCpFileSystem__CpVolume [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CpVolume]] 
+class "SimpleFile" as AxeCpFileSystem__SimpleFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20SimpleFile]] 
+AxeCpFileSystem__CpVolume *-- "*" AxeCpFileSystem__SimpleFile
+class "CpVolume" as AxeCpFileSystem__CpVolume [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CpVolume]] 
+class "InfiniteFile" as AxeCpFileSystem__InfiniteFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20InfiniteFile]] 
+AxeCpFileSystem__CpVolume *-- "*" AxeCpFileSystem__InfiniteFile
+class "CpVolume" as AxeCpFileSystem__CpVolume [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CpVolume]] 
+class "CompositeFile" as AxeCpFileSystem__CompositeFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CompositeFile]] 
+AxeCpFileSystem__CpVolume *-- "*" AxeCpFileSystem__CompositeFile
+class "CompositeFile" as AxeCpFileSystem__CompositeFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CompositeFile]] 
+class "CompositeSubFile" as AxeCpFileSystem__CompositeSubFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CompositeSubFile]] 
+AxeCpFileSystem__CompositeFile *-- "*" AxeCpFileSystem__CompositeSubFile
+class "SystemHandling" as AxeFunctions__SystemHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling]] 
+class "CpFileSystemM" as AxeCpFileSystem__CpFileSystemM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CpFileSystemM]] 
+AxeFunctions__SystemHandling *-- "1" AxeCpFileSystem__CpFileSystemM
+@enduml 

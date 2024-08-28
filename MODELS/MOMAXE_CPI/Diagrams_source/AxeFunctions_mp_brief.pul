@@ -1,0 +1,38 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeFunctions_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+class "DataOutputHandling" as AxeFunctions__DataOutputHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20DataOutputHandling]] 
+class "SecurityHandling" as AxeFunctions__SecurityHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SecurityHandling]] 
+class "SupervisionHandling" as AxeFunctions__SupervisionHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SupervisionHandling]] 
+class "SystemComponentHandling" as AxeFunctions__SystemComponentHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemComponentHandling]] 
+class "SystemHandling" as AxeFunctions__SystemHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling]] 
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+class "SecurityHandling" as AxeFunctions__SecurityHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SecurityHandling]] 
+AxeFunctions__AxeFunctions *-- "1" AxeFunctions__SecurityHandling
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+class "SystemHandling" as AxeFunctions__SystemHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling]] 
+AxeFunctions__AxeFunctions *-- "1" AxeFunctions__SystemHandling
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+class "SupervisionHandling" as AxeFunctions__SupervisionHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SupervisionHandling]] 
+AxeFunctions__AxeFunctions *-- "1" AxeFunctions__SupervisionHandling
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+class "DataOutputHandling" as AxeFunctions__DataOutputHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20DataOutputHandling]] 
+AxeFunctions__AxeFunctions *-- "1" AxeFunctions__DataOutputHandling
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+class "SystemComponentHandling" as AxeFunctions__SystemComponentHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemComponentHandling]] 
+AxeFunctions__AxeFunctions *-- "1" AxeFunctions__SystemComponentHandling
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+ComTop__SystemFunctions *-- "1" AxeFunctions__AxeFunctions
+@enduml 

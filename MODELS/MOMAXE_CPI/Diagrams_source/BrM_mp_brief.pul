@@ -1,0 +1,30 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/BrM_DWAXE_mp_brief.svg
+top to bottom direction
+hide members
+hide circle
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "BrM" as BrM__BrM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrM]] 
+class "BrmBackupManager" as BrM__BrmBackupManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrmBackupManager]] 
+class "BrmBackup" as BrM__BrmBackup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrmBackup]] 
+class "BrmFailsafeBackup" as BrM__BrmFailsafeBackup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrmFailsafeBackup]] 
+class "BrM" as BrM__BrM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrM]] 
+class "BrmBackupManager" as BrM__BrmBackupManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrmBackupManager]] 
+BrM__BrM *-- "*" BrM__BrmBackupManager
+class "BrmBackupManager" as BrM__BrmBackupManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrmBackupManager]] 
+class "BrmBackup" as BrM__BrmBackup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrmBackup]] 
+BrM__BrmBackupManager *-- "*" BrM__BrmBackup
+class "BrmBackupManager" as BrM__BrmBackupManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrmBackupManager]] 
+class "BrmFailsafeBackup" as BrM__BrmFailsafeBackup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrmFailsafeBackup]] 
+BrM__BrmBackupManager *-- "0..1" BrM__BrmFailsafeBackup
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "BrM" as BrM__BrM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrM]] 
+ComTop__SystemFunctions *-- "1" BrM__BrM
+@enduml 

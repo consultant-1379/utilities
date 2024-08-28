@@ -1,0 +1,41 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeDataTransfer_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+class "FileTransferManager" as AxeDataTransfer__FileTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferManager]] 
+class "RespondingDestinationSet" as AxeDataTransfer__RespondingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20RespondingDestinationSet]] 
+class "AdvancedRespondingParameters" as AxeDataTransfer__AdvancedRespondingParameters [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20AdvancedRespondingParameters]] 
+class "PrimaryRespondingDestination" as AxeDataTransfer__PrimaryRespondingDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20PrimaryRespondingDestination]] 
+class "SecondaryRespondingDestination" as AxeDataTransfer__SecondaryRespondingDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20SecondaryRespondingDestination]] 
+class "FileTransferManager" as AxeDataTransfer__FileTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferManager]] 
+class "FileTransferManager" as AxeDataTransfer__FileTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferManager]] 
+class "FileTransferManager" as AxeDataTransfer__FileTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferManager]] 
+class "RespondingDestinationSet" as AxeDataTransfer__RespondingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20RespondingDestinationSet]] 
+AxeDataTransfer__FileTransferManager *-- "0..70" AxeDataTransfer__RespondingDestinationSet
+class "RespondingDestinationSet" as AxeDataTransfer__RespondingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20RespondingDestinationSet]] 
+class "PrimaryRespondingDestination" as AxeDataTransfer__PrimaryRespondingDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20PrimaryRespondingDestination]] 
+AxeDataTransfer__RespondingDestinationSet *-- "1" AxeDataTransfer__PrimaryRespondingDestination
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+class "FileTransferManager" as AxeDataTransfer__FileTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferManager]] 
+AxeDataTransfer__DataTransferM *-- "1" AxeDataTransfer__FileTransferManager
+class "RespondingDestinationSet" as AxeDataTransfer__RespondingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20RespondingDestinationSet]] 
+class "AdvancedRespondingParameters" as AxeDataTransfer__AdvancedRespondingParameters [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20AdvancedRespondingParameters]] 
+AxeDataTransfer__RespondingDestinationSet *-- "1" AxeDataTransfer__AdvancedRespondingParameters
+class "RespondingDestinationSet" as AxeDataTransfer__RespondingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20RespondingDestinationSet]] 
+class "SecondaryRespondingDestination" as AxeDataTransfer__SecondaryRespondingDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20SecondaryRespondingDestination]] 
+AxeDataTransfer__RespondingDestinationSet *-- "0..1" AxeDataTransfer__SecondaryRespondingDestination
+class "DataOutputHandling" as AxeFunctions__DataOutputHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20DataOutputHandling]] 
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+AxeFunctions__DataOutputHandling *-- "1" AxeDataTransfer__DataTransferM
+@enduml 

@@ -1,0 +1,8 @@
+										<targetEntityTemplate>
+											<type objectDN="CMW_GETDN(^safVersion=.*,safCompType=#COMP_TYPE_NAME#$)"/>
+											<modifyOperation operation="SA_IMM_ATTR_VALUES_REPLACE">
+												<attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET">
+													<value>safVersion=#NEW_RSTATE#,safCompType=#COMP_TYPE_NAME#</value>
+												</attribute>
+											</modifyOperation>
+										</targetEntityTemplate>

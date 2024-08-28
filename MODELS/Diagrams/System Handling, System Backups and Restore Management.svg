@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="302px" preserveAspectRatio="none" style="width:178px;height:302px;" version="1.1" viewBox="0 0 178 302" width="178px" zoomAndPan="magnify"><defs><filter height="300%" id="f1lchm78385d0h" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[4ee3285a98964b4bcd46b39d0827382d]
+class SystemBrM__SystemBrM--><a href="urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrM" target="_top" title="urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrM" xlink:actuate="onRequest" xlink:href="urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrM" xlink:show="new" xlink:title="urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrM" xlink:type="simple"><rect fill="#C7DDF0" filter="url(#f1lchm78385d0h)" height="25.8262" id="SystemBrM__SystemBrM" style="stroke: #6DA3D9; stroke-width: 1.5;" width="67" x="53" y="94"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="61" x="56" y="111.5742">SystemBrM</text></a><!--MD5=[980fae274041d706fc5c0b9eaf9c2850]
+class SystemBrM__SystemBrmBackupScheduler--><a href="urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmBackupScheduler" target="_top" title="urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmBackupScheduler" xlink:actuate="onRequest" xlink:href="urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmBackupScheduler" xlink:show="new" xlink:title="urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmBackupScheduler" xlink:type="simple"><rect fill="#C7DDF0" filter="url(#f1lchm78385d0h)" height="25.8262" id="SystemBrM__SystemBrmBackupScheduler" style="stroke: #6DA3D9; stroke-width: 1.5;" width="161" x="6" y="180"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="155" x="9" y="197.5742">SystemBrmBackupScheduler</text></a><!--MD5=[4cb0040d17bc4d8b525454f3315e97e1]
+class SystemBrM__SystemBrmPeriodicEvent--><a href="urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmPeriodicEvent" target="_top" title="urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmPeriodicEvent" xlink:actuate="onRequest" xlink:href="urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmPeriodicEvent" xlink:show="new" xlink:title="urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmPeriodicEvent" xlink:type="simple"><rect fill="#C7DDF0" filter="url(#f1lchm78385d0h)" height="25.8262" id="SystemBrM__SystemBrmPeriodicEvent" style="stroke: #6DA3D9; stroke-width: 1.5;" width="142" x="15.5" y="266"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="136" x="18.5" y="283.5742">SystemBrmPeriodicEvent</text></a><!--MD5=[651605b6606128901398816ce93cf789]
+class AxeFunctions__SystemHandling--><a href="urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling" target="_top" title="urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling" xlink:actuate="onRequest" xlink:href="urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling" xlink:show="new" xlink:title="urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling" xlink:type="simple"><rect fill="#C7DDF0" filter="url(#f1lchm78385d0h)" height="25.8262" id="AxeFunctions__SystemHandling" style="stroke: #6DA3D9; stroke-width: 1.5;" width="96" x="38.5" y="8"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="90" x="41.5" y="25.5742">SystemHandling</text></a><!--MD5=[ce9f7a5c2214d1a7bf2507dfbf6a2998]
+reverse link SystemBrM__SystemBrmBackupScheduler to SystemBrM__SystemBrmPeriodicEvent--><path d="M86.5,219.4162 C86.5,234.8709 86.5,253.8947 86.5,265.9872 " fill="none" id="SystemBrM__SystemBrmBackupScheduler&lt;-SystemBrM__SystemBrmPeriodicEvent" style="stroke: #808080; stroke-width: 1.0;"/><polygon fill="#808080" points="86.5,206.0352,82.5,212.0352,86.5,218.0352,90.5,212.0352,86.5,206.0352" style="stroke: #808080; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="6" x="79.3563" y="254.4683">*</text><!--MD5=[6c9d8de17490073582870189efacec00]
+reverse link SystemBrM__SystemBrM to SystemBrM__SystemBrmBackupScheduler--><path d="M86.5,133.416 C86.5,148.871 86.5,167.895 86.5,179.987 " fill="none" id="SystemBrM__SystemBrM&lt;-SystemBrM__SystemBrmBackupScheduler" style="stroke: #808080; stroke-width: 1.0;"/><polygon fill="#808080" points="86.5,120.035,82.5,126.035,86.5,132.035,90.5,126.035,86.5,120.035" style="stroke: #808080; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="20" x="62.6875" y="168.468">0..1</text><!--MD5=[445e200b2445724d6788f807e3678ffa]
+reverse link AxeFunctions__SystemHandling to SystemBrM__SystemBrM--><path d="M86.5,47.416 C86.5,62.871 86.5,81.895 86.5,93.987 " fill="none" id="AxeFunctions__SystemHandling&lt;-SystemBrM__SystemBrM" style="stroke: #808080; stroke-width: 1.0;"/><polygon fill="#808080" points="86.5,34.035,82.5,40.035,86.5,46.035,90.5,40.035,86.5,34.035" style="stroke: #808080; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="20" x="62.6875" y="82.468">0..1</text><!--MD5=[4993ed382d2e661fd1694d3de17c7fce]
+@startuml img/SystemBrM_mp_brief.svg
+top to bottom direction
+hide members
+hide circle
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "SystemBrM" as SystemBrM__SystemBrM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrM]]
+class "SystemBrmBackupScheduler" as SystemBrM__SystemBrmBackupScheduler [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmBackupScheduler]]
+class "SystemBrmPeriodicEvent" as SystemBrM__SystemBrmPeriodicEvent [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmPeriodicEvent]]
+class "SystemBrmBackupScheduler" as SystemBrM__SystemBrmBackupScheduler [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmBackupScheduler]]
+class "SystemBrmPeriodicEvent" as SystemBrM__SystemBrmPeriodicEvent [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmPeriodicEvent]]
+SystemBrM__SystemBrmBackupScheduler *- - "*" SystemBrM__SystemBrmPeriodicEvent
+class "SystemBrM" as SystemBrM__SystemBrM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrM]]
+class "SystemBrmBackupScheduler" as SystemBrM__SystemBrmBackupScheduler [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmBackupScheduler]]
+SystemBrM__SystemBrM *- - "0..1" SystemBrM__SystemBrmBackupScheduler
+class "SystemHandling" as AxeFunctions__SystemHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling]]
+class "SystemBrM" as SystemBrM__SystemBrM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrM]]
+AxeFunctions__SystemHandling *- - "0..1" SystemBrM__SystemBrM
+@enduml
+
+PlantUML version 1.2019.11(Sun Sep 22 15:32:15 IST 2019)
+(EPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_92-b14
+Operating System: Linux
+Default Encoding: ISO-8859-1
+Language: en
+Country: US
+--></g></svg>

@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="ComLdapAuthentication">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rlMSId3QEd-W85zyLt2pLQ" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rlMSIt3QEd-W85zyLt2pLQ" key="com.ericsson.ecim.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_D9za8OByEd-znZBL00_kdg" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>ECIM_LDAP_Authentication_Model</body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_uWHKUIXbEd-Id79DLfNphQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_RBAq0N26Ed-W85zyLt2pLQ" name="ComLdapAuthentication">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_RBBR4N26Ed-W85zyLt2pLQ" annotatedElement="_RBAq0N26Ed-W85zyLt2pLQ">
+        <body>LDAP Authentication model.</body>
+      </ownedComment>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_JcWh8LlBEeWr2cQC7pIWdw" constrainedElement="_H7RR4CppEeKMu_hdrwvWBQ">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_JcnnsLlBEeWr2cQC7pIWdw">
+          <language>Optionality</language>
+          <body>if-feature NOT CPI_HIDDEN</body>
+        </specification>
+      </ownedRule>
+      <packagedElement xmi:type="uml:Class" xmi:id="_eMHY8LdUEd-gvvrqzvkuGQ" name="Filter">
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_o_vg8LklEeWr2cQC7pIWdw" constrainedElement="_eMHY8LdUEd-gvvrqzvkuGQ _xWASEPWpEd-bZPa-5ixdPA _xWc-APWpEd-bZPa-5ixdPA _xWc-A_WpEd-bZPa-5ixdPA _lsZmL2mxEeSpLem6SWiOww _lsZmNGmxEeSpLem6SWiOww">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_o_7HILklEeWr2cQC7pIWdw">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_eNggELdUEd-gvvrqzvkuGQ" name="filterId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_eNhHILdUEd-gvvrqzvkuGQ" annotatedElement="_eNggELdUEd-gvvrqzvkuGQ">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_eMIAALdUEd-gvvrqzvkuGQ" annotatedElement="_eMHY8LdUEd-gvvrqzvkuGQ">
+            <body>Indicates the filter used to locate the user's authorization profile in the LDAP directory. &#xD;
+&#xD;
+This class must be used when profileFilter in Ldap MO is set to FLEXIBLE.&#xD;
+&#xD;
+Example of use with POSIX group objects as authorization profile:&#xD;
+&#xD;
+The user authorization profile is mapped to posixGroups in the LDAP schema. Each posixGroup contains a set of users and by this association, users are mapped into one or more groups. To identify the set of groups a user is a member of, the following search filter must be used:&#xD;
+&#xD;
+(&amp;(objectClass=posixGroup)(memberUid=%u)) cn&#xD;
+ &#xD;
+where %u is the user ID parameter used during authentication and cn is the common name value returned for the posixGroup. This must match an authorization entity, for example role, in an authorization method. (&amp;(objectClass=posixGroup)(memberUid=&quot;&quot;)) is the search filter contained by the filter attribute.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rORnsLdUEd-gvvrqzvkuGQ" name="filter">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rOSOwLdUEd-gvvrqzvkuGQ" annotatedElement="_rORnsLdUEd-gvvrqzvkuGQ">
+            <body>The filter used to search in the LDAP tree. &#xD;
+&#xD;
+Example: (&amp;(objectClass=posixGroup)(memberUid=&quot;&quot;)),&#xD;
+&#xD;
+This specifies a filter, where the authorized users are members of posixGroup objects in the LDAP schema. Double quotes indicate where the ME inserts the user identifier.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Nvr60BbREeKHrYem_rcbEg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_vioY0LdUEd-gvvrqzvkuGQ" name="type">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_vio_4LdUEd-gvvrqzvkuGQ" annotatedElement="_vioY0LdUEd-gvvrqzvkuGQ">
+            <body>Determines which attribute to retrieve from an element in the database. &#xD;
+&#xD;
+The value can be the name of any parameter in the LDAP schema, for example, 'cn'.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__uad4PWwEd-bZPa-5ixdPA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_kKqbALdUEd-gvvrqzvkuGQ" name="userLabel">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_kKqbAbdUEd-gvvrqzvkuGQ" annotatedElement="_kKqbALdUEd-gvvrqzvkuGQ">
+            <body>An additional descriptive text.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kKwhoLdUEd-gvvrqzvkuGQ"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_pfxAQN3cEd-W85zyLt2pLQ" name="Ldap">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_pfyOYN3cEd-W85zyLt2pLQ" annotatedElement="_pfxAQN3cEd-W85zyLt2pLQ">
+          <body>Contains the configurable information on primary and secondary LDAP directories.  </body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_rMcxILBdEeSAGoeYCO0O8A" name="every $value in @nodeCredential and @trustCategory satisfies exists($value)" constrainedElement="_pfxAQN3cEd-W85zyLt2pLQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_rMcxIbBdEeSAGoeYCO0O8A">
+            <language>Schematron</language>
+            <body>&lt;schema xmlns=&quot;http://purl.oclc.org/dsdl/schematron&quot;>
+	&lt;pattern>
+		&lt;rule>
+			&lt;assert test='(every $value in @nodeCredential satisfies exists($value))'>ERROR: the attribute value must be an existing NodeCredential MO.&lt;/assert>
+			&lt;assert test='(every $value in @trustCategory satisfies exists($value))'>ERROR: the attribute value must be an existing TrustCategory MO.&lt;/assert>
+		&lt;/rule>
+	&lt;/pattern>
+	&lt;/schema></body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_TjI1cLklEeWr2cQC7pIWdw" constrainedElement="_aZoesGpVEeSpLem6SWiOww _sJ2_EGpVEeSpLem6SWiOww _6NZLyNU3Ed-fE6CEjdaU8A _HvHtQOhzEeGe761FTjBHwg _6Xm3MGpVEeSpLem6SWiOww">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_TjKDkLklEeWr2cQC7pIWdw">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_reIxcN3cEd-W85zyLt2pLQ" name="ldapId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_reJYgN3cEd-W85zyLt2pLQ" annotatedElement="_reIxcN3cEd-W85zyLt2pLQ">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_6NZLwNU3Ed-fE6CEjdaU8A" name="ldapIpAddress">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6NZLwdU3Ed-fE6CEjdaU8A" annotatedElement="_6NZLwNU3Ed-fE6CEjdaU8A">
+            <body>The IP or DNS address of the primary LDAP server.&#xD;
+&#xD;
+Default port number used is 389. The selected tlsMode overrides the default port number.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_W7AsoJddEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JH8owFsvEeK4oqfQHEiv_Q" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_6NZLxtU3Ed-fE6CEjdaU8A" name="fallbackLdapIpAddress">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6NZLx9U3Ed-fE6CEjdaU8A" annotatedElement="_6NZLxtU3Ed-fE6CEjdaU8A">
+            <body>The IP or DNS address of the fallback LDAP server.&#xD;
+&#xD;
+The fallback server is used when the primary server is inaccessible.&#xD;
+&#xD;
+Default port number used is 389. The selected tlsMode overrides the default port number.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_W7AsoJddEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_A4e1sBjOEeC2JL5I1A5iGw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_SdsD0HzTEeKLS_OMjoXlUg" name="serverPort" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Sd1NwXzTEeKLS_OMjoXlUg" annotatedElement="_SdsD0HzTEeKLS_OMjoXlUg">
+            <body>Specifies the server port number to access the primary and secondary LDAP servers.&#xD;
+&#xD;
+Must only be specified when the default port number is not in use. &#xD;
+&#xD;
+Default ports are:&#xD;
+ 389, when useTls is false.&#xD;
+ 389, when useTls is true and tlsMode is STARTTLS.&#xD;
+ 636, when useTls is true and tlsMode is LDAPS.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SeIIsXzTEeKLS_OMjoXlUg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SeIIsnzTEeKLS_OMjoXlUg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_n4TIoN3bEd-W85zyLt2pLQ" name="bindDn" type="_6I3y0NReEeaFScuhhBXuZA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_n4TvsN3bEd-W85zyLt2pLQ" annotatedElement="_n4TIoN3bEd-W85zyLt2pLQ">
+            <body>Default bind DN used to access the LDAP servers. &#xD;
+&#xD;
+When configured, the ME uses the specified DN as the bind name for LDAP searches. The bind DN must be specified in an LDAP DN format, for example 'cn=bindaccount,dc=mycompany,dc=com'.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_stP-MOB0Ed-znZBL00_kdg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WYeVUO3vEeGj2aCQfoWdPQ" name="bindPassword" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WYrwse3vEeGj2aCQfoWdPQ" annotatedElement="_WYeVUO3vEeGj2aCQfoWdPQ">
+            <body>Password used with bindDn to access the LDAP servers. &#xD;
+&#xD;
+When configured, the ME establishes a password-based LDAP simple bind.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_eS1LUJf4EeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY4lAO3vEeGj2aCQfoWdPQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WY5MEO3vEeGj2aCQfoWdPQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_6NZLxNU3Ed-fE6CEjdaU8A" name="baseDn" type="_6I3y0NReEeaFScuhhBXuZA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6NZLxdU3Ed-fE6CEjdaU8A" annotatedElement="_6NZLxNU3Ed-fE6CEjdaU8A">
+            <body>Default base DN to use in LDAP operations. &#xD;
+&#xD;
+The base DN must be specified in an LDAP DN format, for example, 'ou=people,dc=mycompany,dc=com'. All LDAP objects used for authentication and authorization must be accessible from the base DN.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pfo1YHp2Eeuf4oqcDZ9X_A" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_J2APgDT7EeSof55F5crVQg" name="useReferrals" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_J2SjYTT7EeSof55F5crVQg" annotatedElement="_J2APgDT7EeSof55F5crVQg">
+            <body>Toggle to enable the use of referrals.&#xD;
+&#xD;
+When set to false, the ME ignores referrals returned by the LDAP server.&#xD;
+&#xD;
+When set to true, the ME follows referrals. Referrals can be used for authentication and authorization only if the referral URI refers back to a directory tree within the same LDAP server instance; otherwise, access is denied for referred user accounts.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J2ewoTT7EeSof55F5crVQg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J2ewojT7EeSof55F5crVQg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_m4lN4DT7EeSof55F5crVQg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_HvHtQOhzEeGe761FTjBHwg" name="profileFilter" visibility="public" type="_H7RR4CppEeKMu_hdrwvWBQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_HvHtQehzEeGe761FTjBHwg" annotatedElement="_HvHtQOhzEeGe761FTjBHwg">
+            <body>Selects an LDAP filter to determine the user's authorization profile. &#xD;
+&#xD;
+Authorization profiles are used by authorization methods. &#xD;
+&#xD;
+For ERICSSON_FILTER, the contained EricssonFilter MO must exist. &#xD;
+For FLEXIBLE, the contained Filter MO must exist.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OomMsBa5EeKHrYem_rcbEg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HvHtQuhzEeGe761FTjBHwg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_0jnjcO3dEeGj2aCQfoWdPQ" name="nodeCredential" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_0sADYO3dEeGj2aCQfoWdPQ" annotatedElement="_0jnjcO3dEeGj2aCQfoWdPQ">
+            <body>The credential used for LDAP.&#xD;
+&#xD;
+Specifies the DN of a NodeCredential MO in Certificate Management.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_xu6e8JaXEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0sLCgO3dEeGj2aCQfoWdPQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0sLpkO3dEeGj2aCQfoWdPQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_AMPMYO3eEeGj2aCQfoWdPQ" name="trustCategory" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_AMfEAO3eEeGj2aCQfoWdPQ" annotatedElement="_AMPMYO3eEeGj2aCQfoWdPQ">
+            <body>The set of certificates trusted by LDAP.&#xD;
+&#xD;
+Specifies the DN of a TrustCategory MO in Certificate Management.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_xu6e8JaXEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AMuUkO3eEeGj2aCQfoWdPQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AMvisO3eEeGj2aCQfoWdPQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_xWc-APWpEd-bZPa-5ixdPA" name="Filter" visibility="public" type="_eMHY8LdUEd-gvvrqzvkuGQ" aggregation="composite" association="_xWASEPWpEd-bZPa-5ixdPA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JDtn0Ba5EeKHrYem_rcbEg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JDiBoBa5EeKHrYem_rcbEg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_6NZLwtU3Ed-fE6CEjdaU8A" name="useTls">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6NZLw9U3Ed-fE6CEjdaU8A" annotatedElement="_6NZLwtU3Ed-fE6CEjdaU8A">
+            <body>Toggle to enable TLS access to primary and secondary LDAP targets.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_6NZLyNU3Ed-fE6CEjdaU8A" name="useTlsFallback">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6NZLydU3Ed-fE6CEjdaU8A" annotatedElement="_6NZLyNU3Ed-fE6CEjdaU8A">
+            <body>Toggle to enable TLS access to the secondary LDAP target.&#xD;
+&#xD;
+This attribute is deprecated.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zzyYELjQEeOAtbSpJGXieQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_s2Sw0O0sEeGzM8HnP8dLlg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_j3AVgHzSEeKLS_OMjoXlUg" name="tlsMode" visibility="public" type="_7bizUHzREeKLS_OMjoXlUg" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_j3TQcXzSEeKLS_OMjoXlUg" annotatedElement="_j3AVgHzSEeKLS_OMjoXlUg">
+            <body>Toggles the TLS establishment mode to access the primary and secondary LDAP servers.&#xD;
+&#xD;
+Takes effect when useTls is true.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yjGzULjQEeOAtbSpJGXieQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_j3mLY3zSEeKLS_OMjoXlUg" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_IcfQAMWHEei2P8x_igBn3g" name="LDAPS" instance="_FI2mIHzSEeKLS_OMjoXlUg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Va9PIN3REd-W85zyLt2pLQ" name="userLabel">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Va92MN3REd-W85zyLt2pLQ" annotatedElement="_Va9PIN3REd-W85zyLt2pLQ">
+            <body>An additional descriptive text.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Va9PId3REd-W85zyLt2pLQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Z2AdoA4kEeKuGPHIMM7ANw" name="EricssonFilter" visibility="public" type="_Il93AA4VEeKuGPHIMM7ANw" aggregation="composite" association="_Z18zQA4kEeKuGPHIMM7ANw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LPXAABa5EeKHrYem_rcbEg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LPVx4Ba5EeKHrYem_rcbEg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_aZoesGpVEeSpLem6SWiOww" name="filterType" visibility="public" type="_sJ2_EGpVEeSpLem6SWiOww">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_aZoesWpVEeSpLem6SWiOww" annotatedElement="_aZoesGpVEeSpLem6SWiOww">
+            <body>The filterType selects method for user authorization.
+POSIX_GROUPS - Roles for authorization are selected from LDAP database based on standard Posix account and Posix Group schemas. The cn attribute of the Posix Group object is treated as role. 
+ERICSSON_ROLES - Roles for authorization are selected from LDAP database based on Posix account extended with auxiliary attribute ericssonUserAuthorizationScope. 
+FLEXIBLE -  Roles for authorization are selected from LDAP database based on attributes specified in the contained Filter object.This entity is deprecated use profileFilter instead.
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aZoes2pVEeSpLem6SWiOww"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aZoesmpVEeSpLem6SWiOww" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_6Xm3MGpVEeSpLem6SWiOww" name="roleAliasesBaseDn">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6Xm3MWpVEeSpLem6SWiOww" annotatedElement="_6Xm3MGpVEeSpLem6SWiOww">
+            <body>LDAP base DN to a subtree of objects that is used to resolve alias roles to real roles.&#xD;
+The DN for such an object is role=[role], roleAliasesBaseDn.&#xD;
+For example:&#xD;
+If roleAliasesBaseDn = &quot;dc=example,dc=com&quot; and the user has role Admin, then if the object &quot;role=Admin,dc=example,dc=com&quot; exists and has attribute name = Administrator, the user gets the role Administrator instead.
+This entity is deprecated. 
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6XneQWpVEeSpLem6SWiOww"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6XneQGpVEeSpLem6SWiOww" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_xWASEPWpEd-bZPa-5ixdPA" name="Ldap_to_Filter" memberEnd="_xWc-APWpEd-bZPa-5ixdPA _xWc-A_WpEd-bZPa-5ixdPA">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_xWc-A_WpEd-bZPa-5ixdPA" name="Ldap" visibility="public" type="_pfxAQN3cEd-W85zyLt2pLQ" association="_xWASEPWpEd-bZPa-5ixdPA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xWc-BPWpEd-bZPa-5ixdPA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xWc-BfWpEd-bZPa-5ixdPA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="__uYQYPWqEd-bZPa-5ixdPA" name="LdapAuthenticationMethod">
+        <ownedComment xmi:type="uml:Comment" xmi:id="__urLUfWqEd-bZPa-5ixdPA" annotatedElement="__uYQYPWqEd-bZPa-5ixdPA">
+          <body>Root MOC of the LDAP Authentication Method.&#xD;
+&#xD;
+LDAP-based authentication uses a directory to store a user's credentials and allows them to be queried over a secure LDAP interface.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__wKZEPWqEd-bZPa-5ixdPA" name="ldapAuthenticationMethodId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="__wKZEvWqEd-bZPa-5ixdPA" annotatedElement="__wKZEPWqEd-bZPa-5ixdPA">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_6NZL1dU3Ed-fE6CEjdaU8A" name="administrativeState">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6NZL1tU3Ed-fE6CEjdaU8A" annotatedElement="_6NZL1dU3Ed-fE6CEjdaU8A">
+            <body>The administrative state of this authorization method.</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#__k_d4JdbEeC11vgiYYrb4A"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_HrLu4PWrEd-bZPa-5ixdPA" name="userLabel">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_HrLu4fWrEd-bZPa-5ixdPA" annotatedElement="_HrLu4PWrEd-bZPa-5ixdPA">
+            <body>An additional descriptive text.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HrLu4vWrEd-bZPa-5ixdPA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_SB0ykfWrEd-bZPa-5ixdPA" name="Ldap" visibility="public" type="_pfxAQN3cEd-W85zyLt2pLQ" aggregation="composite" association="_SB0ykPWrEd-bZPa-5ixdPA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SB0ykvWrEd-bZPa-5ixdPA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SB0yk_WrEd-bZPa-5ixdPA" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_SB0ykPWrEd-bZPa-5ixdPA" name="LdapAuthenticationMethod_to_Ldap" memberEnd="_SB0ykfWrEd-bZPa-5ixdPA _SB0ylPWrEd-bZPa-5ixdPA">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_SB0ylPWrEd-bZPa-5ixdPA" name="LdapAuthenticationMethod" visibility="public" type="__uYQYPWqEd-bZPa-5ixdPA" association="_SB0ykPWrEd-bZPa-5ixdPA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GJjnIDgVEeSEaPAGjq5FjA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GJjAEDgVEeSEaPAGjq5FjA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_i6rmEPWrEd-bZPa-5ixdPA" name="UserManagement_to_LdapAuthenticationMethod" memberEnd="_i6rmEfWrEd-bZPa-5ixdPA _i6rmFPWrEd-bZPa-5ixdPA">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_i6rmFPWrEd-bZPa-5ixdPA" name="LdapAuthenticationMethod" visibility="public" type="__uYQYPWqEd-bZPa-5ixdPA" aggregation="composite" association="_i6rmEPWrEd-bZPa-5ixdPA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_i6rmFfWrEd-bZPa-5ixdPA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_i6rmFvWrEd-bZPa-5ixdPA" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_i6rmEfWrEd-bZPa-5ixdPA" name="UserManagement" visibility="public" association="_i6rmEPWrEd-bZPa-5ixdPA">
+          <type xmi:type="uml:Class" href="ComSecM.uml#_uY-DUN26Ed-W85zyLt2pLQ"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_i6rmEvWrEd-bZPa-5ixdPA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_i6rmE_WrEd-bZPa-5ixdPA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Il93AA4VEeKuGPHIMM7ANw" name="EricssonFilter">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ImgCgA4VEeKuGPHIMM7ANw" annotatedElement="_Il93AA4VEeKuGPHIMM7ANw">
+          <body>Provides configuration of features supported by the Ericsson LDAP schema. </body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ImwhMA4VEeKuGPHIMM7ANw" name="ericssonFilterId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Im-joQ4VEeKuGPHIMM7ANw" annotatedElement="_ImwhMA4VEeKuGPHIMM7ANw">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_InPCUA4VEeKuGPHIMM7ANw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_InQQcA4VEeKuGPHIMM7ANw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_RAzVUA4VEeKuGPHIMM7ANw" name="roleAliasesBaseDn" visibility="public" type="_6I3y0NReEeaFScuhhBXuZA" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_RAzVUQ4VEeKuGPHIMM7ANw" annotatedElement="_RAzVUA4VEeKuGPHIMM7ANw">
+            <body>LDAP DN to a subtree of objects that is used to convert alias roles to roles the ME understands.&#xD;
+&#xD;
+An option for authorization methods that implements Role Based Access Control.&#xD;
+&#xD;
+The value is an LDAP DN. The format of the DN for such an object is 'role=[role], roleAliasesBaseDn', where [role] must be replaced with the name of a role alias or role group. All these objects must be accessible from the base DN defined in this attribute. For example: if roleAliasesBaseDn = &quot;dc=example,dc=com&quot; and the user has role Admin, and the object &quot;role=Admin,dc=example,dc=com&quot; exists and has attribute ericssonUserAuthorizationScope = Administrator, the user receives the Administrator role.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RAzVUw4VEeKuGPHIMM7ANw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RAzVUg4VEeKuGPHIMM7ANw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tCheMA4WEeKuGPHIMM7ANw" name="targetBasedAccessControl" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tCwuwA4WEeKuGPHIMM7ANw" annotatedElement="_tCheMA4WEeKuGPHIMM7ANw">
+            <body>Toggles Target Based Access Control (TBAC).&#xD;
+&#xD;
+The User Management MO provides the &lt;Target Type> strings of the ME. The TBAC authorization behavior is defined in the UserManagement MOC.&#xD;
+&#xD;
+The optional Ericsson LDAP-schema-specified attribute ericssonUserAuthenticationScope stores the targets where the user can be authenticated and authorized. It is a case-insensitive string of &lt;Target Type>. The Ericsson target-type identifier, such as ‘bsc’, ‘cscf’, classifies the target type the user can access.&#xD;
+&#xD;
+The optional Ericsson LDAP-schema-specified attribute ericssonUserAuthorizationScope stores the authorization profiles of which the user is a member. It is a case-insensitive string of form &lt;Target Type>:&lt;Authorization Profile>, where ':' is a separator; &lt;Target Type> is the Ericsson target-type identifier, such as ‘bsc’, ‘cscf’, and it classifies the target type for which the user acquires the &lt;Authorization Profile>. &lt;Authorization Profile> is the Ericsson application-defined profile, for example, a role.&#xD;
+&#xD;
+Attribute ericssonUserAuthenticationScope behavior:&#xD;
+&#xD;
+When TBAC is LOCKED in the ME, authentication and authorization are performed without TBAC (not recommended).&#xD;
+When TBAC is UNLOCKED in the ME and the user has a target-restricted authentication scope, authentication and authorization are performed when a match is found. If not, it fails.&#xD;
+&#xD;
+Attribute ericssonUserAuthenticationScope allows the use of wild-carded scope ('*') to permit the user to be authorized on any ME based on its ericssonUserAuthorizationScope attribute.&#xD;
+&#xD;
+Attribute ericssonUserAuthorizationScope behavior:&#xD;
+&#xD;
+When TBAC is LOCKED in the ME, the authorization profiles without target qualifiers and with wildcard target qualifier ('*') are assigned to the user from the user database. When TBAC is UNLOCKED in the ME, the authorization profiles with matching target qualifiers and with wildcard target qualifier are assigned to the user from the user database.&#xD;
+&#xD;
+Not using the Ericsson LDAP schema in the user accounts, or improper use of this schema causes authorization failure.&#xD;
+&#xD;
+For more details, refer to the Ericsson LDAP Interface Description.&#xD;
+&#xD;
+Example with roles:&#xD;
+If the ME in UserManagement MOC is configured with 'cscf.ims.stockholm' and the LDAP user account contains:&#xD;
+&#xD;
+ericssonUserAuthenticationScope: cscf.ims.stockholm&#xD;
+ericssonUserAuthenticationScope: cscf.ims.malmo&#xD;
+ericssonUserAuthorizationScope: cscf.ims.stockholm:SystemAdministrator&#xD;
+ericssonUserAuthorizationScope: cscf.ims.malmo:SystemSecurityAdministrator&#xD;
+ericssonUserAuthorizationScope: *:ApplicationOperator&#xD;
+&#xD;
+Then given the LDAP user provided a correct password it is authenticated on the ME and assigned with role 'SystemAdministrator' and 'ApplicationOperator'.</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#__k_d4JdbEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4AuHAF4sEeKHV__dyZGIdg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tC__UA4WEeKuGPHIMM7ANw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_oxLHgMxaEei2P8x_igBn3g" name="UNLOCKED">
+            <instance xmi:type="uml:EnumerationLiteral" href="ECIM_CommonLibrary.uml#__k_d5ZdbEeC11vgiYYrb4A"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_3XmhAAKmEeS8OL177_7iuw" name="version" visibility="public" type="_qwNQwAKoEeS8OL177_7iuw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_3X5b8QKmEeS8OL177_7iuw" annotatedElement="_3XmhAAKmEeS8OL177_7iuw">
+            <body>The selected version of the Ericsson filtering behavior.&#xD;
+&#xD;
+Version 1 is deprecated. Version 1 allows wildcarding of roles without any qualifier and it supports the use of '*' character. Such syntax applies the given role on all targets:&#xD;
+&#xD;
+ericssonUserAuthorizationScope: ApplicationOperator&#xD;
+ericssonUserAuthorizationScope: *:ApplicationOperator&#xD;
+&#xD;
+Version 2 differentiates the wildcarding behavior depending on the value of attribute targetBasedAccessControl. When targetBasedAccessControl is LOCKED, both syntaxes are allowed and assigns the role to the user in the ME. When targetBasedAccessControl is UNLOCKED, it only allows the use of '*' character, but unqualified roles are ignored. </body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3X5b9AKmEeS8OL177_7iuw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3X5b9QKmEeS8OL177_7iuw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_xElY4AKoEeS8OL177_7iuw" name="2" instance="_tPsyAAKoEeS8OL177_7iuw"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_Z18zQA4kEeKuGPHIMM7ANw" name="Ldap_to_EricssonFilter" memberEnd="_Z2AdoA4kEeKuGPHIMM7ANw _Z2C54A4kEeKuGPHIMM7ANw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_Z2C54A4kEeKuGPHIMM7ANw" name="Ldap" visibility="public" type="_pfxAQN3cEd-W85zyLt2pLQ" association="_Z18zQA4kEeKuGPHIMM7ANw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Z2XC8A4kEeKuGPHIMM7ANw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Z2Wb4A4kEeKuGPHIMM7ANw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_H7RR4CppEeKMu_hdrwvWBQ" name="ProfileFilter">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_H7RR4SppEeKMu_hdrwvWBQ" annotatedElement="_H7RR4CppEeKMu_hdrwvWBQ">
+          <body>Authorization profile filter types for LDAP.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_H7RR4ippEeKMu_hdrwvWBQ" name="POSIX_GROUPS">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_H7RR4yppEeKMu_hdrwvWBQ" annotatedElement="_H7RR4ippEeKMu_hdrwvWBQ">
+            <body>Standard POSIX group filter.&#xD;
+&#xD;
+The authorization profiles are selected from the LDAP database based on the standard Posix Group schema. The Common Name attribute (cn) of the Posix Group object is treated as authorization data, for example, role.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_8yH_wFsnEeK4oqfQHEiv_Q"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_H7RR5SppEeKMu_hdrwvWBQ" name="ERICSSON_FILTER">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_H7RR5ippEeKMu_hdrwvWBQ" annotatedElement="_H7RR5SppEeKMu_hdrwvWBQ">
+            <body>Ericsson specified filter. &#xD;
+&#xD;
+The authorization profiles are retrieved from the LDAP database from Ericsson extended Posix accounts, as defined by the Ericsson LDAP Interface.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_9jX2gFsnEeK4oqfQHEiv_Q" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_H7RR6CppEeKMu_hdrwvWBQ" name="FLEXIBLE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_H7RR6SppEeKMu_hdrwvWBQ" annotatedElement="_H7RR6CppEeKMu_hdrwvWBQ">
+            <body>Flexible filter.&#xD;
+&#xD;
+The authorization profiles are selected from the LDAP database based on attributes specified in the contained Filter MO.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_-Kb2gFsnEeK4oqfQHEiv_Q" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_7bizUHzREeKLS_OMjoXlUg" name="TlsMode">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_7dLyEXzREeKLS_OMjoXlUg" annotatedElement="_7bizUHzREeKLS_OMjoXlUg">
+          <body>TLS establishment protocols for LDAP.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_7detAXzREeKLS_OMjoXlUg" name="STARTTLS">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_7dxn8XzREeKLS_OMjoXlUg" annotatedElement="_7detAXzREeKLS_OMjoXlUg">
+            <body>The TLS-layer is established by using the StartTLS method of RFC4511.&#xD;
+&#xD;
+Default port number is 389.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_7d7Y8XzREeKLS_OMjoXlUg"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_FI2mIHzSEeKLS_OMjoXlUg" name="LDAPS">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_FJAXIXzSEeKLS_OMjoXlUg" annotatedElement="_FI2mIHzSEeKLS_OMjoXlUg">
+            <body>The TLS-layer is established by using the LDAPS protocol.&#xD;
+&#xD;
+Default port number is 636.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_FJTSEXzSEeKLS_OMjoXlUg" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_qwNQwAKoEeS8OL177_7iuw" name="EricssonFilterVersion">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_qwWasQKoEeS8OL177_7iuw" annotatedElement="_qwNQwAKoEeS8OL177_7iuw">
+          <body>The valid version range of the Ericsson filter.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_qwgLsQKoEeS8OL177_7iuw" name="1">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_qwp8sQKoEeS8OL177_7iuw" annotatedElement="_qwgLsQKoEeS8OL177_7iuw">
+            <body>Version 1.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_qwzGoQKoEeS8OL177_7iuw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_tPsyAAKoEeS8OL177_7iuw" name="2">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tP178QKoEeS8OL177_7iuw" annotatedElement="_tPsyAAKoEeS8OL177_7iuw">
+            <body>Version 2.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_tQI24QKoEeS8OL177_7iuw" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_lsY-4GmxEeSpLem6SWiOww" name="Instances">
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_lsZmKmmxEeSpLem6SWiOww" name="LdapInstance" classifier="_pfxAQN3cEd-W85zyLt2pLQ">
+          <slot xmi:type="uml:Slot" xmi:id="_lsZmK2mxEeSpLem6SWiOww" definingFeature="_reIxcN3cEd-W85zyLt2pLQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_lsZmLGmxEeSpLem6SWiOww" value="1"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_lsZmLWmxEeSpLem6SWiOww" definingFeature="_Va9PIN3REd-W85zyLt2pLQ">
+            <value xmi:type="uml:LiteralString" xmi:id="_lsZmLmmxEeSpLem6SWiOww" value="LDAP based login authentication"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_rhszoFAMEeueEov1vHTPLA" definingFeature="_6NZLwtU3Ed-fE6CEjdaU8A">
+            <value xmi:type="uml:LiteralBoolean" xmi:id="_ikkcYFATEeueEov1vHTPLA" value="true"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_ENwdsFANEeueEov1vHTPLA" definingFeature="_6NZLwNU3Ed-fE6CEjdaU8A"/>
+          <slot xmi:type="uml:Slot" xmi:id="_8UaTUFBCEeueEov1vHTPLA" definingFeature="_6NZLxNU3Ed-fE6CEjdaU8A"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_lsZmL2mxEeSpLem6SWiOww" name="RolesFilterInstance" classifier="_eMHY8LdUEd-gvvrqzvkuGQ">
+          <slot xmi:type="uml:Slot" xmi:id="_lsZmMGmxEeSpLem6SWiOww" definingFeature="_eNggELdUEd-gvvrqzvkuGQ">
+            <value xmi:type="uml:LiteralString" xmi:id="_lsZmMWmxEeSpLem6SWiOww" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_lsZmMmmxEeSpLem6SWiOww" definingFeature="_kKqbALdUEd-gvvrqzvkuGQ">
+            <value xmi:type="uml:LiteralString" xmi:id="_lsZmM2mxEeSpLem6SWiOww" value="Roles filter"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_lsZmNGmxEeSpLem6SWiOww" client="_lsZmL2mxEeSpLem6SWiOww" supplier="_lsZmKmmxEeSpLem6SWiOww"/>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_lsZmNWmxEeSpLem6SWiOww" name="LdapAuthenticationMethodInstance" classifier="__uYQYPWqEd-bZPa-5ixdPA">
+          <slot xmi:type="uml:Slot" xmi:id="_lsZmNmmxEeSpLem6SWiOww" definingFeature="__wKZEPWqEd-bZPa-5ixdPA">
+            <value xmi:type="uml:LiteralString" xmi:id="_lsZmN2mxEeSpLem6SWiOww" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_lsZmOGmxEeSpLem6SWiOww" definingFeature="_6NZL1dU3Ed-fE6CEjdaU8A">
+            <value xmi:type="uml:InstanceValue" xmi:id="_lsZmOWmxEeSpLem6SWiOww">
+              <instance xmi:type="uml:EnumerationLiteral" href="ECIM_CommonLibrary.uml#__k_d4pdbEeC11vgiYYrb4A"/>
+            </value>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_lsZmOmmxEeSpLem6SWiOww" client="_lsZmKmmxEeSpLem6SWiOww" supplier="_lsZmNWmxEeSpLem6SWiOww"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_lsZmO2mxEeSpLem6SWiOww" client="_lsZmNWmxEeSpLem6SWiOww">
+          <supplier xmi:type="uml:InstanceSpecification" href="ComSecM.uml#_-RfUwGmfEeCVrLpBeTEsyQ"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_lsZmPGmxEeSpLem6SWiOww" name="EricssonFilterInstance" classifier="_Il93AA4VEeKuGPHIMM7ANw">
+          <slot xmi:type="uml:Slot" xmi:id="_lsZmPWmxEeSpLem6SWiOww" definingFeature="_ImwhMA4VEeKuGPHIMM7ANw">
+            <value xmi:type="uml:LiteralString" xmi:id="_lsZmPmmxEeSpLem6SWiOww" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_lsZmP2mxEeSpLem6SWiOww" definingFeature="_tCheMA4WEeKuGPHIMM7ANw">
+            <value xmi:type="uml:InstanceValue" xmi:id="_lsZmQGmxEeSpLem6SWiOww">
+              <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#__k_d4JdbEeC11vgiYYrb4A"/>
+              <instance xmi:type="uml:EnumerationLiteral" href="ECIM_CommonLibrary.uml#__k_d4pdbEeC11vgiYYrb4A"/>
+            </value>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_lsZmQWmxEeSpLem6SWiOww" definingFeature="_3XmhAAKmEeS8OL177_7iuw">
+            <value xmi:type="uml:InstanceValue" xmi:id="_lsZmQmmxEeSpLem6SWiOww" instance="_tPsyAAKoEeS8OL177_7iuw"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_lsZmQ2mxEeSpLem6SWiOww" client="_lsZmPGmxEeSpLem6SWiOww" supplier="_lsZmKmmxEeSpLem6SWiOww"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_sJ2_EGpVEeSpLem6SWiOww" name="FilterType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_sJ2_EWpVEeSpLem6SWiOww" annotatedElement="_sJ2_EGpVEeSpLem6SWiOww">
+          <body>This entity is deprecated, use ProfileFilter.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_sJ2_EmpVEeSpLem6SWiOww" name="POSIX_GROUPS">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_sJ2_E2pVEeSpLem6SWiOww" annotatedElement="_sJ2_EmpVEeSpLem6SWiOww">
+            <body>Roles for authorization are selected from LDAP database based on standard Posix account and Posix Group schemas. The cn attribute of the Posix Group object is treated as role.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_sJ2_FGpVEeSpLem6SWiOww" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_sJ2_FWpVEeSpLem6SWiOww" name="ERICSSON_ROLES">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_sJ2_FmpVEeSpLem6SWiOww" annotatedElement="_sJ2_FWpVEeSpLem6SWiOww">
+            <body>Roles for authorization are selected from LDAP database based on Posix account extended with auxiliary attribute ericssonUserAuthorizationScope.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_sJ2_F2pVEeSpLem6SWiOww" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_sJ2_GGpVEeSpLem6SWiOww" name="FLEXIBLE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_sJ2_GWpVEeSpLem6SWiOww" annotatedElement="_sJ2_GGpVEeSpLem6SWiOww">
+            <body>Roles for authorization are selected from LDAP database based on attributes specified in the contained Filter object.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_sJ2_GmpVEeSpLem6SWiOww" value="3"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_yRAGYLkkEeWr2cQC7pIWdw" name="Features">
+        <packagedElement xmi:type="uml:Class" xmi:id="_yRIpQLkkEeWr2cQC7pIWdw" name="CPI_HIDDEN"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_0HXLELkkEeWr2cQC7pIWdw" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_0Hft8LkkEeWr2cQC7pIWdw" name="BASIC"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_fC33ELlEEeWr2cQC7pIWdw" client="_0Hft8LkkEeWr2cQC7pIWdw" supplier="_yRIpQLkkEeWr2cQC7pIWdw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_6I3y0NReEeaFScuhhBXuZA" name="LdapDistinguishedName">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6JAVsNReEeaFScuhhBXuZA" annotatedElement="_6I3y0NReEeaFScuhhBXuZA">
+          <body>Represents the international standard for the representation of Distinguished Names to be used with the LDAP protocol (RFC 4514). 
+The string representation of the Distinguished Name structure is as follows: 
+
+distinguishedName = [ relativeDistinguishedName ( COMMA relativeDistinguishedName ) ] 
+relativeDistinguishedName = attributeTypeAndValue ( PLUS attributeTypeAndValue ) 
+attributeTypeAndValue = attributeType EQUALS attributeValue 
+attributeType = descr/numericoid 
+attributeValue = string/hexstring </body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_6JA8wNReEeaFScuhhBXuZA">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_-YTFELYTEeWbuatly-CGgw" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_rm-a0N3QEd-W85zyLt2pLQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_OF47UC-eEeuXAuNU_oMAYA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OF47US-eEeuXAuNU_oMAYA" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OF47Ui-eEeuXAuNU_oMAYA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OF47Uy-eEeuXAuNU_oMAYA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OF47VC-eEeuXAuNU_oMAYA" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OF47VS-eEeuXAuNU_oMAYA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rnHkwN3QEd-W85zyLt2pLQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_-X2ZILYTEeWbuatly-CGgw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tIHCgN6MEeehtLhJYaltnA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_tIHCgd6MEeehtLhJYaltnA" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_tIHCgt6MEeehtLhJYaltnA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_tIHCg96MEeehtLhJYaltnA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_tIHChN6MEeehtLhJYaltnA" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_tIHChd6MEeehtLhJYaltnA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WNN0ABbFEeawGtplo4xWPw" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WNN0ARbFEeawGtplo4xWPw" key="Version" value="1.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WNN0AhbFEeawGtplo4xWPw" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WNN0AxbFEeawGtplo4xWPw" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WNN0BBbFEeawGtplo4xWPw" key="Date" value="2016-02-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WNN0BRbFEeawGtplo4xWPw" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-X2ZIbYTEeWbuatly-CGgw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_tNYNMGgfEeWh_IKdJv1FQA" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="LDAP Authentication Method" createdBy="ETH/XES Balazs Kovacs"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_tNZbUGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Package="_RBAq0N26Ed-W85zyLt2pLQ" author="EAB/FLE/CD XPRAGPA" contact="" date="2015-02-09" docNo="" revision="0" version="2" release="1" organization="EAB/FLE/CD" ecimMomName="ECIM_LDAP_Authentication" ecimMomVersion="2" ecimMomRelease="2" ecimMomCorrection="0" correction="0"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNbQgGgfEeWh_IKdJv1FQA" hideGroupName="hidden" specification="" status="DEPRECATED" statusInformation="Deprecated in version 2.0. Attribute useTls configures TLS for the primary and fallback server." isNotifiable="true" base_Property="_6NZLyNU3Ed-fE6CEjdaU8A"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNbQgWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" isNotifiable="true" base_Property="_kKqbALdUEd-gvvrqzvkuGQ"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_tNb3kGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Property="_eNggELdUEd-gvvrqzvkuGQ"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_tNceoGgfEeWh_IKdJv1FQA" hideGroupName="hidden" specification="" base_Class="_eMHY8LdUEd-gvvrqzvkuGQ" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNceoWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" isNotifiable="true" base_Property="_Va9PIN3REd-W85zyLt2pLQ"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_tNdFsGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Property="_reIxcN3cEd-W85zyLt2pLQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNdFsWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_n4TIoN3bEd-W85zyLt2pLQ"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_tNdswGgfEeWh_IKdJv1FQA" hideGroupName="hidden" specification="" base_Association="_xWASEPWpEd-bZPa-5ixdPA" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_tNdswWgfEeWh_IKdJv1FQA" base_Class="_pfxAQN3cEd-W85zyLt2pLQ" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_tNeT0GgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Property="__wKZEPWqEd-bZPa-5ixdPA"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNeT0WgfEeWh_IKdJv1FQA" hideGroupName="" specification="" isNotifiable="true" base_Property="_HrLu4PWrEd-bZPa-5ixdPA"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_tNeT0mgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Association="_SB0ykPWrEd-bZPa-5ixdPA" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_tNe64GgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Association="_i6rmEPWrEd-bZPa-5ixdPA" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNe64WgfEeWh_IKdJv1FQA" isNotifiable="true" base_Property="_6NZLxtU3Ed-fE6CEjdaU8A"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNe64mgfEeWh_IKdJv1FQA" dependencies="" isNotifiable="true" base_Property="_rORnsLdUEd-gvvrqzvkuGQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNfh8GgfEeWh_IKdJv1FQA" isNotifiable="true" base_Property="_vioY0LdUEd-gvvrqzvkuGQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNfh8WgfEeWh_IKdJv1FQA" hideGroupName="" specification="" isNotifiable="true" base_Property="_6NZLwNU3Ed-fE6CEjdaU8A"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNfh8mgfEeWh_IKdJv1FQA" hideGroupName="" specification="" isNotifiable="true" base_Property="_6NZLwtU3Ed-fE6CEjdaU8A"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNgJAGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_6NZLxNU3Ed-fE6CEjdaU8A"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNgJAWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" dependencies="" isNotifiable="true" base_Property="_6NZL1dU3Ed-fE6CEjdaU8A"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNgwEGgfEeWh_IKdJv1FQA" hideGroupName="hidden" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_HvHtQOhzEeGe761FTjBHwg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNgwEWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_0jnjcO3dEeGj2aCQfoWdPQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNgwEmgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_AMPMYO3eEeGj2aCQfoWdPQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNhXIGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_WYeVUO3vEeGj2aCQfoWdPQ"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_tNhXIWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" base_Class="_Il93AA4VEeKuGPHIMM7ANw" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_tNhXImgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_ImwhMA4VEeKuGPHIMM7ANw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNhXI2gfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_RAzVUA4VEeKuGPHIMM7ANw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNh-MGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_tCheMA4WEeKuGPHIMM7ANw"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_tNilQGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" base_Association="_Z18zQA4kEeKuGPHIMM7ANw" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_tNilQWgfEeWh_IKdJv1FQA" hideGroupName="hidden" specification="" statusInformation="" base_Enumeration="_H7RR4CppEeKMu_hdrwvWBQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_tNjMUGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_H7RR4ippEeKMu_hdrwvWBQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_tNjzcGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_H7RR5SppEeKMu_hdrwvWBQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_tNjzt2gfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_H7RR6CppEeKMu_hdrwvWBQ"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_tNjz9GgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" base_Enumeration="_7bizUHzREeKLS_OMjoXlUg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_tNkaemgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_7detAXzREeKLS_OMjoXlUg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_tNkafWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_FI2mIHzSEeKLS_OMjoXlUg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNkafmgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_j3AVgHzSEeKLS_OMjoXlUg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNlBgGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_SdsD0HzTEeKLS_OMjoXlUg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_tNlBgWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Class="__uYQYPWqEd-bZPa-5ixdPA" isSystemCreated="true" isLegacyRoot="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNlBgmgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_3XmhAAKmEeS8OL177_7iuw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_tNlokGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" base_Enumeration="_qwNQwAKoEeS8OL177_7iuw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_tNlokWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" status="DEPRECATED" statusInformation="DEPRECATED" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_qwgLsQKoEeS8OL177_7iuw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_tNlokmgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_tPsyAAKoEeS8OL177_7iuw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNmPoGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_J2APgDT7EeSof55F5crVQg"/>
+  <ECIMBaseProfile:EcimInstances xmi:id="_tNmPoWgfEeWh_IKdJv1FQA" base_Package="_lsY-4GmxEeSpLem6SWiOww" version="1" release="1" correction="0"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_tNm2sGgfEeWh_IKdJv1FQA" base_InstanceSpecification="_lsZmKmmxEeSpLem6SWiOww"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_tNm2sWgfEeWh_IKdJv1FQA" base_InstanceSpecification="_lsZmL2mxEeSpLem6SWiOww"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_tNndwGgfEeWh_IKdJv1FQA" base_Dependency="_lsZmNGmxEeSpLem6SWiOww"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_tNndwWgfEeWh_IKdJv1FQA" base_InstanceSpecification="_lsZmNWmxEeSpLem6SWiOww"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_tNoE0GgfEeWh_IKdJv1FQA" base_Dependency="_lsZmOmmxEeSpLem6SWiOww"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_tNoE0WgfEeWh_IKdJv1FQA" base_Dependency="_lsZmO2mxEeSpLem6SWiOww"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_tNoE0mgfEeWh_IKdJv1FQA" base_InstanceSpecification="_lsZmPGmxEeSpLem6SWiOww"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_tNoE02gfEeWh_IKdJv1FQA" base_Dependency="_lsZmQ2mxEeSpLem6SWiOww"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNpS8GgfEeWh_IKdJv1FQA" hideGroupName="hidden" specification="" status="DEPRECATED" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" range="" unit="" resolution="" multiplicationFactor="" base_Property="_aZoesGpVEeSpLem6SWiOww"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_tNpS8WgfEeWh_IKdJv1FQA" hideGroupName="hidden" specification="" status="DEPRECATED" statusInformation="DEPRECATED" base_Enumeration="_sJ2_EGpVEeSpLem6SWiOww"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_tNp6AGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_EnumerationLiteral="_sJ2_EmpVEeSpLem6SWiOww"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_tNp6AWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_EnumerationLiteral="_sJ2_FWpVEeSpLem6SWiOww"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_tNp6AmgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_EnumerationLiteral="_sJ2_GGpVEeSpLem6SWiOww"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_tNqhEGgfEeWh_IKdJv1FQA" hideGroupName="hidden" specification="" status="DEPRECATED" dependencies="" base_Property="_6Xm3MGpVEeSpLem6SWiOww"/>
+  <ECIMBaseProfile:EcimSchematronConstraint xmi:id="_tNqhEWgfEeWh_IKdJv1FQA" interfaceVersion="1.0" interfaceName="ECIM_Schematron" base_Constraint="_rMcxILBdEeSAGoeYCO0O8A"/>
+  <Documentation:Documentation xmi:id="_XMdTsGgfEeWh_IKdJv1FQA" base_Comment="_RBBR4N26Ed-W85zyLt2pLQ"/>
+  <Documentation:Documentation xmi:id="_XMdTsWgfEeWh_IKdJv1FQA" base_Comment="_6NZL1tU3Ed-fE6CEjdaU8A"/>
+  <Documentation:Documentation xmi:id="_XMdTtWgfEeWh_IKdJv1FQA" base_Comment="_6NZLydU3Ed-fE6CEjdaU8A"/>
+  <Documentation:Documentation xmi:id="_XMdTtmgfEeWh_IKdJv1FQA" base_Comment="_6NZLx9U3Ed-fE6CEjdaU8A"/>
+  <Documentation:Documentation xmi:id="_XMdTt2gfEeWh_IKdJv1FQA" base_Comment="_6NZLxdU3Ed-fE6CEjdaU8A"/>
+  <Documentation:Documentation xmi:id="_XMdTuGgfEeWh_IKdJv1FQA" base_Comment="_6NZLw9U3Ed-fE6CEjdaU8A"/>
+  <Documentation:Documentation xmi:id="_XMdTuWgfEeWh_IKdJv1FQA" base_Comment="_6NZLwdU3Ed-fE6CEjdaU8A"/>
+  <Documentation:Documentation xmi:id="_XMdTumgfEeWh_IKdJv1FQA" base_Comment="_vio_4LdUEd-gvvrqzvkuGQ"/>
+  <Documentation:Documentation xmi:id="_XMdTu2gfEeWh_IKdJv1FQA" base_Comment="_rOSOwLdUEd-gvvrqzvkuGQ"/>
+  <Documentation:Documentation xmi:id="_XMdTvGgfEeWh_IKdJv1FQA" base_Comment="_kKqbAbdUEd-gvvrqzvkuGQ"/>
+  <Documentation:Documentation xmi:id="_XMdTvWgfEeWh_IKdJv1FQA" base_Comment="_eNhHILdUEd-gvvrqzvkuGQ"/>
+  <Documentation:Documentation xmi:id="_XMdTvmgfEeWh_IKdJv1FQA" base_Comment="_eMIAALdUEd-gvvrqzvkuGQ"/>
+  <Documentation:Documentation xmi:id="_XMdTv2gfEeWh_IKdJv1FQA" base_Comment="_Va92MN3REd-W85zyLt2pLQ"/>
+  <Documentation:Documentation xmi:id="_XMdTwGgfEeWh_IKdJv1FQA" base_Comment="_n4TvsN3bEd-W85zyLt2pLQ"/>
+  <Documentation:Documentation xmi:id="_XMdTwWgfEeWh_IKdJv1FQA" base_Comment="_pfyOYN3cEd-W85zyLt2pLQ"/>
+  <Documentation:Documentation xmi:id="_XMdTwmgfEeWh_IKdJv1FQA" base_Comment="_reJYgN3cEd-W85zyLt2pLQ"/>
+  <Documentation:Documentation xmi:id="_XMdTw2gfEeWh_IKdJv1FQA" base_Comment="_D9za8OByEd-znZBL00_kdg"/>
+  <Documentation:Documentation xmi:id="_XMdTxGgfEeWh_IKdJv1FQA" base_Comment="__urLUfWqEd-bZPa-5ixdPA"/>
+  <Documentation:Documentation xmi:id="_XMdTxWgfEeWh_IKdJv1FQA" base_Comment="__wKZEvWqEd-bZPa-5ixdPA"/>
+  <Documentation:Documentation xmi:id="_XMdTxmgfEeWh_IKdJv1FQA" base_Comment="_HrLu4fWrEd-bZPa-5ixdPA"/>
+  <Documentation:Documentation xmi:id="_XMdTx2gfEeWh_IKdJv1FQA" base_Comment="_HvHtQehzEeGe761FTjBHwg"/>
+  <Documentation:Documentation xmi:id="_XMdTyGgfEeWh_IKdJv1FQA" base_Comment="_0sADYO3dEeGj2aCQfoWdPQ"/>
+  <Documentation:Documentation xmi:id="_XMdTyWgfEeWh_IKdJv1FQA" base_Comment="_AMfEAO3eEeGj2aCQfoWdPQ"/>
+  <Documentation:Documentation xmi:id="_XMdTymgfEeWh_IKdJv1FQA" base_Comment="_WYrwse3vEeGj2aCQfoWdPQ"/>
+  <Documentation:Documentation xmi:id="_XMdTy2gfEeWh_IKdJv1FQA" base_Comment="_ImgCgA4VEeKuGPHIMM7ANw"/>
+  <Documentation:Documentation xmi:id="_XMdTzGgfEeWh_IKdJv1FQA" base_Comment="_Im-joQ4VEeKuGPHIMM7ANw"/>
+  <Documentation:Documentation xmi:id="_XMdTzWgfEeWh_IKdJv1FQA" base_Comment="_RAzVUQ4VEeKuGPHIMM7ANw"/>
+  <Documentation:Documentation xmi:id="_XMdTzmgfEeWh_IKdJv1FQA" base_Comment="_tCwuwA4WEeKuGPHIMM7ANw"/>
+  <Documentation:Documentation xmi:id="_XMdTz2gfEeWh_IKdJv1FQA" base_Comment="_H7RR4SppEeKMu_hdrwvWBQ"/>
+  <Documentation:Documentation xmi:id="_XMdT0GgfEeWh_IKdJv1FQA" base_Comment="_H7RR4yppEeKMu_hdrwvWBQ"/>
+  <Documentation:Documentation xmi:id="_XMdT0WgfEeWh_IKdJv1FQA" base_Comment="_H7RR5ippEeKMu_hdrwvWBQ"/>
+  <Documentation:Documentation xmi:id="_XMdT0mgfEeWh_IKdJv1FQA" base_Comment="_H7RR6SppEeKMu_hdrwvWBQ"/>
+  <Documentation:Documentation xmi:id="_XMdT02gfEeWh_IKdJv1FQA" base_Comment="_7dLyEXzREeKLS_OMjoXlUg"/>
+  <Documentation:Documentation xmi:id="_XMdT1GgfEeWh_IKdJv1FQA" base_Comment="_7dxn8XzREeKLS_OMjoXlUg"/>
+  <Documentation:Documentation xmi:id="_XMdT1WgfEeWh_IKdJv1FQA" base_Comment="_FJAXIXzSEeKLS_OMjoXlUg"/>
+  <Documentation:Documentation xmi:id="_XMdT1mgfEeWh_IKdJv1FQA" base_Comment="_j3TQcXzSEeKLS_OMjoXlUg"/>
+  <Documentation:Documentation xmi:id="_XMdT12gfEeWh_IKdJv1FQA" base_Comment="_Sd1NwXzTEeKLS_OMjoXlUg"/>
+  <Documentation:Documentation xmi:id="_XMdT2GgfEeWh_IKdJv1FQA" base_Comment="_3X5b8QKmEeS8OL177_7iuw"/>
+  <Documentation:Documentation xmi:id="_XMdT2WgfEeWh_IKdJv1FQA" base_Comment="_qwWasQKoEeS8OL177_7iuw"/>
+  <Documentation:Documentation xmi:id="_XMdT2mgfEeWh_IKdJv1FQA" base_Comment="_qwp8sQKoEeS8OL177_7iuw"/>
+  <Documentation:Documentation xmi:id="_XMdT22gfEeWh_IKdJv1FQA" base_Comment="_tP178QKoEeS8OL177_7iuw"/>
+  <Documentation:Documentation xmi:id="_XMdT3GgfEeWh_IKdJv1FQA" base_Comment="_J2SjYTT7EeSof55F5crVQg"/>
+  <Documentation:Documentation xmi:id="_XMdT3mgfEeWh_IKdJv1FQA" base_Comment="_aZoesWpVEeSpLem6SWiOww"/>
+  <Documentation:Documentation xmi:id="_XMdT32gfEeWh_IKdJv1FQA" base_Comment="_sJ2_EWpVEeSpLem6SWiOww"/>
+  <Documentation:Documentation xmi:id="_XMdT4GgfEeWh_IKdJv1FQA" base_Comment="_sJ2_E2pVEeSpLem6SWiOww"/>
+  <Documentation:Documentation xmi:id="_XMdT4WgfEeWh_IKdJv1FQA" base_Comment="_sJ2_FmpVEeSpLem6SWiOww"/>
+  <Documentation:Documentation xmi:id="_XMdT4mgfEeWh_IKdJv1FQA" base_Comment="_sJ2_GWpVEeSpLem6SWiOww"/>
+  <Documentation:Documentation xmi:id="_XMdT42gfEeWh_IKdJv1FQA" base_Comment="_6Xm3MWpVEeSpLem6SWiOww"/>
+  <CoreMWProfile:CmwModel xmi:id="_-X4OULYTEeWbuatly-CGgw" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwMom xmi:id="_-X41YLYTEeWbuatly-CGgw" base_Package="_RBAq0N26Ed-W85zyLt2pLQ" immNamespace="MOM_NAME"/>
+  <CoreMWProfile:CmwClass xmi:id="_-X7RoLYTEeWbuatly-CGgw" base_Class="_eMHY8LdUEd-gvvrqzvkuGQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X7RobYTEeWbuatly-CGgw" base_Property="_eNggELdUEd-gvvrqzvkuGQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X74sLYTEeWbuatly-CGgw" base_Property="_rORnsLdUEd-gvvrqzvkuGQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X74sbYTEeWbuatly-CGgw" base_Property="_vioY0LdUEd-gvvrqzvkuGQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X74srYTEeWbuatly-CGgw" base_Property="_kKqbALdUEd-gvvrqzvkuGQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_-X74s7YTEeWbuatly-CGgw" base_Class="_pfxAQN3cEd-W85zyLt2pLQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X74tLYTEeWbuatly-CGgw" base_Property="_reIxcN3cEd-W85zyLt2pLQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X8fwLYTEeWbuatly-CGgw" base_Property="_6NZLwNU3Ed-fE6CEjdaU8A" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X8fwbYTEeWbuatly-CGgw" base_Property="_6NZLxtU3Ed-fE6CEjdaU8A" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X8fwrYTEeWbuatly-CGgw" base_Property="_SdsD0HzTEeKLS_OMjoXlUg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X8fw7YTEeWbuatly-CGgw" base_Property="_n4TIoN3bEd-W85zyLt2pLQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X8fxLYTEeWbuatly-CGgw" base_Property="_WYeVUO3vEeGj2aCQfoWdPQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X8fxbYTEeWbuatly-CGgw" base_Property="_6NZLxNU3Ed-fE6CEjdaU8A" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X8fxrYTEeWbuatly-CGgw" base_Property="_J2APgDT7EeSof55F5crVQg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X8fx7YTEeWbuatly-CGgw" base_Property="_HvHtQOhzEeGe761FTjBHwg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X9G0LYTEeWbuatly-CGgw" base_Property="_0jnjcO3dEeGj2aCQfoWdPQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X9G0bYTEeWbuatly-CGgw" base_Property="_AMPMYO3eEeGj2aCQfoWdPQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X9G1bYTEeWbuatly-CGgw" base_Property="_6NZLwtU3Ed-fE6CEjdaU8A" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X9G1rYTEeWbuatly-CGgw" base_Property="_6NZLyNU3Ed-fE6CEjdaU8A" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X9G17YTEeWbuatly-CGgw" base_Property="_j3AVgHzSEeKLS_OMjoXlUg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X9G2LYTEeWbuatly-CGgw" base_Property="_Va9PIN3REd-W85zyLt2pLQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X9t4bYTEeWbuatly-CGgw" base_Property="_aZoesGpVEeSpLem6SWiOww" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X9t4rYTEeWbuatly-CGgw" base_Property="_6Xm3MGpVEeSpLem6SWiOww" isConfigurable="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_-X-U8LYTEeWbuatly-CGgw" base_Class="__uYQYPWqEd-bZPa-5ixdPA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X-U8bYTEeWbuatly-CGgw" base_Property="__wKZEPWqEd-bZPa-5ixdPA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X-U8rYTEeWbuatly-CGgw" base_Property="_6NZL1dU3Ed-fE6CEjdaU8A" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X-U87YTEeWbuatly-CGgw" base_Property="_HrLu4PWrEd-bZPa-5ixdPA" isConfigurable="true"/>
+  <CoreMWProfile:CmwContribution xmi:id="_-X-8ALYTEeWbuatly-CGgw" base_Association="_i6rmEPWrEd-bZPa-5ixdPA"/>
+  <CoreMWProfile:CmwClass xmi:id="_-X-8AbYTEeWbuatly-CGgw" base_Class="_Il93AA4VEeKuGPHIMM7ANw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X-8ArYTEeWbuatly-CGgw" base_Property="_ImwhMA4VEeKuGPHIMM7ANw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X-8A7YTEeWbuatly-CGgw" base_Property="_RAzVUA4VEeKuGPHIMM7ANw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X-8BLYTEeWbuatly-CGgw" base_Property="_tCheMA4WEeKuGPHIMM7ANw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-X-8BbYTEeWbuatly-CGgw" base_Property="_3XmhAAKmEeS8OL177_7iuw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimFeatures xmi:id="_yRHbILkkEeWr2cQC7pIWdw" base_Package="_yRAGYLkkEeWr2cQC7pIWdw"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_yRP-ALkkEeWr2cQC7pIWdw" base_Class="_yRIpQLkkEeWr2cQC7pIWdw"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_0HfG4LkkEeWr2cQC7pIWdw" base_Package="_0HXLELkkEeWr2cQC7pIWdw"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_0Hl0kLkkEeWr2cQC7pIWdw" base_Class="_0Hft8LkkEeWr2cQC7pIWdw"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_6I_uoNReEeaFScuhhBXuZA" hideGroupName="" specification="" statusInformation="" length="3..65535" pattern="^([^[:cntrl:]=, ]+=(\\,|[^[:cntrl:],])+,)*([^[:cntrl:]=, ]+=(\\,|[^[:cntrl:],])+)$" base_DataType="_6I3y0NReEeaFScuhhBXuZA" patternErrorMsg=""/>
+</xmi:XMI>

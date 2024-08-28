@@ -1,0 +1,1760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="SEC_CertM">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9cKNQY6tEeGg6K3Ap7yaBw" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9cKNQo6tEeGg6K3Ap7yaBw" key="com.ericsson.ecim.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_ZOBfwI6wEeGg6K3Ap7yaBw" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>&lt;p>The ECIM CertM model.&lt;/p>&lt;p>&lt;span style=&quot;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;&quot;>Copyright (c) 2014 Ericsson AB.&lt;/span>&lt;/p>&lt;p>&lt;span style=&quot;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;&quot;>&lt;/span>&lt;span style=&quot;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;&quot;>&lt;/span>&lt;span style=&quot;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;&quot;>All rights reserved.&lt;/span>&lt;/p></body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_uWHKUIXbEd-Id79DLfNphQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_INiFII6uEeGg6K3Ap7yaBw" name="SEC_CertM">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_INiFIo6uEeGg6K3Ap7yaBw" annotatedElement="_INiFII6uEeGg6K3Ap7yaBw">
+        <body>The ECIM CertM MOM.</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_INr2IY6uEeGg6K3Ap7yaBw" name="CertM">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_IN1AEY6uEeGg6K3Ap7yaBw">
+          <body>The top class of the Certificate Management model. &#xD;
+&#xD;
+Certificate management encompasses management of node credentials and trusted certificates.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_IN1AE46uEeGg6K3Ap7yaBw" name="certMId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_IN-xEY6uEeGg6K3Ap7yaBw">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IOH7AY6uEeGg6K3Ap7yaBw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IOH7Ao6uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_gWykII6uEeGg6K3Ap7yaBw" name="userLabel" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gWykIY6uEeGg6K3Ap7yaBw">
+            <body>An additional descriptive text.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gWykI46uEeGg6K3Ap7yaBw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gWykIo6uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_VBVSUY6vEeGg6K3Ap7yaBw" name="EnrollmentServerGroup" visibility="public" type="_U2z6I46uEeGg6K3Ap7yaBw" aggregation="composite" association="_VBVSUI6vEeGg6K3Ap7yaBw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VBVSWI6vEeGg6K3Ap7yaBw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VBVSV46vEeGg6K3Ap7yaBw" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_cYWjMY6vEeGg6K3Ap7yaBw" name="EnrollmentAuthority" visibility="public" type="_U2z6NI6uEeGg6K3Ap7yaBw" aggregation="composite" association="_cYWjMI6vEeGg6K3Ap7yaBw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cYWjOI6vEeGg6K3Ap7yaBw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cYWjN46vEeGg6K3Ap7yaBw" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hzy4MY6vEeGg6K3Ap7yaBw" name="TrustedCertificate" visibility="public" type="_U2qJM46uEeGg6K3Ap7yaBw" aggregation="composite" association="_hzy4MI6vEeGg6K3Ap7yaBw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hzy4OI6vEeGg6K3Ap7yaBw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hzy4N46vEeGg6K3Ap7yaBw" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tTWrwY6vEeGg6K3Ap7yaBw" name="NodeCredential" visibility="public" type="_U2qJP46uEeGg6K3Ap7yaBw" aggregation="composite" association="_tTWrwI6vEeGg6K3Ap7yaBw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tTWryI6vEeGg6K3Ap7yaBw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tTWrx46vEeGg6K3Ap7yaBw" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_wEU5EJUGEeGxfoJjfjh4RA" name="TrustCategory" visibility="public" type="_p0pAgJUCEeGxfoJjfjh4RA" aggregation="composite" association="_wEUSAJUGEeGxfoJjfjh4RA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wEa_sJUGEeGxfoJjfjh4RA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wEaYoJUGEeGxfoJjfjh4RA" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_8--7wLevEeGt2-pO2JkhCw" name="reportProgress" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_8_MXILevEeGt2-pO2JkhCw">
+            <body>Reports the progress of the ongoing action on this MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_K7KyoEVwEeC0EevVhLHxGg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8_ZLcLevEeGt2-pO2JkhCw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8_ZygLevEeGt2-pO2JkhCw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_h86AcLf6EeGkFO9ZN3Sq5g" name="CertMCapabilities" visibility="public" type="_j3M00Lf4EeGkFO9ZN3Sq5g" aggregation="composite" association="_h83kMLf6EeGkFO9ZN3Sq5g">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h8-48Lf6EeGkFO9ZN3Sq5g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h8-R4Lf6EeGkFO9ZN3Sq5g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_iKjxoLoNEeGF_9DuCY6C8g" name="localFileStorePath" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_iKjxoboNEeGF_9DuCY6C8g">
+            <body>Contains a file sytem path for locally stored certificates.&#xD;
+&#xD;
+The default directory path on the ME file system where certificates or credential containers are stored. It may store locally generated files or files generated after push download. </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iKjxo7oNEeGF_9DuCY6C8g"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iKjxoroNEeGF_9DuCY6C8g" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_Cmp-EJUCEeGxfoJjfjh4RA" name="installTrustedCertFromUri" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Cmp-EZUCEeGxfoJjfjh4RA" annotatedElement="_Cmp-EJUCEeGxfoJjfjh4RA">
+            <body>Installs a trusted certificate from the specified Uniform Resource Identifier (URI).&#xD;&#xD;
+&#xD;
+The action can be invoked if no other action in progress on this MO.&#xD;
+The action returns immediately after invocation. The progress of the action can be tracked via the reportProgress attribute.&#xD;
+&#xD;
+The action returns with TRUE after successful invocation, otherwise it returns with FALSE.&#xD;
+&#xD;
+The generic URI syntax is defined by RFC 3986.&#xD;
+Example: sftp://myuser@myhostname.ericsson.local/dir/subdir/certificate&#xD;
+Example: http://myhostname.ericsson.local/dir/subdir/certificate</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Cmp-EpUCEeGxfoJjfjh4RA" name="uri">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Cmp-E5UCEeGxfoJjfjh4RA">
+              <body>This parameter contains a URI assumed to point to the certificate file.&#xD;
+&#xD;
+The generic URI syntax is defined by RFC 3986.&#xD;
+Example: sftp://myuser@myhostname.ericsson.local/dir/subdir/certificate&#xD;
+The URI must not contain any password. The password shall be provided in the second parameter of this action.&#xD;
+The URI may be local relative (e.g. data/dir/subdir/file), or local absolute (e.g. file:///data/dir/subdir/file), or remote (e.g. sftp://user@hostname/dir/subdir/file) or remote relative (e.g. sftp://user@hostname/~/cert.pem).&#xD;
+If the URI is local relative, the file is expected to be under the directory path indicated by the localFileStorePath attribute in the CertM MO.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_AEAlQLerEeGt2-pO2JkhCw" name="uriPassword" type="_m8k5oEX7EeKrC9B45gpYQA">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_AEPOwberEeGt2-pO2JkhCw" annotatedElement="_AEAlQLerEeGt2-pO2JkhCw">
+              <body>The password section of the URI.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AEcqILerEeGt2-pO2JkhCw"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AEdRMLerEeGt2-pO2JkhCw" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Cmp-FJUCEeGxfoJjfjh4RA" name="fingerprint" type="_1nAGEMnNEeGowZzPJtvGlQ">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Cmp-FZUCEeGxfoJjfjh4RA" annotatedElement="_Cmp-FJUCEeGxfoJjfjh4RA">
+              <body>The Secure Hash Algorithm (SHA) fingerprint of the certificate to be installed.&#xD;
+&#xD;
+The fingerprint is checked against the fingerprint calculated on the installed file. The hash must be calculated by the SHA algorithm indicated in fingerprintSupport of the CertMCapabilities MO.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Cmp-FpUCEeGxfoJjfjh4RA"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Cmp-F5UCEeGxfoJjfjh4RA" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Cmp-GJUCEeGxfoJjfjh4RA">
+              <body>Result.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_Vg9cwLewEeGt2-pO2JkhCw" name="cancel" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_VhK4ILewEeGt2-pO2JkhCw">
+            <body>Cancels an ongoing action on this MO.&#xD;
+&#xD;
+Can be invoked during execution of an action.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_zbowYLknEeGxL8As-30EsA" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_zcOmQbknEeGxL8As-30EsA">
+              <body>The result of the action.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zchhMbknEeGxL8As-30EsA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zchhMrknEeGxL8As-30EsA" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_jf364MnIEeGowZzPJtvGlQ" name="removeTrustedCert" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_jgEvMMnIEeGowZzPJtvGlQ">
+            <body>Removes a trusted certificate.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_36PGQMnIEeGowZzPJtvGlQ" name="trustedCert" type="_U2qJM46uEeGg6K3Ap7yaBw">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_36b6kcnIEeGowZzPJtvGlQ">
+              <body>The DN of the TrustedCertificate MO to be removed.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_36oH0MnIEeGowZzPJtvGlQ" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_36ou4MnIEeGowZzPJtvGlQ" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_sUUMAMnIEeGowZzPJtvGlQ" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_sUgZQcnIEeGowZzPJtvGlQ">
+              <body>result</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sUsmgMnIEeGowZzPJtvGlQ" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sUtNkMnIEeGowZzPJtvGlQ" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Sy_oF46uEeGg6K3Ap7yaBw" name="CertificateContent">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Sy_oGI6uEeGg6K3Ap7yaBw">
+          <body>The content of the X.509 certificate.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Sy_oGY6uEeGg6K3Ap7yaBw" name="version" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Sy_oGo6uEeGg6K3Ap7yaBw">
+            <body>The version of the encoded certificate.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_T4lusMmhEeGowZzPJtvGlQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sy_oG46uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Sy_oHY6uEeGg6K3Ap7yaBw" name="serialNumber" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Sy_oHo6uEeGg6K3Ap7yaBw">
+            <body>The serial number of the certificate assigned by the CA.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SDgcYMmhEeGowZzPJtvGlQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sy_oH46uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Sy_oIY6uEeGg6K3Ap7yaBw" name="signatureAlgorithm" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Sy_oIo6uEeGg6K3Ap7yaBw">
+            <body>The identifier for the algorithm and hash function used by the CA in signing the certificate.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SYVc4MmhEeGowZzPJtvGlQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sy_oI46uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Sy_oJY6uEeGg6K3Ap7yaBw" name="issuer" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Sy_oJo6uEeGg6K3Ap7yaBw">
+            <body>The X.501 distinguished name of the CA that signed and issued the certificate.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QmXwAMmhEeGowZzPJtvGlQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sy_oJ46uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Sy_oKY6uEeGg6K3Ap7yaBw" name="validFrom" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Sy_oKo6uEeGg6K3Ap7yaBw">
+            <body>The certificate is valid from this date.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_S-RbgMmhEeGowZzPJtvGlQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sy_oK46uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Sy_oLY6uEeGg6K3Ap7yaBw" name="validTo" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Sy_oLo6uEeGg6K3Ap7yaBw">
+            <body>The certificate is valid to this date.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TbbRkMmhEeGowZzPJtvGlQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sy_oL46uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Sy_oNY6uEeGg6K3Ap7yaBw" name="publicKey" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Sy_oNo6uEeGg6K3Ap7yaBw">
+            <body>Carries the public key.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RUyVMMmhEeGowZzPJtvGlQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sy_oN46uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Sy_oOY6uEeGg6K3Ap7yaBw" name="publicKeyAlgorithm" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Sy_oOo6uEeGg6K3Ap7yaBw">
+            <body> Identifies the algorithm of which this public key is an instance.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RrQUcMmhEeGowZzPJtvGlQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sy_oO46uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Sy_oPY6uEeGg6K3Ap7yaBw" name="keyUsage" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Sy_oPo6uEeGg6K3Ap7yaBw">
+            <body>The usage category for which the certificate was issued as defined by X.509 key usage extension.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sy_oQI6uEeGg6K3Ap7yaBw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sy_oP46uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Sy_oQY6uEeGg6K3Ap7yaBw" name="extensionContent" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Sy_oQo6uEeGg6K3Ap7yaBw">
+            <body>Contains the X.509 certificate extensions.&#xD;
+&#xD;
+An extension string is displayed in Field:Value format.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sy_oRI6uEeGg6K3Ap7yaBw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BIIgYMmhEeGowZzPJtvGlQ" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_nQ01sI68EeGg6K3Ap7yaBw" name="subject" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_nQ-msY68EeGg6K3Ap7yaBw">
+            <body>The X.501 distinguished name of the subject associated with the public-key.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nRHwoY68EeGg6K3Ap7yaBw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nRHwoo68EeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_SzJY8I6uEeGg6K3Ap7yaBw" name="Certificate" isAbstract="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_SzJY8Y6uEeGg6K3Ap7yaBw">
+          <body>Certificate MO</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_SzJY8o6uEeGg6K3Ap7yaBw" name="certificateContent" visibility="public" type="_Sy_oF46uEeGg6K3Ap7yaBw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_SzJY846uEeGg6K3Ap7yaBw">
+            <body>The X.509 content of the certificate.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GWgFkLnxEeGF_9DuCY6C8g"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SzJY9I6uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_SzJY9o6uEeGg6K3Ap7yaBw" name="certificateState" visibility="public" type="_U2qI_Y6uEeGg6K3Ap7yaBw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_SzJY946uEeGg6K3Ap7yaBw">
+            <body>The current state of the certificate.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Wn-xcFT4EeeZw_LhrRs98w"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SzJY-I6uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_U2qI3o6uEeGg6K3Ap7yaBw" name="KeyInfo">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_U2qI346uEeGg6K3Ap7yaBw" annotatedElement="_U2qI3o6uEeGg6K3Ap7yaBw">
+          <body>Indicates the key type and length in bits.&#xD;
+&#xD;
+This enumeration supports RSA and ECDSA.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_U2qI4I6uEeGg6K3Ap7yaBw" name="RSA_1024">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_3ZtZgLeoEeGt2-pO2JkhCw">
+            <body>1024-bit long key generated for the RSA algorithm.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_U2qI4Y6uEeGg6K3Ap7yaBw"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_U2qI4o6uEeGg6K3Ap7yaBw" name="RSA_2048">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_uBkI8LepEeGt2-pO2JkhCw">
+            <body>2048-bit long key generated for the RSA algorithm.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_U2qI446uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_U2qI5I6uEeGg6K3Ap7yaBw" name="RSA_3072">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_vvu68LepEeGt2-pO2JkhCw">
+            <body>3072-bit long key generated for the RSA algorithm.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_U2qI5Y6uEeGg6K3Ap7yaBw" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_U2qI5o6uEeGg6K3Ap7yaBw" name="RSA_4096">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_xIKtgLepEeGt2-pO2JkhCw">
+            <body>4096-bit long key generated for the RSA algorithm.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_U2qI546uEeGg6K3Ap7yaBw" value="3"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_U2qI6I6uEeGg6K3Ap7yaBw" name="ECDSA_160">
+          <ownedComment xmi:type="uml:Comment" xmi:id="__vkbwLepEeGt2-pO2JkhCw" annotatedElement="_U2qI6I6uEeGg6K3Ap7yaBw">
+            <body>ECDSA algorithm with P-160 curve.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_U2qI6Y6uEeGg6K3Ap7yaBw" value="4"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_U2qI6o6uEeGg6K3Ap7yaBw" name="ECDSA_224">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_AgAaMLeqEeGt2-pO2JkhCw" annotatedElement="_U2qI6o6uEeGg6K3Ap7yaBw">
+            <body>ECDSA algorithm with P-224 curve.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_U2qI646uEeGg6K3Ap7yaBw" value="5"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_U2qI7I6uEeGg6K3Ap7yaBw" name="ECDSA_256">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_BXteQLeqEeGt2-pO2JkhCw" annotatedElement="_U2qI7I6uEeGg6K3Ap7yaBw">
+            <body>ECDSA algorithm with P-256 curve.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_U2qI7Y6uEeGg6K3Ap7yaBw" value="6"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_U2qI7o6uEeGg6K3Ap7yaBw" name="ECDSA_384">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_CioZQLeqEeGt2-pO2JkhCw" annotatedElement="_U2qI7o6uEeGg6K3Ap7yaBw">
+            <body>ECDSA algorithm with P-384 curve.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_U2qI746uEeGg6K3Ap7yaBw" value="7"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_U2qI8I6uEeGg6K3Ap7yaBw" name="ECDSA_512">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_DlXBkLeqEeGt2-pO2JkhCw" annotatedElement="_U2qI8I6uEeGg6K3Ap7yaBw">
+            <body>ECDSA algorithm with P-512 curve.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_U2qI8Y6uEeGg6K3Ap7yaBw" value="8"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_W3HEoHJ5EeW40sNYWrGwwg" name="ECDSA_521">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_W9SlIHJ5EeW40sNYWrGwwg" annotatedElement="_W3HEoHJ5EeW40sNYWrGwwg">
+            <body>ECDSA algorithm with P-521 curve.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_W9bvEHJ5EeW40sNYWrGwwg" value="9"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_dmZXIHgLEeW5K-B7HesIQQ" name="ECDSA_BRAINPOOL_256">
+          <ownedComment xmi:type="uml:Comment" xmi:id="__goA8HgLEeW5K-B7HesIQQ" annotatedElement="_dmZXIHgLEeW5K-B7HesIQQ">
+            <body>ECDSA algorithm with Brainpool P-256 r1 curve.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_duIW0HgLEeW5K-B7HesIQQ" value="10"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_46wRcHgREeW5K-B7HesIQQ" name="ECDSA_BRAINPOOL_320">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_9johEHgREeW5K-B7HesIQQ" annotatedElement="_46wRcHgREeW5K-B7HesIQQ">
+            <body>ECDSA algorithm with Brainpool P-320 r1 curve.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_47DzcHgREeW5K-B7HesIQQ" value="11"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_F-DIoHgSEeW5K-B7HesIQQ" name="ECDSA_BRAINPOOL_384">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_SzPSYHgSEeW5K-B7HesIQQ" annotatedElement="_F-DIoHgSEeW5K-B7HesIQQ">
+            <body>ECDSA algorithm with Brainpool P-384 r1 curve.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_F-VcgHgSEeW5K-B7HesIQQ" value="12"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_OO3IQHgSEeW5K-B7HesIQQ" name="ECDSA_BRAINPOOL_512">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_OPGY0XgSEeW5K-B7HesIQQ" annotatedElement="_OO3IQHgSEeW5K-B7HesIQQ">
+            <body>ECDSA algorithm with Brainpool P-512 r1 curve.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_OPSmEXgSEeW5K-B7HesIQQ" value="13"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_K1r5UJK_Eea0q6fqZP4UcA" name="ECDSA_SECP_256_R1">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_xOtpsJK_Eea0q6fqZP4UcA" annotatedElement="_K1r5UJK_Eea0q6fqZP4UcA">
+            <body>ECDSA algorithm with SECP 256 r1 curve.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_K1_bUJK_Eea0q6fqZP4UcA" value="14"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_R0MjkJK_Eea0q6fqZP4UcA" name="ECDSA_SECP_384_R1">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_0Nz4EJK_Eea0q6fqZP4UcA" annotatedElement="_R0MjkJK_Eea0q6fqZP4UcA">
+            <body>ECDSA algorithm with SECP 384 r1 curve.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_R0b0IJK_Eea0q6fqZP4UcA" value="15"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_XnTxsJK_Eea0q6fqZP4UcA" name="ECDSA_SECP_521_R1">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_1rpvEJK_Eea0q6fqZP4UcA" annotatedElement="_XnTxsJK_Eea0q6fqZP4UcA">
+            <body>ECDSA algorithm with SECP 521 r1 curve.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_XnmsoJK_Eea0q6fqZP4UcA" value="16"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_U2qI_Y6uEeGg6K3Ap7yaBw" name="CertificateState">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_U2qI_o6uEeGg6K3Ap7yaBw">
+          <body>Certificate states.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_U2qI_46uEeGg6K3Ap7yaBw" name="NOT_VALID_YET">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_U2qJAI6uEeGg6K3Ap7yaBw">
+            <body>Based on the validFrom date, the certificate is not yet valid.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_U2qJAY6uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_U2qJAo6uEeGg6K3Ap7yaBw" name="VALID">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_U2qJA46uEeGg6K3Ap7yaBw">
+            <body>Based on the validFrom and validTo dates, the certificate is valid.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_U2qJBI6uEeGg6K3Ap7yaBw"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_U2qJBY6uEeGg6K3Ap7yaBw" name="EXPIRED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_U2qJBo6uEeGg6K3Ap7yaBw">
+            <body>Based on the validTo date having passed, the certificate expired.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_U2qJB46uEeGg6K3Ap7yaBw" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_U2qJCI6uEeGg6K3Ap7yaBw" name="REVOKED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_U2qJCY6uEeGg6K3Ap7yaBw" annotatedElement="_U2qJCI6uEeGg6K3Ap7yaBw">
+            <body>The certificate was revoked by a trusted CA.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_U2qJCo6uEeGg6K3Ap7yaBw" value="3"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_U2qJM46uEeGg6K3Ap7yaBw" name="TrustedCertificate">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_U2qJNI6uEeGg6K3Ap7yaBw">
+          <body>Represents a trusted certificate.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_uByDkPpoEemhAbcX8-xsmw">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_uByqoPpoEemhAbcX8-xsmw">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <generalization xmi:type="uml:Generalization" xmi:id="_M80sgI6zEeGg6K3Ap7yaBw" general="_SzJY8I6uEeGg6K3Ap7yaBw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_U2qJNo6uEeGg6K3Ap7yaBw" name="trustedCertificateId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_U2qJN46uEeGg6K3Ap7yaBw">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_U2qJOY6uEeGg6K3Ap7yaBw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_U2qJOI6uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_SOLoUJXNEeGwa-f2a5kzHA" name="reservedByCategory" visibility="public" type="_p0pAgJUCEeGxfoJjfjh4RA" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_SOULMZXNEeGwa-f2a5kzHA" annotatedElement="_SOLoUJXNEeGwa-f2a5kzHA">
+            <body>Indicates the trust categories this trusted certificate belongs to.&#xD;
+&#xD;
+Contains the Distinguished Names of the TrustCategory Managed Objects.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SObf8ZXNEeGwa-f2a5kzHA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9H88cLetEeGt2-pO2JkhCw" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_-KBk0LobEeGF_9DuCY6C8g" name="managedState" visibility="public" type="_VZQ6ULoWEeGF_9DuCY6C8g" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_-KI5kLobEeGF_9DuCY6C8g">
+            <body>The state of the trusted certificate set by the MS.&#xD;
+&#xD;
+If set to ENABLED, the certificate is trusted and the state of the certificate is represented by certificateState.&#xD;
+If set to DISABLED, the trusted certificate is quarantined, and thus the trust relationship is suspended.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-KPnQbobEeGF_9DuCY6C8g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-KQOULobEeGF_9DuCY6C8g" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_-KPnQLobEeGF_9DuCY6C8g" name="ENABLED" instance="_VZ2wMLoWEeGF_9DuCY6C8g"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_8541cEa7Eeef4PIUsGA4gw" name="reservedBy" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_86FCsUa7Eeef4PIUsGA4gw" annotatedElement="_8541cEa7Eeef4PIUsGA4gw">
+            <body>The Distinguished Names of MOs using this TrustedCertificate.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_xu6e8JaXEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_86LJUUa7Eeef4PIUsGA4gw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_86LJUka7Eeef4PIUsGA4gw" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_n_y_MKZPEeq4VewR1l_fnA" name="expiryAlarmThreshold" visibility="public" type="_AIKZoCUqEeOwLot7BHFfcg" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_oAEE8KZPEeq4VewR1l_fnA" annotatedElement="_n_y_MKZPEeq4VewR1l_fnA">
+            <body>Number of days when the alarm is raised upon the certificate expiration.
+The alarm severity is raised to WARNING at configured amount of days prior the certificate expiration.
+The alarm severity is raised to MINOR at (expiryAlarmThreshold/3) days prior the certificate expiration.
+The alarm severity is raised to MAJOR at (expiryAlarmThreshold/6) days prior the certificate expiration.
+The alarm severity is raised to CRITICAL at (expiryAlarmThreshold/30) days prior the certificate expiration.
+The alarm is not raised when the attribute has no value. 
+
+The alarm with CRITICAL severity is not cleared when the certificate expires.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oAFTEKZPEeq4VewR1l_fnA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oAFTEaZPEeq4VewR1l_fnA" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_oAEsAKZPEeq4VewR1l_fnA" value="90"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_U2qJP46uEeGg6K3Ap7yaBw" name="NodeCredential">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_U2qJQI6uEeGg6K3Ap7yaBw">
+          <body>Represents the node credential and contains information about the corresponding certificate.&#xD;
+&#xD;
+</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_KZOHUI6zEeGg6K3Ap7yaBw" general="_SzJY8I6uEeGg6K3Ap7yaBw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_U2qJQo6uEeGg6K3Ap7yaBw" name="nodeCredentialId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_U2qJQ46uEeGg6K3Ap7yaBw">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_U2qJRY6uEeGg6K3Ap7yaBw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_U2qJRI6uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_U2qJRo6uEeGg6K3Ap7yaBw" name="userLabel" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_U2qJR46uEeGg6K3Ap7yaBw">
+            <body>An additional descriptive text.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_U2qJSY6uEeGg6K3Ap7yaBw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_U2qJSI6uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_U2qJUY6uEeGg6K3Ap7yaBw" name="subjectName" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_U2qJUo6uEeGg6K3Ap7yaBw" annotatedElement="_U2qJUY6uEeGg6K3Ap7yaBw">
+            <body>The X.501 DN to be used in the subject field of the requested certificate.&#xD;
+&#xD;
+For instance: &quot;C=SE,O=Ericsson,CN=someserialnumber.ericsson.com&quot; </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_5Kx7oGxTEeGjja_QGAGUKA"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_K-s9sEX0EeKrC9B45gpYQA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_U2qJU46uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_BiaZIJXOEeGwa-f2a5kzHA" name="reservedByUser" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Fm0pwJXOEeGwa-f2a5kzHA">
+            <body>Indicates the users of this NodeCredential MO.&#xD;
+&#xD;
+The users are identified by Distinguished Names of Credential User Managed Objects.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_xu6e8JaXEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Biht4JXOEeGwa-f2a5kzHA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BiiU8JXOEeGwa-f2a5kzHA" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_eonMoMwbEeGU6rMQjHXEfQ" name="enrollmentTimer" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_eonMocwbEeGU6rMQjHXEfQ" annotatedElement="_eonMoMwbEeGU6rMQjHXEfQ">
+            <body>The enrollment poll timer in minutes. &#xD;
+&#xD;
+If the time indicated by this timer elapses before the enrollment is finished, the enrollment fails.  No value means the timer is disabled. Used only for online enrollment.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eonzscwbEeGU6rMQjHXEfQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eonzsMwbEeGU6rMQjHXEfQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_XeiBAJufEeKfdqfBeTUXPw" value="60"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_eopo4MwbEeGU6rMQjHXEfQ" name="enrollmentServerGroup" visibility="public" type="_U2z6I46uEeGg6K3Ap7yaBw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_eopo4cwbEeGU6rMQjHXEfQ">
+            <body>The DN of the EnrollmentServerGroup used for online enrollments.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0blEgMwtEeGU6rMQjHXEfQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eopo4swbEeGU6rMQjHXEfQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_eoq3AMwbEeGU6rMQjHXEfQ" name="keyInfo" visibility="public" type="_U2qI3o6uEeGg6K3Ap7yaBw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_eoq3AcwbEeGU6rMQjHXEfQ" annotatedElement="_eoq3AMwbEeGU6rMQjHXEfQ">
+            <body>Specifies the key type and length that is used for the next enrollment.&#xD;
+&#xD;
+Mandatory for actions startOfflineCsrEnrollment or startOnlineEnrollment.&#xD;
+&#xD;
+For the supported key types see CertMCapabilities MO keySupport attribute. Deprecated key types are not recommended for new enrollments.&#xD;
+&#xD;
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V6EiMM8bEeGQsoiv7FP8zw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eoq3AswbEeGU6rMQjHXEfQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_TN9KYMwfEeGU6rMQjHXEfQ" name="enrollmentProgress" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_TN9KYcwfEeGU6rMQjHXEfQ">
+            <body>Reports the progress of the ongoing enrollment.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_K7KyoEVwEeC0EevVhLHxGg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TN9KY8wfEeGU6rMQjHXEfQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TN9KYswfEeGU6rMQjHXEfQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_RduJUMzDEeGXVNhgjroSyg" name="renewalMode" visibility="public" type="_LrKKQMzCEeGXVNhgjroSyg" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Rd7ksczDEeGXVNhgjroSyg">
+            <body>The certificate renewal mode for online enrollment.&#xD;
+&#xD;
+Renewals use subjectName, keyInfo and enrollmentServerGroup attributes as inputs.&#xD;
+&#xD;
+If configured to AUTOMATIC, manually initiated offline and online renewals fail.&#xD;
+&#xD;
+If an automatic enrollment failed alarm is present on the MO, setting this attribute to MANUAL clears the alarm.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5pK_wEYEEeeWmK4sWpe6Vw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ReK1QMzDEeGXVNhgjroSyg" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_ReJnIMzDEeGXVNhgjroSyg" name="MANUAL" instance="_Lr9bgMzCEeGXVNhgjroSyg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_cQG90JuYEeKfdqfBeTUXPw" name="enrollmentAuthority" visibility="public" type="_U2z6NI6uEeGg6K3Ap7yaBw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_RSumEJufEeKfdqfBeTUXPw">
+            <body>The DN of the EnrollmentAuthority used for online enrollments.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cQjpwJuYEeKfdqfBeTUXPw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cQjpwZuYEeKfdqfBeTUXPw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mnjE8CUPEeOwLot7BHFfcg" name="expiryAlarmThreshold" visibility="public" type="_AIKZoCUqEeOwLot7BHFfcg" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_m1pLUCUPEeOwLot7BHFfcg" annotatedElement="_mnjE8CUPEeOwLot7BHFfcg">
+            <body>Number of days when the alarm is raised upon the certificate expiration. 
+
+The alarm severity is raised to WARNING at configured amount of days prior the certificate expiration. 
+The alarm severity is raised to MINOR at (expiryAlarmThreshold/3) days prior the certificate expiration. 
+The alarm severity is raised to MAJOR at (expiryAlarmThreshold/6) days prior the certificate expiration. 
+The alarm severity is raised to CRITICAL at (expiryAlarmThreshold/30) days prior the certificate expiration. 
+&#xD;
+The alarm is cleared, and another alarm is raised, when the certificate expires.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_twGLMCXvEeOwLot7BHFfcg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_m16RECUPEeOwLot7BHFfcg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_m14b4CUPEeOwLot7BHFfcg" value="90"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_YI2YgG3HEeWL6LS8OVOG6A" name="ChainCertificate" visibility="public" type="_0UdIEG3GEeWL6LS8OVOG6A" aggregation="composite" association="_YIz8QG3HEeWL6LS8OVOG6A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YI8fIG3HEeWL6LS8OVOG6A"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YI74EG3HEeWL6LS8OVOG6A" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_b80oQIqQEeiPILvj0fE88g" name="subjectAltName" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_b9WMsIqQEeiPILvj0fE88g" annotatedElement="_b80oQIqQEeiPILvj0fE88g">
+            <body>The subjectAltName can be specified either as an IP address or a FQDN. 
+
+Format is &lt;type>:&lt;value>, where &lt;type> is either 'IP' (for IP address) or 'DNS' (for FQDN). 
+
+For 'IP' type the &lt;value> is an IPv4 address in dotted decimal notation, or an IPv6 address in colon decimal notation. 
+For 'DNS' type the &lt;value> is an FQDN. 
+
+In case a type identification ('IP' or 'DNS') is not present, the type will be interpreted depending on value. 
+
+Examples: 
+
+someserialnumber.ericsson.com 
+DNS:someserialnumber.ericsson.com 
+IP:145.34.23.123 
+IP:2001:DB8::8:800:200C:417A 
+
+Valid values: ^(|IP:)(((|[1-9]|[1-9][0-9]|12[012345689]|1[013456789][0-9]|2[0-1][0-9]|22[0-3])\.)(([0-9]|[0-9][0-9]|[0-1][0-9][0-9]|2[0-4][0-9]|25[0-5])\.){2})([0-9]|[0-9][0-9]|[0-1][0-9][0-9]|2[0-4][0-9]|25[0-5])|((([0-9A-Fa-f]{1,4}:){1,5}:((25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})){3})?)|(([0-9A-Fa-f]{1,4}:){6,7}:)|(([0-9A-Fa-f]{1,4}:){6}((25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})){3}))|(([0-9A-Fa-f]{1,4}:){6}:[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){5}(:[0-9A-Fa-f]{1,4}){1,2})|(([0-9A-Fa-f]{1,4}:){4}(:[0-9A-Fa-f]{1,4}(:(25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})){3})?))|(([0-9A-Fa-f]{1,4}:){4}(:[0-9A-Fa-f]{1,4}){2,3})|((([0-9A-Fa-f]{1,4}:){3}(:[0-9A-Fa-f]{1,4}){1,2})(:(25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})){3})?)|(([0-9A-Fa-f]{1,4}:){3}(:[0-9A-Fa-f]{1,4}){3,4})|(([0-9A-Fa-f]{1,4}:){2}(:[0-9A-Fa-f]{1,4}){1,3}(:(25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})){3})?)|(([0-9A-Fa-f]{1,4}:){2}(:[0-9A-Fa-f]{1,4}){4,5})|(([0-9A-Fa-f]{1,4}:)(:[0-9A-Fa-f]{1,4}){1,4}(:(25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})){3})?)|(([0-9A-Fa-f]{1,4}:)(:[0-9A-Fa-f]{1,4}){5,6})|((:(:[0-9A-Fa-f]{1,4}){1,5})(:(25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})){3})?)|(:(:[0-9A-Fa-f]{1,4}){6,7})|(([0-9A-Fa-f]{1,4}:){7}[0-9A-Fa-f]{1,4})|(((::FFFF)|(0:0:0:0:0:FFFF))(:(25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})){3})))$|^(|DNS:)(([a-zA-Z]|[a-zA-Z][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z]|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9])$</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_b9Z3EIqQEeiPILvj0fE88g"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_b9bFMIqQEeiPILvj0fE88g" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_NJ2PsMwbEeGU6rMQjHXEfQ" name="cancelEnrollment" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NJ2PscwbEeGU6rMQjHXEfQ">
+            <body>Cancels the enrollment process.&#xD;
+&#xD;
+If the enrollment runs in online polling mode, this action stops polling the enrollment server. The enrollment rejects to confirm the PKI response from the enrollment server and releases the generated key-pair. The enrollment fails.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_NJ2PsswbEeGU6rMQjHXEfQ" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_NJ2Ps8wbEeGU6rMQjHXEfQ">
+              <body>Result.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_u5_JYMwbEeGU6rMQjHXEfQ" name="startOnlineEnrollment" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_u5_JYcwbEeGU6rMQjHXEfQ" annotatedElement="_u5_JYMwbEeGU6rMQjHXEfQ">
+            <body>Starts the online enrollment process.&#xD;
+&#xD;
+If a vendor credential is not available, a challengePassword must be provided for initial enrollments. Otherwise, the active vendor credential, indicated in the CertM MO, or the existing valid node credential signs the PKI request. &#xD;
+&#xD;
+If the enrollmentSupport attribute of the CertMCapabilities MO indicates that online enrollment is supported, the action can be invoked.&#xD;
+&#xD;
+As inputs, the action uses subjectName, keyInfo, enrollmentServerGroup and enrollmentAuthority attributes.&#xD;
+&#xD;
+If no other action is in progress on this MO, the action can be invoked and it returns immediately after invocation. &#xD;
+Action progress can be tracked via the enrollmentProgress attribute.&#xD;
+&#xD;
+The action returns with TRUE after successful invocation, otherwise it returns with FALSE.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_u5_JYswbEeGU6rMQjHXEfQ" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_u5_JY8wbEeGU6rMQjHXEfQ">
+              <body>Result</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_2bt1cMwbEeGU6rMQjHXEfQ" name="challengePassword" type="_m8k5oEX7EeKrC9B45gpYQA">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_57pgAMwbEeGU6rMQjHXEfQ">
+              <body>The one-time challenge password used as a shared-secret between the ME and the enrollment CA.&#xD;
+</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_g0lWUC60EeSGDPNGdayddw"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2b6pwMwbEeGU6rMQjHXEfQ" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_EbsP8MwfEeGU6rMQjHXEfQ" name="startOfflineCsrEnrollment" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_EbsP8cwfEeGU6rMQjHXEfQ" annotatedElement="_EbsP8MwfEeGU6rMQjHXEfQ">
+            <body>Starts a manual enrollment procedure. &#xD;
+&#xD;
+Creates a PKCS#10 Certificate Signing Request (CSR) that is stored at the specified local Uniform Resource Identifier URI. A file transfer service can be used to fetch the CSR file from the ME.&#xD;
+&#xD;
+The action can be invoked if the enrollmentSupport attribute of the CertMCapabilities MO indicates that offline CSR-based enrollment is supported.&#xD;
+&#xD;
+The action uses attributes subjectName and keyInfo attributes as inputs.&#xD;
+&#xD;
+If no other action is in progress on this MO, the action can be invoked and it returns immediately after invocation. &#xD;
+The action progress can be tracked via the enrollmentProgress attribute.&#xD;
+&#xD;
+The action returns with TRUE after successful invocation, otherwise it returns with FALSE.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_EbsP9MwfEeGU6rMQjHXEfQ" name="uri">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_EbsP9cwfEeGU6rMQjHXEfQ">
+              <body>This parameter contains a URI assumed to point to the certificate or credential container file. &#xD;
+&#xD;
+The generic Uniform Resource Identifier (URI) syntax is defined by RFC 3986. &#xD;
+Example: sftp://myuser@myhostname.ericsson.local/dir/subdir/file &#xD;
+The URI must not contain any password. The password shall be provided in the second parameter of this action.&#xD;
+The URI may be local relative e.g. dir/subdir/csr.p10, or local absolute e.g. file:///data/dir/subdir/csr.p10, or remote e.g. sftp://user@hostname/dir/subdir/csr.p10). &#xD;
+&#xD;
+If the URI is local relative, the file will be stored under the path indicated by the localFileStorePath attribute in the CertM MO.&#xD;
+</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EbsP98wfEeGU6rMQjHXEfQ" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EbsP9swfEeGU6rMQjHXEfQ" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_EbsP-MwfEeGU6rMQjHXEfQ" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_EbsP-cwfEeGU6rMQjHXEfQ">
+              <body>Result</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_J_BTYCUREeOwLot7BHFfcg" name="uriPassword" type="_m8k5oEX7EeKrC9B45gpYQA">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_J_9ukCUREeOwLot7BHFfcg" annotatedElement="_J_BTYCUREeOwLot7BHFfcg">
+              <body>The password section of the Uniform Resource Identifier (URI).</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KAMYECUREeOwLot7BHFfcg"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KANmMCUREeOwLot7BHFfcg" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_Qe01MMwgEeGU6rMQjHXEfQ" name="installCredentialFromUri" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Qe01McwgEeGU6rMQjHXEfQ" annotatedElement="_Qe01MMwgEeGU6rMQjHXEfQ">
+            <body>Installs a node credential or certificate from the specified Uniform Resource Identifier (URI).&#xD;
+&#xD;
+If the container file is in PKCS#12 format, the action implicitly starts an offline enrollment. If the file is a certificate in Privacy Enhanced Mail (PEM) or Distinguished Encoding Rules (DER) format, this action closes the ongoing offline enrollment process started by the startOfflineCsrEnrollment action.&#xD;
+&#xD;
+Chain certificates are imported from PEM formatted file or PKCS#12 container file.&#xD;
+&#xD;
+The action can be invoked if the enrollmentSupport attribute of the CertMCapabilities MO indicates that offline enrollment is supported.&#xD;
+&#xD;
+For a container file in PKCS#12 format, the action can be invoked if there is no other action in progress on this MO, and the URI scheme is a secure file transfer protocol, or points to a local file. For a certificate file in PEM or DER format, the action can be invoked if there is a startOfflineCsrEnrollment action in progress on this MO.&#xD;
+&#xD;
+The action returns immediately after invocation. The progress of the action can be tracked via the enrollmentProgress attribute.&#xD;
+&#xD;
+The action returns with TRUE after successful invocation, otherwise it returns with FALSE.&#xD;
+&#xD;
+The generic URI syntax is defined by RFC 3986.&#xD;
+Example: sftp://myuser@myhostname.ericsson.local/dir/subdir/certificate&#xD;
+Example: http://myhostname.ericsson.local/dir/subdir/certificate</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Qe01MswgEeGU6rMQjHXEfQ" name="uri">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Qe01M8wgEeGU6rMQjHXEfQ">
+              <body>This parameter contains a URI assumed to point to the certificate or credential container file.&#xD;
+&#xD;
+The generic Uniform Resource Identifier (URI) syntax is defined by RFC 3986.&#xD;
+Example: sftp://myuser@myhostname.ericsson.local/dir/subdir/file&#xD;
+The URI must not contain any password. The password shall be provided in the second parameter of this action.&#xD;
+The URI may be local relative (e.g. data/dir/subdir/file), or local absolute (e.g.  file:///data/dir/subdir/file), or remote (e.g. sftp://user@hostname/dir/subdir/file) or remote relative (e.g. sftp://user@hostname/~/cert.pem).&#xD;
+If the URI is local relative, the file is expected to be under directory path indicated by the localFileStorePath attribute in the CertM MO.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_YL9lUFT7EeebB_sBsVVKMQ" name="" value=""/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Qe01NcwgEeGU6rMQjHXEfQ" name="uriPassword" type="_m8k5oEX7EeKrC9B45gpYQA">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Qe01NswgEeGU6rMQjHXEfQ" annotatedElement="_Qe01NcwgEeGU6rMQjHXEfQ">
+              <body>The password part of the Uniform Resource Identifier (URI).</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Qe01OMwgEeGU6rMQjHXEfQ"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Qe01N8wgEeGU6rMQjHXEfQ" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Qe01OcwgEeGU6rMQjHXEfQ" name="credentialPassword" type="_m8k5oEX7EeKrC9B45gpYQA">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Qe01OswgEeGU6rMQjHXEfQ" annotatedElement="_Qe01OcwgEeGU6rMQjHXEfQ">
+              <body>The password for decrypting the PKCS#12 container file.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Qe01PMwgEeGU6rMQjHXEfQ"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Qe01O8wgEeGU6rMQjHXEfQ" value="1"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_YMCd0FT7EeebB_sBsVVKMQ" name="" value=""/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Qe01PswgEeGU6rMQjHXEfQ" name="fingerprint" type="_1nAGEMnNEeGowZzPJtvGlQ">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Qe01P8wgEeGU6rMQjHXEfQ" annotatedElement="_Qe01PswgEeGU6rMQjHXEfQ">
+              <body>The Secure Hash Algorithm (SHA) fingerprint of the certificate to be installed. &#xD;
+&#xD;
+The fingerprint is checked against the fingerprint calculated on the installed file. The hash must be calculated by the SHA algorithm indicated in fingerprintSupport of the CertMCapabilities MO.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Qe01QMwgEeGU6rMQjHXEfQ"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Qe01QcwgEeGU6rMQjHXEfQ" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Qe01QswgEeGU6rMQjHXEfQ">
+              <body>Result.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_U2z6I46uEeGg6K3Ap7yaBw" name="EnrollmentServerGroup">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_U2z6JI6uEeGg6K3Ap7yaBw">
+          <body>Maintains a group of enrollment servers for load balancing.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_U2z6JY6uEeGg6K3Ap7yaBw" name="enrollmentServerGroupId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_U2z6Jo6uEeGg6K3Ap7yaBw">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_U2z6KI6uEeGg6K3Ap7yaBw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_U2z6J46uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_U2z6KY6uEeGg6K3Ap7yaBw" name="userLabel" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_U2z6Ko6uEeGg6K3Ap7yaBw">
+            <body>An additional descriptive text.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_U2z6LI6uEeGg6K3Ap7yaBw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_U2z6K46uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_1LfV8MwWEeGU6rMQjHXEfQ" name="EnrollmentServer" visibility="public" type="_bwIvMMwREeGU6rMQjHXEfQ" aggregation="composite" association="_1LU94MwWEeGU6rMQjHXEfQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1LiZQcwWEeGU6rMQjHXEfQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1LiZQMwWEeGU6rMQjHXEfQ" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_aWddoEa7Eeef4PIUsGA4gw" name="reservedBy" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_aWpq4Ua7Eeef4PIUsGA4gw" annotatedElement="_aWddoEa7Eeef4PIUsGA4gw">
+            <body>The Distinguished Names of MOs using this EnrollmentServerGroup.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_xu6e8JaXEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aW14IUa7Eeef4PIUsGA4gw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aW14Ika7Eeef4PIUsGA4gw" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_U2z6NI6uEeGg6K3Ap7yaBw" name="EnrollmentAuthority">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_U2z6NY6uEeGg6K3Ap7yaBw">
+          <body>Represents a Certification or Registration Authority for certificate enrollment.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_tI4joPhsEee4AJIJ6EZ1hg" constrainedElement="_U2z6Qo6uEeGg6K3Ap7yaBw">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_tI5xwPhsEee4AJIJ6EZ1hg">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_U2z6No6uEeGg6K3Ap7yaBw" name="enrollmentAuthorityId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_U2z6N46uEeGg6K3Ap7yaBw">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_U2z6OY6uEeGg6K3Ap7yaBw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_U2z6OI6uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_U2z6Oo6uEeGg6K3Ap7yaBw" name="enrollmentCaCertificate" visibility="public" type="_U2qJM46uEeGg6K3Ap7yaBw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_U2z6O46uEeGg6K3Ap7yaBw" annotatedElement="_U2z6Oo6uEeGg6K3Ap7yaBw">
+            <body>The trusted cerificate of the RA or CA used for enrollment authentication.&#xD;
+&#xD;
+Represents the certificate by the DN of the appropriate TrustedCertificate MO. &#xD;
+&#xD;
+The RA or CA certificate provided in the PKI response is authenticated by this trusted certificate.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_U2z6PY6uEeGg6K3Ap7yaBw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_U2z6PI6uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_U2z6Qo6uEeGg6K3Ap7yaBw" name="authorityType" visibility="public" type="_U2z6So6uEeGg6K3Ap7yaBw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_U2z6Q46uEeGg6K3Ap7yaBw">
+            <body>Indicates the type of the enrollment authority.&#xD;
+&#xD;
+Used for the verification of the Public Key Infrastructure (PKI) response message. In case of a Certification Authority (CA), the self-signed certificate of the CA is accepted by ME given that the certificate is configured either in attribute enrollmentCaCertificate or enrollmentCaFingerprint. In case of a Registration Authority (RA), the RA certificate is verified using the CA certificate of the RA configured in attribute enrollmentCaCertificate.&#xD;
+&#xD;
+This entity is deprecated as implemented redundant functionality.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9WM-gLGdEeKAWqlgswt39Q"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_U2z6RI6uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_U2z6Ro6uEeGg6K3Ap7yaBw" name="userLabel" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_U2z6R46uEeGg6K3Ap7yaBw">
+            <body>An additional descriptive text.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_U2z6SY6uEeGg6K3Ap7yaBw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_U2z6SI6uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_LQeBUJuiEeKfdqfBeTUXPw" name="enrollmentAuthorityName" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_40FwIJuiEeKfdqfBeTUXPw">
+            <body>Specifies the name of the issuing CA.&#xD;
+&#xD;
+The X.501 distinguished name of the issuing CA used for addressing and reference identity.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_5Kx7oGxTEeGjja_QGAGUKA"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LQw8QZuiEeKfdqfBeTUXPw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LQw8QpuiEeKfdqfBeTUXPw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_FBjBcEauEeef4PIUsGA4gw" name="reservedBy" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_FBvOsUauEeef4PIUsGA4gw" annotatedElement="_FBjBcEauEeef4PIUsGA4gw">
+            <body>The MO Distinguished Names using this EnrollmentAuthority.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_xu6e8JaXEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FB7b8UauEeef4PIUsGA4gw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dtlcYEa5Eeef4PIUsGA4gw" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_U2z6So6uEeGg6K3Ap7yaBw" name="AuthorityType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_U2z6S46uEeGg6K3Ap7yaBw">
+          <body>Enrollment authority types.&#xD;
+&#xD;
+This type is deprecated.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_U2z6TI6uEeGg6K3Ap7yaBw" name="CERTIFICATION_AUTHORITY">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_lqyLkLemEeGt2-pO2JkhCw">
+            <body>An entity that issues certificates.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_U2z6TY6uEeGg6K3Ap7yaBw"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_U2z6To6uEeGg6K3Ap7yaBw" name="REGISTRATION_AUTHORITY">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NhurcLenEeGt2-pO2JkhCw">
+            <body>An intermediate PKI entity, separate from the Certification Authority.&#xD;
+&#xD;
+Used for registration purposes and certificate enrollment.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_U2z6T46uEeGg6K3Ap7yaBw" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_VBVSUI6vEeGg6K3Ap7yaBw" name="CertM_to_EnrollmentServerGroup" memberEnd="_VBVSUY6vEeGg6K3Ap7yaBw _VBVSVI6vEeGg6K3Ap7yaBw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_VBVSVI6vEeGg6K3Ap7yaBw" name="CertM" visibility="public" type="_INr2IY6uEeGg6K3Ap7yaBw" association="_VBVSUI6vEeGg6K3Ap7yaBw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VBecQo6vEeGg6K3Ap7yaBw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VBecQY6vEeGg6K3Ap7yaBw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_cYWjMI6vEeGg6K3Ap7yaBw" name="CertM_to_EnrollmentAuthority" memberEnd="_cYWjMY6vEeGg6K3Ap7yaBw _cYWjNI6vEeGg6K3Ap7yaBw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_cYWjNI6vEeGg6K3Ap7yaBw" name="CertM" visibility="public" type="_INr2IY6uEeGg6K3Ap7yaBw" association="_cYWjMI6vEeGg6K3Ap7yaBw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cYftIo6vEeGg6K3Ap7yaBw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cYftIY6vEeGg6K3Ap7yaBw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_hzy4MI6vEeGg6K3Ap7yaBw" name="CertM_to_TrustedCertificate" memberEnd="_hzy4MY6vEeGg6K3Ap7yaBw _hzy4NI6vEeGg6K3Ap7yaBw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_hzy4NI6vEeGg6K3Ap7yaBw" name="CertM" visibility="public" type="_INr2IY6uEeGg6K3Ap7yaBw" association="_hzy4MI6vEeGg6K3Ap7yaBw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hz8pMo6vEeGg6K3Ap7yaBw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hz8pMY6vEeGg6K3Ap7yaBw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_tTWrwI6vEeGg6K3Ap7yaBw" name="CertM_to_NodeCredential" memberEnd="_tTWrwY6vEeGg6K3Ap7yaBw _tTWrxI6vEeGg6K3Ap7yaBw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_tTWrxI6vEeGg6K3Ap7yaBw" name="CertM" visibility="public" type="_INr2IY6uEeGg6K3Ap7yaBw" association="_tTWrwI6vEeGg6K3Ap7yaBw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tTgcwo6vEeGg6K3Ap7yaBw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tTgcwY6vEeGg6K3Ap7yaBw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_p0pAgJUCEeGxfoJjfjh4RA" name="TrustCategory">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_p1AM4JUCEeGxfoJjfjh4RA">
+          <body>Represents a group of trusted certificates that can be referenced by Credential Users on the ME.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_p1O2YJUCEeGxfoJjfjh4RA" name="trustCategoryId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_p1df4JUCEeGxfoJjfjh4RA">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_p1ofAJUCEeGxfoJjfjh4RA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_p1ofAZUCEeGxfoJjfjh4RA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_96TRwJUDEeGxfoJjfjh4RA" name="userLabel" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_96gtIJUDEeGxfoJjfjh4RA">
+            <body>An additional descriptive text.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_96thcJUDEeGxfoJjfjh4RA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_96uIgJUDEeGxfoJjfjh4RA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_pygDsJXMEeGwa-f2a5kzHA" name="trustedCertificates" visibility="public" type="_U2qJM46uEeGg6K3Ap7yaBw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_pyuGIZXMEeGwa-f2a5kzHA">
+            <body>The list of trusted certificates that belongs to this trust category.&#xD;
+&#xD;
+Contains the Distinguished Names of the TrustedCertificate Managed Objects.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_py2pAZXMEeGwa-f2a5kzHA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_py3QEJXMEeGwa-f2a5kzHA" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_yIH1YJXNEeGwa-f2a5kzHA" name="reservedByUser" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_yIV30ZXNEeGwa-f2a5kzHA">
+            <body>Indicates the users of this TrustCategory MO.&#xD;
+&#xD;
+The users are identified by Distinguished Names of Credential User Managed Objects.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_xu6e8JaXEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yIj6QJXNEeGwa-f2a5kzHA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3UGyEJXNEeGwa-f2a5kzHA" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_wEUSAJUGEeGxfoJjfjh4RA" name="CertM_to_TrustCategory" memberEnd="_wEU5EJUGEeGxfoJjfjh4RA _wEXVUJUGEeGxfoJjfjh4RA">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_wEXVUJUGEeGxfoJjfjh4RA" name="CertM" visibility="public" type="_INr2IY6uEeGg6K3Ap7yaBw" association="_wEUSAJUGEeGxfoJjfjh4RA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wEn0AJUGEeGxfoJjfjh4RA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wEnM8JUGEeGxfoJjfjh4RA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_6DvaYLf2EeGkFO9ZN3Sq5g" name="EnrollmentSupport">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6D9c0Lf2EeGkFO9ZN3Sq5g">
+          <body>Supportable enrollment methods.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6EKRILf2EeGkFO9ZN3Sq5g" name="OFFLINE_CSR">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6EXsgbf2EeGkFO9ZN3Sq5g">
+            <body>Certificate Signing Request-based (CSR) offline enrollment.&#xD;
+&#xD;
+The certificate for a node credential is manually provided by the MS using a CSR in PKCS#10 format.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6Ekg0Lf2EeGkFO9ZN3Sq5g"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hQRZYLf5EeGkFO9ZN3Sq5g" name="OFFLINE_PKCS12">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_jhYgYLf5EeGkFO9ZN3Sq5g">
+            <body>PKCS#12-based offline enrollment.&#xD;
+&#xD;
+The node credential is manually provided by the MS using a PKCS#12 format, a certificate accompanied by a private key.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_hQfb0bf5EeGkFO9ZN3Sq5g" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_G0IjsLf3EeGkFO9ZN3Sq5g" name="ONLINE_SCEP">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_G0V_ELf3EeGkFO9ZN3Sq5g">
+            <body>Online enrollment. The node credential is acquired by the Simple Certificate Enrollment Protocol.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_edYbALf5EeGkFO9ZN3Sq5g" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_2U1_YLf5EeGkFO9ZN3Sq5g" name="ONLINE_CMP">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_57G7cLf5EeGkFO9ZN3Sq5g">
+            <body>Online enrollment. The node credential is acquired by the Certificate Management Protocol.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_8AlIQLf7EeGkFO9ZN3Sq5g" value="3"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_j3M00Lf4EeGkFO9ZN3Sq5g" name="CertMCapabilities">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_j3Tigbf4EeGkFO9ZN3Sq5g">
+          <body>Contains the certificate management capabilities of the ME.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_j3aQMLf4EeGkFO9ZN3Sq5g" name="certMCapabilitiesId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_j3g94bf4EeGkFO9ZN3Sq5g">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_j3nrkLf4EeGkFO9ZN3Sq5g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_j3nrkbf4EeGkFO9ZN3Sq5g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_-rvOULf4EeGkFO9ZN3Sq5g" name="enrollmentSupport" visibility="public" type="_6DvaYLf2EeGkFO9ZN3Sq5g" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_-r8psbf4EeGkFO9ZN3Sq5g">
+            <body>Indicates the enrollment methods supported by the ME.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aMT1cLt9EeGqgaKO7tVgoA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-sKsILf4EeGkFO9ZN3Sq5g" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_6c57gMnBEeGowZzPJtvGlQ" name="fingerprintSupport" visibility="public" type="_k8SvMMnAEeGowZzPJtvGlQ" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6dDsgMnBEeGowZzPJtvGlQ">
+            <body>The secure hash algorithm the ME supports for fingerprint calculation.&#xD;
+&#xD;
+The attributes and parameters in the CertM model taking a fingerprint must be provided by calculating the fingerprint using the indicated algorithm.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_X-DT4FT1EeeZw_LhrRs98w" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6dNdgMnBEeGowZzPJtvGlQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_pD-eAIItEeWzHcPPDZtKag" name="keySupport" visibility="public" type="_U2qI3o6uEeGg6K3Ap7yaBw" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_pI8dkYItEeWzHcPPDZtKag">
+            <body>List of the key types the ME supports.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pJFAcYItEeWzHcPPDZtKag" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pJFngIItEeWzHcPPDZtKag" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_h83kMLf6EeGkFO9ZN3Sq5g" name="CertM_to_CertMCapabilities" memberEnd="_h86AcLf6EeGkFO9ZN3Sq5g _h871oLf6EeGkFO9ZN3Sq5g">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_h871oLf6EeGkFO9ZN3Sq5g" name="CertM" visibility="public" type="_INr2IY6uEeGg6K3Ap7yaBw" association="_h83kMLf6EeGkFO9ZN3Sq5g">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h9M7YLf6EeGkFO9ZN3Sq5g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h9MUULf6EeGkFO9ZN3Sq5g" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_VZQ6ULoWEeGF_9DuCY6C8g" name="ManagedCertificateState">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_VZqi8boWEeGF_9DuCY6C8g">
+          <body>The states the MS may set for a certificate.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_VZ2wMLoWEeGF_9DuCY6C8g" name="ENABLED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_VZ820LoWEeGF_9DuCY6C8g">
+            <body>The certificate is enabled.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_VaCWYboWEeGF_9DuCY6C8g"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_vTWWYLoZEeGF_9DuCY6C8g" name="DISABLED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_vTgucLoZEeGF_9DuCY6C8g">
+            <body>The certificate is disabled.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_vTncIboZEeGF_9DuCY6C8g" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_k8SvMMnAEeGowZzPJtvGlQ" name="FingerprintSupport">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_k9x88MnAEeGowZzPJtvGlQ">
+          <body>The SHA fingerprint algorithm the ME supports.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_k9__YMnAEeGowZzPJtvGlQ" name="SHA_1">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_wYnokMnAEeGowZzPJtvGlQ">
+            <body>The SHA-1 secure hash algorithm.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_un9jQMnAEeGowZzPJtvGlQ"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_1sWzEMnAEeGowZzPJtvGlQ" name="SHA_224">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_1sgkEcnAEeGowZzPJtvGlQ">
+            <body>The SHA-224 secure hash algorithm.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_1spuAcnAEeGowZzPJtvGlQ" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_9o6Z8MnAEeGowZzPJtvGlQ" name="SHA_256">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_9pEK8cnAEeGowZzPJtvGlQ">
+            <body>The SHA-256 secure hash algorithm.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_9pNU4cnAEeGowZzPJtvGlQ" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_BifTkMnBEeGowZzPJtvGlQ" name="SHA_384">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_BisH4MnBEeGowZzPJtvGlQ">
+            <body>The SHA-384 secure hash algorithm.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_Bi3uEcnBEeGowZzPJtvGlQ" value="3"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_F9A-IMnBEeGowZzPJtvGlQ" name="SHA_512">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_F9NycMnBEeGowZzPJtvGlQ">
+            <body>The SHA-512 secure hash algorithm.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_F9W8YcnBEeGowZzPJtvGlQ" value="4"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_1nAGEMnNEeGowZzPJtvGlQ" name="Fingerprint">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_1nMTUcnNEeGowZzPJtvGlQ" annotatedElement="_1nAGEMnNEeGowZzPJtvGlQ">
+          <body>A derived string type that allows hexadecimal digits.&#xD;
+&#xD;
+The string must be entered in two-digit groups separated by colons. For example: 'b7:a8:c6:d5:43:fa:50:43'</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_1nZHoMnNEeGowZzPJtvGlQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_bwIvMMwREeGU6rMQjHXEfQ" name="EnrollmentServer">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_lXRokMwREeGU6rMQjHXEfQ">
+          <body>Represents an enrollment server.&#xD;
+&#xD;
+An enrollment server implements Simple Certificate Enrollment Protocol (SCEP) or the Certificate Management Protocol (CMP).</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_4E3JAPhsEee4AJIJ6EZ1hg" constrainedElement="_eoI3EMwREeGU6rMQjHXEfQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_4E4XIPhsEee4AJIJ6EZ1hg">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_bxfaEMwREeGU6rMQjHXEfQ" name="enrollmentServerId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_bxuDkMwREeGU6rMQjHXEfQ">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_byDawMwREeGU6rMQjHXEfQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_byEo4MwREeGU6rMQjHXEfQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_eoEloMwREeGU6rMQjHXEfQ" name="userLabel" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_eoElocwREeGU6rMQjHXEfQ">
+            <body>An additional descriptive text.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eoElo8wREeGU6rMQjHXEfQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eoEloswREeGU6rMQjHXEfQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_eoI3EMwREeGU6rMQjHXEfQ" name="enrollmentAuthority" visibility="public" type="_U2z6NI6uEeGg6K3Ap7yaBw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_eoI3EcwREeGU6rMQjHXEfQ">
+            <body>The Certification Authority or Registration Authority used by this enrollment server.&#xD;
+&#xD;
+Represents the enrollment authority by the DN of the EnrollmentAuthority MO.&#xD;
+&#xD;
+This entity is deprecated. If this attribute is specified, the enrollmentAuthority attribute in the NodeCredential MO referring to the EnrollmentServerGroup MO of this EnrollmentServer MO is ignored.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TPwXoJuYEeKfdqfBeTUXPw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eoI3EswREeGU6rMQjHXEfQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_qYHFMMwREeGU6rMQjHXEfQ" name="uri" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_z39q0MwREeGU6rMQjHXEfQ">
+            <body>The URI of the enrollment server.&#xD;
+&#xD;
+The URI consists of a protocol, an IP or DNS address and an optional port number. Specify the optional port designation by appending a colon followed by the port number to the host part, for example, 192.168.33.27:8080. If no port number is provided, the default port is used.&#xD;
+&#xD;
+For SCEP, the URI contains the relative URI of the enrollment CA HTTP Common Gateway interface (CGI) script path, which is the resource identifier of the resource on the server which will process the enrollment request.&#xD;
+&#xD;
+Example for CMP: http://192.168.33.27:8080 or cmp://192.168.33.27&#xD;
+Example for SCEP: http://192.168.33.27:8080/cgi-bin/pkiclient.exe</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qYVHoMwREeGU6rMQjHXEfQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qYVusMwREeGU6rMQjHXEfQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_GzlDcMwWEeGU6rMQjHXEfQ" name="protocol" visibility="public" type="_zBs0YMwVEeGU6rMQjHXEfQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Gzx3wMwWEeGU6rMQjHXEfQ">
+            <body>The enrollment protocol.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Gz-FAMwWEeGU6rMQjHXEfQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gz-FAcwWEeGU6rMQjHXEfQ" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_zBs0YMwVEeGU6rMQjHXEfQ" name="EnrollmentProtocol">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_zB620cwVEeGU6rMQjHXEfQ">
+          <body>Enrollment protocols.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_zCHrIMwVEeGU6rMQjHXEfQ" name="SCEP">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_zCkXEcwVEeGU6rMQjHXEfQ">
+            <body>Simple Certificate Enrollment Protocol.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_zCxLYMwVEeGU6rMQjHXEfQ"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_4VuSwMwVEeGU6rMQjHXEfQ" name="CMP">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_4V-xccwVEeGU6rMQjHXEfQ">
+            <body>Certificate Management Protocol.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_4WK-sMwVEeGU6rMQjHXEfQ" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_1LU94MwWEeGU6rMQjHXEfQ" name="EnrollmentServerGroup_to_EnrollmentServer" memberEnd="_1LfV8MwWEeGU6rMQjHXEfQ _1LgkEcwWEeGU6rMQjHXEfQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_1LgkEcwWEeGU6rMQjHXEfQ" name="EnrollmentServerGroup" visibility="public" type="_U2z6I46uEeGg6K3Ap7yaBw" association="_1LU94MwWEeGU6rMQjHXEfQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1LpuAcwWEeGU6rMQjHXEfQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1LpuAMwWEeGU6rMQjHXEfQ" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_LrKKQMzCEeGXVNhgjroSyg" name="RenewalMode">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Lr0RkMzCEeGXVNhgjroSyg">
+          <body>Modes for certificate renewal.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Lr9bgMzCEeGXVNhgjroSyg" name="MANUAL">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_LsGlcMzCEeGXVNhgjroSyg">
+            <body>Certificate renewal is manually performed by the MS.&#xD;
+&#xD;
+This renewal mode requires the MS to start an enrollment by manually invoking one of the enrollment actions.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_LsV2AMzCEeGXVNhgjroSyg"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Vl1DoMzCEeGXVNhgjroSyg" name="AUTOMATIC">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_VmGJYMzCEeGXVNhgjroSyg">
+            <body>Certificate renewal is automatically performed by the ME.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_VmS9sczCEeGXVNhgjroSyg" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_m8k5oEX7EeKrC9B45gpYQA" name="EcimPasswordString">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_YFAhEEX-EeKrC9B45gpYQA">
+          <body>Password string.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_m830kEX7EeKrC9B45gpYQA">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_AIKZoCUqEeOwLot7BHFfcg" name="ExpiryAlarmThresholdRange">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_AIaRQSUqEeOwLot7BHFfcg">
+          <body>Range in days for certificate expiry alarm threshold.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_AIqI4CUqEeOwLot7BHFfcg">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_qWPmACzrEeOUP_XFiySr7A" name="SecM_to_CertM" memberEnd="_qWSCQCzrEeOUP_XFiySr7A _qWT3cCzrEeOUP_XFiySr7A">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_qWSCQCzrEeOUP_XFiySr7A" name="SecM" visibility="public" association="_qWPmACzrEeOUP_XFiySr7A">
+          <type xmi:type="uml:Class" href="ComSecM.uml#_14OJELcsEd-gvvrqzvkuGQ"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qWW6wCzrEeOUP_XFiySr7A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qWWTsCzrEeOUP_XFiySr7A" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_qWT3cCzrEeOUP_XFiySr7A" name="CertM" visibility="public" type="_INr2IY6uEeGg6K3Ap7yaBw" aggregation="composite" association="_qWPmACzrEeOUP_XFiySr7A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qWs5ACzrEeOUP_XFiySr7A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qWsR8CzrEeOUP_XFiySr7A" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_0UdIEG3GEeWL6LS8OVOG6A" name="ChainCertificate">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_0ZlfsG3GEeWL6LS8OVOG6A">
+          <body>Chain certificate belonging to the credential.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_8fBVwG3GEeWL6LS8OVOG6A" general="_SzJY8I6uEeGg6K3Ap7yaBw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_0Zs0cG3GEeWL6LS8OVOG6A" name="chainCertificateId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_0aCysW3GEeWL6LS8OVOG6A">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0aI5UW3GEeWL6LS8OVOG6A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0aJgYG3GEeWL6LS8OVOG6A" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_YIz8QG3HEeWL6LS8OVOG6A" name="" memberEnd="_YI2YgG3HEeWL6LS8OVOG6A _YI5b0G3HEeWL6LS8OVOG6A">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_YI5b0G3HEeWL6LS8OVOG6A" name="NodeCredential" visibility="public" type="_U2qJP46uEeGg6K3Ap7yaBw" association="_YIz8QG3HEeWL6LS8OVOG6A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YJOL8G3HEeWL6LS8OVOG6A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YJNk4G3HEeWL6LS8OVOG6A" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_8rZDsLhKEeW57YZp3mfmdQ" name="FeatureState">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_8wtBgLhKEeW57YZp3mfmdQ">
+          <body>Indicates whether a feature is Activated or Deactivated.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_8xwxcLhKEeW57YZp3mfmdQ" name="ACTIVATED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_8x7wkbhKEeW57YZp3mfmdQ">
+            <body>The feature is administratively activated.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_8yE6gbhKEeW57YZp3mfmdQ"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WCRMYLhLEeW57YZp3mfmdQ" name="DEACTIVATED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WCmjkLhLEeW57YZp3mfmdQ">
+            <body>The feature is administratively deactivated.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_WC10IbhLEeW57YZp3mfmdQ" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_L-OcsEbPEeef4PIUsGA4gw" name="" memberEnd="_L-OcsUbPEeef4PIUsGA4gw _L-OctEbPEeef4PIUsGA4gw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_L-OcsUbPEeef4PIUsGA4gw" name="enrollmentAuthority" visibility="public" type="_U2z6NI6uEeGg6K3Ap7yaBw" association="_L-OcsEbPEeef4PIUsGA4gw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L-OcuUbPEeef4PIUsGA4gw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L-OcuEbPEeef4PIUsGA4gw" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_L-OctEbPEeef4PIUsGA4gw" name="reservedBy" visibility="public" type="_U2qJP46uEeGg6K3Ap7yaBw" association="_L-OcsEbPEeef4PIUsGA4gw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L-ap8EbPEeef4PIUsGA4gw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L-UjUkbPEeef4PIUsGA4gw" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_VdOGsEbPEeef4PIUsGA4gw" name="" memberEnd="_VdOGsUbPEeef4PIUsGA4gw _VdOGtEbPEeef4PIUsGA4gw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_VdOGsUbPEeef4PIUsGA4gw" name="enrollmentServerGroup" visibility="public" type="_U2z6I46uEeGg6K3Ap7yaBw" association="_VdOGsEbPEeef4PIUsGA4gw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VdUNUkbPEeef4PIUsGA4gw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VdUNUUbPEeef4PIUsGA4gw" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_VdOGtEbPEeef4PIUsGA4gw" name="reservedBy" visibility="public" type="_U2qJP46uEeGg6K3Ap7yaBw" association="_VdOGsEbPEeef4PIUsGA4gw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VdaT8kbPEeef4PIUsGA4gw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VdaT8UbPEeef4PIUsGA4gw" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_t2zgsEbPEeef4PIUsGA4gw" name="" memberEnd="_t20HwEbPEeef4PIUsGA4gw _t2188EbPEeef4PIUsGA4gw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_t20HwEbPEeef4PIUsGA4gw" name="enrollmentCaCertificate" visibility="public" type="_U2qJM46uEeGg6K3Ap7yaBw" association="_t2zgsEbPEeef4PIUsGA4gw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_t3CxQEbPEeef4PIUsGA4gw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_t3CKMEbPEeef4PIUsGA4gw" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_t2188EbPEeef4PIUsGA4gw" name="reservedBy" visibility="public" type="_U2z6NI6uEeGg6K3Ap7yaBw" association="_t2zgsEbPEeef4PIUsGA4gw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_t3VFIkbPEeef4PIUsGA4gw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_t3VFIUbPEeef4PIUsGA4gw" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_8V7csEbPEeef4PIUsGA4gw" name="" memberEnd="_8V7csUbPEeef4PIUsGA4gw _8V7ctEbPEeef4PIUsGA4gw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_8V7csUbPEeef4PIUsGA4gw" name="trustedCertificates" visibility="public" type="_U2qJM46uEeGg6K3Ap7yaBw" association="_8V7csEbPEeef4PIUsGA4gw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8WHp8kbPEeef4PIUsGA4gw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8WHp8UbPEeef4PIUsGA4gw" value="*"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_8V7ctEbPEeef4PIUsGA4gw" name="reservedBy" visibility="public" type="_p0pAgJUCEeGxfoJjfjh4RA" association="_8V7csEbPEeef4PIUsGA4gw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8WT3MkbPEeef4PIUsGA4gw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8WT3MUbPEeef4PIUsGA4gw" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_fSDWsPhsEee4AJIJ6EZ1hg" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_fST1YPhsEee4AJIJ6EZ1hg" name="BASIC"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_k8dUwPhsEee4AJIJ6EZ1hg" name="" client="_fST1YPhsEee4AJIJ6EZ1hg" supplier="_h63MAfhsEee4AJIJ6EZ1hg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_h6vQMPhsEee4AJIJ6EZ1hg" name="Features">
+        <packagedElement xmi:type="uml:Class" xmi:id="_h63MAfhsEee4AJIJ6EZ1hg" name="CPI_HIDDEN"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_dD03UKLHEeeegKcJgdaNvQ" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_9cKNQ46tEeGg6K3Ap7yaBw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jz00QDCXEeuM18drTysasw" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jz00QTCXEeuM18drTysasw" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jz00QjCXEeuM18drTysasw" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jz00QzCXEeuM18drTysasw" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jz00RDCXEeuM18drTysasw" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jz00RTCXEeuM18drTysasw" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9y7HcI6tEeGg6K3Ap7yaBw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_dBi_YKLHEeeegKcJgdaNvQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_RNnLkPhsEee4AJIJ6EZ1hg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RNnLkfhsEee4AJIJ6EZ1hg" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RNnLkvhsEee4AJIJ6EZ1hg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RNnLk_hsEee4AJIJ6EZ1hg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RNnLlPhsEee4AJIJ6EZ1hg" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RNnLlfhsEee4AJIJ6EZ1hg" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dBjmcKLHEeeegKcJgdaNvQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_9y7HcY6tEeGg6K3Ap7yaBw" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="ECIM Certificate Management" subTitle="" docNo="" docRev="" createdBy="" docLang="" docDate="2017-10-31"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_INiFIY6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" base_Package="_INiFII6uEeGg6K3Ap7yaBw" author="Marko Toivonen" contact="lmfmato" date="2017-11-29" docNo="" revision="3" version="2" release="5" organization="BDGS R&amp;D CD DC MW IP and OS CBA Dev LMF" ecimMomName="ECIM_CertM" ecimMomVersion="3" ecimMomRelease="0" ecimMomCorrection="0" correction="0"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_IN-xEI6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_IN1AE46uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimStruct xmi:id="_SzSi546uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" base_Class="_Sy_oF46uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_SzSi6Y6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_Sy_oGY6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_SzSi646uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_Sy_oHY6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_SzSi7Y6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_Sy_oIY6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_SzSi746uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_Sy_oJY6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_SzSi8Y6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_Sy_oKY6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_SzSi846uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_Sy_oLY6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_SzSi946uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_Sy_oNY6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_SzSi-Y6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_Sy_oOY6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_SzSi-46uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_Sy_oPY6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_SzSi_Y6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_Sy_oQY6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimAbstractMoClass xmi:id="_SzSi_46uEeGg6K3Ap7yaBw" base_Class="_SzJY8I6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation=""/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_SzSjAY6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_SzJY8o6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_SzSjA46uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_SzJY9o6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_U3G0w46uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" base_Enumeration="_U2qI3o6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_U3G0xY6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Outdated key type." dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_U2qI4I6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_U3G0xo6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_U2qI4o6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_U3G0x46uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_U2qI5I6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_U3G0yI6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_U2qI5o6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_U3G0yY6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Improperly specified key type." dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_U2qI6I6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_U3G0yo6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Improperly specified key type." dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_U2qI6o6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_U3G0y46uEeGg6K3Ap7yaBw" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Improperly specified key type." dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_U2qI7I6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_U3G0zI6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Improperly specified key type." dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_U2qI7o6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_U3G0zY6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Improperly specified key type." dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_U2qI8I6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_U3G01Y6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" base_Enumeration="_U2qI_Y6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_U3G0146uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_U2qI_46uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_U3G02Y6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_U2qJAo6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_U3G0246uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_U2qJBY6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_U3G03Y6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Deprecated in version 3.0. Improper state descriptor for local certificates." dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_U2qJCI6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_U3G09o6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" base_Class="_U2qJM46uEeGg6K3Ap7yaBw" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_U3G0-Y6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_U2qJNo6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_U3G0_Y6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" base_Class="_U2qJP46uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_U3G1AI6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_U2qJQo6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_U3G1Ao6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_U2qJRo6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_U3G1Bo6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isRestricted="true" base_Property="_U2qJUY6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_U3Ql5o6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" base_Class="_U2z6I46uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_U3Ql6I6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_U2z6JY6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_U3Ql6o6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_U2z6KY6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_U3Ql746uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" base_Class="_U2z6NI6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_U3Ql8Y6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_U2z6No6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_U3Ql846uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_U2z6Oo6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_U3Ql946uEeGg6K3Ap7yaBw" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Deprecated in version 2.0. Redundant functionality." dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_U2z6Qo6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_U3Ql-Y6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_U2z6Ro6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_U3Ql-46uEeGg6K3Ap7yaBw" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Deprecated in version 2.0. Redundant functionality." base_Enumeration="_U2z6So6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_U3Ql_Y6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_U2z6TI6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_U3Ql_o6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_U2z6To6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_gXFfEo6uEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_gWykII6uEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_VBecQI6vEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" base_Association="_VBVSUI6vEeGg6K3Ap7yaBw" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_cYftII6vEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" base_Association="_cYWjMI6vEeGg6K3Ap7yaBw" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_hz8pMI6vEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" base_Association="_hzy4MI6vEeGg6K3Ap7yaBw" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_tTgcwI6vEeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" base_Association="_tTWrwI6vEeGg6K3Ap7yaBw" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimGeneralization xmi:id="_KZX4UI6zEeGg6K3Ap7yaBw" base_Generalization="_KZOHUI6zEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimGeneralization xmi:id="_M892cI6zEeGg6K3Ap7yaBw" base_Generalization="_M80sgI6zEeGg6K3Ap7yaBw"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_nQ-msI68EeGg6K3Ap7yaBw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_nQ01sI68EeGg6K3Ap7yaBw" isKey="true"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_Cmx54pUCEeGxfoJjfjh4RA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_Cmp-EJUCEeGxfoJjfjh4RA"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_Cmx55JUCEeGxfoJjfjh4RA" base_Parameter="_Cmp-EpUCEeGxfoJjfjh4RA"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_Cmyg8JUCEeGxfoJjfjh4RA" base_Parameter="_Cmp-FJUCEeGxfoJjfjh4RA"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_Cmyg8pUCEeGxfoJjfjh4RA" base_Parameter="_Cmp-F5UCEeGxfoJjfjh4RA"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_p0_l0JUCEeGxfoJjfjh4RA" hideGroupName="" specification="" statusInformation="" base_Class="_p0pAgJUCEeGxfoJjfjh4RA"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_p1c40JUCEeGxfoJjfjh4RA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_p1O2YJUCEeGxfoJjfjh4RA"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_96gGEJUDEeGxfoJjfjh4RA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_96TRwJUDEeGxfoJjfjh4RA"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_wEml4JUGEeGxfoJjfjh4RA" hideGroupName="" specification="" statusInformation="" base_Association="_wEUSAJUGEeGxfoJjfjh4RA" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_pyuGIJXMEeGwa-f2a5kzHA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_pygDsJXMEeGwa-f2a5kzHA"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_SOULMJXNEeGwa-f2a5kzHA" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Deprecated in version 3.0. Restrictive to TrustCategory objects. Replaced by reservedBy." dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isAssociationEnd="true" base_Property="_SOLoUJXNEeGwa-f2a5kzHA"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_yIV30JXNEeGwa-f2a5kzHA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isAssociationEnd="true" base_Property="_yIH1YJXNEeGwa-f2a5kzHA"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_BihG0JXOEeGwa-f2a5kzHA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isAssociationEnd="true" base_Property="_BiaZIJXOEeGwa-f2a5kzHA"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_AEPOwLerEeGt2-pO2JkhCw" hideGroupName="" specification="" statusInformation="" base_Parameter="_AEAlQLerEeGt2-pO2JkhCw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_8_LwELevEeGt2-pO2JkhCw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_8--7wLevEeGt2-pO2JkhCw"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_VhKRELewEeGt2-pO2JkhCw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_Vg9cwLewEeGt2-pO2JkhCw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_6D81wLf2EeGkFO9ZN3Sq5g" hideGroupName="" specification="" statusInformation="" base_Enumeration="_6DvaYLf2EeGkFO9ZN3Sq5g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_6EXsgLf2EeGkFO9ZN3Sq5g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_6EKRILf2EeGkFO9ZN3Sq5g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_G0VYALf3EeGkFO9ZN3Sq5g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_G0IjsLf3EeGkFO9ZN3Sq5g"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_j3TigLf4EeGkFO9ZN3Sq5g" hideGroupName="" specification="" statusInformation="" base_Class="_j3M00Lf4EeGkFO9ZN3Sq5g" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_j3g94Lf4EeGkFO9ZN3Sq5g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_j3aQMLf4EeGkFO9ZN3Sq5g"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_-r8psLf4EeGkFO9ZN3Sq5g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_-rvOULf4EeGkFO9ZN3Sq5g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_hQfb0Lf5EeGkFO9ZN3Sq5g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_hQRZYLf5EeGkFO9ZN3Sq5g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_2U9UILf5EeGkFO9ZN3Sq5g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_2U1_YLf5EeGkFO9ZN3Sq5g"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_h9LtQLf6EeGkFO9ZN3Sq5g" hideGroupName="" specification="" statusInformation="" base_Association="_h83kMLf6EeGkFO9ZN3Sq5g" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_zcOmQLknEeGxL8As-30EsA" hideGroupName="" specification="" statusInformation="" base_Parameter="_zbowYLknEeGxL8As-30EsA"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_iKncALoNEeGF_9DuCY6C8g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_iKjxoLoNEeGF_9DuCY6C8g"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_VZqi8LoWEeGF_9DuCY6C8g" hideGroupName="" specification="" statusInformation="" base_Enumeration="_VZQ6ULoWEeGF_9DuCY6C8g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_VZ8PwLoWEeGF_9DuCY6C8g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_VZ2wMLoWEeGF_9DuCY6C8g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_vTgHYLoZEeGF_9DuCY6C8g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_vTWWYLoZEeGF_9DuCY6C8g"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_-KISgLobEeGF_9DuCY6C8g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_-KBk0LobEeGF_9DuCY6C8g"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_k9fpEMnAEeGowZzPJtvGlQ" hideGroupName="" specification="" statusInformation="" base_Enumeration="_k8SvMMnAEeGowZzPJtvGlQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_k-MzsMnAEeGowZzPJtvGlQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_k9__YMnAEeGowZzPJtvGlQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_1sgkEMnAEeGowZzPJtvGlQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_1sWzEMnAEeGowZzPJtvGlQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_9pEK8MnAEeGowZzPJtvGlQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_9o6Z8MnAEeGowZzPJtvGlQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_Birg0MnBEeGowZzPJtvGlQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_BifTkMnBEeGowZzPJtvGlQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_F9NLYMnBEeGowZzPJtvGlQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_F9A-IMnBEeGowZzPJtvGlQ"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_6dDFcMnBEeGowZzPJtvGlQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_6c57gMnBEeGowZzPJtvGlQ"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_jgEIIMnIEeGowZzPJtvGlQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_jf364MnIEeGowZzPJtvGlQ"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_sUgZQMnIEeGowZzPJtvGlQ" hideGroupName="" specification="" statusInformation="" base_Parameter="_sUUMAMnIEeGowZzPJtvGlQ"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_36b6kMnIEeGowZzPJtvGlQ" hideGroupName="" specification="" statusInformation="" base_Parameter="_36PGQMnIEeGowZzPJtvGlQ"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_1nMTUMnNEeGowZzPJtvGlQ" hideGroupName="" specification="" statusInformation="" length="" pattern="^(([a-fA-F0-9]{2}[:])*([a-fA-F0-9]{2}))$|^(NULL)$" base_DataType="_1nAGEMnNEeGowZzPJtvGlQ" patternErrorMsg="Must be two-digit hexadecimal groups separated by colons. For example: ‘b7:a8:c6:d5:43:fa:50:43'"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_bxc90MwREeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" base_Class="_bwIvMMwREeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_bxtcgMwREeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_bxfaEMwREeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_eoL6YMwREeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_eoEloMwREeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_eoMhcMwREeGU6rMQjHXEfQ" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Deprecated in version 2.0. Function replaced by enrollmentAuthority attribute in NodeCredential MOC." dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_eoI3EMwREeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_qYUgkMwREeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_qYHFMMwREeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_zB620MwVEeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" base_Enumeration="_zBs0YMwVEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_zCkXEMwVEeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_zCHrIMwVEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_4V-xcMwVEeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_4VuSwMwVEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GzxQsMwWEeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_GzlDcMwWEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_1LpG8MwWEeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" base_Association="_1LU94MwWEeGU6rMQjHXEfQ" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_NJ3d0MwbEeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_NJ2PsMwbEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_NJ3d0swbEeGU6rMQjHXEfQ" base_Parameter="_NJ2PsswbEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_eosFIMwbEeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" range="1..*" unit="minutes" isNotifiable="true" base_Property="_eonMoMwbEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_eossMcwbEeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_eopo4MwbEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_eotTQcwbEeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_eoq3AMwbEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_u6AXgMwbEeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_u5_JYMwbEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_u6A-kcwbEeGU6rMQjHXEfQ" base_Parameter="_u5_JYswbEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_2b5boMwbEeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" base_Parameter="_2bt1cMwbEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_EbteEMwfEeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_EbsP8MwfEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_EbuFIcwfEeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" base_Parameter="_EbsP9MwfEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_EbuFI8wfEeGU6rMQjHXEfQ" base_Parameter="_EbsP-MwfEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_TN-YgMwfEeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_TN9KYMwfEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_Qe4flMwgEeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_Qe01MMwgEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_Qe5GoMwgEeGU6rMQjHXEfQ" base_Parameter="_Qe01MswgEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_Qe5GoswgEeGU6rMQjHXEfQ" hideGroupName="" specification="" statusInformation="" base_Parameter="_Qe01NcwgEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_Qe5GpMwgEeGU6rMQjHXEfQ" base_Parameter="_Qe01OcwgEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_Qe5GpswgEeGU6rMQjHXEfQ" base_Parameter="_Qe01PswgEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_Qe5tscwgEeGU6rMQjHXEfQ" base_Parameter="_Qe01QcwgEeGU6rMQjHXEfQ"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_LrzDcMzCEeGXVNhgjroSyg" hideGroupName="" specification="" statusInformation="" base_Enumeration="_LrKKQMzCEeGXVNhgjroSyg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_LsF-YMzCEeGXVNhgjroSyg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_Lr9bgMzCEeGXVNhgjroSyg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_VmFiUMzCEeGXVNhgjroSyg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_Vl1DoMzCEeGXVNhgjroSyg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_Rd7ksMzDEeGXVNhgjroSyg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_RduJUMzDEeGXVNhgjroSyg"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_m8uDkEX7EeKrC9B45gpYQA" hideGroupName="" specification="" statusInformation="" length="" pattern="" base_DataType="_m8k5oEX7EeKrC9B45gpYQA"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_cQZ4wJuYEeKfdqfBeTUXPw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_cQG90JuYEeKfdqfBeTUXPw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_LQw8QJuiEeKfdqfBeTUXPw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_LQeBUJuiEeKfdqfBeTUXPw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_m1nWICUPEeOwLot7BHFfcg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_mnjE8CUPEeOwLot7BHFfcg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_J_9HgCUREeOwLot7BHFfcg" hideGroupName="" specification="" statusInformation="" base_Parameter="_J_BTYCUREeOwLot7BHFfcg"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_AIaRQCUqEeOwLot7BHFfcg" hideGroupName="" specification="" statusInformation="" range="1..365" base_DataType="_AIKZoCUqEeOwLot7BHFfcg" unit="" multiplicationFactor="" resolution=""/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_qWrD0CzrEeOUP_XFiySr7A" hideGroupName="" specification="" statusInformation="" base_Association="_qWPmACzrEeOUP_XFiySr7A" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_m3vRQMJREeSCY-ZJrtsW-w" hideGroupName="" specification="" statusInformation="" base_Class="_INr2IY6uEeGg6K3Ap7yaBw" isSystemCreated="true" isLegacyRoot="true"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_0Zk4oG3GEeWL6LS8OVOG6A" hideGroupName="" specification="" statusInformation="" base_Class="_0UdIEG3GEeWL6LS8OVOG6A" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_0aCysG3GEeWL6LS8OVOG6A" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_0Zs0cG3GEeWL6LS8OVOG6A"/>
+  <ECIMBaseProfile:EcimGeneralization xmi:id="_8fRNYG3GEeWL6LS8OVOG6A" base_Generalization="_8fBVwG3GEeWL6LS8OVOG6A"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_YJMWwG3HEeWL6LS8OVOG6A" hideGroupName="" specification="" statusInformation="" base_Association="_YIz8QG3HEeWL6LS8OVOG6A" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_W9R-EHJ5EeW40sNYWrGwwg" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Improperly specified key type." dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_W3HEoHJ5EeW40sNYWrGwwg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_duGhoHgLEeW5K-B7HesIQQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_dmZXIHgLEeW5K-B7HesIQQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_47DMYHgREeW5K-B7HesIQQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_46wRcHgREeW5K-B7HesIQQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_F-U1cHgSEeW5K-B7HesIQQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_F-DIoHgSEeW5K-B7HesIQQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_OPGY0HgSEeW5K-B7HesIQQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_OO3IQHgSEeW5K-B7HesIQQ"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_pI8dkIItEeWzHcPPDZtKag" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_pD-eAIItEeWzHcPPDZtKag"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_8wrzYLhKEeW57YZp3mfmdQ" hideGroupName="" specification="" statusInformation="" base_Enumeration="_8rZDsLhKEeW57YZp3mfmdQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_8x7wkLhKEeW57YZp3mfmdQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_8xwxcLhKEeW57YZp3mfmdQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_WCl8gLhLEeW57YZp3mfmdQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_WCRMYLhLEeW57YZp3mfmdQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_K1-NMJK_Eea0q6fqZP4UcA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_K1r5UJK_Eea0q6fqZP4UcA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_R0bNEJK_Eea0q6fqZP4UcA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_R0MjkJK_Eea0q6fqZP4UcA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_XnmFkJK_Eea0q6fqZP4UcA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_XnTxsJK_Eea0q6fqZP4UcA"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_FBvOsEauEeef4PIUsGA4gw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_FBjBcEauEeef4PIUsGA4gw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_aWpq4Ea7Eeef4PIUsGA4gw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_aWddoEa7Eeef4PIUsGA4gw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_86FCsEa7Eeef4PIUsGA4gw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_8541cEa7Eeef4PIUsGA4gw"/>
+  <ECIMBaseProfile:EcimClientAssociationEnd xmi:id="_L-Oct0bPEeef4PIUsGA4gw" base_Property="_L-OcsUbPEeef4PIUsGA4gw" isReserving="true"/>
+  <ECIMBaseProfile:EcimBiDirAssociation_CS xmi:id="_L-UjUEbPEeef4PIUsGA4gw" hideGroupName="" specification="" statusInformation="" base_Association="_L-OcsEbPEeef4PIUsGA4gw"/>
+  <ECIMBaseProfile:EcimServerAssociationEnd xmi:id="_L-UjUUbPEeef4PIUsGA4gw" base_Property="_L-OctEbPEeef4PIUsGA4gw"/>
+  <ECIMBaseProfile:EcimClientAssociationEnd xmi:id="_VdUNUEbPEeef4PIUsGA4gw" base_Property="_VdOGsUbPEeef4PIUsGA4gw" isReserving="true"/>
+  <ECIMBaseProfile:EcimBiDirAssociation_CS xmi:id="_VdUNU0bPEeef4PIUsGA4gw" hideGroupName="" specification="" statusInformation="" base_Association="_VdOGsEbPEeef4PIUsGA4gw"/>
+  <ECIMBaseProfile:EcimServerAssociationEnd xmi:id="_VdaT8EbPEeef4PIUsGA4gw" base_Property="_VdOGtEbPEeef4PIUsGA4gw"/>
+  <ECIMBaseProfile:EcimClientAssociationEnd xmi:id="_t3BjIEbPEeef4PIUsGA4gw" base_Property="_t20HwEbPEeef4PIUsGA4gw" isReserving="true"/>
+  <ECIMBaseProfile:EcimBiDirAssociation_CS xmi:id="_t3NwYEbPEeef4PIUsGA4gw" hideGroupName="" specification="" statusInformation="" base_Association="_t2zgsEbPEeef4PIUsGA4gw"/>
+  <ECIMBaseProfile:EcimServerAssociationEnd xmi:id="_t3VFIEbPEeef4PIUsGA4gw" base_Property="_t2188EbPEeef4PIUsGA4gw"/>
+  <ECIMBaseProfile:EcimClientAssociationEnd xmi:id="_8WHp8EbPEeef4PIUsGA4gw" base_Property="_8V7csUbPEeef4PIUsGA4gw" isReserving="true"/>
+  <ECIMBaseProfile:EcimBiDirAssociation_CS xmi:id="_8WNwkEbPEeef4PIUsGA4gw" hideGroupName="" specification="" statusInformation="" base_Association="_8V7csEbPEeef4PIUsGA4gw"/>
+  <ECIMBaseProfile:EcimServerAssociationEnd xmi:id="_8WT3MEbPEeef4PIUsGA4gw" base_Property="_8V7ctEbPEeef4PIUsGA4gw"/>
+  <Documentation:Documentation xmi:id="_YMRHUFT7EeebB_sBsVVKMQ" base_Comment="_INiFIo6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHUVT7EeebB_sBsVVKMQ" base_Comment="_IN1AEY6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHUlT7EeebB_sBsVVKMQ" base_Comment="_IN-xEY6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHU1T7EeebB_sBsVVKMQ" base_Comment="_Sy_oGI6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHVFT7EeebB_sBsVVKMQ" base_Comment="_Sy_oGo6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHVVT7EeebB_sBsVVKMQ" base_Comment="_Sy_oHo6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHVlT7EeebB_sBsVVKMQ" base_Comment="_Sy_oIo6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHV1T7EeebB_sBsVVKMQ" base_Comment="_Sy_oJo6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHWFT7EeebB_sBsVVKMQ" base_Comment="_Sy_oKo6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHWVT7EeebB_sBsVVKMQ" base_Comment="_Sy_oLo6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHW1T7EeebB_sBsVVKMQ" base_Comment="_Sy_oNo6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHXFT7EeebB_sBsVVKMQ" base_Comment="_Sy_oOo6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHXVT7EeebB_sBsVVKMQ" base_Comment="_Sy_oPo6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHXlT7EeebB_sBsVVKMQ" base_Comment="_Sy_oQo6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHX1T7EeebB_sBsVVKMQ" base_Comment="_SzJY8Y6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHYFT7EeebB_sBsVVKMQ" base_Comment="_SzJY846uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHYVT7EeebB_sBsVVKMQ" base_Comment="_SzJY946uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHYlT7EeebB_sBsVVKMQ" base_Comment="_U2qI346uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHY1T7EeebB_sBsVVKMQ" base_Comment="_U2qI_o6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHZFT7EeebB_sBsVVKMQ" base_Comment="_U2qJAI6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHZVT7EeebB_sBsVVKMQ" base_Comment="_U2qJA46uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHZlT7EeebB_sBsVVKMQ" base_Comment="_U2qJBo6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHZ1T7EeebB_sBsVVKMQ" base_Comment="_U2qJCY6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHaFT7EeebB_sBsVVKMQ" base_Comment="_U2qJNI6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHaVT7EeebB_sBsVVKMQ" base_Comment="_U2qJN46uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHalT7EeebB_sBsVVKMQ" base_Comment="_U2qJQI6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHa1T7EeebB_sBsVVKMQ" base_Comment="_U2qJQ46uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHbFT7EeebB_sBsVVKMQ" base_Comment="_U2qJR46uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHbVT7EeebB_sBsVVKMQ" base_Comment="_U2qJUo6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHcFT7EeebB_sBsVVKMQ" base_Comment="_U2z6JI6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHcVT7EeebB_sBsVVKMQ" base_Comment="_U2z6Jo6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHclT7EeebB_sBsVVKMQ" base_Comment="_U2z6Ko6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHc1T7EeebB_sBsVVKMQ" base_Comment="_U2z6NY6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHdFT7EeebB_sBsVVKMQ" base_Comment="_U2z6N46uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHdVT7EeebB_sBsVVKMQ" base_Comment="_U2z6O46uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHd1T7EeebB_sBsVVKMQ" base_Comment="_U2z6Q46uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHeFT7EeebB_sBsVVKMQ" base_Comment="_U2z6R46uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHeVT7EeebB_sBsVVKMQ" base_Comment="_U2z6S46uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHelT7EeebB_sBsVVKMQ" base_Comment="_gWykIY6uEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHe1T7EeebB_sBsVVKMQ" base_Comment="_ZOBfwI6wEeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHfFT7EeebB_sBsVVKMQ" base_Comment="_nQ-msY68EeGg6K3Ap7yaBw"/>
+  <Documentation:Documentation xmi:id="_YMRHfVT7EeebB_sBsVVKMQ" base_Comment="_Cmp-EZUCEeGxfoJjfjh4RA"/>
+  <Documentation:Documentation xmi:id="_YMRHflT7EeebB_sBsVVKMQ" base_Comment="_Cmp-E5UCEeGxfoJjfjh4RA"/>
+  <Documentation:Documentation xmi:id="_YMRHf1T7EeebB_sBsVVKMQ" base_Comment="_Cmp-FZUCEeGxfoJjfjh4RA"/>
+  <Documentation:Documentation xmi:id="_YMRHgFT7EeebB_sBsVVKMQ" base_Comment="_Cmp-GJUCEeGxfoJjfjh4RA"/>
+  <Documentation:Documentation xmi:id="_YMRHgVT7EeebB_sBsVVKMQ" base_Comment="_p1AM4JUCEeGxfoJjfjh4RA"/>
+  <Documentation:Documentation xmi:id="_YMRHglT7EeebB_sBsVVKMQ" base_Comment="_p1df4JUCEeGxfoJjfjh4RA"/>
+  <Documentation:Documentation xmi:id="_YMRHg1T7EeebB_sBsVVKMQ" base_Comment="_96gtIJUDEeGxfoJjfjh4RA"/>
+  <Documentation:Documentation xmi:id="_YMRHhFT7EeebB_sBsVVKMQ" base_Comment="_pyuGIZXMEeGwa-f2a5kzHA"/>
+  <Documentation:Documentation xmi:id="_YMRHhVT7EeebB_sBsVVKMQ" base_Comment="_SOULMZXNEeGwa-f2a5kzHA"/>
+  <Documentation:Documentation xmi:id="_YMRHhlT7EeebB_sBsVVKMQ" base_Comment="_yIV30ZXNEeGwa-f2a5kzHA"/>
+  <Documentation:Documentation xmi:id="_YMRHh1T7EeebB_sBsVVKMQ" base_Comment="_Fm0pwJXOEeGwa-f2a5kzHA"/>
+  <Documentation:Documentation xmi:id="_YMRHiFT7EeebB_sBsVVKMQ" base_Comment="_lqyLkLemEeGt2-pO2JkhCw"/>
+  <Documentation:Documentation xmi:id="_YMRHiVT7EeebB_sBsVVKMQ" base_Comment="_NhurcLenEeGt2-pO2JkhCw"/>
+  <Documentation:Documentation xmi:id="_YMRHilT7EeebB_sBsVVKMQ" base_Comment="_3ZtZgLeoEeGt2-pO2JkhCw"/>
+  <Documentation:Documentation xmi:id="_YMRHi1T7EeebB_sBsVVKMQ" base_Comment="_uBkI8LepEeGt2-pO2JkhCw"/>
+  <Documentation:Documentation xmi:id="_YMRHjFT7EeebB_sBsVVKMQ" base_Comment="_vvu68LepEeGt2-pO2JkhCw"/>
+  <Documentation:Documentation xmi:id="_YMRHjVT7EeebB_sBsVVKMQ" base_Comment="_xIKtgLepEeGt2-pO2JkhCw"/>
+  <Documentation:Documentation xmi:id="_YMRHjlT7EeebB_sBsVVKMQ" base_Comment="__vkbwLepEeGt2-pO2JkhCw"/>
+  <Documentation:Documentation xmi:id="_YMRHj1T7EeebB_sBsVVKMQ" base_Comment="_AgAaMLeqEeGt2-pO2JkhCw"/>
+  <Documentation:Documentation xmi:id="_YMRHkFT7EeebB_sBsVVKMQ" base_Comment="_BXteQLeqEeGt2-pO2JkhCw"/>
+  <Documentation:Documentation xmi:id="_YMRHkVT7EeebB_sBsVVKMQ" base_Comment="_CioZQLeqEeGt2-pO2JkhCw"/>
+  <Documentation:Documentation xmi:id="_YMRHklT7EeebB_sBsVVKMQ" base_Comment="_DlXBkLeqEeGt2-pO2JkhCw"/>
+  <Documentation:Documentation xmi:id="_YMRHk1T7EeebB_sBsVVKMQ" base_Comment="_AEPOwberEeGt2-pO2JkhCw"/>
+  <Documentation:Documentation xmi:id="_YMRHlFT7EeebB_sBsVVKMQ" base_Comment="_8_MXILevEeGt2-pO2JkhCw"/>
+  <Documentation:Documentation xmi:id="_YMRHlVT7EeebB_sBsVVKMQ" base_Comment="_VhK4ILewEeGt2-pO2JkhCw"/>
+  <Documentation:Documentation xmi:id="_YMRHl1T7EeebB_sBsVVKMQ" base_Comment="_6D9c0Lf2EeGkFO9ZN3Sq5g"/>
+  <Documentation:Documentation xmi:id="_YMRHmFT7EeebB_sBsVVKMQ" base_Comment="_6EXsgbf2EeGkFO9ZN3Sq5g"/>
+  <Documentation:Documentation xmi:id="_YMRHmVT7EeebB_sBsVVKMQ" base_Comment="_G0V_ELf3EeGkFO9ZN3Sq5g"/>
+  <Documentation:Documentation xmi:id="_YMRHmlT7EeebB_sBsVVKMQ" base_Comment="_j3Tigbf4EeGkFO9ZN3Sq5g"/>
+  <Documentation:Documentation xmi:id="_YMRHm1T7EeebB_sBsVVKMQ" base_Comment="_j3g94bf4EeGkFO9ZN3Sq5g"/>
+  <Documentation:Documentation xmi:id="_YMRHnFT7EeebB_sBsVVKMQ" base_Comment="_-r8psbf4EeGkFO9ZN3Sq5g"/>
+  <Documentation:Documentation xmi:id="_YMRHnVT7EeebB_sBsVVKMQ" base_Comment="_jhYgYLf5EeGkFO9ZN3Sq5g"/>
+  <Documentation:Documentation xmi:id="_YMRHnlT7EeebB_sBsVVKMQ" base_Comment="_57G7cLf5EeGkFO9ZN3Sq5g"/>
+  <Documentation:Documentation xmi:id="_YMRHn1T7EeebB_sBsVVKMQ" base_Comment="_zcOmQbknEeGxL8As-30EsA"/>
+  <Documentation:Documentation xmi:id="_YMRHoVT7EeebB_sBsVVKMQ" base_Comment="_iKjxoboNEeGF_9DuCY6C8g"/>
+  <Documentation:Documentation xmi:id="_YMRHolT7EeebB_sBsVVKMQ" base_Comment="_VZqi8boWEeGF_9DuCY6C8g"/>
+  <Documentation:Documentation xmi:id="_YMRHo1T7EeebB_sBsVVKMQ" base_Comment="_VZ820LoWEeGF_9DuCY6C8g"/>
+  <Documentation:Documentation xmi:id="_YMRHpFT7EeebB_sBsVVKMQ" base_Comment="_vTgucLoZEeGF_9DuCY6C8g"/>
+  <Documentation:Documentation xmi:id="_YMRHpVT7EeebB_sBsVVKMQ" base_Comment="_-KI5kLobEeGF_9DuCY6C8g"/>
+  <Documentation:Documentation xmi:id="_YMRHplT7EeebB_sBsVVKMQ" base_Comment="_k9x88MnAEeGowZzPJtvGlQ"/>
+  <Documentation:Documentation xmi:id="_YMRHp1T7EeebB_sBsVVKMQ" base_Comment="_wYnokMnAEeGowZzPJtvGlQ"/>
+  <Documentation:Documentation xmi:id="_YMRHqFT7EeebB_sBsVVKMQ" base_Comment="_1sgkEcnAEeGowZzPJtvGlQ"/>
+  <Documentation:Documentation xmi:id="_YMRHqVT7EeebB_sBsVVKMQ" base_Comment="_9pEK8cnAEeGowZzPJtvGlQ"/>
+  <Documentation:Documentation xmi:id="_YMRHqlT7EeebB_sBsVVKMQ" base_Comment="_BisH4MnBEeGowZzPJtvGlQ"/>
+  <Documentation:Documentation xmi:id="_YMRHq1T7EeebB_sBsVVKMQ" base_Comment="_F9NycMnBEeGowZzPJtvGlQ"/>
+  <Documentation:Documentation xmi:id="_YMRHrFT7EeebB_sBsVVKMQ" base_Comment="_6dDsgMnBEeGowZzPJtvGlQ"/>
+  <Documentation:Documentation xmi:id="_YMRHrVT7EeebB_sBsVVKMQ" base_Comment="_jgEvMMnIEeGowZzPJtvGlQ"/>
+  <Documentation:Documentation xmi:id="_YMRHrlT7EeebB_sBsVVKMQ" base_Comment="_sUgZQcnIEeGowZzPJtvGlQ"/>
+  <Documentation:Documentation xmi:id="_YMRHr1T7EeebB_sBsVVKMQ" base_Comment="_36b6kcnIEeGowZzPJtvGlQ"/>
+  <Documentation:Documentation xmi:id="_YMRHsFT7EeebB_sBsVVKMQ" base_Comment="_1nMTUcnNEeGowZzPJtvGlQ"/>
+  <Documentation:Documentation xmi:id="_YMRHsVT7EeebB_sBsVVKMQ" base_Comment="_bxuDkMwREeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHslT7EeebB_sBsVVKMQ" base_Comment="_eoElocwREeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHs1T7EeebB_sBsVVKMQ" base_Comment="_eoI3EcwREeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHtFT7EeebB_sBsVVKMQ" base_Comment="_lXRokMwREeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHtVT7EeebB_sBsVVKMQ" base_Comment="_z39q0MwREeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHtlT7EeebB_sBsVVKMQ" base_Comment="_zB620cwVEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHt1T7EeebB_sBsVVKMQ" base_Comment="_zCkXEcwVEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHuFT7EeebB_sBsVVKMQ" base_Comment="_4V-xccwVEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHuVT7EeebB_sBsVVKMQ" base_Comment="_Gzx3wMwWEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHulT7EeebB_sBsVVKMQ" base_Comment="_NJ2PscwbEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHu1T7EeebB_sBsVVKMQ" base_Comment="_NJ2Ps8wbEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHvFT7EeebB_sBsVVKMQ" base_Comment="_eonMocwbEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHvVT7EeebB_sBsVVKMQ" base_Comment="_eopo4cwbEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHvlT7EeebB_sBsVVKMQ" base_Comment="_eoq3AcwbEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHv1T7EeebB_sBsVVKMQ" base_Comment="_u5_JYcwbEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHwFT7EeebB_sBsVVKMQ" base_Comment="_u5_JY8wbEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHwVT7EeebB_sBsVVKMQ" base_Comment="_57pgAMwbEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHwlT7EeebB_sBsVVKMQ" base_Comment="_EbsP8cwfEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHw1T7EeebB_sBsVVKMQ" base_Comment="_EbsP9cwfEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHxFT7EeebB_sBsVVKMQ" base_Comment="_EbsP-cwfEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHxVT7EeebB_sBsVVKMQ" base_Comment="_TN9KYcwfEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHxlT7EeebB_sBsVVKMQ" base_Comment="_Qe01McwgEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHx1T7EeebB_sBsVVKMQ" base_Comment="_Qe01M8wgEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHyFT7EeebB_sBsVVKMQ" base_Comment="_Qe01NswgEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHyVT7EeebB_sBsVVKMQ" base_Comment="_Qe01OswgEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHylT7EeebB_sBsVVKMQ" base_Comment="_Qe01P8wgEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHy1T7EeebB_sBsVVKMQ" base_Comment="_Qe01QswgEeGU6rMQjHXEfQ"/>
+  <Documentation:Documentation xmi:id="_YMRHzFT7EeebB_sBsVVKMQ" base_Comment="_Lr0RkMzCEeGXVNhgjroSyg"/>
+  <Documentation:Documentation xmi:id="_YMRHzVT7EeebB_sBsVVKMQ" base_Comment="_LsGlcMzCEeGXVNhgjroSyg"/>
+  <Documentation:Documentation xmi:id="_YMRHzlT7EeebB_sBsVVKMQ" base_Comment="_VmGJYMzCEeGXVNhgjroSyg"/>
+  <Documentation:Documentation xmi:id="_YMRHz1T7EeebB_sBsVVKMQ" base_Comment="_Rd7ksczDEeGXVNhgjroSyg"/>
+  <Documentation:Documentation xmi:id="_YMRH0FT7EeebB_sBsVVKMQ" base_Comment="_YFAhEEX-EeKrC9B45gpYQA"/>
+  <Documentation:Documentation xmi:id="_YMRH0VT7EeebB_sBsVVKMQ" base_Comment="_RSumEJufEeKfdqfBeTUXPw"/>
+  <Documentation:Documentation xmi:id="_YMRH0lT7EeebB_sBsVVKMQ" base_Comment="_40FwIJuiEeKfdqfBeTUXPw"/>
+  <Documentation:Documentation xmi:id="_YMRH01T7EeebB_sBsVVKMQ" base_Comment="_m1pLUCUPEeOwLot7BHFfcg"/>
+  <Documentation:Documentation xmi:id="_YMRH1FT7EeebB_sBsVVKMQ" base_Comment="_J_9ukCUREeOwLot7BHFfcg"/>
+  <Documentation:Documentation xmi:id="_YMRH1VT7EeebB_sBsVVKMQ" base_Comment="_AIaRQSUqEeOwLot7BHFfcg"/>
+  <Documentation:Documentation xmi:id="_YMRH11T7EeebB_sBsVVKMQ" base_Comment="_0ZlfsG3GEeWL6LS8OVOG6A"/>
+  <Documentation:Documentation xmi:id="_YMRH2FT7EeebB_sBsVVKMQ" base_Comment="_0aCysW3GEeWL6LS8OVOG6A"/>
+  <Documentation:Documentation xmi:id="_YMRH2VT7EeebB_sBsVVKMQ" base_Comment="_W9SlIHJ5EeW40sNYWrGwwg"/>
+  <Documentation:Documentation xmi:id="_YMRH2lT7EeebB_sBsVVKMQ" base_Comment="__goA8HgLEeW5K-B7HesIQQ"/>
+  <Documentation:Documentation xmi:id="_YMRH21T7EeebB_sBsVVKMQ" base_Comment="_9johEHgREeW5K-B7HesIQQ"/>
+  <Documentation:Documentation xmi:id="_YMRH3FT7EeebB_sBsVVKMQ" base_Comment="_OPGY0XgSEeW5K-B7HesIQQ"/>
+  <Documentation:Documentation xmi:id="_YMRH3VT7EeebB_sBsVVKMQ" base_Comment="_SzPSYHgSEeW5K-B7HesIQQ"/>
+  <Documentation:Documentation xmi:id="_YMRH31T7EeebB_sBsVVKMQ" base_Comment="_pI8dkYItEeWzHcPPDZtKag"/>
+  <Documentation:Documentation xmi:id="_YMRH4FT7EeebB_sBsVVKMQ" base_Comment="_8wtBgLhKEeW57YZp3mfmdQ"/>
+  <Documentation:Documentation xmi:id="_YMRH4VT7EeebB_sBsVVKMQ" base_Comment="_8x7wkbhKEeW57YZp3mfmdQ"/>
+  <Documentation:Documentation xmi:id="_YMRH4lT7EeebB_sBsVVKMQ" base_Comment="_WCmjkLhLEeW57YZp3mfmdQ"/>
+  <Documentation:Documentation xmi:id="_YMRH5FT7EeebB_sBsVVKMQ" base_Comment="_xOtpsJK_Eea0q6fqZP4UcA"/>
+  <Documentation:Documentation xmi:id="_YMRH5VT7EeebB_sBsVVKMQ" base_Comment="_0Nz4EJK_Eea0q6fqZP4UcA"/>
+  <Documentation:Documentation xmi:id="_YMRH5lT7EeebB_sBsVVKMQ" base_Comment="_1rpvEJK_Eea0q6fqZP4UcA"/>
+  <Documentation:Documentation xmi:id="_YMRH51T7EeebB_sBsVVKMQ" base_Comment="_FBvOsUauEeef4PIUsGA4gw"/>
+  <Documentation:Documentation xmi:id="_YMRH6FT7EeebB_sBsVVKMQ" base_Comment="_aWpq4Ua7Eeef4PIUsGA4gw"/>
+  <Documentation:Documentation xmi:id="_YMRH6VT7EeebB_sBsVVKMQ" base_Comment="_86FCsUa7Eeef4PIUsGA4gw"/>
+  <CoreMWProfile:CmwModel xmi:id="_dB8oAKLHEeeegKcJgdaNvQ" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwMom xmi:id="_dCA5cKLHEeeegKcJgdaNvQ" base_Package="_INiFII6uEeGg6K3Ap7yaBw" immNamespace="NONE"/>
+  <CoreMWProfile:CmwClass xmi:id="_dCCuoKLHEeeegKcJgdaNvQ" base_Class="_INr2IY6uEeGg6K3Ap7yaBw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCD8wKLHEeeegKcJgdaNvQ" base_Property="_IN1AE46uEeGg6K3Ap7yaBw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCEj0KLHEeeegKcJgdaNvQ" base_Property="_gWykII6uEeGg6K3Ap7yaBw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCFK4KLHEeeegKcJgdaNvQ" base_Property="_8--7wLevEeGt2-pO2JkhCw" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCFK4aLHEeeegKcJgdaNvQ" base_Property="_iKjxoLoNEeGF_9DuCY6C8g" isPersistent="true"/>
+  <CoreMWProfile:CmwAction xmi:id="_dCFx8aLHEeeegKcJgdaNvQ" base_Operation="_Cmp-EJUCEeGxfoJjfjh4RA" admOpId="1"/>
+  <CoreMWProfile:CmwAction xmi:id="_dCHAEKLHEeeegKcJgdaNvQ" base_Operation="_Vg9cwLewEeGt2-pO2JkhCw" admOpId="3"/>
+  <CoreMWProfile:CmwAction xmi:id="_dCHnIKLHEeeegKcJgdaNvQ" base_Operation="_jf364MnIEeGowZzPJtvGlQ" admOpId="2"/>
+  <CoreMWProfile:CmwStruct xmi:id="_dCI1QKLHEeeegKcJgdaNvQ" base_Class="_Sy_oF46uEeGg6K3Ap7yaBw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_dCKqcKLHEeeegKcJgdaNvQ" base_Property="_Sy_oGY6uEeGg6K3Ap7yaBw" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_dCMfoKLHEeeegKcJgdaNvQ" base_Property="_Sy_oHY6uEeGg6K3Ap7yaBw" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_dCNtwKLHEeeegKcJgdaNvQ" base_Property="_Sy_oIY6uEeGg6K3Ap7yaBw" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_dCO74KLHEeeegKcJgdaNvQ" base_Property="_Sy_oJY6uEeGg6K3Ap7yaBw" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_dCQKAKLHEeeegKcJgdaNvQ" base_Property="_Sy_oKY6uEeGg6K3Ap7yaBw" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_dCRYIKLHEeeegKcJgdaNvQ" base_Property="_Sy_oLY6uEeGg6K3Ap7yaBw" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_dCTNUKLHEeeegKcJgdaNvQ" base_Property="_Sy_oNY6uEeGg6K3Ap7yaBw" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_dCUbcKLHEeeegKcJgdaNvQ" base_Property="_Sy_oOY6uEeGg6K3Ap7yaBw" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_dCVpkKLHEeeegKcJgdaNvQ" base_Property="_Sy_oPY6uEeGg6K3Ap7yaBw" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_dCW3sKLHEeeegKcJgdaNvQ" base_Property="_Sy_oQY6uEeGg6K3Ap7yaBw" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_dCYF0KLHEeeegKcJgdaNvQ" base_Property="_nQ01sI68EeGg6K3Ap7yaBw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCYs4KLHEeeegKcJgdaNvQ" base_Property="_SzJY8o6uEeGg6K3Ap7yaBw" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCYs4aLHEeeegKcJgdaNvQ" base_Property="_SzJY9o6uEeGg6K3Ap7yaBw" isPersistent="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_dCZ7AKLHEeeegKcJgdaNvQ" base_Class="_U2qJM46uEeGg6K3Ap7yaBw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCZ7AaLHEeeegKcJgdaNvQ" base_Property="_U2qJNo6uEeGg6K3Ap7yaBw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCaiEKLHEeeegKcJgdaNvQ" base_Property="_SOLoUJXNEeGwa-f2a5kzHA" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCaiEaLHEeeegKcJgdaNvQ" base_Property="_-KBk0LobEeGF_9DuCY6C8g" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCbJIKLHEeeegKcJgdaNvQ" base_Property="_8541cEa7Eeef4PIUsGA4gw" isConfigurable="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_dCbJIaLHEeeegKcJgdaNvQ" base_Class="_U2qJP46uEeGg6K3Ap7yaBw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCbwMKLHEeeegKcJgdaNvQ" base_Property="_U2qJQo6uEeGg6K3Ap7yaBw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCcXQKLHEeeegKcJgdaNvQ" base_Property="_U2qJRo6uEeGg6K3Ap7yaBw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCc-UKLHEeeegKcJgdaNvQ" base_Property="_U2qJUY6uEeGg6K3Ap7yaBw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCc-UaLHEeeegKcJgdaNvQ" base_Property="_BiaZIJXOEeGwa-f2a5kzHA" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCdlYKLHEeeegKcJgdaNvQ" base_Property="_eonMoMwbEeGU6rMQjHXEfQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCdlYaLHEeeegKcJgdaNvQ" base_Property="_eopo4MwbEeGU6rMQjHXEfQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCeMcKLHEeeegKcJgdaNvQ" base_Property="_eoq3AMwbEeGU6rMQjHXEfQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCeMcaLHEeeegKcJgdaNvQ" base_Property="_TN9KYMwfEeGU6rMQjHXEfQ" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCezgKLHEeeegKcJgdaNvQ" base_Property="_RduJUMzDEeGXVNhgjroSyg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCfakKLHEeeegKcJgdaNvQ" base_Property="_cQG90JuYEeKfdqfBeTUXPw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCfakaLHEeeegKcJgdaNvQ" base_Property="_mnjE8CUPEeOwLot7BHFfcg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAction xmi:id="_dCgBoaLHEeeegKcJgdaNvQ" base_Operation="_NJ2PsMwbEeGU6rMQjHXEfQ" admOpId="3"/>
+  <CoreMWProfile:CmwAction xmi:id="_dCgosKLHEeeegKcJgdaNvQ" base_Operation="_u5_JYMwbEeGU6rMQjHXEfQ" admOpId="4"/>
+  <CoreMWProfile:CmwAction xmi:id="_dCgosaLHEeeegKcJgdaNvQ" base_Operation="_EbsP8MwfEeGU6rMQjHXEfQ" admOpId="1"/>
+  <CoreMWProfile:CmwAction xmi:id="_dChPwKLHEeeegKcJgdaNvQ" base_Operation="_Qe01MMwgEeGU6rMQjHXEfQ" admOpId="2"/>
+  <CoreMWProfile:CmwClass xmi:id="_dCid4KLHEeeegKcJgdaNvQ" base_Class="_U2z6I46uEeGg6K3Ap7yaBw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCid4aLHEeeegKcJgdaNvQ" base_Property="_U2z6JY6uEeGg6K3Ap7yaBw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCjE8KLHEeeegKcJgdaNvQ" base_Property="_U2z6KY6uEeGg6K3Ap7yaBw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCjsAKLHEeeegKcJgdaNvQ" base_Property="_aWddoEa7Eeef4PIUsGA4gw" isConfigurable="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_dCjsAaLHEeeegKcJgdaNvQ" base_Class="_U2z6NI6uEeGg6K3Ap7yaBw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCkTEKLHEeeegKcJgdaNvQ" base_Property="_U2z6No6uEeGg6K3Ap7yaBw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCkTEaLHEeeegKcJgdaNvQ" base_Property="_U2z6Oo6uEeGg6K3Ap7yaBw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dClhMKLHEeeegKcJgdaNvQ" base_Property="_U2z6Qo6uEeGg6K3Ap7yaBw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dClhMaLHEeeegKcJgdaNvQ" base_Property="_U2z6Ro6uEeGg6K3Ap7yaBw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCmIQKLHEeeegKcJgdaNvQ" base_Property="_LQeBUJuiEeKfdqfBeTUXPw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCmIQaLHEeeegKcJgdaNvQ" base_Property="_FBjBcEauEeef4PIUsGA4gw" isConfigurable="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_dCmvUKLHEeeegKcJgdaNvQ" base_Class="_p0pAgJUCEeGxfoJjfjh4RA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCnWYKLHEeeegKcJgdaNvQ" base_Property="_p1O2YJUCEeGxfoJjfjh4RA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCn9cKLHEeeegKcJgdaNvQ" base_Property="_96TRwJUDEeGxfoJjfjh4RA" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCn9caLHEeeegKcJgdaNvQ" base_Property="_pygDsJXMEeGwa-f2a5kzHA" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCokgKLHEeeegKcJgdaNvQ" base_Property="_yIH1YJXNEeGwa-f2a5kzHA" isConfigurable="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_dCpLkKLHEeeegKcJgdaNvQ" base_Class="_j3M00Lf4EeGkFO9ZN3Sq5g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCpyoKLHEeeegKcJgdaNvQ" base_Property="_j3aQMLf4EeGkFO9ZN3Sq5g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCpyoaLHEeeegKcJgdaNvQ" base_Property="_-rvOULf4EeGkFO9ZN3Sq5g" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCqZsKLHEeeegKcJgdaNvQ" base_Property="_6c57gMnBEeGowZzPJtvGlQ" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCqZsaLHEeeegKcJgdaNvQ" base_Property="_pD-eAIItEeWzHcPPDZtKag"/>
+  <CoreMWProfile:CmwClass xmi:id="_dCrAwKLHEeeegKcJgdaNvQ" base_Class="_bwIvMMwREeGU6rMQjHXEfQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCrn0KLHEeeegKcJgdaNvQ" base_Property="_bxfaEMwREeGU6rMQjHXEfQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCsO4KLHEeeegKcJgdaNvQ" base_Property="_eoEloMwREeGU6rMQjHXEfQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCsO4aLHEeeegKcJgdaNvQ" base_Property="_eoI3EMwREeGU6rMQjHXEfQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCs18KLHEeeegKcJgdaNvQ" base_Property="_qYHFMMwREeGU6rMQjHXEfQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCtdAKLHEeeegKcJgdaNvQ" base_Property="_GzlDcMwWEeGU6rMQjHXEfQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwContribution xmi:id="_dCuEEKLHEeeegKcJgdaNvQ" base_Association="_qWPmACzrEeOUP_XFiySr7A"/>
+  <CoreMWProfile:CmwClass xmi:id="_dCurIKLHEeeegKcJgdaNvQ" base_Class="_0UdIEG3GEeWL6LS8OVOG6A"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_dCvSMKLHEeeegKcJgdaNvQ" base_Property="_0Zs0cG3GEeWL6LS8OVOG6A"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_fSTOUPhsEee4AJIJ6EZ1hg" base_Package="_fSDWsPhsEee4AJIJ6EZ1hg"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_fSdmYPhsEee4AJIJ6EZ1hg" base_Class="_fST1YPhsEee4AJIJ6EZ1hg"/>
+  <ECIMBaseProfile:EcimFeatures xmi:id="_h63MAPhsEee4AJIJ6EZ1hg" base_Package="_h6vQMPhsEee4AJIJ6EZ1hg"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_h68rkPhsEee4AJIJ6EZ1hg" base_Class="_h63MAfhsEee4AJIJ6EZ1hg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_b9Np0IqQEeiPILvj0fE88g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" patternErrorMsg="" isNotifiable="true" base_Property="_b80oQIqQEeiPILvj0fE88g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_b9U-kIqQEeiPILvj0fE88g" base_Property="_b80oQIqQEeiPILvj0fE88g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_n_2pkKZPEeq4VewR1l_fnA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_n_y_MKZPEeq4VewR1l_fnA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_n_3QoKZPEeq4VewR1l_fnA" base_Property="_n_y_MKZPEeq4VewR1l_fnA" isConfigurable="true"/>
+</xmi:XMI>

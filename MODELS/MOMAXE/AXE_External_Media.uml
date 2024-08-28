@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="AxeExternalMedia">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NRAMoQwOEdmFcaeZXPdWAQ" source="uml2.diagrams"/>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_c-ZpgWu8EeK_psk_X1_33w" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_c-Zpgmu8EeK_psk_X1_33w" key="com.ericsson.ecim.coremw.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_f-7bQGu8EeK_psk_X1_33w" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>&lt;p>External Media Management function MOM.&lt;/p></body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_8JbBoIW5Ed-FBpQGdJXi3g">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OS1OUIXLEd-lToFzlKoOsA" name="" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_WYzo8IKOEeK3wcU1QErItg" name="AxeExternalMedia">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QVYKOEeK3wcU1QErItg" annotatedElement="_WYzo8IKOEeK3wcU1QErItg">
+        <body>External Media Management function MOM.</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_WY0QVoKOEeK3wcU1QErItg" name="ExternalMediaM">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QV4KOEeK3wcU1QErItg" annotatedElement="_WY0QVoKOEeK3wcU1QErItg">
+          <body>Represents the root MOC for  External Media Management function MOM.
+The function allows moving data to/from an external media:
+ like a DVD,Thumb Drive from/to APG file system. 
+It supports following actions:
+
+1) Export to media - Copies of file(s)/folder(s) from APG file system to the media. 
+
+2) Format and export to media -Clears the media contents:
+       Copies files from the APG file system to media. 
+
+3) Import from media - Copies of file(s)/folder(s) from the media to APG file system. 
+
+4) Fetch media information - Fetches information related to external media.
+
+All above operations require that the External Media Management function state is enabled.
+
+Function state can be changed using the following 2 actions:
+
+1) Unlock media - Enables External Media Management function by mounting the external media contents.
+                           Media contents are mounted to folder /media in APG file system. 
+
+2) Lock media - Disables External Media  function by unmounting the external media contents.
+                        Media contents are unmounted from folder /media in APG file system.
+ 
+</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_aNC70L9_EeWQ5fgWrWqk0w">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_aNEJ8L9_EeWQ5fgWrWqk0w">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0QWIKOEeK3wcU1QErItg" name="externalMediaMId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QWYKOEeK3wcU1QErItg" annotatedElement="_WY0QWIKOEeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0QWoKOEeK3wcU1QErItg" name="freeSpaceOnMedia" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QW4KOEeK3wcU1QErItg" annotatedElement="_WY0QWoKOEeK3wcU1QErItg">
+            <body>Specifies the avaiable free space on external media.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0QXIKOEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0QXYKOEeK3wcU1QErItg" name="lastUpdatedTime" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QXoKOEeK3wcU1QErItg" annotatedElement="_WY0QXYKOEeK3wcU1QErItg">
+            <body>Specifies the updated time for media attributes.
+Attributes like mediaType,ownerOfMedia, totalSizeOfMedia, usedSpaceOnMedia,freeSpaceOnMedia. </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvs5dcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0QYIKOEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WY0QX4KOEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0QYYKOEeK3wcU1QErItg" name="mediaType" type="_WY03OIKOEeK3wcU1QErItg" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QYoKOEeK3wcU1QErItg" annotatedElement="_WY0QYYKOEeK3wcU1QErItg">
+            <body>Specifies type of the external media.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0QY4KOEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0QZIKOEeK3wcU1QErItg" name="totalSizeOfMedia" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QZYKOEeK3wcU1QErItg" annotatedElement="_WY0QZIKOEeK3wcU1QErItg">
+            <body>Specifies the total size of external media in KB.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0QZoKOEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0QZ4KOEeK3wcU1QErItg" name="usedSpaceOnMedia" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QaIKOEeK3wcU1QErItg" annotatedElement="_WY0QZ4KOEeK3wcU1QErItg">
+            <body>Specifies the used space of external media in percentage (%).</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0QaYKOEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0QbYKOEeK3wcU1QErItg" name="resultOfOperation" visibility="public" type="_WY0Q1oKOEeK3wcU1QErItg" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QboKOEeK3wcU1QErItg" annotatedElement="_WY0QbYKOEeK3wcU1QErItg">
+            <body>Specifies the result of external media operation.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0QcIKOEeK3wcU1QErItg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WY0Qb4KOEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0QcYKOEeK3wcU1QErItg" name="operationalState" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QcoKOEeK3wcU1QErItg" annotatedElement="_WY0QcYKOEeK3wcU1QErItg">
+            <body>Specifies the operational state of External Media Management function.
+It can assume one of the following values:
+DISABLED: The external media cannot be accessed. 
+The predefined folder &quot;/media&quot; on APG file system is empty.
+ENABLED: The external media can be accessed.
+The predefined folder &quot;/media&quot; on APG file system shows the related file system.</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#__lAE8JdbEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0QdIKOEeK3wcU1QErItg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WY0Qc4KOEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Ay9agDKyEeSyftCCr8VQCA" name="ExtMedia_to_History" visibility="public" type="_WY0QnoKOEeK3wcU1QErItg" aggregation="composite" association="_Ay8zcDKyEeSyftCCr8VQCA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_263ekDKyEeSyftCCr8VQCA" value="20"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2623gDKyEeSyftCCr8VQCA" value="20"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_bTMQEDEnEeqTSuXqsm70OQ" name="mediaState" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_bTP6cDEnEeqTSuXqsm70OQ" annotatedElement="_bTMQEDEnEeqTSuXqsm70OQ">
+            <body>State of media.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_8QXW0CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bTP6cjEnEeqTSuXqsm70OQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bTP6czEnEeqTSuXqsm70OQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="__6cg0DEnEeqTSuXqsm70OQ" value="0"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_WY0QdYKOEeK3wcU1QErItg" name="exportToMedia">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QdoKOEeK3wcU1QErItg" annotatedElement="_WY0QdYKOEeK3wcU1QErItg">
+            <body>Exports specified list of file(s) or folder(s) from the APG file system to media.
+
+Specified file(s) or folder(s) are taken from the predefined folder &quot;media&quot; in the AP file system and copied to media maintaining the same folder structure. 
+This action is applicable for both readonly and rewritable media. Once copy starts the result is shown in attribute resultOfOperation.
+
+The action can fail due to one of the following reasons: 
+         - External media access is not enabled: When attribute OperationalState is in DISABLED state.
+	 - Invalid Argument: Invalid argument supplied by the user e.g. file not found or invalid label.
+         - Media drive is busy: When exportToMedia is initiated before completion of previously executed action.
+         - No external media board available: When Media board is not present.
+	 - No Media in Media Drive: Media Drive has no media.
+         - Operation is already in progress: When exportToMedia is initiated before completion of previous exportToMedia.
+         - Unable to connect to server: When connected DVD is not reachable.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_WY0Qd4KOEeK3wcU1QErItg" name="label">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QeIKOEeK3wcU1QErItg" annotatedElement="_WY0Qd4KOEeK3wcU1QErItg">
+              <body>Specifies the label (for example volume name) given to external media during export operation.
+
+Label can be set to external media only during first copy operation. It is not possible to set label on external media in subsequent append operations.
+
+For rewritable media (i.e for DVD+RW or DVD-RW), label can be set during every copy operation.
+For readonly media (i.e for DVD+R or DVD-R), label can be set only during first copy operation. It is not possible to set label on these media in subsequent append operations.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0QeoKOEeK3wcU1QErItg"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WY0QeYKOEeK3wcU1QErItg" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_WY0Qe4KOEeK3wcU1QErItg" name="fileList">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QfIKOEeK3wcU1QErItg" annotatedElement="_WY0Qe4KOEeK3wcU1QErItg">
+              <body>Specifies the list of file(s)/folder(s) path that has to be copied to the media.
+In case of multiple files/folders to be copied, each file/folder path must be &quot;;&quot; separated within the complete string.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0QfoKOEeK3wcU1QErItg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WY0QfYKOEeK3wcU1QErItg" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_WY0Qf4KOEeK3wcU1QErItg" name="refreshMediaInfo">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QgIKOEeK3wcU1QErItg" annotatedElement="_WY0Qf4KOEeK3wcU1QErItg">
+            <body>Fetches information related to external media.
+This information includes type of media, total, free and used spaces of media.
+Attributes mediaType, totalSizeOfMedia, freeSpaceOnMedia, totalSizeOnMedia attributes are updated with the latest data after completion of action. 
+
+The action can fail due to one of the following reasons:
+- External media access is not enabled: When OperationalState is in DISABLED state.
+- Media drive is busy: When refreshMediaInfo is initiated before completion of previously executed action.</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_WY0QgYKOEeK3wcU1QErItg" name="importFromMedia">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QgoKOEeK3wcU1QErItg" annotatedElement="_WY0QgYKOEeK3wcU1QErItg">
+            <body>Imports file(s)/folder(s) from the media to APG file system. 
+Specified file(s) or folder(s) are copied from media to the predefined folder &quot;media&quot; in the APG file system. 
+
+Once copy starts the result is shown in attribute resultOfOperation.
+
+The action can fail due to one of the following reasons: 
+         - External media access is not enabled: When OperationalState is in DISABLED state.
+         - No external media board available: When Media board is not present.
+	 - No Media in Media Drive: Media Drive has no media.
+         - Operation is already in progress: When importFromMedia is initiated before completion of previous importFromMedia.
+	 - Media drive is busy: Media drive is busy with some other operation.
+	 - Invalid Argument: Invalid argument supplied by the user e.g file not found.
+	 - Media empty, copy is not possible: When media is empty. </body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_WY0Qg4KOEeK3wcU1QErItg" name="overwriteEnable">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QhIKOEeK3wcU1QErItg" annotatedElement="_WY0Qg4KOEeK3wcU1QErItg">
+              <body>Specifies enable/disable of overwrite during copy operation.
+If true, file/folder is overwritten in destination folder if a file/folder with same name exists. If false, file/folder is not overwritten in destination folder if a file/folder with same name exists and the copy operation fails.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0QhoKOEeK3wcU1QErItg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WY0QhYKOEeK3wcU1QErItg" value="1"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_U0v7wIx_EeK16bu24Q1vkg"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_WY0QiIKOEeK3wcU1QErItg" name="destinationFolder">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QiYKOEeK3wcU1QErItg" annotatedElement="_WY0QiIKOEeK3wcU1QErItg">
+              <body>Specifies complete path of destination folder that is being used for import from media operation.
+</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0Qi4KOEeK3wcU1QErItg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WY0QioKOEeK3wcU1QErItg" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_WY0QjIKOEeK3wcU1QErItg" name="fileList">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QjYKOEeK3wcU1QErItg" annotatedElement="_WY0QjIKOEeK3wcU1QErItg">
+              <body>Specifies the list of files/folders path that has to be copied from the media.
+In case of multiple files/folders to be copied,each file/folder path must be &quot;;&quot; separated within the complete string.
+</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0Qj4KOEeK3wcU1QErItg"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WY0QjoKOEeK3wcU1QErItg" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_WY0QkIKOEeK3wcU1QErItg" name="formatAndExportToMedia">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QkYKOEeK3wcU1QErItg" annotatedElement="_WY0QkIKOEeK3wcU1QErItg">
+            <body>Formats the media and copies specified list of file from the AP file system to media.
+Specified file(s) or folder(s) are taken from the predefined folder &quot;media&quot; in the APG file system.
+Above files are copied to media maintaining the same folder structure after erasing the media contents.
+This action is applicable only for rewritable media. 
+Once copy starts the result is shown in attribute resultOfOperation.
+
+The action can fail due to one of the following reasons: 
+         - External media access is not enabled: When OperationalState is in DISABLED state.
+         - Invalid Argument: Invalid argument supplied by the user e.g file not found or invalid label.
+         - Media drive is busy: When formatAndExportToMedia is initiated:
+            before completion of previously executed action.
+         - No external media board available: When Media board is not present.
+	 - No Media in Media Drive: Media Drive has no media.
+         - Operation is already in progress: When formatAndExportToMedia is initiated:
+               before previous action is  completed.
+         - Overwriting data to this media is not supported: When Media media is readonly.
+         - Unable to connect to server: When connected DVD is not reachable.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_WY0QkoKOEeK3wcU1QErItg" name="label">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_WY0Qk4KOEeK3wcU1QErItg" annotatedElement="_WY0QkoKOEeK3wcU1QErItg">
+              <body>Specifies the label (for example volume name) given to external media during copy operation.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0QlYKOEeK3wcU1QErItg"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WY0QlIKOEeK3wcU1QErItg" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_WY0QloKOEeK3wcU1QErItg" name="fileList">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_WY0Ql4KOEeK3wcU1QErItg" annotatedElement="_WY0QloKOEeK3wcU1QErItg">
+              <body>Specifies the list of file(s)/folder(s) path that has to be copied to the media.
+In case of multiple files/folders to be copied, each file/folder path must be &quot;;&quot; separated within the complete string.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0QmYKOEeK3wcU1QErItg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WY0QmIKOEeK3wcU1QErItg" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_WY0QmoKOEeK3wcU1QErItg" name="lockMedia" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0Qm4KOEeK3wcU1QErItg" annotatedElement="_WY0QmoKOEeK3wcU1QErItg">
+            <body>Disables External Media Management function by unmounting the external media.
+Clears the predefined folder /media on APG file system. 
+
+The attribute operationalState is set to DISABLED after successful action completion. 
+This is asynchronous action and result is updated in attribute resultOfOperation.
+
+The action can fail due to one of the following reasons: 
+- Operation is already in progress: When this action is initiated before completion of previous one.
+- Media drive is busy: When this action is initiated before completion of another ongoing action.</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_WY0QnIKOEeK3wcU1QErItg" name="unlockMedia" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QnYKOEeK3wcU1QErItg" annotatedElement="_WY0QnIKOEeK3wcU1QErItg">
+            <body>Enables External Media Management function by mounting the external media.
+Making the related file system visible in the predefined folder /media on APG file system.
+
+The attribute operationalState is set to ENABLED after successful action completion.
+This is asynchronous action and result is updated in attribute resultOfOperation.
+
+The action can fail due to one of the following reasons: 
+- Media drive is busy: When this action is initiated before completion of another ongoing action.
+- No external media board available: When Media board is not present.
+- No Media in Media Drive: Media Drive has no media or corrupted.
+- Operation is already in progress: When this action is initiated before completion of a previous one.
+- Unlocking failed due to media already mounted on the other AP: When DVD is already mounted to the other AP. 
+- Unlocking Failed due to mount failure: The mount failed in case of thumb drive. 
+
+</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_dsQ6EO-0EeOLpfJhKSeeRA" name="formatEnable">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_dsQ6Ee-0EeOLpfJhKSeeRA" annotatedElement="_dsQ6EO-0EeOLpfJhKSeeRA">
+              <body>Specifies enable/disable of format during unlock operation.
+If true, the external media (thumb drive) will get format and then mount to the predefined folder /media on APG file system. If false, mounts the external media  to /media on APG file system.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dsQ6E--0EeOLpfJhKSeeRA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dsQ6Eu-0EeOLpfJhKSeeRA" value="1"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_dsQ6FO-0EeOLpfJhKSeeRA"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_WY0QnoKOEeK3wcU1QErItg" name="ExternalMediaHistory">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_WY0Qn4KOEeK3wcU1QErItg" annotatedElement="_WY0QnoKOEeK3wcU1QErItg">
+          <body>Each instance represents the information releated previous or current media copy operations.
+There will be maximum of twenty one instances of this class.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_hlGugL9_EeWQ5fgWrWqk0w" constrainedElement="_WY0QnoKOEeK3wcU1QErItg _WY0QyoKOEeK3wcU1QErItg">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_hlHVkL9_EeWQ5fgWrWqk0w">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0QoIKOEeK3wcU1QErItg" name="externalMediaHistoryId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QoYKOEeK3wcU1QErItg" annotatedElement="_WY0QoIKOEeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0QooKOEeK3wcU1QErItg" name="nodeName" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0Qo4KOEeK3wcU1QErItg" annotatedElement="_WY0QooKOEeK3wcU1QErItg">
+            <body>This attribute specifies the name of the node on which copy operation is executed.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0QpIKOEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0QpYKOEeK3wcU1QErItg" name="operationState" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QpoKOEeK3wcU1QErItg" annotatedElement="_WY0QpYKOEeK3wcU1QErItg">
+            <body>This attribute specifies the current state of copy operation.
+If IDLE, copy operation is completed.
+If PROCESSING, copy operation is in progress.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0Qp4KOEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0QqIKOEeK3wcU1QErItg" name="operationType" type="_WY0QyoKOEeK3wcU1QErItg" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QqYKOEeK3wcU1QErItg" annotatedElement="_WY0QqIKOEeK3wcU1QErItg">
+            <body>This attribute specifies the type of copy operation.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0QqoKOEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0Qq4KOEeK3wcU1QErItg" name="operationResult" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QrIKOEeK3wcU1QErItg" annotatedElement="_WY0Qq4KOEeK3wcU1QErItg">
+            <body>This attribute specifies the media operation result.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0QrYKOEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0QroKOEeK3wcU1QErItg" name="user" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0Qr4KOEeK3wcU1QErItg" annotatedElement="_WY0QroKOEeK3wcU1QErItg">
+            <body>This attribute specifies the user name who intiated media operation.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0QsIKOEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0QsYKOEeK3wcU1QErItg" name="operationStartTime" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QsoKOEeK3wcU1QErItg" annotatedElement="_WY0QsYKOEeK3wcU1QErItg">
+            <body>This attribute specifies the start time of external media operation.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0Qs4KOEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0QtIKOEeK3wcU1QErItg" name="operationEndTime" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QtYKOEeK3wcU1QErItg" annotatedElement="_WY0QtIKOEeK3wcU1QErItg">
+            <body>This attribute specifies the external media operation end time.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0QtoKOEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0Qt4KOEeK3wcU1QErItg" name="fileNames" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QuIKOEeK3wcU1QErItg" annotatedElement="_WY0Qt4KOEeK3wcU1QErItg">
+            <body>This attribute specifies the list of Files that involved in dvd operation.
+This attribute is applicable only for copy to Media operation.
+If muliple files involved in copy, this attribute contains list of all file names and each file name is separated by single blank space.
+e.g fileNames = filename1 filename2 ...</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0QuYKOEeK3wcU1QErItg"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_WY0QuoKOEeK3wcU1QErItg" name="Instances">
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_nHO2kDgTEeOr9u3421JR2Q" name="externalMediaM" classifier="_WY0QVoKOEeK3wcU1QErItg">
+          <slot xmi:type="uml:Slot" xmi:id="_nIv5gDgTEeOr9u3421JR2Q" definingFeature="_WY0QWIKOEeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralString" xmi:id="_nIwgkDgTEeOr9u3421JR2Q" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_cslPcDEoEeqTSuXqsm70OQ" definingFeature="_bTMQEDEnEeqTSuXqsm70OQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_csmdkDEoEeqTSuXqsm70OQ"/>
+          </slot>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_WY0QyoKOEeK3wcU1QErItg" name="CopyType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_WY0Qy4KOEeK3wcU1QErItg" annotatedElement="_WY0QyoKOEeK3wcU1QErItg">
+          <body>This represents valid types of copy operations specific to external media.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WY0QzIKOEeK3wcU1QErItg" name="FROMMEDIA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0QzYKOEeK3wcU1QErItg" annotatedElement="_WY0QzIKOEeK3wcU1QErItg">
+            <body>The value should be used to represent type of operation is copying data from Media to node.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_WY0QzoKOEeK3wcU1QErItg"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WY0Qz4KOEeK3wcU1QErItg" name="TOMEDIA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0Q0IKOEeK3wcU1QErItg" annotatedElement="_WY0Qz4KOEeK3wcU1QErItg">
+            <body>The value should be used to represent type of operation is copying data to Media from node.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_WY0Q0YKOEeK3wcU1QErItg" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_WY0Q1oKOEeK3wcU1QErItg" name="ExternalMediaActionProgress">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_WY0Q14KOEeK3wcU1QErItg" annotatedElement="_WY0Q1oKOEeK3wcU1QErItg">
+          <body>Represents the structure used to store the action result Information.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0Q2IKOEeK3wcU1QErItg" name="actionName" visibility="public" type="_WY03J4KOEeK3wcU1QErItg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0Q2YKOEeK3wcU1QErItg" annotatedElement="_WY0Q2IKOEeK3wcU1QErItg">
+            <body>Specifies the name of the invoked action.
+e.g exportToMedia(),formatAndExportToMedia(),importFromMedia() on ExternalMedia MO</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0Q24KOEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WY0Q2oKOEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0Q3IKOEeK3wcU1QErItg" name="result" visibility="public" type="_WY03FIKOEeK3wcU1QErItg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0Q3YKOEeK3wcU1QErItg" annotatedElement="_WY0Q3IKOEeK3wcU1QErItg">
+            <body>Specifies the result of completed action.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0Q34KOEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WY0Q3oKOEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0Q4IKOEeK3wcU1QErItg" name="resultInfo" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0Q4YKOEeK3wcU1QErItg" annotatedElement="_WY0Q4IKOEeK3wcU1QErItg">
+            <body>Specifies the textual description of outcome of the operation.
+e.g it contains error message in case of action failure.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0Q44KOEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WY0Q4oKOEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0Q5IKOEeK3wcU1QErItg" name="actionStartTime" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0Q5YKOEeK3wcU1QErItg" annotatedElement="_WY0Q5IKOEeK3wcU1QErItg">
+            <body>Specifies the end time of action.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvs5dcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0Q54KOEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WY0Q5oKOEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0Q6IKOEeK3wcU1QErItg" name="actionEndTime" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0Q6YKOEeK3wcU1QErItg" annotatedElement="_WY0Q6IKOEeK3wcU1QErItg">
+            <body>Specifies the end time of action.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvs5dcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0Q64KOEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WY0Q6oKOEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY0Q7IKOEeK3wcU1QErItg" name="lastUpdatedTime" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY0Q7YKOEeK3wcU1QErItg" annotatedElement="_WY0Q7IKOEeK3wcU1QErItg">
+            <body>Specifies the updated time for action.
+Info like actionEndTime,actionstartTime,actionName,result and resultinfo.
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvs5dcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY0Q74KOEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WY0Q7oKOEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WY03EIKOEeK3wcU1QErItg" name="state" visibility="public" type="_WY03H4KOEeK3wcU1QErItg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY03EYKOEeK3wcU1QErItg" annotatedElement="_WY03EIKOEeK3wcU1QErItg">
+            <body>Specifies the state of the invoked action.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WY03E4KOEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WY03EoKOEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_WY03FIKOEeK3wcU1QErItg" name="OperationResult">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_WY03FYKOEeK3wcU1QErItg" annotatedElement="_WY03FIKOEeK3wcU1QErItg">
+          <body>This represents valid results in external media operations.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WY03FoKOEeK3wcU1QErItg" name="SUCCESS">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY03F4KOEeK3wcU1QErItg" annotatedElement="_WY03FoKOEeK3wcU1QErItg">
+            <body>The value used to represent result of action is success.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_WY03GIKOEeK3wcU1QErItg"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WY03GYKOEeK3wcU1QErItg" name="FAILURE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY03GoKOEeK3wcU1QErItg" annotatedElement="_WY03GYKOEeK3wcU1QErItg">
+            <body>The value used to represent result of action is failed.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_WY03G4KOEeK3wcU1QErItg" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WY03HIKOEeK3wcU1QErItg" name="NOT_AVAILABLE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY03HYKOEeK3wcU1QErItg" annotatedElement="_WY03HIKOEeK3wcU1QErItg">
+            <body>The value used to represent status of action is not available.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_WY03HoKOEeK3wcU1QErItg" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_WY03H4KOEeK3wcU1QErItg" name="ActionState">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_WY03IIKOEeK3wcU1QErItg" annotatedElement="_WY03H4KOEeK3wcU1QErItg">
+          <body>This represents valid types of states in external media operations.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WY03IYKOEeK3wcU1QErItg" name="RUNNING">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY03IoKOEeK3wcU1QErItg" annotatedElement="_WY03IYKOEeK3wcU1QErItg">
+            <body>The value used to represent state of action is running.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_WY03I4KOEeK3wcU1QErItg" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WY03JIKOEeK3wcU1QErItg" name="FINISHED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY03JYKOEeK3wcU1QErItg" annotatedElement="_WY03JIKOEeK3wcU1QErItg">
+            <body>The value used to represent state of action is finished.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_WY03JoKOEeK3wcU1QErItg" value="3"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_WY03J4KOEeK3wcU1QErItg" name="ActionType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_WY03KIKOEeK3wcU1QErItg" annotatedElement="_WY03J4KOEeK3wcU1QErItg">
+          <body>Represents current invoked action.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WY03KYKOEeK3wcU1QErItg" name="EXPORT_TO_MEDIA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY03KoKOEeK3wcU1QErItg" annotatedElement="_WY03KYKOEeK3wcU1QErItg">
+            <body>An export from AP to media is ongoing.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_WY03K4KOEeK3wcU1QErItg" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WY03LIKOEeK3wcU1QErItg" name="FORMAT_AND_EXPORT_TO_MEDIA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY03LYKOEeK3wcU1QErItg" annotatedElement="_WY03LIKOEeK3wcU1QErItg">
+            <body>An export from AP to media, contextually erased, is ongoing.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_WY03LoKOEeK3wcU1QErItg" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WY03L4KOEeK3wcU1QErItg" name="IMPORT_FROM_MEDIA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY03MIKOEeK3wcU1QErItg" annotatedElement="_WY03L4KOEeK3wcU1QErItg">
+            <body>An import from media to AP is ongoing.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_WY03MYKOEeK3wcU1QErItg" value="3"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WY03MoKOEeK3wcU1QErItg" name="LOCK_MEDIA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY03M4KOEeK3wcU1QErItg" annotatedElement="_WY03MoKOEeK3wcU1QErItg">
+            <body>Enabling media access is ongoing.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_WY03NIKOEeK3wcU1QErItg" value="4"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WY03NYKOEeK3wcU1QErItg" name="UNLOCK_MEDIA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY03NoKOEeK3wcU1QErItg" annotatedElement="_WY03NYKOEeK3wcU1QErItg">
+            <body>Disabling media access is ongoing.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_WY03N4KOEeK3wcU1QErItg" value="5"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_WY03OIKOEeK3wcU1QErItg" name="ExternalMediaType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_WY03OYKOEeK3wcU1QErItg" annotatedElement="_WY03OIKOEeK3wcU1QErItg">
+          <body>Specifies type of the external media. 
+</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WY03OoKOEeK3wcU1QErItg" name="DVDMINUSR">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY03O4KOEeK3wcU1QErItg" annotatedElement="_WY03OoKOEeK3wcU1QErItg">
+            <body>Used media is DVD-R. </body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_WY03PIKOEeK3wcU1QErItg" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WY03PYKOEeK3wcU1QErItg" name="DVDPLUSR">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY03PoKOEeK3wcU1QErItg" annotatedElement="_WY03PYKOEeK3wcU1QErItg">
+            <body>Used media is DVD+R.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_WY03P4KOEeK3wcU1QErItg"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WY03QIKOEeK3wcU1QErItg" name="DVDPLUSRW">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY03QYKOEeK3wcU1QErItg" annotatedElement="_WY03QIKOEeK3wcU1QErItg">
+            <body>Used media is DVD+RW.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_WY03QoKOEeK3wcU1QErItg" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WY03Q4KOEeK3wcU1QErItg" name="DVDMINUSRW">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WY03RIKOEeK3wcU1QErItg" annotatedElement="_WY03Q4KOEeK3wcU1QErItg">
+            <body>Used media is DVD-RW.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_WY03RYKOEeK3wcU1QErItg" value="3"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_wGRiANmIEeKCbcFdSWbe4w" name="THUMBDRIVE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_-xxQoNmJEeKCbcFdSWbe4w" annotatedElement="_wGRiANmIEeKCbcFdSWbe4w">
+            <body>Used media is THUMBDRIVE.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_wHZjYNmIEeKCbcFdSWbe4w" value="4"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_jzOCsNmNEeKCbcFdSWbe4w" name="" memberEnd="_jzPQ0NmNEeKCbcFdSWbe4w _jzP34dmNEeKCbcFdSWbe4w">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_jzPQ0NmNEeKCbcFdSWbe4w" name="ExternalMedia_to_DataOutputHandling" visibility="public" association="_jzOCsNmNEeKCbcFdSWbe4w">
+          <type xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0RIKREeK3wcU1QErItg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AdulsNmWEeKCbcFdSWbe4w" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Adt-oNmWEeKCbcFdSWbe4w" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_jzP34dmNEeKCbcFdSWbe4w" name="DataOutputHandling_to_ExternalMedia" visibility="public" type="_WY0QVoKOEeK3wcU1QErItg" aggregation="composite" association="_jzOCsNmNEeKCbcFdSWbe4w">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RmDpkDgSEeOr9u3421JR2Q" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RmCbcDgSEeOr9u3421JR2Q" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_Ay8zcDKyEeSyftCCr8VQCA" name="media_to_history" memberEnd="_Ay9agDKyEeSyftCCr8VQCA _Ay_PsDKyEeSyftCCr8VQCA">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_Ay_PsDKyEeSyftCCr8VQCA" name="ExtMedia_to_History" visibility="public" type="_WY0QVoKOEeK3wcU1QErItg" association="_Ay8zcDKyEeSyftCCr8VQCA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ur55EDKyEeSyftCCr8VQCA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ur5SADKyEeSyftCCr8VQCA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_GaYfEL9-EeWQ5fgWrWqk0w" name="Features">
+        <packagedElement xmi:type="uml:Class" xmi:id="_Gal6cL9-EeWQ5fgWrWqk0w" name="CPI_HIDDEN"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_aABB4L9-EeWQ5fgWrWqk0w" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_lfeu0L9-EeWQ5fgWrWqk0w" name="NATIVE"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_nuJl0L9-EeWQ5fgWrWqk0w" client="_lfeu0L9-EeWQ5fgWrWqk0w" supplier="_Gal6cL9-EeWQ5fgWrWqk0w"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_cikwQHVqEeCBgp9CYCosRQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EkC2QCo7EeuHNtpH3nGt-Q" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EkC2QSo7EeuHNtpH3nGt-Q" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EkC2Qio7EeuHNtpH3nGt-Q" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EkC2Qyo7EeuHNtpH3nGt-Q" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EkC2RCo7EeuHNtpH3nGt-Q" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EkC2RSo7EeuHNtpH3nGt-Q" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ciq24HVqEeCBgp9CYCosRQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_c_aWIGu8EeK_psk_X1_33w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qPIDMN6MEeehtLhJYaltnA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qPIDMd6MEeehtLhJYaltnA" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qPIDMt6MEeehtLhJYaltnA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qPIDM96MEeehtLhJYaltnA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qPIDNN6MEeehtLhJYaltnA" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qPIDNd6MEeehtLhJYaltnA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pcs7MMPGEee-MNJ3JBpygA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pcs7McPGEee-MNJ3JBpygA" key="Version" value="1.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pcs7MsPGEee-MNJ3JBpygA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pcs7M8PGEee-MNJ3JBpygA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pcs7NMPGEee-MNJ3JBpygA" key="Date" value="2016-02-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pcs7NcPGEee-MNJ3JBpygA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dSzzQGu8EeK_psk_X1_33w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_IQF9YBtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="Managed Object Model for External Media Management Function" subTitle=" " docNo="19089-CXA 117 0047/5" docRev="B" createdBy="XHARBAV" approvedBy="" docLang="Uen" docDate="2020-12-14"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_IQGkcBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Package="_WYzo8IKOEeK3wcU1QErItg" author="Harika Bavana" contact="XHARBAV" date="2020-12-14" docNo="" revision="" version="4" release="2" organization="" correction="0"/>
+  <CoreMWProfile:CmwMom xmi:id="_Ia9JkBtEEeWvQYFW8NSCww" base_Package="_WYzo8IKOEeK3wcU1QErItg" immNamespace="MOM_NAME"/>
+  <CoreMWProfile:CmwClass xmi:id="_Ia9woBtEEeWvQYFW8NSCww" base_Class="_WY0QVoKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_IQHLgBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_WY0QWIKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_IQHykBtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_WY0QWoKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Ia-XsBtEEeWvQYFW8NSCww" base_Property="_WY0QWoKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_IQHykRtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" base_Property="_WY0QXYKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Ia-XsRtEEeWvQYFW8NSCww" base_Property="_WY0QXYKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_IQHykhtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_WY0QYYKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Ia-XshtEEeWvQYFW8NSCww" base_Property="_WY0QYYKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_IQIZoBtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_WY0QZIKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Ia--wBtEEeWvQYFW8NSCww" base_Property="_WY0QZIKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_IQIZoRtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_WY0QZ4KOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Ia--wRtEEeWvQYFW8NSCww" base_Property="_WY0QZ4KOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Ia_l0BtEEeWvQYFW8NSCww" base_Property="_WY0QbYKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_IQIZohtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_WY0QbYKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_IQIZoxtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_WY0QcYKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Ia_l0RtEEeWvQYFW8NSCww" base_Property="_WY0QcYKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_IQJAsRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_WY0QdYKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAction xmi:id="_IbAM4BtEEeWvQYFW8NSCww" base_Operation="_WY0QdYKOEeK3wcU1QErItg" admOpId="3"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_IQJAshtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_WY0Qd4KOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_IQJnwBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_WY0Qe4KOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAction xmi:id="_IbAM4htEEeWvQYFW8NSCww" base_Operation="_WY0Qf4KOEeK3wcU1QErItg" admOpId="13"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_IQJnwRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Operation="_WY0Qf4KOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_IQJnwhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_WY0QgYKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAction xmi:id="_IbAz8BtEEeWvQYFW8NSCww" base_Operation="_WY0QgYKOEeK3wcU1QErItg" admOpId="75"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_IQJnwxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_WY0Qg4KOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_IQJnxBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_WY0QiIKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_IQKO0BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_WY0QjIKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAction xmi:id="_IbAz8RtEEeWvQYFW8NSCww" base_Operation="_WY0QkIKOEeK3wcU1QErItg" admOpId="4"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_IQKO0RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Operation="_WY0QkIKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_IQKO0htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_WY0QkoKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_IQKO0xtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_WY0QloKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAction xmi:id="_IbAz8htEEeWvQYFW8NSCww" base_Operation="_WY0QmoKOEeK3wcU1QErItg" admOpId="8"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_IQK14BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_WY0QmoKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAction xmi:id="_IbBbABtEEeWvQYFW8NSCww" base_Operation="_WY0QnIKOEeK3wcU1QErItg" admOpId="7"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_IQK14RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_WY0QnIKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_IQK14htEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" base_Class="_WY0QnoKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwClass xmi:id="_IbBbARtEEeWvQYFW8NSCww" base_Class="_WY0QnoKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_IQLc8BtEEeWvQYFW8NSCww" hideGroupName="" specification="" isPersistent="false" base_Property="_WY0QoIKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_IQLc8RtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_WY0QooKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IbCCEBtEEeWvQYFW8NSCww" base_Property="_WY0QooKOEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_IQLc8htEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_WY0QpYKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IbCCERtEEeWvQYFW8NSCww" base_Property="_WY0QpYKOEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_IQLc8xtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_WY0QqIKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IbCpIBtEEeWvQYFW8NSCww" base_Property="_WY0QqIKOEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_IQMEABtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_WY0Qq4KOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IbCpIRtEEeWvQYFW8NSCww" base_Property="_WY0Qq4KOEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_IQMEARtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_WY0QroKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IbDQMBtEEeWvQYFW8NSCww" base_Property="_WY0QroKOEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_IQMEAhtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_WY0QsYKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IbDQMRtEEeWvQYFW8NSCww" base_Property="_WY0QsYKOEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_IQMEAxtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_WY0QtIKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IbDQMxtEEeWvQYFW8NSCww" base_Property="_WY0QtIKOEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_IQMrEBtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_WY0Qt4KOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IbD3QBtEEeWvQYFW8NSCww" base_Property="_WY0Qt4KOEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimInstances xmi:id="_IQMrEhtEEeWvQYFW8NSCww" base_Package="_WY0QuoKOEeK3wcU1QErItg" version="3" release="1" correction="0"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_IQNSIBtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" base_Enumeration="_WY0QyoKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_IQNSIRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_WY0QzIKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_IQNSIhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_WY0Qz4KOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimStruct xmi:id="_IQNSIxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Class="_WY0Q1oKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwStruct xmi:id="_IbEeUBtEEeWvQYFW8NSCww" base_Class="_WY0Q1oKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_IbEeURtEEeWvQYFW8NSCww" base_Property="_WY0Q2IKOEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_IQN5MBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_WY0Q2IKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_IbFFYBtEEeWvQYFW8NSCww" base_Property="_WY0Q3IKOEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_IQN5MRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_WY0Q3IKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_IbFFYRtEEeWvQYFW8NSCww" base_Property="_WY0Q4IKOEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_IQN5MhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_WY0Q4IKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_IbFFYhtEEeWvQYFW8NSCww" base_Property="_WY0Q5IKOEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_IQOgQBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_WY0Q5IKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_IbFscBtEEeWvQYFW8NSCww" base_Property="_WY0Q6IKOEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_IQOgQRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_WY0Q6IKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_IbFscRtEEeWvQYFW8NSCww" base_Property="_WY0Q7IKOEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_IQOgQhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_WY0Q7IKOEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_IbGTgBtEEeWvQYFW8NSCww" base_Property="_WY03EIKOEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_IQOgQxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_WY03EIKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_IQPHUBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_WY03FIKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_IQPHURtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_WY03FoKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_IQPHUhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_WY03GYKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_IQPHUxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_WY03HIKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_IQPHVBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_WY03H4KOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_IQPuYBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_WY03IYKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_IQPuYRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_WY03JIKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_IQPuYhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_WY03J4KOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_IQPuYxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_WY03KYKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_IQQVcBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_WY03LIKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_IQQVcRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_WY03L4KOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_IQQVchtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_WY03MoKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_IQQVdBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_WY03NYKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_IQQVdRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_WY03OIKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_IQQ8gBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_WY03OoKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_IQQ8gRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_WY03PYKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_IQQ8ghtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_WY03QIKOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_IQRjkBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_WY03Q4KOEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_IQRjkRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_wGRiANmIEeKCbcFdSWbe4w"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_IQRjkhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_jzOCsNmNEeKCbcFdSWbe4w" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_IQSKoBtEEeWvQYFW8NSCww" base_InstanceSpecification="_nHO2kDgTEeOr9u3421JR2Q"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_IQSKoRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_dsQ6EO-0EeOLpfJhKSeeRA"/>
+  <CoreMWProfile:CmwModel xmi:id="_IbGTgRtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwContribution xmi:id="_IbG6kBtEEeWvQYFW8NSCww" base_Association="_jzOCsNmNEeKCbcFdSWbe4w"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_IQSKohtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_WY0QVoKOEeK3wcU1QErItg" isSystemCreated="true" isLegacyRoot="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_IQSxsBtEEeWvQYFW8NSCww" hideGroupName="HIDDEN" specification="" statusInformation="" base_Association="_Ay8zcDKyEeSyftCCr8VQCA" isNotifiable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IbHhoBtEEeWvQYFW8NSCww" base_Property="_WY0QWIKOEeK3wcU1QErItg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IbHhohtEEeWvQYFW8NSCww" base_Property="_WY0QoIKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVgBtDEeWvQYFW8NSCww" base_Comment="_f-7bQGu8EeK_psk_X1_33w"/>
+  <Documentation:Documentation xmi:id="_71vVgRtDEeWvQYFW8NSCww" base_Comment="_WY0QVYKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVghtDEeWvQYFW8NSCww" base_Comment="_WY0QV4KOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVgxtDEeWvQYFW8NSCww" base_Comment="_WY0QWYKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVhBtDEeWvQYFW8NSCww" base_Comment="_WY0QW4KOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVhRtDEeWvQYFW8NSCww" base_Comment="_WY0QXoKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVhhtDEeWvQYFW8NSCww" base_Comment="_WY0QYoKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVhxtDEeWvQYFW8NSCww" base_Comment="_WY0QZYKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vViBtDEeWvQYFW8NSCww" base_Comment="_WY0QaIKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vViRtDEeWvQYFW8NSCww" base_Comment="_WY0QboKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVihtDEeWvQYFW8NSCww" base_Comment="_WY0QcoKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVixtDEeWvQYFW8NSCww" base_Comment="_WY0QdoKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVjBtDEeWvQYFW8NSCww" base_Comment="_WY0QeIKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVjRtDEeWvQYFW8NSCww" base_Comment="_WY0QfIKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVjhtDEeWvQYFW8NSCww" base_Comment="_WY0QgIKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVjxtDEeWvQYFW8NSCww" base_Comment="_WY0QgoKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVkBtDEeWvQYFW8NSCww" base_Comment="_WY0QhIKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVkRtDEeWvQYFW8NSCww" base_Comment="_WY0QiYKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVkhtDEeWvQYFW8NSCww" base_Comment="_WY0QjYKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVkxtDEeWvQYFW8NSCww" base_Comment="_WY0QkYKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVlBtDEeWvQYFW8NSCww" base_Comment="_WY0Qk4KOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVlRtDEeWvQYFW8NSCww" base_Comment="_WY0Ql4KOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVlhtDEeWvQYFW8NSCww" base_Comment="_WY0Qm4KOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVlxtDEeWvQYFW8NSCww" base_Comment="_WY0QnYKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVmBtDEeWvQYFW8NSCww" base_Comment="_WY0Qn4KOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVmRtDEeWvQYFW8NSCww" base_Comment="_WY0QoYKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVmhtDEeWvQYFW8NSCww" base_Comment="_WY0Qo4KOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVmxtDEeWvQYFW8NSCww" base_Comment="_WY0QpoKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVnBtDEeWvQYFW8NSCww" base_Comment="_WY0QqYKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVnRtDEeWvQYFW8NSCww" base_Comment="_WY0QrIKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVnhtDEeWvQYFW8NSCww" base_Comment="_WY0Qr4KOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVnxtDEeWvQYFW8NSCww" base_Comment="_WY0QsoKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVoBtDEeWvQYFW8NSCww" base_Comment="_WY0QtYKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVoRtDEeWvQYFW8NSCww" base_Comment="_WY0QuIKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVohtDEeWvQYFW8NSCww" base_Comment="_WY0Qy4KOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVoxtDEeWvQYFW8NSCww" base_Comment="_WY0QzYKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVpBtDEeWvQYFW8NSCww" base_Comment="_WY0Q0IKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVpRtDEeWvQYFW8NSCww" base_Comment="_WY0Q14KOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVphtDEeWvQYFW8NSCww" base_Comment="_WY0Q2YKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVpxtDEeWvQYFW8NSCww" base_Comment="_WY0Q3YKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVqBtDEeWvQYFW8NSCww" base_Comment="_WY0Q4YKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVqRtDEeWvQYFW8NSCww" base_Comment="_WY0Q5YKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVqhtDEeWvQYFW8NSCww" base_Comment="_WY0Q6YKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVqxtDEeWvQYFW8NSCww" base_Comment="_WY0Q7YKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVrBtDEeWvQYFW8NSCww" base_Comment="_WY03EYKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVrRtDEeWvQYFW8NSCww" base_Comment="_WY03FYKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVrhtDEeWvQYFW8NSCww" base_Comment="_WY03F4KOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVrxtDEeWvQYFW8NSCww" base_Comment="_WY03GoKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVsBtDEeWvQYFW8NSCww" base_Comment="_WY03HYKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVsRtDEeWvQYFW8NSCww" base_Comment="_WY03IIKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVshtDEeWvQYFW8NSCww" base_Comment="_WY03IoKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVsxtDEeWvQYFW8NSCww" base_Comment="_WY03JYKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVtBtDEeWvQYFW8NSCww" base_Comment="_WY03KIKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVtRtDEeWvQYFW8NSCww" base_Comment="_WY03KoKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVthtDEeWvQYFW8NSCww" base_Comment="_WY03LYKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVtxtDEeWvQYFW8NSCww" base_Comment="_WY03MIKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVuBtDEeWvQYFW8NSCww" base_Comment="_WY03M4KOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVuRtDEeWvQYFW8NSCww" base_Comment="_WY03NoKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVuhtDEeWvQYFW8NSCww" base_Comment="_WY03OYKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVuxtDEeWvQYFW8NSCww" base_Comment="_WY03O4KOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVvBtDEeWvQYFW8NSCww" base_Comment="_WY03PoKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVvRtDEeWvQYFW8NSCww" base_Comment="_WY03QYKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVvhtDEeWvQYFW8NSCww" base_Comment="_WY03RIKOEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_71vVvxtDEeWvQYFW8NSCww" base_Comment="_-xxQoNmJEeKCbcFdSWbe4w"/>
+  <Documentation:Documentation xmi:id="_71vVwBtDEeWvQYFW8NSCww" base_Comment="_dsQ6Ee-0EeOLpfJhKSeeRA"/>
+  <ECIMBaseProfile:EcimFeatures xmi:id="_GaksUL9-EeWQ5fgWrWqk0w" base_Package="_GaYfEL9-EeWQ5fgWrWqk0w"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_GasBEL9-EeWQ5fgWrWqk0w" base_Class="_Gal6cL9-EeWQ5fgWrWqk0w"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_aAKL0L9-EeWQ5fgWrWqk0w" base_Package="_aABB4L9-EeWQ5fgWrWqk0w"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_lfnRsL9-EeWQ5fgWrWqk0w" base_Class="_lfeu0L9-EeWQ5fgWrWqk0w"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_bTPTYDEnEeqTSuXqsm70OQ" hideGroupName="hidden" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" range="" unit="" resolution="" multiplicationFactor="" base_Property="_bTMQEDEnEeqTSuXqsm70OQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_bTPTYTEnEeqTSuXqsm70OQ" base_Property="_bTMQEDEnEeqTSuXqsm70OQ" isConfigurable="true"/>
+</xmi:XMI>

@@ -1,0 +1,22 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeExternalAlarmReceiver_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "ExternalAlarmReceiverM" as AxeExternalAlarmReceiver__ExternalAlarmReceiverM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeExternalAlarmReceiver?title=class%20ExternalAlarmReceiverM]] 
+class "ExternalAlarmReceiver" as AxeExternalAlarmReceiver__ExternalAlarmReceiver [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeExternalAlarmReceiver?title=class%20ExternalAlarmReceiver]] 
+class "ExternalAlarmReceiverM" as AxeExternalAlarmReceiver__ExternalAlarmReceiverM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeExternalAlarmReceiver?title=class%20ExternalAlarmReceiverM]] 
+class "ExternalAlarmReceiver" as AxeExternalAlarmReceiver__ExternalAlarmReceiver [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeExternalAlarmReceiver?title=class%20ExternalAlarmReceiver]] 
+AxeExternalAlarmReceiver__ExternalAlarmReceiverM *-- "0..32" AxeExternalAlarmReceiver__ExternalAlarmReceiver
+class "SupervisionHandling" as AxeFunctions__SupervisionHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SupervisionHandling]] 
+class "ExternalAlarmReceiverM" as AxeExternalAlarmReceiver__ExternalAlarmReceiverM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeExternalAlarmReceiver?title=class%20ExternalAlarmReceiverM]] 
+AxeFunctions__SupervisionHandling *-- "1" AxeExternalAlarmReceiver__ExternalAlarmReceiverM
+@enduml 

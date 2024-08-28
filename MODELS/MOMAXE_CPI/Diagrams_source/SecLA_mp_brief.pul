@@ -1,0 +1,54 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/SecLA_DWAXE_mp_brief.svg
+top to bottom direction
+hide members
+hide circle
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "LocalAuthenticationMethod" as SecLA__LocalAuthenticationMethod [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20LocalAuthenticationMethod]] 
+class "PasswordPolicy" as SecLA__PasswordPolicy [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20PasswordPolicy]] 
+class "UserAccount" as SecLA__UserAccount [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20UserAccount]] 
+class "PasswordQuality" as SecLA__PasswordQuality [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20PasswordQuality]] 
+class "AdministratorAccount" as SecLA__AdministratorAccount [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20AdministratorAccount]] 
+class "AccountPolicy" as SecLA__AccountPolicy [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20AccountPolicy]] 
+class "UserAccountM" as SecLA__UserAccountM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20UserAccountM]] 
+class "LocalAuthenticationMethod" as SecLA__LocalAuthenticationMethod [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20LocalAuthenticationMethod]] 
+class "PasswordPolicy" as SecLA__PasswordPolicy [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20PasswordPolicy]] 
+SecLA__LocalAuthenticationMethod *-- "*" SecLA__PasswordPolicy
+class "LocalAuthenticationMethod" as SecLA__LocalAuthenticationMethod [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20LocalAuthenticationMethod]] 
+class "PasswordQuality" as SecLA__PasswordQuality [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20PasswordQuality]] 
+SecLA__LocalAuthenticationMethod *-- "1" SecLA__PasswordQuality
+class "LocalAuthenticationMethod" as SecLA__LocalAuthenticationMethod [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20LocalAuthenticationMethod]] 
+class "AccountPolicy" as SecLA__AccountPolicy [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20AccountPolicy]] 
+SecLA__LocalAuthenticationMethod *-- "*" SecLA__AccountPolicy
+class "LocalAuthenticationMethod" as SecLA__LocalAuthenticationMethod [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20LocalAuthenticationMethod]] 
+class "AdministratorAccount" as SecLA__AdministratorAccount [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20AdministratorAccount]] 
+SecLA__LocalAuthenticationMethod *-- "1" SecLA__AdministratorAccount
+class "LocalAuthenticationMethod" as SecLA__LocalAuthenticationMethod [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20LocalAuthenticationMethod]] 
+class "UserAccountM" as SecLA__UserAccountM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20UserAccountM]] 
+SecLA__LocalAuthenticationMethod *-- "1" SecLA__UserAccountM
+class "UserAccountM" as SecLA__UserAccountM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20UserAccountM]] 
+class "UserAccount" as SecLA__UserAccount [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20UserAccount]] 
+SecLA__UserAccountM *-- "*" SecLA__UserAccount
+class "UserManagement" as ComSecM__UserManagement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20UserManagement]] 
+class "LocalAuthenticationMethod" as SecLA__LocalAuthenticationMethod [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20LocalAuthenticationMethod]] 
+ComSecM__UserManagement *-- "1" SecLA__LocalAuthenticationMethod
+class "AccountPolicy" as SecLA__AccountPolicy [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20AccountPolicy]] 
+class "UserAccount" as SecLA__UserAccount [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20UserAccount]] 
+SecLA__AccountPolicy "1" -- "*" SecLA__UserAccount
+class "PasswordPolicy" as SecLA__PasswordPolicy [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20PasswordPolicy]] 
+class "UserAccount" as SecLA__UserAccount [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20UserAccount]] 
+SecLA__PasswordPolicy "1" -- "*" SecLA__UserAccount
+class "PasswordQuality" as SecLA__PasswordQuality [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20PasswordQuality]] 
+class "PasswordPolicy" as SecLA__PasswordPolicy [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20PasswordPolicy]] 
+SecLA__PasswordQuality "1" -- "*" SecLA__PasswordPolicy
+class "PasswordQuality" as SecLA__PasswordQuality [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20PasswordQuality]] 
+class "AdministratorAccount" as SecLA__AdministratorAccount [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SecLA?title=class%20AdministratorAccount]] 
+SecLA__PasswordQuality "1" -- "*" SecLA__AdministratorAccount
+@enduml 

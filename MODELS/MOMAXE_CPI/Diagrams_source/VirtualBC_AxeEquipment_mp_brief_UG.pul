@@ -1,0 +1,62 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeEquipment_DWAXE_mp_brief.svg
+top to bottom direction
+hide members
+hide circle
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "Apg" as AxeEquipment__Apg [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20Apg]] 
+class "EquipmentM" as AxeEquipment__EquipmentM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20EquipmentM]] 
+class "DualSidedCp" as AxeEquipment__DualSidedCp [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20DualSidedCp]] 
+class "LogicalMgmt" as AxeEquipment__LogicalMgmt [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20LogicalMgmt]] 
+class "CpCluster" as AxeEquipment__CpCluster [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20CpCluster]] 
+class "ClusterCp" as AxeEquipment__ClusterCp [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20ClusterCp]] 
+class "OmProfile" as AxeEquipment__OmProfile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20OmProfile]] 
+class "CcFile" as AxeEquipment__CcFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20CcFile]] 
+class "OmProfileManager" as AxeEquipment__OmProfileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20OmProfileManager]] 
+class "CcFileManager" as AxeEquipment__CcFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20CcFileManager]] 
+class "CandidateCcFile" as AxeEquipment__CandidateCcFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20CandidateCcFile]] 
+class "SwMau" as AxeEquipment__SwMau [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20SwMau]] 
+class "EquipmentM" as AxeEquipment__EquipmentM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20EquipmentM]] 
+class "LogicalMgmt" as AxeEquipment__LogicalMgmt [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20LogicalMgmt]] 
+AxeEquipment__EquipmentM *-- "1" AxeEquipment__LogicalMgmt
+class "LogicalMgmt" as AxeEquipment__LogicalMgmt [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20LogicalMgmt]] 
+class "Apg" as AxeEquipment__Apg [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20Apg]] 
+AxeEquipment__LogicalMgmt *-- "1..2" AxeEquipment__Apg
+class "LogicalMgmt" as AxeEquipment__LogicalMgmt [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20LogicalMgmt]] 
+class "DualSidedCp" as AxeEquipment__DualSidedCp [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20DualSidedCp]] 
+AxeEquipment__LogicalMgmt *-- "0..2" AxeEquipment__DualSidedCp
+class "CpCluster" as AxeEquipment__CpCluster [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20CpCluster]] 
+class "OmProfileManager" as AxeEquipment__OmProfileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20OmProfileManager]] 
+AxeEquipment__CpCluster *-- "1" AxeEquipment__OmProfileManager
+class "LogicalMgmt" as AxeEquipment__LogicalMgmt [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20LogicalMgmt]] 
+class "CpCluster" as AxeEquipment__CpCluster [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20CpCluster]] 
+AxeEquipment__LogicalMgmt *-- "0..1" AxeEquipment__CpCluster
+class "CpCluster" as AxeEquipment__CpCluster [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20CpCluster]] 
+class "ClusterCp" as AxeEquipment__ClusterCp [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20ClusterCp]] 
+AxeEquipment__CpCluster *-- "0..63" AxeEquipment__ClusterCp
+class "OmProfileManager" as AxeEquipment__OmProfileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20OmProfileManager]] 
+class "OmProfile" as AxeEquipment__OmProfile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20OmProfile]] 
+AxeEquipment__OmProfileManager *-- "*" AxeEquipment__OmProfile
+class "OmProfile" as AxeEquipment__OmProfile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20OmProfile]] 
+class "CcFile" as AxeEquipment__CcFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20CcFile]] 
+AxeEquipment__OmProfile *-- "0..3" AxeEquipment__CcFile
+class "OmProfileManager" as AxeEquipment__OmProfileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20OmProfileManager]] 
+class "CcFileManager" as AxeEquipment__CcFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20CcFileManager]] 
+AxeEquipment__OmProfileManager *-- "0..1" AxeEquipment__CcFileManager
+class "CcFileManager" as AxeEquipment__CcFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20CcFileManager]] 
+class "CandidateCcFile" as AxeEquipment__CandidateCcFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20CandidateCcFile]] 
+AxeEquipment__CcFileManager *-- "*" AxeEquipment__CandidateCcFile
+class "DualSidedCp" as AxeEquipment__DualSidedCp [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20DualSidedCp]] 
+class "SwMau" as AxeEquipment__SwMau [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20SwMau]] 
+AxeEquipment__DualSidedCp *-- "0..1" AxeEquipment__SwMau
+class "SystemComponentHandling" as AxeFunctions__SystemComponentHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemComponentHandling]] 
+class "EquipmentM" as AxeEquipment__EquipmentM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20EquipmentM]] 
+AxeFunctions__SystemComponentHandling *-- "1" AxeEquipment__EquipmentM
+@enduml 

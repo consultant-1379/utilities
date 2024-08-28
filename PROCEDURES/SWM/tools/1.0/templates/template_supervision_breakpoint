@@ -1,0 +1,10 @@
+									<customizationTime>
+										<onStep>
+											<onFirstStep/>
+										</onStep>
+										<atAction>
+											<afterUnlock/>
+										</atAction>
+									</customizationTime>
+									<callback callbackLabel="OsafSmfCbkUtil-UpgradeCmd" time="#SUPERVISION_BREAKPOINT_TIMEOUT#" stringToPass="/opt/coremw/lib/ecim-swm-breakpoint"/>
+		

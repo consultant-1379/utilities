@@ -1,0 +1,242 @@
+#!/bin/bash
+##
+# ------------------------------------------------------------------------
+#     Copyright (C) 2015 Ericsson AB. All rights reserved.
+# ------------------------------------------------------------------------
+##
+# Name:
+#       set 
+#
+# Description:
+#       It sets the requested APG parameter value to APOS PSO
+##
+# Usage:
+# . <parmtool_root>/parmtool set --file <inputfile>
+# . <parmtool_root>/parmtool set --simulated --file <inputfile>
+# . <parmtool_root>/parmtool set --item-list lvalue1=rvalue1[,lvalueN=rvalueN]
+# . <parmtool_root>/parmtool set --file <inputfile>
+#  	                             --item-list lvalue1=rvalue1[,lvalueN=rvalueN]
+# . <parmtool_root>/parmtool set --simulated --file <inputfile>
+#                                --item-list lvalue1=rvalue1[,lvalueN=rvalueN]
+##
+# Changelog:
+# - Mon Jul 19 2016 - Pratap Reddy (xpraupp)
+#   Plasil impacts
+# - Wed Nov 18 2015 - Malangsha Shaik(xmalsha)
+#   First Version
+##
+
+. $LIB_COMMON_DIR/parmtool_common.sh
+
+# ------------------------------------------------------------------------------
+function update_params(){
+
+  for ITEM in ${ITEM_ARRAY[@]}	
+  do
+    ATTRIBUTE=$($CMD_ECHO $ITEM | $CMD_AWK -F "=" '{print $1}')
+    VALUE=$($CMD_ECHO $ITEM | $CMD_AWK -F "=" '{print $2}')
+
+    #logic to handle simulated environment parameters
+    SIMULATED_ATTR="$ATTRIBUTE"
+    if [ $OPT_SIMULATED -eq $TRUE ]; then
+      if $CMD_GREP -q "$ATTRIBUTE" $PSO_DB ; then
+        SIMULATED_ATTR="simulated_$ATTRIBUTE"
+      else
+        abort "Attribute ("simulated_$ATTRIBUTE") not found in PSO.DB, Exiting."
+      fi
+    fi
+
+    if $CMD_GREP -q "$ATTRIBUTE" $PSO_DB ; then
+      CFG_FILE=$( $CMD_GREP "^$ATTRIBUTE;" $PSO_DB | $CMD_AWK -F';' '{print $2}')
+      local TMP_CFG_FILE="/tmp/$SIMULATED_ATTR"
+      echo $VALUE > "$TMP_CFG_FILE"
+    else
+      abort "Attribute ($ATTRIBUTE) not found in PSO.DB, Exiting."
+  	fi
+    $CMD_INSTALL -m 444 -D $TMP_CFG_FILE $PSO_PATH/$CFG_FILE
+    $CMD_RM -f $TMP_CFG_FILE 2>/dev/null
+  done	
+
+	return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function parse_txtfile(){
+  local ITEMS_COUNT=0
+  local FILE_ITEMS=()
+  local MERGE_ITEMS=()
+
+  if isXML $INFILE; then
+   abort "XML format Not supported, Exiting."
+  fi
+
+  while read ITEM
+  do
+    FILE_ITEMS[$ITEMS_COUNT]=$ITEM
+    ((ITEMS_COUNT++))
+  done < $INFILE
+  
+  # Mixed usage of validate(--item-list and --file together),
+  # merge them with the ones in --item-list. And also if
+  # the parameter is present in both switches,file parameter
+  # will be overwritten with item-list parameter.
+  if [ $OPT_ITEM -eq $TRUE ]; then
+    OIFS=$IFS; IFS=,
+    MERGE_ITEMS="${ITEM_LIST_ARRAY[@]}"; IFS=$OIFS
+    for PARM in "${FILE_ITEMS[@]}"; do
+      L_VAL=$($CMD_ECHO "$PARM" | $CMD_AWK -F'=' '{print $1}')
+      if $CMD_ECHO "${MERGE_ITEMS[@]}" | $CMD_GREP -wq $L_VAL; then
+        MERGE_ITEMS=$($CMD_ECHO ${MERGE_ITEMS[@]/$L_VAL*=.*/$PARM})
+      else
+        MERGE_ITEMS+=" $PARM"
+      fi
+    done
+    ITEM_LIST_ARRAY=$($CMD_ECHO ${MERGE_ITEMS[@]} | $CMD_TR ' ' ',')
+  else
+    ITEM_LIST_ARRAY=$($CMD_ECHO ${FILE_ITEMS[@]} | $CMD_TR ' ' ',')
+  fi	
+
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function set_params(){
+
+  [ $OPT_FILE -eq $TRUE ] && parse_txtfile
+
+  if [ $OPT_SIMULATED -eq $FALSE ]; then
+    $CMD_VALIDATE_DIR/validate --item-list "${ITEM_LIST_ARRAY[@]}" || \
+     abort "Paramter validation failed, Exiting."
+  fi
+
+  OIFS=$IFS; IFS=, 
+  ITEM_ARRAY=(${ITEM_LIST_ARRAY[@]}); IFS=$OIFS
+
+  # Set the requested parameters in PSO Path
+  update_params
+
+  console_print "Configuration successfully applied!!!"
+
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function usage(){
+  $CMD_CAT $MAN_DIR/set.man
+}
+
+# ------------------------------------------------------------------------------
+function check_itemlist_format(){
+  local ITEM_LIST=$1
+  local COUNT=1
+  local PATTERN='^[^[:space:]=]+=[^[:space:]=,:#@!^]+$'
+  local ITEM_COUNT=$($CMD_ECHO "$ITEM_LIST" | $CMD_AWK -F, '{print NF}')
+  while [ $COUNT -le $ITEM_COUNT ]; do
+    ITEM=$($CMD_ECHO "$ITEM_LIST" | $CMD_AWK -F',' "{print $"$COUNT"}")
+    if [ -z "$ITEM" ]; then
+      return $FALSE
+    elif ! $($CMD_ECHO "$ITEM" | $CMD_GREP -qP "$PATTERN" ); then
+      return $FALSE
+    fi
+    ((COUNT++))
+  done
+
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function check_set_file_format(){
+  local FILE="$1"
+  if ! check_file_format "$FILE"; then
+   return $FALSE
+  fi
+
+  while read LINE; do
+    if ! $CMD_ECHO "$LINE" | $CMD_GREP -qP '^[^[:space:]=]+=[^[:space:]=,:#@!^]+$'; then
+      return $FALSE
+    fi
+  done < $FILE
+
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------------
+function invoke(){
+
+  # Set the parameters in APOS PSO
+  set_params
+}
+
+# ------------------------------------------------------------------------------
+function parse_cmdline(){
+  local ITEM_LIST
+  local LONG_OPTIONS='help item-list: file: simulated'
+  [ $# -le 0 ] && usage && abort 'missing parameter'
+
+  $CMD_GETOPT --quiet --quiet-output --longoptions="$LONG_OPTIONS" -- "$@"
+  EXIT_CODE=$?
+  [ $EXIT_CODE -ne $TRUE ] && usage && abort "Command line parameter error"
+
+  local ARGS="$@"
+  eval set -- "$ARGS"
+
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --file)
+          [ $OPT_FILE -eq $TRUE ] && usage_error "--file option repeated"
+          OPT_FILE=$TRUE
+          INFILE="$2"
+          [ -z "$INFILE" ] && usage_error "Command line parameter error"
+          [ ! -s $INFILE ] && abort "FILE ($INFILE) is empty"
+
+          check_set_file_format $INFILE || \
+            usage_error "FILE ($INFILE) format is not supported"
+          shift
+      ;;
+      --item-list)
+          [ $OPT_ITEM -eq $TRUE ] && usage_error "--item-list option repeated"
+          OPT_ITEM=$TRUE
+          ITEM_LIST="$2"
+          [ -z "$ITEM_LIST" ] && usage_error "Command line parameter error"	
+
+          check_itemlist_format $ITEM_LIST || \
+					  usage_error "Invalid item list format"
+          ITEM_LIST_ARRAY=( $ITEM_LIST )
+          shift
+      ;;
+      --simulated)
+        [ $OPT_SIMULATED -eq $TRUE ] && usage_error "--simulated option repeated"
+        OPT_SIMULATED=$TRUE
+			;;
+      --help)
+          usage && exit $TRUE
+      ;;
+      --)
+          # "end of argument list"
+          shift
+          break
+      ;;
+      *)
+          abort "unrecognized option ($1)"
+      ;;
+    esac
+    shift
+  done
+
+}
+
+OPT_FILE=$FALSE
+OPT_ITEM=$FALSE
+OPT_SIMULATED=$FALSE
+INFILE=''
+
+ITEM_ARRAY=()
+ITEM_COUNT=0
+
+parse_cmdline $@
+
+invoke
+
+# always return true if we are here.
+exit $TRUE
+

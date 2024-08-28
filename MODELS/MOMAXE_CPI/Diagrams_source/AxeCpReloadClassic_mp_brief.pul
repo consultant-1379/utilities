@@ -1,0 +1,18 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeCpReloadClassic_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "ClassicCp" as AxeCpReloadClassic__ClassicCp [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpReloadClassic?title=class%20ClassicCp]] 
+class "CpReloadM" as AxeCpReload__CpReloadM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpReload?title=class%20CpReloadM]] 
+class "ClassicCp" as AxeCpReloadClassic__ClassicCp [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpReloadClassic?title=class%20ClassicCp]] 
+AxeCpReload__CpReloadM *-- "0..1" AxeCpReloadClassic__ClassicCp
+@enduml 

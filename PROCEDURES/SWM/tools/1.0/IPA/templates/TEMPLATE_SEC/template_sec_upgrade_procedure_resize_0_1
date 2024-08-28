@@ -1,0 +1,40 @@
+	<upgradeProcedure saSmfExecLevel="7" safSmfProcedure="safSmfProc=SingleStepProcSEC">
+		<outageInfo>
+			<acceptableServiceOutage>
+          			<all/>
+			</acceptableServiceOutage>
+			<procedurePeriod saSmfProcPeriod="600000000"/>
+		</outageInfo>
+		<procInitAction>
+			<doCliCommand args="#SEC_BUNDLE#" command="cmw-model-add"/>
+			<undoCliCommand command="/bin/false"/>
+			<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+		</procInitAction>
+		<procInitAction>
+			<doCliCommand command="cmw-model-done"/>
+			<undoCliCommand command="/bin/false"/>
+			<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+		</procInitAction>
+		<upgradeMethod>
+			<singleStepUpgrade>
+				<upgradeScope>
+					<forAddRemove>
+						<deactivationUnit/>
+						<activationUnit>
+							<swAdd bundleDN="safSmfBundle=#SEC_CRYPTO_BUNDLE#" pathnamePrefix="/opt">
+								<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+							</swAdd>
+							<swAdd bundleDN="safSmfBundle=#SEC_BUNDLE#" pathnamePrefix="/opt/eric/sec-cert-cxp9027891">
+								<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+							</swAdd>
+							<swAdd bundleDN="safSmfBundle=#SEC_AGENT_BUNDLE#" pathnamePrefix="/opt/eric/sec-cert-cxp9027891">
+								<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+							</swAdd>
+						</activationUnit>
+					</forAddRemove>
+				</upgradeScope>
+				<upgradeStep/>
+			</singleStepUpgrade>
+		</upgradeMethod>
+	</upgradeProcedure>
+	

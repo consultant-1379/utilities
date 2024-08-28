@@ -1,0 +1,129 @@
+#!/bin/bash
+##
+# argument_handling.sh
+# A common script to be used for command line arguments and options handling.
+##
+# Changelog:
+# - Tue Feb 19 2013 - mini ipa resize impacts
+# - Sat May 14 2011 - Francesco Rainone (efrarai)
+# 	First version.
+##
+
+TRUE=$(true; echo $?)
+FALSE=$(false; echo $?)
+
+function abort(){
+	echo -e ${@:-"An error occurred. Exiting!"}
+	exit 1
+}
+
+function usage(){
+	echo 'createIPA.sh --verbose	| -v'
+	echo '             --local	| -l'
+	echo '             --miniipa	| -m'
+	echo '		   --resize 	| -r'
+	echo
+}
+
+# The function reads the command line argument list and parses it flagging the
+#  right variables in a case/esac switch.
+#  Input: the function must be invoked with the $@ parameter:
+#   parse_cmdline $@
+#  Required: please make attention to handle the cases in the right way.
+#
+
+function parse_cmdline(){
+
+OPT_VERBOSE=''
+OPT_LOCAL=''
+OPT_MINIIPA=''
+OPT_RESIZE=''
+
+	# OPTIONS is a list of single-character options.
+	#  The string must be in the form:
+	#   Example: 'ovl' (for -o -v -l options).
+	#  Options that takes an argument must be followed by a colon:
+	#   Example: 'ov:l' (-v takes a mandatory argument).
+	#  Options with an optional argument must be followed by a double colon:
+	#   Example: 'ovl::' (-l takes an optional argument).
+	local OPTIONS='v l m r'
+	
+	# LONG_OPTIONS is a list of space-separated multi-character options.
+	#  The string must be in the form:
+	#   Example: 'option1 option2 ... optionN'.
+	#  Options that takes an argument must be followed by a colon:
+	#   Example: 'option1: option2 ... optionN:'
+	#  Options with an optional argument must be followed by a double colon:
+	#   Example: 'option1:: option2:: ... optionN'
+	local LONG_OPTIONS='verbose local miniipa resize'
+
+	ARGS=`getopt --longoptions "$LONG_OPTIONS" --options "$OPTIONS" -- "$@"`
+	RETURN_CODE=$?	
+	if [ $RETURN_CODE -ne 0 ]; then
+		usage
+		abort "Wrong parameters"
+	fi
+	
+	eval set -- "$ARGS"
+	
+	# Make sure to handle the cases for all the options listed in OPTIONS
+	#  and LONG_OPTIONS and to fill up the right script-wide variables.
+	while [ $# -gt 0 ]; do		
+		case "$1" in
+			-v|--verbose)
+				OPT_VERBOSE=$TRUE
+			;;
+			-l|--local)
+				OPT_LOCAL=$TRUE
+			;;
+			-m|--miniipa)
+				OPT_MINIIPA=$TRUE
+			;;
+                        -r|--resize)
+                                OPT_RESIZE=$TRUE
+                        ;;
+			--)
+				# echo "end of argument list"
+				shift
+				break
+			;;
+			*)
+				abort "unrecognized option ($1)"
+			;;
+		esac
+		shift
+	done
+}
+
+function is_verbose(){
+	
+	if [ "$OPT_VERBOSE" = "$TRUE" ]
+	then
+		return 0
+	else
+		return 1
+	fi
+
+}
+
+function is_local(){
+
+        if [ "$OPT_LOCAL" = "$TRUE" ]
+        then
+                return 0
+        else
+                return 1
+        fi
+
+}
+
+function is_miniipa(){
+
+        if [ "$OPT_MINIIPA" = "$TRUE" ]
+        then
+                return 0
+        else
+                return 1
+        fi
+
+}

@@ -1,0 +1,65 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeHealthCheck_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "HealthCheckM" as AxeHealthCheck__HealthCheckM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20HealthCheckM]] 
+class "Category" as AxeHealthCheck__Category [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20Category]] 
+class "Rule" as AxeHealthCheck__Rule [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20Rule]] 
+class "RuleSetFile" as AxeHealthCheck__RuleSetFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20RuleSetFile]] 
+class "RuleFileManager" as AxeHealthCheck__RuleFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20RuleFileManager]] 
+class "InUse" as AxeHealthCheck__InUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20InUse]] 
+class "ReadyToUse" as AxeHealthCheck__ReadyToUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20ReadyToUse]] 
+class "Job" as AxeHealthCheck__Job [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20Job]] 
+class "SingleEvent" as AxeHealthCheck__SingleEvent [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20SingleEvent]] 
+class "PeriodicEvent" as AxeHealthCheck__PeriodicEvent [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20PeriodicEvent]] 
+class "CalendarPeriodicEvent" as AxeHealthCheck__CalendarPeriodicEvent [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20CalendarPeriodicEvent]] 
+class "JobScheduler" as AxeHealthCheck__JobScheduler [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20JobScheduler]] 
+class "Category" as AxeHealthCheck__Category [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20Category]] 
+class "Rule" as AxeHealthCheck__Rule [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20Rule]] 
+AxeHealthCheck__Category *-- "1..*" AxeHealthCheck__Rule
+class "RuleFileManager" as AxeHealthCheck__RuleFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20RuleFileManager]] 
+class "InUse" as AxeHealthCheck__InUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20InUse]] 
+AxeHealthCheck__RuleFileManager *-- "1" AxeHealthCheck__InUse
+class "RuleFileManager" as AxeHealthCheck__RuleFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20RuleFileManager]] 
+class "ReadyToUse" as AxeHealthCheck__ReadyToUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20ReadyToUse]] 
+AxeHealthCheck__RuleFileManager *-- "1" AxeHealthCheck__ReadyToUse
+class "InUse" as AxeHealthCheck__InUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20InUse]] 
+class "RuleSetFile" as AxeHealthCheck__RuleSetFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20RuleSetFile]] 
+AxeHealthCheck__InUse *-- "*" AxeHealthCheck__RuleSetFile
+class "ReadyToUse" as AxeHealthCheck__ReadyToUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20ReadyToUse]] 
+class "RuleSetFile" as AxeHealthCheck__RuleSetFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20RuleSetFile]] 
+AxeHealthCheck__ReadyToUse *-- "*" AxeHealthCheck__RuleSetFile
+class "HealthCheckM" as AxeHealthCheck__HealthCheckM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20HealthCheckM]] 
+class "RuleFileManager" as AxeHealthCheck__RuleFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20RuleFileManager]] 
+AxeHealthCheck__HealthCheckM *-- "0..1" AxeHealthCheck__RuleFileManager
+class "HealthCheckM" as AxeHealthCheck__HealthCheckM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20HealthCheckM]] 
+class "Category" as AxeHealthCheck__Category [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20Category]] 
+AxeHealthCheck__HealthCheckM *-- "*" AxeHealthCheck__Category
+class "HealthCheckM" as AxeHealthCheck__HealthCheckM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20HealthCheckM]] 
+class "Job" as AxeHealthCheck__Job [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20Job]] 
+AxeHealthCheck__HealthCheckM *-- "*" AxeHealthCheck__Job
+class "JobScheduler" as AxeHealthCheck__JobScheduler [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20JobScheduler]] 
+class "SingleEvent" as AxeHealthCheck__SingleEvent [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20SingleEvent]] 
+AxeHealthCheck__JobScheduler *-- "*" AxeHealthCheck__SingleEvent
+class "JobScheduler" as AxeHealthCheck__JobScheduler [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20JobScheduler]] 
+class "PeriodicEvent" as AxeHealthCheck__PeriodicEvent [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20PeriodicEvent]] 
+AxeHealthCheck__JobScheduler *-- "*" AxeHealthCheck__PeriodicEvent
+class "JobScheduler" as AxeHealthCheck__JobScheduler [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20JobScheduler]] 
+class "CalendarPeriodicEvent" as AxeHealthCheck__CalendarPeriodicEvent [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20CalendarPeriodicEvent]] 
+AxeHealthCheck__JobScheduler *-- "*" AxeHealthCheck__CalendarPeriodicEvent
+class "Job" as AxeHealthCheck__Job [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20Job]] 
+class "JobScheduler" as AxeHealthCheck__JobScheduler [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20JobScheduler]] 
+AxeHealthCheck__Job *-- "0..1" AxeHealthCheck__JobScheduler
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "HealthCheckM" as AxeHealthCheck__HealthCheckM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20HealthCheckM]] 
+ComTop__SystemFunctions *-- "0..1" AxeHealthCheck__HealthCheckM
+@enduml 

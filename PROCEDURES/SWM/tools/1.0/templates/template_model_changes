@@ -1,0 +1,5 @@
+						<procInitAction>
+							<doCliCommand command="$OSAFCAMPAIGNROOT/model_changes.sh" args="#NEW_BUNDLE_NAME# CMW_GETDN(^safSmfBundle=#NEW_BUNDLE_BASE_NAME#)" />
+							<undoCliCommand command="/bin/false" />
+							<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster" />
+						</procInitAction>

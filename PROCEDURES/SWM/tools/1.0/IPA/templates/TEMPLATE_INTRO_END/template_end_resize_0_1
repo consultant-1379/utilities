@@ -1,0 +1,23 @@
+<campaignWrapup>
+<!-- CMW_CAMPAIGN_XML_INCLUDE_IF_CMD($OSAFCAMPAIGNROOT/#SCRIPT# node-lock) -->
+<campCompleteAction>
+	<doCliCommand command="/opt/ap/acs/bin/acs_lct_configap.sh" args="-a"/>
+	<undoCliCommand command="/bin/false"/>
+	<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+</campCompleteAction>
+<!-- CMW_CAMPAIGN_XML_INCLUDE_FI_CMD -->
+<campCompleteAction>
+  <doCliCommand command="$OSAFCAMPAIGNROOT/cleanup_old_rpms"/>
+  <undoCliCommand command="/bin/true"/>
+  <plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+</campCompleteAction>
+<campCompleteAction>
+    <doCliCommand command="$OSAFCAMPAIGNROOT/ssh_keygen"/>
+    <undoCliCommand command="/bin/true"/>
+    <plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+</campCompleteAction>
+<waitToCommit/>
+<waitToAllowNewCampaign/>
+<removeFromImm/>
+</campaignWrapup>
+</upgradeCampaign>

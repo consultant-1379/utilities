@@ -1,0 +1,211 @@
+#!/usr/bin/python
+#
+# (C) Copyright 2015,2016 Ericsson AB
+
+import os
+import sys
+import argparse
+import logging
+import traceback
+import inspect
+
+# Configure the PYTHONPATH to find the tcg package modules.
+program = "tcg"
+current_file = inspect.getfile(inspect.currentframe())
+scriptdir = os.path.dirname(os.path.realpath(current_file))
+
+# tcg/plugin_api is added for backward compatibility reasons. This way the SMF plugin
+# authors do not need to know the location of the interfaces in the tcg code
+tcglib_packages = ["%(scriptdir)s/../lib/python2.7",
+                   "%(scriptdir)s/../lib/python2.7/tcg/plugin_api",
+                   "%(scriptdir)s/../plugin/coremw",
+                   "%(scriptdir)s/../3PP"]
+
+for package in tcglib_packages:
+    sys.path.append(package % {"scriptdir": scriptdir})
+
+# Import TCG stuff
+from tcg.utils.logger_tcg import loggingInit, tcg_error
+from tcg.utils.exceptions import TcgException
+from tcg import TCG
+from tcg import OnlineAdapter
+
+
+def parse_arguments(args):
+    """
+    This function builds a valid argument parser and applies it to the argument
+    list args.
+    Note that args is not expected to be sys.args, but sys.args[1:], this is
+    all the command line arguments except the name of the program itself (sys.args[0]).
+
+    This allows this function to be tested throughfully using python.
+    """
+    parser = build_argument_parser()
+
+    # If no options given, show usage and exit
+    if len(args) == 0:
+        parser.print_usage()
+        sys.exit("%(prog)s: no argument provided, please check '%(prog)s --help'." % {'prog': program})
+
+    return parser.parse_args(args)
+
+
+def build_argument_parser():
+    """
+    The purpose of this function is to create an instance of the
+    argparse.ArgumentParser class with all the options accepted by tcg.
+    """
+    epilogEnd = """\n
+Sample for deployment package creation:
+  tcg -d targetdir -dp deploymentPackageDir -dp runtimePackageDir"""
+
+    # Create an argument parser
+    parser = argparse.ArgumentParser(prog=program,
+                                     formatter_class=argparse.RawTextHelpFormatter,
+                                     epilog=epilogEnd)
+    # Add the argument options to be handled by the tcg program
+    add_tcg_public_arguments(parser)
+    add_tcg_hidden_arguments(parser)
+
+    # Define the positional arguments at the end
+    parser.add_argument("modelFragments", metavar="config.yml", nargs='*',
+                        help='CSM model fragments in YAML format.\n')
+
+    return parser
+
+
+def add_tcg_public_arguments(parser):
+    """
+    This function will add into the input parser (which is exepcted to be an
+    ArgumentParser instance), all the official or public options and flags that
+    tcg currently support.
+    """
+    parser.add_argument("-d", "--target-directory", default="./",
+                        metavar="TARGET_DIRECTORY",
+                        help="Target directory for generated content\n")
+    parser.add_argument("-cb", "--config-base", metavar="CONFIG_BASE",
+                        help="Source directory for the configuration base to be\n"
+                               "used when generating an upgrade package.\n")
+    parser.add_argument("-n", "--node-names", metavar="NODE_NAME_MAPPING",
+                        help="Mapping file between the host names and the AMF\n"
+                        "node names.\n")
+
+    parser.add_argument("-r", "--rpm-names", metavar="RPM_NAME_MAPPING",
+                        help="Mapping file between the rpm file name and rpm bundle name\n")
+
+    parser.add_argument("-R", "--rpm-repository-path", default="", metavar="RPM_SDP_REPOSITORY",
+                        help="Path to the local repository where the rpms can be found.\n")
+
+    parser.add_argument("-dp", "--delivery-package", default=[],
+                        metavar="DELIVERABLE_PACKAGE", action='append',
+                        help="The directory used to hold YAML specifications\n"
+                               "referred content.\n"
+                               "The \"DELIVERABLE_PACKAGE\"' can point to \"runtime package\"\n"
+                               "\"deployment package\" and also \"CSP 1.1 format package\".\n")
+    parser.add_argument("-f", "--format", default="campaign", metavar="FORMAT",
+                        choices=['campaign', 'instantiation-campaign', 'immobj'],
+                        help="The produced package format. It can take the\n"
+                             "following values:\n"
+                             "     campaign: A campaign is to be generated. (default)\n"
+                             "     instantiation-campaign: A campaign, without bundles,\n"
+                             "                             or IMM object references. This\n"
+                             "                             campaign type is used when \n"
+                             "                             instantiating a Offline Image\n"
+                             "     immobj:   A set of IMM objects with AMF and MDF\n"
+                             "               objects are to be generated\n")
+    parser.add_argument("-o", "--offline", dest="offline_image_initial_instantiation", 
+                        action="store_true", default=False,
+                        help="Execute TCG for a first instantiation flow, this\n"
+                             "is when tcg is executed in the context of an offline\n"
+                             "created image. In particular, this context, \n"
+                             "means that there is no access to IMM and there \n"
+                             "is no immdump provided.")
+    parser.add_argument("-p", "--plugins-base-dir", default=None,
+                        help="Base directory for the plugins. When not provided, \n"
+                             "TCG will look for the available plugins in the CSM \n"
+                             "model directory.")
+    parser.add_argument("--loglevel", choices=['DEBUG', 'INFO', 'WARNING',
+                                               'ERROR', 'CRITICAL', 'NOLOG'],
+                        help="Set log level.\n")
+    parser.add_argument("-i", "--immdump", metavar="IMM_DUMP.XML",
+                        help="Provide an immdump.\n")
+    parser.add_argument("-dlf", "--dedicated-log-file", metavar="DEDICATED_LOG_FILE.LOG",
+                        help="Path to dedicated log file.\n")
+
+
+def add_tcg_hidden_arguments(parser):
+    """
+    This function will add into the input parser (of type
+    argparse.ArgumentParser) all the "hidden", non-public (A.K.A. backdoor) options
+    that are useful when testing and troubleshooting.
+    Note that the options added here, have their help text "suppressed",
+    using the argparse.SUPPRESS constant.
+    """
+    # The -X option is used to tell tcg that is being executed in testing mode,
+    # in which case the bundle sdps are required and install script will be produced.")
+    parser.add_argument("-X", dest="test_mode_enabled", action="store_true",
+                        default=False, help=argparse.SUPPRESS)
+
+
+def apply_constraints(options):
+    """
+    This function is meant to contain a series of constraints and validations
+    (in addition to validation performed by argparse) on the provided command
+    line arguments.
+    """
+    if not options.delivery_package and not options.modelFragments:
+        tcg_error("Nor csm model fragments neither delivery packages were specified")
+
+    return options
+
+
+# Main TCG flow
+def main_tcg_flow(args):
+    options = parse_arguments(args)
+
+    loggingInit(options.loglevel, options.dedicated_log_file)
+    logging.info("#" * 50)
+    logging.info("Arguments: %s", str(args))
+
+    apply_constraints(options)
+
+    with OnlineAdapter(options.immdump,
+                       options.node_names,
+                       options.offline_image_initial_instantiation,
+                       options.rpm_names,
+                       options.rpm_repository_path) as online_adapter:
+
+        # Crete a TCG instance
+        tcg = TCG(options.delivery_package,
+                  options.modelFragments,
+                  options.target_directory,
+                  scriptdir,
+                  options.config_base,
+                  online_adapter,
+                  options.plugins_base_dir)
+        # Action!
+        if options.format == "campaign":
+            tcg.generateCampaign(options.test_mode_enabled)
+        elif options.format == "instantiation-campaign":
+            tcg.generateInstantiationCampaign()
+        else:
+            tcg.generateImm()
+
+
+##############################################################################
+if __name__ == "__main__":
+    print "*** %s" % str(sys.argv)
+    try:
+        main_tcg_flow(sys.argv[1:])
+    except TcgException:
+        raise
+    except SystemExit as exitcode:
+        if exitcode.code != 0:
+            logging.error("Exit code = %s" % exitcode.code)
+            raise
+    except:
+        logging.error("Unhandled exception in TCG. Backtrace information follows:")
+        all_line = traceback.format_exception(sys.exc_type, sys.exc_value, sys.exc_traceback)
+        for line in all_line:
+            logging.error(line.rstrip('\n'))
+        sys.exit(1)

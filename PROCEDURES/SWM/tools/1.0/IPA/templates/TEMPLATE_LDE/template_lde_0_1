@@ -1,0 +1,328 @@
+	<upgradeProcedure saSmfExecLevel="3" safSmfProcedure="safSmfProc=SingleStepProcLDE">
+		<outageInfo>
+			<acceptableServiceOutage>
+          			<all/>
+			</acceptableServiceOutage>
+			<procedurePeriod saSmfProcPeriod="600000000"/>
+		</outageInfo>
+                <procInitAction>
+            <doCliCommand command="cmw-modeltype-link" args="COM-LDE_R1 COM_R1"/>
+            <undoCliCommand command="/bin/true"/>
+            <plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+        </procInitAction>
+		<procInitAction>
+			<doCliCommand command="cmw-model-modify" args="#LDE_BUNDLE# --mt IMM_R1 IMM_R2 IMM_R3 PM_R1 IMM-I-FM_R1 COM-Equipment_R1 COM-LDE_R1"/>
+			<undoCliCommand command="/bin/true"/>
+			<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+		</procInitAction>
+		<procInitAction>
+			<doCliCommand command="cmw-model-done"/>
+			<undoCliCommand command="/bin/true"/>
+			<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+		</procInitAction>
+		<procInitAction>
+			<doCliCommand command="$OSAFCAMPAIGNROOT/migrate"/>
+			<undoCliCommand command="/bin/true"/>
+			<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+		</procInitAction>
+		<procInitAction>
+			<immCCB ccbFlags="0">
+				<create objectClassName="SaAmfApplication" parentObjectDN="=">
+					<attribute name="safApp" type="SA_IMM_ATTR_SASTRINGT">
+						<value>safApp=ERIC-LDE</value>
+					</attribute>
+					<attribute name="saAmfAppType" type="SA_IMM_ATTR_SANAMET">
+						<value>safVersion=1.2.0,safAppType=ERIC-LDEAppType</value>
+					</attribute>
+					<attribute name="saAmfApplicationAdminState" type="SA_IMM_ATTR_SAUINT32T">
+						<value>1</value>
+					</attribute>
+				</create>
+				<create objectClassName="SaAmfSG" parentObjectDN="safApp=ERIC-LDE">
+					<attribute name="safSg" type="SA_IMM_ATTR_SASTRINGT">
+						<value>safSg=NoRed-PMCounter</value>
+					</attribute>
+					<attribute name="saAmfSGType" type="SA_IMM_ATTR_SANAMET">
+						<value>safVersion=1.2.0,safSgType=ERIC-LDESgTypeNoRed</value>
+					</attribute>
+					<attribute name="saAmfSGSuHostNodeGroup" type="SA_IMM_ATTR_SANAMET">
+						<value>safAmfNodeGroup=AllNodes,safAmfCluster=myAmfCluster</value>
+					</attribute>
+					<attribute name="saAmfSGNumPrefInserviceSUs" type="SA_IMM_ATTR_SAUINT32T">
+						<value>2</value>
+					</attribute>
+					<attribute name="saAmfSGAdminState" type="SA_IMM_ATTR_SAUINT32T">
+						<value>1</value>
+					</attribute>
+					<attribute name="saAmfSGAutoRepair" type="SA_IMM_ATTR_SAUINT32T">
+						<value>1</value>
+					</attribute>
+				</create>
+				<create objectClassName="SaAmfSG" parentObjectDN="safApp=ERIC-LDE">
+					<attribute name="safSg" type="SA_IMM_ATTR_SASTRINGT">
+						<value>safSg=NoRed-CfsMonitor</value>
+					</attribute>
+					<attribute name="saAmfSGType" type="SA_IMM_ATTR_SANAMET">
+						<value>safVersion=1.2.0,safSgType=ERIC-LDESgTypeNoRed</value>
+					</attribute>
+					<attribute name="saAmfSGSuHostNodeGroup" type="SA_IMM_ATTR_SANAMET">
+						<value>safAmfNodeGroup=SCs,safAmfCluster=myAmfCluster</value>
+					</attribute>
+					<attribute name="saAmfSGNumPrefInserviceSUs" type="SA_IMM_ATTR_SAUINT32T">
+						<value>2</value>
+					</attribute>
+					<attribute name="saAmfSGAdminState" type="SA_IMM_ATTR_SAUINT32T">
+						<value>1</value>
+					</attribute>
+					<attribute name="saAmfSGAutoRepair" type="SA_IMM_ATTR_SAUINT32T">
+						<value>1</value>
+					</attribute>
+				</create>
+				<create objectClassName="SaAmfSU" parentObjectDN="safSg=NoRed-PMCounter,safApp=ERIC-LDE">
+					<attribute name="safSu" type="SA_IMM_ATTR_SASTRINGT">
+						<value>safSu=SC-1</value>
+					</attribute>
+					<attribute name="saAmfSUType" type="SA_IMM_ATTR_SANAMET">
+						<value>safVersion=1.0.0,safSuType=ERIC-LDESuTypePMCounter</value>
+					</attribute>
+					<attribute name="saAmfSURank" type="SA_IMM_ATTR_SAUINT32T">
+						<value>0</value>
+					</attribute>
+					<attribute name="saAmfSUHostNodeOrNodeGroup" type="SA_IMM_ATTR_SANAMET">
+						<value>safAmfNode=SC-1,safAmfCluster=myAmfCluster</value>
+					</attribute>
+					<attribute name="saAmfSUAdminState" type="SA_IMM_ATTR_SAUINT32T">
+						<value>3</value>
+					</attribute>
+				</create>
+				<create objectClassName="SaAmfComp" parentObjectDN="safSu=SC-1,safSg=NoRed-PMCounter,safApp=ERIC-LDE">
+					<attribute name="safComp" type="SA_IMM_ATTR_SASTRINGT">
+						<value>safComp=PM-Counter</value>
+					</attribute>
+					<attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET">
+						<value>safVersion=#LDE_PMCOUNTER_RSTATE#,safCompType=ERIC-LDECompTypePMCounterSC</value>
+					</attribute>
+				</create>
+				<create objectClassName="SaAmfCompCsType" parentObjectDN="safComp=PM-Counter,safSu=SC-1,safSg=NoRed-PMCounter,safApp=ERIC-LDE">
+					<attribute name="safSupportedCsType" type="SA_IMM_ATTR_SANAMET">
+						<value>safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-PM-Counter</value>
+					</attribute>
+				</create>
+				<create objectClassName="SaAmfSI" parentObjectDN="safApp=ERIC-LDE">
+					<attribute name="safSi" type="SA_IMM_ATTR_SASTRINGT">
+						<value>safSi=NoRed1</value>
+					</attribute>
+					<attribute name="saAmfSvcType" type="SA_IMM_ATTR_SANAMET">
+						<value>safVersion=1.0.0,safSvcType=ERIC-NoRed-LDE</value>
+					</attribute>
+					<attribute name="saAmfSIProtectedbySG" type="SA_IMM_ATTR_SANAMET">
+						<value>safSg=NoRed-PMCounter,safApp=ERIC-LDE</value>
+					</attribute>
+					<attribute name="saAmfSIRank" type="SA_IMM_ATTR_SAUINT32T">
+						<value>1</value>
+					</attribute>
+					<attribute name="saAmfSIAdminState" type="SA_IMM_ATTR_SAUINT32T">
+						<value>1</value>
+					</attribute>
+				</create>
+				<create objectClassName="SaAmfCSI" parentObjectDN="safSi=NoRed1,safApp=ERIC-LDE">
+					<attribute name="safCsi" type="SA_IMM_ATTR_SASTRINGT">
+						<value>safCsi=PM-Counter</value>
+					</attribute>
+					<attribute name="saAmfCSType" type="SA_IMM_ATTR_SANAMET">
+						<value>safVersion=1.0.0,safCSType=ERIC-PM-Counter</value>
+					</attribute>
+				</create>
+				<!-- Cfs supervision -->
+				<create objectClassName="SaAmfSU" parentObjectDN="safSg=NoRed-CfsMonitor,safApp=ERIC-LDE">
+					<attribute name="safSu" type="SA_IMM_ATTR_SASTRINGT">
+						<value>safSu=SC-1</value>
+					</attribute>
+					<attribute name="saAmfSUType" type="SA_IMM_ATTR_SANAMET">
+						<value>safVersion=1.0.0,safSuType=ERIC-LDESuTypeCfsMonitor</value>
+					</attribute>
+					<attribute name="saAmfSURank" type="SA_IMM_ATTR_SAUINT32T">
+						<value>0</value>
+					</attribute>
+					<attribute name="saAmfSUHostNodeOrNodeGroup" type="SA_IMM_ATTR_SANAMET">
+						<value>safAmfNode=SC-1,safAmfCluster=myAmfCluster</value>
+					</attribute>
+					<attribute name="saAmfSUAdminState" type="SA_IMM_ATTR_SAUINT32T">
+						<value>3</value>
+					</attribute>
+				</create>
+				<create objectClassName="SaAmfComp" parentObjectDN="safSu=SC-1,safSg=NoRed-CfsMonitor,safApp=ERIC-LDE">
+					<attribute name="safComp" type="SA_IMM_ATTR_SASTRINGT">
+						<value>safComp=CfsMonitor</value>
+					</attribute>
+					<attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET">
+						<value>safVersion=#LDE_CFSMONITOR_RSTATE#,safCompType=ERIC-LDECompTypeCfsMonitor</value>
+					</attribute>
+					<attribute name="saAmfCompRecoveryOnError" type="SA_IMM_ATTR_SAUINT32T">
+						<value>6</value>
+					</attribute>
+				</create>
+				<create objectClassName="SaAmfCompCsType" parentObjectDN="safComp=CfsMonitor,safSu=SC-1,safSg=NoRed-CfsMonitor,safApp=ERIC-LDE">
+					<attribute name="safSupportedCsType" type="SA_IMM_ATTR_SANAMET">
+						<value>safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-CfsMonitor</value>
+					</attribute>
+				</create>
+				<create objectClassName="SaAmfSI" parentObjectDN="safApp=ERIC-LDE">
+					<attribute name="safSi" type="SA_IMM_ATTR_SASTRINGT">
+						<value>safSi=CfsMonitorNoRed1</value>
+					</attribute>
+					<attribute name="saAmfSvcType" type="SA_IMM_ATTR_SANAMET">
+						<value>safVersion=1.0.0,safSvcType=ERIC-NoRed-LDE</value>
+					</attribute>
+					<attribute name="saAmfSIProtectedbySG" type="SA_IMM_ATTR_SANAMET">
+						<value>safSg=NoRed-CfsMonitor,safApp=ERIC-LDE</value>
+					</attribute>
+					<attribute name="saAmfSIRank" type="SA_IMM_ATTR_SAUINT32T">
+						<value>1</value>
+					</attribute>
+					<attribute name="saAmfSIAdminState" type="SA_IMM_ATTR_SAUINT32T">
+						<value>1</value>
+					</attribute>
+				</create>
+				<create objectClassName="SaAmfCSI" parentObjectDN="safSi=CfsMonitorNoRed1,safApp=ERIC-LDE">
+					<attribute name="safCsi" type="SA_IMM_ATTR_SASTRINGT">
+						<value>safCsi=CfsMonitor</value>
+					</attribute>
+					<attribute name="saAmfCSType" type="SA_IMM_ATTR_SANAMET">
+						<value>safVersion=1.0.0,safCSType=ERIC-CfsMonitor</value>
+					</attribute>
+				</create>
+      <create objectClassName="SaAmfSG" parentObjectDN="safApp=ERIC-LDE">
+          <attribute name="safSg" type="SA_IMM_ATTR_SASTRINGT">
+            <value>safSg=2N-LdeConfig</value>
+          </attribute>
+          <attribute name="saAmfSGType" type="SA_IMM_ATTR_SANAMET">
+            <value>safVersion=1.0.0,safSgType=ERIC-LDESgType2N</value>
+          </attribute>
+          <attribute name="saAmfSGSuHostNodeGroup" type="SA_IMM_ATTR_SANAMET">
+            <value>safAmfNodeGroup=SCs,safAmfCluster=myAmfCluster</value>
+          </attribute>
+          <attribute name="saAmfSGNumPrefStandbySUs" type="SA_IMM_ATTR_SAUINT32T">
+            <value>1</value>
+          </attribute>
+          <attribute name="saAmfSGNumPrefInserviceSUs" type="SA_IMM_ATTR_SAUINT32T">
+            <value>2</value>
+          </attribute>
+          <attribute name="saAmfSGNumPrefActiveSUs" type="SA_IMM_ATTR_SAUINT32T">
+            <value>1</value>
+          </attribute>
+          <attribute name="saAmfSGAdminState" type="SA_IMM_ATTR_SAUINT32T">
+            <value>1</value>
+          </attribute>
+          <attribute name="saAmfSGAutoRepair" type="SA_IMM_ATTR_SAUINT32T">
+            <value>1</value>
+          </attribute>
+          <attribute name="saAmfSGAutoAdjust" type="SA_IMM_ATTR_SAUINT32T">
+            <value>0</value>
+          </attribute>
+        </create>
+        <create objectClassName="SaAmfSI" parentObjectDN="safApp=ERIC-LDE">
+          <attribute name="safSi" type="SA_IMM_ATTR_SASTRINGT">
+            <value>safSi=LdeConfig2N</value>
+          </attribute>
+          <attribute name="saAmfSvcType" type="SA_IMM_ATTR_SANAMET">
+            <value>safVersion=1.0.0,safSvcType=ERIC-2N-LDE</value>
+          </attribute>
+          <attribute name="saAmfSIProtectedbySG" type="SA_IMM_ATTR_SANAMET">
+            <value>safSg=2N-LdeConfig,safApp=ERIC-LDE</value>
+          </attribute>
+          <attribute name="saAmfSIRank" type="SA_IMM_ATTR_SAUINT32T">
+            <value>1</value>
+          </attribute>
+          <attribute name="saAmfSIPrefStandbyAssignments" type="SA_IMM_ATTR_SAUINT32T">
+            <value>1</value>
+          </attribute>
+          <attribute name="saAmfSIPrefActiveAssignments" type="SA_IMM_ATTR_SAUINT32T">
+            <value>1</value>
+          </attribute>
+        </create>
+
+        <create objectClassName="SaAmfSU" parentObjectDN="safSg=2N-LdeConfig,safApp=ERIC-LDE">
+          <attribute name="safSu" type="SA_IMM_ATTR_SASTRINGT">
+            <value>safSu=SC-1</value>
+          </attribute>
+          <attribute name="saAmfSUType" type="SA_IMM_ATTR_SANAMET">
+            <value>safVersion=1.0.0,safSuType=ERIC-LDESuType2NLdeConfig</value>
+          </attribute>
+          <attribute name="saAmfSURank" type="SA_IMM_ATTR_SAUINT32T">
+            <value>1</value>
+          </attribute>
+          <attribute name="saAmfSUHostNodeOrNodeGroup" type="SA_IMM_ATTR_SANAMET">
+            <value>safAmfNode=SC-1,safAmfCluster=myAmfCluster</value>
+          </attribute>
+          <attribute name="saAmfSUFailover" type="SA_IMM_ATTR_SAUINT32T">
+            <value>1</value>
+          </attribute>
+          <attribute name="saAmfSUAdminState" type="SA_IMM_ATTR_SAUINT32T">
+            <value>3</value>
+          </attribute>
+        </create>
+        <create objectClassName="SaAmfComp" parentObjectDN="safSu=SC-1,safSg=2N-LdeConfig,safApp=ERIC-LDE">
+          <attribute name="safComp" type="SA_IMM_ATTR_SASTRINGT">
+            <value>safComp=LdeConfig</value>
+          </attribute>
+          <attribute name="saAmfCompType" type="SA_IMM_ATTR_SANAMET">
+            <value>safVersion=#LDE_CONFIG_RSTATE#,safCompType=ERIC-LDECompType2NLdeConfig</value>
+          </attribute>
+        </create>
+        <create objectClassName="SaAmfCompCsType" parentObjectDN="safComp=LdeConfig,safSu=SC-1,safSg=2N-LdeConfig,safApp=ERIC-LDE">
+          <attribute name="safSupportedCsType" type="SA_IMM_ATTR_SANAMET">
+            <value>safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-LdeConfig2N</value>
+          </attribute>
+        </create>
+        <create objectClassName="SaAmfCSI" parentObjectDN="safSi=LdeConfig2N,safApp=ERIC-LDE">
+          <attribute name="safCsi" type="SA_IMM_ATTR_SASTRINGT">
+            <value>safCsi=LdeConfig2N</value>
+          </attribute>
+          <attribute name="saAmfCSType" type="SA_IMM_ATTR_SANAMET">
+            <value>safVersion=1.0.0,safCSType=ERIC-LdeConfig2N</value>
+          </attribute>
+        </create>
+
+			</immCCB>
+		</procInitAction>
+		<upgradeMethod>
+			<singleStepUpgrade>
+				<upgradeScope>
+					<forAddRemove>
+						<deactivationUnit/>
+						<activationUnit>
+							<swAdd bundleDN="safSmfBundle=#LDE_BUNDLE#" pathnamePrefix="/">
+								<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+							</swAdd>
+						</activationUnit>
+					</forAddRemove>
+				</upgradeScope>
+				<upgradeStep/>
+			</singleStepUpgrade>
+		</upgradeMethod>
+                   	<procWrapupAction>
+			<doAdminOperation objectDN="safSu=SC-1,safSg=NoRed-PMCounter,safApp=ERIC-LDE" operationID="SA_AMF_ADMIN_UNLOCK_INSTANTIATION"/>
+			<undoAdminOperation objectDN="safSu=SC-1,safSg=NoRed-PMCounter,safApp=ERIC-LDE" operationID="SA_AMF_ADMIN_LOCK_INSTANTIATION"/>
+		</procWrapupAction>
+		<procWrapupAction>
+			<doAdminOperation objectDN="safSu=SC-1,safSg=NoRed-PMCounter,safApp=ERIC-LDE" operationID="SA_AMF_ADMIN_UNLOCK"/>
+			<undoAdminOperation objectDN="safSu=SC-1,safSg=NoRed-PMCounter,safApp=ERIC-LDE" operationID="SA_AMF_ADMIN_LOCK"/>
+		</procWrapupAction>
+		<procWrapupAction>
+			<doAdminOperation objectDN="safSu=SC-1,safSg=NoRed-CfsMonitor,safApp=ERIC-LDE" operationID="SA_AMF_ADMIN_UNLOCK_INSTANTIATION"/>
+			<undoAdminOperation objectDN="safSu=SC-1,safSg=NoRed-CfsMonitor,safApp=ERIC-LDE" operationID="SA_AMF_ADMIN_LOCK_INSTANTIATION"/>
+		</procWrapupAction>
+		<procWrapupAction>
+			<doAdminOperation objectDN="safSu=SC-1,safSg=NoRed-CfsMonitor,safApp=ERIC-LDE" operationID="SA_AMF_ADMIN_UNLOCK"/>
+			<undoAdminOperation objectDN="safSu=SC-1,safSg=NoRed-CfsMonitor,safApp=ERIC-LDE" operationID="SA_AMF_ADMIN_LOCK"/>
+		</procWrapupAction>
+		<procWrapupAction>
+			<doAdminOperation objectDN="safSu=SC-1,safSg=2N-LdeConfig,safApp=ERIC-LDE" operationID="SA_AMF_ADMIN_UNLOCK_INSTANTIATION"/>
+			<undoAdminOperation objectDN="safSu=SC-1,safSg=2N-LdeConfig,safApp=ERIC-LDE" operationID="SA_AMF_ADMIN_LOCK_INSTANTIATION"/>
+		</procWrapupAction>
+		<procWrapupAction>
+			<doAdminOperation objectDN="safSu=SC-1,safSg=2N-LdeConfig,safApp=ERIC-LDE" operationID="SA_AMF_ADMIN_UNLOCK"/>
+			<undoAdminOperation objectDN="safSu=SC-1,safSg=2N-LdeConfig,safApp=ERIC-LDE" operationID="SA_AMF_ADMIN_LOCK"/>
+		</procWrapupAction>
+	</upgradeProcedure>

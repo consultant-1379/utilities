@@ -1,0 +1,33 @@
+
+Usage:
+        parmtool validate --file <filename>
+        parmtool validate --item-list lvalue1[=rvalue1][,lvalue2[=rvalue2]...,lvalueN[=rvalueN]]
+        parmtool validate --file <filename> --item-list lvalue1[=rvalue1][,lvalue2[=rvalue2]...,lvalueN[=rvalueN]]
+
+This command ensures that all user-specified input parameters are validated.
+
+<filename>      Name of the text based file which contains all input parameters.
+lvalue[1..N]    Name of the input parameter.
+rvalue[1..N]    Value of the input parameter.
+
+Example 1:
+        parmtool validate --file inputFile
+        parmtool validate --item-list shelf_architecture=VIRTUALIZED,ap_type=AP1
+        parmtool validate --file inputFile --item-list shelf_architecture=VIRTUALIZED,ap_type=AP1
+
+        In these cases both requested input parameter and value are validated against the schema.
+
+Example 2:
+        parmtool validate --item-list shelf_architecture,ap_type
+        parmtool validate --file inputFile --item-list shelf_architecture,ap_type
+
+        In these cases only requested input parameter is validated against the schema.
+
+        Format of inputfile:
+        -------------------------
+        me_name=VAPG
+        shelf_architecture=VIRTUALIZED
+        ap_type=AP1
+        installation_hw=VM
+        datadisk_replication_type=DRBD
+

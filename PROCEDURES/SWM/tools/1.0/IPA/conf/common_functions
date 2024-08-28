@@ -1,0 +1,316 @@
+#!/bin/bash
+##
+# argument_handling.sh
+# A common script to be used for command line arguments and options handling.
+##
+# Changelog:
+# - Wed Nov 26 2014 - Fabrizio Paglia (xfabpag)
+#                     Added isOldNamingConvention() function
+# - Tue Feb 19 2013 - mini ipa resize impacts
+# - Sat May 14 2011 - Francesco Rainone (efrarai)
+# 	First version.
+##
+
+TRUE=$(true; echo $?)
+FALSE=$(false; echo $?)
+GA_2_0_list="/vobs/IO_Developments/Tools/CI/IPA/conf/2_0_GA_list"
+
+function check_params(){
+
+set -u
+
+
+
+parse_cmdline $@
+#options_check
+
+
+}
+
+function abort(){
+	echo -e ${@:-"An error occurred. Exiting!"}
+	exit 1
+}
+
+function usage(){
+	echo 'createIPAcampaign.sh --verbose||-v'
+	echo '                      --resize||-r <resize_type> ie. 0-1 -- 1-2'
+	echo '                      --mini||-m'
+	echo '                      --miniresize||-mr <resize_type> ie. 0-1 -- 1-2'	
+        echo '                      --output||-o <output_folder>'
+        echo '                      --env||-e <environmet_file>'
+        echo '                      --source||-s <source_file>'
+	echo ''
+}
+
+# The function reads the command line argument list and parses it flagging the
+#  right variables in a case/esac switch.
+#  Input: the function must be invoked with the $@ parameter:
+#   parse_cmdline $@
+#  Required: please make attention to handle the cases in the right way.
+#
+function parse_cmdline(){
+
+OPT_VERBOSE=''
+OPT_RESIZE=''
+OPT_RESIZE_ARG=''
+OPT_CC=''
+OPT_MINI=''
+OPT_DUAL=''
+OPT_SOURCE=''
+OPT_ENV=''
+OPT_OUTPUT=''
+
+	# OPTIONS is a list of single-character options.
+	#  The string must be in the form:
+	#   Example: 'ovl' (for -o -v -l options).
+	#  Options that takes an argument must be followed by a colon:
+	#   Example: 'ov:l' (-v takes a mandatory argument).
+	#  Options with an optional argument must be followed by a double colon:
+	#   Example: 'ovl::' (-l takes an optional argument).
+	local OPTIONS='v c m d r: o: s: e:'
+	
+	# LONG_OPTIONS is a list of space-separated multi-character options.
+	#  The string must be in the form:
+	#   Example: 'option1 option2 ... optionN'.
+	#  Options that takes an argument must be followed by a colon:
+	#   Example: 'option1: option2 ... optionN:'
+	#  Options with an optional argument must be followed by a double colon:
+	#   Example: 'option1:: option2:: ... optionN'
+	local LONG_OPTIONS='verbose clearcase mini dual resize: output: source: env:'
+
+	ARGS=`getopt --longoptions "$LONG_OPTIONS" --options "$OPTIONS" -- "$@"`
+	RETURN_CODE=$?	
+	if [ $RETURN_CODE -ne 0 ]; then
+		usage
+		abort "Wrong parameters"
+	fi
+	
+	eval set -- "$ARGS"
+	
+	# Make sure to handle the cases for all the options listed in OPTIONS
+	#  and LONG_OPTIONS and to fill up the right script-wide variables.
+	while [ $# -gt 0 ]; do		
+		case "$1" in
+			-v|--verbose)
+				OPT_VERBOSE=$TRUE
+			;;
+			-c|--clearcase)
+				OPT_CC=$TRUE
+			;;
+			-m|--mini)
+				OPT_MINI=$TRUE
+			;;
+			-r|--resize)
+				OPT_RESIZE=$TRUE
+				OPT_RESIZE_ARG=$2
+				
+				allowed='0-1 1-2'
+
+				is_allowed=0
+
+				for exc in $allowed; do 
+					if [ "$OPT_RESIZE_ARG" == "$exc" ]; then
+
+						is_allowed=1
+
+					fi
+				done
+
+				if [ $is_allowed -eq 0 ]; then
+				
+					echo "Invalid resize type, the only allowed are: $allowed"
+					
+					exit 7
+				
+				fi
+				
+				shift
+			;;
+                        -s|--source)
+                                OPT_SOURCE=$TRUE
+                                OPT_SOURCE_ARG=$2
+				#Verify if file exists
+				if [ ! -f "$OPT_SOURCE_ARG" ];then
+				  echo "ERROR: Source file $OPT_SOURCE_ARG not found!"
+				  exit 4
+				fi
+                                shift
+                        ;;
+                        -o|--output)
+                                OPT_OUTPUT=$TRUE
+                                OPT_OUTPUT_ARG=$2
+                                #Verify if file exists
+                                if [ ! -d "$OPT_OUTPUT_ARG" ];then
+                                  echo "ERROR: Output folder  $OPT_OUTPUT_ARG not found!"
+                                  exit 4
+                                fi
+                                shift
+                        ;;
+                        -e|--env)
+                                OPT_ENV=$TRUE
+                                OPT_ENV_ARG=$2
+                                #Verify if file exists
+                                if [ ! -f "$OPT_ENV_ARG" ];then
+                                  echo "ERROR: Environment file  $OPT_FILE_ARG not found!"
+                                  exit 4
+                                fi
+                                shift
+                        ;;
+			-d|--dual)
+				OPT_DUAL=$TRUE
+			;;
+			--)
+				# echo "end of argument list"
+				shift
+				break
+			;;
+			*)
+				abort "unrecognized option ($1)"
+			;;
+		esac
+		shift
+	done
+# mini ipa with resize impacts
+	if [ "$OPT_RESIZE" = "$TRUE" ]; then
+		if [ "$OPT_MINI" = "$TRUE" ]; then
+			OPT_MINI=''
+			OPT_MINIRES="$TRUE"
+		fi
+	fi	
+# end	
+	
+}
+
+function is_verbose(){
+	
+	if [ "$OPT_VERBOSE" = "$TRUE" ]
+	then
+		return 0
+	else
+		return 1
+	fi
+
+}
+
+function validate_sources(){
+
+        local TWON_NUM=11
+        local NORED_NUM=11
+        local NOAMF_NUM=4
+
+        while read line
+                do
+                        AMF_TYPE=$(echo $line | awk -F';' '{print $1}')
+                        ITEMS=$(echo $line | tr ';' ' ')
+
+                        COUNT=0
+
+                        for i in $ITEMS
+                                do
+
+                                ((COUNT++))
+
+                                if [ "$i" = "" ] ; then
+
+                                        exit 4
+
+                                fi
+                        done
+
+                        if [ "$AMF_TYPE" = "NOAMF" ]
+                                then
+
+                                if [ "$NOAMF_NUM" != "$COUNT" ]
+                                        then
+                                        echo "ERROR: Validation fails for sources.list:"
+                                        echo "LINE: $line"
+                                        exit 4
+                                fi
+                        elif [ "$AMF_TYPE" = "NORED" ]
+                                then
+                                 if [ "$NORED_NUM" != "$COUNT" ]
+                                        then
+                                        echo "ERROR: Validation fails for sources.list:"
+                                        echo "LINE: $line"
+                                        exit 4
+                                fi
+                        elif [ "$AMF_TYPE" = "2N" ]
+                                then
+                                if [ "$TWON_NUM" != "$COUNT" ]
+                                        then
+                                        echo "ERROR:Validation fails for sources.list:"
+                                        echo "LINE: $line"
+                                        exit 4
+                                fi
+                        else
+								echo "ERROR:Validation fails for sources.list:"
+                                echo "LINE: $line"
+                                exit 4
+
+                        fi
+
+
+        done < $1
+
+}
+
+function options_check(){	
+	if [[ -z $OPT_BUNDLE || -z $OPT_CAMPAIGN || -z $OPT_BUNDLE_ARG || -z $OPT_CAMPAIGN_ARG ]]; then
+		usage
+		abort "Must specify at least one bundle and one campaign."
+	fi
+	
+	
+	if [[ ! -z $OPT_BACKUP && -z $OPT_BACKUP_ARG ]]; then
+		usage
+		abort "Missing backup name"
+	fi
+
+	if [[ ! -z $OPT_CNAME && -z $OPT_CNAME_ARG ]]; then
+		usage
+		abort "Missing campaign name"
+	fi
+}
+
+##########################################################################################
+# function isOldNamingConvention($bundle_name);
+# 
+# Verify if it is needed to apply the "old" naming convention for AMF component type
+# for the bundle indicated by $bundle_name.
+# The "old" naming convention is applied to all bundles released in APG43L 2.0 GA version.
+# The list of APG bundles released in APG43L 2.0 GA version is located at
+# /vobs/IO_Developments/Tools/CI/IPA/conf/2_0_GA_list
+# If $bundle_name is not present in this list, it is assumed to be "newer" and the "new"
+# naming convention is applied.
+# 
+##########################################################################################
+# Old naming convention for APG block's component type
+# safVersion=<Rstate>,safCompType=<CompTypeName>
+# Example: safVersion=R1E,safCompType=ERIC-APG_ASEC
+##########################################################################################
+##########################################################################################
+# New naming convention for APG block's component type
+# safVersion=<CXC>-<Rstate>,safCompType=<CompTypeName>
+# Example: safVersion=CXC1371474-R1E,safCompType=ERIC-APG_ASEC
+##########################################################################################
+# 
+# Arguments:
+# $bundle_name complete APG bundle name (Example: ERIC-ACS_ASECBIN-CXC1371474-R1E)
+# 
+# Return codes:
+# - TRUE (0) if the OLD naming convention MUST be applied for $bundle_name
+# - FALSE (1) if the NEW naming convention MUST be applied for $bundle_name
+##########################################################################################
+function isOldNamingConvention() {
+	
+	local return_code=$FALSE
+	
+	local bundle_name="$1"
+	
+	if grep -w "$bundle_name" "$GA_2_0_list" &> /dev/null ; then
+		return_code=$TRUE
+	fi
+	
+	return $return_code
+}

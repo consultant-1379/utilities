@@ -1,0 +1,945 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="AxeAlarmDisplay">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NRAMoQwOEdmFcaeZXPdWAQ" source="uml2.diagrams"/>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7hmqAWr0EeK3NsiIy8FUNg" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7hmqAmr0EeK3NsiIy8FUNg" key="com.ericsson.ecim.coremw.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_Pbuf8GvCEeK_psk_X1_33w" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>&lt;p>AXE Alarm Display function MOM.&lt;/p></body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_8JbBoIW5Ed-FBpQGdJXi3g">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OS1OUIXLEd-lToFzlKoOsA" name="" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_crUjYHz9EeKz-s53flhbQQ" name="AxeAlarmDisplay">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_crVyjHz9EeKz-s53flhbQQ" annotatedElement="_crUjYHz9EeKz-s53flhbQQ">
+        <body>AXE Alarm Display Management function MOM.</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_crVyjXz9EeKz-s53flhbQQ" name="SoundProperty">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_crVyjnz9EeKz-s53flhbQQ" annotatedElement="_crVyjXz9EeKz-s53flhbQQ">
+          <body>This class represents sound property of alarm display.
+This class is used to allow, how an AXE alarm will use the sound devices of the AlarmDisplay, depending on its severity(alarm class).
+Each AlarmDisplay instance has to use the SoundProperty instance to know how to turn on/off the sound in each sound device.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crVyj3z9EeKz-s53flhbQQ" name="soundPropertyId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crVykHz9EeKz-s53flhbQQ" annotatedElement="_crVyj3z9EeKz-s53flhbQQ">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crVykXz9EeKz-s53flhbQQ" name="durationA1Alarm" type="_crW_r3z9EeKz-s53flhbQQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crVyknz9EeKz-s53flhbQQ" annotatedElement="_crVykXz9EeKz-s53flhbQQ">
+            <body>This attribute specifies the sound duration for A1 alarms, in  minutes. 
+If omitted, no inhibition is done until the alarm ceases  or the sound is manually inhibited. The range is -1 to 59 minutes. The default value -1 specifies infinite sound duration. The sound duration for A1 alarms is infinite, by default.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YrfEoCxeEeqyGea_tepjMg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crVyk3z9EeKz-s53flhbQQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_crVylXz9EeKz-s53flhbQQ" value="-1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crVylnz9EeKz-s53flhbQQ" name="durationA2Alarm" type="_crW_r3z9EeKz-s53flhbQQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crVyl3z9EeKz-s53flhbQQ" annotatedElement="_crVylnz9EeKz-s53flhbQQ">
+            <body>This attribute specifies the sound duration for A2 alarms, in  minutes.
+If omitted, no inhibition is done until the alarm ceases  or the sound is manually inhibited. The range is -1 to 59 minutes. The default value -1 specifies infinite sound duration. The sound duration for A2 alarms is infinite, by default.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ggwiUCxfEeqyGea_tepjMg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crVymHz9EeKz-s53flhbQQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_crVymnz9EeKz-s53flhbQQ" value="-1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crVym3z9EeKz-s53flhbQQ" name="durationA3Alarm" type="_crW_r3z9EeKz-s53flhbQQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crVynHz9EeKz-s53flhbQQ" annotatedElement="_crVym3z9EeKz-s53flhbQQ">
+            <body>This attribute specifies the sound duration for A3 alarms, in  minutes.
+If omitted, no inhibition is done until the alarm ceases  or the sound is manually inhibited. The range is -1 to 59 minutes. The default sound duration for A3 alarms is 5 minutes.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iUP5MCxfEeqyGea_tepjMg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crVynXz9EeKz-s53flhbQQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_crVyn3z9EeKz-s53flhbQQ" value="5"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crVyoHz9EeKz-s53flhbQQ" name="durationO1Alarm" type="_crW_r3z9EeKz-s53flhbQQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crVyoXz9EeKz-s53flhbQQ" annotatedElement="_crVyoHz9EeKz-s53flhbQQ">
+            <body>This attribute specifies the sound duration for O1 alarms, in  minutes.
+If omitted, no inhibition is done until the alarm ceases  or the sound is manually inhibited. The range is -1 to 59 minutes. The default sound duration for O1 alarms is 1 minute.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jiqNECxfEeqyGea_tepjMg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crVyonz9EeKz-s53flhbQQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_crVypHz9EeKz-s53flhbQQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crVypXz9EeKz-s53flhbQQ" name="durationO2Alarm" type="_crW_r3z9EeKz-s53flhbQQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crVypnz9EeKz-s53flhbQQ" annotatedElement="_crVypXz9EeKz-s53flhbQQ">
+            <body>This option specifies the sound duration for O2 alarms, in  minutes. 
+If omitted, no inhibition is done until the alarm ceases  or the sound is manually inhibited. The range is -1 to 59 minutes. The default sound duration for O2 alarms is 1 minute.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qC_GgCxfEeqyGea_tepjMg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crVyp3z9EeKz-s53flhbQQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_crVyqXz9EeKz-s53flhbQQ" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_crVyqnz9EeKz-s53flhbQQ" name="AlarmDisplaySource">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_crVyq3z9EeKz-s53flhbQQ" annotatedElement="_crVyqnz9EeKz-s53flhbQQ">
+          <body>This enumuration represents the source of the alarm display.
+</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_crVyrHz9EeKz-s53flhbQQ" name="CP_EXECUTIVE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crVyrXz9EeKz-s53flhbQQ" annotatedElement="_crVyrHz9EeKz-s53flhbQQ">
+            <body>Alarm display shows status of executive side of CP.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_crVyrnz9EeKz-s53flhbQQ"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_crVyr3z9EeKz-s53flhbQQ" name="CP_STANDBY">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crVysHz9EeKz-s53flhbQQ" annotatedElement="_crVyr3z9EeKz-s53flhbQQ">
+            <body>Alarm display shows status of standby side of CP.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_crVysXz9EeKz-s53flhbQQ" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_crVysnz9EeKz-s53flhbQQ" name="LocalAlarmDisplay">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_crVys3z9EeKz-s53flhbQQ" annotatedElement="_crVysnz9EeKz-s53flhbQQ">
+          <body>This class is used to define a new alarm display connected to the local exchange.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crVytHz9EeKz-s53flhbQQ" name="localAlarmDisplayId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crVytXz9EeKz-s53flhbQQ" annotatedElement="_crVytHz9EeKz-s53flhbQQ">
+            <body>Holds the name used when identifying the MO.
+It is the local alarm display name. The format must be ALD-n.
+The permitted values range is &lt;ALD-1 to ALD-31> and it must be unique.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWYknz9EeKz-s53flhbQQ" name="alarmDisplaySource" type="_crVyqnz9EeKz-s53flhbQQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWYk3z9EeKz-s53flhbQQ" annotatedElement="_crWYknz9EeKz-s53flhbQQ">
+            <body>This attribute specifies the source of the alarm.
+By default the source of the alarm is CP_EXECUTIVE.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_slCzkCxfEeqyGea_tepjMg" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_crWYlXz9EeKz-s53flhbQQ" name="CP_EXECUTIVE" instance="_crVyrHz9EeKz-s53flhbQQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWYlnz9EeKz-s53flhbQQ" name="information">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWYl3z9EeKz-s53flhbQQ" annotatedElement="_crWYlnz9EeKz-s53flhbQQ">
+            <body>This attribute provides further information about source of  alarm display. </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xR2EcCxgEeqyGea_tepjMg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWYmHz9EeKz-s53flhbQQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_Ju_xsB_hEeWY45hZ4tfHhQ" value="null"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWYm3z9EeKz-s53flhbQQ" name="soundProperty">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWYnHz9EeKz-s53flhbQQ" annotatedElement="_crWYm3z9EeKz-s53flhbQQ">
+            <body>soundProperty represents the key attribute's value of an existing SoundProperty instance.
+The default value &quot;1&quot; denotes the default object of SoundProperty class.
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SVk5MCxjEeqyGea_tepjMg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_crWYnnz9EeKz-s53flhbQQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWYn3z9EeKz-s53flhbQQ" name="lampProperty">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWYoHz9EeKz-s53flhbQQ" annotatedElement="_crWYn3z9EeKz-s53flhbQQ">
+            <body>lampProperty represents the key attribute's value of an existing LampProperty instance.
+The default value &quot;1&quot; denotes the default object of LampProperty class.
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17UxACxgEeqyGea_tepjMg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_crWYonz9EeKz-s53flhbQQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWYo3z9EeKz-s53flhbQQ" name="operationalState" type="_crW_snz9EeKz-s53flhbQQ" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWYpHz9EeKz-s53flhbQQ" annotatedElement="_crWYo3z9EeKz-s53flhbQQ">
+            <body>This attribute specifies the operational state of alarm display .</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWYpnz9EeKz-s53flhbQQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWYpXz9EeKz-s53flhbQQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWYp3z9EeKz-s53flhbQQ" name="lampPropertyDn" visibility="public" type="_crWZInz9EeKz-s53flhbQQ" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWYqHz9EeKz-s53flhbQQ" annotatedElement="_crWYp3z9EeKz-s53flhbQQ">
+            <body>Specifies the DN for the MO LampProperty by its attribute lampProperty.
+DN MO LampProperty is associated with MO LocalAlarmDisplay.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWYqnz9EeKz-s53flhbQQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWYqXz9EeKz-s53flhbQQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWYq3z9EeKz-s53flhbQQ" name="soundPropertyDn" visibility="public" type="_crVyjXz9EeKz-s53flhbQQ" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWYrHz9EeKz-s53flhbQQ" annotatedElement="_crWYq3z9EeKz-s53flhbQQ">
+            <body>Specifies the DN for the MO SoundProperty by its attribute soundProperty.
+ DN for the MO SoundProperty associated to MO LocalAlarmDisplay.
+
+
+
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWYrnz9EeKz-s53flhbQQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWYrXz9EeKz-s53flhbQQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tRan0IZREeK8kt4bn1v7dw" name="administrativeState" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tSHycYZREeK8kt4bn1v7dw" annotatedElement="_tRan0IZREeK8kt4bn1v7dw">
+            <body>Specifies the current state of alarm display.
+By default the alarm display is LOCKED. </body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#__k_d4JdbEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1ZbfAIpTEeOnvLxkacNSjw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tSPHMYZREeK8kt4bn1v7dw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_tSOgIYZREeK8kt4bn1v7dw" name="LOCKED">
+            <instance xmi:type="uml:EnumerationLiteral" href="ECIM_CommonLibrary.uml#__k_d4pdbEeC11vgiYYrb4A"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_crWYr3z9EeKz-s53flhbQQ" name="inhibitSound">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWYsHz9EeKz-s53flhbQQ" annotatedElement="_crWYr3z9EeKz-s53flhbQQ">
+            <body>Inhibits the sound produced from current alarm display.
+The sound is emitted again when a new alarm is received.
+The change is transient and the sound will start emitting after system restart.
+
+This action can fail due to one of the following reasons:
+- Internal Program Error : When service encounters internal fault.
+- Alarm board not available : When GEA board is not available.
+- Alarm board not available in the current configuration : When GEA board is not part of current configuration.
+- Local Alarm Display is not unlocked : When Local Alarm Display's administrativeState is in LOCKED state.</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_crWYsXz9EeKz-s53flhbQQ" name="startTestDisplay">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWYsnz9EeKz-s53flhbQQ" annotatedElement="_crWYsXz9EeKz-s53flhbQQ">
+            <body>Starts the test of specified alarm display.
+To start the testing of alarm display, it must be in LOCKED state. 
+
+This action can fail due to one of the following reasons:
+- Internal Program Error: When service encounters internal fault.
+- Alarm board not available: When GEA board is not available.
+- Alarm board not available in the current configuration: When GEA board is not part of current configuration.
+- Local Alarm Display is not locked: When the Local Alarm Dispaly's administrativeState is UNLOCKED.
+- Local Alarm Display is already in test mode: When the Local Alarm Display's operationalState is already in TEST mode.</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_crWYs3z9EeKz-s53flhbQQ" name="endTestDisplay">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWYtHz9EeKz-s53flhbQQ" annotatedElement="_crWYs3z9EeKz-s53flhbQQ">
+            <body>Ends a previously started test of specified alarm display.
+
+This action can fail due to one of the following reasons:
+- Internal Program Error : When service encounters internal fault.
+- Alarm board not available : When GEA board is not available.
+- Alarm board not available in the current configuration : When GEA board is not part of current configuration.
+- Local Alarm Display is not locked : When Local Alarm Display's administrativeState is UNLOCKED.
+- To end test, Local Alarm Display should be in test mode : When Local Alarm Display's operationalState is not in TEST mode.</body>
+          </ownedComment>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_crWYtXz9EeKz-s53flhbQQ" name="RemoteAlarmDisplay">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_crWYtnz9EeKz-s53flhbQQ" annotatedElement="_crWYtXz9EeKz-s53flhbQQ">
+          <body>This class is used to define alarm display properties not physically connected to the exchange.
+The alarms will be sent to the specified remote exchange identified by IP address and port.
+A RemoteAlarmListener object must be defined as well on the exchange where the alarms will be sent.
+The same port must be configured.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWYt3z9EeKz-s53flhbQQ" name="port" type="_crWZOnz9EeKz-s53flhbQQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWYuHz9EeKz-s53flhbQQ" annotatedElement="_crWYt3z9EeKz-s53flhbQQ">
+            <body>This attribute specifies the port number on the destination exchange.
+The permitted range of values are &lt;1024-52200>.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWYunz9EeKz-s53flhbQQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWYuXz9EeKz-s53flhbQQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWYu3z9EeKz-s53flhbQQ" name="destAddress">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWYvHz9EeKz-s53flhbQQ" annotatedElement="_crWYu3z9EeKz-s53flhbQQ">
+            <body>This attribute specifies the IP address of a destination exchange.
+The format must be A.B.C.D, where A, B, C and D are all internet address part of range &lt;0,255>.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_W7AsoJddEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWYvXz9EeKz-s53flhbQQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWYvnz9EeKz-s53flhbQQ" name="remoteAlarmDisplayId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWYv3z9EeKz-s53flhbQQ" annotatedElement="_crWYvnz9EeKz-s53flhbQQ">
+            <body>Holds the name used when identifying the MO.
+It is the remote alarm display name.The format must be ALD-n.
+The permitted values range is &lt;ALD-32 to ALD-127> and it must be unique.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWYwHz9EeKz-s53flhbQQ" name="information">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWYwXz9EeKz-s53flhbQQ" annotatedElement="_crWYwHz9EeKz-s53flhbQQ">
+            <body>This attribute provides further information about  source of alarm display.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_axoOwCx_EeqyGea_tepjMg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWYwnz9EeKz-s53flhbQQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_WVjpkB_hEeWY45hZ4tfHhQ" value="null"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWYyXz9EeKz-s53flhbQQ" name="alarmDisplaySource" type="_crVyqnz9EeKz-s53flhbQQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWYynz9EeKz-s53flhbQQ" annotatedElement="_crWYyXz9EeKz-s53flhbQQ">
+            <body>This attribute specifies the source of the alarm.
+By default the source of the alarm is CP_EXECUTIVE.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_f_4cUCx_EeqyGea_tepjMg" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_crWYzHz9EeKz-s53flhbQQ" name="CP_EXECUTIVE" instance="_crVyrHz9EeKz-s53flhbQQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWYzXz9EeKz-s53flhbQQ" name="soundProperty">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWYznz9EeKz-s53flhbQQ" annotatedElement="_crWYzXz9EeKz-s53flhbQQ">
+            <body>soundProperty represents the key attribute's value of an existing SoundProperty instance.
+The default value &quot;1&quot; denotes the default object of SoundProperty class.
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_g2LyMCx_EeqyGea_tepjMg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_crWY0Hz9EeKz-s53flhbQQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWY0Xz9EeKz-s53flhbQQ" name="lampProperty">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWY0nz9EeKz-s53flhbQQ" annotatedElement="_crWY0Xz9EeKz-s53flhbQQ">
+            <body>lampProperty represents the key attribute's value of an existing LampProperty instance.
+The default value &quot;1&quot; denotes the default object of LampProperty class.
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iBRsUCx_EeqyGea_tepjMg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_crWY1Hz9EeKz-s53flhbQQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWY1Xz9EeKz-s53flhbQQ" name="operationalState" type="_crW_snz9EeKz-s53flhbQQ" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWY1nz9EeKz-s53flhbQQ" annotatedElement="_crWY1Xz9EeKz-s53flhbQQ">
+            <body>This attribute specifies the operational state of alarm display .</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWY2Hz9EeKz-s53flhbQQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWY13z9EeKz-s53flhbQQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWY2Xz9EeKz-s53flhbQQ" name="lampPropertyDn" visibility="public" type="_crWZInz9EeKz-s53flhbQQ" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWY2nz9EeKz-s53flhbQQ" annotatedElement="_crWY2Xz9EeKz-s53flhbQQ">
+            <body>Specifies the DN for the MO LampProperty by its attribute lampProperty.
+DN for the MO LampProperty associated to the MO RemoteAlarmDisplay.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWY3Hz9EeKz-s53flhbQQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWY23z9EeKz-s53flhbQQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWY3Xz9EeKz-s53flhbQQ" name="soundPropertyDn" visibility="public" type="_crVyjXz9EeKz-s53flhbQQ" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWY3nz9EeKz-s53flhbQQ" annotatedElement="_crWY3Xz9EeKz-s53flhbQQ">
+            <body>Specifies the DN for the MO SoundProperty by its attribute soundProperty.
+DN for the MO SoundProperty associated to the MO RemoteAlarmDisplay.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWY4Hz9EeKz-s53flhbQQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWY33z9EeKz-s53flhbQQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_5HalcIZREeK8kt4bn1v7dw" name="administrativeState" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_5HgFAYZREeK8kt4bn1v7dw" annotatedElement="_5HalcIZREeK8kt4bn1v7dw">
+            <body>Specifies the current state of alarm display.
+By default the alarm display is LOCKED. </body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#__k_d4JdbEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7zvQAIpTEeOnvLxkacNSjw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5HlkkIZREeK8kt4bn1v7dw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_5Hk9gIZREeK8kt4bn1v7dw" name="LOCKED">
+            <instance xmi:type="uml:EnumerationLiteral" href="ECIM_CommonLibrary.uml#__k_d4pdbEeC11vgiYYrb4A"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_crWY4Xz9EeKz-s53flhbQQ" name="inhibitSound">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWY4nz9EeKz-s53flhbQQ" annotatedElement="_crWY4Xz9EeKz-s53flhbQQ">
+            <body>Inhibits the sound produced from current alarm display.
+The sound is emitted again when a new alarm is received.
+The change is transient and the sound will start emitting after system restart.
+
+This action can fail due to one of the following reasons:
+- Internal Program Error : When service encounters internal fault.
+- Alarm board not available : When GEA board is not available.
+- Alarm board not available in the current configuration : When GEA board is not part of current configuration.
+- Remote Alarm Display is not unlocked : When remote alarm display administrativeState is in LOCKED state.</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_crWY43z9EeKz-s53flhbQQ" name="startTestDisplay">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWY5Hz9EeKz-s53flhbQQ" annotatedElement="_crWY43z9EeKz-s53flhbQQ">
+            <body>Starts the test of specified alarm display.
+To start the testing of alarm display, it must be in LOCKED state. 
+
+This action can fail due to one of the following reasons:
+- Internal Program Error : When service encounters internal fault.
+- Alarm board not available : When GEA board is not available.
+- Alarm board not available in the current configuration : When GEA board is not part of current configuration.
+- Remote Alarm Display is not locked : When the remote alarm display administrativeState is UNLOCKED.
+- Remote Alarm Display is already in test mode : When the remote alarm display operationalState is already in TEST mode.</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_crWY5Xz9EeKz-s53flhbQQ" name="endTestDisplay">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWY5nz9EeKz-s53flhbQQ" annotatedElement="_crWY5Xz9EeKz-s53flhbQQ">
+            <body>Ends a previously started test of specified alarm display.
+
+This action can fail due to one of the following reasons:
+- Internal Program Error : When service encounters internal fault.
+- Alarm board not available : When GEA board is not available.
+- Alarm board not available in the current configuration : When GEA board is not part of current configuration.
+- Remote Alarm Display is not locked : When the remote alarm display administrativeState is UNLOCKED.
+- To end test, Remote Alarm Display should be in test mode : When the remote alarm display operationalState is not in TEST mode.
+
+ 
+
+</body>
+          </ownedComment>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_crWY53z9EeKz-s53flhbQQ" name="RemoteAlarmListener">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_crWY6Hz9EeKz-s53flhbQQ" annotatedElement="_crWY53z9EeKz-s53flhbQQ">
+          <body>This class is used for receiving alarms from remote exchange on specified port of local exchange.
+A RemoteAlarmDisplay must be defined in a remote exchange using :
+1) port number. 
+2) IP address of the current exchange.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWY6Xz9EeKz-s53flhbQQ" name="remoteAlarmListenerId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWY6nz9EeKz-s53flhbQQ" annotatedElement="_crWY6Xz9EeKz-s53flhbQQ">
+            <body>Holds the name used when identifying the MO.
+It is the remote listener name. The format must be ALD-n.
+The permitted values range is &lt;ALD-1 to ALD-31> and it must be unique.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWY63z9EeKz-s53flhbQQ" name="port" type="_crWZOnz9EeKz-s53flhbQQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWY7Hz9EeKz-s53flhbQQ" annotatedElement="_crWY63z9EeKz-s53flhbQQ">
+            <body>This attribute specifies the port of the local host where alarm display listens for remote alarms.
+The permitted range of values are 1024-52200.
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWY7Xz9EeKz-s53flhbQQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWY7nz9EeKz-s53flhbQQ" name="information">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWY73z9EeKz-s53flhbQQ" annotatedElement="_crWY7nz9EeKz-s53flhbQQ">
+            <body>This attribute provides further information about source of alarm display. </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zTa_ACx-EeqyGea_tepjMg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWY8Hz9EeKz-s53flhbQQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_hWHM8B_hEeWY45hZ4tfHhQ" value="null"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWY93z9EeKz-s53flhbQQ" name="operationalState" type="_crW_snz9EeKz-s53flhbQQ" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWY-Hz9EeKz-s53flhbQQ" annotatedElement="_crWY93z9EeKz-s53flhbQQ">
+            <body>This attribute specifies the  operational state of alarm display.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWY-Xz9EeKz-s53flhbQQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_AXXlAIZSEeK8kt4bn1v7dw" name="administrativeState" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_AXe5woZSEeK8kt4bn1v7dw" annotatedElement="_AXXlAIZSEeK8kt4bn1v7dw">
+            <body>Specifies the current state of alarm display.
+By default the alarm display is LOCKED.</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#__k_d4JdbEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4ZmrcIpTEeOnvLxkacNSjw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AXkZUoZSEeK8kt4bn1v7dw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_AXkZUIZSEeK8kt4bn1v7dw" name="LOCKED">
+            <instance xmi:type="uml:EnumerationLiteral" href="ECIM_CommonLibrary.uml#__k_d4pdbEeC11vgiYYrb4A"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_crWY-nz9EeKz-s53flhbQQ" name="inhibitSound">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWY-3z9EeKz-s53flhbQQ" annotatedElement="_crWY-nz9EeKz-s53flhbQQ">
+            <body>Inhibits the sound produced from current alarm display.
+The sound will be emitted again when a new alarm is received.
+The change is transient and the sound will start emitting after system restart.
+
+This action can fail due to one of the following reasons:
+- Internal Program Error : When service encounters internal fault.
+- Alarm board not available : When GEA board is not available.
+- Alarm board not available in the current configuration : When GEA board is not part of current configuration.
+- Remote Alarm Listener is not unlocked : When remote alarm listener administrativeState is in LOCKED state.</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_crWY_Hz9EeKz-s53flhbQQ" name="startTestDisplay">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWY_Xz9EeKz-s53flhbQQ" annotatedElement="_crWY_Hz9EeKz-s53flhbQQ">
+            <body>Starts the test of specified alarm display.
+To start the testing of alarm display, it must be in LOCKED state. 
+
+This action can fail due to one of the following reasons:
+- Internal Program Error : When service encounters internal fault.
+- Alarm board not available : When GEA board is not available.
+- Alarm board not available in the current configuration : When GEA board is not part of current configuration.
+- Remote Alarm Listener is not locked : When the remote alarm listener administrativeState is UNLOCKED.
+- Remote Alarm Listener is already in test mode : When the remote alarm listener operationalState is already in TEST mode.
+</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_crWY_nz9EeKz-s53flhbQQ" name="endTestDisplay">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWY_3z9EeKz-s53flhbQQ" annotatedElement="_crWY_nz9EeKz-s53flhbQQ">
+            <body>Ends a previously started test of specified alarm display.
+
+This action can fail due to one of the following reasons:
+- Internal Program Error : When service encounters internal fault.
+- Alarm board not available : When GEA board is not available.
+- Alarm board not available in the current configuration : When GEA board is not part of current configuration.
+- Remote Alarm Listener is not locked : When the remote alarm listener administrativeState is UNLOCKED.
+- To end test, Remote Alarm Listener should be in test mode : When the remote alarm listener operationalState is not in TEST mode.
+</body>
+          </ownedComment>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_crWZAHz9EeKz-s53flhbQQ" name="AlarmDisplayM">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_crWZAXz9EeKz-s53flhbQQ" annotatedElement="_crWZAHz9EeKz-s53flhbQQ">
+          <body>Represents the root MOC for AXE Alarm Display Management function MOM.
+AXE Alarm Display is supported only for Single-CP System configuration.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWZAnz9EeKz-s53flhbQQ" name="alarmDisplayMId" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWZA3z9EeKz-s53flhbQQ" annotatedElement="_crWZAnz9EeKz-s53flhbQQ">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWZBHz9EeKz-s53flhbQQ" name="soundProperty" visibility="public" type="_crVyjXz9EeKz-s53flhbQQ" aggregation="composite" association="_crWZFnz9EeKz-s53flhbQQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWZBnz9EeKz-s53flhbQQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWZBXz9EeKz-s53flhbQQ" value="16"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWZB3z9EeKz-s53flhbQQ" name="remoteAlarmListener" visibility="public" type="_crWY53z9EeKz-s53flhbQQ" aggregation="composite" association="_crWZGnz9EeKz-s53flhbQQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWZCXz9EeKz-s53flhbQQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWZCHz9EeKz-s53flhbQQ" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWZCnz9EeKz-s53flhbQQ" name="remoteAlarmDisplay" visibility="public" type="_crWYtXz9EeKz-s53flhbQQ" aggregation="composite" association="_crWZHnz9EeKz-s53flhbQQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWZDHz9EeKz-s53flhbQQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWZC3z9EeKz-s53flhbQQ" value="96"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWZDXz9EeKz-s53flhbQQ" name="lampProperty" visibility="public" type="_crWZInz9EeKz-s53flhbQQ" aggregation="composite" association="_crWZMnz9EeKz-s53flhbQQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWZD3z9EeKz-s53flhbQQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWZDnz9EeKz-s53flhbQQ" value="16"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWZEHz9EeKz-s53flhbQQ" name="localAlarmDisplay" visibility="public" type="_crVysnz9EeKz-s53flhbQQ" aggregation="composite" association="_crWZNnz9EeKz-s53flhbQQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWZEnz9EeKz-s53flhbQQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWZEXz9EeKz-s53flhbQQ" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_crWZFnz9EeKz-s53flhbQQ" name="AlarmDisplayM_to_SoundProperty" memberEnd="_crWZBHz9EeKz-s53flhbQQ _crWZF3z9EeKz-s53flhbQQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_crWZF3z9EeKz-s53flhbQQ" name="alarmDisplayM" visibility="public" type="_crWZAHz9EeKz-s53flhbQQ" association="_crWZFnz9EeKz-s53flhbQQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWZGXz9EeKz-s53flhbQQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWZGHz9EeKz-s53flhbQQ" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_crWZGnz9EeKz-s53flhbQQ" name="AlarmDisplayM_to_RemoteAlarmListener" memberEnd="_crWZB3z9EeKz-s53flhbQQ _crWZG3z9EeKz-s53flhbQQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_crWZG3z9EeKz-s53flhbQQ" name="alarmDisplayM" visibility="public" type="_crWZAHz9EeKz-s53flhbQQ" association="_crWZGnz9EeKz-s53flhbQQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWZHXz9EeKz-s53flhbQQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWZHHz9EeKz-s53flhbQQ" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_crWZHnz9EeKz-s53flhbQQ" name="AlarmDisplayM_to_RemoteAlarmDisplay" memberEnd="_crWZCnz9EeKz-s53flhbQQ _crWZH3z9EeKz-s53flhbQQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_crWZH3z9EeKz-s53flhbQQ" name="alarmDisplayM" visibility="public" type="_crWZAHz9EeKz-s53flhbQQ" association="_crWZHnz9EeKz-s53flhbQQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWZIXz9EeKz-s53flhbQQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWZIHz9EeKz-s53flhbQQ" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_crWZInz9EeKz-s53flhbQQ" name="LampProperty">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_crWZI3z9EeKz-s53flhbQQ" annotatedElement="_crWZInz9EeKz-s53flhbQQ">
+          <body>This class represents lamp property of alarm display.
+This class is used to allow, how an AXE alarm category will be displayed on the lamps of the AlarmDisplay.
+Each AlarmDisplay instance has to use the LampProperty instance to know how to turn on/off the light in each lamp.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWZJHz9EeKz-s53flhbQQ" name="lampPropertyId" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWZJXz9EeKz-s53flhbQQ" annotatedElement="_crWZJHz9EeKz-s53flhbQQ">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWZJnz9EeKz-s53flhbQQ" name="apzLamp" type="_crW_vXz9EeKz-s53flhbQQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWZJ3z9EeKz-s53flhbQQ" annotatedElement="_crWZJnz9EeKz-s53flhbQQ">
+            <body>This attribute specifies the alarm categories that are mapped towards APZ lamp.
+If omitted, no alarm categories are mapped towards APZ lamp.
+Alarm categories are represented as integers between 0 to 15.
+For example,
+apzLamp=3..7 represents alarm categories 3 to 7 are mapped towards apzLamp.
+apzLamp=3..5, 7 represents alarm categories 3 to 5 and 7 are mapped towards apzLamp.
+apzLamp=3, 7 represents alarm categories 3 and 7 are mapped towards apzLamp.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWZKHz9EeKz-s53flhbQQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWZKXz9EeKz-s53flhbQQ" name="aptLamp" type="_crW_vXz9EeKz-s53flhbQQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWZKnz9EeKz-s53flhbQQ" annotatedElement="_crWZKXz9EeKz-s53flhbQQ">
+            <body>This attribute specifies the alarm categories that are mapped towards APT lamp. 
+If omitted, no alarm categories are mapped towards APT lamp.
+Alarm categories are represented as integers between 0 to 15.
+For example,
+aptLamp=0..2 represents alarm categories 0 to 2 are mapped towards aptLamp.
+aptLamp=0..3, 5 represents alarm categories 0 to 3 and 5 are mapped towards aptLamp.
+aptLamp=0, 2 represents alarm categories 0 and 2 are mapped towards aptLamp.
+ </body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWZK3z9EeKz-s53flhbQQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWZLHz9EeKz-s53flhbQQ" name="powerLamp" type="_crW_vXz9EeKz-s53flhbQQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWZLXz9EeKz-s53flhbQQ" annotatedElement="_crWZLHz9EeKz-s53flhbQQ">
+            <body>This attribute specifies the alarm categories that are mapped towards power lamp .
+If omitted, no alarm categories are mapped towards power lamp.
+Alarm categories are represented as integers between 0 to 15.
+For example,
+powerLamp=0..8 represents alarm categories 0 to 8 are mapped towards powerLamp.
+powerLamp=9..12, 14 represents alarm categories 9 to 12 and 14 are mapped towards powerLamp.
+powerLamp=8 represents alarm category 8 is mapped towards powerLamp.
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWZLnz9EeKz-s53flhbQQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_crWZL3z9EeKz-s53flhbQQ" name="extLamp" type="_crW_vXz9EeKz-s53flhbQQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crWZMHz9EeKz-s53flhbQQ" annotatedElement="_crWZL3z9EeKz-s53flhbQQ">
+            <body>This attribute specifies the alarm categories that are mapped towards ext lamp.
+If omitted, no alarm categories are mapped towards ext lamp.
+Alarm categories are represented as integers between 0 to 15.
+For example,
+extLamp=9..15 represents alarm categories 9 to 15 are mapped towards extLamp.
+extLamp=9..12, 14 represents alarm categories 9 to 12 and 14 are mapped towards extLamp.
+extLamp=9, 12 represents alarm categories 9 and 12 are mapped towards extLamp.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWZMXz9EeKz-s53flhbQQ"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_crWZMnz9EeKz-s53flhbQQ" name="AlDisplay_to_LampProperty" memberEnd="_crWZDXz9EeKz-s53flhbQQ _crWZM3z9EeKz-s53flhbQQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_crWZM3z9EeKz-s53flhbQQ" name="alarmDisplayM" visibility="public" type="_crWZAHz9EeKz-s53flhbQQ" association="_crWZMnz9EeKz-s53flhbQQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWZNXz9EeKz-s53flhbQQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWZNHz9EeKz-s53flhbQQ" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_crWZNnz9EeKz-s53flhbQQ" name="AlarmDisplayM_to_LocalAlarmDisplay" memberEnd="_crWZEHz9EeKz-s53flhbQQ _crWZN3z9EeKz-s53flhbQQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_crWZN3z9EeKz-s53flhbQQ" name="alarmDisplayM" visibility="public" type="_crWZAHz9EeKz-s53flhbQQ" association="_crWZNnz9EeKz-s53flhbQQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWZOXz9EeKz-s53flhbQQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWZOHz9EeKz-s53flhbQQ" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_crWZOnz9EeKz-s53flhbQQ" name="PortRange">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_crWZO3z9EeKz-s53flhbQQ" annotatedElement="_crWZOnz9EeKz-s53flhbQQ">
+          <body>This derived data type specifies the port range between 1024 to 52200.
+it is used for port attribute.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_crWZPHz9EeKz-s53flhbQQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-kmDQCCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_crWZPXz9EeKz-s53flhbQQ" name="Instances">
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_crWZenz9EeKz-s53flhbQQ" name="alarmDisplayMInstance" classifier="_crWZAHz9EeKz-s53flhbQQ">
+          <slot xmi:type="uml:Slot" xmi:id="_crWZe3z9EeKz-s53flhbQQ" definingFeature="_crWZAnz9EeKz-s53flhbQQ">
+            <value xmi:type="uml:LiteralString" xmi:id="_crWZfHz9EeKz-s53flhbQQ" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_crWZfXz9EeKz-s53flhbQQ" name="lampPropertyInstance" classifier="_crWZInz9EeKz-s53flhbQQ">
+          <slot xmi:type="uml:Slot" xmi:id="_crWZfnz9EeKz-s53flhbQQ" definingFeature="_crWZJHz9EeKz-s53flhbQQ">
+            <value xmi:type="uml:LiteralString" xmi:id="_crWZf3z9EeKz-s53flhbQQ" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_crWZgHz9EeKz-s53flhbQQ" definingFeature="_crWZKXz9EeKz-s53flhbQQ">
+            <value xmi:type="uml:LiteralString" xmi:id="_crWZgXz9EeKz-s53flhbQQ" value="3..7"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_crWZgnz9EeKz-s53flhbQQ" definingFeature="_crWZJnz9EeKz-s53flhbQQ">
+            <value xmi:type="uml:LiteralString" xmi:id="_crWZg3z9EeKz-s53flhbQQ" value="0..2"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_crWZhHz9EeKz-s53flhbQQ" definingFeature="_crWZLHz9EeKz-s53flhbQQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_crWZhXz9EeKz-s53flhbQQ" value="8"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_crWZhnz9EeKz-s53flhbQQ" definingFeature="_crWZL3z9EeKz-s53flhbQQ">
+            <value xmi:type="uml:LiteralString" xmi:id="_crWZh3z9EeKz-s53flhbQQ" value="9..15"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_crWZiHz9EeKz-s53flhbQQ" name="soundPropertyInstance" classifier="_crVyjXz9EeKz-s53flhbQQ">
+          <slot xmi:type="uml:Slot" xmi:id="_crW_oHz9EeKz-s53flhbQQ" definingFeature="_crVyj3z9EeKz-s53flhbQQ">
+            <value xmi:type="uml:LiteralString" xmi:id="_crW_oXz9EeKz-s53flhbQQ" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_crW_onz9EeKz-s53flhbQQ" definingFeature="_crVykXz9EeKz-s53flhbQQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_crW_o3z9EeKz-s53flhbQQ" value="-1"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_crW_pHz9EeKz-s53flhbQQ" definingFeature="_crVylnz9EeKz-s53flhbQQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_crW_pXz9EeKz-s53flhbQQ" value="-1"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_crW_pnz9EeKz-s53flhbQQ" definingFeature="_crVym3z9EeKz-s53flhbQQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_crW_p3z9EeKz-s53flhbQQ" value="5"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_crW_qHz9EeKz-s53flhbQQ" definingFeature="_crVyoHz9EeKz-s53flhbQQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_crW_qXz9EeKz-s53flhbQQ" value="1"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_crW_qnz9EeKz-s53flhbQQ" definingFeature="_crVypXz9EeKz-s53flhbQQ">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_crW_q3z9EeKz-s53flhbQQ" value="1"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_crW_rHz9EeKz-s53flhbQQ" client="_crWZfXz9EeKz-s53flhbQQ" supplier="_crWZenz9EeKz-s53flhbQQ"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_crW_rXz9EeKz-s53flhbQQ" client="_crWZiHz9EeKz-s53flhbQQ" supplier="_crWZenz9EeKz-s53flhbQQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_crW_r3z9EeKz-s53flhbQQ" name="SoundDuration">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_crW_sHz9EeKz-s53flhbQQ" annotatedElement="_crW_r3z9EeKz-s53flhbQQ">
+          <body>This derived numeric specifies the alarm sound duration range between &lt;-1 to 59>.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_crW_sXz9EeKz-s53flhbQQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-kmDQCCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_crW_snz9EeKz-s53flhbQQ" name="AlarmDisplayOperState">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_crW_s3z9EeKz-s53flhbQQ" annotatedElement="_crW_snz9EeKz-s53flhbQQ">
+          <body>This enum represents the alarm display operational states.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_crW_tHz9EeKz-s53flhbQQ" name="WORKING">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crW_tXz9EeKz-s53flhbQQ" annotatedElement="_crW_tHz9EeKz-s53flhbQQ">
+            <body>This enum value represents the alarm display is working.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_crW_tnz9EeKz-s53flhbQQ"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_crW_t3z9EeKz-s53flhbQQ" name="FAULTY">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crW_uHz9EeKz-s53flhbQQ" annotatedElement="_crW_t3z9EeKz-s53flhbQQ">
+            <body>This enum value represents the alarm display is faulty.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_crW_uXz9EeKz-s53flhbQQ" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_crW_unz9EeKz-s53flhbQQ" name="TEST">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_crW_u3z9EeKz-s53flhbQQ" annotatedElement="_crW_unz9EeKz-s53flhbQQ">
+            <body>This enum value represents the alarm display is being tested.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_crW_vHz9EeKz-s53flhbQQ" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_crW_vXz9EeKz-s53flhbQQ" name="AlarmCategories">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_crW_vnz9EeKz-s53flhbQQ" annotatedElement="_crW_vXz9EeKz-s53flhbQQ">
+          <body>This derived data type is used to represent the alarm categories (apt,apz,power and external).
+Alarm Categories ranges between 0 to 15.
+</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_crW_v3z9EeKz-s53flhbQQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_crW_wHz9EeKz-s53flhbQQ" name="SupervisionHandling_to_AlarmDisplayM" memberEnd="_crWZE3z9EeKz-s53flhbQQ _crW_wXz9EeKz-s53flhbQQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_crW_wXz9EeKz-s53flhbQQ" name="+alarmDisplayM" visibility="public" type="_crWZAHz9EeKz-s53flhbQQ" aggregation="composite" association="_crW_wHz9EeKz-s53flhbQQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crW_w3z9EeKz-s53flhbQQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crW_wnz9EeKz-s53flhbQQ" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_crWZE3z9EeKz-s53flhbQQ" name="+supervisionHandling" visibility="public" association="_crW_wHz9EeKz-s53flhbQQ">
+          <type xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_crWZFXz9EeKz-s53flhbQQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_crWZFHz9EeKz-s53flhbQQ" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_zlIlUAVjEeat1ZFMh3LFxg" name="Features">
+        <packagedElement xmi:type="uml:Class" xmi:id="_z2644AVjEeat1ZFMh3LFxg" name="CPI_HIDDEN"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_2UYZ0AVjEeat1ZFMh3LFxg" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_2Usi4AVjEeat1ZFMh3LFxg" name="NATIVE"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_34hGEAVjEeat1ZFMh3LFxg" name="" client="_2Usi4AVjEeat1ZFMh3LFxg" supplier="_z2644AVjEeat1ZFMh3LFxg"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_cikwQHVqEeCBgp9CYCosRQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JF1b4Co6EeuWHIhq6EZntQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JF1b4So6EeuWHIhq6EZntQ" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JF1b4io6EeuWHIhq6EZntQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JF1b4yo6EeuWHIhq6EZntQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JF1b5Co6EeuWHIhq6EZntQ" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JF1b5So6EeuWHIhq6EZntQ" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ciq24HVqEeCBgp9CYCosRQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_7jECkGr0EeK3NsiIy8FUNg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_B8d3sN6MEeeBhZlXb1Z75A" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_B8d3sd6MEeeBhZlXb1Z75A" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_B8d3st6MEeeBhZlXb1Z75A" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_B8d3s96MEeeBhZlXb1Z75A" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_B8d3tN6MEeeBhZlXb1Z75A" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_B8d3td6MEeeBhZlXb1Z75A" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_74JhwGr0EeK3NsiIy8FUNg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_GZGmkBtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="Managed Object Model for AXE Alarm Display Management Function" subTitle=" " docNo="19089-CXA 117 0036" docRev="C" createdBy="XHARBAV" docLang="Uen" docDate="2020-12-08"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_GZJp4BtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Package="_crUjYHz9EeKz-s53flhbQQ" author="Harika Bavana" contact="XHARBAV" date="2020-12-08" docNo="" revision="C" version="3" release="1" organization="" correction="0"/>
+  <CoreMWProfile:CmwMom xmi:id="_GnExIBtEEeWvQYFW8NSCww" base_Package="_crUjYHz9EeKz-s53flhbQQ" immNamespace="MOM_NAME"/>
+  <CoreMWProfile:CmwClass xmi:id="_GnFYMBtEEeWvQYFW8NSCww" base_Class="_crVyjXz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_GZKQ8BtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_crVyjXz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_GZK4ABtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_crVyj3z9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZMGIBtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crVykXz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnFYMRtEEeWvQYFW8NSCww" base_Property="_crVykXz9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZMGIRtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crVylnz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnF_QBtEEeWvQYFW8NSCww" base_Property="_crVylnz9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZMtMBtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crVym3z9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnF_QRtEEeWvQYFW8NSCww" base_Property="_crVym3z9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZMtMRtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crVyoHz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnF_QhtEEeWvQYFW8NSCww" base_Property="_crVyoHz9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZNUQRtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crVypXz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnGmUBtEEeWvQYFW8NSCww" base_Property="_crVypXz9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_GZNUQhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Enumeration="_crVyqnz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_GZN7UBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_crVyrHz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_GZOiYBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_crVyr3z9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwClass xmi:id="_GnGmURtEEeWvQYFW8NSCww" base_Class="_crVysnz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_GZOiYhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_crVysnz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_GZPJcBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_crVytHz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZPJchtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crWYknz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnHNYBtEEeWvQYFW8NSCww" base_Property="_crWYknz9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZPJdBtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crWYlnz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnHNYRtEEeWvQYFW8NSCww" base_Property="_crWYlnz9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZPwgBtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crWYm3z9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnHNYhtEEeWvQYFW8NSCww" base_Property="_crWYm3z9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZPwghtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crWYn3z9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnH0cBtEEeWvQYFW8NSCww" base_Property="_crWYn3z9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnH0cRtEEeWvQYFW8NSCww" base_Property="_crWYo3z9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_GZQXkRtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_crWYo3z9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnH0chtEEeWvQYFW8NSCww" base_Property="_crWYp3z9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_GZQ-oBtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isAssociationEnd="true" base_Property="_crWYp3z9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnIbgBtEEeWvQYFW8NSCww" base_Property="_crWYq3z9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_GZQ-ohtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isAssociationEnd="true" base_Property="_crWYq3z9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_GZRlsRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_crWYr3z9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAction xmi:id="_GnIbghtEEeWvQYFW8NSCww" base_Operation="_crWYr3z9EeKz-s53flhbQQ" admOpId="1"/>
+  <CoreMWProfile:CmwAction xmi:id="_GnJCkBtEEeWvQYFW8NSCww" base_Operation="_crWYsXz9EeKz-s53flhbQQ" admOpId="2"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_GZRlsxtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_crWYsXz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAction xmi:id="_GnJCkRtEEeWvQYFW8NSCww" base_Operation="_crWYs3z9EeKz-s53flhbQQ" admOpId="3"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_GZSMwBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_crWYs3z9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwClass xmi:id="_GnJCkhtEEeWvQYFW8NSCww" base_Class="_crWYtXz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_GZSMwhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_crWYtXz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZSMxBtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crWYt3z9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnJpoBtEEeWvQYFW8NSCww" base_Property="_crWYt3z9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZSz0RtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crWYu3z9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnJpoRtEEeWvQYFW8NSCww" base_Property="_crWYu3z9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_GZSz1BtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_crWYvnz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZTa4RtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crWYwHz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnJpohtEEeWvQYFW8NSCww" base_Property="_crWYwHz9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZUB8RtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crWYyXz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnKQsBtEEeWvQYFW8NSCww" base_Property="_crWYyXz9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZUB8xtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crWYzXz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnKQsRtEEeWvQYFW8NSCww" base_Property="_crWYzXz9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZUpARtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crWY0Xz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnKQshtEEeWvQYFW8NSCww" base_Property="_crWY0Xz9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnK3wBtEEeWvQYFW8NSCww" base_Property="_crWY1Xz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_GZUpAxtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_crWY1Xz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnK3wRtEEeWvQYFW8NSCww" base_Property="_crWY2Xz9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_GZVQEBtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isAssociationEnd="true" base_Property="_crWY2Xz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnK3whtEEeWvQYFW8NSCww" base_Property="_crWY3Xz9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_GZVQExtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isAssociationEnd="true" base_Property="_crWY3Xz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_GZV3IRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_crWY4Xz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAction xmi:id="_GnLe0BtEEeWvQYFW8NSCww" base_Operation="_crWY4Xz9EeKz-s53flhbQQ" admOpId="1"/>
+  <CoreMWProfile:CmwAction xmi:id="_GnLe0RtEEeWvQYFW8NSCww" base_Operation="_crWY43z9EeKz-s53flhbQQ" admOpId="2"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_GZV3IxtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_crWY43z9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAction xmi:id="_GnLe0htEEeWvQYFW8NSCww" base_Operation="_crWY5Xz9EeKz-s53flhbQQ" admOpId="3"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_GZWeMRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_crWY5Xz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwClass xmi:id="_GnMF4BtEEeWvQYFW8NSCww" base_Class="_crWY53z9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_GZWeMxtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_crWY53z9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_GZXFQBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_crWY6Xz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZXFQhtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crWY63z9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnMF4RtEEeWvQYFW8NSCww" base_Property="_crWY63z9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZXFRBtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crWY7nz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnMs8BtEEeWvQYFW8NSCww" base_Property="_crWY7nz9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnMs8RtEEeWvQYFW8NSCww" base_Property="_crWY93z9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_GZXsUBtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_crWY93z9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_GZXsUhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_crWY-nz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAction xmi:id="_GnMs8htEEeWvQYFW8NSCww" base_Operation="_crWY-nz9EeKz-s53flhbQQ" admOpId="1"/>
+  <CoreMWProfile:CmwAction xmi:id="_GnNUABtEEeWvQYFW8NSCww" base_Operation="_crWY_Hz9EeKz-s53flhbQQ" admOpId="2"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_GZYTYBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_crWY_Hz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAction xmi:id="_GnNUARtEEeWvQYFW8NSCww" base_Operation="_crWY_nz9EeKz-s53flhbQQ" admOpId="3"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_GZYTYhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_crWY_nz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwClass xmi:id="_GnNUAhtEEeWvQYFW8NSCww" base_Class="_crWZAHz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_GZY6cRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_crWZAnz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_GZY6dBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Association="_crWZFnz9EeKz-s53flhbQQ" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_GZZhgRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Association="_crWZGnz9EeKz-s53flhbQQ" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_GZZhgxtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Association="_crWZHnz9EeKz-s53flhbQQ" isNotifiable="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_GnN7EBtEEeWvQYFW8NSCww" base_Class="_crWZInz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_GZaIkRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_crWZInz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_GZavoBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_crWZJHz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZavohtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crWZJnz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnN7ERtEEeWvQYFW8NSCww" base_Property="_crWZJnz9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZavpBtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crWZKXz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnN7EhtEEeWvQYFW8NSCww" base_Property="_crWZKXz9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZbWsRtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crWZLHz9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnOiIBtEEeWvQYFW8NSCww" base_Property="_crWZLHz9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZbWsxtEEeWvQYFW8NSCww" isRestricted="true" base_Property="_crWZL3z9EeKz-s53flhbQQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnOiIhtEEeWvQYFW8NSCww" base_Property="_crWZL3z9EeKz-s53flhbQQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_GZb9wBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Association="_crWZMnz9EeKz-s53flhbQQ" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_GZb9wxtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Association="_crWZNnz9EeKz-s53flhbQQ" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_GZck0RtEEeWvQYFW8NSCww" hideGroupName="" specification="" range="1024..52200" base_DataType="_crWZOnz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimInstances xmi:id="_GZdL4htEEeWvQYFW8NSCww" base_Package="_crWZPXz9EeKz-s53flhbQQ" version="1" release="0" correction="0"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_GZdy8RtEEeWvQYFW8NSCww" base_InstanceSpecification="_crWZenz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_GZdy8xtEEeWvQYFW8NSCww" base_InstanceSpecification="_crWZfXz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_GZeaABtEEeWvQYFW8NSCww" base_InstanceSpecification="_crWZiHz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_GZfoIBtEEeWvQYFW8NSCww" base_Dependency="_crW_rHz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_GZfoIhtEEeWvQYFW8NSCww" base_Dependency="_crW_rXz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_GZfoJBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" range="-1..59" base_DataType="_crW_r3z9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_GZgPMRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_crW_snz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_GZgPMxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_crW_tHz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_GZg2QRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_crW_t3z9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_GZg2QxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_crW_unz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_GZhdUhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" length="1..6" pattern="^(([0-9]|1[0-5])|([0-9]|1[0-5])(((\.\.)|,)([0-9]|1[0-5]))*)$" base_DataType="_crW_vXz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_GZiEYRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_crW_wHz9EeKz-s53flhbQQ" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZircBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_tRan0IZREeK8kt4bn1v7dw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnOiIxtEEeWvQYFW8NSCww" base_Property="_tRan0IZREeK8kt4bn1v7dw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZirchtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_5HalcIZREeK8kt4bn1v7dw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnPJMBtEEeWvQYFW8NSCww" base_Property="_5HalcIZREeK8kt4bn1v7dw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_GZjSgBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_AXXlAIZSEeK8kt4bn1v7dw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnPJMRtEEeWvQYFW8NSCww" base_Property="_AXXlAIZSEeK8kt4bn1v7dw" isConfigurable="true"/>
+  <CoreMWProfile:CmwModel xmi:id="_GnPwQBtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwContribution xmi:id="_GnPwQRtEEeWvQYFW8NSCww" base_Association="_crW_wHz9EeKz-s53flhbQQ"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_GZjSghtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_crWZAHz9EeKz-s53flhbQQ" isLegacyRoot="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnQXUBtEEeWvQYFW8NSCww" base_Property="_crVyj3z9EeKz-s53flhbQQ" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnQXURtEEeWvQYFW8NSCww" base_Property="_crVytHz9EeKz-s53flhbQQ" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnQXUhtEEeWvQYFW8NSCww" base_Property="_crWYvnz9EeKz-s53flhbQQ" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnQ-YBtEEeWvQYFW8NSCww" base_Property="_crWY6Xz9EeKz-s53flhbQQ" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnQ-YRtEEeWvQYFW8NSCww" base_Property="_crWZAnz9EeKz-s53flhbQQ" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_GnRlcBtEEeWvQYFW8NSCww" base_Property="_crWZJHz9EeKz-s53flhbQQ" isPersistent="true"/>
+  <Documentation:Documentation xmi:id="_5TO8gBtDEeWvQYFW8NSCww" base_Comment="_Pbuf8GvCEeK_psk_X1_33w"/>
+  <Documentation:Documentation xmi:id="_5TO8gRtDEeWvQYFW8NSCww" base_Comment="_crVyjHz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8ghtDEeWvQYFW8NSCww" base_Comment="_crVyjnz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8gxtDEeWvQYFW8NSCww" base_Comment="_crVykHz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8hBtDEeWvQYFW8NSCww" base_Comment="_crVyknz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8hRtDEeWvQYFW8NSCww" base_Comment="_crVyl3z9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8hhtDEeWvQYFW8NSCww" base_Comment="_crVynHz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8hxtDEeWvQYFW8NSCww" base_Comment="_crVyoXz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8iBtDEeWvQYFW8NSCww" base_Comment="_crVypnz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8iRtDEeWvQYFW8NSCww" base_Comment="_crVyq3z9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8ihtDEeWvQYFW8NSCww" base_Comment="_crVyrXz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8ixtDEeWvQYFW8NSCww" base_Comment="_crVysHz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8jBtDEeWvQYFW8NSCww" base_Comment="_crVys3z9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8jRtDEeWvQYFW8NSCww" base_Comment="_crVytXz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8jhtDEeWvQYFW8NSCww" base_Comment="_crWYk3z9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8jxtDEeWvQYFW8NSCww" base_Comment="_crWYl3z9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8kBtDEeWvQYFW8NSCww" base_Comment="_crWYnHz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8kRtDEeWvQYFW8NSCww" base_Comment="_crWYoHz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8khtDEeWvQYFW8NSCww" base_Comment="_crWYpHz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8kxtDEeWvQYFW8NSCww" base_Comment="_crWYqHz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8lBtDEeWvQYFW8NSCww" base_Comment="_crWYrHz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8lRtDEeWvQYFW8NSCww" base_Comment="_crWYsHz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8lhtDEeWvQYFW8NSCww" base_Comment="_crWYsnz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8lxtDEeWvQYFW8NSCww" base_Comment="_crWYtHz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8mBtDEeWvQYFW8NSCww" base_Comment="_crWYtnz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8mRtDEeWvQYFW8NSCww" base_Comment="_crWYuHz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8mhtDEeWvQYFW8NSCww" base_Comment="_crWYvHz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8mxtDEeWvQYFW8NSCww" base_Comment="_crWYv3z9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8nBtDEeWvQYFW8NSCww" base_Comment="_crWYwXz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8nRtDEeWvQYFW8NSCww" base_Comment="_crWYynz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8nhtDEeWvQYFW8NSCww" base_Comment="_crWYznz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8nxtDEeWvQYFW8NSCww" base_Comment="_crWY0nz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8oBtDEeWvQYFW8NSCww" base_Comment="_crWY1nz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8oRtDEeWvQYFW8NSCww" base_Comment="_crWY2nz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8ohtDEeWvQYFW8NSCww" base_Comment="_crWY3nz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8oxtDEeWvQYFW8NSCww" base_Comment="_crWY4nz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8pBtDEeWvQYFW8NSCww" base_Comment="_crWY5Hz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8pRtDEeWvQYFW8NSCww" base_Comment="_crWY5nz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8phtDEeWvQYFW8NSCww" base_Comment="_crWY6Hz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8pxtDEeWvQYFW8NSCww" base_Comment="_crWY6nz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8qBtDEeWvQYFW8NSCww" base_Comment="_crWY7Hz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8qRtDEeWvQYFW8NSCww" base_Comment="_crWY73z9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8qhtDEeWvQYFW8NSCww" base_Comment="_crWY-Hz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8qxtDEeWvQYFW8NSCww" base_Comment="_crWY-3z9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8rBtDEeWvQYFW8NSCww" base_Comment="_crWY_Xz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8rRtDEeWvQYFW8NSCww" base_Comment="_crWY_3z9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8rhtDEeWvQYFW8NSCww" base_Comment="_crWZAXz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8rxtDEeWvQYFW8NSCww" base_Comment="_crWZA3z9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8sBtDEeWvQYFW8NSCww" base_Comment="_crWZI3z9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8sRtDEeWvQYFW8NSCww" base_Comment="_crWZJXz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8shtDEeWvQYFW8NSCww" base_Comment="_crWZJ3z9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8sxtDEeWvQYFW8NSCww" base_Comment="_crWZKnz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8tBtDEeWvQYFW8NSCww" base_Comment="_crWZLXz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8tRtDEeWvQYFW8NSCww" base_Comment="_crWZMHz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8thtDEeWvQYFW8NSCww" base_Comment="_crWZO3z9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8txtDEeWvQYFW8NSCww" base_Comment="_crW_sHz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8uBtDEeWvQYFW8NSCww" base_Comment="_crW_s3z9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8uRtDEeWvQYFW8NSCww" base_Comment="_crW_tXz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8uhtDEeWvQYFW8NSCww" base_Comment="_crW_uHz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8uxtDEeWvQYFW8NSCww" base_Comment="_crW_u3z9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8vBtDEeWvQYFW8NSCww" base_Comment="_crW_vnz9EeKz-s53flhbQQ"/>
+  <Documentation:Documentation xmi:id="_5TO8vRtDEeWvQYFW8NSCww" base_Comment="_tSHycYZREeK8kt4bn1v7dw"/>
+  <Documentation:Documentation xmi:id="_5TO8vhtDEeWvQYFW8NSCww" base_Comment="_5HgFAYZREeK8kt4bn1v7dw"/>
+  <Documentation:Documentation xmi:id="_5TO8vxtDEeWvQYFW8NSCww" base_Comment="_AXe5woZSEeK8kt4bn1v7dw"/>
+  <ECIMBaseProfile:EcimFeatures xmi:id="_z231kAVjEeat1ZFMh3LFxg" base_Package="_zlIlUAVjEeat1ZFMh3LFxg"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_z3EC0AVjEeat1ZFMh3LFxg" base_Class="_z2644AVjEeat1ZFMh3LFxg"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_2UqGoAVjEeat1ZFMh3LFxg" base_Package="_2UYZ0AVjEeat1ZFMh3LFxg"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_2U5-QAVjEeat1ZFMh3LFxg" base_Class="_2Usi4AVjEeat1ZFMh3LFxg"/>
+</xmi:XMI>

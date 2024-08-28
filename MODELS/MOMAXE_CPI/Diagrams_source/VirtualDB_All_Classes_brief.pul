@@ -1,0 +1,685 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/VirtualDB_MOMAXE_CPI_DWAXE_mp_brief.svg
+top to bottom direction
+hide members
+hide circle
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "SwM" as CmwSwM__SwM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwM?title=class%20SwM]] 
+class "UpgradePackage" as CmwSwM__UpgradePackage [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwM?title=class%20UpgradePackage]] 
+class "SwVersionMain" as CmwSwM__SwVersionMain [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwM?title=class%20SwVersionMain]] 
+class "RoleUpgrade" as CmwSwM__RoleUpgrade [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwM?title=class%20RoleUpgrade]] 
+class "SystemBrM" as SystemBrM__SystemBrM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrM]] 
+class "SystemBrmBackupScheduler" as SystemBrM__SystemBrmBackupScheduler [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmBackupScheduler]] 
+class "SystemBrmPeriodicEvent" as SystemBrM__SystemBrmPeriodicEvent [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmPeriodicEvent]] 
+class "SwInventory" as CmwSwIM__SwInventory [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwInventory]] 
+class "SwVersion" as CmwSwIM__SwVersion [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwVersion]] 
+class "SwItem" as CmwSwIM__SwItem [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwItem]] 
+class "AlphanumericDeviceM" as AxeAlphanumericDevice__AlphanumericDeviceM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20AlphanumericDeviceM]] 
+class "MmlSession" as AxeAlphanumericDevice__MmlSession [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20MmlSession]] 
+class "PdsIpClient" as AxeAlphanumericDevice__PdsIpClient [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsIpClient]] 
+class "PdsIpServer" as AxeAlphanumericDevice__PdsIpServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsIpServer]] 
+class "PdsSubFile" as AxeAlphanumericDevice__PdsSubFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsSubFile]] 
+class "PdsStandByDevice" as AxeAlphanumericDevice__PdsStandByDevice [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsStandByDevice]] 
+class "MmlSessions" as AxeAlphanumericDevice__MmlSessions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20MmlSessions]] 
+class "PdsManager" as AxeAlphanumericDevice__PdsManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsManager]] 
+class "ApSessionM" as AxeApSessionManagement__ApSessionM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeApSessionManagement?title=class%20ApSessionM]] 
+class "AuditLoggingM" as AxeAuditLogging__AuditLoggingM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAuditLogging?title=class%20AuditLoggingM]] 
+class "ExclusionItem" as AxeAuditLogging__ExclusionItem [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAuditLogging?title=class%20ExclusionItem]] 
+class "Equipment" as AxeComputeResource__Equipment [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeComputeResource?title=class%20Equipment]] 
+class "ComputeResource" as AxeComputeResource__ComputeResource [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeComputeResource?title=class%20ComputeResource]] 
+class "CpFileSystemM" as AxeCpFileSystem__CpFileSystemM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CpFileSystemM]] 
+class "CpVolume" as AxeCpFileSystem__CpVolume [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CpVolume]] 
+class "CompositeFile" as AxeCpFileSystem__CompositeFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CompositeFile]] 
+class "SimpleFile" as AxeCpFileSystem__SimpleFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20SimpleFile]] 
+class "InfiniteFile" as AxeCpFileSystem__InfiniteFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20InfiniteFile]] 
+class "CompositeSubFile" as AxeCpFileSystem__CompositeSubFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CompositeSubFile]] 
+class "CpReloadM" as AxeCpReload__CpReloadM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpReload?title=class%20CpReloadM]] 
+class "DualSidedCp" as AxeCpReload__DualSidedCp [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpReload?title=class%20DualSidedCp]] 
+class "CpCluster" as AxeCpReload__CpCluster [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpReload?title=class%20CpCluster]] 
+class "DataRecordM" as AxeDataRecord__DataRecordM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20DataRecordM]] 
+class "BlockBasedJob" as AxeDataRecord__BlockBasedJob [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20BlockBasedJob]] 
+class "FileBasedJob" as AxeDataRecord__FileBasedJob [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20FileBasedJob]] 
+class "StatisticsInfo" as AxeDataRecord__StatisticsInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20StatisticsInfo]] 
+class "CPStatisticsInfo" as AxeDataRecord__CPStatisticsInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20CPStatisticsInfo]] 
+class "MessageStore" as AxeDataRecord__MessageStore [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20MessageStore]] 
+class "PrimaryInitiatingDestination" as AxeDataTransfer__PrimaryInitiatingDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20PrimaryInitiatingDestination]] 
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+class "FileTransferManager" as AxeDataTransfer__FileTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferManager]] 
+class "FileTransferQueue" as AxeDataTransfer__FileTransferQueue [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferQueue]] 
+class "AdvancedFileTransferQueueInfo" as AxeDataTransfer__AdvancedFileTransferQueueInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20AdvancedFileTransferQueueInfo]] 
+class "AdvancedInitiatingParameters" as AxeDataTransfer__AdvancedInitiatingParameters [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20AdvancedInitiatingParameters]] 
+class "SecondaryInitiatingDestination" as AxeDataTransfer__SecondaryInitiatingDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20SecondaryInitiatingDestination]] 
+class "InitiatingDestinationSet" as AxeDataTransfer__InitiatingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20InitiatingDestinationSet]] 
+class "RespondingDestinationSet" as AxeDataTransfer__RespondingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20RespondingDestinationSet]] 
+class "AdvancedRespondingParameters" as AxeDataTransfer__AdvancedRespondingParameters [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20AdvancedRespondingParameters]] 
+class "PrimaryRespondingDestination" as AxeDataTransfer__PrimaryRespondingDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20PrimaryRespondingDestination]] 
+class "BlockTransferManager" as AxeDataTransfer__BlockTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockTransferManager]] 
+class "BlockTransferQueue" as AxeDataTransfer__BlockTransferQueue [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockTransferQueue]] 
+class "BlockDestinationSet" as AxeDataTransfer__BlockDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockDestinationSet]] 
+class "PrimaryBlockDestination" as AxeDataTransfer__PrimaryBlockDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20PrimaryBlockDestination]] 
+class "AdvancedBlockDestSetInfo" as AxeDataTransfer__AdvancedBlockDestSetInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20AdvancedBlockDestSetInfo]] 
+class "SecondaryRespondingDestination" as AxeDataTransfer__SecondaryRespondingDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20SecondaryRespondingDestination]] 
+class "SecondaryBlockDestination" as AxeDataTransfer__SecondaryBlockDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20SecondaryBlockDestination]] 
+class "DirectDataTransferM" as AxeDirectDataTransfer__DirectDataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20DirectDataTransferM]] 
+class "DataSource" as AxeDirectDataTransfer__DataSource [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20DataSource]] 
+class "DataSink" as AxeDirectDataTransfer__DataSink [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20DataSink]] 
+class "TransferProgress" as AxeDirectDataTransfer__TransferProgress [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20TransferProgress]] 
+class "BlockPeer" as AxeDirectDataTransfer__BlockPeer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20BlockPeer]] 
+class "FilePeer" as AxeDirectDataTransfer__FilePeer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20FilePeer]] 
+class "OutputFormat" as AxeDirectDataTransfer__OutputFormat [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20OutputFormat]] 
+class "FileFormat" as AxeDirectDataTransfer__FileFormat [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20FileFormat]] 
+class "Apg" as AxeEquipment__Apg [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20Apg]] 
+class "EquipmentM" as AxeEquipment__EquipmentM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20EquipmentM]] 
+class "DualSidedCp" as AxeEquipment__DualSidedCp [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20DualSidedCp]] 
+class "LogicalMgmt" as AxeEquipment__LogicalMgmt [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20LogicalMgmt]] 
+class "SwMau" as AxeEquipment__SwMau [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20SwMau]] 
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+class "SecurityHandling" as AxeFunctions__SecurityHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SecurityHandling]] 
+class "SystemHandling" as AxeFunctions__SystemHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling]] 
+class "SupervisionHandling" as AxeFunctions__SupervisionHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SupervisionHandling]] 
+class "DataOutputHandling" as AxeFunctions__DataOutputHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20DataOutputHandling]] 
+class "SystemComponentHandling" as AxeFunctions__SystemComponentHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemComponentHandling]] 
+class "LicenseM" as AxeLicenseManagement__LicenseM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeLicenseManagement?title=class%20LicenseM]] 
+class "ElectronicKey" as AxeLicenseManagement__ElectronicKey [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeLicenseManagement?title=class%20ElectronicKey]] 
+class "LocalTsUsersPolicyM" as AxeLocalTsUsersPolicy__LocalTsUsersPolicyM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeLocalTsUsersPolicy?title=class%20LocalTsUsersPolicyM]] 
+class "MmlAuthorizationM" as AxeMmlAuthorization__MmlAuthorizationM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeMmlAuthorization?title=class%20MmlAuthorizationM]] 
+class "MmlRole" as AxeMmlAuthorization__MmlRole [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeMmlAuthorization?title=class%20MmlRole]] 
+class "MmlSystemRole" as AxeMmlAuthorization__MmlSystemRole [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeMmlAuthorization?title=class%20MmlSystemRole]] 
+class "NbiFoldersM" as AxeNbiFolders__NbiFoldersM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeNbiFolders?title=class%20NbiFoldersM]] 
+class "StatisticalCounterM" as AxeStatisticalCounter__StatisticalCounterM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20StatisticalCounterM]] 
+class "TranslationTable" as AxeStatisticalCounter__TranslationTable [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20TranslationTable]] 
+class "Reports" as AxeStatisticalCounter__Reports [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20Reports]] 
+class "MeasurementPrograms" as AxeStatisticalCounter__MeasurementPrograms [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20MeasurementPrograms]] 
+class "Report" as AxeStatisticalCounter__Report [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20Report]] 
+class "MeasurementProgram" as AxeStatisticalCounter__MeasurementProgram [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20MeasurementProgram]] 
+class "ObjectType" as AxeStatisticalCounter__ObjectType [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ObjectType]] 
+class "Counter" as AxeStatisticalCounter__Counter [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20Counter]] 
+class "ScrFileManager" as AxeStatisticalCounter__ScrFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFileManager]] 
+class "ScrFile" as AxeStatisticalCounter__ScrFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFile]] 
+class "ObjectTypes" as AxeStatisticalCounter__ObjectTypes [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ObjectTypes]] 
+class "InUse" as AxeStatisticalCounter__InUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20InUse]] 
+class "ReadyToUse" as AxeStatisticalCounter__ReadyToUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ReadyToUse]] 
+class "CapacityInfo" as AxeStatisticalCounter__CapacityInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20CapacityInfo]] 
+class "TransportM" as AxeTransportM__TransportM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeTransportM?title=class%20TransportM]] 
+class "ExternalNetwork" as AxeTransportM__ExternalNetwork [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeTransportM?title=class%20ExternalNetwork]] 
+class "Interface" as AxeTransportM__Interface [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeTransportM?title=class%20Interface]] 
+class "InternalNetwork" as AxeTransportM__InternalNetwork [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeTransportM?title=class%20InternalNetwork]] 
+class "Host" as AxeTransportM__Host [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeTransportM?title=class%20Host]] 
+class "BrM" as BrM__BrM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrM]] 
+class "BrmBackupManager" as BrM__BrmBackupManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrmBackupManager]] 
+class "BrmBackup" as BrM__BrmBackup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrmBackup]] 
+class "BrmFailsafeBackup" as BrM__BrmFailsafeBackup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrmFailsafeBackup]] 
+class "LogM" as CmwLogM__LogM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwLogM?title=class%20LogM]] 
+class "Log" as CmwLogM__Log [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwLogM?title=class%20Log]] 
+class "RemoteLogServer" as CmwLogM__RemoteLogServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwLogM?title=class%20RemoteLogServer]] 
+class "FileM" as ComFileM__FileM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileM]] 
+class "LogicalFs" as ComFileM__LogicalFs [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20LogicalFs]] 
+class "FileGroup" as ComFileM__FileGroup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileGroup]] 
+class "FileInformation" as ComFileM__FileInformation [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileInformation]] 
+class "FileTPM" as ComFileTPM__FileTPM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileTPM?title=class%20FileTPM]] 
+class "FtpTlsServer" as ComFileTPM__FtpTlsServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileTPM?title=class%20FtpTlsServer]] 
+class "FtpServer" as ComFileTPM__FtpServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileTPM?title=class%20FtpServer]] 
+class "Ldap" as ComLdapAuthentication__Ldap [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLdapAuthentication?title=class%20Ldap]] 
+class "LdapAuthenticationMethod" as ComLdapAuthentication__LdapAuthenticationMethod [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLdapAuthentication?title=class%20LdapAuthenticationMethod]] 
+class "EricssonFilter" as ComLdapAuthentication__EricssonFilter [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLdapAuthentication?title=class%20EricssonFilter]] 
+class "Role" as ComLocalAuthorization__Role [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLocalAuthorization?title=class%20Role]] 
+class "Rule" as ComLocalAuthorization__Rule [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLocalAuthorization?title=class%20Rule]] 
+class "LocalAuthorizationMethod" as ComLocalAuthorization__LocalAuthorizationMethod [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLocalAuthorization?title=class%20LocalAuthorizationMethod]] 
+class "SecM" as ComSecM__SecM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20SecM]] 
+class "AuthenticationOrder" as ComSecM__AuthenticationOrder [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20AuthenticationOrder]] 
+class "AuthorizationOrder" as ComSecM__AuthorizationOrder [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20AuthorizationOrder]] 
+class "UserManagement" as ComSecM__UserManagement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20UserManagement]] 
+class "Tls" as ComSecM__Tls [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20Tls]] 
+class "Ssh" as ComSecM__Ssh [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20Ssh]] 
+class "SysM" as ComSysM__SysM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20SysM]] 
+class "Schema" as ComSysM__Schema [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20Schema]] 
+class "NetconfTls" as ComSysM__NetconfTls [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20NetconfTls]] 
+class "CliTls" as ComSysM__CliTls [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20CliTls]] 
+class "ManagedElement" as ComTop__ManagedElement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20ManagedElement]] 
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "Transport" as ComTop__Transport [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20Transport]] 
+class "TimeM" as LdeTimeM__TimeM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#LdeTimeM?title=class%20TimeM]] 
+class "NtpServer" as LdeTimeM__NtpServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#LdeTimeM?title=class%20NtpServer]] 
+class "Ntp" as LdeTimeM__Ntp [[urn:x-ericsson:r2:reg-doc:*-*:*:*#LdeTimeM?title=class%20Ntp]] 
+class "HealthCheckM" as HealthCheck__HealthCheckM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20HealthCheckM]] 
+class "Category" as HealthCheck__Category [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20Category]] 
+class "Rule" as HealthCheck__Rule [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20Rule]] 
+class "RuleSetFile" as HealthCheck__RuleSetFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20RuleSetFile]] 
+class "RuleFileManager" as HealthCheck__RuleFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20RuleFileManager]] 
+class "InUse" as HealthCheck__InUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20InUse]] 
+class "ReadyToUse" as HealthCheck__ReadyToUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20ReadyToUse]] 
+class "Job" as HealthCheck__Job [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20Job]] 
+class "SingleEvent" as HealthCheck__SingleEvent [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20SingleEvent]] 
+class "PeriodicEvent" as HealthCheck__PeriodicEvent [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20PeriodicEvent]] 
+class "CalendarPeriodicEvent" as HealthCheck__CalendarPeriodicEvent [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20CalendarPeriodicEvent]] 
+class "JobScheduler" as HealthCheck__JobScheduler [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20JobScheduler]] 
+class "CertM" as SEC_CertM__CertM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertM]] 
+class "TrustedCertificate" as SEC_CertM__TrustedCertificate [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20TrustedCertificate]] 
+class "NodeCredential" as SEC_CertM__NodeCredential [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20NodeCredential]] 
+class "EnrollmentServerGroup" as SEC_CertM__EnrollmentServerGroup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentServerGroup]] 
+class "EnrollmentAuthority" as SEC_CertM__EnrollmentAuthority [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentAuthority]] 
+class "TrustCategory" as SEC_CertM__TrustCategory [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20TrustCategory]] 
+class "CertMCapabilities" as SEC_CertM__CertMCapabilities [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertMCapabilities]] 
+class "EnrollmentServer" as SEC_CertM__EnrollmentServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentServer]] 
+class "ChainCertificate" as SEC_CertM__ChainCertificate [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20ChainCertificate]] 
+class "SwM" as CmwSwM__SwM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwM?title=class%20SwM]] 
+class "UpgradePackage" as CmwSwM__UpgradePackage [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwM?title=class%20UpgradePackage]] 
+CmwSwM__SwM *-- "*" CmwSwM__UpgradePackage
+class "SwM" as CmwSwM__SwM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwM?title=class%20SwM]] 
+class "RoleUpgrade" as CmwSwM__RoleUpgrade [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwM?title=class%20RoleUpgrade]] 
+CmwSwM__SwM *-- "0..1" CmwSwM__RoleUpgrade
+class "UpgradePackage" as CmwSwM__UpgradePackage [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwM?title=class%20UpgradePackage]] 
+class "RoleUpgrade" as CmwSwM__RoleUpgrade [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwM?title=class%20RoleUpgrade]] 
+CmwSwM__UpgradePackage *-- "0..1" CmwSwM__RoleUpgrade
+class "SwM" as CmwSwM__SwM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwM?title=class%20SwM]] 
+class "SwVersionMain" as CmwSwM__SwVersionMain [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwM?title=class%20SwVersionMain]] 
+CmwSwM__SwM *-- "1..*" CmwSwM__SwVersionMain
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "SwM" as CmwSwM__SwM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwM?title=class%20SwM]] 
+ComTop__SystemFunctions *-- "1" CmwSwM__SwM
+class "SystemBrmBackupScheduler" as SystemBrM__SystemBrmBackupScheduler [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmBackupScheduler]] 
+class "SystemBrmPeriodicEvent" as SystemBrM__SystemBrmPeriodicEvent [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmPeriodicEvent]] 
+SystemBrM__SystemBrmBackupScheduler *-- "*" SystemBrM__SystemBrmPeriodicEvent
+class "SystemBrM" as SystemBrM__SystemBrM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrM]] 
+class "SystemBrmBackupScheduler" as SystemBrM__SystemBrmBackupScheduler [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmBackupScheduler]] 
+SystemBrM__SystemBrM *-- "0..1" SystemBrM__SystemBrmBackupScheduler
+class "SystemHandling" as AxeFunctions__SystemHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling]] 
+class "SystemBrM" as SystemBrM__SystemBrM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrM]] 
+AxeFunctions__SystemHandling *-- "0..1" SystemBrM__SystemBrM
+class "SwInventory" as CmwSwIM__SwInventory [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwInventory]] 
+class "SwItem" as CmwSwIM__SwItem [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwItem]] 
+CmwSwIM__SwInventory *-- "*" CmwSwIM__SwItem
+class "SwInventory" as CmwSwIM__SwInventory [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwInventory]] 
+class "SwVersion" as CmwSwIM__SwVersion [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwVersion]] 
+CmwSwIM__SwInventory *-- "*" CmwSwIM__SwVersion
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "SwInventory" as CmwSwIM__SwInventory [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwInventory]] 
+ComTop__SystemFunctions *-- "1" CmwSwIM__SwInventory
+class "MmlSessions" as AxeAlphanumericDevice__MmlSessions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20MmlSessions]] 
+class "MmlSession" as AxeAlphanumericDevice__MmlSession [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20MmlSession]] 
+AxeAlphanumericDevice__MmlSessions *-- "*" AxeAlphanumericDevice__MmlSession
+class "AlphanumericDeviceM" as AxeAlphanumericDevice__AlphanumericDeviceM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20AlphanumericDeviceM]] 
+class "MmlSessions" as AxeAlphanumericDevice__MmlSessions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20MmlSessions]] 
+AxeAlphanumericDevice__AlphanumericDeviceM *-- "1" AxeAlphanumericDevice__MmlSessions
+class "AlphanumericDeviceM" as AxeAlphanumericDevice__AlphanumericDeviceM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20AlphanumericDeviceM]] 
+class "PdsManager" as AxeAlphanumericDevice__PdsManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsManager]] 
+AxeAlphanumericDevice__AlphanumericDeviceM *-- "1" AxeAlphanumericDevice__PdsManager
+class "PdsManager" as AxeAlphanumericDevice__PdsManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsManager]] 
+class "PdsIpServer" as AxeAlphanumericDevice__PdsIpServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsIpServer]] 
+AxeAlphanumericDevice__PdsManager *-- "*" AxeAlphanumericDevice__PdsIpServer
+class "PdsManager" as AxeAlphanumericDevice__PdsManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsManager]] 
+class "PdsIpClient" as AxeAlphanumericDevice__PdsIpClient [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsIpClient]] 
+AxeAlphanumericDevice__PdsManager *-- "*" AxeAlphanumericDevice__PdsIpClient
+class "PdsManager" as AxeAlphanumericDevice__PdsManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsManager]] 
+class "PdsSubFile" as AxeAlphanumericDevice__PdsSubFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsSubFile]] 
+AxeAlphanumericDevice__PdsManager *-- "*" AxeAlphanumericDevice__PdsSubFile
+class "PdsManager" as AxeAlphanumericDevice__PdsManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsManager]] 
+class "PdsStandByDevice" as AxeAlphanumericDevice__PdsStandByDevice [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsStandByDevice]] 
+AxeAlphanumericDevice__PdsManager *-- "*" AxeAlphanumericDevice__PdsStandByDevice
+class "SystemHandling" as AxeFunctions__SystemHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling]] 
+class "AlphanumericDeviceM" as AxeAlphanumericDevice__AlphanumericDeviceM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20AlphanumericDeviceM]] 
+AxeFunctions__SystemHandling *-- "1" AxeAlphanumericDevice__AlphanumericDeviceM
+class "SecurityHandling" as AxeFunctions__SecurityHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SecurityHandling]] 
+class "ApSessionM" as AxeApSessionManagement__ApSessionM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeApSessionManagement?title=class%20ApSessionM]] 
+AxeFunctions__SecurityHandling *-- "1" AxeApSessionManagement__ApSessionM
+class "AuditLoggingM" as AxeAuditLogging__AuditLoggingM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAuditLogging?title=class%20AuditLoggingM]] 
+class "ExclusionItem" as AxeAuditLogging__ExclusionItem [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAuditLogging?title=class%20ExclusionItem]] 
+AxeAuditLogging__AuditLoggingM *-- "*" AxeAuditLogging__ExclusionItem
+class "SecurityHandling" as AxeFunctions__SecurityHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SecurityHandling]] 
+class "AuditLoggingM" as AxeAuditLogging__AuditLoggingM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAuditLogging?title=class%20AuditLoggingM]] 
+AxeFunctions__SecurityHandling *-- "1" AxeAuditLogging__AuditLoggingM
+class "Equipment" as AxeComputeResource__Equipment [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeComputeResource?title=class%20Equipment]] 
+class "ComputeResource" as AxeComputeResource__ComputeResource [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeComputeResource?title=class%20ComputeResource]] 
+AxeComputeResource__Equipment *-- "*" AxeComputeResource__ComputeResource
+class "ManagedElement" as ComTop__ManagedElement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20ManagedElement]] 
+class "Equipment" as AxeComputeResource__Equipment [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeComputeResource?title=class%20Equipment]] 
+ComTop__ManagedElement *-- "0..1" AxeComputeResource__Equipment
+class "CpFileSystemM" as AxeCpFileSystem__CpFileSystemM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CpFileSystemM]] 
+class "CpVolume" as AxeCpFileSystem__CpVolume [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CpVolume]] 
+AxeCpFileSystem__CpFileSystemM *-- "*" AxeCpFileSystem__CpVolume
+class "CpVolume" as AxeCpFileSystem__CpVolume [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CpVolume]] 
+class "SimpleFile" as AxeCpFileSystem__SimpleFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20SimpleFile]] 
+AxeCpFileSystem__CpVolume *-- "*" AxeCpFileSystem__SimpleFile
+class "CpVolume" as AxeCpFileSystem__CpVolume [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CpVolume]] 
+class "InfiniteFile" as AxeCpFileSystem__InfiniteFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20InfiniteFile]] 
+AxeCpFileSystem__CpVolume *-- "*" AxeCpFileSystem__InfiniteFile
+class "CpVolume" as AxeCpFileSystem__CpVolume [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CpVolume]] 
+class "CompositeFile" as AxeCpFileSystem__CompositeFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CompositeFile]] 
+AxeCpFileSystem__CpVolume *-- "*" AxeCpFileSystem__CompositeFile
+class "CompositeFile" as AxeCpFileSystem__CompositeFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CompositeFile]] 
+class "CompositeSubFile" as AxeCpFileSystem__CompositeSubFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CompositeSubFile]] 
+AxeCpFileSystem__CompositeFile *-- "*" AxeCpFileSystem__CompositeSubFile
+class "SystemHandling" as AxeFunctions__SystemHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling]] 
+class "CpFileSystemM" as AxeCpFileSystem__CpFileSystemM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpFileSystem?title=class%20CpFileSystemM]] 
+AxeFunctions__SystemHandling *-- "1" AxeCpFileSystem__CpFileSystemM
+class "CpReloadM" as AxeCpReload__CpReloadM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpReload?title=class%20CpReloadM]] 
+class "CpCluster" as AxeCpReload__CpCluster [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpReload?title=class%20CpCluster]] 
+AxeCpReload__CpReloadM *-- "0..1" AxeCpReload__CpCluster
+class "CpReloadM" as AxeCpReload__CpReloadM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpReload?title=class%20CpReloadM]] 
+class "DualSidedCp" as AxeCpReload__DualSidedCp [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpReload?title=class%20DualSidedCp]] 
+AxeCpReload__CpReloadM *-- "0..2" AxeCpReload__DualSidedCp
+class "SystemHandling" as AxeFunctions__SystemHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling]] 
+class "CpReloadM" as AxeCpReload__CpReloadM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeCpReload?title=class%20CpReloadM]] 
+AxeFunctions__SystemHandling *-- "1" AxeCpReload__CpReloadM
+class "StatisticsInfo" as AxeDataRecord__StatisticsInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20StatisticsInfo]] 
+class "CPStatisticsInfo" as AxeDataRecord__CPStatisticsInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20CPStatisticsInfo]] 
+AxeDataRecord__StatisticsInfo *-- "1..64" AxeDataRecord__CPStatisticsInfo
+class "DataRecordM" as AxeDataRecord__DataRecordM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20DataRecordM]] 
+class "MessageStore" as AxeDataRecord__MessageStore [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20MessageStore]] 
+AxeDataRecord__DataRecordM *-- "8" AxeDataRecord__MessageStore
+class "MessageStore" as AxeDataRecord__MessageStore [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20MessageStore]] 
+class "FileBasedJob" as AxeDataRecord__FileBasedJob [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20FileBasedJob]] 
+AxeDataRecord__MessageStore *-- "0..1" AxeDataRecord__FileBasedJob
+class "MessageStore" as AxeDataRecord__MessageStore [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20MessageStore]] 
+class "BlockBasedJob" as AxeDataRecord__BlockBasedJob [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20BlockBasedJob]] 
+AxeDataRecord__MessageStore *-- "0..1" AxeDataRecord__BlockBasedJob
+class "BlockBasedJob" as AxeDataRecord__BlockBasedJob [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20BlockBasedJob]] 
+class "StatisticsInfo" as AxeDataRecord__StatisticsInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20StatisticsInfo]] 
+AxeDataRecord__BlockBasedJob *-- "0..1" AxeDataRecord__StatisticsInfo
+class "FileBasedJob" as AxeDataRecord__FileBasedJob [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20FileBasedJob]] 
+class "StatisticsInfo" as AxeDataRecord__StatisticsInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20StatisticsInfo]] 
+AxeDataRecord__FileBasedJob *-- "0..1" AxeDataRecord__StatisticsInfo
+class "DataOutputHandling" as AxeFunctions__DataOutputHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20DataOutputHandling]] 
+class "DataRecordM" as AxeDataRecord__DataRecordM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20DataRecordM]] 
+AxeFunctions__DataOutputHandling *-- "1" AxeDataRecord__DataRecordM
+class "InitiatingDestinationSet" as AxeDataTransfer__InitiatingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20InitiatingDestinationSet]] 
+class "SecondaryInitiatingDestination" as AxeDataTransfer__SecondaryInitiatingDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20SecondaryInitiatingDestination]] 
+AxeDataTransfer__InitiatingDestinationSet *-- "0..1" AxeDataTransfer__SecondaryInitiatingDestination
+class "FileTransferManager" as AxeDataTransfer__FileTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferManager]] 
+class "FileTransferQueue" as AxeDataTransfer__FileTransferQueue [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferQueue]] 
+AxeDataTransfer__FileTransferManager *-- "0..70" AxeDataTransfer__FileTransferQueue
+class "FileTransferManager" as AxeDataTransfer__FileTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferManager]] 
+class "InitiatingDestinationSet" as AxeDataTransfer__InitiatingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20InitiatingDestinationSet]] 
+AxeDataTransfer__FileTransferManager *-- "0..70" AxeDataTransfer__InitiatingDestinationSet
+class "FileTransferQueue" as AxeDataTransfer__FileTransferQueue [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferQueue]] 
+class "AdvancedFileTransferQueueInfo" as AxeDataTransfer__AdvancedFileTransferQueueInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20AdvancedFileTransferQueueInfo]] 
+AxeDataTransfer__FileTransferQueue *-- "1" AxeDataTransfer__AdvancedFileTransferQueueInfo
+class "FileTransferManager" as AxeDataTransfer__FileTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferManager]] 
+class "RespondingDestinationSet" as AxeDataTransfer__RespondingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20RespondingDestinationSet]] 
+AxeDataTransfer__FileTransferManager *-- "0..70" AxeDataTransfer__RespondingDestinationSet
+class "RespondingDestinationSet" as AxeDataTransfer__RespondingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20RespondingDestinationSet]] 
+class "PrimaryRespondingDestination" as AxeDataTransfer__PrimaryRespondingDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20PrimaryRespondingDestination]] 
+AxeDataTransfer__RespondingDestinationSet *-- "1" AxeDataTransfer__PrimaryRespondingDestination
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+class "BlockTransferManager" as AxeDataTransfer__BlockTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockTransferManager]] 
+AxeDataTransfer__DataTransferM *-- "1" AxeDataTransfer__BlockTransferManager
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+class "FileTransferManager" as AxeDataTransfer__FileTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20FileTransferManager]] 
+AxeDataTransfer__DataTransferM *-- "1" AxeDataTransfer__FileTransferManager
+class "BlockTransferManager" as AxeDataTransfer__BlockTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockTransferManager]] 
+class "BlockTransferQueue" as AxeDataTransfer__BlockTransferQueue [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockTransferQueue]] 
+AxeDataTransfer__BlockTransferManager *-- "0..30" AxeDataTransfer__BlockTransferQueue
+class "BlockTransferManager" as AxeDataTransfer__BlockTransferManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockTransferManager]] 
+class "BlockDestinationSet" as AxeDataTransfer__BlockDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockDestinationSet]] 
+AxeDataTransfer__BlockTransferManager *-- "0..30" AxeDataTransfer__BlockDestinationSet
+class "BlockDestinationSet" as AxeDataTransfer__BlockDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockDestinationSet]] 
+class "PrimaryBlockDestination" as AxeDataTransfer__PrimaryBlockDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20PrimaryBlockDestination]] 
+AxeDataTransfer__BlockDestinationSet *-- "1" AxeDataTransfer__PrimaryBlockDestination
+class "InitiatingDestinationSet" as AxeDataTransfer__InitiatingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20InitiatingDestinationSet]] 
+class "AdvancedInitiatingParameters" as AxeDataTransfer__AdvancedInitiatingParameters [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20AdvancedInitiatingParameters]] 
+AxeDataTransfer__InitiatingDestinationSet *-- "1" AxeDataTransfer__AdvancedInitiatingParameters
+class "RespondingDestinationSet" as AxeDataTransfer__RespondingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20RespondingDestinationSet]] 
+class "AdvancedRespondingParameters" as AxeDataTransfer__AdvancedRespondingParameters [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20AdvancedRespondingParameters]] 
+AxeDataTransfer__RespondingDestinationSet *-- "1" AxeDataTransfer__AdvancedRespondingParameters
+class "BlockDestinationSet" as AxeDataTransfer__BlockDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockDestinationSet]] 
+class "AdvancedBlockDestSetInfo" as AxeDataTransfer__AdvancedBlockDestSetInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20AdvancedBlockDestSetInfo]] 
+AxeDataTransfer__BlockDestinationSet *-- "1" AxeDataTransfer__AdvancedBlockDestSetInfo
+class "InitiatingDestinationSet" as AxeDataTransfer__InitiatingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20InitiatingDestinationSet]] 
+class "PrimaryInitiatingDestination" as AxeDataTransfer__PrimaryInitiatingDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20PrimaryInitiatingDestination]] 
+AxeDataTransfer__InitiatingDestinationSet *-- "1" AxeDataTransfer__PrimaryInitiatingDestination
+class "RespondingDestinationSet" as AxeDataTransfer__RespondingDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20RespondingDestinationSet]] 
+class "SecondaryRespondingDestination" as AxeDataTransfer__SecondaryRespondingDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20SecondaryRespondingDestination]] 
+AxeDataTransfer__RespondingDestinationSet *-- "0..1" AxeDataTransfer__SecondaryRespondingDestination
+class "BlockDestinationSet" as AxeDataTransfer__BlockDestinationSet [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20BlockDestinationSet]] 
+class "SecondaryBlockDestination" as AxeDataTransfer__SecondaryBlockDestination [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20SecondaryBlockDestination]] 
+AxeDataTransfer__BlockDestinationSet *-- "0..1" AxeDataTransfer__SecondaryBlockDestination
+class "DataOutputHandling" as AxeFunctions__DataOutputHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20DataOutputHandling]] 
+class "DataTransferM" as AxeDataTransfer__DataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataTransfer?title=class%20DataTransferM]] 
+AxeFunctions__DataOutputHandling *-- "1" AxeDataTransfer__DataTransferM
+class "DataSink" as AxeDirectDataTransfer__DataSink [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20DataSink]] 
+class "BlockPeer" as AxeDirectDataTransfer__BlockPeer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20BlockPeer]] 
+AxeDirectDataTransfer__DataSink *-- "0..2" AxeDirectDataTransfer__BlockPeer
+class "DataSink" as AxeDirectDataTransfer__DataSink [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20DataSink]] 
+class "FilePeer" as AxeDirectDataTransfer__FilePeer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20FilePeer]] 
+AxeDirectDataTransfer__DataSink *-- "0..2" AxeDirectDataTransfer__FilePeer
+class "DataSink" as AxeDirectDataTransfer__DataSink [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20DataSink]] 
+class "OutputFormat" as AxeDirectDataTransfer__OutputFormat [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20OutputFormat]] 
+AxeDirectDataTransfer__DataSink *-- "1" AxeDirectDataTransfer__OutputFormat
+class "OutputFormat" as AxeDirectDataTransfer__OutputFormat [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20OutputFormat]] 
+class "FileFormat" as AxeDirectDataTransfer__FileFormat [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20FileFormat]] 
+AxeDirectDataTransfer__OutputFormat *-- "0..1" AxeDirectDataTransfer__FileFormat
+class "DataSource" as AxeDirectDataTransfer__DataSource [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20DataSource]] 
+class "TransferProgress" as AxeDirectDataTransfer__TransferProgress [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20TransferProgress]] 
+AxeDirectDataTransfer__DataSource *-- "*" AxeDirectDataTransfer__TransferProgress
+class "DirectDataTransferM" as AxeDirectDataTransfer__DirectDataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20DirectDataTransferM]] 
+class "DataSource" as AxeDirectDataTransfer__DataSource [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20DataSource]] 
+AxeDirectDataTransfer__DirectDataTransferM *-- "0..2" AxeDirectDataTransfer__DataSource
+class "DataSource" as AxeDirectDataTransfer__DataSource [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20DataSource]] 
+class "DataSink" as AxeDirectDataTransfer__DataSink [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20DataSink]] 
+AxeDirectDataTransfer__DataSource *-- "0..1" AxeDirectDataTransfer__DataSink
+class "DataOutputHandling" as AxeFunctions__DataOutputHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20DataOutputHandling]] 
+class "DirectDataTransferM" as AxeDirectDataTransfer__DirectDataTransferM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDirectDataTransfer?title=class%20DirectDataTransferM]] 
+AxeFunctions__DataOutputHandling *-- "1" AxeDirectDataTransfer__DirectDataTransferM
+class "EquipmentM" as AxeEquipment__EquipmentM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20EquipmentM]] 
+class "LogicalMgmt" as AxeEquipment__LogicalMgmt [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20LogicalMgmt]] 
+AxeEquipment__EquipmentM *-- "1" AxeEquipment__LogicalMgmt
+class "LogicalMgmt" as AxeEquipment__LogicalMgmt [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20LogicalMgmt]] 
+class "Apg" as AxeEquipment__Apg [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20Apg]] 
+AxeEquipment__LogicalMgmt *-- "1..2" AxeEquipment__Apg
+class "LogicalMgmt" as AxeEquipment__LogicalMgmt [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20LogicalMgmt]] 
+class "DualSidedCp" as AxeEquipment__DualSidedCp [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20DualSidedCp]] 
+AxeEquipment__LogicalMgmt *-- "0..2" AxeEquipment__DualSidedCp
+class "DualSidedCp" as AxeEquipment__DualSidedCp [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20DualSidedCp]] 
+class "SwMau" as AxeEquipment__SwMau [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20SwMau]] 
+AxeEquipment__DualSidedCp *-- "0..1" AxeEquipment__SwMau
+class "SystemComponentHandling" as AxeFunctions__SystemComponentHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemComponentHandling]] 
+class "EquipmentM" as AxeEquipment__EquipmentM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20EquipmentM]] 
+AxeFunctions__SystemComponentHandling *-- "1" AxeEquipment__EquipmentM
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+class "SecurityHandling" as AxeFunctions__SecurityHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SecurityHandling]] 
+AxeFunctions__AxeFunctions *-- "1" AxeFunctions__SecurityHandling
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+class "SystemHandling" as AxeFunctions__SystemHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling]] 
+AxeFunctions__AxeFunctions *-- "1" AxeFunctions__SystemHandling
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+class "SupervisionHandling" as AxeFunctions__SupervisionHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SupervisionHandling]] 
+AxeFunctions__AxeFunctions *-- "1" AxeFunctions__SupervisionHandling
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+class "DataOutputHandling" as AxeFunctions__DataOutputHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20DataOutputHandling]] 
+AxeFunctions__AxeFunctions *-- "1" AxeFunctions__DataOutputHandling
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+class "SystemComponentHandling" as AxeFunctions__SystemComponentHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemComponentHandling]] 
+AxeFunctions__AxeFunctions *-- "1" AxeFunctions__SystemComponentHandling
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "AxeFunctions" as AxeFunctions__AxeFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20AxeFunctions]] 
+ComTop__SystemFunctions *-- "1" AxeFunctions__AxeFunctions
+class "LicenseM" as AxeLicenseManagement__LicenseM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeLicenseManagement?title=class%20LicenseM]] 
+class "ElectronicKey" as AxeLicenseManagement__ElectronicKey [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeLicenseManagement?title=class%20ElectronicKey]] 
+AxeLicenseManagement__LicenseM *-- "*" AxeLicenseManagement__ElectronicKey
+class "SystemHandling" as AxeFunctions__SystemHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling]] 
+class "LicenseM" as AxeLicenseManagement__LicenseM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeLicenseManagement?title=class%20LicenseM]] 
+AxeFunctions__SystemHandling *-- "1" AxeLicenseManagement__LicenseM
+class "SecurityHandling" as AxeFunctions__SecurityHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SecurityHandling]] 
+class "LocalTsUsersPolicyM" as AxeLocalTsUsersPolicy__LocalTsUsersPolicyM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeLocalTsUsersPolicy?title=class%20LocalTsUsersPolicyM]] 
+AxeFunctions__SecurityHandling *-- "1" AxeLocalTsUsersPolicy__LocalTsUsersPolicyM
+class "MmlAuthorizationM" as AxeMmlAuthorization__MmlAuthorizationM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeMmlAuthorization?title=class%20MmlAuthorizationM]] 
+class "MmlRole" as AxeMmlAuthorization__MmlRole [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeMmlAuthorization?title=class%20MmlRole]] 
+AxeMmlAuthorization__MmlAuthorizationM *-- "*" AxeMmlAuthorization__MmlRole
+class "MmlAuthorizationM" as AxeMmlAuthorization__MmlAuthorizationM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeMmlAuthorization?title=class%20MmlAuthorizationM]] 
+class "MmlSystemRole" as AxeMmlAuthorization__MmlSystemRole [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeMmlAuthorization?title=class%20MmlSystemRole]] 
+AxeMmlAuthorization__MmlAuthorizationM *-- "*" AxeMmlAuthorization__MmlSystemRole
+class "SecurityHandling" as AxeFunctions__SecurityHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SecurityHandling]] 
+class "MmlAuthorizationM" as AxeMmlAuthorization__MmlAuthorizationM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeMmlAuthorization?title=class%20MmlAuthorizationM]] 
+AxeFunctions__SecurityHandling *-- "1" AxeMmlAuthorization__MmlAuthorizationM
+class "DataOutputHandling" as AxeFunctions__DataOutputHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20DataOutputHandling]] 
+class "NbiFoldersM" as AxeNbiFolders__NbiFoldersM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeNbiFolders?title=class%20NbiFoldersM]] 
+AxeFunctions__DataOutputHandling *-- "1" AxeNbiFolders__NbiFoldersM
+class "StatisticalCounterM" as AxeStatisticalCounter__StatisticalCounterM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20StatisticalCounterM]] 
+class "TranslationTable" as AxeStatisticalCounter__TranslationTable [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20TranslationTable]] 
+AxeStatisticalCounter__StatisticalCounterM *-- "1" AxeStatisticalCounter__TranslationTable
+class "StatisticalCounterM" as AxeStatisticalCounter__StatisticalCounterM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20StatisticalCounterM]] 
+class "Reports" as AxeStatisticalCounter__Reports [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20Reports]] 
+AxeStatisticalCounter__StatisticalCounterM *-- "1" AxeStatisticalCounter__Reports
+class "StatisticalCounterM" as AxeStatisticalCounter__StatisticalCounterM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20StatisticalCounterM]] 
+class "MeasurementPrograms" as AxeStatisticalCounter__MeasurementPrograms [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20MeasurementPrograms]] 
+AxeStatisticalCounter__StatisticalCounterM *-- "1" AxeStatisticalCounter__MeasurementPrograms
+class "ObjectType" as AxeStatisticalCounter__ObjectType [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ObjectType]] 
+class "Counter" as AxeStatisticalCounter__Counter [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20Counter]] 
+AxeStatisticalCounter__ObjectType *-- "*" AxeStatisticalCounter__Counter
+class "StatisticalCounterM" as AxeStatisticalCounter__StatisticalCounterM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20StatisticalCounterM]] 
+class "ScrFileManager" as AxeStatisticalCounter__ScrFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFileManager]] 
+AxeStatisticalCounter__StatisticalCounterM *-- "1" AxeStatisticalCounter__ScrFileManager
+class "Reports" as AxeStatisticalCounter__Reports [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20Reports]] 
+class "Report" as AxeStatisticalCounter__Report [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20Report]] 
+AxeStatisticalCounter__Reports *-- "*" AxeStatisticalCounter__Report
+class "MeasurementPrograms" as AxeStatisticalCounter__MeasurementPrograms [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20MeasurementPrograms]] 
+class "MeasurementProgram" as AxeStatisticalCounter__MeasurementProgram [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20MeasurementProgram]] 
+AxeStatisticalCounter__MeasurementPrograms *-- "*" AxeStatisticalCounter__MeasurementProgram
+class "StatisticalCounterM" as AxeStatisticalCounter__StatisticalCounterM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20StatisticalCounterM]] 
+class "ObjectTypes" as AxeStatisticalCounter__ObjectTypes [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ObjectTypes]] 
+AxeStatisticalCounter__StatisticalCounterM *-- "1" AxeStatisticalCounter__ObjectTypes
+class "ObjectTypes" as AxeStatisticalCounter__ObjectTypes [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ObjectTypes]] 
+class "ObjectType" as AxeStatisticalCounter__ObjectType [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ObjectType]] 
+AxeStatisticalCounter__ObjectTypes *-- "*" AxeStatisticalCounter__ObjectType
+class "ScrFileManager" as AxeStatisticalCounter__ScrFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFileManager]] 
+class "ReadyToUse" as AxeStatisticalCounter__ReadyToUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ReadyToUse]] 
+AxeStatisticalCounter__ScrFileManager *-- "1" AxeStatisticalCounter__ReadyToUse
+class "ScrFileManager" as AxeStatisticalCounter__ScrFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFileManager]] 
+class "InUse" as AxeStatisticalCounter__InUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20InUse]] 
+AxeStatisticalCounter__ScrFileManager *-- "1" AxeStatisticalCounter__InUse
+class "ReadyToUse" as AxeStatisticalCounter__ReadyToUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ReadyToUse]] 
+class "ScrFile" as AxeStatisticalCounter__ScrFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFile]] 
+AxeStatisticalCounter__ReadyToUse *-- "*" AxeStatisticalCounter__ScrFile
+class "InUse" as AxeStatisticalCounter__InUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20InUse]] 
+class "ScrFile" as AxeStatisticalCounter__ScrFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFile]] 
+AxeStatisticalCounter__InUse *-- "*" AxeStatisticalCounter__ScrFile
+class "StatisticalCounterM" as AxeStatisticalCounter__StatisticalCounterM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20StatisticalCounterM]] 
+class "CapacityInfo" as AxeStatisticalCounter__CapacityInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20CapacityInfo]] 
+AxeStatisticalCounter__StatisticalCounterM *-- "0..1" AxeStatisticalCounter__CapacityInfo
+class "DataOutputHandling" as AxeFunctions__DataOutputHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20DataOutputHandling]] 
+class "StatisticalCounterM" as AxeStatisticalCounter__StatisticalCounterM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20StatisticalCounterM]] 
+AxeFunctions__DataOutputHandling *-- "1" AxeStatisticalCounter__StatisticalCounterM
+class "TransportM" as AxeTransportM__TransportM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeTransportM?title=class%20TransportM]] 
+class "ExternalNetwork" as AxeTransportM__ExternalNetwork [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeTransportM?title=class%20ExternalNetwork]] 
+AxeTransportM__TransportM *-- "*" AxeTransportM__ExternalNetwork
+class "TransportM" as AxeTransportM__TransportM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeTransportM?title=class%20TransportM]] 
+class "InternalNetwork" as AxeTransportM__InternalNetwork [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeTransportM?title=class%20InternalNetwork]] 
+AxeTransportM__TransportM *-- "*" AxeTransportM__InternalNetwork
+class "Host" as AxeTransportM__Host [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeTransportM?title=class%20Host]] 
+class "Interface" as AxeTransportM__Interface [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeTransportM?title=class%20Interface]] 
+AxeTransportM__Host *-- "*" AxeTransportM__Interface
+class "TransportM" as AxeTransportM__TransportM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeTransportM?title=class%20TransportM]] 
+class "Host" as AxeTransportM__Host [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeTransportM?title=class%20Host]] 
+AxeTransportM__TransportM *-- "*" AxeTransportM__Host
+class "SystemHandling" as AxeFunctions__SystemHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling]] 
+class "TransportM" as AxeTransportM__TransportM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeTransportM?title=class%20TransportM]] 
+AxeFunctions__SystemHandling *-- "0..1" AxeTransportM__TransportM
+class "BrM" as BrM__BrM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrM]] 
+class "BrmBackupManager" as BrM__BrmBackupManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrmBackupManager]] 
+BrM__BrM *-- "*" BrM__BrmBackupManager
+class "BrmBackupManager" as BrM__BrmBackupManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrmBackupManager]] 
+class "BrmBackup" as BrM__BrmBackup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrmBackup]] 
+BrM__BrmBackupManager *-- "*" BrM__BrmBackup
+class "BrmBackupManager" as BrM__BrmBackupManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrmBackupManager]] 
+class "BrmFailsafeBackup" as BrM__BrmFailsafeBackup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrmFailsafeBackup]] 
+BrM__BrmBackupManager *-- "0..1" BrM__BrmFailsafeBackup
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "BrM" as BrM__BrM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BrM?title=class%20BrM]] 
+ComTop__SystemFunctions *-- "1" BrM__BrM
+class "LogM" as CmwLogM__LogM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwLogM?title=class%20LogM]] 
+class "Log" as CmwLogM__Log [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwLogM?title=class%20Log]] 
+CmwLogM__LogM *-- "12" CmwLogM__Log
+class "LogM" as CmwLogM__LogM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwLogM?title=class%20LogM]] 
+class "RemoteLogServer" as CmwLogM__RemoteLogServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwLogM?title=class%20RemoteLogServer]] 
+CmwLogM__LogM *-- "2" CmwLogM__RemoteLogServer
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "LogM" as CmwLogM__LogM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwLogM?title=class%20LogM]] 
+ComTop__SystemFunctions *-- "1" CmwLogM__LogM
+class "FileM" as ComFileM__FileM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileM]] 
+class "LogicalFs" as ComFileM__LogicalFs [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20LogicalFs]] 
+ComFileM__FileM *-- "1" ComFileM__LogicalFs
+class "FileGroup" as ComFileM__FileGroup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileGroup]] 
+class "FileGroup" as ComFileM__FileGroup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileGroup]] 
+ComFileM__FileGroup *-- "*" ComFileM__FileGroup
+class "FileGroup" as ComFileM__FileGroup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileGroup]] 
+class "FileInformation" as ComFileM__FileInformation [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileInformation]] 
+ComFileM__FileGroup *-- "*" ComFileM__FileInformation
+class "LogicalFs" as ComFileM__LogicalFs [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20LogicalFs]] 
+class "FileGroup" as ComFileM__FileGroup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileGroup]] 
+ComFileM__LogicalFs *-- "*" ComFileM__FileGroup
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "FileM" as ComFileM__FileM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileM?title=class%20FileM]] 
+ComTop__SystemFunctions *-- "1" ComFileM__FileM
+class "FileTPM" as ComFileTPM__FileTPM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileTPM?title=class%20FileTPM]] 
+class "FtpServer" as ComFileTPM__FtpServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileTPM?title=class%20FtpServer]] 
+ComFileTPM__FileTPM *-- "0..1" ComFileTPM__FtpServer
+class "FtpServer" as ComFileTPM__FtpServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileTPM?title=class%20FtpServer]] 
+class "FtpTlsServer" as ComFileTPM__FtpTlsServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileTPM?title=class%20FtpTlsServer]] 
+ComFileTPM__FtpServer *-- "0..1" ComFileTPM__FtpTlsServer
+class "SysM" as ComSysM__SysM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20SysM]] 
+class "FileTPM" as ComFileTPM__FileTPM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileTPM?title=class%20FileTPM]] 
+ComSysM__SysM *-- "1" ComFileTPM__FileTPM
+class "LdapAuthenticationMethod" as ComLdapAuthentication__LdapAuthenticationMethod [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLdapAuthentication?title=class%20LdapAuthenticationMethod]] 
+class "Ldap" as ComLdapAuthentication__Ldap [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLdapAuthentication?title=class%20Ldap]] 
+ComLdapAuthentication__LdapAuthenticationMethod *-- "1" ComLdapAuthentication__Ldap
+class "Ldap" as ComLdapAuthentication__Ldap [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLdapAuthentication?title=class%20Ldap]] 
+class "EricssonFilter" as ComLdapAuthentication__EricssonFilter [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLdapAuthentication?title=class%20EricssonFilter]] 
+ComLdapAuthentication__Ldap *-- "0..1" ComLdapAuthentication__EricssonFilter
+class "UserManagement" as ComSecM__UserManagement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20UserManagement]] 
+class "LdapAuthenticationMethod" as ComLdapAuthentication__LdapAuthenticationMethod [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLdapAuthentication?title=class%20LdapAuthenticationMethod]] 
+ComSecM__UserManagement *-- "1" ComLdapAuthentication__LdapAuthenticationMethod
+class "Role" as ComLocalAuthorization__Role [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLocalAuthorization?title=class%20Role]] 
+class "Rule" as ComLocalAuthorization__Rule [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLocalAuthorization?title=class%20Rule]] 
+ComLocalAuthorization__Role *-- "1..*" ComLocalAuthorization__Rule
+class "LocalAuthorizationMethod" as ComLocalAuthorization__LocalAuthorizationMethod [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLocalAuthorization?title=class%20LocalAuthorizationMethod]] 
+class "Role" as ComLocalAuthorization__Role [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLocalAuthorization?title=class%20Role]] 
+ComLocalAuthorization__LocalAuthorizationMethod *-- "*" ComLocalAuthorization__Role
+class "UserManagement" as ComSecM__UserManagement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20UserManagement]] 
+class "LocalAuthorizationMethod" as ComLocalAuthorization__LocalAuthorizationMethod [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLocalAuthorization?title=class%20LocalAuthorizationMethod]] 
+ComSecM__UserManagement *-- "1" ComLocalAuthorization__LocalAuthorizationMethod
+class "SecM" as ComSecM__SecM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20SecM]] 
+class "UserManagement" as ComSecM__UserManagement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20UserManagement]] 
+ComSecM__SecM *-- "1" ComSecM__UserManagement
+class "UserManagement" as ComSecM__UserManagement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20UserManagement]] 
+class "AuthenticationOrder" as ComSecM__AuthenticationOrder [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20AuthenticationOrder]] 
+ComSecM__UserManagement *-- "0..1" ComSecM__AuthenticationOrder
+class "UserManagement" as ComSecM__UserManagement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20UserManagement]] 
+class "AuthorizationOrder" as ComSecM__AuthorizationOrder [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20AuthorizationOrder]] 
+ComSecM__UserManagement *-- "0..1" ComSecM__AuthorizationOrder
+class "SecM" as ComSecM__SecM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20SecM]] 
+class "Tls" as ComSecM__Tls [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20Tls]] 
+ComSecM__SecM *-- "0..1" ComSecM__Tls
+class "SecM" as ComSecM__SecM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20SecM]] 
+class "Ssh" as ComSecM__Ssh [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20Ssh]] 
+ComSecM__SecM *-- "0..1" ComSecM__Ssh
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "SecM" as ComSecM__SecM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20SecM]] 
+ComTop__SystemFunctions *-- "1" ComSecM__SecM
+class "SysM" as ComSysM__SysM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20SysM]] 
+class "Schema" as ComSysM__Schema [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20Schema]] 
+ComSysM__SysM *-- "2..*" ComSysM__Schema
+class "SysM" as ComSysM__SysM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20SysM]] 
+class "NetconfTls" as ComSysM__NetconfTls [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20NetconfTls]] 
+ComSysM__SysM *-- "0..1" ComSysM__NetconfTls
+class "SysM" as ComSysM__SysM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20SysM]] 
+class "CliTls" as ComSysM__CliTls [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20CliTls]] 
+ComSysM__SysM *-- "0..1" ComSysM__CliTls
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "SysM" as ComSysM__SysM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20SysM]] 
+ComTop__SystemFunctions *-- "1" ComSysM__SysM
+class "ManagedElement" as ComTop__ManagedElement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20ManagedElement]] 
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+ComTop__ManagedElement *-- "1" ComTop__SystemFunctions
+class "ManagedElement" as ComTop__ManagedElement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20ManagedElement]] 
+class "Transport" as ComTop__Transport [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20Transport]] 
+ComTop__ManagedElement *-- "0..1" ComTop__Transport
+class "TimeM" as LdeTimeM__TimeM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#LdeTimeM?title=class%20TimeM]] 
+class "Ntp" as LdeTimeM__Ntp [[urn:x-ericsson:r2:reg-doc:*-*:*:*#LdeTimeM?title=class%20Ntp]] 
+LdeTimeM__TimeM *-- "1" LdeTimeM__Ntp
+class "Ntp" as LdeTimeM__Ntp [[urn:x-ericsson:r2:reg-doc:*-*:*:*#LdeTimeM?title=class%20Ntp]] 
+class "NtpServer" as LdeTimeM__NtpServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#LdeTimeM?title=class%20NtpServer]] 
+LdeTimeM__Ntp *-- "*" LdeTimeM__NtpServer
+class "SysM" as ComSysM__SysM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20SysM]] 
+class "TimeM" as LdeTimeM__TimeM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#LdeTimeM?title=class%20TimeM]] 
+ComSysM__SysM *-- "1" LdeTimeM__TimeM
+class "Category" as HealthCheck__Category [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20Category]] 
+class "Rule" as HealthCheck__Rule [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20Rule]] 
+HealthCheck__Category *-- "1..*" HealthCheck__Rule
+class "RuleFileManager" as HealthCheck__RuleFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20RuleFileManager]] 
+class "InUse" as HealthCheck__InUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20InUse]] 
+HealthCheck__RuleFileManager *-- "1" HealthCheck__InUse
+class "RuleFileManager" as HealthCheck__RuleFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20RuleFileManager]] 
+class "ReadyToUse" as HealthCheck__ReadyToUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20ReadyToUse]] 
+HealthCheck__RuleFileManager *-- "1" HealthCheck__ReadyToUse
+class "InUse" as HealthCheck__InUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20InUse]] 
+class "RuleSetFile" as HealthCheck__RuleSetFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20RuleSetFile]] 
+HealthCheck__InUse *-- "*" HealthCheck__RuleSetFile
+class "ReadyToUse" as HealthCheck__ReadyToUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20ReadyToUse]] 
+class "RuleSetFile" as HealthCheck__RuleSetFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20RuleSetFile]] 
+HealthCheck__ReadyToUse *-- "*" HealthCheck__RuleSetFile
+class "HealthCheckM" as HealthCheck__HealthCheckM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20HealthCheckM]] 
+class "RuleFileManager" as HealthCheck__RuleFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20RuleFileManager]] 
+HealthCheck__HealthCheckM *-- "0..1" HealthCheck__RuleFileManager
+class "HealthCheckM" as HealthCheck__HealthCheckM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20HealthCheckM]] 
+class "Category" as HealthCheck__Category [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20Category]] 
+HealthCheck__HealthCheckM *-- "*" HealthCheck__Category
+class "HealthCheckM" as HealthCheck__HealthCheckM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20HealthCheckM]] 
+class "Job" as HealthCheck__Job [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20Job]] 
+HealthCheck__HealthCheckM *-- "*" HealthCheck__Job
+class "JobScheduler" as HealthCheck__JobScheduler [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20JobScheduler]] 
+class "SingleEvent" as HealthCheck__SingleEvent [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20SingleEvent]] 
+HealthCheck__JobScheduler *-- "*" HealthCheck__SingleEvent
+class "JobScheduler" as HealthCheck__JobScheduler [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20JobScheduler]] 
+class "PeriodicEvent" as HealthCheck__PeriodicEvent [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20PeriodicEvent]] 
+HealthCheck__JobScheduler *-- "*" HealthCheck__PeriodicEvent
+class "JobScheduler" as HealthCheck__JobScheduler [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20JobScheduler]] 
+class "CalendarPeriodicEvent" as HealthCheck__CalendarPeriodicEvent [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20CalendarPeriodicEvent]] 
+HealthCheck__JobScheduler *-- "*" HealthCheck__CalendarPeriodicEvent
+class "Job" as HealthCheck__Job [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20Job]] 
+class "JobScheduler" as HealthCheck__JobScheduler [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20JobScheduler]] 
+HealthCheck__Job *-- "0..1" HealthCheck__JobScheduler
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "HealthCheckM" as HealthCheck__HealthCheckM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#HealthCheck?title=class%20HealthCheckM]] 
+ComTop__SystemFunctions *-- "0..1" HealthCheck__HealthCheckM
+class "CertM" as SEC_CertM__CertM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertM]] 
+class "EnrollmentServerGroup" as SEC_CertM__EnrollmentServerGroup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentServerGroup]] 
+SEC_CertM__CertM *-- "*" SEC_CertM__EnrollmentServerGroup
+class "CertM" as SEC_CertM__CertM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertM]] 
+class "EnrollmentAuthority" as SEC_CertM__EnrollmentAuthority [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentAuthority]] 
+SEC_CertM__CertM *-- "*" SEC_CertM__EnrollmentAuthority
+class "CertM" as SEC_CertM__CertM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertM]] 
+class "TrustedCertificate" as SEC_CertM__TrustedCertificate [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20TrustedCertificate]] 
+SEC_CertM__CertM *-- "*" SEC_CertM__TrustedCertificate
+class "CertM" as SEC_CertM__CertM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertM]] 
+class "NodeCredential" as SEC_CertM__NodeCredential [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20NodeCredential]] 
+SEC_CertM__CertM *-- "*" SEC_CertM__NodeCredential
+class "CertM" as SEC_CertM__CertM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertM]] 
+class "TrustCategory" as SEC_CertM__TrustCategory [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20TrustCategory]] 
+SEC_CertM__CertM *-- "*" SEC_CertM__TrustCategory
+class "CertM" as SEC_CertM__CertM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertM]] 
+class "CertMCapabilities" as SEC_CertM__CertMCapabilities [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertMCapabilities]] 
+SEC_CertM__CertM *-- "1" SEC_CertM__CertMCapabilities
+class "EnrollmentServerGroup" as SEC_CertM__EnrollmentServerGroup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentServerGroup]] 
+class "EnrollmentServer" as SEC_CertM__EnrollmentServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentServer]] 
+SEC_CertM__EnrollmentServerGroup *-- "*" SEC_CertM__EnrollmentServer
+class "NodeCredential" as SEC_CertM__NodeCredential [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20NodeCredential]] 
+class "ChainCertificate" as SEC_CertM__ChainCertificate [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20ChainCertificate]] 
+SEC_CertM__NodeCredential *-- "*" SEC_CertM__ChainCertificate
+class "SecM" as ComSecM__SecM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20SecM]] 
+class "CertM" as SEC_CertM__CertM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertM]] 
+ComSecM__SecM *-- "1" SEC_CertM__CertM
+class "EnrollmentAuthority" as SEC_CertM__EnrollmentAuthority [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentAuthority]] 
+class "NodeCredential" as SEC_CertM__NodeCredential [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20NodeCredential]] 
+SEC_CertM__EnrollmentAuthority "0..1" -- "*" SEC_CertM__NodeCredential
+class "EnrollmentServerGroup" as SEC_CertM__EnrollmentServerGroup [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentServerGroup]] 
+class "NodeCredential" as SEC_CertM__NodeCredential [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20NodeCredential]] 
+SEC_CertM__EnrollmentServerGroup "0..1" -- "*" SEC_CertM__NodeCredential
+class "TrustedCertificate" as SEC_CertM__TrustedCertificate [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20TrustedCertificate]] 
+class "EnrollmentAuthority" as SEC_CertM__EnrollmentAuthority [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20EnrollmentAuthority]] 
+SEC_CertM__TrustedCertificate "0..1" -- "*" SEC_CertM__EnrollmentAuthority
+class "TrustedCertificate" as SEC_CertM__TrustedCertificate [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20TrustedCertificate]] 
+class "TrustCategory" as SEC_CertM__TrustCategory [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20TrustCategory]] 
+SEC_CertM__TrustedCertificate "1..*" -- "*" SEC_CertM__TrustCategory
+class "SwInventory" as CmwSwIM__SwInventory [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwInventory]] 
+class "SwVersion" as CmwSwIM__SwVersion [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwVersion]] 
+CmwSwIM__SwInventory --> "1..*" CmwSwIM__SwVersion
+class "SwVersion" as CmwSwIM__SwVersion [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwVersion]] 
+class "SwItem" as CmwSwIM__SwItem [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwItem]] 
+CmwSwIM__SwVersion --> "*" CmwSwIM__SwItem
+class "SwItem" as CmwSwIM__SwItem [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwItem]] 
+class "SwItem" as CmwSwIM__SwItem [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwSwIM?title=class%20SwItem]] 
+CmwSwIM__SwItem --> "*" CmwSwIM__SwItem
+class "ExternalNetwork" as AxeTransportM__ExternalNetwork [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeTransportM?title=class%20ExternalNetwork]] 
+class "Interface" as AxeTransportM__Interface [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeTransportM?title=class%20Interface]] 
+AxeTransportM__ExternalNetwork --> "*" AxeTransportM__Interface
+class "InternalNetwork" as AxeTransportM__InternalNetwork [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeTransportM?title=class%20InternalNetwork]] 
+class "Interface" as AxeTransportM__Interface [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeTransportM?title=class%20Interface]] 
+AxeTransportM__InternalNetwork --> "*" AxeTransportM__Interface
+@enduml 

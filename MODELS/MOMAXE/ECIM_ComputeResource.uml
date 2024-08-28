@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="ECIM_ComputeResource">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MLquMWRBEeSQhrRVNgz2zw" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MLquMmRBEeSQhrRVNgz2zw" key="com.ericsson.ecim.coremw.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_ReCmwGRBEeSQhrRVNgz2zw">
+      <body>Defines the common model for representing available compute resources.</body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_8JbBoIW5Ed-FBpQGdJXi3g">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OS1OUIXLEd-lToFzlKoOsA" name="" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_ZlTBwGRBEeSQhrRVNgz2zw" name="ECIM_ComputeResource">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_Zll8smRBEeSQhrRVNgz2zw">
+        <body>Defines the common model for representing available compute resources.</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_oozdMGRBEeSQhrRVNgz2zw" name="ComputeResource">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_opG_MmRBEeSQhrRVNgz2zw">
+          <body>Represents a compute resource (virtual or physical) that is allocated to the managed element.&#xD;
+ This resource can be a piece of hardware or a VM provided by a virtualization infrastructure management system.&#xD;
+&#xD;
+</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_opQJIWRBEeSQhrRVNgz2zw" name="computeResourceId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_opZ6IWRBEeSQhrRVNgz2zw">
+            <body>The value part of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_opjEEWRBEeSQhrRVNgz2zw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_opjEEmRBEeSQhrRVNgz2zw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_zVmXEGRBEeSQhrRVNgz2zw" name="macAddress" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_zVwIEmRBEeSQhrRVNgz2zw">
+            <body>The MAC address(es) of the resource.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rn1QwHVxEeS_PI3x0oSN-g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qJlxgGmGEeSzNYXA7PeIVA" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_yR0c4GmGEeSzNYXA7PeIVA" name="uuid" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ySH-4mmGEeSzNYXA7PeIVA">
+            <body>Universally unique identifier of the resource.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ySa50WmGEeSzNYXA7PeIVA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ySa50mmGEeSzNYXA7PeIVA" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_ESvNoGRCEeSQhrRVNgz2zw" name="" memberEnd="_ESvNoWRCEeSQhrRVNgz2zw _ESvNpGRCEeSQhrRVNgz2zw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_ESvNoWRCEeSQhrRVNgz2zw" name="Equiment" visibility="public" association="_ESvNoGRCEeSQhrRVNgz2zw">
+          <type xmi:type="uml:Class" href="ECIM_Equipment.uml#_VlZVIKk6Ed-wULkeqnJ_1w"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ES4XkGRCEeSQhrRVNgz2zw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ESvNp2RCEeSQhrRVNgz2zw" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_ESvNpGRCEeSQhrRVNgz2zw" name="ComputeResource" visibility="public" type="_oozdMGRBEeSQhrRVNgz2zw" aggregation="composite" association="_ESvNoGRCEeSQhrRVNgz2zw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dw7IkW2gEeSZDMuI2sy1Rw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dw7IkG2gEeSZDMuI2sy1Rw" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_cikwQHVqEeCBgp9CYCosRQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N8UVcDCXEeumxZiokPiMXA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N8UVcTCXEeumxZiokPiMXA" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N8UVcjCXEeumxZiokPiMXA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N8UVczCXEeumxZiokPiMXA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N8UVdDCXEeumxZiokPiMXA" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N8UVdTCXEeumxZiokPiMXA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ciq24HVqEeCBgp9CYCosRQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_MNdd8GRBEeSQhrRVNgz2zw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NFZLgGRBEeSQhrRVNgz2zw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_cqA1AHVqEeCBgp9CYCosRQ" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwModel xmi:id="_NFi8gGRBEeSQhrRVNgz2zw" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwMom xmi:id="_Zll8sGRBEeSQhrRVNgz2zw" base_Package="_ZlTBwGRBEeSQhrRVNgz2zw" immNamespace="MOM_NAME"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_Zll8sWRBEeSQhrRVNgz2zw" hideGroupName="" specification="" statusInformation="" base_Package="_ZlTBwGRBEeSQhrRVNgz2zw" author="EHOSKAS" contact="EHOSKAS" date="2015-04-01" docNo="" revision="A" version="1" release="0" organization="EAB" ecimMomName="ECIM_ComputeResource" ecimMomVersion="1" ecimMomRelease="0" ecimMomCorrection="0" correction="0"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_opG_MGRBEeSQhrRVNgz2zw" hideGroupName="" specification="" statusInformation="" base_Class="_oozdMGRBEeSQhrRVNgz2zw" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_opG_MWRBEeSQhrRVNgz2zw" base_Class="_oozdMGRBEeSQhrRVNgz2zw"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_opZ6IGRBEeSQhrRVNgz2zw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_opQJIWRBEeSQhrRVNgz2zw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_zVwIEGRBEeSQhrRVNgz2zw" isPersistent="false" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_zVmXEGRBEeSQhrRVNgz2zw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_zVwIEWRBEeSQhrRVNgz2zw" base_Property="_zVmXEGRBEeSQhrRVNgz2zw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_ETCIkGRCEeSQhrRVNgz2zw" hideGroupName="" specification="" statusInformation="" base_Association="_ESvNoGRCEeSQhrRVNgz2zw" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <CoreMWProfile:CmwContribution xmi:id="_ETCIkWRCEeSQhrRVNgz2zw" base_Association="_ESvNoGRCEeSQhrRVNgz2zw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_ySH-4GmGEeSzNYXA7PeIVA" isPersistent="false" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isAssociationEnd="true" base_Property="_yR0c4GmGEeSzNYXA7PeIVA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ySH-4WmGEeSzNYXA7PeIVA" base_Property="_yR0c4GmGEeSzNYXA7PeIVA" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_YbzmZUu9EeWAX6sjnwnvMA" base_Property="_opQJIWRBEeSQhrRVNgz2zw" isPersistent="true"/>
+  <Documentation:Documentation xmi:id="_BA-dEDLPEeaOiqsd1YH7eQ" base_Comment="_ReCmwGRBEeSQhrRVNgz2zw"/>
+  <Documentation:Documentation xmi:id="_BA-dETLPEeaOiqsd1YH7eQ" base_Comment="_Zll8smRBEeSQhrRVNgz2zw"/>
+  <Documentation:Documentation xmi:id="_BA-dEjLPEeaOiqsd1YH7eQ" base_Comment="_opG_MmRBEeSQhrRVNgz2zw"/>
+  <Documentation:Documentation xmi:id="_BA-dEzLPEeaOiqsd1YH7eQ" base_Comment="_opZ6IWRBEeSQhrRVNgz2zw"/>
+  <Documentation:Documentation xmi:id="_BA-dFDLPEeaOiqsd1YH7eQ" base_Comment="_zVwIEmRBEeSQhrRVNgz2zw"/>
+  <Documentation:Documentation xmi:id="_BA-dFTLPEeaOiqsd1YH7eQ" base_Comment="_ySH-4mmGEeSzNYXA7PeIVA"/>
+</xmi:XMI>

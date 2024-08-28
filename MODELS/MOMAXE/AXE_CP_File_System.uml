@@ -1,0 +1,1447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="AxeCpFileSystem">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NRAMoQwOEdmFcaeZXPdWAQ" source="uml2.diagrams"/>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Zg2PcWu6EeK_psk_X1_33w" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Zg22gGu6EeK_psk_X1_33w" key="com.ericsson.ecim.coremw.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_c4NM0Gu6EeK_psk_X1_33w" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>&lt;p>CP File System Management function MOM.&lt;/p></body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_8JbBoIW5Ed-FBpQGdJXi3g">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OS1OUIXLEd-lToFzlKoOsA" name="" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_NqQZ4IKNEeK3wcU1QErItg" name="AxeCpFileSystem">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_NqRpGIKNEeK3wcU1QErItg" annotatedElement="_NqQZ4IKNEeK3wcU1QErItg">
+        <body>CP File System Management function MOM.</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_NqRpGYKNEeK3wcU1QErItg" name="CpFileSystemM">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NqRpGoKNEeK3wcU1QErItg" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NqRpG4KNEeK3wcU1QErItg" annotatedElement="_NqRpGYKNEeK3wcU1QErItg">
+          <body>Represents the root MOC for AXE CP File System Management function MOM.
+The function provides file management and file processing services for CP applications requiring APG support. 
+It implements the CP file system which is based on AP file system, supporting the different file classes and file types used in the CP.
+
+Two different CP file classes, which indicate the structure of the file, are supported:
+1) Simple: A CP simple file only contains data, and is not a part of a composite file. 
+2) Composite: A CP composite file is made up of a main file and any number of subfiles.
+    The main file is a template for the creation of the subfiles. The subfiles contain the data records.
+
+Two different file types, which indicate how the records in a file are accessed, are supported:
+1) Regular: A regular file contains records that may be written or read sequentially or by addressing specific record numbers.
+2) Infinite: An infinite file is a composite file where the subfiles are automatically created by the system.
+   An infinite file may be read or written sequentially. When writing to an infinite file, data is written sequentially to the most recently created subfile, called active subfile. 
+
+Infinite subfiles in the CP file system may be transfered automatically to a remote side, if the infinite main file has been defined to a data transfer policy.
+
+CP handles file and volume names as case insensitive strings, so two file or volume names can not differ in meaning based on differing use of uppercase and lowercase letters.
+It is advisable, to avoid misunderstandings, define file and volume names always in uppercase.
+
+A CP File is unique in the CP File System. It means that it is not possible to create, in the same or different CP Volumes, two or more CP Files with the same name. </body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_YTbHYMQXEeWHWfw_NwU0PQ" constrainedElement="_piODkHx1EeOZi9x887s3dQ _-MrIEH0zEeOCs9_LY0yC2g _fWwHUH00EeOCs9_LY0yC2g">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_YTcVgMQXEeWHWfw_NwU0PQ">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqRpHIKNEeK3wcU1QErItg" name="cpFileSystemMId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqRpHYKNEeK3wcU1QErItg" annotatedElement="_NqRpHIKNEeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqRpHoKNEeK3wcU1QErItg" name="cpVolume" visibility="public" type="_NqSPJoKNEeK3wcU1QErItg" aggregation="composite" association="_NqSPhIKNEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqRpIIKNEeK3wcU1QErItg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqRpH4KNEeK3wcU1QErItg" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_-MrIEH0zEeOCs9_LY0yC2g" name="blockTransferTimeSlice" visibility="public" type="_piODkHx1EeOZi9x887s3dQ" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_-NCUcH0zEeOCs9_LY0yC2g" annotatedElement="_-MrIEH0zEeOCs9_LY0yC2g">
+            <body>This attribute specifies the time in milliseconds used by CPF to transfer the file.
+It is used to configure the cp file trasmission from one CP toward a common destination via Data Transfer function when the block transfer mechanism is used.
+Range 500..60000 milliseconds.
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-NQ98H0zEeOCs9_LY0yC2g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-NRlAH0zEeOCs9_LY0yC2g" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_-NPv0X0zEeOCs9_LY0yC2g" value="10000"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_NqRpJIKNEeK3wcU1QErItg" name="importCpFile">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqRpJYKNEeK3wcU1QErItg" annotatedElement="_NqRpJIKNEeK3wcU1QErItg">
+            <body>Imports a file or a directory stored on APG file system to an existing CP file.
+It is applicable on a Single-CP System configuration.
+A compressed file can be imported as well. 
+A compressed file or a directory can be imported only in an existing composite CP file.
+Importing is done taking data from the predefined folder &quot;cp/files&quot;. 
+
+The action can fail due to one of the following reasons:
+- Access error: The requested operation conflicts with other user of the file.
+- Action not executed, AP backup in progress: A backup operation is ongoing.
+- File exists: &lt;CP file name>: The CP file already exists in the CP file system.
+- File was not found: &lt;CP file name>: The CP file was not found in the CP file system.
+- General Fault: Error when executing.
+- Invalid file name: The CP file name is not correct.
+- Invalid file reference: Attempt to import an AP file or directory containing incorrect file names to a CP composite file.
+- Invalid path: The path to import from is invalid.
+- Not allowed in this system configuration: The action is not allowed in Multi-CP System.
+- Operation not permitted for this file type: The requested operation is not allowed for CP infinite file.
+- Physical file error: &lt;detailed information>: An error has occured in the AP file system. 
+</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_NqRpJoKNEeK3wcU1QErItg" name="source">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_NqRpJ4KNEeK3wcU1QErItg" annotatedElement="_NqRpJoKNEeK3wcU1QErItg">
+              <body>Specifies the name of a file system item, file or folder, to import in a CP file.
+The string should be expressed as: [&lt;FolderPathName>/]&lt;ItemName>.
+&quot;FolderPathName&quot; is optional since it represents the relative path respect to predefined folder &quot;cp/files&quot;.
+&quot;ItemName&quot; is the name of a file or a folder.
+For example if the file &quot;cp/files/CpDump/AXEdump&quot; should be imported in a CP file, the parameter &quot;source&quot; should be &quot;CpDump/AXEdump&quot;.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_NqRpKIKNEeK3wcU1QErItg" name="destCpFile">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_NqRpKYKNEeK3wcU1QErItg" annotatedElement="_NqRpKIKNEeK3wcU1QErItg">
+              <body>Specifies the name of CP file which to act the import into.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_NqRpKoKNEeK3wcU1QErItg" name="mode" type="_NqSPqYKNEeK3wcU1QErItg">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_NqRpK4KNEeK3wcU1QErItg" annotatedElement="_NqRpKoKNEeK3wcU1QErItg">
+              <body>Specifies the import mode.
+
+It can be one of the following values:
+	  
+	  OVERWRITE: 
+	   An existing CP file is overwritten.
+
+	  APPEND:
+	   Data is added to the end of an existing CP file.
+
+	  NORMAL: 
+	   Import fails in case the name of the file system item being imported is the same of an already existing destination CP file. 
+
+          CLEAR:
+	   An existing CP file is overwritten. 
+	   If the destination is a composite CP file, all subfiles belonging to it are deleted before starting import.</body>
+            </ownedComment>
+            <defaultValue xmi:type="uml:InstanceValue" xmi:id="_w4wxMMIWEeKOEK7vpxv9Ig" name="NORMAL" instance="_NqSPs4KNEeK3wcU1QErItg"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_NqRpL4KNEeK3wcU1QErItg" name="exportCpFile">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqRpMIKNEeK3wcU1QErItg" annotatedElement="_NqRpL4KNEeK3wcU1QErItg">
+            <body>Exports a CP file to the APG file system in a Single-CP System configuration.
+Exporting a CP composite file means exporting a folder, representing it, and all included files.
+Exporting a CP simple file or a CP subfile means exporting a single file.
+
+Exporting is done towards the predefined folder &quot;cp/files&quot;. 
+
+Exported data can be compressed, into zip format, if specified via parameter &quot;toZip&quot;.
+
+The action can fail due to one of the following reasons:
+- Access error: The requested operation conflicts with other user of the file.
+- Action not executed, AP backup in progress: A backup operation is ongoing.
+- File is protected. File is connected to a transfer queue: The CP file is connected to a transfer queue and can not be exported.
+- File was not found: &lt;CP file name>: The CP file was not found in the CP file system.
+- General Fault: Error when executing.
+- Invalid file name: The CP file name is not correct.
+- Invalid path: The path to export is invalid.
+- Not allowed in this system configuration: The action is not allowed in Multi-CP System.
+- Parameter error: mode CLEAR not allowed: Export with mode clear is not supported.
+- Physical file error: &lt;detailed information>: An error has occured in the APG file system. </body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_NqRpMYKNEeK3wcU1QErItg" name="sourceCpFile">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_NqRpMoKNEeK3wcU1QErItg" annotatedElement="_NqRpMYKNEeK3wcU1QErItg">
+              <body>Specifies the name of CP File to export.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_NqRpM4KNEeK3wcU1QErItg" name="dest">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_NqRpNIKNEeK3wcU1QErItg" annotatedElement="_NqRpM4KNEeK3wcU1QErItg">
+              <body>Specifies the name of a file system item, file or folder, where to export a CP file.
+The string should be expressed as: [&lt;FolderPathName>/]&lt;ItemName>.
+&quot;FolderPathName&quot; is optional since it represents the relative path respect to predefined folder &quot;cp/files&quot;.
+&quot;ItemName&quot; is the name of a file or a folder.
+For example if a CP file export to file &quot;cp/files/CpDump/AXEdump&quot; is needed, the parameter &quot;dest&quot; should be &quot;CpDump/AXEdump&quot;.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_NqRpNYKNEeK3wcU1QErItg" name="mode" type="_NqSPqYKNEeK3wcU1QErItg">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_NqRpNoKNEeK3wcU1QErItg" annotatedElement="_NqRpNYKNEeK3wcU1QErItg">
+              <body>Specifies the export mode.
+
+It can be one of the following values:
+	  
+	  OVERWRITE: 
+	   An existing file system item is overwritten.
+
+	  APPEND:
+	   Data is added to the end of an existing file system item.
+
+	  NORMAL : 
+	   Export fails in case the destination path contains a file having the same name as the CP simple file or the CP subfile being exported. 
+
+Note: mode CLEAR is not supported.</body>
+            </ownedComment>
+            <defaultValue xmi:type="uml:InstanceValue" xmi:id="_vmPZYMIWEeKOEK7vpxv9Ig" name="NORMAL" instance="_NqSPs4KNEeK3wcU1QErItg"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_NqRpOoKNEeK3wcU1QErItg" name="toZip">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_NqRpO4KNEeK3wcU1QErItg" annotatedElement="_NqRpOoKNEeK3wcU1QErItg">
+              <body>Enables or disables creation of a zip archive. 
+The created zip archive is named as specified by the parameter &quot;dest&quot; and its extension is '.zip'.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqRpPYKNEeK3wcU1QErItg"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqRpPIKNEeK3wcU1QErItg" value="1"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_NqRpPoKNEeK3wcU1QErItg"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_NqRpP4KNEeK3wcU1QErItg" name="copyCpFile">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqRpQIKNEeK3wcU1QErItg" annotatedElement="_NqRpP4KNEeK3wcU1QErItg">
+            <body>Copies a CP file to another CP file. The destination file must already exist. 
+
+The action can fail due to one of the following reasons:
+- Access error: The requested operation conflicts with other user of the file.
+- Action not executed, AP backup in progress: A backup operation is ongoing.
+- File exists: &lt;CP file name>: The CP file already exists in the CP file system.
+- File is protected. File is connected to a transfer queue: The CP file is connected to a transfer queue, and can not be copied from or copied to.
+- File was not found: &lt;CP file name>: The CP file was not found in the CP file system.
+- General Fault: Error when executing.
+- Invalid file name: The CP file name is not correct.
+- Not a composite file: &lt;CP file name>: The requested operation is only allowed for a CP composite file.
+- Not a simple file or subfile: &lt;CP file name>: The requested operation is only allowed for a CP simple file or subfile.
+- Not allowed in this system configuration: The action is not allowed in Multi-CP System.
+- Operation not permitted for this file type: The requested operation is not allowed for CP infinite file.
+- Physical file error: &lt;detailed information>: An error has occured in the AP file system. 
+</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_NqRpQYKNEeK3wcU1QErItg" name="sourceCpFile">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_NqRpQoKNEeK3wcU1QErItg" annotatedElement="_NqRpQYKNEeK3wcU1QErItg">
+              <body>Source CP file.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_NqRpQ4KNEeK3wcU1QErItg" name="destCpFile">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPEIKNEeK3wcU1QErItg" annotatedElement="_NqRpQ4KNEeK3wcU1QErItg">
+              <body>Specifies the destination CP File.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_NqSPEYKNEeK3wcU1QErItg" name="mode" type="_NqSPqYKNEeK3wcU1QErItg">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPEoKNEeK3wcU1QErItg" annotatedElement="_NqSPEYKNEeK3wcU1QErItg">
+              <body>Specifies the copy mode.
+
+It can be one of the following values:
+         
+   OVERWRITE: 
+    An existing CP file is overwritten when the CP file is copied.
+     
+   APPEND: 
+    Data is added to the end of an existing CP file when the CP file is copied.
+         
+   CLEAR: 
+    An existing CP file is overwritten when a CP file is copied. If the destination CP file is a composite CP file,
+    all subfiles belonging to this CP file are deleted before the source CP file is copied.
+
+   NORMAL : 
+    Copy fails in case the destination composite CP file has some CP subfiles with the same name of the CP subfiles being copied.</body>
+            </ownedComment>
+            <defaultValue xmi:type="uml:InstanceValue" xmi:id="_urK4QMIWEeKOEK7vpxv9Ig" name="NORMAL" instance="_NqSPs4KNEeK3wcU1QErItg"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_NqSPFoKNEeK3wcU1QErItg" name="moveCpFile" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPF4KNEeK3wcU1QErItg" annotatedElement="_NqSPFoKNEeK3wcU1QErItg">
+            <body>Moves a CP file to another CP volume in a Single-CP System configuration. 
+If a composite CP file is moved all the subfiles of that file are also moved. 
+The volume to which the file is moved must already exist.
+
+The action can fail due to one of the following reasons:
+- Access error: The requested operation conflicts with other user of the file.
+- Action not executed, AP backup in progress: A backup operation is ongoing.
+- Cannot move file to same volume: A CP file cannot be moved to the same volume where it is already stored.
+- File is protected. File is connected to a transfer queue: The CP file is connected to a transfer queue and can not be moved.
+- File was not found: &lt;CP file name>: The CP file was not found in the CP file system.
+- General Fault: Error when executing.
+- Invalid file name: The CP file name is not correct.
+- Not allowed in this system configuration: The action is not allowed in Multi-CP System.
+- Operation not permitted for this file type: The requested operation is not allowed for CP infinite file.
+- Physical file error: &lt;detailed information>: An error has occured in the AP file system.
+- Volume was not found: &lt;volume name>: The destination volume does not exist. 
+</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_NqSPGIKNEeK3wcU1QErItg" name="sourceCpFile">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPGYKNEeK3wcU1QErItg" annotatedElement="_NqSPGIKNEeK3wcU1QErItg">
+              <body>CP file to move.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_NqSPGoKNEeK3wcU1QErItg" name="volume">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPG4KNEeK3wcU1QErItg" annotatedElement="_NqSPGoKNEeK3wcU1QErItg">
+              <body>Destination volume.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_NqSPHIKNEeK3wcU1QErItg" name="renameCpFile" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPHYKNEeK3wcU1QErItg" annotatedElement="_NqSPHIKNEeK3wcU1QErItg">
+            <body>Renames a CP file or a CP subfile in a Single-CP System configuration. 
+A CP file and a related CP subfile cannot be renamed at the same time.
+A CP infinite file cannot be renamed if it is associated to a transfer queue.
+
+The action can fail due to one of the following reasons:
+- Access error: The requested operation conflicts with other user of the file.
+- Action not executed, AP backup in progress: A backup operation is ongoing.
+- File exists: &lt;CP file name>: The CP file already exists in the CP file system.
+- File is protected. File is connected to a transfer queue: The CP file is connected to a transfer queue and cannot be renamed.
+- File was not found: &lt;CP file name>: The CP file was not found in the CP file system.
+- General Fault: Error when executing.
+- Invalid file name: The CP file name is not correct.
+- Not a composite file: &lt;CP file name>: The requested operation is only allowed for a CP composite file.
+- Not a simple file or a composite file: &lt;CP file name>: A CP file cannot be renamed as a subfile.
+- Not a subfile: &lt;CP file name>: A subfile cannot be renamed as a CP composite file.
+- Not allowed in this system configuration: The action is not allowed in Multi-CP System.
+- Operation not permitted for this file type: The requested operation is not allowed for a subfile of a CP infinite file.
+- Physical file error: &lt;detailed information>: An error has occured in the AP file system.
+- Subfile must belong to the same composite file: &lt;CP file name>: The current and new subfiles do not belong to the same CP composite file. 
+</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_NqSPHoKNEeK3wcU1QErItg" name="currentName">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPH4KNEeK3wcU1QErItg" annotatedElement="_NqSPHoKNEeK3wcU1QErItg">
+              <body>Specifies the current CP file or subfile name.
+It is expressed as &lt;CpFileName> in case of renaming of a CP file, or
+&lt;CpFileName>-&lt;CpSubfileName> in case of renaming of a CP subfile.
+</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPIYKNEeK3wcU1QErItg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqSPIIKNEeK3wcU1QErItg" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_NqSPIoKNEeK3wcU1QErItg" name="newName">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPI4KNEeK3wcU1QErItg" annotatedElement="_NqSPIoKNEeK3wcU1QErItg">
+              <body>Specifies the new CP file or subfile name.
+It is expressed as &lt;CpFileName> in case of renaming of a CP file, or
+&lt;CpFileName>-&lt;CpSubfileName> in case of renaming of a CP subfile.
+</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPJYKNEeK3wcU1QErItg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqSPJIKNEeK3wcU1QErItg" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_mOyP4MIYEeKOEK7vpxv9Ig" name="copyCpClusterFile">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mOyP4cIYEeKOEK7vpxv9Ig" annotatedElement="_mOyP4MIYEeKOEK7vpxv9Ig">
+            <body>Copies a CP file to another CP file. The destination file must already exist. 
+The copy mode can be: 
+
+   Overwrite : 
+    An existing CP file is overwritten when the CP file is copied.
+
+   Append : 
+    Data is added to the end of an existing CP file when the CP file is copied.
+
+   Clear : 
+    An existing CP file is overwritten when a CP file is copied. If the destination CP file is a composite CP file,
+    all subfiles belonging to this CP file are deleted before the source CP file is copied.
+
+Copies a CP file to another CP file. The destination file must already exist. 
+
+The action can fail due to one of the following reasons:
+- Access error: The requested operation conflicts with other user of the file.
+- Action not executed, AP backup in progress: A backup operation is ongoing.
+- File exists: &lt;CP file name>: The CP file already exists in the CP file system.
+- File is protected. File is connected to a transfer queue: The CP file is connected to a transfer queue, and can not be copied from or copied to.
+- File was not found: &lt;CP file name>: The CP file was not found in the CP file system.
+- General Fault: Error when executing.
+- Invalid file name: The CP file name is not correct.
+- Not a composite file: &lt;CP file name>: The requested operation is only allowed for a CP composite file.
+- Not a simple file or subfile: &lt;CP file name>: The requested operation is only allowed for a CP simple file or subfile.
+- Not allowed in this system configuration: The action is not allowed in Single-CP System.
+- Operation not permitted for this file type: The requested operation is not allowed for CP infinite file.
+- Physical file error: &lt;detailed information>: An error has occured in the APG file system. </body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_mOyP4sIYEeKOEK7vpxv9Ig" name="sourceCpFile">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_mOyP48IYEeKOEK7vpxv9Ig" annotatedElement="_mOyP4sIYEeKOEK7vpxv9Ig">
+              <body>Source CP file.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_mOyP5MIYEeKOEK7vpxv9Ig" name="destCpFile">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_mOyP5cIYEeKOEK7vpxv9Ig" annotatedElement="_mOyP5MIYEeKOEK7vpxv9Ig">
+              <body>Specifies the destination CP File.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_mOyP5sIYEeKOEK7vpxv9Ig" name="mode" type="_NqSPqYKNEeK3wcU1QErItg">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_mOyP58IYEeKOEK7vpxv9Ig" annotatedElement="_mOyP5sIYEeKOEK7vpxv9Ig">
+              <body>Specifies the copy mode.
+
+It can be one of the following values:
+         
+   OVERWRITE: 
+    An existing CP file is overwritten when the CP file is copied.
+     
+   APPEND: 
+    Data is added to the end of an existing CP file when the CP file is copied.
+         
+   CLEAR: 
+    An existing CP file is overwritten when a CP file is copied. If the destination CP file is a composite CP file,
+    all subfiles belonging to this CP file are deleted before the source CP file is copied.
+
+   NORMAL : 
+    Copy fails in case the destination composite CP file has some CP subfiles with the same name of the CP subfiles being copied.</body>
+            </ownedComment>
+            <defaultValue xmi:type="uml:InstanceValue" xmi:id="_mOyP6MIYEeKOEK7vpxv9Ig" name="NORMAL" instance="_NqSPs4KNEeK3wcU1QErItg"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_AfJlUMIZEeKOEK7vpxv9Ig" name="cpName">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_AfOd0cIZEeKOEK7vpxv9Ig" annotatedElement="_AfJlUMIZEeKOEK7vpxv9Ig">
+              <body>The default Central Processor (CP) name or literal &quot;CLUSTER&quot;.
+A valid CP name is an alphanumeric string with a maximum length of seven characters.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AfSvQMIZEeKOEK7vpxv9Ig" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AfSvQcIZEeKOEK7vpxv9Ig" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_EJuZoMIZEeKOEK7vpxv9Ig" name="exportCpClusterFile">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_EJuZocIZEeKOEK7vpxv9Ig" annotatedElement="_EJuZoMIZEeKOEK7vpxv9Ig">
+            <body>Exports a CP file to the APG file system in a Multi-CP System configuration.
+Exporting a CP composite file means exporting a folder, representing it, and all included files.
+Exporting a CP simple file or a CP subfile means exporting a single file.
+
+Exporting is done towards the predefined folder &quot;cp/files&quot;. 
+
+Exported data can be compressed, into zip format, if specified via parameter &quot;toZip&quot;.
+
+The action can fail due to one of the following reasons:
+- Access error: The requested operation conflicts with other user of the file.
+- Action not executed, AP backup in progress: A backup operation is ongoing.
+- File is protected. File is connected to a transfer queue: The CP file is connected to a transfer queue and can not be exported.
+- File was not found: &lt;CP file name>: The CP file was not found in the CP file system.
+- General Fault: Error when executing.
+- Invalid file name: The CP file name is not correct.
+- Invalid path: The path to export is invalid.
+- Not allowed in this system configuration: The action is not allowed in Single-CP System.
+- Parameter error: mode CLEAR not allowed: Export with mode clear is not supported.
+- Physical file error: &lt;detailed information>: An error has occured in the APG file system. </body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_EJuZosIZEeKOEK7vpxv9Ig" name="sourceCpFile">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_EJuZo8IZEeKOEK7vpxv9Ig" annotatedElement="_EJuZosIZEeKOEK7vpxv9Ig">
+              <body>Specifies the name of CP File to export.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_EJuZpMIZEeKOEK7vpxv9Ig" name="dest">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_EJuZpcIZEeKOEK7vpxv9Ig" annotatedElement="_EJuZpMIZEeKOEK7vpxv9Ig">
+              <body>Specifies the name of a file system item, file or folder, where to export a CP file.
+The string should be expressed as: [&lt;FolderPathName>/]&lt;ItemName>.
+&quot;FolderPathName&quot; is optional since it represents the relative path respect to predefined folder &quot;cp/files&quot;.
+&quot;ItemName&quot; is the name of a file or a folder.
+For example if a CP file export to file &quot;cp/files/CpDump/AXEdump&quot; is needed, the parameter &quot;dest&quot; should be &quot;CpDump/AXEdump&quot;.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_EJuZpsIZEeKOEK7vpxv9Ig" name="mode" type="_NqSPqYKNEeK3wcU1QErItg">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_EJuZp8IZEeKOEK7vpxv9Ig" annotatedElement="_EJuZpsIZEeKOEK7vpxv9Ig">
+              <body>Specifies the export mode.
+
+It can be one of the following values:
+	  
+	  OVERWRITE: 
+	   An existing file system item is overwritten.
+
+	  APPEND:
+	   Data is added to the end of an existing file system item.
+
+	  NORMAL : 
+	   Export fails in case the destination path contains a file having the same name as the CP simple file or the CP subfile being exported. 
+
+Note: mode CLEAR is not supported.</body>
+            </ownedComment>
+            <defaultValue xmi:type="uml:InstanceValue" xmi:id="_EJuZqMIZEeKOEK7vpxv9Ig" name="NORMAL" instance="_NqSPs4KNEeK3wcU1QErItg"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_EJuZqcIZEeKOEK7vpxv9Ig" name="toZip">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_EJuZqsIZEeKOEK7vpxv9Ig" annotatedElement="_EJuZqcIZEeKOEK7vpxv9Ig">
+              <body>Enables or disables creation of a zip archive. 
+The created zip archive is named as specified by the parameter &quot;dest&quot; and its extension is '.zip'.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EJuZrMIZEeKOEK7vpxv9Ig"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EJuZq8IZEeKOEK7vpxv9Ig" value="1"/>
+            <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_EJuZrcIZEeKOEK7vpxv9Ig"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_aSfnkMIZEeKOEK7vpxv9Ig" name="cpName">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_aSfnkcIZEeKOEK7vpxv9Ig" annotatedElement="_aSfnkMIZEeKOEK7vpxv9Ig">
+              <body>The default Central Processor (CP) name or literal &quot;CLUSTER&quot;.
+A valid CP name is an alphanumeric string with a maximum length of seven characters.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aSfnk8IZEeKOEK7vpxv9Ig" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aSfnksIZEeKOEK7vpxv9Ig" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_fA8TsMIZEeKOEK7vpxv9Ig" name="importCpClusterFile">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_fA8TscIZEeKOEK7vpxv9Ig" annotatedElement="_fA8TsMIZEeKOEK7vpxv9Ig">
+            <body>Imports a file or a directory stored on APG file system to an existing CP file.
+It is applicable on a Multi-CP System configuration.
+A compressed file can be imported as well. 
+A compressed file or a directory can be imported only in an existing composite CP file.
+Importing is done taking data from the predefined folder &quot;cp/files&quot;. 
+
+The action can fail due to one of the following reasons:
+- Access error: The requested operation conflicts with other user of the file.
+- Action not executed, AP backup in progress: A backup operation is ongoing.
+- File exists: &lt;CP file name>: The CP file already exists in the CP file system.
+- File was not found: &lt;CP file name>: The CP file was not found in the CP file system.
+- General Fault: Error when executing.
+- Invalid file name: The CP file name is not correct.
+- Invalid file reference: Attempt to import an AP file or directory containing incorrect file names to a CP composite file.
+- Invalid path: The path to import from is invalid.
+- Not allowed in this system configuration: The action is not allowed in Single-CP System.
+- Operation not permitted for this file type: The requested operation is not allowed for CP infinite file.
+- Physical file error: &lt;detailed information>: An error has occured in the AP file system. 
+</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_fA8TssIZEeKOEK7vpxv9Ig" name="source">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_fA8Ts8IZEeKOEK7vpxv9Ig" annotatedElement="_fA8TssIZEeKOEK7vpxv9Ig">
+              <body>Specifies the name of a file system item, file or folder, to import in a CP file.
+The string should be expressed as: [&lt;FolderPathName>/]&lt;ItemName>.
+&quot;FolderPathName&quot; is optional since it represents the relative path respect to predefined folder &quot;cp/files&quot;.
+&quot;ItemName&quot; is the name of a file or a folder.
+For example if the file &quot;cp/files/CpDump/AXEdump&quot; should be imported in a CP file, the parameter &quot;source&quot; should be &quot;CpDump/AXEdump&quot;.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_fA8TtMIZEeKOEK7vpxv9Ig" name="destCpFile">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_fA8TtcIZEeKOEK7vpxv9Ig" annotatedElement="_fA8TtMIZEeKOEK7vpxv9Ig">
+              <body>Specifies the name of CP file which to act the import into.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_fA8TtsIZEeKOEK7vpxv9Ig" name="mode" type="_NqSPqYKNEeK3wcU1QErItg">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_fA8Tt8IZEeKOEK7vpxv9Ig" annotatedElement="_fA8TtsIZEeKOEK7vpxv9Ig">
+              <body>Specifies the import mode.
+
+It can be one of the following values:
+	  
+	  OVERWRITE: 
+	   An existing CP file is overwritten.
+
+	  APPEND:
+	   Data is added to the end of an existing CP file.
+
+	  NORMAL: 
+	   Import fails in case the name of the file system item being imported is the same of an already existing destination CP file. 
+
+          CLEAR:
+	   An existing CP file is overwritten. 
+	   If the destination is a composite CP file, all subfiles belonging to it are deleted before starting import.</body>
+            </ownedComment>
+            <defaultValue xmi:type="uml:InstanceValue" xmi:id="_fA8TuMIZEeKOEK7vpxv9Ig" name="NORMAL" instance="_NqSPs4KNEeK3wcU1QErItg"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_sVxm0MIZEeKOEK7vpxv9Ig" name="cpName">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_sVxm0cIZEeKOEK7vpxv9Ig" annotatedElement="_sVxm0MIZEeKOEK7vpxv9Ig">
+              <body>The default Central Processor (CP) name or literal &quot;CLUSTER&quot;.
+A valid CP name is an alphanumeric string with a maximum length of seven characters.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sVxm08IZEeKOEK7vpxv9Ig" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sVxm0sIZEeKOEK7vpxv9Ig" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_wkjUYMIZEeKOEK7vpxv9Ig" name="moveCpClusterFile" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_wkjUYcIZEeKOEK7vpxv9Ig" annotatedElement="_wkjUYMIZEeKOEK7vpxv9Ig">
+            <body>Moves a CP file to another CP volume in a Multi-CP System configuration. 
+If a composite CP file is moved all the subfiles of that file are also moved. 
+The volume to which the file is moved must already exist.
+
+The action can fail due to one of the following reasons:
+- Access error: The requested operation conflicts with other user of the file.
+- Action not executed, AP backup in progress: A backup operation is ongoing.
+- Cannot move file to same volume: A CP file cannot be moved to the same volume where it is already stored.
+- File is protected. File is connected to a transfer queue: The CP file is connected to a transfer queue and can not be moved.
+- File was not found: &lt;CP file name>: The CP file was not found in the CP file system.
+- General Fault: Error when executing.
+- Invalid file name: The CP file name is not correct.
+- Not allowed in this system configuration: The action is not allowed in Single-CP System.
+- Operation not permitted for this file type: The requested operation is not allowed for CP infinite file.
+- Physical file error: &lt;detailed information>: An error has occured in the AP file system.
+- Volume was not found: &lt;volume name>: The destination volume does not exist. 
+</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_wkjUYsIZEeKOEK7vpxv9Ig" name="sourceCpFile">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_wkjUY8IZEeKOEK7vpxv9Ig" annotatedElement="_wkjUYsIZEeKOEK7vpxv9Ig">
+              <body>CP file to move.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_wkjUZMIZEeKOEK7vpxv9Ig" name="volume">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_wkjUZcIZEeKOEK7vpxv9Ig" annotatedElement="_wkjUZMIZEeKOEK7vpxv9Ig">
+              <body>Destination volume.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_5NKI8MIZEeKOEK7vpxv9Ig" name="cpName">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_5NKI8cIZEeKOEK7vpxv9Ig" annotatedElement="_5NKI8MIZEeKOEK7vpxv9Ig">
+              <body>The default Central Processor (CP) name or literal &quot;CLUSTER&quot;.
+A valid CP name is an alphanumeric string with a maximum length of seven characters.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5NKI88IZEeKOEK7vpxv9Ig" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5NKI8sIZEeKOEK7vpxv9Ig" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_7tLOoMIZEeKOEK7vpxv9Ig" name="renameCpClusterFile" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_7tLOocIZEeKOEK7vpxv9Ig" annotatedElement="_7tLOoMIZEeKOEK7vpxv9Ig">
+            <body>Renames a CP file in a Multi-CP System configuration. 
+A CP file and a related CP subfile cannot be renamed at the same time.
+A CP infinite file cannot be renamed if it is associated to a transfer queue.
+
+The action can fail due to one of the following reasons:
+- Access error: The requested operation conflicts with other user of the file.
+- Action not executed, AP backup in progress: A backup operation is ongoing.
+- File exists: &lt;CP file name>: The CP file already exists in the CP file system.
+- File is protected. File is connected to a transfer queue: The CP file is connected to a transfer queue and cannot be renamed.
+- File was not found: &lt;CP file name>: The CP file was not found in the CP file system.
+- General Fault: Error when executing.
+- Invalid file name: The CP file name is not correct.
+- Not a composite file: &lt;CP file name>: The requested operation is only allowed for a CP composite file.
+- Not a simple file or a composite file: &lt;CP file name>: A CP file cannot be renamed as a subfile.
+- Not a subfile: &lt;CP file name>: A subfile cannot be renamed as a CP composite file.
+- Not allowed in this system configuration: The action is not allowed in Single-CP System.
+- Operation not permitted for this file type: The requested operation is not allowed for a subfile of a CP infinite file.
+- Physical file error: &lt;detailed information>: An error has occured in the AP file system.
+- Subfile must belong to the same composite file: &lt;CP file name>: The current and new subfiles do not belong to the same CP composite file. 
+</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_7tLOosIZEeKOEK7vpxv9Ig" name="currentName">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_7tLOo8IZEeKOEK7vpxv9Ig" annotatedElement="_7tLOosIZEeKOEK7vpxv9Ig">
+              <body>Specifies the current CP file or subfile name.
+It is expressed as &lt;CpFileName> in case of renaming of a CP file, or
+&lt;CpFileName>-&lt;CpSubfileName> in case of renaming of a CP subfile.
+</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7tLOpcIZEeKOEK7vpxv9Ig" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7tLOpMIZEeKOEK7vpxv9Ig" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_7tLOpsIZEeKOEK7vpxv9Ig" name="newName">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_7tLOp8IZEeKOEK7vpxv9Ig" annotatedElement="_7tLOpsIZEeKOEK7vpxv9Ig">
+              <body>Specifies the new CP file or subfile name.
+It is expressed as &lt;CpFileName> in case of renaming of a CP file, or
+&lt;CpFileName>-&lt;CpSubfileName> in case of renaming of a CP subfile.
+</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7tLOqcIZEeKOEK7vpxv9Ig" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7tLOqMIZEeKOEK7vpxv9Ig" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Bo3xAMIaEeKOEK7vpxv9Ig" name="cpName">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Bo3xAcIaEeKOEK7vpxv9Ig" annotatedElement="_Bo3xAMIaEeKOEK7vpxv9Ig">
+              <body>The default Central Processor (CP) name or literal &quot;CLUSTER&quot;.
+A valid CP name is an alphanumeric string with a maximum length of seven characters.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bo3xA8IaEeKOEK7vpxv9Ig" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Bo3xAsIaEeKOEK7vpxv9Ig" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_NqSPJoKNEeK3wcU1QErItg" name="CpVolume">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPJ4KNEeK3wcU1QErItg" annotatedElement="_NqSPJoKNEeK3wcU1QErItg">
+          <body>Instance of this class represents a volume in the CP file system.
+A CP volume can contain several CP files and subfiles. A CP file or subfile can only belong to one CP volume.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPKIKNEeK3wcU1QErItg" name="cpVolumeId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPKYKNEeK3wcU1QErItg" annotatedElement="_NqSPKIKNEeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO.
+It is the name of the volume and the CP to which it belongs.
+A valid value must comply the following rule:
+
+&lt;volumeName>[:&lt;defaultCpName>]
+
+where:
+
+&lt;volumeName> is an alphanumeric string with a maximum length of fourteen characters, also the low hyphen symbol can be used.
+The string must begin with an alphabetic character; it is recommeded to use upper case characters.
+
+&lt;defaultCpName> is an alphanumeric string with a maximum length of seven characters. It must be set to the default CP name or literal &quot;CLUSTER&quot;. It is mandatory only on Multi-CP System.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPKoKNEeK3wcU1QErItg" name="simpleFile" visibility="public" type="_NqSPRoKNEeK3wcU1QErItg" aggregation="composite" association="_NqSPiIKNEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPLIKNEeK3wcU1QErItg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqSPK4KNEeK3wcU1QErItg" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPLYKNEeK3wcU1QErItg" name="filesInfiniteFT" visibility="public" type="_NqSPWYKNEeK3wcU1QErItg" aggregation="composite" association="_NqSPjIKNEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPL4KNEeK3wcU1QErItg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqSPLoKNEeK3wcU1QErItg" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPMIKNEeK3wcU1QErItg" name="filesComposite" visibility="public" type="_NqSPM4KNEeK3wcU1QErItg" aggregation="composite" association="_NqSPkIKNEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPMoKNEeK3wcU1QErItg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqSPMYKNEeK3wcU1QErItg" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_NqSPM4KNEeK3wcU1QErItg" name="CompositeFile">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NqSPNIKNEeK3wcU1QErItg" source="uml2.diagrams"/>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPNYKNEeK3wcU1QErItg" annotatedElement="_NqSPM4KNEeK3wcU1QErItg">
+          <body>Instance of this class represents a CP regular composite file. 
+It consists of a template for the creation of subfile and one or several subfiles.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPNoKNEeK3wcU1QErItg" name="compositeFileId" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPN4KNEeK3wcU1QErItg" annotatedElement="_NqSPNoKNEeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO. It is the name of the composite CP file.
+A valid name is an alphanumeric string with a maximum length of twelve characters.
+The name must start with an alphabetic character.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPOIKNEeK3wcU1QErItg" name="recordLength">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPOYKNEeK3wcU1QErItg" annotatedElement="_NqSPOIKNEeK3wcU1QErItg">
+            <body>The length, in byte, of the data records. 
+A record contains data elements that are treated as a single unit.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPOoKNEeK3wcU1QErItg" name="subFiles" visibility="public" type="_NqSPlIKNEeK3wcU1QErItg" aggregation="composite" association="_NqSPpYKNEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPPIKNEeK3wcU1QErItg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqSPO4KNEeK3wcU1QErItg" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPPYKNEeK3wcU1QErItg" name="exclusiveAccess" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPPoKNEeK3wcU1QErItg" annotatedElement="_NqSPPYKNEeK3wcU1QErItg">
+            <body>Indicates an exclusive read or write access on the CP file.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPP4KNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPQIKNEeK3wcU1QErItg" name="numOfReaders" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPQYKNEeK3wcU1QErItg" annotatedElement="_NqSPQIKNEeK3wcU1QErItg">
+            <body>The number of current users with read access on the CP file.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPQoKNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPQ4KNEeK3wcU1QErItg" name="numOfWriters" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPRIKNEeK3wcU1QErItg" annotatedElement="_NqSPQ4KNEeK3wcU1QErItg">
+            <body>The number of current users with write access on the CP file.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPRYKNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_7g38oEXFEeuCebnfarr-0w" name="deleteFileTimer" visibility="public" type="_RrDxwEXEEeuCebnfarr-0w" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_7g9cMUXFEeuCebnfarr-0w" annotatedElement="_7g38oEXFEeuCebnfarr-0w">
+            <body>Specifies the delay in minutes for deletion of the subfile.
+
+When the deleteFileTimer expires, the file is deleted from the APG. If minus one (-1) is specified, no delete FileTimer is defined for the file. Consequently, minus one (-1) is not regarded as an actual deleteFileTimer value.
+It is instead used to disable the automatic deletion of the file.
+
+In Multi-CP System this attribute is not applicable.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7g-DQUXFEeuCebnfarr-0w" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7g-qUEXFEeuCebnfarr-0w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_7g-DQEXFEeuCebnfarr-0w" value="-1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_NqSPRoKNEeK3wcU1QErItg" name="SimpleFile">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPR4KNEeK3wcU1QErItg" annotatedElement="_NqSPRoKNEeK3wcU1QErItg">
+          <body>Instance of this class represents a simple CP file. 
+It consists of a regular data in one data file.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPSIKNEeK3wcU1QErItg" name="simpleFileId" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPSYKNEeK3wcU1QErItg" annotatedElement="_NqSPSIKNEeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO. It is the name of the simple CP file.
+A valid name is an alphanumeric string with a maximum length of twelve characters.
+The name must start with an alphabetic character.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPSoKNEeK3wcU1QErItg" name="recordLength">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPS4KNEeK3wcU1QErItg" annotatedElement="_NqSPSoKNEeK3wcU1QErItg">
+            <body>The length, in byte, of the data records. 
+A record contains data elements that are treated as a single unit.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPTIKNEeK3wcU1QErItg" name="size" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPTYKNEeK3wcU1QErItg" annotatedElement="_NqSPTIKNEeK3wcU1QErItg">
+            <body>Indicates the size of the CP file, expressed in records.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPT4KNEeK3wcU1QErItg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqSPToKNEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPUIKNEeK3wcU1QErItg" name="numOfReaders" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPUYKNEeK3wcU1QErItg" annotatedElement="_NqSPUIKNEeK3wcU1QErItg">
+            <body>The number of current users with read access on the CP file.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPUoKNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPU4KNEeK3wcU1QErItg" name="numOfWriters" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPVIKNEeK3wcU1QErItg" annotatedElement="_NqSPU4KNEeK3wcU1QErItg">
+            <body>The number of current users with write access on the CP file.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPVYKNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPVoKNEeK3wcU1QErItg" name="exclusiveAccess" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPV4KNEeK3wcU1QErItg" annotatedElement="_NqSPVoKNEeK3wcU1QErItg">
+            <body>Indicates an exclusive read or write access on the CP file.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPWIKNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_NqSPWYKNEeK3wcU1QErItg" name="InfiniteFile">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPWoKNEeK3wcU1QErItg" annotatedElement="_NqSPWYKNEeK3wcU1QErItg">
+          <body>Instance of this class represents a infinite composite CP file. 
+It is a composite file where the subfiles are created automatically by CP applications. 
+For this type of CP file is possible associate a transfer policy.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPW4KNEeK3wcU1QErItg" name="lastSubfileSent" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPXIKNEeK3wcU1QErItg" annotatedElement="_NqSPW4KNEeK3wcU1QErItg">
+            <body>Specifies the last subfile transferred.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPXYKNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPXoKNEeK3wcU1QErItg" name="maxSize">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPX4KNEeK3wcU1QErItg" annotatedElement="_NqSPXoKNEeK3wcU1QErItg">
+            <body>Specifies the maximum number of records that can be written in an Infinite CP subfile.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kzsDEJltEeOZ-t31JifOsA" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPYYKNEeK3wcU1QErItg">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPYoKNEeK3wcU1QErItg" name="maxTime">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPY4KNEeK3wcU1QErItg" annotatedElement="_NqSPYoKNEeK3wcU1QErItg">
+            <body>Specifies the maximum length of time between each change of active subfile of the infinite CP file.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zwTzYJltEeOZ-t31JifOsA" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPZYKNEeK3wcU1QErItg">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPZoKNEeK3wcU1QErItg" name="recordLength">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPZ4KNEeK3wcU1QErItg" annotatedElement="_NqSPZoKNEeK3wcU1QErItg">
+            <body>Specifies the length, in byte, of the data records. 
+A record contains data elements that are treated as a single unit.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPaIKNEeK3wcU1QErItg" name="overrideSubfileClosure">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPaYKNEeK3wcU1QErItg" annotatedElement="_NqSPaIKNEeK3wcU1QErItg">
+            <body>Specifies the release condition for the Infinite CP File.
+If the release condition is enabled (true) and an Infinite subfile is closed, a new active subfile is created.
+If the release condition is not enabled (false) and the infinite file is closed and opened again, then the active subfile will remain the same.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rIjwwIJ_EeOQ4PLgdi3UDQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqSPaoKNEeK3wcU1QErItg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_NqSPbIKNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPbYKNEeK3wcU1QErItg" name="activeSubFile" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPboKNEeK3wcU1QErItg" annotatedElement="_NqSPbYKNEeK3wcU1QErItg">
+            <body>Specifies the number of the active subfile.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPcIKNEeK3wcU1QErItg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqSPb4KNEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPcYKNEeK3wcU1QErItg" name="infiniteFileId" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPcoKNEeK3wcU1QErItg" annotatedElement="_NqSPcYKNEeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO. It is the name of the infinite CP file.
+A valid name is an alphanumeric string with a maximum length of twelve characters.
+The name must start with an alphabetic character.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPc4KNEeK3wcU1QErItg" name="subFiles" visibility="public" type="_NqSPtYKNEeK3wcU1QErItg" aggregation="composite" association="_NqSPxoKNEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPdYKNEeK3wcU1QErItg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqSPdIKNEeK3wcU1QErItg" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPeYKNEeK3wcU1QErItg" name="exclusiveAccess" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPeoKNEeK3wcU1QErItg" annotatedElement="_NqSPeYKNEeK3wcU1QErItg">
+            <body>Specifies an exclusive read or write access on the CP file.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPe4KNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPfIKNEeK3wcU1QErItg" name="numOfReaders" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPfYKNEeK3wcU1QErItg" annotatedElement="_NqSPfIKNEeK3wcU1QErItg">
+            <body>Specifies the number of current users with read access on the CP file.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPfoKNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPf4KNEeK3wcU1QErItg" name="numOfWriters" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPgIKNEeK3wcU1QErItg" annotatedElement="_NqSPf4KNEeK3wcU1QErItg">
+            <body>Specifies the number of current users with write access on the CP file.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPgYKNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_aU3wsMIaEeKOEK7vpxv9Ig" name="transferQueue">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_aU3wscIaEeKOEK7vpxv9Ig" annotatedElement="_aU3wsMIaEeKOEK7vpxv9Ig">
+            <body>Specifies the name of the file transfer queue.
+It will be used to transfer the infinite CP file to a remote destination.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aU3wssIaEeKOEK7vpxv9Ig"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_vgSqgMCPEeOcP4VGGSgpkw" name="activeSubfileExclusiveAccess" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_vgSqgcCPEeOcP4VGGSgpkw" annotatedElement="_vgSqgMCPEeOcP4VGGSgpkw">
+            <body>Specifies an exclusive read or write access on the active infinite subfile.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vgSqgsCPEeOcP4VGGSgpkw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tL8M0MCQEeOcP4VGGSgpkw" name="activeSubfileNumOfReaders" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tL8M0cCQEeOcP4VGGSgpkw" annotatedElement="_tL8M0MCQEeOcP4VGGSgpkw">
+            <body>Specifies the number of current users with read access on the active infinte subfile.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tL8M0sCQEeOcP4VGGSgpkw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_BZN-cMCREeOcP4VGGSgpkw" name="activeSubfileNumOfWriters" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_BZN-ccCREeOcP4VGGSgpkw" annotatedElement="_BZN-cMCREeOcP4VGGSgpkw">
+            <body>Specifies the number of current users with write access on the active infinite subfile.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BZN-csCREeOcP4VGGSgpkw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_HzBZIMCREeOcP4VGGSgpkw" name="activeSubfileSize" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_HzBZIcCREeOcP4VGGSgpkw" annotatedElement="_HzBZIMCREeOcP4VGGSgpkw">
+            <body>Specifies the active infinite subfile size expressed in records.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HzBZI8CREeOcP4VGGSgpkw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HzBZIsCREeOcP4VGGSgpkw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_aIpUQMPAEeOcP4VGGSgpkw" name="transferQueueDn" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_aIzsUcPAEeOcP4VGGSgpkw" annotatedElement="_aIpUQMPAEeOcP4VGGSgpkw">
+            <body>Specifies the DN for the MO representing the TQ used by Infinite File. </body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_xu6e8JaXEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aI5L4cPAEeOcP4VGGSgpkw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aI5y8MPAEeOcP4VGGSgpkw" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_NqSPgoKNEeK3wcU1QErItg" name="releaseSubFile">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPg4KNEeK3wcU1QErItg" annotatedElement="_NqSPgoKNEeK3wcU1QErItg">
+            <body>Changes the active subfile. Closes the active and opens a new subfile. </body>
+          </ownedComment>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_NqSPhIKNEeK3wcU1QErItg" name="cpFileSystem_to_cpVolume" memberEnd="_NqRpHoKNEeK3wcU1QErItg _NqSPhYKNEeK3wcU1QErItg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_NqSPhYKNEeK3wcU1QErItg" name="cpFileSystem" visibility="public" type="_NqRpGYKNEeK3wcU1QErItg" association="_NqSPhIKNEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPh4KNEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqSPhoKNEeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_NqSPiIKNEeK3wcU1QErItg" name="cpVolume_to_fileSimple" memberEnd="_NqSPKoKNEeK3wcU1QErItg _NqSPiYKNEeK3wcU1QErItg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_NqSPiYKNEeK3wcU1QErItg" name="cpVolume" visibility="public" type="_NqSPJoKNEeK3wcU1QErItg" association="_NqSPiIKNEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPi4KNEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqSPioKNEeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_NqSPjIKNEeK3wcU1QErItg" name="cpVolume_to_fileInfinite" memberEnd="_NqSPLYKNEeK3wcU1QErItg _NqSPjYKNEeK3wcU1QErItg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_NqSPjYKNEeK3wcU1QErItg" name="cpVolume" visibility="public" type="_NqSPJoKNEeK3wcU1QErItg" association="_NqSPjIKNEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPj4KNEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqSPjoKNEeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_NqSPkIKNEeK3wcU1QErItg" name="cpVolume_to_fileComposite" memberEnd="_NqSPMIKNEeK3wcU1QErItg _NqSPkYKNEeK3wcU1QErItg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_NqSPkYKNEeK3wcU1QErItg" name="cpVolume" visibility="public" type="_NqSPJoKNEeK3wcU1QErItg" association="_NqSPkIKNEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPk4KNEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqSPkoKNEeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_NqSPlIKNEeK3wcU1QErItg" name="CompositeSubFile">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPlYKNEeK3wcU1QErItg" annotatedElement="_NqSPlIKNEeK3wcU1QErItg">
+          <body>Instance of this class represents a subfile of a regular composite CP file.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPloKNEeK3wcU1QErItg" name="compositeSubFileId" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPl4KNEeK3wcU1QErItg" annotatedElement="_NqSPloKNEeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO. It is the name of the composite CP subfile. 
+It consists of two parts, separated by a dash.The first part is an alphanumeric string with a maximum length of twelve characters.
+The optional second part indicates the subfile generation, it can be an alphanumeric string with a maximum length of six characters.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPmIKNEeK3wcU1QErItg" name="size" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPmYKNEeK3wcU1QErItg" annotatedElement="_NqSPmIKNEeK3wcU1QErItg">
+            <body>Indicates the size of the subfile, expressed in records.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPm4KNEeK3wcU1QErItg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqSPmoKNEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPnIKNEeK3wcU1QErItg" name="numOfReaders" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPnYKNEeK3wcU1QErItg" annotatedElement="_NqSPnIKNEeK3wcU1QErItg">
+            <body>The number of current users with read access on the CP subfile.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPnoKNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPn4KNEeK3wcU1QErItg" name="numOfWriters" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPoIKNEeK3wcU1QErItg" annotatedElement="_NqSPn4KNEeK3wcU1QErItg">
+            <body>The number of current users with write access on the CP subfile.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPoYKNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPooKNEeK3wcU1QErItg" name="exclusiveAccess" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPo4KNEeK3wcU1QErItg" annotatedElement="_NqSPooKNEeK3wcU1QErItg">
+            <body>Indicates an exclusive read or write access on the CP subfile.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPpIKNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_NqSPpYKNEeK3wcU1QErItg" name="compositeFile_to_subfile" memberEnd="_NqSPOoKNEeK3wcU1QErItg _NqSPpoKNEeK3wcU1QErItg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_NqSPpoKNEeK3wcU1QErItg" name="compositeFile" type="_NqSPM4KNEeK3wcU1QErItg" association="_NqSPpYKNEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPqIKNEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqSPp4KNEeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_NqSPqYKNEeK3wcU1QErItg" name="CopyMode">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPqoKNEeK3wcU1QErItg" annotatedElement="_NqSPqYKNEeK3wcU1QErItg">
+          <body>Specifies how files are copied.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_NqSPrYKNEeK3wcU1QErItg" name="OVERWRITE">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_c00MoMIUEeKOEK7vpxv9Ig"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_NqSPr4KNEeK3wcU1QErItg" name="APPEND">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_NqSPsIKNEeK3wcU1QErItg" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_NqSPsYKNEeK3wcU1QErItg" name="CLEAR">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_NqSPsoKNEeK3wcU1QErItg" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_NqSPs4KNEeK3wcU1QErItg" name="NORMAL">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_NqSPtIKNEeK3wcU1QErItg" value="3"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_NqSPtYKNEeK3wcU1QErItg" name="InfiniteSubFile">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPtoKNEeK3wcU1QErItg" annotatedElement="_NqSPtYKNEeK3wcU1QErItg">
+          <body>This MOC is deprecated but no instances of it is created anymore.
+
+Instance of this class represents a subfile of a infinite composite CP file.
+These instances are System created/modified/deleted.  
+They reflect the state of the infinite CP file to which they belong.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_vBDV4MQXEeWHWfw_NwU0PQ" constrainedElement="_NqSPtYKNEeK3wcU1QErItg _NqSPxoKNEeK3wcU1QErItg _NqSPx4KNEeK3wcU1QErItg _NqSPc4KNEeK3wcU1QErItg">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_vBD88MQXEeWHWfw_NwU0PQ">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPt4KNEeK3wcU1QErItg" name="infiniteSubFileId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPuIKNEeK3wcU1QErItg" annotatedElement="_NqSPt4KNEeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO. It is the name of the infinite CP subfile.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPuYKNEeK3wcU1QErItg" name="size" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPuoKNEeK3wcU1QErItg" annotatedElement="_NqSPuYKNEeK3wcU1QErItg">
+            <body>Indicates the current size of the subfile, expressed in records.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPvIKNEeK3wcU1QErItg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqSPu4KNEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPvYKNEeK3wcU1QErItg" name="numOfReaders" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPvoKNEeK3wcU1QErItg" annotatedElement="_NqSPvYKNEeK3wcU1QErItg">
+            <body>The number of current users with read access on the CP subfile.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPv4KNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPwIKNEeK3wcU1QErItg" name="numOfWriters" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPwYKNEeK3wcU1QErItg" annotatedElement="_NqSPwIKNEeK3wcU1QErItg">
+            <body>The number of current users with write access on the CP subfile.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPwoKNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NqSPw4KNEeK3wcU1QErItg" name="exclusiveAccess" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NqSPxIKNEeK3wcU1QErItg" annotatedElement="_NqSPw4KNEeK3wcU1QErItg">
+            <body>Indicates an exclusive read or write access on the CP subfile.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPxYKNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_NqSPxoKNEeK3wcU1QErItg" name="infiniteFile_to_subfile" memberEnd="_NqSPc4KNEeK3wcU1QErItg _NqSPx4KNEeK3wcU1QErItg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_NqSPx4KNEeK3wcU1QErItg" name="infiniteFile" visibility="public" type="_NqSPWYKNEeK3wcU1QErItg" association="_NqSPxoKNEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSPyYKNEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqSPyIKNEeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_NqSPyoKNEeK3wcU1QErItg" name="Instances">
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_NqSPy4KNEeK3wcU1QErItg" name="CPFileSystem" classifier="_NqRpGYKNEeK3wcU1QErItg">
+          <slot xmi:type="uml:Slot" xmi:id="_NqSPzIKNEeK3wcU1QErItg" definingFeature="_NqRpHIKNEeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralString" xmi:id="_NqSPzYKNEeK3wcU1QErItg" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_fWwHUH00EeOCs9_LY0yC2g" definingFeature="_-MrIEH0zEeOCs9_LY0yC2g">
+            <value xmi:type="uml:LiteralInteger" xmi:id="_fWxVcH00EeOCs9_LY0yC2g" value="10000"/>
+          </slot>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_NqSPzoKNEeK3wcU1QErItg" name="systemHandling_to_CpFileSystemM" memberEnd="_NqRpIYKNEeK3wcU1QErItg _NqSPz4KNEeK3wcU1QErItg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_NqSPz4KNEeK3wcU1QErItg" name="cpFileSystem" visibility="public" type="_NqRpGYKNEeK3wcU1QErItg" aggregation="composite" association="_NqSPzoKNEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqSP0YKNEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqSP0IKNEeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_NqRpIYKNEeK3wcU1QErItg" name="SystemHandling" visibility="public" association="_NqSPzoKNEeK3wcU1QErItg">
+          <type xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0MIKREeK3wcU1QErItg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqRpI4KNEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqRpIoKNEeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_piODkHx1EeOZi9x887s3dQ" name="BlockTransferTimeSlice">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_pictEHx1EeOZi9x887s3dQ" annotatedElement="_piODkHx1EeOZi9x887s3dQ">
+          <body>Range 500 - 60000.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_pikB0Hx1EeOZi9x887s3dQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-kmDQCCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="__nhOUMQWEeWHWfw_NwU0PQ" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_GdebsNyQEeW1u6PPvn5xCQ" name="BASIC"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_IDfXQNyQEeW1u6PPvn5xCQ" client="_GdebsNyQEeW1u6PPvn5xCQ" supplier="_BPeqoMQXEeWHWfw_NwU0PQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_BPZLEMQXEeWHWfw_NwU0PQ" name="Features">
+        <packagedElement xmi:type="uml:Class" xmi:id="_BPeqoMQXEeWHWfw_NwU0PQ" name="CPI_HIDDEN"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_RrDxwEXEEeuCebnfarr-0w" name="DeleteFileTimer">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_RrM7sEXEEeuCebnfarr-0w" annotatedElement="_RrDxwEXEEeuCebnfarr-0w">
+          <body>Specifies the delay in minutes for deletion of subfile.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_RrOJ0EXEEeuCebnfarr-0w">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-kmDQCCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_cikwQHVqEeCBgp9CYCosRQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lX148Co6Eeu3bJ1648roRQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lX148So6Eeu3bJ1648roRQ" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lX148io6Eeu3bJ1648roRQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lX148yo6Eeu3bJ1648roRQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lX149Co6Eeu3bJ1648roRQ" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lX149So6Eeu3bJ1648roRQ" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ciq24HVqEeCBgp9CYCosRQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Zh9CsGu6EeK_psk_X1_33w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ovzlgN6MEeehtLhJYaltnA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ovzlgd6MEeehtLhJYaltnA" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ovzlgt6MEeehtLhJYaltnA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ovzlg96MEeehtLhJYaltnA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ovzlhN6MEeehtLhJYaltnA" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ovzlhd6MEeehtLhJYaltnA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ZxduMMPCEee-MNJ3JBpygA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ZxduMcPCEee-MNJ3JBpygA" key="Version" value="1.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ZxduMsPCEee-MNJ3JBpygA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ZxduM8PCEee-MNJ3JBpygA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ZxduNMPCEee-MNJ3JBpygA" key="Date" value="2016-02-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ZxduNcPCEee-MNJ3JBpygA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Z1-x8Gu6EeK_psk_X1_33w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_HVZ2wBtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="Managed Object Model for CP File System Management Function" subTitle="" docNo="19089-CXA 117 0019/8" docRev="F" createdBy="ZGIRAKH" docLang="Uen" docDate="2020-02-26"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_HVbE4BtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Package="_NqQZ4IKNEeK3wcU1QErItg" author="Akhila Giramoni" contact="ZGIRAKH" date="2020-02-26" docNo="" revision="F" version="3" release="4" organization="" correction="1"/>
+  <CoreMWProfile:CmwMom xmi:id="_HQPp8BtEEeWvQYFW8NSCww" base_Package="_NqQZ4IKNEeK3wcU1QErItg" immNamespace="MOM_NAME"/>
+  <CoreMWProfile:CmwClass xmi:id="_HQPp8RtEEeWvQYFW8NSCww" base_Class="_NqRpGYKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HVbr8RtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_NqRpHIKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAction xmi:id="_HQQRABtEEeWvQYFW8NSCww" base_Operation="_NqRpJIKNEeK3wcU1QErItg" admOpId="1"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HVcTARtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_NqRpJIKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVcTAxtEEeWvQYFW8NSCww" base_Parameter="_NqRpJoKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVc6EBtEEeWvQYFW8NSCww" base_Parameter="_NqRpKIKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVc6ERtEEeWvQYFW8NSCww" base_Parameter="_NqRpKoKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAction xmi:id="_HQQRARtEEeWvQYFW8NSCww" base_Operation="_NqRpL4KNEeK3wcU1QErItg" admOpId="2"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HVc6EhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_NqRpL4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVc6ExtEEeWvQYFW8NSCww" base_Parameter="_NqRpMYKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVdhIBtEEeWvQYFW8NSCww" base_Parameter="_NqRpM4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVdhIhtEEeWvQYFW8NSCww" base_Parameter="_NqRpNYKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVdhJBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_NqRpOoKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAction xmi:id="_HQQRAhtEEeWvQYFW8NSCww" base_Operation="_NqRpP4KNEeK3wcU1QErItg" admOpId="3"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HVdhJRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_NqRpP4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVeIMRtEEeWvQYFW8NSCww" base_Parameter="_NqRpQYKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVeIMhtEEeWvQYFW8NSCww" base_Parameter="_NqRpQ4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVeINBtEEeWvQYFW8NSCww" base_Parameter="_NqSPEYKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAction xmi:id="_HQQRAxtEEeWvQYFW8NSCww" base_Operation="_NqSPFoKNEeK3wcU1QErItg" admOpId="4"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HVeINhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_NqSPFoKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVevQRtEEeWvQYFW8NSCww" base_Parameter="_NqSPGIKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVevQxtEEeWvQYFW8NSCww" base_Parameter="_NqSPGoKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HVevRRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_NqSPHIKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAction xmi:id="_HQQ4EBtEEeWvQYFW8NSCww" base_Operation="_NqSPHIKNEeK3wcU1QErItg" admOpId="5"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVevRxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_NqSPHoKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVfWUBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_NqSPIoKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwClass xmi:id="_HQQ4ERtEEeWvQYFW8NSCww" base_Class="_NqSPJoKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_HVfWUhtEEeWvQYFW8NSCww" base_Class="_NqSPJoKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HVf9YBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_NqSPKIKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwClass xmi:id="_HQQ4EhtEEeWvQYFW8NSCww" base_Class="_NqSPM4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_HVf9YhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_NqSPM4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HVf9ZBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_NqSPNoKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HVgkcRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_NqSPOIKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQRfIBtEEeWvQYFW8NSCww" base_Property="_NqSPOIKNEeK3wcU1QErItg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQRfIRtEEeWvQYFW8NSCww" base_Property="_NqSPPYKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVgkdRtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPPYKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQRfIhtEEeWvQYFW8NSCww" base_Property="_NqSPQIKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVhLgRtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPQIKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQRfIxtEEeWvQYFW8NSCww" base_Property="_NqSPQ4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVhLghtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPQ4KNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwClass xmi:id="_HQSGMBtEEeWvQYFW8NSCww" base_Class="_NqSPRoKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_HVhLgxtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_NqSPRoKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HVhLhRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_NqSPSIKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HVhykRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_NqSPSoKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQSGMRtEEeWvQYFW8NSCww" base_Property="_NqSPSoKNEeK3wcU1QErItg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQSGMhtEEeWvQYFW8NSCww" base_Property="_NqSPTIKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVhykxtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPTIKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQSGMxtEEeWvQYFW8NSCww" base_Property="_NqSPUIKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVhylRtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPUIKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQStQBtEEeWvQYFW8NSCww" base_Property="_NqSPU4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HViZoBtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPU4KNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQStQRtEEeWvQYFW8NSCww" base_Property="_NqSPVoKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HViZohtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPVoKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwClass xmi:id="_HQStQhtEEeWvQYFW8NSCww" base_Class="_NqSPWYKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_HViZpBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_NqSPWYKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQStQxtEEeWvQYFW8NSCww" base_Property="_NqSPW4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HViZphtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPW4KNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQTUUBtEEeWvQYFW8NSCww" base_Property="_NqSPXoKNEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HVjAsBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_NqSPXoKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQTUURtEEeWvQYFW8NSCww" base_Property="_NqSPYoKNEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HVjAshtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_NqSPYoKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HVjAtBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_NqSPZoKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQTUUhtEEeWvQYFW8NSCww" base_Property="_NqSPZoKNEeK3wcU1QErItg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQTUUxtEEeWvQYFW8NSCww" base_Property="_NqSPaIKNEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HVjAthtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_NqSPaIKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQT7YBtEEeWvQYFW8NSCww" base_Property="_NqSPbYKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVjnwRtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPbYKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HVjnwxtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_NqSPcYKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQT7YRtEEeWvQYFW8NSCww" base_Property="_NqSPeYKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVjnxRtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPeYKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQYz4BtEEeWvQYFW8NSCww" base_Property="_NqSPfIKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVjnxxtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPfIKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQYz4RtEEeWvQYFW8NSCww" base_Property="_NqSPf4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVkO0BtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPf4KNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAction xmi:id="_HQYz4htEEeWvQYFW8NSCww" base_Operation="_NqSPgoKNEeK3wcU1QErItg" admOpId="1"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HVkO0htEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_NqSPgoKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_HVkO1RtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Association="_NqSPhIKNEeK3wcU1QErItg" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_HVk14RtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Association="_NqSPiIKNEeK3wcU1QErItg" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_HVk14xtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Association="_NqSPjIKNEeK3wcU1QErItg" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_HVk15RtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Association="_NqSPkIKNEeK3wcU1QErItg" isNotifiable="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_HQYz4xtEEeWvQYFW8NSCww" base_Class="_NqSPlIKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_HVk15xtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_NqSPlIKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HVlc8RtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_NqSPloKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQYz5BtEEeWvQYFW8NSCww" base_Property="_NqSPmIKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVlc8xtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPmIKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQZa8BtEEeWvQYFW8NSCww" base_Property="_NqSPnIKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVlc9RtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPnIKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQZa8RtEEeWvQYFW8NSCww" base_Property="_NqSPn4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVlc9xtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPn4KNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQZa8htEEeWvQYFW8NSCww" base_Property="_NqSPooKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVmEARtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPooKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_HVmEAxtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Association="_NqSPpYKNEeK3wcU1QErItg" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HVmEBhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Enumeration="_NqSPqYKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HVmrERtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_NqSPrYKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HVmrExtEEeWvQYFW8NSCww" base_EnumerationLiteral="_NqSPr4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HVmrFRtEEeWvQYFW8NSCww" base_EnumerationLiteral="_NqSPsYKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HVnSIBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_NqSPs4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_HVnSIhtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" status="DEPRECATED" statusInformation="DEPRECATED" base_Class="_NqSPtYKNEeK3wcU1QErItg" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_HQZa8xtEEeWvQYFW8NSCww" base_Class="_NqSPtYKNEeK3wcU1QErItg" isConfigurable="false"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HVnSJBtEEeWvQYFW8NSCww" hideGroupName="" specification="" isPersistent="false" base_Property="_NqSPt4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVnSJhtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPuYKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQaCABtEEeWvQYFW8NSCww" base_Property="_NqSPuYKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQaCARtEEeWvQYFW8NSCww" base_Property="_NqSPvYKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVn5MRtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPvYKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQaCAhtEEeWvQYFW8NSCww" base_Property="_NqSPwIKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVn5MxtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPwIKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQaCAxtEEeWvQYFW8NSCww" base_Property="_NqSPw4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVn5NRtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_NqSPw4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_HVogQRtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" base_Association="_NqSPxoKNEeK3wcU1QErItg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimInstances xmi:id="_HVogQxtEEeWvQYFW8NSCww" base_Package="_NqSPyoKNEeK3wcU1QErItg" version="1" release="0" correction="0"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_HVpHUBtEEeWvQYFW8NSCww" base_InstanceSpecification="_NqSPy4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_HVpHUhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_NqSPzoKNEeK3wcU1QErItg" isNotifiable="true"/>
+  <CoreMWProfile:CmwAction xmi:id="_HQapEBtEEeWvQYFW8NSCww" base_Operation="_mOyP4MIYEeKOEK7vpxv9Ig" admOpId="8"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HVpHUxtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_mOyP4MIYEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVpuYRtEEeWvQYFW8NSCww" base_Parameter="_mOyP4sIYEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVpuYxtEEeWvQYFW8NSCww" base_Parameter="_mOyP5MIYEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVpuZRtEEeWvQYFW8NSCww" base_Parameter="_mOyP5sIYEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVpuZxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_AfJlUMIZEeKOEK7vpxv9Ig"/>
+  <CoreMWProfile:CmwAction xmi:id="_HQapERtEEeWvQYFW8NSCww" base_Operation="_EJuZoMIZEeKOEK7vpxv9Ig" admOpId="7"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HVqVcRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_EJuZoMIZEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVqVchtEEeWvQYFW8NSCww" base_Parameter="_EJuZosIZEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVqVcxtEEeWvQYFW8NSCww" base_Parameter="_EJuZpMIZEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVqVdBtEEeWvQYFW8NSCww" base_Parameter="_EJuZpsIZEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVq8gRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_EJuZqcIZEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVq8hBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_aSfnkMIZEeKOEK7vpxv9Ig"/>
+  <CoreMWProfile:CmwAction xmi:id="_HQapEhtEEeWvQYFW8NSCww" base_Operation="_fA8TsMIZEeKOEK7vpxv9Ig" admOpId="6"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HVq8hhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_fA8TsMIZEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVrjkBtEEeWvQYFW8NSCww" base_Parameter="_fA8TssIZEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVrjkhtEEeWvQYFW8NSCww" base_Parameter="_fA8TtMIZEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVrjlBtEEeWvQYFW8NSCww" base_Parameter="_fA8TtsIZEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVrjlhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_sVxm0MIZEeKOEK7vpxv9Ig"/>
+  <CoreMWProfile:CmwAction xmi:id="_HQbQIBtEEeWvQYFW8NSCww" base_Operation="_wkjUYMIZEeKOEK7vpxv9Ig" admOpId="9"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HVsKoBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_wkjUYMIZEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVsKohtEEeWvQYFW8NSCww" base_Parameter="_wkjUYsIZEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVsKpBtEEeWvQYFW8NSCww" base_Parameter="_wkjUZMIZEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVsKphtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_5NKI8MIZEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_HVsxsBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_7tLOoMIZEeKOEK7vpxv9Ig"/>
+  <CoreMWProfile:CmwAction xmi:id="_HQbQIRtEEeWvQYFW8NSCww" base_Operation="_7tLOoMIZEeKOEK7vpxv9Ig" admOpId="10"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVsxshtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_7tLOosIZEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVsxsxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_7tLOpsIZEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_HVsxtBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_Bo3xAMIaEeKOEK7vpxv9Ig"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQbQIhtEEeWvQYFW8NSCww" base_Property="_aU3wsMIaEeKOEK7vpxv9Ig" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HVtYwBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_aU3wsMIaEeKOEK7vpxv9Ig"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_HVtYwhtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" range="500..60000" base_DataType="_piODkHx1EeOZi9x887s3dQ" unit="" multiplicationFactor="" resolution=""/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQbQIxtEEeWvQYFW8NSCww" base_Property="_-MrIEH0zEeOCs9_LY0yC2g" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HVt_0BtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_-MrIEH0zEeOCs9_LY0yC2g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQb3MBtEEeWvQYFW8NSCww" base_Property="_vgSqgMCPEeOcP4VGGSgpkw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVt_0htEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_vgSqgMCPEeOcP4VGGSgpkw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQb3MRtEEeWvQYFW8NSCww" base_Property="_tL8M0MCQEeOcP4VGGSgpkw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVt_0xtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_tL8M0MCQEeOcP4VGGSgpkw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQb3MhtEEeWvQYFW8NSCww" base_Property="_BZN-cMCREeOcP4VGGSgpkw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVt_1BtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_BZN-cMCREeOcP4VGGSgpkw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVum4BtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" base_Property="_HzBZIMCREeOcP4VGGSgpkw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQb3MxtEEeWvQYFW8NSCww" base_Property="_HzBZIMCREeOcP4VGGSgpkw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQb3NBtEEeWvQYFW8NSCww" base_Property="_aIpUQMPAEeOcP4VGGSgpkw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_HVum4RtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_aIpUQMPAEeOcP4VGGSgpkw"/>
+  <CoreMWProfile:CmwModel xmi:id="_HQceQBtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwContribution xmi:id="_HQceQRtEEeWvQYFW8NSCww" base_Association="_NqSPzoKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_HVum4htEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_NqRpGYKNEeK3wcU1QErItg" isLegacyRoot="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQdFUBtEEeWvQYFW8NSCww" base_Property="_NqRpHIKNEeK3wcU1QErItg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQdFURtEEeWvQYFW8NSCww" base_Property="_NqSPKIKNEeK3wcU1QErItg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQdFUhtEEeWvQYFW8NSCww" base_Property="_NqSPNoKNEeK3wcU1QErItg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQdFUxtEEeWvQYFW8NSCww" base_Property="_NqSPSIKNEeK3wcU1QErItg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQdsYBtEEeWvQYFW8NSCww" base_Property="_NqSPcYKNEeK3wcU1QErItg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQdsYRtEEeWvQYFW8NSCww" base_Property="_NqSPloKNEeK3wcU1QErItg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HQdsYhtEEeWvQYFW8NSCww" base_Property="_NqSPt4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JsBtDEeWvQYFW8NSCww" base_Comment="_c4NM0Gu6EeK_psk_X1_33w"/>
+  <Documentation:Documentation xmi:id="_7V4JsRtDEeWvQYFW8NSCww" base_Comment="_NqRpGIKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JshtDEeWvQYFW8NSCww" base_Comment="_NqRpG4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JsxtDEeWvQYFW8NSCww" base_Comment="_NqRpHYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JtBtDEeWvQYFW8NSCww" base_Comment="_NqRpJYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JtRtDEeWvQYFW8NSCww" base_Comment="_NqRpJ4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JthtDEeWvQYFW8NSCww" base_Comment="_NqRpKYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JtxtDEeWvQYFW8NSCww" base_Comment="_NqRpK4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JuBtDEeWvQYFW8NSCww" base_Comment="_NqRpMIKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JuRtDEeWvQYFW8NSCww" base_Comment="_NqRpMoKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JuhtDEeWvQYFW8NSCww" base_Comment="_NqRpNIKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JuxtDEeWvQYFW8NSCww" base_Comment="_NqRpNoKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JvBtDEeWvQYFW8NSCww" base_Comment="_NqRpO4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JvRtDEeWvQYFW8NSCww" base_Comment="_NqRpQIKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JvhtDEeWvQYFW8NSCww" base_Comment="_NqRpQoKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JvxtDEeWvQYFW8NSCww" base_Comment="_NqSPEIKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JwBtDEeWvQYFW8NSCww" base_Comment="_NqSPEoKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JwRtDEeWvQYFW8NSCww" base_Comment="_NqSPF4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JwhtDEeWvQYFW8NSCww" base_Comment="_NqSPGYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JwxtDEeWvQYFW8NSCww" base_Comment="_NqSPG4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JxBtDEeWvQYFW8NSCww" base_Comment="_NqSPHYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JxRtDEeWvQYFW8NSCww" base_Comment="_NqSPH4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JxhtDEeWvQYFW8NSCww" base_Comment="_NqSPI4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JxxtDEeWvQYFW8NSCww" base_Comment="_NqSPJ4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JyBtDEeWvQYFW8NSCww" base_Comment="_NqSPKYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JyRtDEeWvQYFW8NSCww" base_Comment="_NqSPNYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JyhtDEeWvQYFW8NSCww" base_Comment="_NqSPN4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JyxtDEeWvQYFW8NSCww" base_Comment="_NqSPOYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JzBtDEeWvQYFW8NSCww" base_Comment="_NqSPPoKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JzRtDEeWvQYFW8NSCww" base_Comment="_NqSPQYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JzhtDEeWvQYFW8NSCww" base_Comment="_NqSPRIKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4JzxtDEeWvQYFW8NSCww" base_Comment="_NqSPR4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J0BtDEeWvQYFW8NSCww" base_Comment="_NqSPSYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J0RtDEeWvQYFW8NSCww" base_Comment="_NqSPS4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J0htDEeWvQYFW8NSCww" base_Comment="_NqSPTYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J0xtDEeWvQYFW8NSCww" base_Comment="_NqSPUYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J1BtDEeWvQYFW8NSCww" base_Comment="_NqSPVIKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J1RtDEeWvQYFW8NSCww" base_Comment="_NqSPV4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J1htDEeWvQYFW8NSCww" base_Comment="_NqSPWoKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J1xtDEeWvQYFW8NSCww" base_Comment="_NqSPXIKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J2BtDEeWvQYFW8NSCww" base_Comment="_NqSPX4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J2RtDEeWvQYFW8NSCww" base_Comment="_NqSPY4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J2htDEeWvQYFW8NSCww" base_Comment="_NqSPZ4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J2xtDEeWvQYFW8NSCww" base_Comment="_NqSPaYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J3BtDEeWvQYFW8NSCww" base_Comment="_NqSPboKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J3RtDEeWvQYFW8NSCww" base_Comment="_NqSPcoKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J3htDEeWvQYFW8NSCww" base_Comment="_NqSPeoKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J3xtDEeWvQYFW8NSCww" base_Comment="_NqSPfYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J4BtDEeWvQYFW8NSCww" base_Comment="_NqSPgIKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J4RtDEeWvQYFW8NSCww" base_Comment="_NqSPg4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J4htDEeWvQYFW8NSCww" base_Comment="_NqSPlYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J4xtDEeWvQYFW8NSCww" base_Comment="_NqSPl4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J5BtDEeWvQYFW8NSCww" base_Comment="_NqSPmYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J5RtDEeWvQYFW8NSCww" base_Comment="_NqSPnYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J5htDEeWvQYFW8NSCww" base_Comment="_NqSPoIKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J5xtDEeWvQYFW8NSCww" base_Comment="_NqSPo4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J6BtDEeWvQYFW8NSCww" base_Comment="_NqSPqoKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J6RtDEeWvQYFW8NSCww" base_Comment="_NqSPtoKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J6htDEeWvQYFW8NSCww" base_Comment="_NqSPuIKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J6xtDEeWvQYFW8NSCww" base_Comment="_NqSPuoKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J7BtDEeWvQYFW8NSCww" base_Comment="_NqSPvoKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J7RtDEeWvQYFW8NSCww" base_Comment="_NqSPwYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J7htDEeWvQYFW8NSCww" base_Comment="_NqSPxIKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7V4J7xtDEeWvQYFW8NSCww" base_Comment="_mOyP4cIYEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4J8BtDEeWvQYFW8NSCww" base_Comment="_mOyP48IYEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4J8RtDEeWvQYFW8NSCww" base_Comment="_mOyP5cIYEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4J8htDEeWvQYFW8NSCww" base_Comment="_mOyP58IYEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4J8xtDEeWvQYFW8NSCww" base_Comment="_AfOd0cIZEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4J9BtDEeWvQYFW8NSCww" base_Comment="_EJuZocIZEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4J9RtDEeWvQYFW8NSCww" base_Comment="_EJuZo8IZEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4J9htDEeWvQYFW8NSCww" base_Comment="_EJuZpcIZEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4J9xtDEeWvQYFW8NSCww" base_Comment="_EJuZp8IZEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4J-BtDEeWvQYFW8NSCww" base_Comment="_EJuZqsIZEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4J-RtDEeWvQYFW8NSCww" base_Comment="_aSfnkcIZEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4J-htDEeWvQYFW8NSCww" base_Comment="_fA8TscIZEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4J-xtDEeWvQYFW8NSCww" base_Comment="_fA8Ts8IZEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4J_BtDEeWvQYFW8NSCww" base_Comment="_fA8TtcIZEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4J_RtDEeWvQYFW8NSCww" base_Comment="_fA8Tt8IZEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4J_htDEeWvQYFW8NSCww" base_Comment="_sVxm0cIZEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4J_xtDEeWvQYFW8NSCww" base_Comment="_wkjUYcIZEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4KABtDEeWvQYFW8NSCww" base_Comment="_wkjUY8IZEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4KARtDEeWvQYFW8NSCww" base_Comment="_wkjUZcIZEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4KAhtDEeWvQYFW8NSCww" base_Comment="_5NKI8cIZEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4wwBtDEeWvQYFW8NSCww" base_Comment="_7tLOocIZEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4wwRtDEeWvQYFW8NSCww" base_Comment="_7tLOo8IZEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4wwhtDEeWvQYFW8NSCww" base_Comment="_7tLOp8IZEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4wwxtDEeWvQYFW8NSCww" base_Comment="_Bo3xAcIaEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4wxBtDEeWvQYFW8NSCww" base_Comment="_aU3wscIaEeKOEK7vpxv9Ig"/>
+  <Documentation:Documentation xmi:id="_7V4wxRtDEeWvQYFW8NSCww" base_Comment="_pictEHx1EeOZi9x887s3dQ"/>
+  <Documentation:Documentation xmi:id="_7V4wxhtDEeWvQYFW8NSCww" base_Comment="_-NCUcH0zEeOCs9_LY0yC2g"/>
+  <Documentation:Documentation xmi:id="_7V4wxxtDEeWvQYFW8NSCww" base_Comment="_vgSqgcCPEeOcP4VGGSgpkw"/>
+  <Documentation:Documentation xmi:id="_7V4wyBtDEeWvQYFW8NSCww" base_Comment="_tL8M0cCQEeOcP4VGGSgpkw"/>
+  <Documentation:Documentation xmi:id="_7V4wyRtDEeWvQYFW8NSCww" base_Comment="_BZN-ccCREeOcP4VGGSgpkw"/>
+  <Documentation:Documentation xmi:id="_7V4wyhtDEeWvQYFW8NSCww" base_Comment="_HzBZIcCREeOcP4VGGSgpkw"/>
+  <Documentation:Documentation xmi:id="_7V4wyxtDEeWvQYFW8NSCww" base_Comment="_aIzsUcPAEeOcP4VGGSgpkw"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="__nnU8MQWEeWHWfw_NwU0PQ" base_Package="__nhOUMQWEeWHWfw_NwU0PQ"/>
+  <ECIMBaseProfile:EcimFeatures xmi:id="_BPeDkMQXEeWHWfw_NwU0PQ" base_Package="_BPZLEMQXEeWHWfw_NwU0PQ"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_BPi8EMQXEeWHWfw_NwU0PQ" base_Class="_BPeqoMQXEeWHWfw_NwU0PQ"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_Gtra4NyQEeW1u6PPvn5xCQ" base_Class="_GdebsNyQEeW1u6PPvn5xCQ"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_RrLGgEXEEeuCebnfarr-0w" hideGroupName="" specification="" statusInformation="" range="-1..20160" base_DataType="_RrDxwEXEEeuCebnfarr-0w" unit="" multiplicationFactor="" resolution=""/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_7g81IEXFEeuCebnfarr-0w" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" base_Property="_7g38oEXFEeuCebnfarr-0w"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7g9cMEXFEeuCebnfarr-0w" base_Property="_7g38oEXFEeuCebnfarr-0w" isConfigurable="true"/>
+</xmi:XMI>

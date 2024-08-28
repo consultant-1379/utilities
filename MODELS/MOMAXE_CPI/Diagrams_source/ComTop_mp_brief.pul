@@ -1,0 +1,23 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/ComTop_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "ManagedElement" as ComTop__ManagedElement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20ManagedElement]] 
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "Transport" as ComTop__Transport [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20Transport]] 
+class "ManagedElement" as ComTop__ManagedElement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20ManagedElement]] 
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+ComTop__ManagedElement *-- "1" ComTop__SystemFunctions
+class "ManagedElement" as ComTop__ManagedElement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20ManagedElement]] 
+class "Transport" as ComTop__Transport [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20Transport]] 
+ComTop__ManagedElement *-- "0..1" ComTop__Transport
+@enduml 

@@ -1,0 +1,7 @@
+	<upgradeProcedure saSmfExecLevel="12" safSmfProcedure="safSmfProc=SingleStepAPG">
+		<outageInfo>
+			<acceptableServiceOutage>
+				<all/>
+			</acceptableServiceOutage>
+			<procedurePeriod saSmfProcPeriod="600000000"/>
+		</outageInfo>

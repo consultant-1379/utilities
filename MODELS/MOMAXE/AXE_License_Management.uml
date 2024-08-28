@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="AxeLicenseManagement">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NRAMoQwOEdmFcaeZXPdWAQ" source="uml2.diagrams"/>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ZawuMWu9EeK_psk_X1_33w" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ZawuMmu9EeK_psk_X1_33w" key="com.ericsson.ecim.coremw.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_c5zA4Gu9EeK_psk_X1_33w" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>&lt;p>AXE License Management Model&lt;/p></body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_8JbBoIW5Ed-FBpQGdJXi3g">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OS1OUIXLEd-lToFzlKoOsA" name="" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_gKV3oIKSEeK3wcU1QErItg" name="AxeLicenseManagement">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_gKWe7IKSEeK3wcU1QErItg" annotatedElement="_gKV3oIKSEeK3wcU1QErItg">
+        <body>License Management function MOM.</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_gKWe7YKSEeK3wcU1QErItg" name="LicenseM">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_gKWe7oKSEeK3wcU1QErItg" annotatedElement="_gKWe7YKSEeK3wcU1QErItg">
+          <body>Represents the root MOC for License Management function MOM. 
+The main use cases of License Management function are :
+1) Installation of LKF.
+2) Viewing information of electronic keys present in the installed LKF.
+3) License Management function modes administration.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_gKWe74KSEeK3wcU1QErItg" name="licenseMId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gKWe8IKSEeK3wcU1QErItg" annotatedElement="_gKWe74KSEeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gKWe8oKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gKWe8YKSEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_gKWe84KSEeK3wcU1QErItg" name="emergencyActivationCount" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gKWe9IKSEeK3wcU1QErItg" annotatedElement="_gKWe84KSEeK3wcU1QErItg">
+            <body>Specifies the number of activations left for the emergency with the current LKF.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gKWe9oKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gKWe9YKSEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_gKWe94KSEeK3wcU1QErItg" name="endDateforEmergencyMode" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gKWe-IKSEeK3wcU1QErItg" annotatedElement="_gKWe94KSEeK3wcU1QErItg">
+            <body>Specifies the end date until which the Emergency Mode is valid.
+If Emergency Mode is not set no value is displayed.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gKWe-oKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gKWe-YKSEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_gKWe-4KSEeK3wcU1QErItg" name="fingerprint" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gKWe_IKSEeK3wcU1QErItg" annotatedElement="_gKWe-4KSEeK3wcU1QErItg">
+            <body>Specifies the fingerprint of the AXE node in clear text.
+Fingerprint is in the format: &lt;Node Name>-&lt;Cluster IP Address>
+
+&quot;Node Name&quot; is the value of attribute managedElementId in ManagedElement MOC. 
+
+&quot;Cluster IP Address&quot; is the IP address assigned to cluster of 2 AP nodes.
+
+In case the OAM network is configured with both IPv4 and IPv6 connectivity, the IPv4 and IPv6 fingerprints are both valid but the attribute specifies only the valid IPv4 fingerprint value:
+ &lt;Node Name>-&lt;Cluster IPv4 Address></body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gKWe_oKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gKWe_YKSEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_gKWe_4KSEeK3wcU1QErItg" name="licenseMode" visibility="public" type="_gKWfP4KSEeK3wcU1QErItg" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gKWfAIKSEeK3wcU1QErItg" annotatedElement="_gKWe_4KSEeK3wcU1QErItg">
+            <body>Specifies the current License Management function mode. 
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gKWfAoKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gKWfAYKSEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_gKWfA4KSEeK3wcU1QErItg" name="ElectronicKey" visibility="public" type="_gKWfEYKSEeK3wcU1QErItg" aggregation="composite" association="_gKWfO4KSEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gKWfBYKSEeK3wcU1QErItg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gKWfBIKSEeK3wcU1QErItg" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_vefFYNqdEeKCbcFdSWbe4w" name="maintenanceMode" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_vejW0NqdEeKCbcFdSWbe4w" annotatedElement="_vefFYNqdEeKCbcFdSWbe4w">
+            <body>Allows to activate/deactivate the Maintenance Mode. Default state is not active.</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#__k_d4JdbEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_P7U60JSQEeOyR8FFUknxgw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_venBMNqdEeKCbcFdSWbe4w" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_pDsDoP1mEeSRIfTDAkUVyQ" name="LOCKED">
+            <instance xmi:type="uml:EnumerationLiteral" href="ECIM_CommonLibrary.uml#__k_d4pdbEeC11vgiYYrb4A"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_9ZYfQOAJEeKCbcFdSWbe4w" name="endDateforMaintenanceMode" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_9aaaAOAJEeKCbcFdSWbe4w" annotatedElement="_9ZYfQOAJEeKCbcFdSWbe4w">
+            <body>Specifies the end date until which the Maintenance Mode is valid.
+If Maintenance Mode is not set no value is displayed.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WxzgQOAvEeKCbcFdSWbe4w" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vlqbQOAKEeKCbcFdSWbe4w" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_YSYOkN89EeOs4Laq6AiA6A" name="hashedFingerprint" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_YSnfIN89EeOs4Laq6AiA6A" annotatedElement="_YSYOkN89EeOs4Laq6AiA6A">
+            <body>Specifies the fingerprint of the AXE node in encrypted format.
+
+In case the OAM network is configured with both IPv4 and IPv6 connectivity, the IPv4 and IPv6 fingerprints are both valid but the attribute specifies only IPv4 fingerprint value in encrypted format.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YSuM0N89EeOs4Laq6AiA6A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YSuM0d89EeOs4Laq6AiA6A" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_gKWfCYKSEeK3wcU1QErItg" name="emergencyUnlock">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gKWfCoKSEeK3wcU1QErItg" annotatedElement="_gKWfCYKSEeK3wcU1QErItg">
+            <body>Activates the Emergency Mode of License Management function.
+
+The action may fail due to any one of the following reasons:
+	-Command not executed, AP backup in progress: When backup or restore operation is going on.
+	-Emergency State Mode already activated: When the Emergency Mode is already activated.
+	-Emergency State Mode not allowed: When the two emergency state activation attempts are already used.
+	-Unable to connect to server: When service encounters internal fault like inter service communication failure. </body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_gKWfC4KSEeK3wcU1QErItg" name="installLicenseKeyFile">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gKWfDIKSEeK3wcU1QErItg" annotatedElement="_gKWfC4KSEeK3wcU1QErItg">
+            <body>Installs the LKF taking it from folder /license_file on APG file system.
+After the installation the LKF is removed from APG file system.
+
+The action may fail due to any one of the following reasons:
+	-Command not executed, AP backup in progress: When backup or restore operation is going on.
+	-Invalid license key file: When the specified LKF is invalid.
+	-Invalid license key file path: When the specified path for LKF is wrong.
+	-Missing License Key File: When the LKF file is missing on APG file system.
+	-Physical file error: When the LKF is corrupted.
+	-Unable to connect to server: When service encounters internal fault like inter service communication failure.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_gKWfDYKSEeK3wcU1QErItg" name="licensefile">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_gKWfDoKSEeK3wcU1QErItg" annotatedElement="_gKWfDYKSEeK3wcU1QErItg">
+              <body>Specifies the name of the LKF. 
+The LKF is expected to be present in the folder /license_file on APG file system.
+
+
+</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gKWfEIKSEeK3wcU1QErItg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gKWfD4KSEeK3wcU1QErItg" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_GeZHYPCHEeOy-LpDwWjJLw" name="exportLicenseKeyFile" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_GenJ0fCHEeOy-LpDwWjJLw" annotatedElement="_GeZHYPCHEeOy-LpDwWjJLw">
+            <body>Exports the installed LKF to destination folder &quot;license_file&quot; on APG file system with filename &lt;fingerprint>_lkf.
+The file is overwritten if it already exists in the destination folder and automatically deleted by the system after thirty days.
+
+The action may fail due to any one of the following reasons:
+	-Internal error: LKF not found: An internal error when exporting LKF.
+	-Not allowed in Grace Mode: LKF cannot be exported in Grace Mode.
+	-Not allowed in Virgin Mode: LKF cannot be exported in Virgin Mode.
+	-Quota limit exceeded: Unable to export LKF in the destination folder.
+	-Unable to connect to server: When service encounters internal fault like inter service communication failure. </body>
+          </ownedComment>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_gKWfEYKSEeK3wcU1QErItg" name="ElectronicKey">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_gKWfEoKSEeK3wcU1QErItg" annotatedElement="_gKWfEYKSEeK3wcU1QErItg">
+          <body>Represents the set of Electronic Keys part of LKF.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_gKWfE4KSEeK3wcU1QErItg" name="electronicKeyId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gKWfFIKSEeK3wcU1QErItg" annotatedElement="_gKWfE4KSEeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gKWfFoKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gKWfFYKSEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_gKWfF4KSEeK3wcU1QErItg" name="description" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gKWfGIKSEeK3wcU1QErItg" annotatedElement="_gKWfF4KSEeK3wcU1QErItg">
+            <body>Specifies the description of electronic Key.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gKWfGoKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gKWfGYKSEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_gKWfG4KSEeK3wcU1QErItg" name="startDate" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gKWfHIKSEeK3wcU1QErItg" annotatedElement="_gKWfG4KSEeK3wcU1QErItg">
+            <body>Specifies the start date of the electronic key.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gKWfHoKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gKWfHYKSEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_gKWfH4KSEeK3wcU1QErItg" name="expiryDate" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gKWfIIKSEeK3wcU1QErItg" annotatedElement="_gKWfH4KSEeK3wcU1QErItg">
+            <body>Sepcifies the end date of the electronic key.
+In case of no end date for an electronic key then there no value is displayed.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gKWfIoKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gKWfIYKSEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_gKWfI4KSEeK3wcU1QErItg" name="licensedCapacityValue" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gKWfJIKSEeK3wcU1QErItg" annotatedElement="_gKWfI4KSEeK3wcU1QErItg">
+            <body>Specifies the capacity value of the electronic key.
+If value is 1, it means the key is a feature electronic key.
+If the value is more than 1, it means the key is a capacity electronic key and the value represents the capacity value.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gKWfJoKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gKWfJYKSEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_gKWfJ4KSEeK3wcU1QErItg" name="daysToExpire" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gKWfKIKSEeK3wcU1QErItg" annotatedElement="_gKWfJ4KSEeK3wcU1QErItg">
+            <body>Specifies the number of remaining days to expire the electronic key.
+If the value is a number, it means the electronic key is going to expire in these number of days. If the value is &quot;EXPIRED&quot;, it means the electronic key is expired. If the value is &quot;NEVER&quot;, it means the electronic key never expires. </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gKWfKoKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gKWfKYKSEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_gKWfK4KSEeK3wcU1QErItg" name="Instances">
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_gKWfOIKSEeK3wcU1QErItg" name="LicenseManagementMInstance" classifier="_gKWe7YKSEeK3wcU1QErItg">
+          <slot xmi:type="uml:Slot" xmi:id="_gKWfOYKSEeK3wcU1QErItg" definingFeature="_gKWe74KSEeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralString" xmi:id="_gKWfOoKSEeK3wcU1QErItg" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_gKWfO4KSEeK3wcU1QErItg" name="AxeLicenseManagement_to_ElectronicKey" memberEnd="_gKWfA4KSEeK3wcU1QErItg _gKWfPIKSEeK3wcU1QErItg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_gKWfPIKSEeK3wcU1QErItg" name="AxeLicenseManagement" visibility="public" type="_gKWe7YKSEeK3wcU1QErItg" association="_gKWfO4KSEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gKWfPoKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gKWfPYKSEeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_gKWfP4KSEeK3wcU1QErItg" name="LicenseMode">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_gKWfQIKSEeK3wcU1QErItg" annotatedElement="_gKWfP4KSEeK3wcU1QErItg">
+          <body>Represents the possible license mode types.
+</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_gKWfQYKSEeK3wcU1QErItg" name="VIRGIN">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gKWfQoKSEeK3wcU1QErItg" annotatedElement="_gKWfQYKSEeK3wcU1QErItg">
+            <body>Indicates License Manager mode when the node is installed for the first time.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_gKWfQ4KSEeK3wcU1QErItg" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_gKWfRIKSEeK3wcU1QErItg" name="LICENSECONTROLLED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gKWfRYKSEeK3wcU1QErItg" annotatedElement="_gKWfRIKSEeK3wcU1QErItg">
+            <body>Indicates License Manager mode when a valid License Key file is installed.
+</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_gKWfRoKSEeK3wcU1QErItg" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_gKWfR4KSEeK3wcU1QErItg" name="GRACE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gKWfSIKSEeK3wcU1QErItg" annotatedElement="_gKWfR4KSEeK3wcU1QErItg">
+            <body>Indicates License Manager mode when an invalid or loss of License Key File is detected.
+This mode lasts 60 days. No alarm raised in the first 30 days. In this mode the application uses the last licensing information that was available.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_gKWfSYKSEeK3wcU1QErItg" value="3"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_gKWfSoKSEeK3wcU1QErItg" name="EMERGENCY">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gKWfS4KSEeK3wcU1QErItg" annotatedElement="_gKWfSoKSEeK3wcU1QErItg">
+            <body>Indicates License Manager mode when Emergency mode is activated.
+During this mode, capacity features which are intended for use during emergency situations are unlocked in order to
+provide as good accessibility as possible.
+</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_gKWfTIKSEeK3wcU1QErItg" value="4"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_9yGKYNqcEeKCbcFdSWbe4w" name="MAINTENANCE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_37USUNqeEeKCbcFdSWbe4w" annotatedElement="_9yGKYNqcEeKCbcFdSWbe4w">
+            <body>Indicates License Manager mode when Maintenance mode is activated.
+During this mode, license controlled features are frozen to allow maintenance activities without affecting in service performances. An observation alarm is raised when Maintenance mode is unlocked and will be ceased in the following cases. 
+- Maintenance mode is Locked manually
+- Automatically after 25 days of Unlock
+</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_9yKb0dqcEeKCbcFdSWbe4w" value="5"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_gKWfTYKSEeK3wcU1QErItg" name="SystemHandling_to_AxeLicenseManagement" memberEnd="_gKWfBoKSEeK3wcU1QErItg _gKWfToKSEeK3wcU1QErItg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_gKWfToKSEeK3wcU1QErItg" name="axeLicenseManagement" visibility="public" type="_gKWe7YKSEeK3wcU1QErItg" aggregation="composite" association="_gKWfTYKSEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gKWfUIKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gKWfT4KSEeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_gKWfBoKSEeK3wcU1QErItg" name="systemHandling" visibility="public" association="_gKWfTYKSEeK3wcU1QErItg">
+          <type xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0MIKREeK3wcU1QErItg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gKWfCIKSEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gKWfB4KSEeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_Ue82oMg9EeWSN5hWjYHzjg" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_UrdooMg9EeWSN5hWjYHzjg" name="BASIC"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_cikwQHVqEeCBgp9CYCosRQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_83PgsD-FEeuVusL-H_OZIw" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_83PgsT-FEeuVusL-H_OZIw" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_83Pgsj-FEeuVusL-H_OZIw" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_83Pgsz-FEeuVusL-H_OZIw" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_83PgtD-FEeuVusL-H_OZIw" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_83PgtT-FEeuVusL-H_OZIw" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ciq24HVqEeCBgp9CYCosRQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Zb0eIGu9EeK_psk_X1_33w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rT8WMN6MEeehtLhJYaltnA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rT8WMd6MEeehtLhJYaltnA" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rT8WMt6MEeehtLhJYaltnA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rT8WM96MEeehtLhJYaltnA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rT8WNN6MEeehtLhJYaltnA" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rT8WNd6MEeehtLhJYaltnA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UF-eIMPaEeejV74UnmnGDA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UF-eIcPaEeejV74UnmnGDA" key="Version" value="1.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UF-eIsPaEeejV74UnmnGDA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UF-eI8PaEeejV74UnmnGDA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UF-eJMPaEeejV74UnmnGDA" key="Date" value="2016-02-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UF-eJcPaEeejV74UnmnGDA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Zwr64Gu9EeK_psk_X1_33w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_I9TosBtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="Managed Object Model for License Management Function" subTitle="  " docNo="19089-CXA 117 0050/13" docRev="C" createdBy="XPRAMDU" approvedBy="" docLang="Uen" docDate="2021-10-07"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_I9UPwBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Package="_gKV3oIKSEeK3wcU1QErItg" author="Prameela Vanga" contact="XPRAMDU" date="2021-10-07" docNo="" revision="C" version="3" release="1" organization="" correction="0"/>
+  <CoreMWProfile:CmwMom xmi:id="_JBwq4BtEEeWvQYFW8NSCww" base_Package="_gKV3oIKSEeK3wcU1QErItg" immNamespace="MOM_NAME"/>
+  <CoreMWProfile:CmwClass xmi:id="_JBxR8BtEEeWvQYFW8NSCww" base_Class="_gKWe7YKSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_I9UPwRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_gKWe74KSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_I9U20BtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" base_Property="_gKWe84KSEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JBxR8RtEEeWvQYFW8NSCww" base_Property="_gKWe84KSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_I9Vd4BtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" base_Property="_gKWe94KSEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JBx5ABtEEeWvQYFW8NSCww" base_Property="_gKWe94KSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_I9Vd4RtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" base_Property="_gKWe-4KSEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JBx5ARtEEeWvQYFW8NSCww" base_Property="_gKWe-4KSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_I9Vd4htEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" isNotifiable="true" base_Property="_gKWe_4KSEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JBx5AhtEEeWvQYFW8NSCww" base_Property="_gKWe_4KSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_I9Vd4xtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Operation="_gKWfCYKSEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAction xmi:id="_JBx5AxtEEeWvQYFW8NSCww" base_Operation="_gKWfCYKSEeK3wcU1QErItg" admOpId="2"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_I9WE8BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Operation="_gKWfC4KSEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAction xmi:id="_JBygEBtEEeWvQYFW8NSCww" base_Operation="_gKWfC4KSEeK3wcU1QErItg" admOpId="1"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_I9WE8RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_gKWfDYKSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_I9WE8htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Class="_gKWfEYKSEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwClass xmi:id="_JBygERtEEeWvQYFW8NSCww" base_Class="_gKWfEYKSEeK3wcU1QErItg" isConfigurable="false"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_I9WsABtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" isPersistent="false" base_Property="_gKWfE4KSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_I9WsARtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" base_Property="_gKWfF4KSEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JBygEhtEEeWvQYFW8NSCww" base_Property="_gKWfF4KSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_I9WsAhtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" base_Property="_gKWfG4KSEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JBygExtEEeWvQYFW8NSCww" base_Property="_gKWfG4KSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_I9WsAxtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" base_Property="_gKWfH4KSEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JBzHIBtEEeWvQYFW8NSCww" base_Property="_gKWfH4KSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_I9XTEBtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" base_Property="_gKWfI4KSEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JBzHIRtEEeWvQYFW8NSCww" base_Property="_gKWfI4KSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_I9XTERtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" base_Property="_gKWfJ4KSEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JBzHIxtEEeWvQYFW8NSCww" base_Property="_gKWfJ4KSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimInstances xmi:id="_I9XTEhtEEeWvQYFW8NSCww" base_Package="_gKWfK4KSEeK3wcU1QErItg" version="1" release="0" correction="0"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_I9X6IBtEEeWvQYFW8NSCww" base_InstanceSpecification="_gKWfOIKSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_I9X6IRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_gKWfO4KSEeK3wcU1QErItg" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_I9YhMBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Enumeration="_gKWfP4KSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_I9YhMRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_gKWfQYKSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_I9YhMhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_gKWfRIKSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_I9ZIQBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_gKWfR4KSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_I9ZIQRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_gKWfSoKSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_I9ZIQhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_gKWfTYKSEeK3wcU1QErItg" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_I9ZIQxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_9yGKYNqcEeKCbcFdSWbe4w"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_I9ZvUBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_vefFYNqdEeKCbcFdSWbe4w"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JBzHJBtEEeWvQYFW8NSCww" base_Property="_vefFYNqdEeKCbcFdSWbe4w" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JBzHJRtEEeWvQYFW8NSCww" base_Property="_9ZYfQOAJEeKCbcFdSWbe4w"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_I9ZvURtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_9ZYfQOAJEeKCbcFdSWbe4w"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_I9ZvUhtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_YSYOkN89EeOs4Laq6AiA6A"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JBzuMBtEEeWvQYFW8NSCww" base_Property="_YSYOkN89EeOs4Laq6AiA6A"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_I9aWYBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_GeZHYPCHEeOy-LpDwWjJLw"/>
+  <CoreMWProfile:CmwAction xmi:id="_JBzuMRtEEeWvQYFW8NSCww" base_Operation="_GeZHYPCHEeOy-LpDwWjJLw" admOpId="3"/>
+  <CoreMWProfile:CmwModel xmi:id="_JBzuMhtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwContribution xmi:id="_JB0VQBtEEeWvQYFW8NSCww" base_Association="_gKWfTYKSEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_I9aWYRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Class="_gKWe7YKSEeK3wcU1QErItg" isLegacyRoot="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JB0VQRtEEeWvQYFW8NSCww" base_Property="_gKWe74KSEeK3wcU1QErItg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_JB0VQhtEEeWvQYFW8NSCww" base_Property="_gKWfE4KSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOokBtDEeWvQYFW8NSCww" base_Comment="_c5zA4Gu9EeK_psk_X1_33w"/>
+  <Documentation:Documentation xmi:id="_8GOokRtDEeWvQYFW8NSCww" base_Comment="_gKWe7IKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOokhtDEeWvQYFW8NSCww" base_Comment="_gKWe7oKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOokxtDEeWvQYFW8NSCww" base_Comment="_gKWe8IKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOolBtDEeWvQYFW8NSCww" base_Comment="_gKWe9IKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOolRtDEeWvQYFW8NSCww" base_Comment="_gKWe-IKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOolhtDEeWvQYFW8NSCww" base_Comment="_gKWe_IKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOolxtDEeWvQYFW8NSCww" base_Comment="_gKWfAIKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOomBtDEeWvQYFW8NSCww" base_Comment="_gKWfCoKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOomRtDEeWvQYFW8NSCww" base_Comment="_gKWfDIKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOomhtDEeWvQYFW8NSCww" base_Comment="_gKWfDoKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOomxtDEeWvQYFW8NSCww" base_Comment="_gKWfEoKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOonBtDEeWvQYFW8NSCww" base_Comment="_gKWfFIKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOonRtDEeWvQYFW8NSCww" base_Comment="_gKWfGIKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOonhtDEeWvQYFW8NSCww" base_Comment="_gKWfHIKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOonxtDEeWvQYFW8NSCww" base_Comment="_gKWfIIKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOooBtDEeWvQYFW8NSCww" base_Comment="_gKWfJIKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOooRtDEeWvQYFW8NSCww" base_Comment="_gKWfKIKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOoohtDEeWvQYFW8NSCww" base_Comment="_gKWfQIKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOooxtDEeWvQYFW8NSCww" base_Comment="_gKWfQoKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOopBtDEeWvQYFW8NSCww" base_Comment="_gKWfRYKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOopRtDEeWvQYFW8NSCww" base_Comment="_gKWfSIKSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOophtDEeWvQYFW8NSCww" base_Comment="_gKWfS4KSEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_8GOopxtDEeWvQYFW8NSCww" base_Comment="_vejW0NqdEeKCbcFdSWbe4w"/>
+  <Documentation:Documentation xmi:id="_8GOoqBtDEeWvQYFW8NSCww" base_Comment="_37USUNqeEeKCbcFdSWbe4w"/>
+  <Documentation:Documentation xmi:id="_8GOoqRtDEeWvQYFW8NSCww" base_Comment="_9aaaAOAJEeKCbcFdSWbe4w"/>
+  <Documentation:Documentation xmi:id="_8GOoqhtDEeWvQYFW8NSCww" base_Comment="_YSnfIN89EeOs4Laq6AiA6A"/>
+  <Documentation:Documentation xmi:id="_8GOoqxtDEeWvQYFW8NSCww" base_Comment="_GenJ0fCHEeOy-LpDwWjJLw"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_UrbMYMg9EeWSN5hWjYHzjg" base_Package="_Ue82oMg9EeWSN5hWjYHzjg"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_UrhTAMg9EeWSN5hWjYHzjg" base_Class="_UrdooMg9EeWSN5hWjYHzjg"/>
+</xmi:XMI>

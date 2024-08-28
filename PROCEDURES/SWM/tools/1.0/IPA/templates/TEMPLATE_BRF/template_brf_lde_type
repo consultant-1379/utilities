@@ -1,0 +1,51 @@
+				<!--  BRF LDE PART -->
+				<!--                                                                                    -->
+				<!--                                                                                    -->
+				<AppBaseType safAppType="safAppType=ERIC-LDE_BRF">
+					<AppType safVersion="safVersion=1.0.0">
+						<serviceGroupType saAmfApptSGTypes="safVersion=1.0.0,safSgType=ERIC-LDE_BRF-2N"/>
+					</AppType>
+				</AppBaseType>
+				<SGBaseType safSgType="safSgType=ERIC-LDE_BRF-2N">
+					<SGType safVersion="safVersion=1.0.0">
+						<suType saAmfSgtValidSuTypes="safVersion=1.0.0,safSuType=ERIC-LDE_BRF-Cmw"/>
+						<redundancy saAmfSgtRedundancyModel="1"/>
+						<compRestart saAmfSgtDefCompRestartProb="100000" saAmfSgtDefCompRestartMax="3"/>
+						<suRestart saAmfSgtDefSuRestartProb="20000" saAmfSgtDefSuRestartMax="3"/>
+						<autoAttrs safAmfSgtDefAutoAdjust="0" safAmfSgtDefAutoRepair="1" saAmfSgtDefAutoAdjustProb="10000000"/>
+					</SGType>
+				</SGBaseType>
+				<ServiceBaseType safSvcType="safSvcType=ERIC-LDE_BRF-2N">
+					<ServiceType safVersion="safVersion=1.0.0">
+						<csType safMemberCSType="safMemberCSType=safVersion=1.0.0\,safCSType=ERIC-LDE_BRF-2N"/>
+					</ServiceType>
+				</ServiceBaseType>
+				<CSBaseType safCSType="safCSType=ERIC-LDE_BRF-2N">
+					<CSType safVersion="safVersion=1.0.0"/>
+				</CSBaseType>
+				<SUBaseType safSuType="safSuType=ERIC-LDE_BRF-Cmw">
+					<SUType safVersion="safVersion=1.0.0">
+						<mandatoryAttrs saAmfSutIsExternal="0" saAmfSutDefSUFailover="1"/>
+						<componentType saAmfSutMinNumComponents="1" safMemberCompType="safMemberCompType=safVersion=#BRFLDE_RSTATE#\,safCompType=ERIC-LDE_BRF-Cmw"/>
+						<supportedSvcType saAmfSutProvidesSvcType="safVersion=1.0.0,safSvcType=ERIC-LDE_BRF-2N"/>
+					</SUType>
+				</SUBaseType>
+				<!-- @@SPECIFIC_SYSTEM_BEGIN -->
+				<CompBaseType safCompType="safCompType=ERIC-LDE_BRF-System">
+					<CompType safVersion="safVersion=#BRFLDE_RSTATE#">
+						<providesCSType safSupportedCsType="safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-LDE_BRF-2N" saAmfCtCompCapability="4"/>
+						<compTypeDefaults saAmfCtCompCategory="1" saAmfCtDefDisableRestart="0" saAmfCtDefClcCliTimeout="10000000000" saAmfCtDefCallbackTimeout="200000000000" saAmfCtDefRecoveryOnError="2"/>
+						<instantiateCmd saAmfCtRelPathInstantiateCmd="lde-brf-amf.sh">
+							<cmdArgv>start system LDE_BRF_SYSTEM 1</cmdArgv>
+						</instantiateCmd>
+						<cleanupCmd saAmfCtRelPathCleanupCmd="lde-brf-amf.sh">
+							<cmdArgv>stop system LDE_BRF_SYSTEM 1</cmdArgv>
+						</cleanupCmd>
+						<healthCheck safHealthcheckKey="safHealthcheckKey=LDE_BRF_SYSTEM" saAmfHealthcheckPeriod="240000000000" saAmfHealthcheckMaxDuration="180000000000"/>
+						<swBundle saAmfCtSwBundle="safSmfBundle=#BRFLDE_BUNDLE#"/>
+					</CompType>
+				</CompBaseType>
+				<!-- @@SPECIFIC_SYSTEM_END -->
+				<!--                                                                                    -->
+				<!--                                                                                    -->
+				<!--  BRF LDE PART -->

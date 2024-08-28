@@ -1,0 +1,41 @@
+README:
+  Find out the procedure to prepare a consolidated Upgrade Package (UP) for APG softwares (Applicable for SWM 1.0).
+
+Files:
+  *createSDPRepo.sh       -Prepares the SDP repository;
+  *conf/UP.conf           -To be updated for UP package name, product number and product revision;
+  *createUPcampaign.sh    -Creates the consolidated UP package for APG softwares;
+
+PREREQUISITES:
+  Create under SWM_HOME/workspace/am-ws the configuration files and ArtifactManager_ap.cfg
+  User can copy the template ArtifactManager_ap.cfg.template files available
+  in SWM_HOME/workspace/am-ws location and update it with user values
+
+  1) Copy the files: 
+     cp ArtifactManager_ap.cfg.template ArtifactManager_ap.cfg
+
+  2) Fetch the encrypted password from  https://arm.deac.rnd.ericsson.se/artifactory/  and update in ArtifactManager_ap.cfg
+
+  3) In the copied file, Replace the path in the variables cachelocation and softwareRepo with current user's path
+     for e.g. if the repository exists in /home/<username>/GIT_DIR/utilities path then
+     softwareRepo = file:///home/<username>/GIT_DIR/utilities/PROCEDURES/SWM/workspace/local-sw
+     and cachelocation = /home/<username>/GIT_DIR/utilities/PROCEDURES/SWM/workspace/am-cache		
+
+  Follow the instructions in the template ArtifactManager_ap.cfg.template
+
+  Update under SWM_HOME/tools/1.0/conf the configuration file UP.conf with user values.
+  The user needs to update the UP_NAME, UP_PRODUCT_NUMBER and UP_PRODUCT_REVISION feilds.
+
+HOW-TO:
+  ./createSDPRepo.sh
+  ./createUPcampaign.sh
+	- Find the consolidated UP package under SWM_HOME/workspace/package/up/ folder
+
+CONTACT:
+  If you have problems, questions, ideas or suggestions, please contact us
+  at the following mail address: Genesis/TEI <PDLAESARTE@pdl.internal.ericsson.com>
+
+NOTICE:
+  Copyright (C) 2018 Ericsson AB. All rights reserved.
+
+

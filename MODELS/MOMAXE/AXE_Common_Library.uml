@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="AxeCommonLibrary">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NRAMoQwOEdmFcaeZXPdWAQ" source="uml2.diagrams"/>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kUBzUWr4EeK3NsiIy8FUNg" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kUBzUmr4EeK3NsiIy8FUNg" key="com.ericsson.ecim.coremw.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_ohLJMGr4EeK3NsiIy8FUNg" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>AXE Common Library.</body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_8JbBoIW5Ed-FBpQGdJXi3g">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OS1OUIXLEd-lToFzlKoOsA" name="" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_6wRcIIKMEeK3wcU1QErItg" name="AxeCommonLibrary">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_6wRcIYKMEeK3wcU1QErItg" annotatedElement="_6wRcIIKMEeK3wcU1QErItg">
+        <body>AXE common library.</body>
+      </ownedComment>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_udFAAAVbEeat1ZFMh3LFxg" constrainedElement="_jeByIMD3EeWQ5fgWrWqk0w">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_u649YAVbEeat1ZFMh3LFxg">
+          <language>Optionality</language>
+          <body>if-feature NOT NATIVE_HIDDEN</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_2TkdwBOWEea2ee9jGgIJyQ" constrainedElement="_6wRcMoKMEeK3wcU1QErItg _6wSDM4KMEeK3wcU1QErItg _6wRcWYKMEeK3wcU1QErItg _6wRcX4KMEeK3wcU1QErItg">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_2nRc4BOWEea2ee9jGgIJyQ">
+          <language>Optionality</language>
+          <body>if-feature NOT CPI_HIDDEN</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_04RTADSIEeahHcAS8YGRcg" constrainedElement="_eaWyAMwjEeKsD5y1ehptiw _6wRcLoKMEeK3wcU1QErItg _2_dyoMw7EeKsD5y1ehptiw _6wRcMIKMEeK3wcU1QErItg">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_04UWUDSIEeahHcAS8YGRcg">
+          <language>Optionality</language>
+          <body>if-feature NOT VIRTUAL_HIDDEN</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_amkh0FTsEeiE8uuGeV6z3g" constrainedElement="_6wRcJIKMEeK3wcU1QErItg _op5-gFPeEeafopi6hRfxhg">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_ammXAFTsEeiE8uuGeV6z3g">
+          <language>Optionality</language>
+          <body>if-feature NOT VIRTUALBC_HIDDEN</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_jys6MFTsEeiE8uuGeV6z3g" constrainedElement="_6wRcJoKMEeK3wcU1QErItg _6wRcLIKMEeK3wcU1QErItg">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_jyuvYFTsEeiE8uuGeV6z3g">
+          <language>Optionality</language>
+          <body>if-feature NOT VIRTUALDB_HIDDEN</body>
+        </specification>
+      </ownedRule>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_6wRcIoKMEeK3wcU1QErItg" name="SystemType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6wRcI4KMEeK3wcU1QErItg" annotatedElement="_6wRcIoKMEeK3wcU1QErItg">
+          <body>Specifies the AXE system type in terms of number of CP connected to APG.
+</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcJIKMEeK3wcU1QErItg" name="SINGLE_CP_SYSTEM">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_XedZ8JCmEeKsTJNJdpSKxw" annotatedElement="_6wRcJIKMEeK3wcU1QErItg">
+            <body>Indicates a Single-CP System. It is a system including only one Dual-Sided CP.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcJYKMEeK3wcU1QErItg"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcJoKMEeK3wcU1QErItg" name="MULTI_CP_SYSTEM">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_UTWI0JCmEeKsTJNJdpSKxw" annotatedElement="_6wRcJoKMEeK3wcU1QErItg">
+            <body>Indicates a Multi-CP System. It is a system including several types of CPs, regardless if the CPs are Single-Sided CPs or Dual-Sided CPs.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcJ4KMEeK3wcU1QErItg" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_6wRcKIKMEeK3wcU1QErItg" name="AxeApplication">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6wRcKYKMEeK3wcU1QErItg" annotatedElement="_6wRcKIKMEeK3wcU1QErItg">
+          <body>Specifies the type of the AXE Application the APG is serving to.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcKoKMEeK3wcU1QErItg" name="MSC">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_0bXwgMoSEeKsD5y1ehptiw" annotatedElement="_6wRcKoKMEeK3wcU1QErItg">
+            <body>Specifies a MSC-S Application.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcK4KMEeK3wcU1QErItg"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcLIKMEeK3wcU1QErItg" name="HLR">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_xuCAgMoSEeKsD5y1ehptiw" annotatedElement="_6wRcLIKMEeK3wcU1QErItg">
+            <body>Specifies a HLR Application.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcLYKMEeK3wcU1QErItg" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcLoKMEeK3wcU1QErItg" name="BSC">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_wHjx8MoSEeKsD5y1ehptiw" annotatedElement="_6wRcLoKMEeK3wcU1QErItg">
+            <body>Specifies a BSC Application.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcL4KMEeK3wcU1QErItg" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcMIKMEeK3wcU1QErItg" name="WIRELINE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_3YC9AMoSEeKsD5y1ehptiw" annotatedElement="_6wRcMIKMEeK3wcU1QErItg">
+            <body>Specifies a Wireline Application.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcMYKMEeK3wcU1QErItg" value="3"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_2_dyoMw7EeKsD5y1ehptiw" name="TSC">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_y25HkBO0EeOzDtFj6zedyw" annotatedElement="_2_dyoMw7EeKsD5y1ehptiw">
+            <body>Specifies a TSC-S Application.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_2_luccw7EeKsD5y1ehptiw" value="4"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_op5-gFPeEeafopi6hRfxhg" name="IPSTP" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_oqbi8FPeEeafopi6hRfxhg" annotatedElement="_op5-gFPeEeafopi6hRfxhg">
+            <body>Specifies an IP-STP Application.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_oqd_MFPeEeafopi6hRfxhg" value="5"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_6wRcMoKMEeK3wcU1QErItg" name="ApHwVer">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6wRcM4KMEeK3wcU1QErItg" annotatedElement="_6wRcMoKMEeK3wcU1QErItg">
+          <body>AP HW type.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcNIKMEeK3wcU1QErItg" name="APG43">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcNYKMEeK3wcU1QErItg" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcNoKMEeK3wcU1QErItg" name="APG43_2">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcN4KMEeK3wcU1QErItg" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_wQ9AwBxfEeOEP6KRlqkh9A" name="GEP5">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_P2i2wFBbEeOa3anIMt_woA" value="3"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_6wRcOoKMEeK3wcU1QErItg" name="AlarmSeverity">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6wRcO4KMEeK3wcU1QErItg" annotatedElement="_6wRcOoKMEeK3wcU1QErItg">
+          <body>Defines the set of possible alarm severities for an AXE alarm.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcPIKMEeK3wcU1QErItg" name="ALARM_HIGH">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6wRcPYKMEeK3wcU1QErItg" annotatedElement="_6wRcPIKMEeK3wcU1QErItg">
+            <body>Indicates the highest alarm severity.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcPoKMEeK3wcU1QErItg"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcP4KMEeK3wcU1QErItg" name="ALARM_MEDIUM">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6wRcQIKMEeK3wcU1QErItg" annotatedElement="_6wRcP4KMEeK3wcU1QErItg">
+            <body>Indicates the medium alarm severity.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcQYKMEeK3wcU1QErItg" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcQoKMEeK3wcU1QErItg" name="ALARM_LOW">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6wRcQ4KMEeK3wcU1QErItg" annotatedElement="_6wRcQoKMEeK3wcU1QErItg">
+            <body>Indicates the lowest alarm severity.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcRIKMEeK3wcU1QErItg" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcRYKMEeK3wcU1QErItg" name="ALERT_HIGH">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6wRcRoKMEeK3wcU1QErItg" annotatedElement="_6wRcRYKMEeK3wcU1QErItg">
+            <body>Indicates the highest alert severity.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcR4KMEeK3wcU1QErItg" value="3"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcSIKMEeK3wcU1QErItg" name="ALERT_LOW">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6wRcSYKMEeK3wcU1QErItg" annotatedElement="_6wRcSIKMEeK3wcU1QErItg">
+            <body>Indicates the lowest alert severity.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcSoKMEeK3wcU1QErItg" value="4"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_6wRcS4KMEeK3wcU1QErItg" name="AlarmSource">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6wRcTIKMEeK3wcU1QErItg" annotatedElement="_6wRcS4KMEeK3wcU1QErItg">
+          <body>Defines the set of possible sources for an AXE alarm.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcTYKMEeK3wcU1QErItg" name="POWER">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6wRcToKMEeK3wcU1QErItg" annotatedElement="_6wRcTYKMEeK3wcU1QErItg">
+            <body>Indicates POWER as source of an AXE alarm.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcT4KMEeK3wcU1QErItg" value="8"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcUIKMEeK3wcU1QErItg" name="EXTERNAL">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6wRcUYKMEeK3wcU1QErItg" annotatedElement="_6wRcUIKMEeK3wcU1QErItg">
+            <body>Indicates EXTERNAL as source of an AXE alarm..</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcUoKMEeK3wcU1QErItg" value="15"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcU4KMEeK3wcU1QErItg" name="APT">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6wRcVIKMEeK3wcU1QErItg" annotatedElement="_6wRcU4KMEeK3wcU1QErItg">
+            <body>Indicates APT as source of an AXE alarm.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcVYKMEeK3wcU1QErItg" value="7"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcVoKMEeK3wcU1QErItg" name="APZ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6wRcV4KMEeK3wcU1QErItg" annotatedElement="_6wRcVoKMEeK3wcU1QErItg">
+            <body>Indicates APZ as source of an AXE alarm.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcWIKMEeK3wcU1QErItg" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_6wRcWYKMEeK3wcU1QErItg" name="NodeArchitecture">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6wRcWoKMEeK3wcU1QErItg" annotatedElement="_6wRcWYKMEeK3wcU1QErItg">
+          <body>This enumeration represents the node architecture.
+It can be:
+EGEM_SCB_RP means EGEM magazine with SCB-RP switch board.
+EGEM2_SCX_SA means Component Based Architecture based on EGEM2 magazine and standalone SCX switch board.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcW4KMEeK3wcU1QErItg" name="EGEM_SCB_RP">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcXIKMEeK3wcU1QErItg"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcXYKMEeK3wcU1QErItg" name="EGEM2_SCX_SA">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcXoKMEeK3wcU1QErItg" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_6wRcX4KMEeK3wcU1QErItg" name="ApzProtocolType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6wRcYIKMEeK3wcU1QErItg" annotatedElement="_6wRcX4KMEeK3wcU1QErItg">
+          <body>It represents the protocol type to be used between CP and AP.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcYYKMEeK3wcU1QErItg" name="APZ2123X_SDLC">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcYoKMEeK3wcU1QErItg"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcY4KMEeK3wcU1QErItg" name="APZ2123X_TCPIP">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcZIKMEeK3wcU1QErItg" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcZYKMEeK3wcU1QErItg" name="APZ21240_TCPIP">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wRcZoKMEeK3wcU1QErItg" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wRcZ4KMEeK3wcU1QErItg" name="APZ21250_TCPIP">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wSDMIKMEeK3wcU1QErItg" value="3"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6wSDMYKMEeK3wcU1QErItg" name="APZ21255_OR_LATER_TCPIP">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6wSDMoKMEeK3wcU1QErItg" value="4"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_6wSDM4KMEeK3wcU1QErItg" name="CPIdentity">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6wSDNIKMEeK3wcU1QErItg" annotatedElement="_6wSDM4KMEeK3wcU1QErItg">
+          <body>Defines the name of a CP blade: CP(1-1999) or BC(0-63).</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_6wSDNYKMEeK3wcU1QErItg">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_eaWyAMwjEeKsD5y1ehptiw" name="ApgShelfArchitecture">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_eaWyAcwjEeKsD5y1ehptiw" annotatedElement="_eaWyAMwjEeKsD5y1ehptiw">
+          <body>Specifies the magazine type and the shelf manager type used for the shelf where the APG is located. </body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_eaWyAswjEeKsD5y1ehptiw" name="SCB">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_eaWyA8wjEeKsD5y1ehptiw" annotatedElement="_eaWyAswjEeKsD5y1ehptiw">
+            <body>APG is into an EGEM magazine with SCB.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_eaWyBMwjEeKsD5y1ehptiw"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_eaWyBcwjEeKsD5y1ehptiw" name="SCX">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_eaWyBswjEeKsD5y1ehptiw" annotatedElement="_eaWyBcwjEeKsD5y1ehptiw">
+            <body>APG is into an EGEM2 magazine with SCXB and AXE manages the infrastructure.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_eaWyB8wjEeKsD5y1ehptiw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_eaWyCMwjEeKsD5y1ehptiw" name="BSP">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_eaWyCcwjEeKsD5y1ehptiw" annotatedElement="_eaWyCMwjEeKsD5y1ehptiw">
+            <body>APG is into an EGEM2 magazine within BSP.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_eaWyCswjEeKsD5y1ehptiw" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_jeByIMD3EeWQ5fgWrWqk0w" name="VIRTUALIZED" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_spe1EMD3EeWQ5fgWrWqk0w" annotatedElement="_jeByIMD3EeWQ5fgWrWqk0w">
+            <body>APG is in a virtualized infrastructure.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_nsCqsMD3EeWQ5fgWrWqk0w" value="3"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_CIp7EDR1EeahHcAS8YGRcg" name="SMX" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Jn3eoDR1EeahHcAS8YGRcg" annotatedElement="_CIp7EDR1EeahHcAS8YGRcg">
+            <body>APG is into an EGEM2 magazine with SMXB and AXE manages the infrastructure.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_Celu0DR1EeahHcAS8YGRcg" value="4"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_V5q_kMZ5EeWApM4R9wQ5kA" name="IpAddressType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_WqagAMZ5EeWApM4R9wQ5kA" annotatedElement="_V5q_kMZ5EeWApM4R9wQ5kA">
+          <body>Specifies the range for an IP address.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_Wqc8QMZ5EeWApM4R9wQ5kA">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_SNbm4MslEeWpzo_LDGaclw" name="ProductIdentity">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_SNkw0cslEeWpzo_LDGaclw" annotatedElement="_SNbm4MslEeWpzo_LDGaclw">
+          <body>Contains product information of a component present in the AXE node.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_u3bGIMslEeWpzo_LDGaclw" name="productDesignation" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_u3hMwcslEeWpzo_LDGaclw" annotatedElement="_u3bGIMslEeWpzo_LDGaclw">
+            <body>Product name. </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_u3hMwsslEeWpzo_LDGaclw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_u3hz0MslEeWpzo_LDGaclw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_7Ee44MslEeWpzo_LDGaclw" name="productNumber" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_7EkYccslEeWpzo_LDGaclw" annotatedElement="_7Ee44MslEeWpzo_LDGaclw">
+            <body>The product number in Ericsson ABC format. </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7Ek_gMslEeWpzo_LDGaclw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7Ek_gcslEeWpzo_LDGaclw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_AcffYMsmEeWpzo_LDGaclw" name="productRevision" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_AckX4csmEeWpzo_LDGaclw" annotatedElement="_AcffYMsmEeWpzo_LDGaclw">
+            <body>The product revision in the form R[1-9][A-Z]. </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AckX4ssmEeWpzo_LDGaclw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ack-8MsmEeWpzo_LDGaclw" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_39ZVsA0cEeaoz_rugtTOZQ" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_4PlR4A0cEeaoz_rugtTOZQ" name="NATIVE"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_Cv1kkA0dEeaoz_rugtTOZQ" name="" client="_4PlR4A0cEeaoz_rugtTOZQ" supplier="_8CxPoA0cEeaoz_rugtTOZQ"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_FM6rAA0dEeaoz_rugtTOZQ" name="" client="_4PlR4A0cEeaoz_rugtTOZQ" supplier="_-wLREA0cEeaoz_rugtTOZQ"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_Ag0boB2tEeaABvSSUV_l7g" name="VIRTUAL_DB"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_EjYSIB2tEeaABvSSUV_l7g" name="" client="_Ag0boB2tEeaABvSSUV_l7g" supplier="_8CxPoA0cEeaoz_rugtTOZQ"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_vPRqMDSIEeahHcAS8YGRcg" name="" client="_Ag0boB2tEeaABvSSUV_l7g" supplier="_sKu7IDSIEeahHcAS8YGRcg"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_FPBK4FTrEeiE8uuGeV6z3g" name="VIRTUAL_BC"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_4-JZsFTrEeiE8uuGeV6z3g" name="" client="_FPBK4FTrEeiE8uuGeV6z3g" supplier="_sKu7IDSIEeahHcAS8YGRcg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_8dIpEFTrEeiE8uuGeV6z3g" name="" client="_FPBK4FTrEeiE8uuGeV6z3g" supplier="_QaXB8FTrEeiE8uuGeV6z3g"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="__cwb4FTrEeiE8uuGeV6z3g" name="" client="_Ag0boB2tEeaABvSSUV_l7g" supplier="_sKu7IDSIEeahHcAS8YGRcg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_DlJ0oFTsEeiE8uuGeV6z3g" name="" client="_Ag0boB2tEeaABvSSUV_l7g" supplier="_0XU_kFTrEeiE8uuGeV6z3g"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_GM7vMFTsEeiE8uuGeV6z3g" name="" client="_FPBK4FTrEeiE8uuGeV6z3g" supplier="_8CxPoA0cEeaoz_rugtTOZQ"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_J6rzUFTsEeiE8uuGeV6z3g" name="" client="_Ag0boB2tEeaABvSSUV_l7g" supplier="_8CxPoA0cEeaoz_rugtTOZQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_8CdGkA0cEeaoz_rugtTOZQ" name="Features">
+        <packagedElement xmi:type="uml:Class" xmi:id="_8CxPoA0cEeaoz_rugtTOZQ" name="CPI_HIDDEN"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_-wLREA0cEeaoz_rugtTOZQ" name="NATIVE_HIDDEN"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_sKu7IDSIEeahHcAS8YGRcg" name="VIRTUAL_HIDDEN"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_QaXB8FTrEeiE8uuGeV6z3g" name="VIRTUALBC_HIDDEN"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_0XU_kFTrEeiE8uuGeV6z3g" name="VIRTUALDB_HIDDEN"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_cikwQHVqEeCBgp9CYCosRQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pDQawCo6Eeu3bJ1648roRQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pDQawSo6Eeu3bJ1648roRQ" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pDQawio6Eeu3bJ1648roRQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pDQawyo6Eeu3bJ1648roRQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pDQaxCo6Eeu3bJ1648roRQ" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pDQaxSo6Eeu3bJ1648roRQ" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ciq24HVqEeCBgp9CYCosRQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_kVP7UGr4EeK3NsiIy8FUNg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pLDXEN6MEeehtLhJYaltnA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pLDXEd6MEeehtLhJYaltnA" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pLDXEt6MEeehtLhJYaltnA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pLDXE96MEeehtLhJYaltnA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pLDXFN6MEeehtLhJYaltnA" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pLDXFd6MEeehtLhJYaltnA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TCB7sAYBEeat1ZFMh3LFxg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_TCB7sQYBEeat1ZFMh3LFxg" key="Version" value="1.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_TCB7sgYBEeat1ZFMh3LFxg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_TCB7swYBEeat1ZFMh3LFxg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_TCB7tAYBEeat1ZFMh3LFxg" key="Date" value="2016-02-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_TCB7tQYBEeat1ZFMh3LFxg" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ksogkGr4EeK3NsiIy8FUNg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_HEu9gBtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="Managed Object Model for AXE Common Library" subTitle=" " docNo="1/19089-CXA 117 0029" docRev="A" docLang="Uen" docDate="2016-08-23"/>
+  <ECIMBaseProfile:EcimLibrary xmi:id="_HEvkkBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Package="_6wRcIIKMEeK3wcU1QErItg" version="2" release="3" organization="" correction="0" docNo=""/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HEwLoBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Enumeration="_6wRcIoKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HEwysBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcJIKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HEwysRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcJoKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HEwyshtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Enumeration="_6wRcKIKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HExZwBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcKoKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HExZwRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcLIKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HExZwhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcLoKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HEyA0BtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcMIKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HEyA0RtEEeWvQYFW8NSCww" hideGroupName="APGHIDDEN" specification="" base_Enumeration="_6wRcMoKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HEyA0htEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcNIKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HEyn4BtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcNoKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HEyn4RtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Enumeration="_6wRcOoKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HEyn4htEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcPIKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HEzO8BtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcP4KMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HEzO8RtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcQoKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HEzO8htEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcRYKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HEz2ABtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcSIKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HEz2ARtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Enumeration="_6wRcS4KMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HEz2AhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcTYKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HE0dEBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcUIKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HE0dERtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcU4KMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HE0dEhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcVoKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HE1EIBtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" status="DEPRECATED" statusInformation="DEPRECATED" base_Enumeration="_6wRcWYKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HE1EIRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcW4KMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HE1EIhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcXYKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HE1rMBtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" base_Enumeration="_6wRcX4KMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HE1rMRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcYYKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HE1rMhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcY4KMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HE2SQBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcZYKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HE2SQRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wRcZ4KMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HE2SQhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_6wSDMYKMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_HE25UBtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" statusInformation="" length="" pattern="\b(CP[1-9]|CP[1-9][0-9]|CP[1-9][0-9][0-9]|CP1[0-9][0-9][0-9]|BC[0-9]|BC[1-5][0-9]|BC6[0-4])\b" base_DataType="_6wSDM4KMEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_HE3gYBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Enumeration="_eaWyAMwjEeKsD5y1ehptiw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HE3gYRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_eaWyAswjEeKsD5y1ehptiw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HE3gYhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_eaWyBcwjEeKsD5y1ehptiw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HE4HcBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_eaWyCMwjEeKsD5y1ehptiw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HE4HcRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_2_dyoMw7EeKsD5y1ehptiw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_HE4HchtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_wQ9AwBxfEeOEP6KRlqkh9A"/>
+  <CoreMWProfile:CmwModel xmi:id="_HJ1f8BtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <Documentation:Documentation xmi:id="_7N55cBtDEeWvQYFW8NSCww" base_Comment="_ohLJMGr4EeK3NsiIy8FUNg"/>
+  <Documentation:Documentation xmi:id="_7N55cRtDEeWvQYFW8NSCww" base_Comment="_6wRcIYKMEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7N55chtDEeWvQYFW8NSCww" base_Comment="_6wRcI4KMEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7N55cxtDEeWvQYFW8NSCww" base_Comment="_6wRcKYKMEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7N55dBtDEeWvQYFW8NSCww" base_Comment="_6wRcM4KMEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7N55dRtDEeWvQYFW8NSCww" base_Comment="_6wRcO4KMEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7N55dhtDEeWvQYFW8NSCww" base_Comment="_6wRcPYKMEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7N55dxtDEeWvQYFW8NSCww" base_Comment="_6wRcQIKMEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7N55eBtDEeWvQYFW8NSCww" base_Comment="_6wRcQ4KMEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7N55eRtDEeWvQYFW8NSCww" base_Comment="_6wRcRoKMEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7N55ehtDEeWvQYFW8NSCww" base_Comment="_6wRcSYKMEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7N55extDEeWvQYFW8NSCww" base_Comment="_6wRcTIKMEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7N55fBtDEeWvQYFW8NSCww" base_Comment="_6wRcToKMEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7N55fRtDEeWvQYFW8NSCww" base_Comment="_6wRcUYKMEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7N55fhtDEeWvQYFW8NSCww" base_Comment="_6wRcVIKMEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7N55fxtDEeWvQYFW8NSCww" base_Comment="_6wRcV4KMEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7N55gBtDEeWvQYFW8NSCww" base_Comment="_6wRcWoKMEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7N55gRtDEeWvQYFW8NSCww" base_Comment="_6wRcYIKMEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7N55ghtDEeWvQYFW8NSCww" base_Comment="_6wSDNIKMEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7N55gxtDEeWvQYFW8NSCww" base_Comment="_UTWI0JCmEeKsTJNJdpSKxw"/>
+  <Documentation:Documentation xmi:id="_7N55hBtDEeWvQYFW8NSCww" base_Comment="_XedZ8JCmEeKsTJNJdpSKxw"/>
+  <Documentation:Documentation xmi:id="_7N55hRtDEeWvQYFW8NSCww" base_Comment="_wHjx8MoSEeKsD5y1ehptiw"/>
+  <Documentation:Documentation xmi:id="_7N55hhtDEeWvQYFW8NSCww" base_Comment="_xuCAgMoSEeKsD5y1ehptiw"/>
+  <Documentation:Documentation xmi:id="_7N55hxtDEeWvQYFW8NSCww" base_Comment="_0bXwgMoSEeKsD5y1ehptiw"/>
+  <Documentation:Documentation xmi:id="_7N55iBtDEeWvQYFW8NSCww" base_Comment="_3YC9AMoSEeKsD5y1ehptiw"/>
+  <Documentation:Documentation xmi:id="_7N55iRtDEeWvQYFW8NSCww" base_Comment="_eaWyAcwjEeKsD5y1ehptiw"/>
+  <Documentation:Documentation xmi:id="_7N55ihtDEeWvQYFW8NSCww" base_Comment="_eaWyA8wjEeKsD5y1ehptiw"/>
+  <Documentation:Documentation xmi:id="_7N55ixtDEeWvQYFW8NSCww" base_Comment="_eaWyBswjEeKsD5y1ehptiw"/>
+  <Documentation:Documentation xmi:id="_7N55jBtDEeWvQYFW8NSCww" base_Comment="_eaWyCcwjEeKsD5y1ehptiw"/>
+  <Documentation:Documentation xmi:id="_7N55jRtDEeWvQYFW8NSCww" base_Comment="_y25HkBO0EeOzDtFj6zedyw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_jeGqoMD3EeWQ5fgWrWqk0w" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_jeByIMD3EeWQ5fgWrWqk0w"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_WqVAcMZ5EeWApM4R9wQ5kA" hideGroupName="" specification="" statusInformation="" length="1..253" pattern="(^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(%.+)?\s*$)|(^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9])(\.([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]))*$)" base_DataType="_V5q_kMZ5EeWApM4R9wQ5kA" patternErrorMsg=""/>
+  <CoreMWProfile:CmwStruct xmi:id="_SNkJwMslEeWpzo_LDGaclw" base_Class="_SNbm4MslEeWpzo_LDGaclw"/>
+  <ECIMBaseProfile:EcimStruct xmi:id="_SNkw0MslEeWpzo_LDGaclw" hideGroupName="" specification="" statusInformation="" base_Class="_SNbm4MslEeWpzo_LDGaclw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_u3glsMslEeWpzo_LDGaclw" base_Property="_u3bGIMslEeWpzo_LDGaclw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_u3hMwMslEeWpzo_LDGaclw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" patternErrorMsg="" base_Property="_u3bGIMslEeWpzo_LDGaclw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_7EjxYMslEeWpzo_LDGaclw" base_Property="_7Ee44MslEeWpzo_LDGaclw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_7EkYcMslEeWpzo_LDGaclw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" patternErrorMsg="" base_Property="_7Ee44MslEeWpzo_LDGaclw" isKey="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_Acjw0MsmEeWpzo_LDGaclw" base_Property="_AcffYMsmEeWpzo_LDGaclw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_AckX4MsmEeWpzo_LDGaclw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" patternErrorMsg="" base_Property="_AcffYMsmEeWpzo_LDGaclw"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_4PcvAA0cEeaoz_rugtTOZQ" base_Package="_39ZVsA0cEeaoz_rugtTOZQ"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_4P1wkA0cEeaoz_rugtTOZQ" base_Class="_4PlR4A0cEeaoz_rugtTOZQ"/>
+  <ECIMBaseProfile:EcimFeatures xmi:id="_8CuMUA0cEeaoz_rugtTOZQ" base_Package="_8CdGkA0cEeaoz_rugtTOZQ"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_8C-D8A0cEeaoz_rugtTOZQ" base_Class="_8CxPoA0cEeaoz_rugtTOZQ"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_-wYFYA0cEeaoz_rugtTOZQ" base_Class="_-wLREA0cEeaoz_rugtTOZQ"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_AwJREB2tEeaABvSSUV_l7g" base_Class="_Ag0boB2tEeaABvSSUV_l7g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_Ceg2UDR1EeahHcAS8YGRcg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_CIp7EDR1EeahHcAS8YGRcg"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_sasCsDSIEeahHcAS8YGRcg" base_Class="_sKu7IDSIEeahHcAS8YGRcg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_oqWDYFPeEeafopi6hRfxhg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_op5-gFPeEeafopi6hRfxhg"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_GEfaUFTrEeiE8uuGeV6z3g" base_Class="_FPBK4FTrEeiE8uuGeV6z3g"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_QaiBEFTrEeiE8uuGeV6z3g" base_Class="_QaXB8FTrEeiE8uuGeV6z3g"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_0Xhz4FTrEeiE8uuGeV6z3g" base_Class="_0XU_kFTrEeiE8uuGeV6z3g"/>
+</xmi:XMI>

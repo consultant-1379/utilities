@@ -1,0 +1,12 @@
+[Unit]
+Description=Sync MAC addresses between control nodes
+After=lde-failoverd.service lde-nfs-client.service
+Before=lde-rpm.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/systemd/scripts/apg_cluster_update.sh start
+RemainAfterExit=yes
+
+[Install]
+WantedBy=lde-nodetype@control.target

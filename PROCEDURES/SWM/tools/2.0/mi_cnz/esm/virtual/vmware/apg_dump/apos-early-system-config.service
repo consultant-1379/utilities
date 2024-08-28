@@ -1,0 +1,11 @@
+[Unit]
+Description=APOS early system configuration
+Before=lde-control.service lde-network.service lde-cloud-init.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/systemd/scripts/apos-system-conf.sh early
+RemainAfterExit=yes
+
+[Install]
+RequiredBy=lde-control.service lde-network.service lde-cloud-init.service

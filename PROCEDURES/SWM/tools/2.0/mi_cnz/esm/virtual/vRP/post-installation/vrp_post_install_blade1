@@ -1,0 +1,116 @@
+#!/bin/bash -x
+
+# Copyright (c) 2021 Ericsson AB. All Rights reserved.
+
+REPO_PATH=/tmp/installation_repo
+
+. /usr/lib/lde/installation-repo-functions
+
+get_nodeid() {
+  local host="$1"
+  local file=$(grep -l "^$host$" /etc/cluster/nodes/all/*/name | head -1)
+  cat "${file%/name}/id" 2> /dev/null
+}
+
+abort() {
+  echo "$@"
+  exit 1
+}
+
+create_stage() {
+  local STAGE_FILE='/boot/.config_stage'
+  local TMP_CFG_FILE='/tmp/config_stage'
+  echo "1" > $TMP_CFG_FILE
+  install -m 666 -D $TMP_CFG_FILE $STAGE_FILE
+  rm -f $TMP_CFG_FILE
+}
+
+# Use coremw ea to install rpms as this is how the rpms
+# were installed in legacy and will likely avoid future
+# uppgrade problems
+install_rpms() {
+  local host="$1"
+  local rpm="$2"
+  cmwea rpm-config-add /cluster/rpms/tmp/${rpm} "${host}"
+}
+
+uninstall_rpm() {
+  local host="$1"
+  local rpm="$(basename $2)"
+  node_id=$(cat /etc/cluster/nodes/this/id)
+ 
+  # uninstall lde extra rpms 
+  /usr/bin/cluster rpm -r ${rpm} -n ${node_id} 2>/dev/null
+  [ $? -ne 0 ] && abort "Failed to remove rpm:${rpm}"
+
+  ## clean unused rpms using cluster command 
+  /usr/bin/cluster rpm --clean-unused-rpms
+
+}
+
+add_rpms() {
+
+  # Create temporary folder in /cluster/rpms 
+  mkdir -p /cluster/rpms/tmp
+  
+  # copy docker rpms to /cluster/rpms/tmp
+  cp /tmp/installation/docker_rpms/* /cluster/rpms/tmp
+
+  # copy lcm util rpm to /cluster/rpms/tmp
+  cp /tmp/installation/lcm_utils/*.rpm /cluster/rpms/tmp
+
+  # copy rp application to /cluster
+  cp /tmp/installation/lcm_utils/*.tgz /cluster/home/
+
+  pushd /cluster/rpms/tmp >/dev/null 2>&1
+  for rpm in $(ls); do
+    install_rpms "$hosts" "${rpm}"
+  done
+  popd >/dev/null 2>&1
+
+  # cleanup temporary folder 
+  rm -rf /cluster/rpms/tmp
+}
+
+cleanup_lde_ext_rpms() {
+
+  local pattern=''
+  local rpm=''
+  for pattern in lde-imm lde-prompt lde-scaling-cmw; do 
+    rpm=$(find /cluster/rpms -name "$pattern-*" 2>/dev/null)
+    if [ -z "$rpm" ]; then 
+      rpm=$(find /boot/cluster/rpms -name "$pattern-*" 2>/dev/null)
+    fi 
+    uninstall_rpm "$hosts" "${rpm}"
+  done 
+}
+
+handle_lcm_utils() {
+
+  mkdir -p /tmp/installation
+  tar xvzf $HOOKS_DIR/non_exec-vrp_lcm_utils.tar.gz -C /tmp/installation
+
+  # Add RP VM LCM utilities(docker, lcm_util) rpms to /cluster repository 
+  add_rpms
+
+  # cleanup of unwanted LDE rpms (lde-imm, lde-prompt, lde-scaling-cmw)
+  cleanup_lde_ext_rpms
+
+  # cleanup temp folder 
+  rm -rf /tmp/installation 
+}
+
+## M A I N ##
+
+hosts=$( cat /etc/cluster/nodes/this/hostname )
+[ -z "${hosts}" ] && abort "hostname found NULL!!, exiting the execution"
+
+# create stage file to identify the vRP booting
+# Stage=1, deployment mode where configurations are allowed 
+# Stage=2, only service startups are allowed 
+create_stage
+
+# RP-VM LCM handling 
+handle_lcm_utils
+
+## END 

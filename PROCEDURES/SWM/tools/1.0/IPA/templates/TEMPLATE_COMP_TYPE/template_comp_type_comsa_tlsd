@@ -1,0 +1,20 @@
+				<CompBaseType safCompType="safCompType=#COMP_TLS_NAME#">
+					<CompType safVersion="safVersion=#COMP_TLS_VERSION#">
+						<providesCSType saAmfCtDefNumMaxActiveCsi="1" saAmfCtDefNumMaxStandbyCsi="1" safSupportedCsType="safSupportedCsType=safVersion=1.0.0\,safCSType=#CS_TLS_TYPE#" saAmfCtCompCapability="1"/>
+						<compTypeDefaults saAmfCtCompCategory="8" saAmfCtDefDisableRestart="0" saAmfCtDefClcCliTimeout="#CLC_CLI_TIMEOUT_COMSA#" saAmfCtDefCallbackTimeout="#CALLBACK_TIMEOUT_COMSA#" saAmfCtDefQuiescingCompleteTimeout="#QUIESCING_COMPLETE_TIMEOUT#" saAmfCtDefRecoveryOnError="2"/>
+						<instantiateCmd saAmfCtRelPathInstantiateCmd="../../../usr/bin/com-tlsd-wrapper.sh">
+						<cmdArgv>start</cmdArgv>
+						</instantiateCmd>
+						<terminateCmd saAmfCtRelPathTerminateCmd="../../../usr/bin/com-tlsd-wrapper.sh">
+						<cmdArgv>stop</cmdArgv>
+						</terminateCmd>
+						<cleanupCmd saAmfCtRelPathCleanupCmd="../../../usr/bin/com-tlsd-wrapper.sh">
+						<cmdArgv>stop</cmdArgv>
+						</cleanupCmd>
+						<osafHcCmd osafAmfCtRelPathHcCmd="../../../usr/bin/com-tlsd-wrapper.sh">
+						<cmdArgv>status</cmdArgv>
+						</osafHcCmd>
+						<healthCheck safHealthcheckKey="safHealthcheckKey=osafHealthCheck" saAmfHealthcheckPeriod="#HCK_PERIOD#" saAmfHealthcheckMaxDuration="#HCK_MAX_DURATION#"/>
+						<swBundle saAmfCtSwBundle="safSmfBundle=#BUNDLE_NAME#"/>
+					</CompType>
+				</CompBaseType>

@@ -1,0 +1,46 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeAlphanumericDevice_mp_brief.svg
+top to bottom direction
+hide members
+hide circle
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "AlphanumericDeviceM" as AxeAlphanumericDevice__AlphanumericDeviceM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20AlphanumericDeviceM]] 
+class "MmlSession" as AxeAlphanumericDevice__MmlSession [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20MmlSession]] 
+class "PdsIpClient" as AxeAlphanumericDevice__PdsIpClient [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsIpClient]] 
+class "PdsIpServer" as AxeAlphanumericDevice__PdsIpServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsIpServer]] 
+class "PdsSubFile" as AxeAlphanumericDevice__PdsSubFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsSubFile]] 
+class "PdsStandByDevice" as AxeAlphanumericDevice__PdsStandByDevice [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsStandByDevice]] 
+class "MmlSessions" as AxeAlphanumericDevice__MmlSessions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20MmlSessions]] 
+class "PdsManager" as AxeAlphanumericDevice__PdsManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsManager]] 
+class "MmlSessions" as AxeAlphanumericDevice__MmlSessions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20MmlSessions]] 
+class "MmlSession" as AxeAlphanumericDevice__MmlSession [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20MmlSession]] 
+AxeAlphanumericDevice__MmlSessions *-- "*" AxeAlphanumericDevice__MmlSession
+class "AlphanumericDeviceM" as AxeAlphanumericDevice__AlphanumericDeviceM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20AlphanumericDeviceM]] 
+class "MmlSessions" as AxeAlphanumericDevice__MmlSessions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20MmlSessions]] 
+AxeAlphanumericDevice__AlphanumericDeviceM *-- "1" AxeAlphanumericDevice__MmlSessions
+class "AlphanumericDeviceM" as AxeAlphanumericDevice__AlphanumericDeviceM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20AlphanumericDeviceM]] 
+class "PdsManager" as AxeAlphanumericDevice__PdsManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsManager]] 
+AxeAlphanumericDevice__AlphanumericDeviceM *-- "1" AxeAlphanumericDevice__PdsManager
+class "PdsManager" as AxeAlphanumericDevice__PdsManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsManager]] 
+class "PdsIpServer" as AxeAlphanumericDevice__PdsIpServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsIpServer]] 
+AxeAlphanumericDevice__PdsManager *-- "*" AxeAlphanumericDevice__PdsIpServer
+class "PdsManager" as AxeAlphanumericDevice__PdsManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsManager]] 
+class "PdsIpClient" as AxeAlphanumericDevice__PdsIpClient [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsIpClient]] 
+AxeAlphanumericDevice__PdsManager *-- "*" AxeAlphanumericDevice__PdsIpClient
+class "PdsManager" as AxeAlphanumericDevice__PdsManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsManager]] 
+class "PdsSubFile" as AxeAlphanumericDevice__PdsSubFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsSubFile]] 
+AxeAlphanumericDevice__PdsManager *-- "*" AxeAlphanumericDevice__PdsSubFile
+class "PdsManager" as AxeAlphanumericDevice__PdsManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsManager]] 
+class "PdsStandByDevice" as AxeAlphanumericDevice__PdsStandByDevice [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20PdsStandByDevice]] 
+AxeAlphanumericDevice__PdsManager *-- "*" AxeAlphanumericDevice__PdsStandByDevice
+class "SystemHandling" as AxeFunctions__SystemHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling]] 
+class "AlphanumericDeviceM" as AxeAlphanumericDevice__AlphanumericDeviceM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlphanumericDevice?title=class%20AlphanumericDeviceM]] 
+AxeFunctions__SystemHandling *-- "1" AxeAlphanumericDevice__AlphanumericDeviceM
+@enduml 

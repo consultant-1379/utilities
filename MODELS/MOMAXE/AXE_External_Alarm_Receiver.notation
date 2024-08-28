@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <notation:Diagram xmi:id="_7wykKRtDEeWvQYFW8NSCww" type="PapyrusUMLClassDiagram" name="ExternalAlarmReceiver" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_7wykKhtDEeWvQYFW8NSCww" type="2001" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykKxtDEeWvQYFW8NSCww" type="5002">
+        <element xmi:type="uml:InstanceSpecification" href="AXE_External_Alarm_Receiver.uml#_K9us74KOEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7wykLBtDEeWvQYFW8NSCww" type="7001">
+        <children xmi:type="notation:Shape" xmi:id="_7wykLRtDEeWvQYFW8NSCww" type="3030">
+          <element xmi:type="uml:Slot" href="AXE_External_Alarm_Receiver.uml#_K9us8oKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykLhtDEeWvQYFW8NSCww" type="3030">
+          <element xmi:type="uml:Slot" href="AXE_External_Alarm_Receiver.uml#_K9us9IKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykLxtDEeWvQYFW8NSCww" type="3030">
+          <element xmi:type="uml:Slot" href="AXE_External_Alarm_Receiver.uml#_K9us9oKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykMBtDEeWvQYFW8NSCww" type="3030">
+          <element xmi:type="uml:Slot" href="AXE_External_Alarm_Receiver.uml#_K9us8IKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykMRtDEeWvQYFW8NSCww" type="3030">
+          <element xmi:type="uml:Slot" href="AXE_External_Alarm_Receiver.uml#_K9us-IKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykMhtDEeWvQYFW8NSCww" type="3030">
+          <element xmi:type="uml:Slot" href="AXE_External_Alarm_Receiver.uml#_K9us-oKOEeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:InstanceSpecification" href="AXE_External_Alarm_Receiver.uml#_K9us74KOEeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:InstanceSpecification" href="AXE_External_Alarm_Receiver.uml#_K9us74KOEeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7wykMxtDEeWvQYFW8NSCww" x="170" y="305"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_7wykNBtDEeWvQYFW8NSCww"/>
+    <element xmi:type="uml:Package" href="AXE_External_Alarm_Receiver.uml#_K9us0oKOEeK3wcU1QErItg"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_7wykNRtDEeWvQYFW8NSCww" type="PapyrusUMLClassDiagram" name="Supervision Handling, AXE External Alarm Receiver_UC" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_7wykNhtDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykNxtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGb4KOEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7wykOBtDEeWvQYFW8NSCww" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_7wykORtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGcYKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykOhtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGdYKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykOxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGeoKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykPBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGf4KOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykPRtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGhIKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykPhtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGjIKOEeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGb4KOEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7wykPxtDEeWvQYFW8NSCww" type="7018">
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGb4KOEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7wykQBtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGb4KOEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykQRtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_7wykQhtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGb4KOEeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGb4KOEeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7wykQxtDEeWvQYFW8NSCww" x="375" y="246"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_7wykRBtDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykRRtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGlIKOEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7wykRhtDEeWvQYFW8NSCww" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_7wykRxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGloKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykSBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGmoKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykSRtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGpIKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykShtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGqIKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykSxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGrIKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykTBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGsIKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykTRtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uswoKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykThtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9usxoKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykTxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9usy4KOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykUBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_zORdkITtEeKd-eWqKDn48w"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGlIKOEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7wykURtDEeWvQYFW8NSCww" type="7018">
+        <children xmi:type="notation:Shape" xmi:id="_7wykUhtDEeWvQYFW8NSCww" type="3013">
+          <element xmi:type="uml:Operation" href="AXE_External_Alarm_Receiver.uml#_K9us0IKOEeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGlIKOEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7wykUxtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGlIKOEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykVBtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_7wykVRtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGlIKOEeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGlIKOEeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7wykVhtDEeWvQYFW8NSCww" x="349" y="427"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_7wykVxtDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykWBtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7wykWRtDEeWvQYFW8NSCww" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_7wykWhtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_Functions.uml#_tAN0PIKREeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7wykWxtDEeWvQYFW8NSCww" type="7018">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7wykXBtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykXRtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_7wykXhtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7wykXxtDEeWvQYFW8NSCww" x="389" y="60"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_7wykYBtDEeWvQYFW8NSCww"/>
+    <element xmi:type="uml:Package" href="AXE_External_Alarm_Receiver.uml#_K9uFsIKOEeK3wcU1QErItg"/>
+    <edges xmi:type="notation:Connector" xmi:id="_7wykYRtDEeWvQYFW8NSCww" type="4001" source="_7wykNhtDEeWvQYFW8NSCww" target="_7wykRBtDEeWvQYFW8NSCww" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykYhtDEeWvQYFW8NSCww" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wykYxtDEeWvQYFW8NSCww" x="-3" y="-24"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykZBtDEeWvQYFW8NSCww" type="6034">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wykZRtDEeWvQYFW8NSCww" y="11"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykZhtDEeWvQYFW8NSCww" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wykZxtDEeWvQYFW8NSCww" x="11" y="-5"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykaBtDEeWvQYFW8NSCww" type="6033">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wykaRtDEeWvQYFW8NSCww" y="17"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykahtDEeWvQYFW8NSCww" type="6005">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wykaxtDEeWvQYFW8NSCww" x="-10" y="-8"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_7wykbBtDEeWvQYFW8NSCww" fontName="Sans"/>
+      <element xmi:type="uml:Association" href="AXE_External_Alarm_Receiver.uml#_K9us_YKOEeK3wcU1QErItg"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7wykbRtDEeWvQYFW8NSCww" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_7wykbhtDEeWvQYFW8NSCww" type="4001" source="_7wykNhtDEeWvQYFW8NSCww" target="_7wykVxtDEeWvQYFW8NSCww" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykbxtDEeWvQYFW8NSCww" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wykcBtDEeWvQYFW8NSCww" y="-9"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykcRtDEeWvQYFW8NSCww" type="6034">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wykchtDEeWvQYFW8NSCww" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykcxtDEeWvQYFW8NSCww" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wykdBtDEeWvQYFW8NSCww" y="-20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykdRtDEeWvQYFW8NSCww" type="6033">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wykdhtDEeWvQYFW8NSCww" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykdxtDEeWvQYFW8NSCww" type="6005">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wykeBtDEeWvQYFW8NSCww" y="-20"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_7wykeRtDEeWvQYFW8NSCww" fontName="Sans" fontHeight="8"/>
+      <element xmi:type="uml:Association" href="AXE_External_Alarm_Receiver.uml#_K9utDIKOEeK3wcU1QErItg"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7wykehtDEeWvQYFW8NSCww" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_7wykextDEeWvQYFW8NSCww" type="PapyrusUMLClassDiagram" name="Supervision Handling, AXE External Alarm Receiver" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_7wykfBtDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykfRtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGb4KOEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7wykfhtDEeWvQYFW8NSCww" visible="false" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_7wykfxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGcYKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykgBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGdYKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykgRtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGeoKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykghtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGf4KOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykgxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGhIKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykhBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGjIKOEeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGb4KOEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7wykhRtDEeWvQYFW8NSCww" visible="false" type="7018">
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGb4KOEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7wykhhtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGb4KOEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykhxtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_7wykiBtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGb4KOEeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGb4KOEeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7wykiRtDEeWvQYFW8NSCww" x="375" y="246"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_7wykihtDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wykixtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGlIKOEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7wykjBtDEeWvQYFW8NSCww" visible="false" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_7wykjRtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGloKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykjhtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGmoKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykjxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGpIKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykkBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGqIKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykkRtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGrIKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykkhtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uGsIKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wykkxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9uswoKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wyklBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9usxoKOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wyklRtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_K9usy4KOEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7wyklhtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_External_Alarm_Receiver.uml#_zORdkITtEeKd-eWqKDn48w"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGlIKOEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7wzLIBtDEeWvQYFW8NSCww" visible="false" type="7018">
+        <children xmi:type="notation:Shape" xmi:id="_7wzLIRtDEeWvQYFW8NSCww" type="3013">
+          <element xmi:type="uml:Operation" href="AXE_External_Alarm_Receiver.uml#_K9us0IKOEeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGlIKOEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7wzLIhtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGlIKOEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wzLIxtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_7wzLJBtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGlIKOEeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_External_Alarm_Receiver.uml#_K9uGlIKOEeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7wzLJRtDEeWvQYFW8NSCww" x="376" y="376"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_7wzLJhtDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wzLJxtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7wzLKBtDEeWvQYFW8NSCww" visible="false" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_7wzLKRtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_Functions.uml#_tAN0PIKREeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7wzLKhtDEeWvQYFW8NSCww" visible="false" type="7018">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7wzLKxtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wzLLBtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_7wzLLRtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0OoKREeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7wzLLhtDEeWvQYFW8NSCww" x="389" y="133"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_7wzLLxtDEeWvQYFW8NSCww"/>
+    <element xmi:type="uml:Package" href="AXE_External_Alarm_Receiver.uml#_K9uFsIKOEeK3wcU1QErItg"/>
+    <edges xmi:type="notation:Connector" xmi:id="_7wzLMBtDEeWvQYFW8NSCww" type="4001" source="_7wykfBtDEeWvQYFW8NSCww" target="_7wykihtDEeWvQYFW8NSCww" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wzLMRtDEeWvQYFW8NSCww" visible="false" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wzLMhtDEeWvQYFW8NSCww" x="-3" y="-24"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wzLMxtDEeWvQYFW8NSCww" visible="false" type="6034">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wzLNBtDEeWvQYFW8NSCww" y="11"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wzLNRtDEeWvQYFW8NSCww" visible="false" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wzLNhtDEeWvQYFW8NSCww" x="11" y="-5"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wzLNxtDEeWvQYFW8NSCww" type="6033">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wzLOBtDEeWvQYFW8NSCww" y="32"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wzLORtDEeWvQYFW8NSCww" visible="false" type="6005">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wzLOhtDEeWvQYFW8NSCww" x="-10" y="-8"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_7wzLOxtDEeWvQYFW8NSCww" fontName="Sans"/>
+      <element xmi:type="uml:Association" href="AXE_External_Alarm_Receiver.uml#_K9us_YKOEeK3wcU1QErItg"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7wzLPBtDEeWvQYFW8NSCww" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_7wzLPRtDEeWvQYFW8NSCww" type="4001" source="_7wykfBtDEeWvQYFW8NSCww" target="_7wzLJhtDEeWvQYFW8NSCww" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wzLPhtDEeWvQYFW8NSCww" visible="false" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wzLPxtDEeWvQYFW8NSCww" y="-9"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wzLQBtDEeWvQYFW8NSCww" visible="false" type="6034">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wzLQRtDEeWvQYFW8NSCww" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wzLQhtDEeWvQYFW8NSCww" visible="false" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wzLQxtDEeWvQYFW8NSCww" y="-20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wzLRBtDEeWvQYFW8NSCww" visible="false" type="6033">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wzLRRtDEeWvQYFW8NSCww" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7wzLRhtDEeWvQYFW8NSCww" visible="false" type="6005">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7wzLRxtDEeWvQYFW8NSCww" y="-20"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_7wzLSBtDEeWvQYFW8NSCww" fontName="Sans" fontHeight="8"/>
+      <element xmi:type="uml:Association" href="AXE_External_Alarm_Receiver.uml#_K9utDIKOEeK3wcU1QErItg"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7wzLSRtDEeWvQYFW8NSCww" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>

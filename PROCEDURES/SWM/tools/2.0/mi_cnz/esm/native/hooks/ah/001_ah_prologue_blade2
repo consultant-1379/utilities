@@ -1,0 +1,160 @@
+#!/bin/bash
+##
+# ------------------------------------------------------------------------
+#     Copyright (C) 2012 Ericsson AB. All rights reserved.
+# ------------------------------------------------------------------------
+##
+# Name:
+#       001_ah_prologue_blade2
+# Description:
+#       A script to install all software.
+# Note:
+#       Sourced via LOTC cluster install script execution during
+#       the post installation phase.
+##
+# Usage:
+#       Used during APG43L maiden installation.
+##
+# Output:
+#       None.
+##
+# Changelog:
+# - Thu July 05 2017 Raghavendra Koduri (XKODRAG)
+#	Modified to support GEP7 boards
+# - Thu Aug 08 2013 - Malangsha Shaik(xmalsha)
+#	Rework to maintain code quality.
+#	Support to skip execution on GEP1/GEP2.
+# - Wed May 01 2013 - Pratap Reddy (XPRAUPP)
+#	First version.
+##
+
+# Non-initialized variables are forbidden
+#set -u
+set -x
+
+function activate_vg() {
+	echo "--- activate_vg() begin"
+
+	LVM_FILTER='filter = [ "a|drbd0|sd.*|", "r|.*|" ]'
+	[ ! -f $LVM_CONF ] && abort "lvm.conf file not found"
+	$(grep 'drbd0|sd.*' $LVM_CONF &>/dev/null)
+	[ $? -ne $TRUE ] && {
+		sed -i "/^\s*filter/ c \    $LVM_FILTER" $LVM_CONF
+		[ $? -ne $TRUE ] && abort "Falied to update lvm.conf file"
+		$( /sbin/lvmdiskscan &>/dev/null )
+		[ $? -ne $TRUE ] && abort "Falied to update lvm.conf file"
+	}
+	
+	echo "--- activate_vg() end"
+}
+
+function get_hooks_path() {
+	local FOLDER="${HOOKS_DIR}"
+	[ -z "${FOLDER}" ] && FOLDER="/tmp/hooks_execute_dir"
+	[ ! -d ${FOLDER} ] && abort "ERROR: The hook path is not configured by LOTC!"
+	echo "${FOLDER}"
+}
+
+function udev_rules() {
+    echo "--- udev_rules() begin"
+	
+    pushd $HOOK_PATH >/dev/null 2>&1
+	[ ! -r ./non_exec-udev.tgz ] && abort "Unable to read the non_exec-udev.tgz file"
+	
+    tar -xzf ./non_exec-udev.tgz
+	[ ! -x ./udev/apos_udevconf.sh ] && abort "Unable to execute the apos_udevconf.sh"
+	
+    ./udev/apos_udevconf.sh
+    [ $? -ne 0 ] && abort "Failure while executing the apos_udevconf.sh on node 2"
+    
+	popd >/dev/null 2>&1
+	echo "--- udev_rules() end"
+}
+
+function configure_drbd() {
+	echo "--- configure_drbd() begin"
+	
+    pushd $HOOK_PATH >/dev/null 2>&1
+	[ ! -r ./non_exec-raidmgr.tgz ] && abort "Unable to read raidmgr.tgz file"
+	
+	tar -xzf ./non_exec-raidmgr.tgz
+    [ ! -x ./raid/raidmgr_mi ] && abort "Unable to execute raidmgr_mi"
+	
+	OPTS='--lvm --configure --activate --force'
+	./raid/raidmgr_mi "$OPTS"
+    [ $? -ne 0 ] && abort "Failure while configuring drbd1 on second node"
+
+	popd >/dev/null 2>&1  
+	
+	echo "--- configure_drbd() end"
+}
+
+function init_system() {
+	# source common functions
+	local common_functions="${HOOK_PATH}/non_exec-common_functions"
+	. ${common_functions}
+	
+	# fetch hw-type
+	HW_TYPE=$(get_hwtype)
+
+  ########## WORK AROUND FOR GEP7 ####################
+  if [[ "$HW_TYPE" =~ GEP7 ]]; then
+    if [ "$(</cluster/mi/installation/ap_type)" == 'AP2' ]; then
+	    SUB_STATE=$(/usr/bin/systemctl show --property=SubState dhcpd.service | awk -F'=' '{print $2}')
+		  if [ "$SUB_STATE" == 'running' ]; then
+	    	/usr/bin/systemctl stop dhcpd.service &>/dev/null 2>&1
+		  fi
+		fi
+	fi
+  ########## WORK AROUND FOR GEP7 ####################
+}
+
+#                                              __    __   _______   _   __    _
+#                                             |  \  /  | |  ___  | | | |  \  | |
+#                                             |   \/   | | |___| | | | |   \ | |
+#                                             | |\  /| | |  ___  | | | | |\ \| |
+#                                             | | \/ | | | |   | | | | | | \   |
+#                                             |_|    |_| |_|   |_| |_| |_|  \__|
+#
+
+main() {
+	echo "--- main() begin"
+	
+	# Initialize the system
+	init_system
+	
+	[[ ! $HW_TYPE =~ "GEP4"  && ! $HW_TYPE =~ "GEP5" && ! $HW_TYPE =~ "GEP7" ]] && {
+		# this hooks is only meant for GEP4/5/7,  so return true on GEP1/2.
+		echo 'nothing to be done on GEP1/2'
+		echo "--- main() end"
+		exit $TRUE
+	}	
+	
+	echo "-   external path: $HOOK_PATH"
+	
+	# activate vg
+	activate_vg
+    
+	# udev rules
+	udev_rules
+		
+	# configue drbd
+	configure_drbd
+
+	echo "--- main() end"	
+}
+
+# Main
+echo "APG43L: After-booting-from-disk prologue hook for SC-2-2 node."
+
+MI_PATH='/cluster/mi'
+MI_INST='installation'
+LVM_CONF='/etc/lvm/lvm.conf'
+HOOK_PATH=$(get_hooks_path)
+HW_TYPE=''
+
+main "@"
+exit $TRUE
+
+# End of file
+

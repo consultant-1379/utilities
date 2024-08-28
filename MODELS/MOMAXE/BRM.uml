@@ -1,0 +1,1437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="BrM">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NRAMoQwOEdmFcaeZXPdWAQ" source="uml2.diagrams"/>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-BUNMGuAEeCqn7Fp3E2AOA" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-BUNMWuAEeCqn7Fp3E2AOA" key="com.ericsson.ecim.dsl.uireduction.activity" value="2"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PlxNsLpCEeGw5LKoWj9CjA" key="com.ericsson.ecim.coremw.dsl.uireduction.activity" value="1"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="__82QUGuBEeC-4MS_I9Cylg" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>CMW Backup and Restore Management fragment.</body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_uWHKUIXbEd-Id79DLfNphQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_qiLpEGuCEeC-4MS_I9Cylg" name="BrM">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_qibgsGuCEeC-4MS_I9Cylg" annotatedElement="_qiLpEGuCEeC-4MS_I9Cylg">
+        <body>BRM Root Class.</body>
+      </ownedComment>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_Sr_uALoVEeWr2cQC7pIWdw" constrainedElement="_RVRvcC6hEeK75aUoP9yZHw _ALyqwH7iEeOipY_KufDMEw _vwII0Jh2EeGI27jH_iMfww">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_SsA8ILoVEeWr2cQC7pIWdw">
+          <language>Optionality</language>
+          <body>if-feature NOT CPI_HIDDEN</body>
+        </specification>
+      </ownedRule>
+      <packagedElement xmi:type="uml:Class" xmi:id="_qinG4GuCEeC-4MS_I9Cylg" name="BrM">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_qixe8GuCEeC-4MS_I9Cylg" annotatedElement="_qinG4GuCEeC-4MS_I9Cylg">
+          <body>Represents the root MOC for Backup and Restore Management function MOM.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_xby4oLoUEeWr2cQC7pIWdw" constrainedElement="_dm23UMJFEeKeBL66pxEmiQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_xb0GwLoUEeWr2cQC7pIWdw">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_qi73AGuCEeC-4MS_I9Cylg" name="brMId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_qjHdMGuCEeC-4MS_I9Cylg" annotatedElement="_qi73AGuCEeC-4MS_I9Cylg">
+            <body>Holds the name used when identifying the MO. </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qjGPEGuCEeC-4MS_I9Cylg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qjG2IGuCEeC-4MS_I9Cylg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_TABBcGuREeCgdKq6_1VMTg" name="BrmBackupManagers" visibility="public" type="_KPNJkGuFEeC-4MS_I9Cylg" aggregation="composite" association="_S_0NIGuREeCgdKq6_1VMTg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TAHvIGuREeCgdKq6_1VMTg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TAHIEGuREeCgdKq6_1VMTg" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_dm23UMJFEeKeBL66pxEmiQ" name="exportPackageLabelPrefix" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_dm23UcJFEeKeBL66pxEmiQ" annotatedElement="_dm23UMJFEeKeBL66pxEmiQ">
+            <body>Free text to help better identify a backup export package when residing outside the ME.&#xD;
+If specified, BRM prepends this prefix to the label that it generates for the backup export package.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hdcHUMJFEeKeBL66pxEmiQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hdntgMJFEeKeBL66pxEmiQ" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_JQa4AGuDEeC-4MS_I9Cylg" name="BrmBackupStatus">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_JQa4AWuDEeC-4MS_I9Cylg" annotatedElement="_JQa4AGuDEeC-4MS_I9Cylg">
+          <body>Indicates the status of a Backup. 
+The status will be INCOMPLETE during creation or deletion of a backup. Once a backup is successfully created, its status is COMPLETE. If the integrity of the backup is violated, then it is marked as CORRUPTED.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_JQa4AmuDEeC-4MS_I9Cylg" name="BRM_BACKUP_COMPLETE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_JQa4A2uDEeC-4MS_I9Cylg" annotatedElement="_JQa4AmuDEeC-4MS_I9Cylg">
+            <body>The backup is complete and can be safely restored.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_JQa4BGuDEeC-4MS_I9Cylg" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_JQa4BWuDEeC-4MS_I9Cylg" name="BRM_BACKUP_INCOMPLETE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_JQa4BmuDEeC-4MS_I9Cylg" annotatedElement="_JQa4BWuDEeC-4MS_I9Cylg">
+            <body>The backup is incomplete. The reason could be failure during creation or deletion.
+An incomplete backup is never allowed to be restored. The only permissible operation on the incomplete backup is to delete it.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_JQa4B2uDEeC-4MS_I9Cylg" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Gc03kGuaEeCrtKg5o-3ABA" name="BRM_BACKUP_CORRUPTED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_GdN5IGuaEeCrtKg5o-3ABA" annotatedElement="_Gc03kGuaEeCrtKg5o-3ABA">
+            <body>The backup is corrupted.  A corrupted backup is never allowed to be restored. The only permissible operation on the corrupted backup is to delete it.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_U_v24LuyEeGw5LKoWj9CjA" value="3"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_JQ284GuDEeC-4MS_I9Cylg" name="ActionInvocationResult">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_JQ284WuDEeC-4MS_I9Cylg" annotatedElement="_JQ284GuDEeC-4MS_I9Cylg">
+          <body>Indicates whether an asynchronous operation was successfully invoked. (The actual result of the operation will be communicated by other means.)
+
+A value of zero indicates success. Non-zero error codes are implementation-specific.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_JQ284muDEeC-4MS_I9Cylg">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-kmDQCCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_KPNJkGuFEeC-4MS_I9Cylg" name="BrmBackupManager">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_KPW6kGuFEeC-4MS_I9Cylg" annotatedElement="_KPNJkGuFEeC-4MS_I9Cylg">
+          <body>Serves as container for Backup instances of a particular backupType and backupDomain.
+
+This class also provides the actions for creating new backups, importing backups from other locations, and deleting existing backups of the corresponding type and domain.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_omQbULoUEeWr2cQC7pIWdw" constrainedElement="_MPyd0MJFEeKeBL66pxEmiQ _Wb3RkPPBEeiktqouPL6clg">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_omRpcLoUEeWr2cQC7pIWdw">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_KPgrkGuFEeC-4MS_I9Cylg" name="brmBackupManagerId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_KPrqsGuFEeC-4MS_I9Cylg" annotatedElement="_KPgrkGuFEeC-4MS_I9Cylg">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KPrDoGuFEeC-4MS_I9Cylg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KPrDoWuFEeC-4MS_I9Cylg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_xTTQMGuFEeC-4MS_I9Cylg" name="backupType" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_xTePUWuFEeC-4MS_I9Cylg" annotatedElement="_xTTQMGuFEeC-4MS_I9Cylg">
+            <body> Type of backup; System Data or User Data. </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xTdoQGuFEeC-4MS_I9Cylg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xTePUGuFEeC-4MS_I9Cylg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_5uFrMGuFEeC-4MS_I9Cylg" name="backupDomain" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_5uQqUGuFEeC-4MS_I9Cylg" annotatedElement="_5uFrMGuFEeC-4MS_I9Cylg">
+            <body>Backup domain, for example System</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5uQDQGuFEeC-4MS_I9Cylg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5uQDQWuFEeC-4MS_I9Cylg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_4QFJMGuSEeCgdKq6_1VMTg" name="BrmBackups" visibility="public" type="_uUWZgGuKEeCW1LDkcn7ZNA" aggregation="composite" association="_4QEiIGuSEeCgdKq6_1VMTg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4QJaoGuSEeCgdKq6_1VMTg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4QIzkGuSEeCgdKq6_1VMTg" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_BwNxIHOLEeGI1al_hUEYpA" name="BrmBackupScheduler" visibility="public" type="_3Fq20HOGEeGI1al_hUEYpA" aggregation="composite" association="_BwNKEHOLEeGI1al_hUEYpA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BwT3wHOLEeGI1al_hUEYpA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BwTQsHOLEeGI1al_hUEYpA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tMzPsC9AEeK75aUoP9yZHw" name="BrmBackupHousekeeping" visibility="public" type="_PjTmIC3eEeK6POBHcq1PGw" aggregation="composite" association="_tMyooC9AEeK75aUoP9yZHw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tNJN8C9AEeK75aUoP9yZHw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tNIm4C9AEeK75aUoP9yZHw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_EAMnoFs2EeKbVdEkasR1Kg" name="progressReport" type="_IQmMMKdGEeOL09eSJoOKAg" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_EAMnoVs2EeKbVdEkasR1Kg" annotatedElement="_EAMnoFs2EeKbVdEkasR1Kg">
+            <body>Represents the progress report and  final result of the ongoing (asynchronous) action, for example createBackup. &#xD;
+This MO supports only one action to be executed at a time.&#xD;
+            </body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hOiQcKdGEeOL09eSJoOKAg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hOw58KdGEeOL09eSJoOKAg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tITOwKKbEeOL09eSJoOKAg" name="BrmBackupLabelStore" visibility="public" type="_i3vXMKKWEeOL09eSJoOKAg" aggregation="composite" association="_tISnsKKbEeOL09eSJoOKAg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tIol8KKbEeOL09eSJoOKAg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tIn-4KKbEeOL09eSJoOKAg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_dyaA8MHxEeayAeC6mvRdcQ" name="BrmFailsafeBackup" visibility="public" type="_NDgQYMFREea4FcQNoP5-2Q" aggregation="composite" association="_dyZZ4MHxEeayAeC6mvRdcQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_f2HTMMHzEeayAeC6mvRdcQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_f2GFEMHzEeayAeC6mvRdcQ" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_w9whMGuJEeCW1LDkcn7ZNA" name="deleteBackup">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_w96SMWuJEeCW1LDkcn7ZNA" annotatedElement="_w9whMGuJEeCW1LDkcn7ZNA">
+            <body>Delete a backup specified by its name and of the backupType and backupDomain managed by this BackupManager.
+This is an asynchronous action: progress and result are reported in the progressReport attribute.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_4Ae9EGuJEeCW1LDkcn7ZNA" name="name">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_4Ap8MGuJEeCW1LDkcn7ZNA" annotatedElement="_4Ae9EGuJEeCW1LDkcn7ZNA">
+              <body>The name of the backup to delete.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4ApVIGuJEeCW1LDkcn7ZNA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4ApVIWuJEeCW1LDkcn7ZNA" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_oq1VELvsEeGw5LKoWj9CjA" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_oq1VEbvsEeGw5LKoWj9CjA" annotatedElement="_oq1VELvsEeGw5LKoWj9CjA">
+              <body> True if the invocation of the operation succeeds, false otherwise. This is an asynchronous action progress and result will be reported via the asyncActionProgress struct.  </body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oq1VE7vsEeGw5LKoWj9CjA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oq1VErvsEeGw5LKoWj9CjA" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_ub7TYLsPEeGw5LKoWj9CjA" name="cancelCurrentAction">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ub7TYbsPEeGw5LKoWj9CjA" annotatedElement="_ub7TYLsPEeGw5LKoWj9CjA">
+            <body>Cancels the current action.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_ub7TYrsPEeGw5LKoWj9CjA" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_ub7TY7sPEeGw5LKoWj9CjA" annotatedElement="_ub7TYrsPEeGw5LKoWj9CjA">
+              <body> True if the invocation of the operation succeeds, false otherwise. This is an asynchronous action progress and result will be reported via the asyncActionProgress struct.  </body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ub7TZbsPEeGw5LKoWj9CjA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ub7TZLsPEeGw5LKoWj9CjA" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_GVix0LvqEeGw5LKoWj9CjA" name="createBackup">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_GVix0bvqEeGw5LKoWj9CjA" annotatedElement="_GVix0LvqEeGw5LKoWj9CjA">
+            <body>Creates a new backup of the backupType and backupDomain managed by the BackupManager.
+This is an asynchronous action: progress and result are reported in the progressReport attribute.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_GVix0rvqEeGw5LKoWj9CjA" name="name">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_GVix07vqEeGw5LKoWj9CjA" annotatedElement="_GVix0rvqEeGw5LKoWj9CjA">
+              <body>The name of the backup to create. 
+If specified, input name validation is done to forbid illegal names. Backup name validation rules include duplicate backup names, names exceeding maximum allowed length. 
+If not specified, a backup name is automatically generated according to below sketched format: 
+&lt;YYYY-MM-DDThh-mm-ss>. </body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GVix1bvqEeGw5LKoWj9CjA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GVix1LvqEeGw5LKoWj9CjA" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_GVix1rvqEeGw5LKoWj9CjA" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_GVix17vqEeGw5LKoWj9CjA" annotatedElement="_GVix1rvqEeGw5LKoWj9CjA">
+              <body>True if the invocation of the operation succeeds, false otherwise. This is an asynchronous action progress and result will be reported via the asyncActionProgress struct.  </body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GVix2bvqEeGw5LKoWj9CjA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GVix2LvqEeGw5LKoWj9CjA" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_MPyd0MJFEeKeBL66pxEmiQ" name="importBackup" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_MPzE4MJFEeKeBL66pxEmiQ" annotatedElement="_MPyd0MJFEeKeBL66pxEmiQ">
+            <body>Import a backup using the specified URI.
+This is an asynchronous action: progress and result are reported in the progressReport attribute.&#xD;
+Note that the type and domain of the backup to be imported must match the backup type and domain indicated by the instance of the backup manager on which this action is invoked.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_MPzE4cJFEeKeBL66pxEmiQ" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_MPzE4sJFEeKeBL66pxEmiQ" annotatedElement="_MPzE4cJFEeKeBL66pxEmiQ">
+              <body>Zero if the backup import request succeeds, non-zero otherwise. This is an asynchronous action - progress and result will be reported via the progressReport attribute.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MPzE5MJFEeKeBL66pxEmiQ" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MPzE48JFEeKeBL66pxEmiQ" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_MPzE5cJFEeKeBL66pxEmiQ" name="uri">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_MPzE5sJFEeKeBL66pxEmiQ" annotatedElement="_MPzE5cJFEeKeBL66pxEmiQ">
+              <body>Specifies the location (url) of the backup to import or the resource name (urn) that encapsulates the backup import procedure.&#xD;
+&#xD;
+</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MPzE6MJFEeKeBL66pxEmiQ" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MPzE58JFEeKeBL66pxEmiQ" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_MPzE6cJFEeKeBL66pxEmiQ" name="password" type="_oCassMJEEeKeBL66pxEmiQ">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_MPzE6sJFEeKeBL66pxEmiQ" annotatedElement="_MPzE6cJFEeKeBL66pxEmiQ">
+              <body>The password required to access the location specified by the uri.&#xD;
+If no password is required, this parameter is ignored.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MPzE7MJFEeKeBL66pxEmiQ" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MPzE68JFEeKeBL66pxEmiQ" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_Wb3RkPPBEeiktqouPL6clg" name="createSecuredBackupWithPasswd" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WhyTYPPBEeiktqouPL6clg" annotatedElement="_Wb3RkPPBEeiktqouPL6clg">
+            <body>Creates a secured backup of the backupType and backupDomain managed by the BackupManager. 
+A secured backup has some sensitive parts of the backup encrypted. 
+This is an asynchronous action: progress and result are reported in the progressReport attribute.
+The encrypttion key is generated by using the backupPassword. 
+This action takes optional backup name, backupPassword and userLabel. 
+userLabel is a free text string used to describe the backup details. </body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_spLoUPPBEeiktqouPL6clg" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_spjbwPPBEeiktqouPL6clg" annotatedElement="_spLoUPPBEeiktqouPL6clg">
+              <body>True if the invocation of the operation succeeds, false otherwise. 
+This is an asynchronous action: progress and result are reported in the progressReport attribute.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_spkp4PPBEeiktqouPL6clg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_splQ8PPBEeiktqouPL6clg" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_3ek10PPHEeiktqouPL6clg" name="userLabel">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_3ezfUPPHEeiktqouPL6clg" annotatedElement="_3ek10PPHEeiktqouPL6clg">
+              <body>Free text to describe the secured backup. 
+Can be used to identify the key or the password to decrypt the backup during restore. 
+For example: 
+&quot;Encrypted System Backup taken on 18-Jun-2019&quot; </body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3e0tcPPHEeiktqouPL6clg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3e0tcfPHEeiktqouPL6clg" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_ck1WwPPIEeiktqouPL6clg" name="name">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_clDZMPPIEeiktqouPL6clg" annotatedElement="_ck1WwPPIEeiktqouPL6clg">
+              <body>The name of the secured backup to create. 
+If specified, input name validation is done to forbid illegal names. Backup name validation rules include duplicate backup names, names exceeding maximum allowed length. 
+If not specified, a backup name is automatically generated according to below sketched format: 
+&lt;YYYY-MM-DDThh-mm-ss>. 
+</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_clEnUPPIEeiktqouPL6clg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_clEnUfPIEeiktqouPL6clg" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_m5iEQPPJEeiktqouPL6clg" name="backupPassword" type="_oCassMJEEeKeBL66pxEmiQ">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_m6GsAPPJEeiktqouPL6clg" annotatedElement="_m5iEQPPJEeiktqouPL6clg">
+              <body>The password used to generate the encryption key for encrypting the backup. 
+</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_m6HTEPPJEeiktqouPL6clg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_m6HTEfPJEeiktqouPL6clg" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_uUWZgGuKEeCW1LDkcn7ZNA" name="BrmBackup">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_uUgxkGuKEeCW1LDkcn7ZNA" annotatedElement="_uUWZgGuKEeCW1LDkcn7ZNA">
+          <body>Represents one backup of the type and domain specified by the BrmBackupManager in which it is contained.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_XPT9oLoUEeWr2cQC7pIWdw" constrainedElement="_RMqCALr9EeGw5LKoWj9CjA _4B2k4MJEEeKeBL66pxEmiQ _Uth90Jh5EeGI27jH_iMfww _vwII0Jh2EeGI27jH_iMfww">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_XPVy0LoUEeWr2cQC7pIWdw">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_uUrJoGuKEeCW1LDkcn7ZNA" name="brmBackupId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_uU2v0WuKEeCW1LDkcn7ZNA" annotatedElement="_uUrJoGuKEeCW1LDkcn7ZNA">
+            <body>Holds the name used when identifying the MO. </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uU2IwGuKEeCW1LDkcn7ZNA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uU2v0GuKEeCW1LDkcn7ZNA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_K0eVoGuMEeCgdKq6_1VMTg" name="backupName" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_K0_TAGuMEeCgdKq6_1VMTg" annotatedElement="_K0eVoGuMEeCgdKq6_1VMTg">
+            <body>Backup name, provided by the operator. Must be unique among siblings in the MO tree.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_K09d0GuMEeCgdKq6_1VMTg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_K0-r8GuMEeCgdKq6_1VMTg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_k2shYGuMEeCgdKq6_1VMTg" name="status" type="_JQa4AGuDEeC-4MS_I9Cylg" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_k225cWuMEeCgdKq6_1VMTg" annotatedElement="_k2shYGuMEeCgdKq6_1VMTg">
+            <body>Status of the backup.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_k22SYGuMEeCgdKq6_1VMTg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_k225cGuMEeCgdKq6_1VMTg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Uth90Jh5EeGI27jH_iMfww" name="creationType" visibility="public" type="_vwII0Jh2EeGI27jH_iMfww" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_UtwAQJh5EeGI27jH_iMfww" annotatedElement="_Uth90Jh5EeGI27jH_iMfww">
+            <body>Creation type; whether manually created or automatically via BrmBackupScheduler.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ut5xQZh5EeGI27jH_iMfww" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ut6YUJh5EeGI27jH_iMfww" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_RMqCALr9EeGw5LKoWj9CjA" name="backupDescriptor" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_RMqCAbr9EeGw5LKoWj9CjA" annotatedElement="_RMqCALr9EeGw5LKoWj9CjA">
+            <body>This includes a list of storage owners that participate in a backup which is used by BRM when restoring or deleting the backup.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RMqCA7r9EeGw5LKoWj9CjA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RMqCArr9EeGw5LKoWj9CjA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_aGV6ULsPEeGw5LKoWj9CjA" name="asyncActionProgress" type="_IQmMMKdGEeOL09eSJoOKAg" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_aGV6UbsPEeGw5LKoWj9CjA" annotatedElement="_aGV6ULsPEeGw5LKoWj9CjA">
+            <body>The stucture used to report the progress and final result of asynchronous actions.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QqxjMKdGEeOL09eSJoOKAg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Qq9JYKdGEeOL09eSJoOKAg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_M_lC8LsQEeGw5LKoWj9CjA" name="creationTime" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_M_lC8bsQEeGw5LKoWj9CjA" annotatedElement="_M_lC8LsQEeGw5LKoWj9CjA">
+            <body>Date and time when the backup was created (start time of backup procedure)</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_M_lC87sQEeGw5LKoWj9CjA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_M_lC8rsQEeGw5LKoWj9CjA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_o0hRwFs7EeKbVdEkasR1Kg" name="progressReport" type="_IQmMMKdGEeOL09eSJoOKAg" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_o0hRwVs7EeKbVdEkasR1Kg" annotatedElement="_o0hRwFs7EeKbVdEkasR1Kg">
+            <body>Represents the progress report and  final result of the ongoing (asynchronous) action in this MO, for example restore. &#xD;
+This MO supports only one action to be executed at a time.&#xD;
+            </body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xE4eEKdGEeOL09eSJoOKAg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xFFSYKdGEeOL09eSJoOKAg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_DXKAIKA3EeO6PsBbw12lGg" name="swVersion" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_DXKAIaA3EeO6PsBbw12lGg" annotatedElement="_DXKAIKA3EeO6PsBbw12lGg">
+            <body>The administrative data portion of active software version(s) as specified in the software inventory management when the backup is created.&#xD;
+</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_CYMYUGxSEeGjja_QGAGUKA"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_e-Ff4KA3EeO6PsBbw12lGg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_e-GG8KA3EeO6PsBbw12lGg" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_RO538PPWEeiktqouPL6clg" name="cryptoPasswordId" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_RPFeIPPWEeiktqouPL6clg" annotatedElement="_RO538PPWEeiktqouPL6clg">
+            <body>Specifies the encryption password identifier. 
+A unique hash generated from password when a secured backup is created. 
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RPGFMPPWEeiktqouPL6clg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RPGsQPPWEeiktqouPL6clg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_k9CSoPPaEeiktqouPL6clg" name="userLabel" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_k9aGEPPaEeiktqouPL6clg" annotatedElement="_k9CSoPPaEeiktqouPL6clg">
+            <body>Shows the free text provided at creation of secured backup in the userLabel parameter. 
+It can be used to identify the key or the password to decrypt the backup during restore. </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_k9atIPPaEeiktqouPL6clg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_k9atIfPaEeiktqouPL6clg" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_yF2qUGuMEeCgdKq6_1VMTg" name="restore">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_yGBCYWuMEeCgdKq6_1VMTg" annotatedElement="_yF2qUGuMEeCgdKq6_1VMTg">
+            <body>Restore from this backup. This is an asynchronous action - progress and result will be reported in the progressReport attribute.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_E-O5QLvtEeGw5LKoWj9CjA" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_E-O5QbvtEeGw5LKoWj9CjA" annotatedElement="_E-O5QLvtEeGw5LKoWj9CjA">
+              <body> True if the invocation of the operation succeeds, false otherwise. This is an asynchronous action progress and result will be reported via the asyncActionProgress struct.  </body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_E-O5Q7vtEeGw5LKoWj9CjA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_E-O5QrvtEeGw5LKoWj9CjA" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_oiv5gLsPEeGw5LKoWj9CjA" name="cancelCurrentAction">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_oiv5gbsPEeGw5LKoWj9CjA" annotatedElement="_oiv5gLsPEeGw5LKoWj9CjA">
+            <body>Cancels an ongoing asynchronous restore operation.  This is a synchronous action.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_A_BRsLvtEeGw5LKoWj9CjA" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_A_BRsbvtEeGw5LKoWj9CjA" annotatedElement="_A_BRsLvtEeGw5LKoWj9CjA">
+              <body> True if the invocation of the operation succeeds, false otherwise. This is an asynchronous action progress and result will be reported via the asyncActionProgress struct.  </body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_A_BRs7vtEeGw5LKoWj9CjA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_A_BRsrvtEeGw5LKoWj9CjA" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_4B2k4MJEEeKeBL66pxEmiQ" name="export" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_4B2k4cJEEeKeBL66pxEmiQ" annotatedElement="_4B2k4MJEEeKeBL66pxEmiQ">
+            <body>Export the backup using the specified URI.&#xD;
+
+This is an asynchronous action; progress and result is reported in the progressReport attribute. 
+Note that when finished successfully, a copy of the backup is transferred and the original backup remains on the node.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_4B2k4sJEEeKeBL66pxEmiQ" name="uri">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_4B2k48JEEeKeBL66pxEmiQ" annotatedElement="_4B2k4sJEEeKeBL66pxEmiQ">
+              <body>Specifies the location (url) where the backup is to be exported or the resource name (urn) that encapsulates the backup export procedure.&#xD;
+</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4B2k5cJEEeKeBL66pxEmiQ" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4B2k5MJEEeKeBL66pxEmiQ" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_4B2k5sJEEeKeBL66pxEmiQ" name="password" type="_oCassMJEEeKeBL66pxEmiQ">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_4B2k58JEEeKeBL66pxEmiQ" annotatedElement="_4B2k5sJEEeKeBL66pxEmiQ">
+              <body>The password required to access the location specified by the uri.&#xD;
+If no password is required, this parameter is ignored.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4B2k6cJEEeKeBL66pxEmiQ" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4B2k6MJEEeKeBL66pxEmiQ" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_4B2k6sJEEeKeBL66pxEmiQ" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_4B2k68JEEeKeBL66pxEmiQ" annotatedElement="_4B2k6sJEEeKeBL66pxEmiQ">
+              <body>Zero if the backup export request succeeds, non-zero otherwise. This is an asynchronous action - progress and result will be reported via the progressReport attribute.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4B2k7cJEEeKeBL66pxEmiQ" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4B2k7MJEEeKeBL66pxEmiQ" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_Jg78IPPVEeiktqouPL6clg" name="restoreSecuredBackupWithPasswd" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_JhLzwPPVEeiktqouPL6clg" annotatedElement="_Jg78IPPVEeiktqouPL6clg">
+            <body>Restore the current secure backup of the backupType and backupDomain managed by the BackupManager. 
+A secure backup has some sensitive parts of the backup encrypted. 
+This is an asynchronous action: progress and result are reported in the progressReport attribute.
+This action takes backupPassword parameter for generating the decryption key used to decrypt any secure parts of the the backup.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_UedZoPPVEeiktqouPL6clg" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_YMGwEPPVEeiktqouPL6clg" annotatedElement="_UedZoPPVEeiktqouPL6clg">
+              <body>True if the invocation of the operation succeeds, false otherwise. 
+This is an asynchronous action: progress and result are reported in the progressReport attribute.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UesDIPPVEeiktqouPL6clg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UesqMPPVEeiktqouPL6clg" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_gWLOgPPVEeiktqouPL6clg" name="backupPassword">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_gWcUQPPVEeiktqouPL6clg" annotatedElement="_gWLOgPPVEeiktqouPL6clg">
+              <body>The backupPassword for generating the decryption key used to decrypt any secure parts of the the backup. </body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_TYtT4CcCEeG7vdLp34eJ_Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gWcUQfPVEeiktqouPL6clg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gWc7UPPVEeiktqouPL6clg" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_S_0NIGuREeCgdKq6_1VMTg" name="" memberEnd="_TABBcGuREeCgdKq6_1VMTg _TADdsGuREeCgdKq6_1VMTg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_TADdsGuREeCgdKq6_1VMTg" name="BrM" visibility="public" type="_qinG4GuCEeC-4MS_I9Cylg" association="_S_0NIGuREeCgdKq6_1VMTg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TASHMWuREeCgdKq6_1VMTg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TASHMGuREeCgdKq6_1VMTg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_4QEiIGuSEeCgdKq6_1VMTg" name="" memberEnd="_4QFJMGuSEeCgdKq6_1VMTg _4QGXUWuSEeCgdKq6_1VMTg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_4QGXUWuSEeCgdKq6_1VMTg" name="BrmBackupManager" visibility="public" type="_KPNJkGuFEeC-4MS_I9Cylg" association="_4QEiIGuSEeCgdKq6_1VMTg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4QTysWuSEeCgdKq6_1VMTg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4QTysGuSEeCgdKq6_1VMTg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Xmjt8HNtEeG_Gc7I8tXQiw" name="Scheduler" isAbstract="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Xms34HNtEeG_Gc7I8tXQiw" annotatedElement="_Xmjt8HNtEeG_Gc7I8tXQiw">
+          <body>The abstact base class for a scheduled event.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_blZUYHeGEeGf2P5cQ_Bi6A" name="schedulerState" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_bln94HeGEeGf2P5cQ_Bi6A" annotatedElement="_blZUYHeGEeGf2P5cQ_Bi6A">
+            <body>Operational state of the scheduler (ENABLED/DISABLED). 
+If the scheduler configuration has been successfully done and the scheduler is administratively unlocked, the implementation sets this attribute to ENABLED to confirm that the scheduler has been successfully configured and the next event has been calculated. If the event(s) is scheduled for a limited period of time, at the end of the period when there is no more scheduled events, this attribute is set to DISABLED by the implementation.</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#__lAE8JdbEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bl3OcHeGEeGf2P5cQ_Bi6A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bl4ckHeGEeGf2P5cQ_Bi6A" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hu96sHeGEeGf2P5cQ_Bi6A" name="adminState" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hvFPcXeGEeGf2P5cQ_Bi6A" annotatedElement="_hu96sHeGEeGf2P5cQ_Bi6A">
+            <body>Administrative state of the scheduler.</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#__k_d4JdbEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oiiy0I_yEeKMwIN3eujatQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hvNLQXeGEeGf2P5cQ_Bi6A" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_K2IYsIBZEeKxi4ancrExzg" name="UNLOCKED">
+            <instance xmi:type="uml:EnumerationLiteral" href="ECIM_CommonLibrary.uml#__k_d5ZdbEeC11vgiYYrb4A"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_CZsacBooEeK1UMUQ9hLgqg" name="nextScheduledTime" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_CZsacRooEeK1UMUQ9hLgqg" annotatedElement="_CZsacBooEeK1UMUQ9hLgqg">
+            <body>Next Scheduled event time. Holds the time stamp when next event is scheduled to occur.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YcGaQIs9EeKcNe3kbMZNFA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gqb24BooEeK1UMUQ9hLgqg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_3Fq20HOGEeGI1al_hUEYpA" name="BrmBackupScheduler">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_3F-Y0XOGEeGI1al_hUEYpA" annotatedElement="_3Fq20HOGEeGI1al_hUEYpA">
+          <body>Provides optional support for scheduling of backup creation.&#xD;
+&#xD;
+Each instance of BrmBackupScheduler MOC serves as the backup scheduler for the backup type indicated by its parent instance of BrmBackupManager. The scheduled backup event(s) can be instance(s) of BrmSingleEvent MOC, BrmCalendarBasedPeriodicEvent MOC, or BrmPeriodicEvent MOC contained in the instance of BrmBackupScheduler.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_MmMfULoTEeWr2cQC7pIWdw" constrainedElement="_3Fq20HOGEeGI1al_hUEYpA _ALyqwH7iEeOipY_KufDMEw">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_MmNGYLoTEeWr2cQC7pIWdw">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <generalization xmi:type="uml:Generalization" xmi:id="_LVvdwHOHEeGI1al_hUEYpA" general="_Xmjt8HNtEeG_Gc7I8tXQiw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZyB_IFdiEeGpg5ja5iS_uw" name="maxStoredScheduledBackups" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ZyU6EVdiEeGpg5ja5iS_uw" annotatedElement="_ZyB_IFdiEeGpg5ja5iS_uw">
+            <body>The maximum number of scheduled backups to store in the local ME.
+When this threshold is reached, the oldest scheduled backup is deleted by the BRM before creating a new one.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ja4VcI_yEeKMwIN3eujatQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZyerE1diEeGpg5ja5iS_uw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_RQWMwI_0EeKMwIN3eujatQ" value="5"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_EdZgIE0rEeG91s1dZbPH9g" name="scheduledBackupName" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_EdmUcU0rEeG91s1dZbPH9g" annotatedElement="_EdZgIE0rEeG91s1dZbPH9g">
+            <body>The configurable portion of the scheduled backup name.
+The scheduled backups are named &lt;scheduledBackupName>-&lt;creation date and time>, where creation date and time is of type DateTime defined in the common library.
+
+Note: If date and time of creation (of the format DateTime) has '.' to denote the fraction of a second, it is rounded up and '.' is removed by BRM to maximize portability on the file system. Also, for the same reason, &quot;:&quot; is replaced by &quot;-&quot;.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nYv5MI_yEeKMwIN3eujatQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EdtpMU0rEeG91s1dZbPH9g" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_8cyucBtDEeWvQYFW8NSCww" visibility="public" value="BACKUP">
+            <name xsi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_nzRj8INiEeGkLv30vkl8DA" name="mostRecentlyCreatedAutoBackup" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_nzuP4YNiEeGkLv30vkl8DA" annotatedElement="_nzRj8INiEeGkLv30vkl8DA">
+            <body>The name of the scheduled backup created most recently by BrmBackupScheduler.  </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n0BK0YNiEeGkLv30vkl8DA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_n0K70INiEeGkLv30vkl8DA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_3GR60HOGEeGI1al_hUEYpA" name="brmBackupSchedulerId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_3Gk1wHOGEeGI1al_hUEYpA" annotatedElement="_3GR60HOGEeGI1al_hUEYpA">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3G3JoHOGEeGI1al_hUEYpA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3G4XwHOGEeGI1al_hUEYpA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_E6weEMH5EeGjkuGa2K3Csg" name="progressReport" type="_IQmMMKdGEeOL09eSJoOKAg" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_E6weEcH5EeGjkuGa2K3Csg" annotatedElement="_E6weEMH5EeGjkuGa2K3Csg">
+            <body>The structure used to report the progress and final result of asynchronous actions.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Z49KAKdGEeOL09eSJoOKAg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Z5KlYKdGEeOL09eSJoOKAg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_QkA-AIBYEeKxi4ancrExzg" name="BrmCaldendarBasedPeriodicEvent" visibility="public" type="_O4rvgIBWEeKxi4ancrExzg" aggregation="composite" association="_Qj_v4IBYEeKxi4ancrExzg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QkF2gIBYEeKxi4ancrExzg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QkFPcIBYEeKxi4ancrExzg" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_nNba4IBYEeKxi4ancrExzg" name="BrmPeriodicEvent" visibility="public" type="_zD6WIIBXEeKxi4ancrExzg" aggregation="composite" association="_nNaz0IBYEeKxi4ancrExzg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nNfsUIBYEeKxi4ancrExzg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nNfFQIBYEeKxi4ancrExzg" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_02ppoIBYEeKxi4ancrExzg" name="BrmSingleEvent" visibility="public" type="_VweRQIBXEeKxi4ancrExzg" aggregation="composite" association="_02obgIBYEeKxi4ancrExzg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_02tUAYBYEeKxi4ancrExzg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_02tUAIBYEeKxi4ancrExzg" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_J5jwkH7iEeOipY_KufDMEw" name="autoExport" visibility="public" type="_ALyqwH7iEeOipY_KufDMEw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Yu83gH7iEeOipY_KufDMEw" annotatedElement="_J5jwkH7iEeOipY_KufDMEw">
+            <body>Determines whether a scheduled backup should be automatically exported upon successful creation.&#xD;
+If set to ENABLED, the scheduled backup specified by the attribute 'mostRecentlyCreatedAutoBackup' will be exported to the location specified by the attribute 'autoExportUri' after it has been successfully created. Note that the automatic export will be triggered ONLY IF the creation of the scheduled backup has been successful; otherwise, no export operation will be triggered even if this attribute has been set to ENABLED. Also, note that setting this attribute to ENABLED has no impact on the scheduled backups that have already been created and stored prior to the new configuration.&#xD;
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J52rgH7iEeOipY_KufDMEw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J53SkH7iEeOipY_KufDMEw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_J52EcH7iEeOipY_KufDMEw" name="DISABLED" instance="_ALyqwn7iEeOipY_KufDMEw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_dsnrYH7iEeOipY_KufDMEw" name="autoExportUri" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_mkec4H7iEeOipY_KufDMEw" annotatedElement="_dsnrYH7iEeOipY_KufDMEw">
+            <body>Uri used by backup scheduler when automatically exporting a scheduled backup.&#xD;
+If autoExport attribute if set to ENABLED, this uri specifies the location to which the scheduled backup will be automatically exported.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ds-QsX7iEeOipY_KufDMEw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ds-3wH7iEeOipY_KufDMEw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_fUNz8H7lEeOipY_KufDMEw" name="autoExportPassword" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_1Ei3QH7mEeOipY_KufDMEw" annotatedElement="_fUNz8H7lEeOipY_KufDMEw">
+            <body>Password used by backup scheduler when automatically exporting a scheduled backup.&#xD;
+If autoExport attribute if set to ENABLED, this password will be used for authentication when automatically exporting the scheduled backup.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_eS1LUJf4EeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hk9YQJmkEeOky5-TdjfvSQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hlqi4JmkEeOky5-TdjfvSQ" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_BwNKEHOLEeGI1al_hUEYpA" name="" memberEnd="_BwNxIHOLEeGI1al_hUEYpA _BwQNYHOLEeGI1al_hUEYpA">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_BwQNYHOLEeGI1al_hUEYpA" name="BrmBackupManager" visibility="public" type="_KPNJkGuFEeC-4MS_I9Cylg" association="_BwNKEHOLEeGI1al_hUEYpA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bwk9gHOLEeGI1al_hUEYpA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BwkWcHOLEeGI1al_hUEYpA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_vwII0Jh2EeGI27jH_iMfww" name="BrmBackupCreationType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_vwWLQJh2EeGI27jH_iMfww" annotatedElement="_vwII0Jh2EeGI27jH_iMfww">
+          <body>Backup creation type.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_vwjmoJh2EeGI27jH_iMfww" name="MANUAL">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_vwxpEJh2EeGI27jH_iMfww" annotatedElement="_vwjmoJh2EeGI27jH_iMfww">
+            <body>Backup created manually via the createBackup() action.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_5XzNsJh2EeGI27jH_iMfww" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_37Xr8Jh2EeGI27jH_iMfww" name="SCHEDULED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_37luYJh2EeGI27jH_iMfww" annotatedElement="_37Xr8Jh2EeGI27jH_iMfww">
+            <body>Backup created automatically via BrmBackupScheduler MO.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_37yisZh2EeGI27jH_iMfww" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_PjTmIC3eEeK6POBHcq1PGw" name="BrmBackupHousekeeping">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_PjTmIS3eEeK6POBHcq1PGw" annotatedElement="_PjTmIC3eEeK6POBHcq1PGw">
+          <body>Provides optional support for automated housekeeping of manually created backups. &#xD;
+&#xD;
+If autoDelete is set to ENABLED, before creating a new manual backup, BRM first checks the number of manual backups and if the limit specified by the value of maxStoredManualBackups is reached, BRM removes the oldest manual backup before creating a new one.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_-WuswLoOEeWr2cQC7pIWdw" constrainedElement="_PjTmIC3eEeK6POBHcq1PGw _RVRvcC6hEeK75aUoP9yZHw">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_-Wwh8LoOEeWr2cQC7pIWdw">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_PjTmIi3eEeK6POBHcq1PGw" name="brmBackupHousekeepingId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_PjTmIy3eEeK6POBHcq1PGw" annotatedElement="_PjTmIi3eEeK6POBHcq1PGw">
+            <body>The value component of the RDN. &#xD;
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PjTmJS3eEeK6POBHcq1PGw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PjTmJC3eEeK6POBHcq1PGw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_PjU0QC3eEeK6POBHcq1PGw" name="maxStoredManualBackups" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_PjU0QS3eEeK6POBHcq1PGw" annotatedElement="_PjU0QC3eEeK6POBHcq1PGw">
+            <body>Maximum number of manual backups (per backup type) to store in the ME. &#xD;
+When this limit is reached, if autoDelete=ENABLED, BRM removes the oldest manual backup before creating a new one; otherwise, an error is returned when createBackup() is invoked and the NMS must do the required housekeeping before attempting to create a new backup.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tQ4KMI_yEeKMwIN3eujatQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PjU0Qi3eEeK6POBHcq1PGw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_PkAmwI_0EeKMwIN3eujatQ" value="100"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_PjU0RS3eEeK6POBHcq1PGw" name="autoDelete" visibility="public" type="_RVRvcC6hEeK75aUoP9yZHw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_PjU0Ri3eEeK6POBHcq1PGw" annotatedElement="_PjU0RS3eEeK6POBHcq1PGw">
+            <body>Determines whether automated housekeeping of manual backups is enabled. &#xD;
+If ENABLED and the number of backups already stored on the ME is equal to the value of maxStoredManualBackups, BRM removes the oldest backup before creating a new one. If set to DISABLED, BRM does not attempt to remove the oldest backup and instead returns failure when createBackup() is invoked.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sQE0gI_yEeKMwIN3eujatQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PjU0Ry3eEeK6POBHcq1PGw" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_kue_0C6hEeK75aUoP9yZHw" name="ENABLED" type="_RVRvcC6hEeK75aUoP9yZHw" instance="_RVRvci6hEeK75aUoP9yZHw"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_RVRvcC6hEeK75aUoP9yZHw" name="BrmManualBackupAutoDelete">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_RVRvcS6hEeK75aUoP9yZHw" annotatedElement="_RVRvcC6hEeK75aUoP9yZHw">
+          <body>Indicates whether or not BRM automatically does the housekeeping of manual backups.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_RVRvci6hEeK75aUoP9yZHw" name="ENABLED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_RVRvcy6hEeK75aUoP9yZHw" annotatedElement="_RVRvci6hEeK75aUoP9yZHw">
+            <body>Enabled</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_RVRvdC6hEeK75aUoP9yZHw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_RVRvdS6hEeK75aUoP9yZHw" name="DISABLED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_RVRvdi6hEeK75aUoP9yZHw" annotatedElement="_RVRvdS6hEeK75aUoP9yZHw">
+            <body>Disabled.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_RVRvdy6hEeK75aUoP9yZHw" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_tMyooC9AEeK75aUoP9yZHw" name="" memberEnd="_tMzPsC9AEeK75aUoP9yZHw _tM0d0C9AEeK75aUoP9yZHw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_tM0d0C9AEeK75aUoP9yZHw" name="BrmBackupManager" visibility="public" type="_KPNJkGuFEeC-4MS_I9Cylg" association="_tMyooC9AEeK75aUoP9yZHw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_sJ9GoIBVEeKxi4ancrExzg" name="" memberEnd="_sKX9YIBVEeKxi4ancrExzg _sKc14IBVEeKxi4ancrExzg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_sKc14IBVEeKxi4ancrExzg" name="BrM" visibility="public" type="_qinG4GuCEeC-4MS_I9Cylg" aggregation="composite" association="_sJ9GoIBVEeKxi4ancrExzg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sK7-EIBVEeKxi4ancrExzg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sK2egIBVEeKxi4ancrExzg" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_sKX9YIBVEeKxi4ancrExzg" name="SystemFunctions" visibility="public" association="_sJ9GoIBVEeKxi4ancrExzg">
+          <type xmi:type="uml:Class" href="ComTop.uml#_ETwJsJmNEd-RhrgDerFWug"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aWQWoHgKEeOsO4Zm2ZpZmw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aWPvkHgKEeOsO4Zm2ZpZmw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_O4rvgIBWEeKxi4ancrExzg" name="BrmCalendarBasedPeriodicEvent">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_O5K3sYBWEeKxi4ancrExzg" annotatedElement="_O4rvgIBWEeKxi4ancrExzg">
+          <body>Periodic backup event using calendar-based interval.&#xD;
+&#xD;
+This construct can be used to configure a periodic scheduled backup event by specifying the desired interval using calendar. For instance, in order to configure a scheduled backup event to occur every night at 2:00 am, the following setup must be done:&#xD;
+time=02:00:00&#xD;
+The start time for calculating scheduled events is assumed to be the current system time by default, unless explicitly set using the startTime attribute. Furthermore, if the configured event is to stop at a specific date, stopTime attribute must be set accordingly. Note that the default value of stopTime is the end of century.&#xD;
+A scheduled backup event of this type is triggered only if ALL the conditions with regard to attribute values are satisfied. For example, if &quot;dayOfWeek&quot; is set to Monday and &quot;dayOfMonth&quot; is set to 1, the event will be triggered only if the first day of month is Monday.&#xD;
+Daylight saving adjustments in Spring and Fall are addressed such that the affected scheduled backup events are triggered exactly once.&#xD;
+</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_gyzikLoTEeWr2cQC7pIWdw" constrainedElement="_O4rvgIBWEeKxi4ancrExzg">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_gy0wsLoTEeWr2cQC7pIWdw">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <generalization xmi:type="uml:Generalization" xmi:id="_8hp4YIBWEeKxi4ancrExzg">
+          <general xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_yLT_cJUhEeGUP7CXQugFTQ"/>
+        </generalization>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_O5bWYIBWEeKxi4ancrExzg" name="brmCalendarBasedPeriodicEventId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_O5rOAIBWEeKxi4ancrExzg" annotatedElement="_O5bWYIBWEeKxi4ancrExzg">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_O56ekIBWEeKxi4ancrExzg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_O57FoIBWEeKxi4ancrExzg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_VweRQIBXEeKxi4ancrExzg" name="BrmSingleEvent">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_VwvXAYBXEeKxi4ancrExzg" annotatedElement="_VweRQIBXEeKxi4ancrExzg">
+          <body>A single scheduled backup event.&#xD;
+&#xD;
+This construct can be used to configure a single (one-shot) scheduled backup event by specifying the desired date and time.&#xD;
+</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_Ncf_wLoUEeWr2cQC7pIWdw" constrainedElement="_VweRQIBXEeKxi4ancrExzg">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_NchN4LoUEeWr2cQC7pIWdw">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <generalization xmi:type="uml:Generalization" xmi:id="_fY0rkIBXEeKxi4ancrExzg">
+          <general xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_jzw40JUmEeGUP7CXQugFTQ"/>
+        </generalization>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Vw-nkIBXEeKxi4ancrExzg" name="brmSingleEventId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_VxNREIBXEeKxi4ancrExzg" annotatedElement="_Vw-nkIBXEeKxi4ancrExzg">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VxchoIBXEeKxi4ancrExzg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VxdvwIBXEeKxi4ancrExzg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_zD6WIIBXEeKxi4ancrExzg" name="BrmPeriodicEvent">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_zEI_oYBXEeKxi4ancrExzg" annotatedElement="_zD6WIIBXEeKxi4ancrExzg">
+          <body>Periodic backup event.&#xD;
+This construct can be used to configure a periodic scheduled backup event by specifying the number of months, weeks, days, hours, or minutes. For instance, in order to configure a scheduled backup event to occur every 12 hours, the following setup must be done:&#xD;
+&#xD;
+hours=12&#xD;
+&#xD;
+The start time for calculating scheduled events is assumed to be the current system time by default, unless explicitly set using the startTime attribute. Furthermore, if the configured event is to stop at a specific date, stopTime attribute must be set accordingly. Note that the default value of stopTime is the end of century.&#xD;
+</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_BuL-gLoUEeWr2cQC7pIWdw" constrainedElement="_zD6WIIBXEeKxi4ancrExzg">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_BuNMoLoUEeWr2cQC7pIWdw">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <generalization xmi:type="uml:Generalization" xmi:id="_1JxUwIBqEeKtS84OKCip5g">
+          <general xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_qHlf8JUpEeGUP7CXQugFTQ"/>
+        </generalization>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_zEYQMIBXEeKxi4ancrExzg" name="brmPeriodicEventId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_zElrkYBXEeKxi4ancrExzg" annotatedElement="_zEYQMIBXEeKxi4ancrExzg">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zEzuAIBXEeKxi4ancrExzg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zE0VEIBXEeKxi4ancrExzg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_Qj_v4IBYEeKxi4ancrExzg" name="" memberEnd="_QkA-AIBYEeKxi4ancrExzg _QkDaQIBYEeKxi4ancrExzg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_QkDaQIBYEeKxi4ancrExzg" name="BrmBackupScheduler" visibility="public" type="_3Fq20HOGEeGI1al_hUEYpA" association="_Qj_v4IBYEeKxi4ancrExzg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QkYxcIBYEeKxi4ancrExzg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QkYKYIBYEeKxi4ancrExzg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_nNaz0IBYEeKxi4ancrExzg" name="" memberEnd="_nNba4IBYEeKxi4ancrExzg _nNdQEIBYEeKxi4ancrExzg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_nNdQEIBYEeKxi4ancrExzg" name="BrmBackupScheduler" visibility="public" type="_3Fq20HOGEeGI1al_hUEYpA" association="_nNaz0IBYEeKxi4ancrExzg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nNvj8IBYEeKxi4ancrExzg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nNu84IBYEeKxi4ancrExzg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_02obgIBYEeKxi4ancrExzg" name="" memberEnd="_02ppoIBYEeKxi4ancrExzg _02re0IBYEeKxi4ancrExzg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_02re0IBYEeKxi4ancrExzg" name="BrmBackupScheduler" visibility="public" type="_3Fq20HOGEeGI1al_hUEYpA" association="_02obgIBYEeKxi4ancrExzg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_029ysIBYEeKxi4ancrExzg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_029LoIBYEeKxi4ancrExzg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_oCassMJEEeKeBL66pxEmiQ" name="EcimPasswordString">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_oCasscJEEeKeBL66pxEmiQ" annotatedElement="_oCassMJEEeKeBL66pxEmiQ">
+          <body>Holds the password string.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_oCasssJEEeKeBL66pxEmiQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_ALyqwH7iEeOipY_KufDMEw" name="BrmAutoExport">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ALyqwX7iEeOipY_KufDMEw" annotatedElement="_ALyqwH7iEeOipY_KufDMEw">
+          <body>Indicates whether or not a scheduled backup will be automatically exported upon successful creation.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ALyqwn7iEeOipY_KufDMEw" name="DISABLED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ALyqw37iEeOipY_KufDMEw" annotatedElement="_ALyqwn7iEeOipY_KufDMEw">
+            <body>Disabled.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_ALyqxH7iEeOipY_KufDMEw" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ALyqxX7iEeOipY_KufDMEw" name="ENABLED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ALyqxn7iEeOipY_KufDMEw" annotatedElement="_ALyqxX7iEeOipY_KufDMEw">
+            <body>Enabled.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_ALyqx37iEeOipY_KufDMEw" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_i3vXMKKWEeOL09eSJoOKAg" name="BrmBackupLabelStore">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_i3vXMaKWEeOL09eSJoOKAg" annotatedElement="_i3vXMKKWEeOL09eSJoOKAg">
+          <body>Provides optional support for labeling of certain backups.&#xD;
+This class contains attributes that help distinguish certain backups such as the last restored backup, primary restore candidate, and so on.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_OF8-sLoPEeWr2cQC7pIWdw" constrainedElement="_i3vXMKKWEeOL09eSJoOKAg">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_OGApELoPEeWr2cQC7pIWdw">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_i3vXMqKWEeOL09eSJoOKAg" name="brmBackupLabelStoreId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_i3vXM6KWEeOL09eSJoOKAg" annotatedElement="_i3vXMqKWEeOL09eSJoOKAg">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_i3vXNaKWEeOL09eSJoOKAg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_i3vXNKKWEeOL09eSJoOKAg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_i3vXNqKWEeOL09eSJoOKAg" name="lastRestoredBackup" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_i3vXN6KWEeOL09eSJoOKAg" annotatedElement="_i3vXNqKWEeOL09eSJoOKAg">
+            <body>The name of the backup that has been last used to restore the ME.&#xD;
+This does not imply that the currently running version of the system is the same as this backup, but instead shows which one of the backups has last been used to restore the ME. In a system which has never been restored using a backup, this attribute is empty.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ptlNoKKWEeOL09eSJoOKAg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ptmbwKKWEeOL09eSJoOKAg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_i3vXOqKWEeOL09eSJoOKAg" name="lastCreatedBackup" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_i3vXO6KWEeOL09eSJoOKAg" annotatedElement="_i3vXOqKWEeOL09eSJoOKAg">
+            <body>The name of the last created backup.&#xD;
+This backup may be MANUAL or SCHEDULED. Note that this attribute will not be updated in case of a failed attempt to create a backup resulting in an INCOMPLETE backup.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uOhpQKKWEeOL09eSJoOKAg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uOiQUKKWEeOL09eSJoOKAg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_i3vXPqKWEeOL09eSJoOKAg" name="lastImportedBackup" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_i3vXP6KWEeOL09eSJoOKAg" annotatedElement="_i3vXPqKWEeOL09eSJoOKAg">
+            <body>The name of the last imported backup to the ME.&#xD;
+Note that this attribute will not be updated in case of a failed attempt to import a backup.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zJ7MQaKWEeOL09eSJoOKAg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zJ8aYKKWEeOL09eSJoOKAg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_i3vXQqKWEeOL09eSJoOKAg" name="lastExportedBackup" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_i3vXQ6KWEeOL09eSJoOKAg" annotatedElement="_i3vXQqKWEeOL09eSJoOKAg">
+            <body>The name of the last exported backup from the ME.&#xD;
+Note that this attribute will not be updated in case of a failed attempt to export a backup.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wW0LcKKWEeOL09eSJoOKAg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wW0ygKKWEeOL09eSJoOKAg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_i3vXRqKWEeOL09eSJoOKAg" name="restoreEscalationList" visibility="public" isOrdered="true" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_i3vXR6KWEeOL09eSJoOKAg" annotatedElement="_i3vXRqKWEeOL09eSJoOKAg">
+            <body>Specifies a list of backups, by their name, in the order that shall be used to restore the ME if need be.&#xD;
+Specifically, the first element of this ordered list identifies the 'primary restore candidate'. Should the attempt to restore the ME with a given backup fail, the next backup in the list must be tried.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2GkjkKKWEeOL09eSJoOKAg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2GmYwKKWEeOL09eSJoOKAg" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_tISnsKKbEeOL09eSJoOKAg" name="" memberEnd="_tITOwKKbEeOL09eSJoOKAg _tIVrAKKbEeOL09eSJoOKAg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_tIVrAKKbEeOL09eSJoOKAg" name="BrmBackupManager" visibility="public" type="_KPNJkGuFEeC-4MS_I9Cylg" association="_tISnsKKbEeOL09eSJoOKAg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tI2BUKKbEeOL09eSJoOKAg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tI1aQKKbEeOL09eSJoOKAg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_IQmMMKdGEeOL09eSJoOKAg" name="BrmAsyncActionProgress">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_IQmMMadGEeOL09eSJoOKAg" annotatedElement="_IQmMMKdGEeOL09eSJoOKAg">
+          <body>This records the progress of an asyncronous action.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_IQmzQKdGEeOL09eSJoOKAg" name="actionName" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_IQmzQadGEeOL09eSJoOKAg" annotatedElement="_IQmzQKdGEeOL09eSJoOKAg">
+            <body>The name of the invoked asynchronous action.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IQmzQqdGEeOL09eSJoOKAg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_IQmzQ6dGEeOL09eSJoOKAg" name="additionalInfo" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_IQmzRKdGEeOL09eSJoOKAg" annotatedElement="_IQmzQ6dGEeOL09eSJoOKAg">
+            <body>Used for logging significant messages during execution of an action.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IQmzRqdGEeOL09eSJoOKAg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IQmzRadGEeOL09eSJoOKAg" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_IQmzR6dGEeOL09eSJoOKAg" name="progressInfo" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_IQmzSKdGEeOL09eSJoOKAg" annotatedElement="_IQmzR6dGEeOL09eSJoOKAg">
+            <body>Textual information describing the actual state of the execution of the action.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IQmzSadGEeOL09eSJoOKAg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_IQmzSqdGEeOL09eSJoOKAg" name="progressPercentage" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_IQmzS6dGEeOL09eSJoOKAg" annotatedElement="_IQmzSqdGEeOL09eSJoOKAg">
+            <body>Progress of the action. &#xD;
+The range is between 0 and 100.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IQmzTKdGEeOL09eSJoOKAg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_IQmzTadGEeOL09eSJoOKAg" name="result" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_IQmzTqdGEeOL09eSJoOKAg" annotatedElement="_IQmzTadGEeOL09eSJoOKAg">
+            <body>Result state of completed action.&#xD;
+This field has the value NOT_AVAILABLE if the action is not finished.</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#_5JuxUEVvEeC0EevVhLHxGg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IQmzT6dGEeOL09eSJoOKAg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_IQmzUKdGEeOL09eSJoOKAg" name="resultInfo" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_IQmzUadGEeOL09eSJoOKAg" annotatedElement="_IQmzUKdGEeOL09eSJoOKAg">
+            <body>Textual description of the outcome/result of the action containing useful info for the NMS.&#xD;
+It can contain an error message if the action failed.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IQmzUqdGEeOL09eSJoOKAg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_IQmzU6dGEeOL09eSJoOKAg" name="state" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_IQmzVKdGEeOL09eSJoOKAg" annotatedElement="_IQmzU6dGEeOL09eSJoOKAg">
+            <body>Current state of the action.</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#_CCilEEVwEeC0EevVhLHxGg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IQmzVadGEeOL09eSJoOKAg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_IQmzVqdGEeOL09eSJoOKAg" name="actionId">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_IQmzV6dGEeOL09eSJoOKAg" annotatedElement="_IQmzVqdGEeOL09eSJoOKAg">
+            <body>Uniquely identifies the invocation of an action.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_IQmzWKdGEeOL09eSJoOKAg" name="timeActionStarted" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_IQmzWadGEeOL09eSJoOKAg" annotatedElement="_IQmzWKdGEeOL09eSJoOKAg">
+            <body>The date and time when the current action was started.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_IQmzWqdGEeOL09eSJoOKAg" name="timeActionCompleted" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_IQmzW6dGEeOL09eSJoOKAg" annotatedElement="_IQmzWqdGEeOL09eSJoOKAg">
+            <body>The date and time when the action was completed (successfully or unsuccessfully).</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_IQmzXKdGEeOL09eSJoOKAg" name="timeOfLastStatusUpdate" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_IQmzXadGEeOL09eSJoOKAg" annotatedElement="_IQmzXKdGEeOL09eSJoOKAg">
+            <body>The date and time when the struct member state was last updated.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_0SGmILoOEeWr2cQC7pIWdw" name="Features">
+        <packagedElement xmi:type="uml:Class" xmi:id="_0SPJALoOEeWr2cQC7pIWdw" name="CPI_HIDDEN"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_2rVuYLoOEeWr2cQC7pIWdw" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_2rdqMLoOEeWr2cQC7pIWdw" name="BASIC"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_4ELwoLoOEeWr2cQC7pIWdw" client="_2rdqMLoOEeWr2cQC7pIWdw" supplier="_0SPJALoOEeWr2cQC7pIWdw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_NDgQYMFREea4FcQNoP5-2Q" name="BrmFailsafeBackup">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ND0ZcMFREea4FcQNoP5-2Q" annotatedElement="_NDgQYMFREea4FcQNoP5-2Q">
+          <body>MO for activating and deactivating failsafe backups. 
+Failsafe backups can be used when making changes to sensitive parts of the model, in which an error in configuration can lead to lost OAM connectivity or other failures from which the system can recover by a restore from a backup. When activated the failsafe backup function will automatically restore the system from a backup if the configuration as not been confirmed within a defined time period. 
+</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ND2OoMFREea4FcQNoP5-2Q" name="brmFailsafeBackupId" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NEGtUMFREea4FcQNoP5-2Q" annotatedElement="_ND2OoMFREea4FcQNoP5-2Q">
+            <body>Holds the name used when identifying the MO. </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NEH7cMFREea4FcQNoP5-2Q" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NEIigMFREea4FcQNoP5-2Q" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_-K95YMFREea4FcQNoP5-2Q" name="backupName" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_-LQ0UMFREea4FcQNoP5-2Q" annotatedElement="_-K95YMFREea4FcQNoP5-2Q">
+            <body>Name of the backup that will be restored in case the failsafe function is activated. </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-LRbYMFREea4FcQNoP5-2Q"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-LSCcMFREea4FcQNoP5-2Q" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Imgj0MFVEea4FcQNoP5-2Q" name="progressReport" visibility="public" type="_IQmMMKdGEeOL09eSJoOKAg" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Im0s4MFVEea4FcQNoP5-2Q" annotatedElement="_Imgj0MFVEea4FcQNoP5-2Q">
+            <body>Represents the progress report and final result of creating backup for failsafe configuration. 
+It will return the same information as the progressReport attribute of the BrmBackupManager managed object class. 
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Im17AMFVEea4FcQNoP5-2Q" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Im2iEMFVEea4FcQNoP5-2Q" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_SxRx4MFZEea4FcQNoP5-2Q" name="timeoutLength" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_SxvE4MFZEea4FcQNoP5-2Q" annotatedElement="_SxRx4MFZEea4FcQNoP5-2Q">
+            <body>The number of seconds the system waits before activating the failsafe function.
+
+If the value is set while the function is active the timeRemaining is changed to that time instead.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxV08CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SxwTAMFZEea4FcQNoP5-2Q"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sxw6EMFZEea4FcQNoP5-2Q" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_Sxvr8MFZEea4FcQNoP5-2Q" value="1200"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__jpNcMFaEea4FcQNoP5-2Q" name="timeRemaining" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="__kOcQMFaEea4FcQNoP5-2Q" annotatedElement="__jpNcMFaEea4FcQNoP5-2Q">
+            <body>The number of seconds that remains before the system is restored from the selected backup. </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxV08CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__kPDUMFaEea4FcQNoP5-2Q"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__kPqYMFaEea4FcQNoP5-2Q" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rc2o4MFbEea4FcQNoP5-2Q" name="usageState" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rdKx8MFbEea4FcQNoP5-2Q" annotatedElement="_rc2o4MFbEea4FcQNoP5-2Q">
+            <body>Shows if the failsafe function is activated or not. 
+Multiple failsafe points is not possible, therefore this state is either IDLE or BUSY. </body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#_sPDbsMVPEeOFH-77Uwfo4Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rdMAEMFbEea4FcQNoP5-2Q" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rdMAEcFbEea4FcQNoP5-2Q" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_dyZZ4MHxEeayAeC6mvRdcQ" name="" visibility="public" memberEnd="_dyaA8MHxEeayAeC6mvRdcQ _dybPEMHxEeayAeC6mvRdcQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_dybPEMHxEeayAeC6mvRdcQ" name="BrmBackupManager" visibility="public" type="_KPNJkGuFEeC-4MS_I9Cylg" association="_dyZZ4MHxEeayAeC6mvRdcQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZUBfMMHzEeayAeC6mvRdcQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZT_C8MHzEeayAeC6mvRdcQ" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_03w6ALpBEeGw5LKoWj9CjA" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_-JX9AGuAEeCqn7Fp3E2AOA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hws7YDCWEeum-LsfUdOKNQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hwticDCWEeum-LsfUdOKNQ" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hwticTCWEeum-LsfUdOKNQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hwticjCWEeum-LsfUdOKNQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hwticzCWEeum-LsfUdOKNQ" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hwtidDCWEeum-LsfUdOKNQ" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-Jc1gGuAEeCqn7Fp3E2AOA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_04XXCbpBEeGw5LKoWj9CjA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_sor7kN6MEeehtLhJYaltnA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sor7kd6MEeehtLhJYaltnA" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sor7kt6MEeehtLhJYaltnA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sor7k96MEeehtLhJYaltnA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sor7lN6MEeehtLhJYaltnA" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sor7ld6MEeehtLhJYaltnA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_e1uSANKuEeaFScuhhBXuZA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_e1uSAdKuEeaFScuhhBXuZA" key="Version" value="1.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_e1uSAtKuEeaFScuhhBXuZA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_e1uSA9KuEeaFScuhhBXuZA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_e1uSBNKuEeaFScuhhBXuZA" key="Date" value="2016-02-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_e1uSBdKuEeaFScuhhBXuZA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_04XXCrpBEeGw5LKoWj9CjA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_JxrE4BtEEeWvQYFW8NSCww" hideGroupName="" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="BRM" createdBy="EMC/QRT/LM/B Guy Perron"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_JxsTABtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Package="_qiLpEGuCEeC-4MS_I9Cylg" author="Zulfikarali Charolia" contact="Zulfikarali Charolia" date="" docNo="" revision="" version="3" release="2" organization="EMC/QRT/LM/B" ecimMomName="ECIM_BrM" ecimMomVersion="3" ecimMomRelease="1" ecimMomCorrection="0" correction="0"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_JxsTARtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_qi73AGuCEeC-4MS_I9Cylg"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_Jxs6EBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Enumeration="_JQa4AGuDEeC-4MS_I9Cylg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_JxthIBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_JQa4AmuDEeC-4MS_I9Cylg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_JxthIRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_JQa4BWuDEeC-4MS_I9Cylg"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_JxthIhtEEeWvQYFW8NSCww" hideGroupName="" specification="" range="" base_DataType="_JQ284GuDEeC-4MS_I9Cylg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_JxuIMBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_KPNJkGuFEeC-4MS_I9Cylg" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_JxuIMRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_KPgrkGuFEeC-4MS_I9Cylg"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_JxuvQBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_w9whMGuJEeCW1LDkcn7ZNA"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_JxuvQRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Parameter="_4Ae9EGuJEeCW1LDkcn7ZNA"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_JxuvQhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_uUWZgGuKEeCW1LDkcn7ZNA" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_JxvWUBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_uUrJoGuKEeCW1LDkcn7ZNA"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_JxvWURtEEeWvQYFW8NSCww" hideGroupName="" specification="" isNotifiable="true" base_Property="_k2shYGuMEeCgdKq6_1VMTg"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_JxvWUhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_yF2qUGuMEeCgdKq6_1VMTg"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_Jxv9YBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Association="_S_0NIGuREeCgdKq6_1VMTg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_Jxv9YRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Association="_4QEiIGuSEeCgdKq6_1VMTg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_Jxv9YhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_EnumerationLiteral="_Gc03kGuaEeCrtKg5o-3ABA"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_JxwkcBtEEeWvQYFW8NSCww" base_Property="_K0eVoGuMEeCgdKq6_1VMTg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_JxwkcRtEEeWvQYFW8NSCww" isNotifiable="true" base_Property="_5uFrMGuFEeC-4MS_I9Cylg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_JxwkchtEEeWvQYFW8NSCww" isNotifiable="true" base_Property="_xTTQMGuFEeC-4MS_I9Cylg"/>
+  <ECIMBaseProfile:EcimAbstractMoClass xmi:id="_JxwkcxtEEeWvQYFW8NSCww" base_Class="_Xmjt8HNtEeG_Gc7I8tXQiw" hideGroupName="" specification="" statusInformation=""/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_JxxLgBtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" statusInformation="" base_Class="_3Fq20HOGEeGI1al_hUEYpA" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_JxxLgRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_3GR60HOGEeGI1al_hUEYpA"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_JxxLghtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_ZyB_IFdiEeGpg5ja5iS_uw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_JxxykBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_EdZgIE0rEeG91s1dZbPH9g"/>
+  <ECIMBaseProfile:EcimGeneralization xmi:id="_JxxykRtEEeWvQYFW8NSCww" base_Generalization="_LVvdwHOHEeGI1al_hUEYpA"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_JxxykhtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" statusInformation="" base_Association="_BwNKEHOLEeGI1al_hUEYpA" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_JxyZoBtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_blZUYHeGEeGf2P5cQ_Bi6A"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_JxyZoRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_hu96sHeGEeGf2P5cQ_Bi6A"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_JxyZohtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_nzRj8INiEeGkLv30vkl8DA"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_JxyZoxtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" statusInformation="" base_Enumeration="_vwII0Jh2EeGI27jH_iMfww"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_JxzAsBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_vwjmoJh2EeGI27jH_iMfww"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_JxzAsRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_37Xr8Jh2EeGI27jH_iMfww"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_JxzAshtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_Uth90Jh5EeGI27jH_iMfww"/>
+  <CoreMWProfile:CmwClass xmi:id="_J6Oj8BtEEeWvQYFW8NSCww" base_Class="_qinG4GuCEeC-4MS_I9Cylg"/>
+  <CoreMWProfile:CmwClass xmi:id="_J6Oj8RtEEeWvQYFW8NSCww" base_Class="_KPNJkGuFEeC-4MS_I9Cylg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6PLABtEEeWvQYFW8NSCww" base_Property="_xTTQMGuFEeC-4MS_I9Cylg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6PLARtEEeWvQYFW8NSCww" base_Property="_5uFrMGuFEeC-4MS_I9Cylg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAction xmi:id="_J6PyEBtEEeWvQYFW8NSCww" base_Operation="_w9whMGuJEeCW1LDkcn7ZNA" admOpId="1"/>
+  <CoreMWProfile:CmwClass xmi:id="_J6PyERtEEeWvQYFW8NSCww" base_Class="_uUWZgGuKEeCW1LDkcn7ZNA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6PyEhtEEeWvQYFW8NSCww" base_Property="_K0eVoGuMEeCgdKq6_1VMTg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6PyExtEEeWvQYFW8NSCww" base_Property="_k2shYGuMEeCgdKq6_1VMTg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6QZIBtEEeWvQYFW8NSCww" base_Property="_Uth90Jh5EeGI27jH_iMfww" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAction xmi:id="_J6QZIRtEEeWvQYFW8NSCww" base_Operation="_yF2qUGuMEeCgdKq6_1VMTg" admOpId="3"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6QZIhtEEeWvQYFW8NSCww" base_Property="_blZUYHeGEeGf2P5cQ_Bi6A" isCached="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6QZIxtEEeWvQYFW8NSCww" base_Property="_hu96sHeGEeGf2P5cQ_Bi6A" isConfigurable="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_J6RAMBtEEeWvQYFW8NSCww" base_Class="_3Fq20HOGEeGI1al_hUEYpA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6RAMRtEEeWvQYFW8NSCww" base_Property="_ZyB_IFdiEeGpg5ja5iS_uw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6RAMhtEEeWvQYFW8NSCww" base_Property="_EdZgIE0rEeG91s1dZbPH9g" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6RAMxtEEeWvQYFW8NSCww" base_Property="_nzRj8INiEeGkLv30vkl8DA" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6RnQBtEEeWvQYFW8NSCww" base_Property="_RMqCALr9EeGw5LKoWj9CjA" isCached="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_JxzAsxtEEeWvQYFW8NSCww" isPersistent="false" hideGroupName="hidden" specification="" base_Property="_RMqCALr9EeGw5LKoWj9CjA"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_JxznwBtEEeWvQYFW8NSCww" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Replaced by progressReport." dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_aGV6ULsPEeGw5LKoWj9CjA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6RnQhtEEeWvQYFW8NSCww" base_Property="_aGV6ULsPEeGw5LKoWj9CjA" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_JxznwRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_oiv5gLsPEeGw5LKoWj9CjA"/>
+  <CoreMWProfile:CmwAction xmi:id="_J6RnQxtEEeWvQYFW8NSCww" base_Operation="_oiv5gLsPEeGw5LKoWj9CjA" admOpId="5"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_JxznwhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_ub7TYLsPEeGw5LKoWj9CjA"/>
+  <CoreMWProfile:CmwAction xmi:id="_J6SOUBtEEeWvQYFW8NSCww" base_Operation="_ub7TYLsPEeGw5LKoWj9CjA" admOpId="2"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_JxznwxtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Parameter="_ub7TYrsPEeGw5LKoWj9CjA"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Jx0O0BtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_M_lC8LsQEeGw5LKoWj9CjA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6SOURtEEeWvQYFW8NSCww" base_Property="_M_lC8LsQEeGw5LKoWj9CjA" isCached="true" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_Jx0O0RtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Operation="_GVix0LvqEeGw5LKoWj9CjA"/>
+  <CoreMWProfile:CmwAction xmi:id="_J6SOUhtEEeWvQYFW8NSCww" base_Operation="_GVix0LvqEeGw5LKoWj9CjA"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_Jx0O0htEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Parameter="_GVix0rvqEeGw5LKoWj9CjA"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_Jx0O0xtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Parameter="_GVix1rvqEeGw5LKoWj9CjA"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_Jx014BtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Parameter="_oq1VELvsEeGw5LKoWj9CjA"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_Jx014RtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Parameter="_A_BRsLvtEeGw5LKoWj9CjA"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_Jx014htEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Parameter="_E-O5QLvtEeGw5LKoWj9CjA"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Jx014xtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_E6weEMH5EeGjkuGa2K3Csg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6SOUxtEEeWvQYFW8NSCww" base_Property="_E6weEMH5EeGjkuGa2K3Csg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6S1YBtEEeWvQYFW8NSCww" base_Property="_CZsacBooEeK1UMUQ9hLgqg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwMom xmi:id="_J6S1YRtEEeWvQYFW8NSCww" base_Package="_qiLpEGuCEeC-4MS_I9Cylg" immNamespace="MOM_NAME"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_Jx1c8BtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" statusInformation="" base_Class="_PjTmIC3eEeK6POBHcq1PGw" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_Jx1c8RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_PjTmIi3eEeK6POBHcq1PGw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_Jx1c8htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_PjU0QC3eEeK6POBHcq1PGw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_Jx1c8xtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_PjU0RS3eEeK6POBHcq1PGw"/>
+  <CoreMWProfile:CmwClass xmi:id="_J6S1YhtEEeWvQYFW8NSCww" base_Class="_PjTmIC3eEeK6POBHcq1PGw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6TccBtEEeWvQYFW8NSCww" base_Property="_PjU0RS3eEeK6POBHcq1PGw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6TccRtEEeWvQYFW8NSCww" base_Property="_PjU0QC3eEeK6POBHcq1PGw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_Jx1c9BtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" statusInformation="" base_Enumeration="_RVRvcC6hEeK75aUoP9yZHw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_Jx2EABtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_RVRvci6hEeK75aUoP9yZHw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_Jx2EARtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_RVRvdS6hEeK75aUoP9yZHw"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_Jx2EAhtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" statusInformation="" base_Association="_tMyooC9AEeK75aUoP9yZHw" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Jx2EAxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_EAMnoFs2EeKbVdEkasR1Kg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6TcchtEEeWvQYFW8NSCww" base_Property="_EAMnoFs2EeKbVdEkasR1Kg" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Jx2EBBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_o0hRwFs7EeKbVdEkasR1Kg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6UDgBtEEeWvQYFW8NSCww" base_Property="_o0hRwFs7EeKbVdEkasR1Kg" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_Jx2rEBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_sJ9GoIBVEeKxi4ancrExzg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_Jx2rERtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" statusInformation="" base_Class="_O4rvgIBWEeKxi4ancrExzg"/>
+  <CoreMWProfile:CmwClass xmi:id="_J6UqkBtEEeWvQYFW8NSCww" base_Class="_O4rvgIBWEeKxi4ancrExzg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_Jx2rEhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_O5bWYIBWEeKxi4ancrExzg"/>
+  <ECIMBaseProfile:EcimGeneralization xmi:id="_Jx2rExtEEeWvQYFW8NSCww" base_Generalization="_8hp4YIBWEeKxi4ancrExzg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_Jx3SIBtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" statusInformation="" base_Class="_VweRQIBXEeKxi4ancrExzg"/>
+  <CoreMWProfile:CmwClass xmi:id="_J6UqkRtEEeWvQYFW8NSCww" base_Class="_VweRQIBXEeKxi4ancrExzg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_Jx3SIRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_Vw-nkIBXEeKxi4ancrExzg"/>
+  <ECIMBaseProfile:EcimGeneralization xmi:id="_Jx3SIhtEEeWvQYFW8NSCww" base_Generalization="_fY0rkIBXEeKxi4ancrExzg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_Jx3SIxtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" statusInformation="" base_Class="_zD6WIIBXEeKxi4ancrExzg"/>
+  <CoreMWProfile:CmwClass xmi:id="_J6UqkhtEEeWvQYFW8NSCww" base_Class="_zD6WIIBXEeKxi4ancrExzg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_Jx35MBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_zEYQMIBXEeKxi4ancrExzg"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_Jx35MRtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" statusInformation="" base_Association="_Qj_v4IBYEeKxi4ancrExzg" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_Jx35MhtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" statusInformation="" base_Association="_nNaz0IBYEeKxi4ancrExzg" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_Jx35MxtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" statusInformation="" base_Association="_02obgIBYEeKxi4ancrExzg" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimGeneralization xmi:id="_Jx35NBtEEeWvQYFW8NSCww" base_Generalization="_1JxUwIBqEeKtS84OKCip5g"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Jx4gQBtEEeWvQYFW8NSCww" isNotifiable="true" base_Property="_CZsacBooEeK1UMUQ9hLgqg"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_Jx4gQRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" length="" pattern="" base_DataType="_oCassMJEEeKeBL66pxEmiQ" isPassphrase="true"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_Jx4gQhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_4B2k4MJEEeKeBL66pxEmiQ"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_Jx5HUBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_4B2k4sJEEeKeBL66pxEmiQ"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_Jx5HURtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_4B2k5sJEEeKeBL66pxEmiQ"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_Jx5HUhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Parameter="_4B2k6sJEEeKeBL66pxEmiQ"/>
+  <CoreMWProfile:CmwAction xmi:id="_J6UqkxtEEeWvQYFW8NSCww" base_Operation="_4B2k4MJEEeKeBL66pxEmiQ" admOpId="7"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_Jx5HUxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_MPyd0MJFEeKeBL66pxEmiQ"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_Jx5uYBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Parameter="_MPzE4cJFEeKeBL66pxEmiQ"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_Jx5uYRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_MPzE5cJFEeKeBL66pxEmiQ"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_Jx5uYhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Parameter="_MPzE6cJFEeKeBL66pxEmiQ"/>
+  <CoreMWProfile:CmwAction xmi:id="_J6VRoBtEEeWvQYFW8NSCww" base_Operation="_MPyd0MJFEeKeBL66pxEmiQ" admOpId="6"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_Jx5uYxtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_dm23UMJFEeKeBL66pxEmiQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6VRoRtEEeWvQYFW8NSCww" base_Property="_dm23UMJFEeKeBL66pxEmiQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwModel xmi:id="_J6VRohtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwContribution xmi:id="_J6V4sBtEEeWvQYFW8NSCww" base_Association="_sJ9GoIBVEeKxi4ancrExzg"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_Jx5uZBtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" statusInformation="" base_Enumeration="_ALyqwH7iEeOipY_KufDMEw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_Jx6VcBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_ALyqwn7iEeOipY_KufDMEw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_Jx6VcRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_ALyqxX7iEeOipY_KufDMEw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6V4sRtEEeWvQYFW8NSCww" base_Property="_J5jwkH7iEeOipY_KufDMEw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_Jx6VchtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_J5jwkH7iEeOipY_KufDMEw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6WfwBtEEeWvQYFW8NSCww" base_Property="_dsnrYH7iEeOipY_KufDMEw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_Jx6VcxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" isNotifiable="true" isAssociationEnd="true" base_Property="_dsnrYH7iEeOipY_KufDMEw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6WfwRtEEeWvQYFW8NSCww" base_Property="_fUNz8H7lEeOipY_KufDMEw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_Jx68gBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_fUNz8H7lEeOipY_KufDMEw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Jx68gRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" range="" unit="" resolution="" multiplicationFactor="" pattern="" base_Property="_DXKAIKA3EeO6PsBbw12lGg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6XG0BtEEeWvQYFW8NSCww" base_Property="_DXKAIKA3EeO6PsBbw12lGg" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_Jx68ghtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" statusInformation="" base_Class="_i3vXMKKWEeOL09eSJoOKAg" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_Jx68gxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_i3vXMqKWEeOL09eSJoOKAg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Jx68hBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" isNotifiable="true" base_Property="_i3vXNqKWEeOL09eSJoOKAg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Jx7jkBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" isNotifiable="true" base_Property="_i3vXOqKWEeOL09eSJoOKAg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Jx7jkRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" isNotifiable="true" base_Property="_i3vXPqKWEeOL09eSJoOKAg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Jx7jkhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" isNotifiable="true" base_Property="_i3vXQqKWEeOL09eSJoOKAg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Jx7jkxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" isNotifiable="true" base_Property="_i3vXRqKWEeOL09eSJoOKAg"/>
+  <CoreMWProfile:CmwClass xmi:id="_J6XG0RtEEeWvQYFW8NSCww" base_Class="_i3vXMKKWEeOL09eSJoOKAg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6XG0htEEeWvQYFW8NSCww" base_Property="_i3vXNqKWEeOL09eSJoOKAg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6Xt4BtEEeWvQYFW8NSCww" base_Property="_i3vXOqKWEeOL09eSJoOKAg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6Xt4RtEEeWvQYFW8NSCww" base_Property="_i3vXQqKWEeOL09eSJoOKAg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6Xt4htEEeWvQYFW8NSCww" base_Property="_i3vXPqKWEeOL09eSJoOKAg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6Xt4xtEEeWvQYFW8NSCww" base_Property="_i3vXRqKWEeOL09eSJoOKAg" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_Jx8KoBtEEeWvQYFW8NSCww" hideGroupName="hidden" specification="" statusInformation="" base_Association="_tISnsKKbEeOL09eSJoOKAg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimStruct xmi:id="_Jx8KoRtEEeWvQYFW8NSCww" base_Class="_IQmMMKdGEeOL09eSJoOKAg"/>
+  <CoreMWProfile:CmwStruct xmi:id="_J6YU8BtEEeWvQYFW8NSCww" base_Class="_IQmMMKdGEeOL09eSJoOKAg"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Jx8KohtEEeWvQYFW8NSCww" base_Property="_IQmzQKdGEeOL09eSJoOKAg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_J6YU8RtEEeWvQYFW8NSCww" base_Property="_IQmzQKdGEeOL09eSJoOKAg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Jx8xsBtEEeWvQYFW8NSCww" base_Property="_IQmzQ6dGEeOL09eSJoOKAg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_J6YU8htEEeWvQYFW8NSCww" base_Property="_IQmzQ6dGEeOL09eSJoOKAg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Jx8xsRtEEeWvQYFW8NSCww" base_Property="_IQmzR6dGEeOL09eSJoOKAg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_J6Y8ABtEEeWvQYFW8NSCww" base_Property="_IQmzR6dGEeOL09eSJoOKAg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Jx8xshtEEeWvQYFW8NSCww" base_Property="_IQmzSqdGEeOL09eSJoOKAg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_J6Y8ARtEEeWvQYFW8NSCww" base_Property="_IQmzSqdGEeOL09eSJoOKAg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Jx8xsxtEEeWvQYFW8NSCww" base_Property="_IQmzTadGEeOL09eSJoOKAg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_J6Y8AhtEEeWvQYFW8NSCww" base_Property="_IQmzTadGEeOL09eSJoOKAg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Jx8xtBtEEeWvQYFW8NSCww" base_Property="_IQmzUKdGEeOL09eSJoOKAg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_J6Y8AxtEEeWvQYFW8NSCww" base_Property="_IQmzUKdGEeOL09eSJoOKAg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Jx9YwBtEEeWvQYFW8NSCww" base_Property="_IQmzU6dGEeOL09eSJoOKAg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_J6ZjEBtEEeWvQYFW8NSCww" base_Property="_IQmzU6dGEeOL09eSJoOKAg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Jx9YwRtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_IQmzVqdGEeOL09eSJoOKAg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_J6ZjERtEEeWvQYFW8NSCww" base_Property="_IQmzVqdGEeOL09eSJoOKAg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Jx9YwhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_IQmzWKdGEeOL09eSJoOKAg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_J6ZjEhtEEeWvQYFW8NSCww" base_Property="_IQmzWKdGEeOL09eSJoOKAg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Jx9YwxtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_IQmzWqdGEeOL09eSJoOKAg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_J6ZjExtEEeWvQYFW8NSCww" base_Property="_IQmzWqdGEeOL09eSJoOKAg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Jx9_0BtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_IQmzXKdGEeOL09eSJoOKAg"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_J6aKIBtEEeWvQYFW8NSCww" base_Property="_IQmzXKdGEeOL09eSJoOKAg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_Jx9_0RtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_qinG4GuCEeC-4MS_I9Cylg" isSystemCreated="true" isLegacyRoot="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6aKIRtEEeWvQYFW8NSCww" base_Property="_qi73AGuCEeC-4MS_I9Cylg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6aKIhtEEeWvQYFW8NSCww" base_Property="_KPgrkGuFEeC-4MS_I9Cylg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6aKIxtEEeWvQYFW8NSCww" base_Property="_uUrJoGuKEeCW1LDkcn7ZNA" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6axMBtEEeWvQYFW8NSCww" base_Property="_3GR60HOGEeGI1al_hUEYpA" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6axMRtEEeWvQYFW8NSCww" base_Property="_PjTmIi3eEeK6POBHcq1PGw" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6axMhtEEeWvQYFW8NSCww" base_Property="_O5bWYIBWEeKxi4ancrExzg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6axMxtEEeWvQYFW8NSCww" base_Property="_Vw-nkIBXEeKxi4ancrExzg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6bYQBtEEeWvQYFW8NSCww" base_Property="_zEYQMIBXEeKxi4ancrExzg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6bYQRtEEeWvQYFW8NSCww" base_Property="_i3vXMqKWEeOL09eSJoOKAg" isPersistent="true"/>
+  <Documentation:Documentation xmi:id="_8c-7sBtDEeWvQYFW8NSCww" base_Comment="__82QUGuBEeC-4MS_I9Cylg"/>
+  <Documentation:Documentation xmi:id="_8c-7sRtDEeWvQYFW8NSCww" base_Comment="_qibgsGuCEeC-4MS_I9Cylg"/>
+  <Documentation:Documentation xmi:id="_8c-7shtDEeWvQYFW8NSCww" base_Comment="_qixe8GuCEeC-4MS_I9Cylg"/>
+  <Documentation:Documentation xmi:id="_8c-7sxtDEeWvQYFW8NSCww" base_Comment="_qjHdMGuCEeC-4MS_I9Cylg"/>
+  <Documentation:Documentation xmi:id="_8c-7tBtDEeWvQYFW8NSCww" base_Comment="_JQa4AWuDEeC-4MS_I9Cylg"/>
+  <Documentation:Documentation xmi:id="_8c-7tRtDEeWvQYFW8NSCww" base_Comment="_JQa4A2uDEeC-4MS_I9Cylg"/>
+  <Documentation:Documentation xmi:id="_8c-7thtDEeWvQYFW8NSCww" base_Comment="_JQa4BmuDEeC-4MS_I9Cylg"/>
+  <Documentation:Documentation xmi:id="_8c-7txtDEeWvQYFW8NSCww" base_Comment="_JQ284WuDEeC-4MS_I9Cylg"/>
+  <Documentation:Documentation xmi:id="_8c-7uBtDEeWvQYFW8NSCww" base_Comment="_KPW6kGuFEeC-4MS_I9Cylg"/>
+  <Documentation:Documentation xmi:id="_8c-7uRtDEeWvQYFW8NSCww" base_Comment="_KPrqsGuFEeC-4MS_I9Cylg"/>
+  <Documentation:Documentation xmi:id="_8c-7uhtDEeWvQYFW8NSCww" base_Comment="_xTePUWuFEeC-4MS_I9Cylg"/>
+  <Documentation:Documentation xmi:id="_8c-7uxtDEeWvQYFW8NSCww" base_Comment="_5uQqUGuFEeC-4MS_I9Cylg"/>
+  <Documentation:Documentation xmi:id="_8c-7vBtDEeWvQYFW8NSCww" base_Comment="_w96SMWuJEeCW1LDkcn7ZNA"/>
+  <Documentation:Documentation xmi:id="_8c-7vRtDEeWvQYFW8NSCww" base_Comment="_4Ap8MGuJEeCW1LDkcn7ZNA"/>
+  <Documentation:Documentation xmi:id="_8c-7vhtDEeWvQYFW8NSCww" base_Comment="_uUgxkGuKEeCW1LDkcn7ZNA"/>
+  <Documentation:Documentation xmi:id="_8c-7vxtDEeWvQYFW8NSCww" base_Comment="_uU2v0WuKEeCW1LDkcn7ZNA"/>
+  <Documentation:Documentation xmi:id="_8c-7wBtDEeWvQYFW8NSCww" base_Comment="_K0_TAGuMEeCgdKq6_1VMTg"/>
+  <Documentation:Documentation xmi:id="_8c-7wRtDEeWvQYFW8NSCww" base_Comment="_k225cWuMEeCgdKq6_1VMTg"/>
+  <Documentation:Documentation xmi:id="_8c-7whtDEeWvQYFW8NSCww" base_Comment="_yGBCYWuMEeCgdKq6_1VMTg"/>
+  <Documentation:Documentation xmi:id="_8c-7wxtDEeWvQYFW8NSCww" base_Comment="_GdN5IGuaEeCrtKg5o-3ABA"/>
+  <Documentation:Documentation xmi:id="_8c-7xRtDEeWvQYFW8NSCww" base_Comment="_Xms34HNtEeG_Gc7I8tXQiw"/>
+  <Documentation:Documentation xmi:id="_8c-7xhtDEeWvQYFW8NSCww" base_Comment="_3F-Y0XOGEeGI1al_hUEYpA"/>
+  <Documentation:Documentation xmi:id="_8c-7xxtDEeWvQYFW8NSCww" base_Comment="_3Gk1wHOGEeGI1al_hUEYpA"/>
+  <Documentation:Documentation xmi:id="_8c-7yBtDEeWvQYFW8NSCww" base_Comment="_ZyU6EVdiEeGpg5ja5iS_uw"/>
+  <Documentation:Documentation xmi:id="_8c-7yRtDEeWvQYFW8NSCww" base_Comment="_EdmUcU0rEeG91s1dZbPH9g"/>
+  <Documentation:Documentation xmi:id="_8c-7yhtDEeWvQYFW8NSCww" base_Comment="_bln94HeGEeGf2P5cQ_Bi6A"/>
+  <Documentation:Documentation xmi:id="_8c-7yxtDEeWvQYFW8NSCww" base_Comment="_hvFPcXeGEeGf2P5cQ_Bi6A"/>
+  <Documentation:Documentation xmi:id="_8c-7zBtDEeWvQYFW8NSCww" base_Comment="_nzuP4YNiEeGkLv30vkl8DA"/>
+  <Documentation:Documentation xmi:id="_8c-7zhtDEeWvQYFW8NSCww" base_Comment="_vwWLQJh2EeGI27jH_iMfww"/>
+  <Documentation:Documentation xmi:id="_8c-7zxtDEeWvQYFW8NSCww" base_Comment="_vwxpEJh2EeGI27jH_iMfww"/>
+  <Documentation:Documentation xmi:id="_8c-70BtDEeWvQYFW8NSCww" base_Comment="_37luYJh2EeGI27jH_iMfww"/>
+  <Documentation:Documentation xmi:id="_8c-70RtDEeWvQYFW8NSCww" base_Comment="_UtwAQJh5EeGI27jH_iMfww"/>
+  <Documentation:Documentation xmi:id="_8c-70htDEeWvQYFW8NSCww" base_Comment="_RMqCAbr9EeGw5LKoWj9CjA"/>
+  <Documentation:Documentation xmi:id="_8c-71BtDEeWvQYFW8NSCww" base_Comment="_aGV6UbsPEeGw5LKoWj9CjA"/>
+  <Documentation:Documentation xmi:id="_8c-71RtDEeWvQYFW8NSCww" base_Comment="_oiv5gbsPEeGw5LKoWj9CjA"/>
+  <Documentation:Documentation xmi:id="_8c-71htDEeWvQYFW8NSCww" base_Comment="_ub7TYbsPEeGw5LKoWj9CjA"/>
+  <Documentation:Documentation xmi:id="_8c-71xtDEeWvQYFW8NSCww" base_Comment="_ub7TY7sPEeGw5LKoWj9CjA"/>
+  <Documentation:Documentation xmi:id="_8c-72BtDEeWvQYFW8NSCww" base_Comment="_M_lC8bsQEeGw5LKoWj9CjA"/>
+  <Documentation:Documentation xmi:id="_8c-72RtDEeWvQYFW8NSCww" base_Comment="_GVix0bvqEeGw5LKoWj9CjA"/>
+  <Documentation:Documentation xmi:id="_8c-72htDEeWvQYFW8NSCww" base_Comment="_GVix07vqEeGw5LKoWj9CjA"/>
+  <Documentation:Documentation xmi:id="_8c-72xtDEeWvQYFW8NSCww" base_Comment="_GVix17vqEeGw5LKoWj9CjA"/>
+  <Documentation:Documentation xmi:id="_8c-73BtDEeWvQYFW8NSCww" base_Comment="_oq1VEbvsEeGw5LKoWj9CjA"/>
+  <Documentation:Documentation xmi:id="_8c-73RtDEeWvQYFW8NSCww" base_Comment="_A_BRsbvtEeGw5LKoWj9CjA"/>
+  <Documentation:Documentation xmi:id="_8c-73htDEeWvQYFW8NSCww" base_Comment="_E-O5QbvtEeGw5LKoWj9CjA"/>
+  <Documentation:Documentation xmi:id="_8c-73xtDEeWvQYFW8NSCww" base_Comment="_E6weEcH5EeGjkuGa2K3Csg"/>
+  <Documentation:Documentation xmi:id="_8c-74RtDEeWvQYFW8NSCww" base_Comment="_CZsacRooEeK1UMUQ9hLgqg"/>
+  <Documentation:Documentation xmi:id="_8c-74htDEeWvQYFW8NSCww" base_Comment="_PjTmIS3eEeK6POBHcq1PGw"/>
+  <Documentation:Documentation xmi:id="_8c-74xtDEeWvQYFW8NSCww" base_Comment="_PjTmIy3eEeK6POBHcq1PGw"/>
+  <Documentation:Documentation xmi:id="_8c-75BtDEeWvQYFW8NSCww" base_Comment="_PjU0QS3eEeK6POBHcq1PGw"/>
+  <Documentation:Documentation xmi:id="_8c-75RtDEeWvQYFW8NSCww" base_Comment="_PjU0Ri3eEeK6POBHcq1PGw"/>
+  <Documentation:Documentation xmi:id="_8c-75htDEeWvQYFW8NSCww" base_Comment="_RVRvcS6hEeK75aUoP9yZHw"/>
+  <Documentation:Documentation xmi:id="_8c-75xtDEeWvQYFW8NSCww" base_Comment="_RVRvcy6hEeK75aUoP9yZHw"/>
+  <Documentation:Documentation xmi:id="_8c-76BtDEeWvQYFW8NSCww" base_Comment="_RVRvdi6hEeK75aUoP9yZHw"/>
+  <Documentation:Documentation xmi:id="_8c-76RtDEeWvQYFW8NSCww" base_Comment="_EAMnoVs2EeKbVdEkasR1Kg"/>
+  <Documentation:Documentation xmi:id="_8c-76htDEeWvQYFW8NSCww" base_Comment="_o0hRwVs7EeKbVdEkasR1Kg"/>
+  <Documentation:Documentation xmi:id="_8c-76xtDEeWvQYFW8NSCww" base_Comment="_O5K3sYBWEeKxi4ancrExzg"/>
+  <Documentation:Documentation xmi:id="_8c-77BtDEeWvQYFW8NSCww" base_Comment="_O5rOAIBWEeKxi4ancrExzg"/>
+  <Documentation:Documentation xmi:id="_8c-77RtDEeWvQYFW8NSCww" base_Comment="_VwvXAYBXEeKxi4ancrExzg"/>
+  <Documentation:Documentation xmi:id="_8c-77htDEeWvQYFW8NSCww" base_Comment="_VxNREIBXEeKxi4ancrExzg"/>
+  <Documentation:Documentation xmi:id="_8c-77xtDEeWvQYFW8NSCww" base_Comment="_zEI_oYBXEeKxi4ancrExzg"/>
+  <Documentation:Documentation xmi:id="_8c-78BtDEeWvQYFW8NSCww" base_Comment="_zElrkYBXEeKxi4ancrExzg"/>
+  <Documentation:Documentation xmi:id="_8c-78RtDEeWvQYFW8NSCww" base_Comment="_oCasscJEEeKeBL66pxEmiQ"/>
+  <Documentation:Documentation xmi:id="_8c-78htDEeWvQYFW8NSCww" base_Comment="_4B2k4cJEEeKeBL66pxEmiQ"/>
+  <Documentation:Documentation xmi:id="_8c-78xtDEeWvQYFW8NSCww" base_Comment="_4B2k48JEEeKeBL66pxEmiQ"/>
+  <Documentation:Documentation xmi:id="_8c-79BtDEeWvQYFW8NSCww" base_Comment="_4B2k58JEEeKeBL66pxEmiQ"/>
+  <Documentation:Documentation xmi:id="_8c-79RtDEeWvQYFW8NSCww" base_Comment="_4B2k68JEEeKeBL66pxEmiQ"/>
+  <Documentation:Documentation xmi:id="_8c-79htDEeWvQYFW8NSCww" base_Comment="_MPzE4MJFEeKeBL66pxEmiQ"/>
+  <Documentation:Documentation xmi:id="_8c-79xtDEeWvQYFW8NSCww" base_Comment="_MPzE4sJFEeKeBL66pxEmiQ"/>
+  <Documentation:Documentation xmi:id="_8c-7-BtDEeWvQYFW8NSCww" base_Comment="_MPzE5sJFEeKeBL66pxEmiQ"/>
+  <Documentation:Documentation xmi:id="_8c-7-RtDEeWvQYFW8NSCww" base_Comment="_MPzE6sJFEeKeBL66pxEmiQ"/>
+  <Documentation:Documentation xmi:id="_8c-7-htDEeWvQYFW8NSCww" base_Comment="_dm23UcJFEeKeBL66pxEmiQ"/>
+  <Documentation:Documentation xmi:id="_8c-7-xtDEeWvQYFW8NSCww" base_Comment="_ALyqwX7iEeOipY_KufDMEw"/>
+  <Documentation:Documentation xmi:id="_8c-7_BtDEeWvQYFW8NSCww" base_Comment="_ALyqw37iEeOipY_KufDMEw"/>
+  <Documentation:Documentation xmi:id="_8c-7_RtDEeWvQYFW8NSCww" base_Comment="_ALyqxn7iEeOipY_KufDMEw"/>
+  <Documentation:Documentation xmi:id="_8c-7_htDEeWvQYFW8NSCww" base_Comment="_Yu83gH7iEeOipY_KufDMEw"/>
+  <Documentation:Documentation xmi:id="_8c-7_xtDEeWvQYFW8NSCww" base_Comment="_mkec4H7iEeOipY_KufDMEw"/>
+  <Documentation:Documentation xmi:id="_8c-8ABtDEeWvQYFW8NSCww" base_Comment="_1Ei3QH7mEeOipY_KufDMEw"/>
+  <Documentation:Documentation xmi:id="_8c-8ARtDEeWvQYFW8NSCww" base_Comment="_DXKAIaA3EeO6PsBbw12lGg"/>
+  <Documentation:Documentation xmi:id="_8c-8AhtDEeWvQYFW8NSCww" base_Comment="_i3vXMaKWEeOL09eSJoOKAg"/>
+  <Documentation:Documentation xmi:id="_8c-8AxtDEeWvQYFW8NSCww" base_Comment="_i3vXM6KWEeOL09eSJoOKAg"/>
+  <Documentation:Documentation xmi:id="_8c-8BBtDEeWvQYFW8NSCww" base_Comment="_i3vXN6KWEeOL09eSJoOKAg"/>
+  <Documentation:Documentation xmi:id="_8c-8BRtDEeWvQYFW8NSCww" base_Comment="_i3vXO6KWEeOL09eSJoOKAg"/>
+  <Documentation:Documentation xmi:id="_8c-8BhtDEeWvQYFW8NSCww" base_Comment="_i3vXP6KWEeOL09eSJoOKAg"/>
+  <Documentation:Documentation xmi:id="_8c-8BxtDEeWvQYFW8NSCww" base_Comment="_i3vXQ6KWEeOL09eSJoOKAg"/>
+  <Documentation:Documentation xmi:id="_8c-8CBtDEeWvQYFW8NSCww" base_Comment="_i3vXR6KWEeOL09eSJoOKAg"/>
+  <Documentation:Documentation xmi:id="_8c-8CRtDEeWvQYFW8NSCww" base_Comment="_IQmMMadGEeOL09eSJoOKAg"/>
+  <Documentation:Documentation xmi:id="_8c-8ChtDEeWvQYFW8NSCww" base_Comment="_IQmzQadGEeOL09eSJoOKAg"/>
+  <Documentation:Documentation xmi:id="_8c-8CxtDEeWvQYFW8NSCww" base_Comment="_IQmzRKdGEeOL09eSJoOKAg"/>
+  <Documentation:Documentation xmi:id="_8c-8DBtDEeWvQYFW8NSCww" base_Comment="_IQmzSKdGEeOL09eSJoOKAg"/>
+  <Documentation:Documentation xmi:id="_8c-8DRtDEeWvQYFW8NSCww" base_Comment="_IQmzS6dGEeOL09eSJoOKAg"/>
+  <Documentation:Documentation xmi:id="_8c-8DhtDEeWvQYFW8NSCww" base_Comment="_IQmzTqdGEeOL09eSJoOKAg"/>
+  <Documentation:Documentation xmi:id="_8c-8DxtDEeWvQYFW8NSCww" base_Comment="_IQmzUadGEeOL09eSJoOKAg"/>
+  <Documentation:Documentation xmi:id="_8c-8EBtDEeWvQYFW8NSCww" base_Comment="_IQmzVKdGEeOL09eSJoOKAg"/>
+  <Documentation:Documentation xmi:id="_8c-8ERtDEeWvQYFW8NSCww" base_Comment="_IQmzV6dGEeOL09eSJoOKAg"/>
+  <Documentation:Documentation xmi:id="_8c-8EhtDEeWvQYFW8NSCww" base_Comment="_IQmzWadGEeOL09eSJoOKAg"/>
+  <Documentation:Documentation xmi:id="_8c-8ExtDEeWvQYFW8NSCww" base_Comment="_IQmzW6dGEeOL09eSJoOKAg"/>
+  <Documentation:Documentation xmi:id="_8c-8FBtDEeWvQYFW8NSCww" base_Comment="_IQmzXadGEeOL09eSJoOKAg"/>
+  <ECIMBaseProfile:EcimFeatures xmi:id="_0SN64LoOEeWr2cQC7pIWdw" base_Package="_0SGmILoOEeWr2cQC7pIWdw"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_0SUokLoOEeWr2cQC7pIWdw" base_Class="_0SPJALoOEeWr2cQC7pIWdw"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_2rdDILoOEeWr2cQC7pIWdw" base_Package="_2rVuYLoOEeWr2cQC7pIWdw"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_2rjJwLoOEeWr2cQC7pIWdw" base_Class="_2rdqMLoOEeWr2cQC7pIWdw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_NDxWIMFREea4FcQNoP5-2Q" hideGroupName="" specification="" statusInformation="" base_Class="_NDgQYMFREea4FcQNoP5-2Q" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_NDzyYMFREea4FcQNoP5-2Q" base_Class="_NDgQYMFREea4FcQNoP5-2Q"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_NEE4IMFREea4FcQNoP5-2Q" base_Property="_ND2OoMFREea4FcQNoP5-2Q"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_NEGGQMFREea4FcQNoP5-2Q" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_ND2OoMFREea4FcQNoP5-2Q"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_-LO_IMFREea4FcQNoP5-2Q" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" patternErrorMsg="" isNotifiable="true" base_Property="_-K95YMFREea4FcQNoP5-2Q"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_-LQNQMFREea4FcQNoP5-2Q" base_Property="_-K95YMFREea4FcQNoP5-2Q" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_ImyQoMFVEea4FcQNoP5-2Q" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_Imgj0MFVEea4FcQNoP5-2Q"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Im0F0MFVEea4FcQNoP5-2Q" base_Property="_Imgj0MFVEea4FcQNoP5-2Q" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_SxtPsMFZEea4FcQNoP5-2Q" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" range="1..86400" base_Property="_SxRx4MFZEea4FcQNoP5-2Q"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Sxud0MFZEea4FcQNoP5-2Q" base_Property="_SxRx4MFZEea4FcQNoP5-2Q" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="__kMAAMFaEea4FcQNoP5-2Q" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" range="" unit="" resolution="" multiplicationFactor="" base_Property="__jpNcMFaEea4FcQNoP5-2Q"/>
+  <CoreMWProfile:CmwAttribute xmi:id="__kN1MMFaEea4FcQNoP5-2Q" base_Property="__jpNcMFaEea4FcQNoP5-2Q" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_rdIVsMFbEea4FcQNoP5-2Q" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_rc2o4MFbEea4FcQNoP5-2Q"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_rdKK4MFbEea4FcQNoP5-2Q" base_Property="_rc2o4MFbEea4FcQNoP5-2Q" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_dygHkMHxEeayAeC6mvRdcQ" hideGroupName="" specification="" statusInformation="" base_Association="_dyZZ4MHxEeayAeC6mvRdcQ" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_Whta4PPBEeiktqouPL6clg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_Wb3RkPPBEeiktqouPL6clg"/>
+  <CoreMWProfile:CmwAction xmi:id="_WhxsUPPBEeiktqouPL6clg" base_Operation="_Wb3RkPPBEeiktqouPL6clg" admOpId="1"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_sphmkPPBEeiktqouPL6clg" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_spLoUPPBEeiktqouPL6clg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_3eyRMPPHEeiktqouPL6clg" hideGroupName="" specification="" statusInformation="" length="" pattern="" patternErrorMsg="" base_Parameter="_3ek10PPHEeiktqouPL6clg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_clCyIPPIEeiktqouPL6clg" hideGroupName="" specification="" statusInformation="" length="" pattern="" patternErrorMsg="" base_Parameter="_ck1WwPPIEeiktqouPL6clg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_m6Fd4PPJEeiktqouPL6clg" hideGroupName="" specification="" statusInformation="" base_Parameter="_m5iEQPPJEeiktqouPL6clg"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_JhJ-kPPVEeiktqouPL6clg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_Jg78IPPVEeiktqouPL6clg"/>
+  <CoreMWProfile:CmwAction xmi:id="_JhLMsPPVEeiktqouPL6clg" base_Operation="_Jg78IPPVEeiktqouPL6clg" admOpId="1"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_Ueq1APPVEeiktqouPL6clg" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_UedZoPPVEeiktqouPL6clg"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_gWbGIPPVEeiktqouPL6clg" hideGroupName="" specification="" statusInformation="" range="" unit="" resolution="" base_Parameter="_gWLOgPPVEeiktqouPL6clg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_RPDo8PPWEeiktqouPL6clg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" patternErrorMsg="" isNotifiable="true" base_Property="_RO538PPWEeiktqouPL6clg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_RPE3EPPWEeiktqouPL6clg" base_Property="_RO538PPWEeiktqouPL6clg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_k9Y38PPaEeiktqouPL6clg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" patternErrorMsg="" isNotifiable="true" base_Property="_k9CSoPPaEeiktqouPL6clg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_k9ZfAPPaEeiktqouPL6clg" base_Property="_k9CSoPPaEeiktqouPL6clg"/>
+</xmi:XMI>

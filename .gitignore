@@ -1,0 +1,62 @@
+# Compiled source #
+###################
+*.obj
+*.d
+*.gcno
+*.o
+
+# Packages #
+############
+*.rpm
+*.sdp
+*.tar.gz
+*.tgz
+*.bin
+*.exe
+*.tar
+*.zip
+*.jar
+
+# Windows Specific #
+####################
+*.ccscc
+*.dsp
+*.dsw
+*.vcproj
+*.sln
+*.pdb
+*.vspscc
+*.suo
+*.vsscc
+*.vssscc
+
+# Exclude list #
+################
+# PROCEDURES
+!PROCEDURES/SWM/tools/2.0/mi_cnz/esm/native/hooks/ah/non_exec-raidmgr.tgz
+!PROCEDURES/SWM/tools/2.0/mi_cnz/esm/native/hooks/ah/non_exec-udev.tgz
+!PROCEDURES/SWM/tools/2.0/mi_cnz/esm/native/hooks/ph/non_exec-ic.tgz
+!PROCEDURES/SWM/tools/2.0/mi_cnz/esm/virtual/vmware/out/APG_DUMP.tgz
+!PROCEDURES/SWM/tools/2.0/mi_cnz/esm/virtual/vmware/apg_dump/apos_getinfo.tgz
+!PROCEDURES/SWM/tools/2.0/mi_cnz/esm/virtual/vRP/post-installation/non_exec-vrp_lcm_utils.tar.gz
+
+# MODELS
+!MODELS/MOMAXE_CPI/Native_MOMAXE_Diagrams.zip
+!MODELS/MOMAXE_CPI/VirtualBC_MOMAXE_Diagrams.zip
+!MODELS/MOMAXE_CPI/VirtualDB_MOMAXE_Diagrams.zip
+!MODELS/MOMAXE_CPI_src.zip
+!MODELS/MOMAXE_src.zip
+
+# tools/
+PROCEDURES/SWM/tools/2.0/log/
+
+# workspace
+PROCEDURES/SWM/workspace/
+!PROCEDURES/SWM/workspace/baseline/apg43l_versions_ap.xml
+!PROCEDURES/SWM/workspace/baseline/apg43l_versions_all.xml
+!PROCEDURES/SWM/workspace/baseline/vrp_baseos_version.xml
+!PROCEDURES/SWM/workspace/am-ws/ArtifactManager_ap.cfg.template
+!PROCEDURES/SWM/workspace/am-ws/ArtifactManager_all.cfg.template
+
+
+

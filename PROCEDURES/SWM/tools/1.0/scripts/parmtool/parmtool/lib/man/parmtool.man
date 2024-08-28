@@ -1,0 +1,10 @@
+Usage:  
+	parmtool --help
+        parmtool <command>  <command_options>
+
+	<command> must be one of the following:
+        	 [ get | set | validate ]
+
+	<command_options>  call "parmtool <command> --help" for more
+                	   details.
+

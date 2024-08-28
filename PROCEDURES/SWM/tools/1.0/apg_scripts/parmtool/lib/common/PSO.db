@@ -1,0 +1,29 @@
+#################################################################
+# This file contains list of input parameters stored in 				#
+# APOS PSO path.																								#
+# Supported Format: 																						#
+#			parameter,apos_pso/filename																#
+#################################################################
+ap_type;apos/aptype.conf
+apg_oam_access;apos/apg_oam_access
+apt_type;apos/apt_type
+apz_protocol_type;apos/apz_protocol_type
+cached_creds_duration;apos/cached_creds_duration
+cluster_keymap;apos/cluster_keymap
+cluster_public_network_ipv4_ip_address;apos/cluster_public_network_ipv4_ip_address
+cluster_timezone;apos/cluster_timezone
+datadisk_replication_type;apos/datadisk_replication_type
+default_network_ipv4_gateway_ip_address;apos/default_network_ipv4_gateway_ip_address
+drbd_network_capacity;apos/drbd_network_capacity
+ftp_state;apos/ftp_state.conf
+installation_hw;apos/installation_hw
+me_name;apos/me_name
+nodeA_MEId;apos/nodeA_MEId
+nodeB_MEId;apos/nodeB_MEId
+node1_public_network_ipv4_ip_address;apos/node1_public_network_ipv4_ip_address
+node2_public_network_ipv4_ip_address;apos/node2_public_network_ipv4_ip_address
+public_network_ipv4_prefix;apos/public_network_ipv4_prefix
+shelf_architecture;apos/shelf_architecture
+system_package;apos/system_package
+system_type;apos/system_type
+system_version;apos/system_version

@@ -1,0 +1,48 @@
+          <!-- SEC ACS TYPE START-->
+          <CompBaseType safCompType="safCompType=ERIC-SecAcs">
+            <CompType safVersion="safVersion=#SEC_ACS_RSTATE#">
+              <providesCSType saAmfCtCompCapability="7" safSupportedCsType="safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-SecAcs"/>
+              <compTypeDefaults saAmfCtCompCategory="8" saAmfCtDefCallbackTimeout="610000000000" saAmfCtDefClcCliTimeout="610000000000" saAmfCtDefDisableRestart="0" saAmfCtDefInstantiationLevel="0" saAmfCtDefQuiescingCompleteTimeout="600000000000" saAmfCtDefRecoveryOnError="2"/>
+              <instantiateCmd saAmfCtRelPathInstantiateCmd="bin/acs-agent">
+                <cmdArgv>start</cmdArgv>
+              </instantiateCmd>
+              <terminateCmd saAmfCtRelPathTerminateCmd="bin/acs-agent">
+                <cmdArgv>stop</cmdArgv>
+              </terminateCmd>
+              <cleanupCmd saAmfCtRelPathCleanupCmd="bin/acs-agent">
+                <cmdArgv>cleanup</cmdArgv>
+              </cleanupCmd>
+              <swBundle saAmfCtSwBundle="safSmfBundle=#SEC_ACS_BUNDLE#"/>
+            </CompType>
+          </CompBaseType>
+          <SUBaseType safSuType="safSuType=ERIC-SecAcs">
+            <SUType safVersion="safVersion=1.0.0">
+              <mandatoryAttrs saAmfSutDefSUFailover="0" saAmfSutIsExternal="0"/>
+              <componentType saAmfSutMaxNumComponents="0" saAmfSutMinNumComponents="1" safMemberCompType="safMemberCompType=safVersion=#SEC_ACS_RSTATE#\,safCompType=ERIC-SecAcs"/>
+              <supportedSvcType saAmfSutProvidesSvcType="safVersion=1.0.0,safSvcType=ERIC-SecAcs"/>
+            </SUType>
+          </SUBaseType>
+          <SGBaseType safSgType="safSgType=ERIC-SecAcs">
+            <SGType safVersion="safVersion=1.0.0">
+              <suType saAmfSgtValidSuTypes="safVersion=1.0.0,safSuType=ERIC-SecAcs"/>
+              <redundancy saAmfSgtRedundancyModel="5"/>
+              <compRestart saAmfSgtDefCompRestartMax="5" saAmfSgtDefCompRestartProb="100000000000"/>
+              <suRestart saAmfSgtDefSuRestartMax="5" saAmfSgtDefSuRestartProb="1000000000000"/>
+              <autoAttrs saAmfSgtDefAutoAdjustProb="100000" safAmfSgtDefAutoAdjust="0" safAmfSgtDefAutoRepair="0"/>
+            </SGType>
+          </SGBaseType>
+          <AppBaseType safAppType="safAppType=ERIC-SecAcs">
+            <AppType safVersion="safVersion=1.0.0">
+              <serviceGroupType saAmfApptSGTypes="safVersion=1.0.0,safSgType=ERIC-SecAcs"/>
+            </AppType>
+          </AppBaseType>
+          <CSBaseType safCSType="safCSType=ERIC-SecAcs">
+            <CSType safVersion="safVersion=1.0.0"/>
+          </CSBaseType>
+          <ServiceBaseType safSvcType="safSvcType=ERIC-SecAcs">
+            <ServiceType safVersion="safVersion=1.0.0">
+              <csType saAmfSvctMaxNumCSIs="0" safMemberCSType="safMemberCSType=safVersion=1.0.0\,safCSType=ERIC-SecAcs"/>
+            </ServiceType>
+          </ServiceBaseType>
+	<!--  SEC ACS TYPE END -->
+

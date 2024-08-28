@@ -1,0 +1,23 @@
+				<create objectClassName="SaAmfSG" parentObjectDN="safApp=#SAF_APP#">
+					<attribute name="safSg" type="SA_IMM_ATTR_SASTRINGT">
+						<value>safSg=#SG_2N#</value>
+					</attribute>
+					<attribute name="saAmfSGType" type="SA_IMM_ATTR_SANAMET">
+						<value>safVersion=#SAF_VERSION#,safSgType=#SG_2N_TYPE#</value>
+					</attribute>
+					<attribute name="saAmfSGSuHostNodeGroup" type="SA_IMM_ATTR_SANAMET">
+						<value>safAmfNodeGroup=SCs,safAmfCluster=myAmfCluster</value>
+					</attribute>
+					<attribute name="saAmfSGNumPrefInserviceSUs" type="SA_IMM_ATTR_SAUINT32T">
+						<value>2</value>
+					</attribute>
+					<attribute name="saAmfSGAdminState" type="SA_IMM_ATTR_SAUINT32T">
+						<value>1</value>
+					</attribute>
+					<attribute name="saAmfSGAutoRepair" type="SA_IMM_ATTR_SAUINT32T">
+						<value>1</value>
+					</attribute>
+					<attribute name="saAmfSGAutoAdjust" type="SA_IMM_ATTR_SAUINT32T">
+						<value>1</value>
+					</attribute>
+				</create>

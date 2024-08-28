@@ -1,0 +1,30 @@
+
+Usage:
+        parmtool get --file <filename>
+        parmtool get --simulated --file <filename>
+        parmtool get --item-list lvalue1[,lvalue2...,lvalueN]
+				parmtool get --simulated --item-list lvalue1[,lvalue2...,lvalueN]
+        parmtool get --file <filename> --item-list lvalue1[,lvalue2...,lvalueN]
+				parmtool get --simulated --file <filename> --item-list lvalue1[,lvalue2...,lvalueN]
+
+This command retrieves the values of all user-specified input parameters from PSO.
+
+<filename>      Name of the text based file which contains all input parameters.
+lvalue[1..N]    Name of the input parameter.
+
+Example:
+        parmtool get --file inputfile
+        parmtool get --simulated --file inputfile
+        parmtool get --item-list shelf_architecture,ap_type
+        parmtool get --simulated --item-list installation_hw
+        parmtool get --file inputFile --item-list shelf_architecture,ap_type
+        parmtool get --simulated --file inputFile --item-list installation_hw
+ 
+        Format of inputfile:
+        -------------------------
+        me_name
+        shelf_architecture
+        ap_type
+        installation_hw
+        datadisk_replication_type
+

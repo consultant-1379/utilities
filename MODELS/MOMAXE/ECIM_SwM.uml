@@ -1,0 +1,1431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="CmwSwM">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_i7YfEODCEd-IkcJqZDg2hA" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_i7YfEeDCEd-IkcJqZDg2hA" key="com.ericsson.ecim.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_aFpYAODDEd-IkcJqZDg2hA" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>This is the Software Management model.&#xD;
+Copyright (c) 2014 -2022 Ericsson AB.&#xD;
+All rights reserved.</body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_uWHKUIXbEd-Id79DLfNphQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_WllxoODDEd-IkcJqZDg2hA" name="CmwSwM">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_WmoTcODDEd-IkcJqZDg2hA" annotatedElement="_WllxoODDEd-IkcJqZDg2hA">
+        <body>This is the Software Management model.&#xD;
+Copyright (c) 2014 -2022 Ericsson AB.&#xD;
+All rights reserved.
+
+To be used only to generate the COM XML files
+For the IMM XML files the CmwSwMInternal model must be used.
+The reason for this arangement is not to expose  in NBI some attributes and classes
+which are only for CoreMW internal use.
+</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Wn0mQODDEd-IkcJqZDg2hA" name="SwM">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Wn0mQuDDEd-IkcJqZDg2hA">
+          <body>The root structural element of SW management activities.</body>
+        </ownedComment>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_jyQnMIpTEeiLsscJsscI6Q" annotatedElement="_Wn0mQODDEd-IkcJqZDg2hA">
+          <body>SwM root Ecim MoClass.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_nmSrkEfjEe62l5Y7CGNADA" constrainedElement="_uPO9kDo3EeKESOj1tOxEnw _f0lncAg5EeC1PfEPGHyAQA _lfgi0O4iEd-p3c0nllo4HQ _H0mqsDo3EeKESOj1tOxEnw _ACGS1AnPEeeY5NjsYHeZbw _ACG55QnPEeeY5NjsYHeZbw _ACG54AnPEeeY5NjsYHeZbw _OZNIkODPEd-IkcJqZDg2hA">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_nmT5sEfjEe62l5Y7CGNADA">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_wlvZcODGEd-IkcJqZDg2hA" name="reportProgress" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_wlvZceDGEd-IkcJqZDg2hA">
+            <body>Represents the progress report, including the result, of the ongoing action.&#xD;
+This MO supports only one action execution at a time.&#xD;
+</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tr2igIpTEeiLsscJsscI6Q" annotatedElement="_wlvZcODGEd-IkcJqZDg2hA">
+            <body>The reportProgress for SwM Ecim MoClass.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_K7KyoEVwEeC0EevVhLHxGg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NO3ccOQ5EeSRRLVAGFxtZA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gb2-ACGTEeGYlYgjPi-OEA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_OZNIkODPEd-IkcJqZDg2hA" name="fallbackTimer">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_OZW5kODPEd-IkcJqZDg2hA">
+            <body>Maximum interval in seconds within which the next action must be invoked to avoid fallback.&#xD;
+The maximum number of seconds allowed to elapse between the finish of an activation step and the start of the next new activate() action or new confirm() action. This attribute holds the value to which attribute timeRemainingBeforeFallback is set after the action activate() is successfully completed. -1 means infinity. In this case, the start value of timeRemainingBeforeFallback must also be set to -1 when the timer starts, even though no countdown ever starts (it remains always -1).</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_0WOv0IpTEeiLsscJsscI6Q" annotatedElement="_OZNIkODPEd-IkcJqZDg2hA">
+            <body>This is stored fallback timer.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-Z9gkCCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DX3okCGTEeGYlYgjPi-OEA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DnNFECGTEeGYlYgjPi-OEA" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_PyQzQO4iEd-p3c0nllo4HQ" value="1200"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WoHhMODDEd-IkcJqZDg2hA" name="swMId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WoHhMeDDEd-IkcJqZDg2hA">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_4kVH8IpTEeiLsscJsscI6Q" annotatedElement="_WoHhMODDEd-IkcJqZDg2hA">
+            <body>The key id of SwM.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jFPoMebBEd-MwYeT4ZV96w" name="UpgradePackageSwM" visibility="public" type="_E0qw4ODHEd-IkcJqZDg2hA" aggregation="composite" association="_jFPoMObBEd-MwYeT4ZV96w">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jFPoMubBEd-MwYeT4ZV96w"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jFPoM-bBEd-MwYeT4ZV96w" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_lfgi0O4iEd-p3c0nllo4HQ" name="timeRemainingBeforeFallback" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_lfgi0-4iEd-p3c0nllo4HQ">
+            <body>Remaining number of seconds before performing fallback.&#xD;
+Value -1 indicates an infinite number of seconds. Fallback means that the system returns to state PREPARE_COMPLETED .</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="__341IIpTEeiLsscJsscI6Q" annotatedElement="_lfgi0O4iEd-p3c0nllo4HQ">
+            <body>This is stored remaining time before executing fallback.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-Z9gkCCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IHMecCGTEeGYlYgjPi-OEA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IYqo8CGTEeGYlYgjPi-OEA" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_lfgi0u4iEd-p3c0nllo4HQ" value="-1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_f0lncAg5EeC1PfEPGHyAQA" name="localFileStorePath" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_f0tjQQg5EeC1PfEPGHyAQA">
+            <body>URI of the directory where the UPs are stored on the ME.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_IvRskIpUEeiLsscJsscI6Q" annotatedElement="_f0lncAg5EeC1PfEPGHyAQA">
+            <body>The path of file used to stored in locally.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_f0tjQAg5EeC1PfEPGHyAQA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_VlAKEDOTEeCa5ZPdmHPdhg" name="userLabel">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_VlJUAjOTEeCa5ZPdmHPdhg">
+            <body>Used for free-text description. </body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Lnf24IpUEeiLsscJsscI6Q" annotatedElement="_VlAKEDOTEeCa5ZPdmHPdhg">
+            <body>The label for user.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VlJUATOTEeCa5ZPdmHPdhg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_uPO9kDo3EeKESOj1tOxEnw" name="timeoutFallbackCapability" visibility="public" type="_H0mqsDo3EeKESOj1tOxEnw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_uQRfYTo3EeKESOj1tOxEnw">
+            <body>Shows whether fallback capability is supported or not.&#xD;
+If fallback capability is not supported, setting SwM fallbackTimer has no effect and automatic fallback does not occur.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_TZcwQIpUEeiLsscJsscI6Q" annotatedElement="_uPO9kDo3EeKESOj1tOxEnw">
+            <body>The capabily of fallback is timeout.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JEUhoNOxEeSBQPLnfJXTog"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_K4hDINOxEeSBQPLnfJXTog" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_Q3rJMNOxEeSBQPLnfJXTog" name="SUPPORTED" instance="_H1WRkDo3EeKESOj1tOxEnw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_-eWg0HY4EeWvE7qBNRQd7w" name="actionCapable" visibility="public" type="_JBkkwHY1EeWvE7qBNRQd7w" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_9U1p4JQaEeWTYvyV4j_Wkg">
+            <body>Shows whether the Software Management function is in a state of readiness to execute actions.&#xD;
+The Managed Element sets it to WAIT during any operations and maintenance activity that causes one or more of the Software Management function related actions to become unavailable. The Management System should wait until the state returns to CAPABLE before invoking any Software Management action.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_bJEuYIpUEeiLsscJsscI6Q" annotatedElement="_-eWg0HY4EeWvE7qBNRQd7w">
+            <body>Action capability states.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4Ip44JQaEeWTYvyV4j_Wkg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-epbwHY4EeWvE7qBNRQd7w" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_faHGEJQbEeWTYvyV4j_Wkg" name="OK" instance="_JB2RkHY1EeWvE7qBNRQd7w"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_b_VMYJ5PEeWmmJEg6Tbxzg" name="actionCapableInfo" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_cCf1IJ5PEeWmmJEg6Tbxzg">
+            <body>Additional information relating to actionCapable. &#xD;
+Provides free-text information if available about the managed element operation or maintenance activity causing actionCapable to be at state WAIT.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gnUfwIpUEeiLsscJsscI6Q" annotatedElement="_b_VMYJ5PEeWmmJEg6Tbxzg">
+            <body>Action Capable information.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cCkGkZ5PEeWmmJEg6Tbxzg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cCkGkp5PEeWmmJEg6Tbxzg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ACFrwAnPEeeY5NjsYHeZbw" name="activeSwVersion" visibility="private" type="_Af3CUAnOEeeY5NjsYHeZbw" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_k4QJcIpUEeiLsscJsscI6Q" annotatedElement="_ACFrwAnPEeeY5NjsYHeZbw">
+            <body>Active software version(s).
+Reference to the active software version(s) actively controlling the behavior of the managed element.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__P6OoAnTEeeY5NjsYHeZbw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__P61sAnTEeeY5NjsYHeZbw" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ACGS0AnPEeeY5NjsYHeZbw" name="subType" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ACGS0QnPEeeY5NjsYHeZbw">
+            <body>subType is any string value identifying the type of node from a ECIM SwM perspective.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_q6TygIpUEeiLsscJsscI6Q" annotatedElement="_ACGS0AnPEeeY5NjsYHeZbw">
+            <body>This is SubType attrbuite.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ACGS0wnPEeeY5NjsYHeZbw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ACGS0gnPEeeY5NjsYHeZbw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ACGS1AnPEeeY5NjsYHeZbw" name="alarmBeforeTimeout" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ACGS1QnPEeeY5NjsYHeZbw">
+            <body>alarmBeforeTimeout  is the time in seconds an alarm is sent out before a fallback occurs.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_wIYZ4IpUEeiLsscJsscI6Q" annotatedElement="_ACGS1AnPEeeY5NjsYHeZbw">
+            <body>Show that alarm is happened before timeout.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ACGS1wnPEeeY5NjsYHeZbw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ACGS1gnPEeeY5NjsYHeZbw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_ACGS2AnPEeeY5NjsYHeZbw" value="180"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ACG54AnPEeeY5NjsYHeZbw" name="automaticRestore" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ziHV0IpUEeiLsscJsscI6Q" annotatedElement="_ACG54AnPEeeY5NjsYHeZbw">
+            <body>Automatic restore.
+automaticRestore is set to true(1) if ECIM SwM shall automatically perform fallback operation at certain events otherwise set to  false(0).
+These events are the following:
+•	The ME meets a critical problem.
+	(The ME must be able to detect any kind of software problem that prohibits a successful activation (step).)
+•	The user calls the cancel() action any time during the activation.
+	o	Sub-case: Calling the cancel() action after the last activation step has completed (instead of calling commit()).
+•	The fallback timer expires during the activation.
+
+The fallback operation shall restore the state that the ME had before starting the activation procedure.
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ACG54wnPEeeY5NjsYHeZbw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ACG54gnPEeeY5NjsYHeZbw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_ACG55AnPEeeY5NjsYHeZbw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ACG55QnPEeeY5NjsYHeZbw" name="automaticBackup" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_3eMw4IpUEeiLsscJsscI6Q" annotatedElement="_ACG55QnPEeeY5NjsYHeZbw">
+            <body>Automatic backup.
+automaticBackup  is set to true(1) if ECIM SwM shall perform backup at activate() action otherwise set to  false(0).</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ACG56AnPEeeY5NjsYHeZbw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ACG55wnPEeeY5NjsYHeZbw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_ACG56QnPEeeY5NjsYHeZbw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ACHg8AnPEeeY5NjsYHeZbw" name="execMethod" visibility="public" type="_Af3pYAnOEeeY5NjsYHeZbw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ACHg8QnPEeeY5NjsYHeZbw">
+            <body>The default execution method.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_7ORwQIpUEeiLsscJsscI6Q" annotatedElement="_ACHg8AnPEeeY5NjsYHeZbw">
+            <body>This stores execute method.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5yKzkAnTEeeY5NjsYHeZbw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5yLaoAnTEeeY5NjsYHeZbw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_F_Bu0AnQEeeY5NjsYHeZbw" name="RoleUpgradeSwM" visibility="public" type="_Af4QcAnOEeeY5NjsYHeZbw" aggregation="composite" association="_F-_5oAnQEeeY5NjsYHeZbw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bUJkACvXEeeL5aPqD7MbWw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bUBBICvXEeeL5aPqD7MbWw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_fJEf8AnREeeY5NjsYHeZbw" name="SwVersionMain" visibility="public" type="_Af3CUAnOEeeY5NjsYHeZbw" aggregation="composite" association="_fJD44AnREeeY5NjsYHeZbw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sgh7ACvYEeeL5aPqD7MbWw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sgfewCvYEeeL5aPqD7MbWw" value="*"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_rsTzgDXEEeCs8KfHr_rS9w" name="cancel">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rsYsATXEEeCs8KfHr_rS9w">
+            <body>Cancel can be invoked during any long-lasting operation.&#xD;
+It stops the operation and restores the consistent state that existed before the long-lasting operation started. The action returns immediately after invocation. The consequences of the action can be tracked by attribute progressReport. The action returns false if the action is refused by the ME. In all other cases, it returns true.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WbYawIpVEeiLsscJsscI6Q" annotatedElement="_rsTzgDXEEeCs8KfHr_rS9w">
+            <body>Cancel action.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_T4bWgDXjEeCs8KfHr_rS9w" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_T5K9YTXjEeCs8KfHr_rS9w">
+              <body>The (asynchronous) action returns immediately after invocation. The action returns false if the action could not start for any reason, otherwise returns true.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_Sp-FgDXGEeCs8KfHr_rS9w" name="removeUpgradePackage">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_SqC-ATXGEeCs8KfHr_rS9w">
+            <body>Removes an UpgradePackage.&#xD;
+This action removes the UpgradePackage MO specified as action parameter. It also removes all files temporarily stored in the ME and associated with the UP. The action returns immediately after invocation. The progress of the action can be tracked by attribute progressReport. This action can be invoked when there is no other action in progress on this MO. The action returns false if the action could not start for any reason, for example, another parallel action is in progress. In all other cases, it returns true.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_YpG2kIpVEeiLsscJsscI6Q" annotatedElement="_Sp-FgDXGEeCs8KfHr_rS9w">
+            <body>Remove upgrade package action.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_e_c0cDXGEeCs8KfHr_rS9w" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_e_hs8TXGEeCs8KfHr_rS9w">
+              <body>This  action returns true if the remove operation has been started. If the remove operation cannot be started, the action returns false.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_ql1owDXGEeCs8KfHr_rS9w" name="upgradePackage" type="_E0qw4ODHEd-IkcJqZDg2hA">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_ql6hQTXGEeCs8KfHr_rS9w">
+              <body>An UpgradePackage MO to be removed.</body>
+            </ownedComment>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_bMaz8DfGEeKESOj1tOxEnw" name="createUpgradePackage" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_iRXdYDfGEeKESOj1tOxEnw">
+            <body>Creates a new UpgradePackage MO that represents a UP specified by a URI.&#xD;
+This action includes all activities to initialize the UP MO. After the UP MO is created, all descriptive information is available, for example, administrativeData, number or names of activation step data. This action can be invoked when there is no other action in progress on this MO. The action returns immediately after invocation. The progress of the action can be tracked by attribute progressReport . The action returns 0 if the action cannot start for any reason, for example, another parallel action is in progress. The action also returns 0 if the ME cannot handle the URI, for example, it does not support the protocol specified in the URI. In all other cases, it returns the id of the action. The action id is different and unique for every invocation of the action.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_aF1TQIpVEeiLsscJsscI6Q" annotatedElement="_bMaz8DfGEeKESOj1tOxEnw">
+            <body>Create upgrade packages action.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_-rNn0DfGEeKESOj1tOxEnw" name="uri">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_ElBT0DfHEeKESOj1tOxEnw">
+              <body>Contains a URI that points to a directory that contains the UP content.&#xD;
+The generic URI syntax is defined by RFC 2396. The URI must not contain any password. The password must be provided in the second parameter of this action. The URI can be local absolute, for example, file:///data/dir/subdir. It can also be remote, for example, sftp://hostname/dir/subdir.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-rgiwTfGEeKESOj1tOxEnw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-rgiwjfGEeKESOj1tOxEnw" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_B2DMIDfHEeKESOj1tOxEnw" name="password" type="_4xlXcDfFEeKESOj1tOxEnw">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Tz-xUDfHEeKESOj1tOxEnw" annotatedElement="_B2DMIDfHEeKESOj1tOxEnw">
+              <body>A password to the server that provides the UP.&#xD;
+If authentication is not password-based, this parameter is ignored.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5Kz5AEiMEeSIrb1wH4Fc-g"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_B2WHEjfHEeKESOj1tOxEnw" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_jVQG0DfHEeKESOj1tOxEnw" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_l3rAQDfHEeKESOj1tOxEnw">
+              <body>The action returns false if the action could not start for any reason (e.g., another parallel action is in progress), otherwise returns true.&#xD;
+&#xD;
+The action returns false if the ME does NOT support the protocol specified in the URI.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jVjBwDfHEeKESOj1tOxEnw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jVjBwTfHEeKESOj1tOxEnw" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_dYUIoDb_EeOaBJKDI-yZew" name="removeSoftwareVersion" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_m61nwDb_EeOaBJKDI-yZew">
+            <body>Removes a SW version as much as possible.&#xD;
+It does not disturb node functionality. Files shared with other SW versions are not deleted.&#xD;
+The active SW version cannot be removed. This action can only be invoked when there is no other action in progress on this MO. The action returns false if any of these conditions are violated.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_lXf0oDceEeOaBJKDI-yZew" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_lXz9sDceEeOaBJKDI-yZew">
+              <body>The action returns immediately after invocation. The progress of the action can be tracked via the progressReport attribute. The action returns false if the action could not start for any reason (e.g., another parallel action is in progress), otherwise returns true.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lYU7EDceEeOaBJKDI-yZew" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lYWJMDceEeOaBJKDI-yZew" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_-ajREEfkEe62l5Y7CGNADA" name="swVersion">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_-aoJkUfkEe62l5Y7CGNADA" annotatedElement="_-ajREEfkEe62l5Y7CGNADA">
+              <body>The DN of SwVersion MOC within SW Inventory functions MOM.</body>
+            </ownedComment>
+            <type xmi:type="uml:Class" href="ECIM_SwIM.uml#_khxUMAOXEeCfG-0yuYR4Pg"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-aowoEfkEe62l5Y7CGNADA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-aowoUfkEe62l5Y7CGNADA" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_zRCTwAnREeeY5NjsYHeZbw" name="removeSwVersion">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_zRCTwQnREeeY5NjsYHeZbw" annotatedElement="_zRCTwAnREeeY5NjsYHeZbw">
+            <body>Action removeSwVersion is deprecated, it is recommended to use action removeSoftwareVersion.&#xD;
+&#xD;
+Removes a SW version as completely as possible without disturbing node functionality. &#xD;
+&#xD;
+Files shared with other SW versions are not deleted.&#xD;
+The active SW version cannot be removed.&#xD;
+This action can only be invoked when there is no other action in progress on this MO. &#xD;
+&#xD;
+The action returns false if any of these conditions are violated. &#xD;
+&#xD;
+The action returns immediately after invocation. The progress of the action can be tracked via the progressReport attribute.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_zRCTwgnREeeY5NjsYHeZbw" name="swVersion" type="_Af3CUAnOEeeY5NjsYHeZbw">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_zRCTwwnREeeY5NjsYHeZbw">
+              <body>The value component of the RDN of the SwVersionMain MO  to remove.&#xD;
+</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aHTZwAnSEeeY5NjsYHeZbw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aHTZwQnSEeeY5NjsYHeZbw" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_zRCTxAnREeeY5NjsYHeZbw" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_zRCTxQnREeeY5NjsYHeZbw">
+              <body>The action returns immediately after invocation. The progress of the action can be tracked via the progressReport attribute. The action returns false if the action could not start for any reason (e.g., another parallel action is in progress), otherwise returns true.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_E0qw4ODHEd-IkcJqZDg2hA" name="UpgradePackage">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_E0qw4uDHEd-IkcJqZDg2hA">
+          <body>Controls the change process of the software configuration of a ME.&#xD;
+ An instance of UpgradePackage (UP) represents a specific change&#xD;
+of software configuration from the existing one to the new one identified by the attribute administrativeData. The execution of the change process described by UP class is the normal way to change the content of the SW inventory. An UP can be seen as a modification agent. It can add new, remove, or modify functionality. The sequence in which a Software upgrade executes is as follows: &#xD;
+1. Prepare&#xD;
+2. Verify, which is optional&#xD;
+3. Activate &#xD;
+4. Confirm&#xD;
+When the upgrade package MO is created the upgrade control file is downloaded to specify the administrative data and the activation steps for this upgrade.</body>
+        </ownedComment>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_toTv0AWIEe2XEcp-ga_Fcg" annotatedElement="_E0qw4ODHEd-IkcJqZDg2hA">
+          <body>Controls the change process of the software configuration of a ME.&#xD;
+ An instance of UpgradePackage (UP) represents a specific change&#xD;
+of software configuration from the existing one to the new one identified by the attribute administrativeData. The execution of the change process described by UP class is the normal way to change the content of the SW inventory. An UP can be seen as a modification agent. It can add new, remove, or modify functionality. The sequence in which a Software upgrade executes is as follows: &#xD;
+1. Prepare&#xD;
+2. Verify, which is optional&#xD;
+3. Activate &#xD;
+4. Confirm&#xD;
+When the upgrade package MO is created the upgrade control file is downloaded to specify the administrative data and the activation steps for this upgrade.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jhyBUOcQEd-EfrW4DikZ4g" name="state" type="_orSOkOcMEd-EfrW4DikZ4g" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_jh7LQucQEd-EfrW4DikZ4g">
+            <body>Current state of Upgrade Package.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_my1KUIpVEeiLsscJsscI6Q" annotatedElement="_jhyBUOcQEd-EfrW4DikZ4g">
+            <body>State of upgradePackage.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_an6dECGSEeGYlYgjPi-OEA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_azk6gCGSEeGYlYgjPi-OEA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_FtAp8ODOEd-IkcJqZDg2hA" name="reportProgress" type="_WowwoENLEeCaIqCUMi0MOA" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_FtAp8eDOEd-IkcJqZDg2hA">
+            <body>Represents the progress report, including the result, of the ongoing action.&#xD;
+This MO supports only one action execution at a time.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rwZQgIpVEeiLsscJsscI6Q" annotatedElement="_FtAp8ODOEd-IkcJqZDg2hA">
+            <body>reportProgress for upgradePackage.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2fqgoOQ4EeSRRLVAGFxtZA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bYlFACGSEeGYlYgjPi-OEA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_E5IaIODHEd-IkcJqZDg2hA" name="upgradePackageId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_E5RkEODHEd-IkcJqZDg2hA">
+            <body>Holds the name used when identifying the MO.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tnJWwIpVEeiLsscJsscI6Q" annotatedElement="_E5IaIODHEd-IkcJqZDg2hA">
+            <body>The key id of upgradePackage.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_CnXSMODPEd-IkcJqZDg2hA" name="ignoreBreakPoints">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_1WMH8NOhEeSBQPLnfJXTog">
+            <body>Influences the behavior of the activate() action.&#xD;
+False means there is a breakpoint between each activation step. Activation process stops at each breakpoint. True means execution ignores breakpoints between activation steps and instead executes the end-to-end activation process. This invokes all activation steps in sequence, assuming no errors occur.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_e2WzcCGSEeGYlYgjPi-OEA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fCys8CGSEeGYlYgjPi-OEA" value="1"/>
+          <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_URiNUOhlEeGPmcEwuEU18w" value="true"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_61O6UOa7Ed-KutiVBhiTMQ" name="userLabel">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_61O6Uea7Ed-KutiVBhiTMQ">
+            <body>Free-text description of the Upgrade Package.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_61icUOa7Ed-KutiVBhiTMQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_FKgIMObAEd-MwYeT4ZV96w" name="administrativeData" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_FQmwMObAEd-MwYeT4ZV96w">
+            <body>The product identification of the software versions that are activated when an upgrade is completed.&#xD;
+If the resulting software version after activation is unknown or uncertain, the administrativeData can be empty.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_CYMYUGxSEeGjja_QGAGUKA"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Cg99ICGQEeGYlYgjPi-OEA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DIugsCGQEeGYlYgjPi-OEA" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_uEyQkOcREd-EfrW4DikZ4g" name="activationStep" type="_cKIGUD_8EeCBIqwhAzXFWA" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_uE4XMOcREd-EfrW4DikZ4g">
+            <body>List of activation steps in the activation procedure. &#xD;
+It is possible to stop after each step, perform supervision, and continue with the procedure.The upgrade procedure consists of at least one activation step.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RJokwCGSEeGYlYgjPi-OEA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UPrvsCGSEeGYlYgjPi-OEA" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_PMRaUAeJEeCzjt64up_FdQ" name="created" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_PMZ9MAeJEeCzjt64up_FdQ">
+            <body>Date and time  this Upgrade Package instance is created.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gXxi4CGSEeGYlYgjPi-OEA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gl9v4CGSEeGYlYgjPi-OEA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Q2nUQOObEeC9U9OLQ7CN1w" name="uri" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_z_BBYOObEeC9U9OLQ7CN1w">
+            <body>A URI that points to the directory where the UP can be found.&#xD;
+The URI can be local, for example, file://data/dir/subdir. It can also be remote, for example, ftp://hostname/dir/subdir.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9n9JMCsoEeO5i_14v3iTxg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PoZ84BxBEeOK8PxrPXqEpg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_MXd1EDfKEeKESOj1tOxEnw" name="creatorActionId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_MXm_ATfKEeKESOj1tOxEnw">
+            <body>The Id of the action that created this UpgradePackage MO.&#xD;
+Default value 0 shows that the ME does not record this information.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MX558TfKEeKESOj1tOxEnw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MX558jfKEeKESOj1tOxEnw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_728zgDvDEeKESOj1tOxEnw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_r_XycBxBEeOK8PxrPXqEpg" name="password" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_r_oRIRxBEeOK8PxrPXqEpg" annotatedElement="_r_XycBxBEeOK8PxrPXqEpg">
+            <body>Password to the server that provides the UpgradePackage.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_eS1LUJf4EeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_r_3hsBxBEeOK8PxrPXqEpg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_r_4IwBxBEeOK8PxrPXqEpg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Qm0pYAnPEeeY5NjsYHeZbw" name="activationFallbackTimer" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Qm0pYQnPEeeY5NjsYHeZbw">
+            <body>The activationFallbackTimer is the maximum execution time of an activation operation.&#xD;
+The activationFallbackTimer is fetched from the packageInfo.xml.&#xD;
+&#xD;
+The default -1 value denotes that the activation timer is disabled.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-kmDQCCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Qm0pYwnPEeeY5NjsYHeZbw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Qm0pYgnPEeeY5NjsYHeZbw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_Qm0pZAnPEeeY5NjsYHeZbw" value="-1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Qm1QcAnPEeeY5NjsYHeZbw" name="execMethod" visibility="public" type="_Af3pYAnOEeeY5NjsYHeZbw" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Qm1QcQnPEeeY5NjsYHeZbw">
+            <body>The execution method of a specific UpgradePackage.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_f1B8IAnTEeeY5NjsYHeZbw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_f1B8IQnTEeeY5NjsYHeZbw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_8mmxcQnQEeeY5NjsYHeZbw" name="RoleUpgradePackage" visibility="public" type="_Af4QcAnOEeeY5NjsYHeZbw" aggregation="composite" association="_8mmxcAnQEeeY5NjsYHeZbw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c85qgCvXEeeL5aPqD7MbWw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c831UCvXEeeL5aPqD7MbWw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ikhSQAWIEe2XEcp-ga_Fcg" name="upgradeRestartType" visibility="public" type="_ITybUAWGEe2XEcp-ga_Fcg" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ikljsQWIEe2XEcp-ga_Fcg" annotatedElement="_ikhSQAWIEe2XEcp-ga_Fcg">
+            <body>Shows the node restart type when upgrading from the current active UP. </body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ikmKwAWIEe2XEcp-ga_Fcg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ikmKwQWIEe2XEcp-ga_Fcg" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_gPo-oODPEd-IkcJqZDg2hA" name="activate">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_GN8M4OaZEd-KutiVBhiTMQ">
+            <body>Current upgrade package is taken into operation fully or partially. &#xD;
+Partial activation occurs if the UCF defines activation steps and attribute ignoreBreakPoints is false. The ME upgrade engine notifies the operator that the activation step is completed. The next activation step starts when the operator invokes an activate action. Each UP must have at least 1 activation step. When attribute ignoreBreakPoints=true, all activation steps are executed in sequence. When an activation step is complete, the ME executes the next activation step. That means there is no operator invocation when an activation step is complete. The time for observation of correct operation of the ME, after each completed step, is always monitored by a supervision timer. The invocation of activate() can be monitored by a supervision timer. If the supervision timer expires before invocation of activate() or confirm(), the activation fails and the ME falls back to state PREPARE_COMPLETED. The action returns immediately after invocation. The progress of the action can be tracked by attribute progressReport. The action returns false if the action could not start for any reason, for example, another parallel action is in progress. In all other cases, it returns true. This action can be invoked when the state is PREPARE_COMPLETED or ACTIVATION_STEP_COMPLETED. If the action is invoked in a state where the action has no meaning, ME is expected to return an error message.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_PkXV8DOWEeCa5ZPdmHPdhg" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_PkhG8TOWEeCa5ZPdmHPdhg">
+              <body>The action returns false if the action could not start for any reason (e.g., another parallel action is in progress), otherwise it returns true.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_DTeBsAT6Ee2xObK8MVzY_w" name="upgradeType" type="_F9NgkAT5Ee2xObK8MVzY_w">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_DTi6MAT6Ee2xObK8MVzY_w" annotatedElement="_DTeBsAT6Ee2xObK8MVzY_w">
+              <body>Specifies optional activation mode, where supported, for example SOFT or HARD.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DTjhQQT6Ee2xObK8MVzY_w"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DTjhQgT6Ee2xObK8MVzY_w" value="1"/>
+            <defaultValue xmi:type="uml:InstanceValue" xmi:id="_DTjhQAT6Ee2xObK8MVzY_w" name="HARD" instance="_F9U1UAT5Ee2xObK8MVzY_w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_u2UyoAT6Ee2xObK8MVzY_w" name="restartType" type="_MPlvgAT3Ee2xObK8MVzY_w">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_u2ZrIAT6Ee2xObK8MVzY_w" annotatedElement="_u2UyoAT6Ee2xObK8MVzY_w">
+              <body>Shows node restart type when upgrading from the current active UP. </body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_COpMkAWHEe2XEcp-ga_Fcg"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_u2aSMAT6Ee2xObK8MVzY_w" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_woMhcODPEd-IkcJqZDg2hA" name="cancel">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_woVrYeDPEd-IkcJqZDg2hA">
+            <body>Cancel can be invoked during any long-lasting operation.&#xD;
+Stops the operation and restores the consistent state that existed before the long-lasting operation started. Furthermore, cancel() can also be invoked when the UP is in state WAITING_FOR_COMMIT or ACTIVATION_STEP_COMPLETED without having a long-lasting operation in progress. Calling cancel() in this state orders the ME to restore the state that existed before the activation procedure started. The action returns immediately after invocation. The consequences of the action can be tracked by attribute progressReport. The action returns false if the action is refused by the ME. If the action is invoked in a state where the action has no meaning, the ME is expected to return false. In all other cases, it returns true. This action can be invoked when the UP state is PREPARE_IN_PROGRESS, ACTIVATION_IN_PROGRESS, ACTIVATION_STEP_COMPLETED, or WAITING_FOR_COMMIT.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Dkvs0DOXEeCa5ZPdmHPdhg" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Dk1zcTOXEeCa5ZPdmHPdhg">
+              <body>The action returns false if the action is refused by the ME, returns true otherwise.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_2km1gODPEd-IkcJqZDg2hA" name="verify">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_2km1guDPEd-IkcJqZDg2hA">
+            <body>Verifies the ability to activate the current upgrade package.&#xD;
+The action returns immediately after invocation. The progress of the action can be tracked by attribute progressReport. The action returns false if the action could not start for any reason, for example, another parallel action is in progress. In all other cases, it returns true. This action can be invoked when the state is PREPARE_COMPLETED. If the action is invoked in a state where the action has no meaning, the ME is expected to return an error message.This action can be called as an option in the whole upgrade procedure. The action can be called more than once if required.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_ddnIQDOXEeCa5ZPdmHPdhg" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_ddsAwTOXEeCa5ZPdmHPdhg">
+              <body>The action returns false if the action could not start for any reason (e.g., another parallel action is in progress), otherwise returns true.&#xD;
+</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_-JwB8ODPEd-IkcJqZDg2hA" name="prepare">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_-J5y8eDPEd-IkcJqZDg2hA" annotatedElement="_-JwB8ODPEd-IkcJqZDg2hA">
+            <body>Prepares the Managed Element for activation of the current upgrade package.&#xD;
+Executing prepare() does not have any negative impact on the in-service performance of the Managed Element. The action returns immediately after invocation. The progress of the action can be tracked by attribute progressReport. The action returns false if the action could not start for any reason, for example, another parallel action is in progress. In all other cases, it returns true.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_VsyQQDOXEeCa5ZPdmHPdhg" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Vs3IwTOXEeCa5ZPdmHPdhg">
+              <body>The action returns false if the action could not start for any reason (e.g., another parallel action is in progress), otherwise returns true.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_JAmtABxCEeOK8PxrPXqEpg" name="confirm" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_JAy6QRxCEeOK8PxrPXqEpg" annotatedElement="_JAmtABxCEeOK8PxrPXqEpg">
+            <body>Stops the activation fallback timer and confirms the upgrade. &#xD;
+The action returns when the synchronous action is completed. This action can be invoked when the state is WAITING_FOR_COMMIT. The action returns true on success, false on failure.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_cQ4D0BxCEeOK8PxrPXqEpg" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_cRDC8RxCEeOK8PxrPXqEpg">
+              <body>The action returns true on success, false on failure.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cRMM4RxCEeOK8PxrPXqEpg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cRMz8BxCEeOK8PxrPXqEpg" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_2-_MMAnREeeY5NjsYHeZbw" name="commit">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_2-_MMQnREeeY5NjsYHeZbw" annotatedElement="_2-_MMAnREeeY5NjsYHeZbw">
+            <body>Action commit is deprecated, it is recommended to use action confirm.&#xD;
+&#xD;
+Stops the activation supervision timer (fallback timer) and confirms the upgrade.&#xD;
+&#xD;
+The action returns immediately after invocation. The progress of the action can be tracked by attribute progressReport.&#xD;
+The action returns false if the action could not start for any reason, for example, another parallel action is in progress. In all other cases, it returns true.&#xD;
+This action can be invoked when the state is WAITING_FOR_COMMIT.&#xD;
+&#xD;
+The CoreMW implementation of the commit action has always been ansynchronous. &#xD;
+This is an deviation from the ECIM SwM commit which was an synchronous action.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_2-_MMgnREeeY5NjsYHeZbw" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_2-_MMwnREeeY5NjsYHeZbw">
+              <body>The action returns true on success, false on failure.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_jFPoMObBEd-MwYeT4ZV96w" name="SwM_to_UpgradePackage" memberEnd="_jFPoMebBEd-MwYeT4ZV96w _jFPoNObBEd-MwYeT4ZV96w">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_jFPoNObBEd-MwYeT4ZV96w" name="SwMUpgradePackage" visibility="public" type="_Wn0mQODDEd-IkcJqZDg2hA" association="_jFPoMObBEd-MwYeT4ZV96w">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jFPoNebBEd-MwYeT4ZV96w" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jFPoNubBEd-MwYeT4ZV96w" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_orSOkOcMEd-EfrW4DikZ4g" name="UpgradePackageState">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_orb_kecMEd-EfrW4DikZ4g">
+          <body>Lists possible states of the Upgrade Package.</body>
+        </ownedComment>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rm9zAIrqEeihh9l6hGqUQQ" annotatedElement="_orSOkOcMEd-EfrW4DikZ4g">
+          <body>The enum is defined for UpgradePackageState.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_s_uFEPkcEd-rxr2wMh1tpw" name="INITIALIZED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_s_0LsPkcEd-rxr2wMh1tpw">
+            <body>The Upgrade Package is initialized.&#xD;
+The administrative data and activation steps of the UP can be read.In this state, only the prepare() action can be called.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_feT2oAhTEeC1PfEPGHyAQA" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x-_jkAhTEeC1PfEPGHyAQA" name="PREPARE_IN_PROGRESS">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_x_TFkghTEeC1PfEPGHyAQA">
+            <body>Prepare action in progress.&#xD;
+In this state, only the cancel() action can be called. If the prepare() action completes successfully, the UP moves to state PREPARE_COMPLETED . If the prepare() action fails, or cancel() is called, the UP moves back to state INITIALIZED .</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_x_TFkQhTEeC1PfEPGHyAQA" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_0AQiwOcMEd-EfrW4DikZ4g" name="PREPARE_COMPLETED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_0AZssucMEd-EfrW4DikZ4g">
+            <body>Prepare action has finished successfully.&#xD;
+In this state, only the verify() or the activate() action can be called. If the activate() action is called, the UP moves to state ACTIVATION_IN_PROGRESS .</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_GcqsMAhVEeC1PfEPGHyAQA" value="3"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_YxjgUOcNEd-EfrW4DikZ4g" name="ACTIVATION_IN_PROGRESS">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_YxjgU-cNEd-EfrW4DikZ4g">
+            <body>Activation is in progress.&#xD;
+In this state, only the cancel() action can be called. If the cancel() action is called, the UP moves to state DEACTIVATION_IN_PROGRESS. If the activation step completes successfully, the UP moves to state ACTIVATION_STEP_COMPLETED .</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_7in0METTEeCWf8DiMo0CCw" value="4"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_fiVQkOcNEd-EfrW4DikZ4g" name="ACTIVATION_STEP_COMPLETED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_fifBkucNEd-EfrW4DikZ4g">
+            <body>The previous activation step completed successfully.&#xD;
+There are still more activation steps left. In this state, only the activate() or the cancel() action can be called. If the cancel() action is called, the UP moves to state DEACTIVATION_IN_PROGRESS . If the activate() action is called, the ME starts the activation of the next activation step and the UP moves to state ACTIVATION_IN_PROGRESS . If the fallback timer expires in this state, the UP moves to state DEACTIVATION_IN_PROGRESS .</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_8dnc0ETTEeCWf8DiMo0CCw" value="5"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="___W8kOcNEd-EfrW4DikZ4g" name="WAITING_FOR_COMMIT">
+          <ownedComment xmi:type="uml:Comment" xmi:id="___W8k-cNEd-EfrW4DikZ4g">
+            <body>The last activation step completed successfully.&#xD;
+The operator must confirm the upgrade. In this state, only the confirm() or the cancel() action can be called. If the cancel() action is called, the UP moves to state DEACTIVATION_IN_PROGRESS. If the confirm() action is called, the UP moves to state COMMIT_COMPLETED .&#xD;
+</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_9ZeBEETTEeCWf8DiMo0CCw" value="6"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GTIAsOcOEd-EfrW4DikZ4g" name="COMMIT_COMPLETED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_GTIAs-cOEd-EfrW4DikZ4g">
+            <body>The upgrade is confirmed.The whole upgrade procedure has completed.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="__XIAkETTEeCWf8DiMo0CCw" value="7"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lvfDkON6EeC9U9OLQ7CN1w" name="DEACTIVATION_IN_PROGRESS">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_lvo0keN6EeC9U9OLQ7CN1w">
+            <body>Deactivation of the UP is in progress.&#xD;
+This can be the result of a cancel() action, or the fallback timer has expired. In this state, no action can be called. At the end of fallback operation, the UP moves back to state PREPARE_COMPLETED.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_lvo0kON6EeC9U9OLQ7CN1w" value="8"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_tOD6UAeGEeCzjt64up_FdQ" name="SystemFunctions_to_SwM" memberEnd="_tOKoAAeGEeCzjt64up_FdQ _tONrUQeGEeCzjt64up_FdQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_tONrUQeGEeCzjt64up_FdQ" name="swManagement" visibility="public" type="_Wn0mQODDEd-IkcJqZDg2hA" aggregation="composite" association="_tOD6UAeGEeCzjt64up_FdQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tOOSYAeGEeCzjt64up_FdQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tOOSYQeGEeCzjt64up_FdQ" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_tOKoAAeGEeCzjt64up_FdQ" name="parent" visibility="public" association="_tOD6UAeGEeCzjt64up_FdQ">
+          <type xmi:type="uml:Class" href="ComTop.uml#_ETwJsJmNEd-RhrgDerFWug"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tOL2IAeGEeCzjt64up_FdQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tONrUAeGEeCzjt64up_FdQ" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_cKIGUD_8EeCBIqwhAzXFWA" name="ActivationStep">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_xn5asIrqEeihh9l6hGqUQQ" annotatedElement="_cKIGUD_8EeCBIqwhAzXFWA">
+          <body>Activation step details.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_cKIGUj_8EeCBIqwhAzXFWA" name="serialNumber">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_cKIGUz_8EeCBIqwhAzXFWA">
+            <body>Activation step number.The position of the activation step in the activation procedure.Starts at 1.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_7KPToIrqEeihh9l6hGqUQQ" annotatedElement="_cKIGUj_8EeCBIqwhAzXFWA">
+            <body>SerialNumber of activation step.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-Z9gkCCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_cKIGVD_8EeCBIqwhAzXFWA" name="name">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_cKIGVT_8EeCBIqwhAzXFWA">
+            <body>Activation step name.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_9t5jMIrqEeihh9l6hGqUQQ" annotatedElement="_cKIGVD_8EeCBIqwhAzXFWA">
+            <body>Activation name.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_cKIGVj_8EeCBIqwhAzXFWA" name="description">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_cKIGVz_8EeCBIqwhAzXFWA">
+            <body>Textual description of the activation step.&#xD;
+It can describe the role, meaning, or interpretation of the activation step, or any information which is useful to the operator.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_CUhJAIrrEeihh9l6hGqUQQ" annotatedElement="_cKIGVj_8EeCBIqwhAzXFWA">
+            <body>Activation description more detailes.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_WowwoENLEeCaIqCUMi0MOA" name="AsyncActionProgressWithSteps">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_WowwoUNLEeCaIqCUMi0MOA" annotatedElement="_WowwoENLEeCaIqCUMi0MOA">
+          <body>The progress of an ongoing action.&#xD;
+Some actions can have 1 or more breakpoints.Breakpoints allow an action to be divided into defined steps. A breakpoint is an intentional stop of an executing action, for example, the  Activate action in the ECIM SwM MOM. The activate action puts an upgrade package into operation. A breakpoint represents a part of the upgrade,after which the functionality of the ME can be observed manually.In other words, the breakpoints give the operator an option to verify manually that the upgrade step has been executed correctly. The ProgressReport MOC models a standard action. This MOC struct has the same attributes as the ProgressReport MOC, plus two extra attributes, step and stepProgressPercentage.step stores the current execution action step. stepProgressPercentage stores the progress percentage of the currently executing action step.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WowwokNLEeCaIqCUMi0MOA" name="actionName" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Wowwo0NLEeCaIqCUMi0MOA">
+            <body>Name of the invoked action, for example, prepare(), verify(), activate() on UpgradePackage MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nM79cOQ4EeSRRLVAGFxtZA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5XHJUOUNEeCQ-72ZwFZSZw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WowwpUNLEeCaIqCUMi0MOA" name="additionalInfo" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WowwpkNLEeCaIqCUMi0MOA">
+            <body>Used to log significant messages during execution of an action.&#xD;
+It contains information about the history of the execution.This field contains the log entries as an array. It can be empty.This information is for display only. It is not recommended to build any logic on the content of this field.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WowwqENLEeCaIqCUMi0MOA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Wowwp0NLEeCaIqCUMi0MOA" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WowwqUNLEeCaIqCUMi0MOA" name="progressInfo" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WowwqkNLEeCaIqCUMi0MOA">
+            <body>Description of the actual state of the execution, which can be useful or required by NMS.&#xD;
+This information is for display only. It is not recommended to build any logic on the content of this field.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qXpl8OQ4EeSRRLVAGFxtZA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9IRt0OUNEeCQ-72ZwFZSZw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WowwrENLEeCaIqCUMi0MOA" name="progressPercentage" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WowwrUNLEeCaIqCUMi0MOA">
+            <body>This represents the overall progress for completion of the action. Range is between 0 and 100.&#xD;
+ It calculates the percentage with regard to time.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sVJ0cOQ4EeSRRLVAGFxtZA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_96aVYOUNEeCQ-72ZwFZSZw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Wowwr0NLEeCaIqCUMi0MOA" name="result" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WowwsENLEeCaIqCUMi0MOA">
+            <body>Result of completed action.This field has a value NOT_AVAILABLE if the action is not finished.</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#_5JuxUEVvEeC0EevVhLHxGg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CS2VQOUOEeCQ-72ZwFZSZw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CdthcOUOEeCQ-72ZwFZSZw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WowwskNLEeCaIqCUMi0MOA" name="resultInfo" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Wowws0NLEeCaIqCUMi0MOA">
+            <body>Textual description of the outcome or result of the action.&#xD;
+ It contains useful information for the NMS. For example, it can contain an error message if the action failed. This information is for display only. It is not recommended to build any logic on the content of this field.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WowwtENLEeCaIqCUMi0MOA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WowwtUNLEeCaIqCUMi0MOA" name="state" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WowwtkNLEeCaIqCUMi0MOA">
+            <body>Current state of the action.</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#_CCilEEVwEeC0EevVhLHxGg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uZr4AOQ4EeSRRLVAGFxtZA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WowwuENLEeCaIqCUMi0MOA" name="actionId">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WowwuUNLEeCaIqCUMi0MOA">
+            <body>Id of the action. Each action has an action id. The Id is used to query the progress of an action.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8-ZusNaPEeSFMZZEMCDyJg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WowwukNLEeCaIqCUMi0MOA" name="timeActionStarted" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Wowwu0NLEeCaIqCUMi0MOA">
+            <body>The date and time when the current action started.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zxecEOQ4EeSRRLVAGFxtZA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WowwvENLEeCaIqCUMi0MOA" name="timeActionCompleted" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WowwvUNLEeCaIqCUMi0MOA">
+            <body>The date and time when the action completed successfully or unsuccessfully.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JUJNwOUOEeCQ-72ZwFZSZw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JdqWIOUOEeCQ-72ZwFZSZw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WowwvkNLEeCaIqCUMi0MOA" name="timeOfLastStatusUpdate" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Wowwv0NLEeCaIqCUMi0MOA">
+            <body>The date and time of the last MO Struct update. The last date and time when any attribute changed.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AmSbYNaQEeSFMZZEMCDyJg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WowwwENLEeCaIqCUMi0MOA" name="step">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WowwwUNLEeCaIqCUMi0MOA">
+            <body>Current execution action step number.&#xD;
+ &#xD;
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-Z9gkCCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_v_djAOQ4EeSRRLVAGFxtZA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WowwwkNLEeCaIqCUMi0MOA" name="stepProgressPercentage">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Wowww0NLEeCaIqCUMi0MOA">
+            <body>This represents the progress percentage of the currently executing step.&#xD;
+It goes from 0 to 100 percentage for each and every step.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_8QXW0CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x6_bkOQ4EeSRRLVAGFxtZA" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_4xlXcDfFEeKESOj1tOxEnw" name="EcimPasswordString">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_A0gsEDfGEeKESOj1tOxEnw">
+          <body>This type enables secure handling of passwords.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_4zhRIDfFEeKESOj1tOxEnw">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_H0mqsDo3EeKESOj1tOxEnw" name="SwMTimeoutFallbackCapability">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_H1DWoTo3EeKESOj1tOxEnw">
+          <body>Fallback support.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_H1WRkDo3EeKESOj1tOxEnw" name="SUPPORTED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_H1pzkTo3EeKESOj1tOxEnw">
+            <body>Shows that the fallback capability is supported.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_H2ZacDo3EeKESOj1tOxEnw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ORAGYDo3EeKESOj1tOxEnw" name="NOT_SUPPORTED">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ORJQUTo3EeKESOj1tOxEnw">
+            <body>Shows that the fallback capability is not supported.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_ORcLQTo3EeKESOj1tOxEnw" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_JBkkwHY1EeWvE7qBNRQd7w" name="ActionCapabilityState">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_V-f8sJQaEeWTYvyV4j_Wkg">
+          <body>Indicates the readiness of Software Management function for executing actions.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_JB2RkHY1EeWvE7qBNRQd7w" name="CAPABLE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_yp5isHY1EeWvE7qBNRQd7w">
+            <body>The Software Management function is in a state where it is capable to execute all actions.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_L0VnUHY1EeWvE7qBNRQd7w" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_tnZSIHY1EeWvE7qBNRQd7w" name="WAIT">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_M5nb0JQaEeWTYvyV4j_Wkg">
+            <body>The Software Management function is in a state where some actions are unavailable.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_tnjDIXY1EeWvE7qBNRQd7w" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Af3CUAnOEeeY5NjsYHeZbw" name="SwVersionMain">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Af3CUQnOEeeY5NjsYHeZbw">
+          <body>This class is used to represent the main SW version running on the ME. &#xD;
+&#xD;
+Such MO may be created after activating an UP.&#xD;
+&#xD;
+An active software version is actively controlling the behaviour of the ME, while a non-active version represents software not yet activated or software which has been de-activated during some previous activation. There may be one or more active software versions.&#xD;
+&#xD;
+This class is similar to the SwVersion class in the SW Inventory Fragment. Both SW Inventory SwVersion MOC and SwM SwVersionMain MOC represent overall software version of the ME. &#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+ &#xD;
+</body>
+        </ownedComment>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_3-AYUAWIEe2XEcp-ga_Fcg" annotatedElement="_Af3CUAnOEeeY5NjsYHeZbw">
+          <body>Main Software Version class</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Af3CUgnOEeeY5NjsYHeZbw" name="swVersionMainId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Af3CUwnOEeeY5NjsYHeZbw">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_QYtcgIrrEeihh9l6hGqUQQ" annotatedElement="_Af3CUgnOEeeY5NjsYHeZbw">
+            <body>KeyId of swVersionMain.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Af3CVAnOEeeY5NjsYHeZbw" name="administrativeData" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Af3CVQnOEeeY5NjsYHeZbw">
+            <body>The product identification of the software version. &#xD;
+</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_CYMYUGxSEeGjja_QGAGUKA"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Gu36kAnUEeeY5NjsYHeZbw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gu36kQnUEeeY5NjsYHeZbw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Af3CWAnOEeeY5NjsYHeZbw" name="name" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Af3CWQnOEeeY5NjsYHeZbw">
+            <body>Everyday name of the SW version. &#xD;
+&#xD;
+It may contain any longer textual description.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Af3CWwnOEeeY5NjsYHeZbw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Af3CWgnOEeeY5NjsYHeZbw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Af3CXAnOEeeY5NjsYHeZbw" name="size" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Af3CXQnOEeeY5NjsYHeZbw">
+            <body>Amount of disk space in KB that will be freed if this SW version is deleted.&#xD;
+&#xD;
+This figure may thus vary depending on what other SW versions exist - files shared between two SW versions will only be deleted when the last of those SW versions is deleted.&#xD;
+&#xD;
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-maBICCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Af3CXgnOEeeY5NjsYHeZbw"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_Rak0cIjCEeiIle3H1CwUZw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Af3CXwnOEeeY5NjsYHeZbw" name="swVersion" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Af3CYAnOEeeY5NjsYHeZbw">
+            <body>Associated Software Inventory Management MO.&#xD;
+&#xD;
+Both SW Inventory SwVersion MOC and SwM SwVersionMain MOC represent overall software version of the ME. </body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_xu6e8JaXEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_U1WtEAnUEeeY5NjsYHeZbw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_U1WtEQnUEeeY5NjsYHeZbw" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_Af3pYAnOEeeY5NjsYHeZbw" name="ExecMethod">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Af3pYQnOEeeY5NjsYHeZbw">
+          <body>Upgrade execution method.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Af3pYgnOEeeY5NjsYHeZbw" name="ROLLING">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_XWisoDB1Eeu_qbxJDQJpFA" annotatedElement="_Af3pYgnOEeeY5NjsYHeZbw">
+            <body>Rolling upgrade.
+All nodes of the cluster will be upgraded one-by-one (legacy).
+</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_Af3pZAnOEeeY5NjsYHeZbw" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Af3pZQnOEeeY5NjsYHeZbw" name="ONE_STEP">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_IDYPIDB2Eeu_qbxJDQJpFA" annotatedElement="_Af3pZQnOEeeY5NjsYHeZbw">
+            <body>One-step upgrade.
+All programs addressed by the Upgrade will be upgraded in one step regardless of RoleUpgrade values.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_Af3pZwnOEeeY5NjsYHeZbw" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Af3paAnOEeeY5NjsYHeZbw" name="BALANCED" visibility="private">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_lx_pkDB1Eeu_qbxJDQJpFA" annotatedElement="_Af3paAnOEeeY5NjsYHeZbw">
+            <body>Balanced upgrade.
+The set of nodes defined by RoleUpgrade will be upgraded using Balanced In-Service Upgrade. The remaining nodes of the cluster will be upgraded one-by-one.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_Af3pagnOEeeY5NjsYHeZbw" value="3"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Af4QcAnOEeeY5NjsYHeZbw" name="RoleUpgrade">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Af4QcQnOEeeY5NjsYHeZbw">
+          <body>Contains configuration for Balanced In-Service upgrade.&#xD;
+A RoleUpgrade defines the attributes required for the upgrade and defines the scalable Role of the nodes to be upgraded.&#xD;
+There can be one RoleUpgrade per UpgradePackage and one default, top-level, RoleUpgrade.</body>
+        </ownedComment>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_0vxhwAWIEe2XEcp-ga_Fcg" annotatedElement="_Af4QcAnOEeeY5NjsYHeZbw">
+          <body>Role Upgrade class.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Af4QcgnOEeeY5NjsYHeZbw" name="minSizeOfRole" visibility="private" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_oUClADB0Eeu_qbxJDQJpFA" annotatedElement="_Af4QcgnOEeeY5NjsYHeZbw">
+            <body>Minimum size of role.
+Minimum number of nodes in the scalable role to do the upgrade in bigger chunks than one by one (rolling).</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Af4QdQnOEeeY5NjsYHeZbw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Af4QdAnOEeeY5NjsYHeZbw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Af4QdgnOEeeY5NjsYHeZbw" name="minRemainingCapacity" visibility="private" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Af4QdwnOEeeY5NjsYHeZbw">
+            <body>Minimum remaining capacity in percent of engineered capacity during the activation of the upgrade.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Af4QeQnOEeeY5NjsYHeZbw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Af4QeAnOEeeY5NjsYHeZbw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Af4QegnOEeeY5NjsYHeZbw" name="numberOfSteps" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Af4QewnOEeeY5NjsYHeZbw">
+            <body>Calculated number of steps based on required minimum service capacity during upgrade.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Af4QfQnOEeeY5NjsYHeZbw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Af4QfAnOEeeY5NjsYHeZbw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Af4QfgnOEeeY5NjsYHeZbw" name="roleUpgradeId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Af4QfwnOEeeY5NjsYHeZbw">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Af4QgQnOEeeY5NjsYHeZbw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Af4QgAnOEeeY5NjsYHeZbw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Af4QggnOEeeY5NjsYHeZbw" name="roleId" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Af4QgwnOEeeY5NjsYHeZbw">
+            <body>Reference to an instance of Role MO.&#xD;
+The role is identified by the Distinguished Name of the Role MO.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_xu6e8JaXEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1dddIAnTEeeY5NjsYHeZbw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1dddIQnTEeeY5NjsYHeZbw" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_F-_5oAnQEeeY5NjsYHeZbw" name="SwM_to_RoleUpgrade" memberEnd="_F_Bu0AnQEeeY5NjsYHeZbw _F_CV4QnQEeeY5NjsYHeZbw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_F_CV4QnQEeeY5NjsYHeZbw" name="SwMRoleUpgrade" visibility="public" type="_Wn0mQODDEd-IkcJqZDg2hA" association="_F-_5oAnQEeeY5NjsYHeZbw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F_H1cAnQEeeY5NjsYHeZbw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F_HOYQnQEeeY5NjsYHeZbw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_8mmxcAnQEeeY5NjsYHeZbw" name="UpgradePackage_to_RoleUpgrade" memberEnd="_8mmxcQnQEeeY5NjsYHeZbw _8mnYggnQEeeY5NjsYHeZbw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_8mnYggnQEeeY5NjsYHeZbw" name="UpgradePackageRoleUpgrade" visibility="public" type="_E0qw4ODHEd-IkcJqZDg2hA" association="_8mmxcAnQEeeY5NjsYHeZbw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8mtfIgnQEeeY5NjsYHeZbw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8mtfIQnQEeeY5NjsYHeZbw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_fJD44AnREeeY5NjsYHeZbw" name="SwM_to_SwVersionMain" memberEnd="_fJEf8AnREeeY5NjsYHeZbw _fJFHAAnREeeY5NjsYHeZbw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_fJFHAAnREeeY5NjsYHeZbw" name="SwMSwVersionMain" visibility="public" type="_Wn0mQODDEd-IkcJqZDg2hA" association="_fJD44AnREeeY5NjsYHeZbw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ru_yMCvYEeeL5aPqD7MbWw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RuyW0CvYEeeL5aPqD7MbWw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_MPlvgAT3Ee2xObK8MVzY_w" name="RestartType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_MPrPEAT3Ee2xObK8MVzY_w" annotatedElement="_MPlvgAT3Ee2xObK8MVzY_w">
+          <body>Represents the node restart type when upgrading from the current active UP.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ouZ5gAT3Ee2xObK8MVzY_w" name="COLD" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_oueK8AT3Ee2xObK8MVzY_w" annotatedElement="_ouZ5gAT3Ee2xObK8MVzY_w">
+            <body>Perform restart type as COLD.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_oueK8QT3Ee2xObK8MVzY_w"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_F9NgkAT5Ee2xObK8MVzY_w" name="UpgradeType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_F9SZEAT5Ee2xObK8MVzY_w" annotatedElement="_F9NgkAT5Ee2xObK8MVzY_w">
+          <body>Special upgrade modes that may be supported by activate function in some managed element types.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_F9U1UAT5Ee2xObK8MVzY_w" name="HARD" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_F9cKEQT5Ee2xObK8MVzY_w" annotatedElement="_F9U1UAT5Ee2xObK8MVzY_w">
+            <body>Traffic-disrupting hard upgrade mode.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_F9cKEgT5Ee2xObK8MVzY_w"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_av5sYAT5Ee2xObK8MVzY_w" name="SOFT" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_av_L8QT5Ee2xObK8MVzY_w" annotatedElement="_av5sYAT5Ee2xObK8MVzY_w">
+            <body>Non traffic-disrupting upgrade mode.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_awAaEAT5Ee2xObK8MVzY_w" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_ITybUAWGEe2XEcp-ga_Fcg" name="UpgradeRestartType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_IT9acAWGEe2XEcp-ga_Fcg" annotatedElement="_ITybUAWGEe2XEcp-ga_Fcg">
+          <body>Shows node restart type when upgrading from the current active UP. </body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_IT-okAWGEe2XEcp-ga_Fcg" name="COLD" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_IUC6AQWGEe2XEcp-ga_Fcg" annotatedElement="_IT-okAWGEe2XEcp-ga_Fcg">
+            <body>System only supports legacy upgrade behavior.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_UygecAWJEe2XEcp-ga_Fcg"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ZZgmIAWGEe2XEcp-ga_Fcg" name="ADAPTIVE" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ZZnT0AWGEe2XEcp-ga_Fcg" annotatedElement="_ZZgmIAWGEe2XEcp-ga_Fcg">
+            <body>System Adaptive restart is supported.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_WDEHYAWJEe2XEcp-ga_Fcg" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_g6xrQEfiEe62l5Y7CGNADA" name="Features">
+        <packagedElement xmi:type="uml:Class" xmi:id="_g61VoEfiEe62l5Y7CGNADA" name="CPI_HIDDEN"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_qvftoEfiEe62l5Y7CGNADA" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_qvjYAEfiEe62l5Y7CGNADA" name="BASIC"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_x0KqQEfiEe62l5Y7CGNADA" name="" client="_qvjYAEfiEe62l5Y7CGNADA" supplier="_g61VoEfiEe62l5Y7CGNADA"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_7pCaIAnJEeeY5NjsYHeZbw" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_i8kyJODCEd-IkcJqZDg2hA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FcT10A9yEeu3NNOoLZQdxA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FcT10Q9yEeu3NNOoLZQdxA" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FcT10g9yEeu3NNOoLZQdxA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FcT10w9yEeu3NNOoLZQdxA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FcT11A9yEeu3NNOoLZQdxA" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FcT11Q9yEeu3NNOoLZQdxA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_i8t70ODCEd-IkcJqZDg2hA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_7laeYAnJEeeY5NjsYHeZbw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iXwS0Ii4EeiIle3H1CwUZw" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iXwS0Yi4EeiIle3H1CwUZw" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iXwS0oi4EeiIle3H1CwUZw" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iXwS04i4EeiIle3H1CwUZw" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iXwS1Ii4EeiIle3H1CwUZw" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iXwS1Yi4EeiIle3H1CwUZw" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7lc6oAnJEeeY5NjsYHeZbw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_i8t70eDCEd-IkcJqZDg2hA" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="CoreMW SWM" createdBy="" docDate="2022-08-19"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_Wm71cODDEd-IkcJqZDg2hA" hideGroupName="" specification="" base_Package="_WllxoODDEd-IkcJqZDg2hA" author="xnikvap" contact="" date="2022-08-19" docNo="-" revision="C" version="5" release="3" organization="" ecimMomName="ECIM_SwM" ecimMomVersion="4" ecimMomRelease="4" ecimMomCorrection="1" correction="0"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_WoRSMeDDEd-IkcJqZDg2hA" hideGroupName="" specification="" base_Property="_WoHhMODDEd-IkcJqZDg2hA"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_E5RkEuDHEd-IkcJqZDg2hA" hideGroupName="" specification="" base_Property="_E5IaIODHEd-IkcJqZDg2hA"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_gPo-oeDPEd-IkcJqZDg2hA" hideGroupName="" specification="" base_Operation="_gPo-oODPEd-IkcJqZDg2hA"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_woVrYODPEd-IkcJqZDg2hA" hideGroupName="" specification="" base_Operation="_woMhcODPEd-IkcJqZDg2hA"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_2km1geDPEd-IkcJqZDg2hA" hideGroupName="" specification="" base_Operation="_2km1gODPEd-IkcJqZDg2hA"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_-J5y8ODPEd-IkcJqZDg2hA" hideGroupName="" specification="" base_Operation="_-JwB8ODPEd-IkcJqZDg2hA"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_tnnCcOa7Ed-KutiVBhiTMQ" hideGroupName="" specification="" base_Class="_E0qw4ODHEd-IkcJqZDg2hA" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_61YrUea7Ed-KutiVBhiTMQ" hideGroupName="" specification="" isNotifiable="true" base_Property="_61O6UOa7Ed-KutiVBhiTMQ"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_jGSKAObBEd-MwYeT4ZV96w" hideGroupName="" specification="" base_Association="_jFPoMObBEd-MwYeT4ZV96w" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_orb_kOcMEd-EfrW4DikZ4g" hideGroupName="" specification="" base_Enumeration="_orSOkOcMEd-EfrW4DikZ4g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_0AZssOcMEd-EfrW4DikZ4g" hideGroupName="" specification="" base_EnumerationLiteral="_0AQiwOcMEd-EfrW4DikZ4g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_YxjgUecNEd-EfrW4DikZ4g" hideGroupName="" specification="" base_EnumerationLiteral="_YxjgUOcNEd-EfrW4DikZ4g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_fifBkOcNEd-EfrW4DikZ4g" hideGroupName="" specification="" base_EnumerationLiteral="_fiVQkOcNEd-EfrW4DikZ4g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="___W8kecNEd-EfrW4DikZ4g" hideGroupName="" specification="" base_EnumerationLiteral="___W8kOcNEd-EfrW4DikZ4g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_GTIAsecOEd-EfrW4DikZ4g" hideGroupName="" specification="" base_EnumerationLiteral="_GTIAsOcOEd-EfrW4DikZ4g"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_fQ0BYO4hEd-p3c0nllo4HQ" hideGroupName="" specification="" isNotifiable="true" base_Property="_CnXSMODPEd-IkcJqZDg2hA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_s_zkoPkcEd-rxr2wMh1tpw" hideGroupName="" specification="" base_EnumerationLiteral="_s_uFEPkcEd-rxr2wMh1tpw"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_tP8JoAeGEeCzjt64up_FdQ" hideGroupName="" specification="" base_Association="_tOD6UAeGEeCzjt64up_FdQ" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_x_TFkAhTEeC1PfEPGHyAQA" hideGroupName="" specification="" base_EnumerationLiteral="_x-_jkAhTEeC1PfEPGHyAQA"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_VlJUADOTEeCa5ZPdmHPdhg" hideGroupName="" specification="" isNotifiable="true" base_Property="_VlAKEDOTEeCa5ZPdmHPdhg"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_PkhG8DOWEeCa5ZPdmHPdhg" hideGroupName="" specification="" base_Parameter="_PkXV8DOWEeCa5ZPdmHPdhg"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_Dk1zcDOXEeCa5ZPdmHPdhg" hideGroupName="" specification="" base_Parameter="_Dkvs0DOXEeCa5ZPdmHPdhg"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_Vs3IwDOXEeCa5ZPdmHPdhg" hideGroupName="" specification="" base_Parameter="_VsyQQDOXEeCa5ZPdmHPdhg"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_ddsAwDOXEeCa5ZPdmHPdhg" hideGroupName="" specification="" base_Parameter="_ddnIQDOXEeCa5ZPdmHPdhg"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_rsYsADXEEeCs8KfHr_rS9w" hideGroupName="" specification="" base_Operation="_rsTzgDXEEeCs8KfHr_rS9w"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_SqC-ADXGEeCs8KfHr_rS9w" hideGroupName="" specification="" base_Operation="_Sp-FgDXGEeCs8KfHr_rS9w"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_e_hs8DXGEeCs8KfHr_rS9w" hideGroupName="" specification="" base_Parameter="_e_c0cDXGEeCs8KfHr_rS9w"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_ql6hQDXGEeCs8KfHr_rS9w" hideGroupName="" specification="" base_Parameter="_ql1owDXGEeCs8KfHr_rS9w"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_T5K9YDXjEeCs8KfHr_rS9w" hideGroupName="" specification="" base_Parameter="_T4bWgDXjEeCs8KfHr_rS9w"/>
+  <ECIMBaseProfile:EcimStruct xmi:id="_vqy-sD_-EeCBIqwhAzXFWA" hideGroupName="" specification="" base_Class="_cKIGUD_8EeCBIqwhAzXFWA"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_vqy-sj_-EeCBIqwhAzXFWA" hideGroupName="" specification="" base_Property="_cKIGUj_8EeCBIqwhAzXFWA"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_vqy-tD_-EeCBIqwhAzXFWA" hideGroupName="" specification="" base_Property="_cKIGVD_8EeCBIqwhAzXFWA"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_vqy-tj_-EeCBIqwhAzXFWA" hideGroupName="" specification="" base_Property="_cKIGVj_8EeCBIqwhAzXFWA"/>
+  <ECIMBaseProfile:EcimStruct xmi:id="_WpgXgENLEeCaIqCUMi0MOA" base_Class="_WowwoENLEeCaIqCUMi0MOA"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Wq_lQUNLEeCaIqCUMi0MOA" base_Property="_WowwokNLEeCaIqCUMi0MOA"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Wq_lQ0NLEeCaIqCUMi0MOA" base_Property="_WowwpUNLEeCaIqCUMi0MOA"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Wq_lRUNLEeCaIqCUMi0MOA" base_Property="_WowwqUNLEeCaIqCUMi0MOA"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Wq_lR0NLEeCaIqCUMi0MOA" base_Property="_WowwrENLEeCaIqCUMi0MOA"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Wq_lSUNLEeCaIqCUMi0MOA" base_Property="_Wowwr0NLEeCaIqCUMi0MOA"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Wq_lS0NLEeCaIqCUMi0MOA" base_Property="_WowwskNLEeCaIqCUMi0MOA"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Wq_lTUNLEeCaIqCUMi0MOA" base_Property="_WowwtUNLEeCaIqCUMi0MOA"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Wq_lT0NLEeCaIqCUMi0MOA" hideGroupName="" specification="" base_Property="_WowwuENLEeCaIqCUMi0MOA"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Wq_lUUNLEeCaIqCUMi0MOA" hideGroupName="" specification="" base_Property="_WowwukNLEeCaIqCUMi0MOA"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Wq_lU0NLEeCaIqCUMi0MOA" hideGroupName="" specification="" base_Property="_WowwvENLEeCaIqCUMi0MOA"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Wq_lVUNLEeCaIqCUMi0MOA" hideGroupName="" specification="" base_Property="_WowwvkNLEeCaIqCUMi0MOA"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Wq_lV0NLEeCaIqCUMi0MOA" hideGroupName="" specification="" base_Property="_WowwwENLEeCaIqCUMi0MOA"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_Wq_lWUNLEeCaIqCUMi0MOA" hideGroupName="" specification="" base_Property="_WowwwkNLEeCaIqCUMi0MOA"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_pHc8gLN4EeCpQvJycsvCug" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_wlvZcODGEd-IkcJqZDg2hA"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_qhn0cLN4EeCpQvJycsvCug" hideGroupName="" specification="" isNotifiable="true" base_Property="_FKgIMObAEd-MwYeT4ZV96w"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_rwk64LN4EeCpQvJycsvCug" isNotifiable="true" base_Property="_uEyQkOcREd-EfrW4DikZ4g"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_vpTf8LN4EeCpQvJycsvCug" isNotifiable="true" base_Property="_FtAp8ODOEd-IkcJqZDg2hA"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_xANogLN4EeCpQvJycsvCug" base_Property="_lfgi0O4iEd-p3c0nllo4HQ"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_0NwikLN4EeCpQvJycsvCug" hideGroupName="" specification="" isNotifiable="true" base_Property="_jhyBUOcQEd-EfrW4DikZ4g"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_1incsLN4EeCpQvJycsvCug" hideGroupName="" specification="" isNotifiable="true" base_Property="_PMRaUAeJEeCzjt64up_FdQ"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_U6I5MLN5EeCpQvJycsvCug" statusInformation="" isNotifiable="true" base_Property="_f0lncAg5EeC1PfEPGHyAQA"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_1cqwQLN5EeCpQvJycsvCug" isNotifiable="true" base_Property="_OZNIkODPEd-IkcJqZDg2hA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_lvoNgON6EeC9U9OLQ7CN1w" hideGroupName="" specification="" statusInformation="" base_EnumerationLiteral="_lvfDkON6EeC9U9OLQ7CN1w"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_4yxqQDfFEeKESOj1tOxEnw" hideGroupName="" specification="" statusInformation="" length="" pattern="" base_DataType="_4xlXcDfFEeKESOj1tOxEnw"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_bMtu4DfGEeKESOj1tOxEnw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_bMaz8DfGEeKESOj1tOxEnw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_-rgiwDfGEeKESOj1tOxEnw" hideGroupName="" specification="" statusInformation="" base_Parameter="_-rNn0DfGEeKESOj1tOxEnw"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_B2WHEDfHEeKESOj1tOxEnw" hideGroupName="" specification="" statusInformation="" isPassphrase="true" base_Parameter="_B2DMIDfHEeKESOj1tOxEnw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_jVZ30DfHEeKESOj1tOxEnw" hideGroupName="" specification="" statusInformation="" base_Parameter="_jVQG0DfHEeKESOj1tOxEnw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_MXm_ADfKEeKESOj1tOxEnw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_MXd1EDfKEeKESOj1tOxEnw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_H1DWoDo3EeKESOj1tOxEnw" hideGroupName="" specification="" statusInformation="" base_Enumeration="_H0mqsDo3EeKESOj1tOxEnw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_H1pzkDo3EeKESOj1tOxEnw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_H1WRkDo3EeKESOj1tOxEnw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_ORJQUDo3EeKESOj1tOxEnw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_ORAGYDo3EeKESOj1tOxEnw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_uQRfYDo3EeKESOj1tOxEnw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_uPO9kDo3EeKESOj1tOxEnw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_PoNvoBxBEeOK8PxrPXqEpg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_Q2nUQOObEeC9U9OLQ7CN1w"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_r_oRIBxBEeOK8PxrPXqEpg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_r_XycBxBEeOK8PxrPXqEpg"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_JAy6QBxCEeOK8PxrPXqEpg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_JAmtABxCEeOK8PxrPXqEpg"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_cRDC8BxCEeOK8PxrPXqEpg" hideGroupName="" specification="" status="PRELIMINARY" statusInformation="" unit="" base_Parameter="_cQ4D0BxCEeOK8PxrPXqEpg"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_dbYqwDb_EeOaBJKDI-yZew" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_dYUIoDb_EeOaBJKDI-yZew"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_lXvsQDceEeOaBJKDI-yZew" hideGroupName="" specification="" statusInformation="" unit="" base_Parameter="_lXf0oDceEeOaBJKDI-yZew"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_OHtREEiKEeSIrb1wH4Fc-g" hideGroupName="" specification="" base_Class="_Wn0mQODDEd-IkcJqZDg2hA" isSystemCreated="true" isLegacyRoot="true"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_JB1DcHY1EeWvE7qBNRQd7w" hideGroupName="" specification="" statusInformation="" base_Enumeration="_JBkkwHY1EeWvE7qBNRQd7w"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_JB_bgHY1EeWvE7qBNRQd7w" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_JB2RkHY1EeWvE7qBNRQd7w"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_tnjDIHY1EeWvE7qBNRQd7w" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_tnZSIHY1EeWvE7qBNRQd7w"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_-efqwHY4EeWvE7qBNRQd7w" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_-eWg0HY4EeWvE7qBNRQd7w"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_cCfOEJ5PEeWmmJEg6Tbxzg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" patternErrorMsg="" isNotifiable="true" base_Property="_b_VMYJ5PEeWmmJEg6Tbxzg"/>
+  <CoreMWProfile:CmwModel xmi:id="_7mk8AAnJEeeY5NjsYHeZbw" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwMom xmi:id="_7mmKIAnJEeeY5NjsYHeZbw" base_Package="_WllxoODDEd-IkcJqZDg2hA" immNamespace="MOM_NAME"/>
+  <CoreMWProfile:CmwClass xmi:id="_7mmKIQnJEeeY5NjsYHeZbw" base_Class="_Wn0mQODDEd-IkcJqZDg2hA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mmxMAnJEeeY5NjsYHeZbw" base_Property="_wlvZcODGEd-IkcJqZDg2hA" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mnYQAnJEeeY5NjsYHeZbw" base_Property="_OZNIkODPEd-IkcJqZDg2hA" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mnYQQnJEeeY5NjsYHeZbw" base_Property="_WoHhMODDEd-IkcJqZDg2hA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mnYQgnJEeeY5NjsYHeZbw" base_Property="_lfgi0O4iEd-p3c0nllo4HQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mn_UAnJEeeY5NjsYHeZbw" base_Property="_f0lncAg5EeC1PfEPGHyAQA" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mn_UQnJEeeY5NjsYHeZbw" base_Property="_VlAKEDOTEeCa5ZPdmHPdhg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mn_UgnJEeeY5NjsYHeZbw" base_Property="_uPO9kDo3EeKESOj1tOxEnw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mn_UwnJEeeY5NjsYHeZbw" base_Property="_-eWg0HY4EeWvE7qBNRQd7w" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mn_VAnJEeeY5NjsYHeZbw" base_Property="_b_VMYJ5PEeWmmJEg6Tbxzg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAction xmi:id="_7mn_VQnJEeeY5NjsYHeZbw" base_Operation="_rsTzgDXEEeCs8KfHr_rS9w" admOpId="3"/>
+  <CoreMWProfile:CmwAction xmi:id="_7momYAnJEeeY5NjsYHeZbw" base_Operation="_Sp-FgDXGEeCs8KfHr_rS9w" admOpId="5"/>
+  <CoreMWProfile:CmwAction xmi:id="_7momYQnJEeeY5NjsYHeZbw" base_Operation="_bMaz8DfGEeKESOj1tOxEnw" admOpId="7"/>
+  <CoreMWProfile:CmwAction xmi:id="_7mpNcAnJEeeY5NjsYHeZbw" base_Operation="_dYUIoDb_EeOaBJKDI-yZew" admOpId="8"/>
+  <CoreMWProfile:CmwClass xmi:id="_7mpNcQnJEeeY5NjsYHeZbw" base_Class="_E0qw4ODHEd-IkcJqZDg2hA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mpNcgnJEeeY5NjsYHeZbw" base_Property="_jhyBUOcQEd-EfrW4DikZ4g" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mpNcwnJEeeY5NjsYHeZbw" base_Property="_FtAp8ODOEd-IkcJqZDg2hA" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mpNdAnJEeeY5NjsYHeZbw" base_Property="_E5IaIODHEd-IkcJqZDg2hA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mpNdQnJEeeY5NjsYHeZbw" base_Property="_CnXSMODPEd-IkcJqZDg2hA" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mp0gAnJEeeY5NjsYHeZbw" base_Property="_61O6UOa7Ed-KutiVBhiTMQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mp0gQnJEeeY5NjsYHeZbw" base_Property="_FKgIMObAEd-MwYeT4ZV96w" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mp0ggnJEeeY5NjsYHeZbw" base_Property="_uEyQkOcREd-EfrW4DikZ4g" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mp0gwnJEeeY5NjsYHeZbw" base_Property="_PMRaUAeJEeCzjt64up_FdQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mp0hAnJEeeY5NjsYHeZbw" base_Property="_Q2nUQOObEeC9U9OLQ7CN1w" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mqbkAnJEeeY5NjsYHeZbw" base_Property="_MXd1EDfKEeKESOj1tOxEnw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7mqbkQnJEeeY5NjsYHeZbw" base_Property="_r_XycBxBEeOK8PxrPXqEpg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAction xmi:id="_7mqbkgnJEeeY5NjsYHeZbw" base_Operation="_gPo-oODPEd-IkcJqZDg2hA" admOpId="1"/>
+  <CoreMWProfile:CmwAction xmi:id="_7mqbkwnJEeeY5NjsYHeZbw" base_Operation="_woMhcODPEd-IkcJqZDg2hA" admOpId="3"/>
+  <CoreMWProfile:CmwAction xmi:id="_7mqblAnJEeeY5NjsYHeZbw" base_Operation="_2km1gODPEd-IkcJqZDg2hA" admOpId="4"/>
+  <CoreMWProfile:CmwAction xmi:id="_7mqblQnJEeeY5NjsYHeZbw" base_Operation="_-JwB8ODPEd-IkcJqZDg2hA" admOpId="5"/>
+  <CoreMWProfile:CmwAction xmi:id="_7mqblgnJEeeY5NjsYHeZbw" base_Operation="_JAmtABxCEeOK8PxrPXqEpg" admOpId="7"/>
+  <CoreMWProfile:CmwContribution xmi:id="_7mrCoAnJEeeY5NjsYHeZbw" base_Association="_tOD6UAeGEeCzjt64up_FdQ"/>
+  <CoreMWProfile:CmwStruct xmi:id="_7mrCoQnJEeeY5NjsYHeZbw" base_Class="_cKIGUD_8EeCBIqwhAzXFWA"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_7msQwAnJEeeY5NjsYHeZbw" base_Property="_cKIGUj_8EeCBIqwhAzXFWA" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_7ms30AnJEeeY5NjsYHeZbw" base_Property="_cKIGVD_8EeCBIqwhAzXFWA" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_7ms30QnJEeeY5NjsYHeZbw" base_Property="_cKIGVj_8EeCBIqwhAzXFWA" isConfigurable="true"/>
+  <CoreMWProfile:CmwStruct xmi:id="_7ms30gnJEeeY5NjsYHeZbw" base_Class="_WowwoENLEeCaIqCUMi0MOA"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_7ms30wnJEeeY5NjsYHeZbw" base_Property="_WowwokNLEeCaIqCUMi0MOA" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_7mte4AnJEeeY5NjsYHeZbw" base_Property="_WowwpUNLEeCaIqCUMi0MOA" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_7muF8AnJEeeY5NjsYHeZbw" base_Property="_WowwqUNLEeCaIqCUMi0MOA" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_7muF8QnJEeeY5NjsYHeZbw" base_Property="_WowwrENLEeCaIqCUMi0MOA" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_7mutAAnJEeeY5NjsYHeZbw" base_Property="_Wowwr0NLEeCaIqCUMi0MOA" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_7mutAQnJEeeY5NjsYHeZbw" base_Property="_WowwskNLEeCaIqCUMi0MOA" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_7mutAgnJEeeY5NjsYHeZbw" base_Property="_WowwtUNLEeCaIqCUMi0MOA" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_7mvUEAnJEeeY5NjsYHeZbw" base_Property="_WowwuENLEeCaIqCUMi0MOA" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_7mv7IAnJEeeY5NjsYHeZbw" base_Property="_WowwukNLEeCaIqCUMi0MOA" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_7mv7IQnJEeeY5NjsYHeZbw" base_Property="_WowwvENLEeCaIqCUMi0MOA" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_7mwiMAnJEeeY5NjsYHeZbw" base_Property="_WowwvkNLEeCaIqCUMi0MOA" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_7mwiMQnJEeeY5NjsYHeZbw" base_Property="_WowwwENLEeCaIqCUMi0MOA" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_7mwiMgnJEeeY5NjsYHeZbw" base_Property="_WowwwkNLEeCaIqCUMi0MOA" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_Af6FoAnOEeeY5NjsYHeZbw" status="DEPRECATED" statusInformation="Class has been removed from ECIM SwM 4.2, deprecated in CmwSwM 5.1" base_Class="_Af3CUAnOEeeY5NjsYHeZbw" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_Af6FoQnOEeeY5NjsYHeZbw" base_Class="_Af3CUAnOEeeY5NjsYHeZbw"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_Af6FownOEeeY5NjsYHeZbw" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Attribute has been removed from ECIM SwM 4.2, deprecated in CmwSwM 5.1" base_Property="_Af3CUgnOEeeY5NjsYHeZbw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Af6FpAnOEeeY5NjsYHeZbw" base_Property="_Af3CUgnOEeeY5NjsYHeZbw" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Af6FpgnOEeeY5NjsYHeZbw" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Attribute has been removed from ECIM SwM 4.2, deprecated in CmwSwM 5.1" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_Af3CVAnOEeeY5NjsYHeZbw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Af6FpwnOEeeY5NjsYHeZbw" base_Property="_Af3CVAnOEeeY5NjsYHeZbw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Af6FqQnOEeeY5NjsYHeZbw" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Attribute has been removed from ECIM SwM 4.2, deprecated in CmwSwM 5.1" isNotifiable="true" base_Property="_Af3CWAnOEeeY5NjsYHeZbw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Af6ssAnOEeeY5NjsYHeZbw" base_Property="_Af3CWAnOEeeY5NjsYHeZbw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Af6ssgnOEeeY5NjsYHeZbw" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Attribute has been removed from ECIM SwM 4.2, deprecated in CmwSwM 5.1" isNotifiable="true" base_Property="_Af3CXAnOEeeY5NjsYHeZbw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Af6sswnOEeeY5NjsYHeZbw" base_Property="_Af3CXAnOEeeY5NjsYHeZbw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Af6stQnOEeeY5NjsYHeZbw" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Attribute has been removed from ECIM SwM 4.2, deprecated in CmwSwM 5.1" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_Af3CXwnOEeeY5NjsYHeZbw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Af6stgnOEeeY5NjsYHeZbw" base_Property="_Af3CXwnOEeeY5NjsYHeZbw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_Af7TwQnOEeeY5NjsYHeZbw" hideGroupName="" specification="" statusInformation="" base_Enumeration="_Af3pYAnOEeeY5NjsYHeZbw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_Af7TwwnOEeeY5NjsYHeZbw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_Af3pYgnOEeeY5NjsYHeZbw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_Af7TxQnOEeeY5NjsYHeZbw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_Af3pZQnOEeeY5NjsYHeZbw"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_Af7TxwnOEeeY5NjsYHeZbw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_Af3paAnOEeeY5NjsYHeZbw"/>
+  <CoreMWProfile:CmwClass xmi:id="_Af7TyQnOEeeY5NjsYHeZbw" base_Class="_Af4QcAnOEeeY5NjsYHeZbw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_Af7TygnOEeeY5NjsYHeZbw" hideGroupName="" specification="" statusInformation="" base_Class="_Af4QcAnOEeeY5NjsYHeZbw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Af7TzAnOEeeY5NjsYHeZbw" base_Property="_Af4QcgnOEeeY5NjsYHeZbw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_Af760AnOEeeY5NjsYHeZbw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" range="" unit="" resolution="" multiplicationFactor="" base_Property="_Af4QcgnOEeeY5NjsYHeZbw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Af760gnOEeeY5NjsYHeZbw" base_Property="_Af4QdgnOEeeY5NjsYHeZbw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_Af760wnOEeeY5NjsYHeZbw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" range="" unit="" resolution="" multiplicationFactor="" base_Property="_Af4QdgnOEeeY5NjsYHeZbw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Af761QnOEeeY5NjsYHeZbw" base_Property="_Af4QegnOEeeY5NjsYHeZbw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Af761gnOEeeY5NjsYHeZbw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" range="" unit="" resolution="" multiplicationFactor="" isNotifiable="true" base_Property="_Af4QegnOEeeY5NjsYHeZbw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Af762AnOEeeY5NjsYHeZbw" base_Property="_Af4QfgnOEeeY5NjsYHeZbw"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_Af762QnOEeeY5NjsYHeZbw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_Af4QfgnOEeeY5NjsYHeZbw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Af762wnOEeeY5NjsYHeZbw" base_Property="_Af4QggnOEeeY5NjsYHeZbw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_Af8h4AnOEeeY5NjsYHeZbw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" patternErrorMsg="" isAssociationEnd="true" base_Property="_Af4QggnOEeeY5NjsYHeZbw"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_ACHg9AnPEeeY5NjsYHeZbw" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Attribute has been removed from ECIM SWM 4.2, deprecated in CmwSwM 5.1" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_ACFrwAnPEeeY5NjsYHeZbw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ACHg9QnPEeeY5NjsYHeZbw" base_Property="_ACFrwAnPEeeY5NjsYHeZbw" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ACIIAQnPEeeY5NjsYHeZbw" base_Property="_ACGS0AnPEeeY5NjsYHeZbw" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_ACIIAgnPEeeY5NjsYHeZbw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_ACGS0AnPEeeY5NjsYHeZbw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_ACIIBAnPEeeY5NjsYHeZbw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_ACGS1AnPEeeY5NjsYHeZbw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ACIIBQnPEeeY5NjsYHeZbw" base_Property="_ACGS1AnPEeeY5NjsYHeZbw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_ACIIBwnPEeeY5NjsYHeZbw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_ACG54AnPEeeY5NjsYHeZbw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ACIICAnPEeeY5NjsYHeZbw" base_Property="_ACG54AnPEeeY5NjsYHeZbw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_ACIICgnPEeeY5NjsYHeZbw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_ACG55QnPEeeY5NjsYHeZbw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ACIICwnPEeeY5NjsYHeZbw" base_Property="_ACG55QnPEeeY5NjsYHeZbw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ACIIDQnPEeeY5NjsYHeZbw" base_Property="_ACHg8AnPEeeY5NjsYHeZbw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_ACIIDgnPEeeY5NjsYHeZbw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" patternErrorMsg="" base_Property="_ACHg8AnPEeeY5NjsYHeZbw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Qm13gAnPEeeY5NjsYHeZbw" base_Property="_Qm0pYAnPEeeY5NjsYHeZbw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Qm13gQnPEeeY5NjsYHeZbw" isPersistent="false" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_Qm0pYAnPEeeY5NjsYHeZbw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_Qm13gwnPEeeY5NjsYHeZbw" base_Property="_Qm1QcAnPEeeY5NjsYHeZbw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_Qm13hAnPEeeY5NjsYHeZbw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_Qm1QcAnPEeeY5NjsYHeZbw"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_F_HOYAnQEeeY5NjsYHeZbw" hideGroupName="" specification="" statusInformation="" base_Association="_F-_5oAnQEeeY5NjsYHeZbw" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_8mtfIAnQEeeY5NjsYHeZbw" hideGroupName="" specification="" statusInformation="" base_Association="_8mmxcAnQEeeY5NjsYHeZbw" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_fJJ_gAnREeeY5NjsYHeZbw" hideGroupName="" specification="" status="DEPRECATED" statusInformation="SwVersionMain has been removed from ECIM SwM 4.2, deprecated in CmwSwM 5.1" base_Association="_fJD44AnREeeY5NjsYHeZbw" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_zRCTxgnREeeY5NjsYHeZbw" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Action has been removed from ECIM SWM 4.2, deprecated in CmwSwM 5.1" base_Operation="_zRCTwAnREeeY5NjsYHeZbw"/>
+  <CoreMWProfile:CmwAction xmi:id="_zRCTxwnREeeY5NjsYHeZbw" base_Operation="_zRCTwAnREeeY5NjsYHeZbw" admOpId="4"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_zRC60QnREeeY5NjsYHeZbw" hideGroupName="" specification="" statusInformation="" base_Parameter="_zRCTwgnREeeY5NjsYHeZbw"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_zRC60wnREeeY5NjsYHeZbw" hideGroupName="" specification="" base_Parameter="_zRCTxAnREeeY5NjsYHeZbw"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_2-_MNAnREeeY5NjsYHeZbw" hideGroupName="" specification="" status="DEPRECATED" statusInformation="Action has been removed from ECIM SWM 4.2, deprecated in CmwSwM 5.1" base_Operation="_2-_MMAnREeeY5NjsYHeZbw"/>
+  <CoreMWProfile:CmwAction xmi:id="_2-_zQAnREeeY5NjsYHeZbw" base_Operation="_2-_MMAnREeeY5NjsYHeZbw" admOpId="2"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_2-_zQgnREeeY5NjsYHeZbw" hideGroupName="" specification="" base_Parameter="_2-_MMgnREeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wAAnYEeeIFdNIGV-SeQ" base_Comment="_WmoTcODDEd-IkcJqZDg2hA"/>
+  <Documentation:Documentation xmi:id="_Ea5wAQnYEeeIFdNIGV-SeQ" base_Comment="_Wn0mQuDDEd-IkcJqZDg2hA"/>
+  <Documentation:Documentation xmi:id="_Ea5wAgnYEeeIFdNIGV-SeQ" base_Comment="_WoHhMeDDEd-IkcJqZDg2hA"/>
+  <Documentation:Documentation xmi:id="_Ea5wAwnYEeeIFdNIGV-SeQ" base_Comment="_aFpYAODDEd-IkcJqZDg2hA"/>
+  <Documentation:Documentation xmi:id="_Ea5wBAnYEeeIFdNIGV-SeQ" base_Comment="_wlvZceDGEd-IkcJqZDg2hA"/>
+  <Documentation:Documentation xmi:id="_Ea5wBQnYEeeIFdNIGV-SeQ" base_Comment="_E0qw4uDHEd-IkcJqZDg2hA"/>
+  <Documentation:Documentation xmi:id="_Ea5wBgnYEeeIFdNIGV-SeQ" base_Comment="_E5RkEODHEd-IkcJqZDg2hA"/>
+  <Documentation:Documentation xmi:id="_Ea5wBwnYEeeIFdNIGV-SeQ" base_Comment="_FtAp8eDOEd-IkcJqZDg2hA"/>
+  <Documentation:Documentation xmi:id="_Ea5wCAnYEeeIFdNIGV-SeQ" base_Comment="_OZW5kODPEd-IkcJqZDg2hA"/>
+  <Documentation:Documentation xmi:id="_Ea5wCgnYEeeIFdNIGV-SeQ" base_Comment="_woVrYeDPEd-IkcJqZDg2hA"/>
+  <Documentation:Documentation xmi:id="_Ea5wCwnYEeeIFdNIGV-SeQ" base_Comment="_2km1guDPEd-IkcJqZDg2hA"/>
+  <Documentation:Documentation xmi:id="_Ea5wDAnYEeeIFdNIGV-SeQ" base_Comment="_-J5y8eDPEd-IkcJqZDg2hA"/>
+  <Documentation:Documentation xmi:id="_Ea5wDQnYEeeIFdNIGV-SeQ" base_Comment="_GN8M4OaZEd-KutiVBhiTMQ"/>
+  <Documentation:Documentation xmi:id="_Ea5wDgnYEeeIFdNIGV-SeQ" base_Comment="_61O6Uea7Ed-KutiVBhiTMQ"/>
+  <Documentation:Documentation xmi:id="_Ea5wDwnYEeeIFdNIGV-SeQ" base_Comment="_FQmwMObAEd-MwYeT4ZV96w"/>
+  <Documentation:Documentation xmi:id="_Ea5wEAnYEeeIFdNIGV-SeQ" base_Comment="_orb_kecMEd-EfrW4DikZ4g"/>
+  <Documentation:Documentation xmi:id="_Ea5wEQnYEeeIFdNIGV-SeQ" base_Comment="_0AZssucMEd-EfrW4DikZ4g"/>
+  <Documentation:Documentation xmi:id="_Ea5wEgnYEeeIFdNIGV-SeQ" base_Comment="_YxjgU-cNEd-EfrW4DikZ4g"/>
+  <Documentation:Documentation xmi:id="_Ea5wEwnYEeeIFdNIGV-SeQ" base_Comment="_fifBkucNEd-EfrW4DikZ4g"/>
+  <Documentation:Documentation xmi:id="_Ea5wFAnYEeeIFdNIGV-SeQ" base_Comment="___W8k-cNEd-EfrW4DikZ4g"/>
+  <Documentation:Documentation xmi:id="_Ea5wFQnYEeeIFdNIGV-SeQ" base_Comment="_GTIAs-cOEd-EfrW4DikZ4g"/>
+  <Documentation:Documentation xmi:id="_Ea5wFgnYEeeIFdNIGV-SeQ" base_Comment="_jh7LQucQEd-EfrW4DikZ4g"/>
+  <Documentation:Documentation xmi:id="_Ea5wFwnYEeeIFdNIGV-SeQ" base_Comment="_uE4XMOcREd-EfrW4DikZ4g"/>
+  <Documentation:Documentation xmi:id="_Ea5wGAnYEeeIFdNIGV-SeQ" base_Comment="_lfgi0-4iEd-p3c0nllo4HQ"/>
+  <Documentation:Documentation xmi:id="_Ea5wGQnYEeeIFdNIGV-SeQ" base_Comment="_s_0LsPkcEd-rxr2wMh1tpw"/>
+  <Documentation:Documentation xmi:id="_Ea5wGgnYEeeIFdNIGV-SeQ" base_Comment="_PMZ9MAeJEeCzjt64up_FdQ"/>
+  <Documentation:Documentation xmi:id="_Ea5wGwnYEeeIFdNIGV-SeQ" base_Comment="_f0tjQQg5EeC1PfEPGHyAQA"/>
+  <Documentation:Documentation xmi:id="_Ea5wHAnYEeeIFdNIGV-SeQ" base_Comment="_x_TFkghTEeC1PfEPGHyAQA"/>
+  <Documentation:Documentation xmi:id="_Ea5wHQnYEeeIFdNIGV-SeQ" base_Comment="_VlJUAjOTEeCa5ZPdmHPdhg"/>
+  <Documentation:Documentation xmi:id="_Ea5wHgnYEeeIFdNIGV-SeQ" base_Comment="_PkhG8TOWEeCa5ZPdmHPdhg"/>
+  <Documentation:Documentation xmi:id="_Ea5wHwnYEeeIFdNIGV-SeQ" base_Comment="_Dk1zcTOXEeCa5ZPdmHPdhg"/>
+  <Documentation:Documentation xmi:id="_Ea5wIAnYEeeIFdNIGV-SeQ" base_Comment="_Vs3IwTOXEeCa5ZPdmHPdhg"/>
+  <Documentation:Documentation xmi:id="_Ea5wIQnYEeeIFdNIGV-SeQ" base_Comment="_ddsAwTOXEeCa5ZPdmHPdhg"/>
+  <Documentation:Documentation xmi:id="_Ea5wIgnYEeeIFdNIGV-SeQ" base_Comment="_rsYsATXEEeCs8KfHr_rS9w"/>
+  <Documentation:Documentation xmi:id="_Ea5wIwnYEeeIFdNIGV-SeQ" base_Comment="_SqC-ATXGEeCs8KfHr_rS9w"/>
+  <Documentation:Documentation xmi:id="_Ea5wJAnYEeeIFdNIGV-SeQ" base_Comment="_e_hs8TXGEeCs8KfHr_rS9w"/>
+  <Documentation:Documentation xmi:id="_Ea5wJQnYEeeIFdNIGV-SeQ" base_Comment="_ql6hQTXGEeCs8KfHr_rS9w"/>
+  <Documentation:Documentation xmi:id="_Ea5wJgnYEeeIFdNIGV-SeQ" base_Comment="_T5K9YTXjEeCs8KfHr_rS9w"/>
+  <Documentation:Documentation xmi:id="_Ea5wKAnYEeeIFdNIGV-SeQ" base_Comment="_cKIGUz_8EeCBIqwhAzXFWA"/>
+  <Documentation:Documentation xmi:id="_Ea5wKQnYEeeIFdNIGV-SeQ" base_Comment="_cKIGVT_8EeCBIqwhAzXFWA"/>
+  <Documentation:Documentation xmi:id="_Ea5wKgnYEeeIFdNIGV-SeQ" base_Comment="_cKIGVz_8EeCBIqwhAzXFWA"/>
+  <Documentation:Documentation xmi:id="_Ea5wKwnYEeeIFdNIGV-SeQ" base_Comment="_WowwoUNLEeCaIqCUMi0MOA"/>
+  <Documentation:Documentation xmi:id="_Ea5wLAnYEeeIFdNIGV-SeQ" base_Comment="_Wowwo0NLEeCaIqCUMi0MOA"/>
+  <Documentation:Documentation xmi:id="_Ea5wLQnYEeeIFdNIGV-SeQ" base_Comment="_WowwpkNLEeCaIqCUMi0MOA"/>
+  <Documentation:Documentation xmi:id="_Ea5wLgnYEeeIFdNIGV-SeQ" base_Comment="_WowwqkNLEeCaIqCUMi0MOA"/>
+  <Documentation:Documentation xmi:id="_Ea5wLwnYEeeIFdNIGV-SeQ" base_Comment="_WowwrUNLEeCaIqCUMi0MOA"/>
+  <Documentation:Documentation xmi:id="_Ea5wMAnYEeeIFdNIGV-SeQ" base_Comment="_WowwsENLEeCaIqCUMi0MOA"/>
+  <Documentation:Documentation xmi:id="_Ea5wMQnYEeeIFdNIGV-SeQ" base_Comment="_Wowws0NLEeCaIqCUMi0MOA"/>
+  <Documentation:Documentation xmi:id="_Ea5wMgnYEeeIFdNIGV-SeQ" base_Comment="_WowwtkNLEeCaIqCUMi0MOA"/>
+  <Documentation:Documentation xmi:id="_Ea5wMwnYEeeIFdNIGV-SeQ" base_Comment="_WowwuUNLEeCaIqCUMi0MOA"/>
+  <Documentation:Documentation xmi:id="_Ea5wNAnYEeeIFdNIGV-SeQ" base_Comment="_Wowwu0NLEeCaIqCUMi0MOA"/>
+  <Documentation:Documentation xmi:id="_Ea5wNQnYEeeIFdNIGV-SeQ" base_Comment="_WowwvUNLEeCaIqCUMi0MOA"/>
+  <Documentation:Documentation xmi:id="_Ea5wNgnYEeeIFdNIGV-SeQ" base_Comment="_Wowwv0NLEeCaIqCUMi0MOA"/>
+  <Documentation:Documentation xmi:id="_Ea5wNwnYEeeIFdNIGV-SeQ" base_Comment="_WowwwUNLEeCaIqCUMi0MOA"/>
+  <Documentation:Documentation xmi:id="_Ea5wOAnYEeeIFdNIGV-SeQ" base_Comment="_Wowww0NLEeCaIqCUMi0MOA"/>
+  <Documentation:Documentation xmi:id="_Ea5wOQnYEeeIFdNIGV-SeQ" base_Comment="_lvo0keN6EeC9U9OLQ7CN1w"/>
+  <Documentation:Documentation xmi:id="_Ea5wOwnYEeeIFdNIGV-SeQ" base_Comment="_z_BBYOObEeC9U9OLQ7CN1w"/>
+  <Documentation:Documentation xmi:id="_Ea5wPAnYEeeIFdNIGV-SeQ" base_Comment="_A0gsEDfGEeKESOj1tOxEnw"/>
+  <Documentation:Documentation xmi:id="_Ea5wPQnYEeeIFdNIGV-SeQ" base_Comment="_iRXdYDfGEeKESOj1tOxEnw"/>
+  <Documentation:Documentation xmi:id="_Ea5wPgnYEeeIFdNIGV-SeQ" base_Comment="_ElBT0DfHEeKESOj1tOxEnw"/>
+  <Documentation:Documentation xmi:id="_Ea5wPwnYEeeIFdNIGV-SeQ" base_Comment="_Tz-xUDfHEeKESOj1tOxEnw"/>
+  <Documentation:Documentation xmi:id="_Ea5wQAnYEeeIFdNIGV-SeQ" base_Comment="_l3rAQDfHEeKESOj1tOxEnw"/>
+  <Documentation:Documentation xmi:id="_Ea5wQQnYEeeIFdNIGV-SeQ" base_Comment="_MXm_ATfKEeKESOj1tOxEnw"/>
+  <Documentation:Documentation xmi:id="_Ea5wQgnYEeeIFdNIGV-SeQ" base_Comment="_H1DWoTo3EeKESOj1tOxEnw"/>
+  <Documentation:Documentation xmi:id="_Ea5wQwnYEeeIFdNIGV-SeQ" base_Comment="_H1pzkTo3EeKESOj1tOxEnw"/>
+  <Documentation:Documentation xmi:id="_Ea5wRAnYEeeIFdNIGV-SeQ" base_Comment="_ORJQUTo3EeKESOj1tOxEnw"/>
+  <Documentation:Documentation xmi:id="_Ea5wRQnYEeeIFdNIGV-SeQ" base_Comment="_uQRfYTo3EeKESOj1tOxEnw"/>
+  <Documentation:Documentation xmi:id="_Ea5wRgnYEeeIFdNIGV-SeQ" base_Comment="_r_oRIRxBEeOK8PxrPXqEpg"/>
+  <Documentation:Documentation xmi:id="_Ea5wRwnYEeeIFdNIGV-SeQ" base_Comment="_JAy6QRxCEeOK8PxrPXqEpg"/>
+  <Documentation:Documentation xmi:id="_Ea5wSAnYEeeIFdNIGV-SeQ" base_Comment="_cRDC8RxCEeOK8PxrPXqEpg"/>
+  <Documentation:Documentation xmi:id="_Ea5wSQnYEeeIFdNIGV-SeQ" base_Comment="_m61nwDb_EeOaBJKDI-yZew"/>
+  <Documentation:Documentation xmi:id="_Ea5wSgnYEeeIFdNIGV-SeQ" base_Comment="_lXz9sDceEeOaBJKDI-yZew"/>
+  <Documentation:Documentation xmi:id="_Ea5wTAnYEeeIFdNIGV-SeQ" base_Comment="_1WMH8NOhEeSBQPLnfJXTog"/>
+  <Documentation:Documentation xmi:id="_Ea5wTQnYEeeIFdNIGV-SeQ" base_Comment="_yp5isHY1EeWvE7qBNRQd7w"/>
+  <Documentation:Documentation xmi:id="_Ea5wTgnYEeeIFdNIGV-SeQ" base_Comment="_M5nb0JQaEeWTYvyV4j_Wkg"/>
+  <Documentation:Documentation xmi:id="_Ea5wTwnYEeeIFdNIGV-SeQ" base_Comment="_V-f8sJQaEeWTYvyV4j_Wkg"/>
+  <Documentation:Documentation xmi:id="_Ea5wUAnYEeeIFdNIGV-SeQ" base_Comment="_9U1p4JQaEeWTYvyV4j_Wkg"/>
+  <Documentation:Documentation xmi:id="_Ea5wUQnYEeeIFdNIGV-SeQ" base_Comment="_cCf1IJ5PEeWmmJEg6Tbxzg"/>
+  <Documentation:Documentation xmi:id="_Ea5wUgnYEeeIFdNIGV-SeQ" base_Comment="_Af3CUQnOEeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wUwnYEeeIFdNIGV-SeQ" base_Comment="_Af3CUwnOEeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wVAnYEeeIFdNIGV-SeQ" base_Comment="_Af3CVQnOEeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wVQnYEeeIFdNIGV-SeQ" base_Comment="_Af3CWQnOEeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wVgnYEeeIFdNIGV-SeQ" base_Comment="_Af3CXQnOEeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wVwnYEeeIFdNIGV-SeQ" base_Comment="_Af3CYAnOEeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wWAnYEeeIFdNIGV-SeQ" base_Comment="_Af3pYQnOEeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wXAnYEeeIFdNIGV-SeQ" base_Comment="_Af4QcQnOEeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wXgnYEeeIFdNIGV-SeQ" base_Comment="_Af4QdwnOEeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wXwnYEeeIFdNIGV-SeQ" base_Comment="_Af4QewnOEeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wYAnYEeeIFdNIGV-SeQ" base_Comment="_Af4QfwnOEeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wYQnYEeeIFdNIGV-SeQ" base_Comment="_Af4QgwnOEeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wYwnYEeeIFdNIGV-SeQ" base_Comment="_ACGS0QnPEeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wZAnYEeeIFdNIGV-SeQ" base_Comment="_ACGS1QnPEeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wZwnYEeeIFdNIGV-SeQ" base_Comment="_ACHg8QnPEeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5waAnYEeeIFdNIGV-SeQ" base_Comment="_Qm0pYQnPEeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5waQnYEeeIFdNIGV-SeQ" base_Comment="_Qm1QcQnPEeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wagnYEeeIFdNIGV-SeQ" base_Comment="_zRCTwQnREeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wawnYEeeIFdNIGV-SeQ" base_Comment="_zRCTwwnREeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wbAnYEeeIFdNIGV-SeQ" base_Comment="_zRCTxQnREeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wbQnYEeeIFdNIGV-SeQ" base_Comment="_2-_MMQnREeeY5NjsYHeZbw"/>
+  <Documentation:Documentation xmi:id="_Ea5wbgnYEeeIFdNIGV-SeQ" base_Comment="_2-_MMwnREeeY5NjsYHeZbw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_MPqoAAT3Ee2xObK8MVzY_w" hideGroupName="" specification="" statusInformation="" base_Enumeration="_MPlvgAT3Ee2xObK8MVzY_w"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_oudj4AT3Ee2xObK8MVzY_w" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" base_EnumerationLiteral="_ouZ5gAT3Ee2xObK8MVzY_w"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_F9RyAAT5Ee2xObK8MVzY_w" hideGroupName="" specification="" statusInformation="" base_Enumeration="_F9NgkAT5Ee2xObK8MVzY_w"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_F9cKEAT5Ee2xObK8MVzY_w" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" base_EnumerationLiteral="_F9U1UAT5Ee2xObK8MVzY_w"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_av_L8AT5Ee2xObK8MVzY_w" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" base_EnumerationLiteral="_av5sYAT5Ee2xObK8MVzY_w"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_DTiTIAT6Ee2xObK8MVzY_w" hideGroupName="" specification="" statusInformation="" base_Parameter="_DTeBsAT6Ee2xObK8MVzY_w"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_u2ZEEAT6Ee2xObK8MVzY_w" hideGroupName="" specification="" statusInformation="" base_Parameter="_u2UyoAT6Ee2xObK8MVzY_w"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_IT6XIAWGEe2XEcp-ga_Fcg" hideGroupName="" specification="" statusInformation="" base_Enumeration="_ITybUAWGEe2XEcp-ga_Fcg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_IUC6AAWGEe2XEcp-ga_Fcg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" base_EnumerationLiteral="_IT-okAWGEe2XEcp-ga_Fcg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_ZZmFsAWGEe2XEcp-ga_Fcg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" base_EnumerationLiteral="_ZZgmIAWGEe2XEcp-ga_Fcg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_ikk8oAWIEe2XEcp-ga_Fcg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" isNotifiable="true" base_Property="_ikhSQAWIEe2XEcp-ga_Fcg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ikljsAWIEe2XEcp-ga_Fcg" base_Property="_ikhSQAWIEe2XEcp-ga_Fcg" isCached="true" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimFeatures xmi:id="_g60ukEfiEe62l5Y7CGNADA" base_Package="_g6xrQEfiEe62l5Y7CGNADA"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_g63x4EfiEe62l5Y7CGNADA" base_Class="_g61VoEfiEe62l5Y7CGNADA"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_qviw8EfiEe62l5Y7CGNADA" base_Package="_qvftoEfiEe62l5Y7CGNADA"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_qvlNMEfiEe62l5Y7CGNADA" base_Class="_qvjYAEfiEe62l5Y7CGNADA"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_-aoJkEfkEe62l5Y7CGNADA" hideGroupName="" specification="" statusInformation="" base_Parameter="_-ajREEfkEe62l5Y7CGNADA"/>
+</xmi:XMI>

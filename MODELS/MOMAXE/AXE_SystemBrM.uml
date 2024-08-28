@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="SystemBrM">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NRAMoQwOEdmFcaeZXPdWAQ" source="uml2.diagrams"/>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-BUNMGuAEeCqn7Fp3E2AOA" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-BUNMWuAEeCqn7Fp3E2AOA" key="com.ericsson.ecim.dsl.uireduction.activity" value="2"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PlxNsLpCEeGw5LKoWj9CjA" key="com.ericsson.ecim.coremw.dsl.uireduction.activity" value="1"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="__82QUGuBEeC-4MS_I9Cylg" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>System Backups and Restore Management fragment.</body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_uWHKUIXbEd-Id79DLfNphQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_qiLpEGuCEeC-4MS_I9Cylg" name="SystemBrM">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_qibgsGuCEeC-4MS_I9Cylg" annotatedElement="_qiLpEGuCEeC-4MS_I9Cylg">
+        <body>System BrM Root Class.</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_qinG4GuCEeC-4MS_I9Cylg" name="SystemBrM">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_qixe8GuCEeC-4MS_I9Cylg" annotatedElement="_qinG4GuCEeC-4MS_I9Cylg">
+          <body>Represents the root MOC for System Backups and Restore Management function MOM.
+It allows to configure system backups function.
+
+The setting of one or more attributes can fail due to  following reason:
+-Invalid Transfer Queue: This message appears when the transfer queue entered is not defined or not valid.
+-System Backup operation ongoing : This message appears if any system backup operation is ongoing at that time.
+-Backup password not defined - This message appears when backup user label is defined without backup Password.
+-Backup user label not defined - This message appears when backup password is defined without backup user label.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_xby4oLoUEeWr2cQC7pIWdw">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_xb0GwLoUEeWr2cQC7pIWdw">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_qi73AGuCEeC-4MS_I9Cylg" name="systemBrMId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_qjHdMGuCEeC-4MS_I9Cylg" annotatedElement="_qi73AGuCEeC-4MS_I9Cylg">
+            <body>Holds the name used when identifying the MO. 
+The only allowed value is '1'.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qjGPEGuCEeC-4MS_I9Cylg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qjG2IGuCEeC-4MS_I9Cylg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_EAMnoFs2EeKbVdEkasR1Kg" name="reportProgress" type="_7BhD0AjaEe6Ee8RysBCCZw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_EAMnoVs2EeKbVdEkasR1Kg" annotatedElement="_EAMnoFs2EeKbVdEkasR1Kg">
+            <body>Specifies the execution status and result of the ongoing (asynchronous) action.
+The reason for action failure will be shown in sub-attribute resultInfo.&#xD;
+            </body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xZDMYCY0Ee6GC9FtF-Ptzw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hOw58KdGEeOL09eSJoOKAg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_K08zgPSnEe2itP4G0RNAVA" name="transferQueue" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_K1GkgfSnEe2itP4G0RNAVA" annotatedElement="_K08zgPSnEe2itP4G0RNAVA">
+            <body>Specifies the identifier of the transfer queue to be used to transfer system backup files to the external server.
+It is the name of a transfer queue already defined through Data Transfer Management function.
+Only initiating file based transfer is supported.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_K1HLkPSnEe2itP4G0RNAVA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_K1HLkfSnEe2itP4G0RNAVA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_bqJPAPSnEe2itP4G0RNAVA" name="transferQueueDn" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_bqOukfSnEe2itP4G0RNAVA" annotatedElement="_bqJPAPSnEe2itP4G0RNAVA">
+            <body>Specifies the DN associated to the tranfer queue specified via attribute transferQueue.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bqOukvSnEe2itP4G0RNAVA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bqOuk_SnEe2itP4G0RNAVA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_sXowkPlIEe2juOZ_rTQ1oQ" name="backupPassword" visibility="public" type="_oCassMJEEeKeBL66pxEmiQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_sXveQflIEe2juOZ_rTQ1oQ" annotatedElement="_sXowkPlIEe2juOZ_rTQ1oQ">
+            <body>This attribute is used to store password for the secured backup.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sXwsYPlIEe2juOZ_rTQ1oQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sXzvsPlIEe2juOZ_rTQ1oQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_aIvsUPlKEe2juOZ_rTQ1oQ" name="backupUserLabel" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_aI1y8flKEe2juOZ_rTQ1oQ" annotatedElement="_aIvsUPlKEe2juOZ_rTQ1oQ">
+            <body>This attribute is used to show user information for the secured backup.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aI1y8vlKEe2juOZ_rTQ1oQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aI1y8_lKEe2juOZ_rTQ1oQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_MbXMgBcpEe6zJJ3AVmeQ8A" name="SystemBrMBackupScheduler" visibility="public" type="_3Fq20HOGEeGI1al_hUEYpA" aggregation="composite" association="_MbM0cBcpEe6zJJ3AVmeQ8A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MbZowRcpEe6zJJ3AVmeQ8A"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MbZowBcpEe6zJJ3AVmeQ8A" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="__UORYPSdEe2itP4G0RNAVA" name="createBackupAndExport" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_POZ3UPS4Ee2itP4G0RNAVA" annotatedElement="__UORYPSdEe2itP4G0RNAVA">
+            <body>Create the system backup and exports towards external server defined by transfer queue.
+This is an asynchronus action: progress and result are reported in the progressReport attribute.
+
+This action considers APG system backup as secured if attributes backupPassword and backupUserLabel were defined in MO.
+
+The action can fail due to one of the following reasons:
+-Invalid system backup type specified: Action fails if an invalid system backup type is specified in this system configuration.
+-System Backup operation ongoing: Action fails if any manual or scheduled backup operation is ongoing at that time.
+
+</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_INKA8PSeEe2itP4G0RNAVA" name="systemBackupType" type="_tmuOgPSVEe2itP4G0RNAVA">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_7aDN8PS1Ee2itP4G0RNAVA" annotatedElement="_INKA8PSeEe2itP4G0RNAVA">
+              <body>Indicates the system backup type for which the backup to be created.
+
+Default value is ALL which indicates system backups.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_I2TisP4BEe2juOZ_rTQ1oQ"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_INOSYPSeEe2itP4G0RNAVA" value="1"/>
+            <defaultValue xmi:type="uml:InstanceValue" xmi:id="_fSJCUP4cEe2juOZ_rTQ1oQ" name="NONE" instance="_xYWtEPSVEe2itP4G0RNAVA"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_3Fq20HOGEeGI1al_hUEYpA" name="SystemBrmBackupScheduler">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_3F-Y0XOGEeGI1al_hUEYpA" annotatedElement="_3Fq20HOGEeGI1al_hUEYpA">
+          <body>Represents the System Backups scheduler function. </body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_nzRj8INiEeGkLv30vkl8DA" name="lastScheduledEventTime" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_nzuP4YNiEeGkLv30vkl8DA" annotatedElement="_nzRj8INiEeGkLv30vkl8DA">
+            <body>Specifies the timestamp of the last scheduled backup.  </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n0BK0YNiEeGkLv30vkl8DA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_n0K70INiEeGkLv30vkl8DA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_3GR60HOGEeGI1al_hUEYpA" name="systemBrmBackupSchedulerId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_3Gk1wHOGEeGI1al_hUEYpA" annotatedElement="_3GR60HOGEeGI1al_hUEYpA">
+            <body>The value component of the RDN.
+The only allowed value is '1'.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3G3JoHOGEeGI1al_hUEYpA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3G4XwHOGEeGI1al_hUEYpA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_E6weEMH5EeGjkuGa2K3Csg" name="reportProgress" type="_7BhD0AjaEe6Ee8RysBCCZw" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_E6weEcH5EeGjkuGa2K3Csg" annotatedElement="_E6weEMH5EeGjkuGa2K3Csg">
+            <body>Specifies the execution status and result of the last executed scheduled periodic event.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zjJFYCY0Ee6GC9FtF-Ptzw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Z5KlYKdGEeOL09eSJoOKAg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_nNba4IBYEeKxi4ancrExzg" name="SystemBrmPeriodicEvent" visibility="public" type="_zD6WIIBXEeKxi4ancrExzg" aggregation="composite" association="_nNaz0IBYEeKxi4ancrExzg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nNfsUIBYEeKxi4ancrExzg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nNfFQIBYEeKxi4ancrExzg" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hu96sHeGEeGf2P5cQ_Bi6A" name="adminState" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hvFPcXeGEeGf2P5cQ_Bi6A" annotatedElement="_hu96sHeGEeGf2P5cQ_Bi6A">
+            <body>Administrative state of the scheduler.</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#__k_d4JdbEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_--O78Bo8Ee6O-ag9O8XQUQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hvNLQXeGEeGf2P5cQ_Bi6A" value="1"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="__YzYEBo8Ee6O-ag9O8XQUQ" name="LOCKED">
+            <instance xmi:type="uml:EnumerationLiteral" href="ECIM_CommonLibrary.uml#__k_d4pdbEeC11vgiYYrb4A"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_CZsacBooEeK1UMUQ9hLgqg" name="nextScheduledEventTime" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_CZsacRooEeK1UMUQ9hLgqg" annotatedElement="_CZsacBooEeK1UMUQ9hLgqg">
+            <body>Specifies the timestamp of the next scheduled event to occur.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YcGaQIs9EeKcNe3kbMZNFA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gqb24BooEeK1UMUQ9hLgqg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_sJ9GoIBVEeKxi4ancrExzg" name="" memberEnd="_sKX9YIBVEeKxi4ancrExzg _sKc14IBVEeKxi4ancrExzg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_sKc14IBVEeKxi4ancrExzg" name="SystemBrM" visibility="public" type="_qinG4GuCEeC-4MS_I9Cylg" aggregation="composite" association="_sJ9GoIBVEeKxi4ancrExzg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2XFeMBTREe6zJJ3AVmeQ8A"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2XE3IBTREe6zJJ3AVmeQ8A" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_sKX9YIBVEeKxi4ancrExzg" name="SystemHandling" visibility="public" association="_sJ9GoIBVEeKxi4ancrExzg">
+          <type xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0MIKREeK3wcU1QErItg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aWQWoHgKEeOsO4Zm2ZpZmw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aWPvkHgKEeOsO4Zm2ZpZmw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_zD6WIIBXEeKxi4ancrExzg" name="SystemBrmPeriodicEvent">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_zEI_oYBXEeKxi4ancrExzg" annotatedElement="_zD6WIIBXEeKxi4ancrExzg">
+          <body>Represents a time interval based event for executing system backup job periodically.
+&#xD;
+This construct can be used to configure a periodic scheduled backup event by specifying the number of months, weeks, days, hours, or minutes. For instance, in order to configure a scheduled backup event to occur every 12 hours, the following setup must be done:&#xD;
+&#xD;
+hours=12&#xD;
+&#xD;
+Note: If an event is configured to execute on 30th of every month from January, then the event will be executed on 30th of january and next execution will be on 28th/29th of february as february has only 28/29 days.&#xD;
+&#xD;
+The default start time for calculating scheduled execution is assumed to be the current system time. A different start time can be set using the startTime attribute.&#xD;
+Attribute stopTime can be used to decide when the scheduling stops. Note that the default value of stopTime is the end of the year 2099.&#xD;
+&#xD;
+One or more attributes setting can fail due to one of the following reasons:&#xD;
+- Start time has expired : This message appears when the specified 'startTime' has already expired.&#xD;
+- Stop time has expired : This message appears when the specified 'stopTime' has already expired.&#xD;
+- Stop time not valid : This message appears when the specified 'stopTime' is before the specified 'startTime'.&#xD;
+- Invalid scheduled time : This message appears when the specified 'startTime' or 'stopTime' is not valid.&#xD;
+- Invalid time zone : This message appears when the specified 'startTime' or 'stopTime' has an invalid time zone.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_gcSzMP4aEe2juOZ_rTQ1oQ" constrainedElement="_O-p3oP4aEe2juOZ_rTQ1oQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_gcTaQP4aEe2juOZ_rTQ1oQ">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_zEYQMIBXEeKxi4ancrExzg" name="systemBrmPeriodicEventId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_zElrkYBXEeKxi4ancrExzg" annotatedElement="_zEYQMIBXEeKxi4ancrExzg">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zEzuAIBXEeKxi4ancrExzg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zE0VEIBXEeKxi4ancrExzg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_IL1skP4FEe2juOZ_rTQ1oQ" name="days" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_5C_BoP4FEe2juOZ_rTQ1oQ" annotatedElement="_IL1skP4FEe2juOZ_rTQ1oQ">
+            <body>Specifies the frequency of the job execution in number of days.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z0JlQP4FEe2juOZ_rTQ1oQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IL7MIf4FEe2juOZ_rTQ1oQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_IL6lEf4FEe2juOZ_rTQ1oQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_KM7akP4FEe2juOZ_rTQ1oQ" name="hours" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_8RXpMP4FEe2juOZ_rTQ1oQ" annotatedElement="_KM7akP4FEe2juOZ_rTQ1oQ">
+            <body>Specifies the frequency of the job execution in number of hours.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6CwckP4FEe2juOZ_rTQ1oQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KM7akv4FEe2juOZ_rTQ1oQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Ko_rgP4FEe2juOZ_rTQ1oQ" name="minutes" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_-iun0P4FEe2juOZ_rTQ1oQ" annotatedElement="_Ko_rgP4FEe2juOZ_rTQ1oQ">
+            <body>Specifies the frequency of the job execution in number of minutes.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9IbNAP4FEe2juOZ_rTQ1oQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ko_rgv4FEe2juOZ_rTQ1oQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_Ko_rg_4FEe2juOZ_rTQ1oQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_K0aRUP4FEe2juOZ_rTQ1oQ" name="months" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_BZ5CMP4GEe2juOZ_rTQ1oQ" annotatedElement="_K0aRUP4FEe2juOZ_rTQ1oQ">
+            <body>Specifies the frequency of the job execution in number of months.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AVp-AP4GEe2juOZ_rTQ1oQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_K0aRUv4FEe2juOZ_rTQ1oQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_K0aRU_4FEe2juOZ_rTQ1oQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_L07TIP4FEe2juOZ_rTQ1oQ" name="weeks" visibility="public" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_DZydYP4GEe2juOZ_rTQ1oQ" annotatedElement="_L07TIP4FEe2juOZ_rTQ1oQ">
+            <body>Specifies the frequency of the job execution in number of weeks.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CGb_IP4GEe2juOZ_rTQ1oQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L07TIv4FEe2juOZ_rTQ1oQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_L07TI_4FEe2juOZ_rTQ1oQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_X3a0oP4FEe2juOZ_rTQ1oQ" name="startTime" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Tqf2UP4HEe2juOZ_rTQ1oQ" annotatedElement="_X3a0oP4FEe2juOZ_rTQ1oQ">
+            <body>Specifies the start date and time of a periodic event execution.
+The execution of an event will be initiated at this time and the execution continues  periodically. It is an optional attribute and if not specified, the implementation uses the current system time as the default value.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_X3gUMf4FEe2juOZ_rTQ1oQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_X3gUMv4FEe2juOZ_rTQ1oQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_axA38P4FEe2juOZ_rTQ1oQ" name="stopTime" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_hkGDYP4HEe2juOZ_rTQ1oQ" annotatedElement="_axA38P4FEe2juOZ_rTQ1oQ">
+            <body>Specifies the date and time at which periodic event execution must be stopped.
+This attribute is optional and if not specified, by default value will be the end of the year 2099.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yQtAEP4GEe2juOZ_rTQ1oQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_axBfAP4FEe2juOZ_rTQ1oQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_w_P_QP4GEe2juOZ_rTQ1oQ" value="2099-12-31T23:59:59.000Z"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_O-p3oP4aEe2juOZ_rTQ1oQ" name="lastScheduledDate" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_O-vXMf4aEe2juOZ_rTQ1oQ" annotatedElement="_O-p3oP4aEe2juOZ_rTQ1oQ">
+            <body>Specifies the last scheduled date and time for a periodic event scheduling.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_O-vXMv4aEe2juOZ_rTQ1oQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_O-vXM_4aEe2juOZ_rTQ1oQ" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_nNaz0IBYEeKxi4ancrExzg" name="" memberEnd="_nNba4IBYEeKxi4ancrExzg _nNdQEIBYEeKxi4ancrExzg">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_9mEgkPlKEe2juOZ_rTQ1oQ" annotatedElement="_nNaz0IBYEeKxi4ancrExzg">
+          <body>Represents a time interval based event for executing one bakcup job periodically.
+A periodic scheduled backup job is executed at specified number of months, weeks, days, hours, or minutes.</body>
+        </ownedComment>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_nNdQEIBYEeKxi4ancrExzg" name="SystemBrmBackupScheduler" visibility="public" type="_3Fq20HOGEeGI1al_hUEYpA" association="_nNaz0IBYEeKxi4ancrExzg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nNvj8IBYEeKxi4ancrExzg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nNu84IBYEeKxi4ancrExzg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_oCassMJEEeKeBL66pxEmiQ" name="EcimPasswordString">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_oCasscJEEeKeBL66pxEmiQ" annotatedElement="_oCassMJEEeKeBL66pxEmiQ">
+          <body>Holds the password string.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_oCasssJEEeKeBL66pxEmiQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_0SGmILoOEeWr2cQC7pIWdw" name="Features">
+        <packagedElement xmi:type="uml:Class" xmi:id="_0SPJALoOEeWr2cQC7pIWdw" name="CPI_HIDDEN"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_2rVuYLoOEeWr2cQC7pIWdw" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_2rdqMLoOEeWr2cQC7pIWdw" name="BASIC"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_4ELwoLoOEeWr2cQC7pIWdw" client="_2rdqMLoOEeWr2cQC7pIWdw" supplier="_0SPJALoOEeWr2cQC7pIWdw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_tmuOgPSVEe2itP4G0RNAVA" name="SystemBackupType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_tm2KUPSVEe2itP4G0RNAVA" annotatedElement="_tmuOgPSVEe2itP4G0RNAVA">
+          <body>Lists the possible system backup types.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_xYWtEPSVEe2itP4G0RNAVA" name="ALL" visibility="public">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_VH3fIBZkEe6zJJ3AVmeQ8A"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_tm2xYPSVEe2itP4G0RNAVA" name="APG" visibility="public">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_QkqZsBZkEe6zJJ3AVmeQ8A" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_v6TasPSVEe2itP4G0RNAVA" name="CP1" visibility="public">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_RLQfoBZkEe6zJJ3AVmeQ8A" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_wWg1kPSVEe2itP4G0RNAVA" name="CP2" visibility="public">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_RvaVkBZkEe6zJJ3AVmeQ8A" value="3"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_wq0RoPSVEe2itP4G0RNAVA" name="CPCLUSTER" visibility="public">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_SNc8cBZkEe6zJJ3AVmeQ8A" value="4"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_xBiIgPSVEe2itP4G0RNAVA" name="CP" visibility="public">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_SvR3IBZkEe6zJJ3AVmeQ8A" value="5"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_7BhD0AjaEe6Ee8RysBCCZw" name="AsyncActionProgress">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_7BnKcQjaEe6Ee8RysBCCZw" annotatedElement="_7BhD0AjaEe6Ee8RysBCCZw">
+          <body>Provides the progress report of an asynchronous action.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_MujtUAjbEe6Ee8RysBCCZw" name="actionName" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_1VRV4AjeEe6-HItgjwUg3w" annotatedElement="_MujtUAjbEe6Ee8RysBCCZw">
+            <body>The name of the invoked asynchronous action.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MunXsAjbEe6Ee8RysBCCZw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MunXsQjbEe6Ee8RysBCCZw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Rht6UAjbEe6Ee8RysBCCZw" name="additionalInfo" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_3EVfwAjeEe6-HItgjwUg3w" annotatedElement="_Rht6UAjbEe6Ee8RysBCCZw">
+            <body>Used for logging significant messages during execution of an action.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Rhyy0QjbEe6Ee8RysBCCZw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Rhyy0gjbEe6Ee8RysBCCZw" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_UPvm0AjbEe6Ee8RysBCCZw" name="progressInfo" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_4fCjMAjeEe6-HItgjwUg3w" annotatedElement="_UPvm0AjbEe6Ee8RysBCCZw">
+            <body>Textual information describing the actual state of the execution of the action.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UPz4QAjbEe6Ee8RysBCCZw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UPz4QQjbEe6Ee8RysBCCZw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZOQvQAjbEe6Ee8RysBCCZw" name="progressPercentage" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6DXcsAjeEe6-HItgjwUg3w" annotatedElement="_ZOQvQAjbEe6Ee8RysBCCZw">
+            <body>Progress of the action. 
+The range is between 0 and 100.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZOVAsQjbEe6Ee8RysBCCZw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZOVnwAjbEe6Ee8RysBCCZw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_fSEr0AjbEe6Ee8RysBCCZw" name="result" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_7LlB8AjeEe6-HItgjwUg3w" annotatedElement="_fSEr0AjbEe6Ee8RysBCCZw">
+            <body>Provides the result state of a completed action.
+This field has the value NOT_AVAILABLE if the action is not finished.</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#_5JuxUEVvEeC0EevVhLHxGg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fSIWMQjbEe6Ee8RysBCCZw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fSIWMgjbEe6Ee8RysBCCZw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_igiL4AjbEe6Ee8RysBCCZw" name="resultInfo" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_8cZwoAjeEe6-HItgjwUg3w" annotatedElement="_igiL4AjbEe6Ee8RysBCCZw">
+            <body>Provides textual description of the outcome/result of the action.
+It can contain an error message if the action is failed.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_igmdUQjbEe6Ee8RysBCCZw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_igmdUgjbEe6Ee8RysBCCZw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_oGfu0AjbEe6Ee8RysBCCZw" name="state" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_9VUVoAjeEe6-HItgjwUg3w" annotatedElement="_oGfu0AjbEe6Ee8RysBCCZw">
+            <body>Current state of the action</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#_CCilEEVwEeC0EevVhLHxGg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oGlOYAjbEe6Ee8RysBCCZw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oGlOYQjbEe6Ee8RysBCCZw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ssK5cAjbEe6Ee8RysBCCZw" name="actionId" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_-bIHIAjeEe6-HItgjwUg3w" annotatedElement="_ssK5cAjbEe6Ee8RysBCCZw">
+            <body>Uniquely identifies the invoked action.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxWcACCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ssOj0QjbEe6Ee8RysBCCZw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ssPK4AjbEe6Ee8RysBCCZw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_xfDZoAjbEe6Ee8RysBCCZw" name="timeActionStarted" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="__oWvQAjeEe6-HItgjwUg3w" annotatedElement="_xfDZoAjbEe6Ee8RysBCCZw">
+            <body>Provides the date and time when the current action was started.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xfGc8gjbEe6Ee8RysBCCZw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xfGc8wjbEe6Ee8RysBCCZw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_1KJLUAjbEe6Ee8RysBCCZw" name="timeActionCompleted" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_A78eEAjfEe6-HItgjwUg3w" annotatedElement="_1KJLUAjbEe6Ee8RysBCCZw">
+            <body>Provides the date and time when the current action was completed (successfully or unsuccessfully).</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1KMOoQjbEe6Ee8RysBCCZw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1KMOogjbEe6Ee8RysBCCZw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_6I5kUAjbEe6Ee8RysBCCZw" name="timeOfLastStatusUpdate" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Co6WMAjfEe6-HItgjwUg3w" annotatedElement="_6I5kUAjbEe6Ee8RysBCCZw">
+            <body>Provides the date and time when the struct member state was last updated.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvsJdcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6I9OsQjbEe6Ee8RysBCCZw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6I9OsgjbEe6Ee8RysBCCZw" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MbM0cBcpEe6zJJ3AVmeQ8A" name="" visibility="public" memberEnd="_MbXMgBcpEe6zJJ3AVmeQ8A _MbZBsBcpEe6zJJ3AVmeQ8A">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_MbZBsBcpEe6zJJ3AVmeQ8A" name="SystemBrM" visibility="public" type="_qinG4GuCEeC-4MS_I9Cylg" association="_MbM0cBcpEe6zJJ3AVmeQ8A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MbfvYRcpEe6zJJ3AVmeQ8A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MbfvYBcpEe6zJJ3AVmeQ8A" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_03w6ALpBEeGw5LKoWj9CjA" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_bdi-kBokEe6O-ag9O8XQUQ" name="" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_GUIDELIB/ECIM_Guidelines.uml#_tFUKaXhYEd-e29ZwYMJd6w"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_-JX9AGuAEeCqn7Fp3E2AOA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hws7YDCWEeum-LsfUdOKNQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hwticDCWEeum-LsfUdOKNQ" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hwticTCWEeum-LsfUdOKNQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hwticjCWEeum-LsfUdOKNQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hwticzCWEeum-LsfUdOKNQ" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hwtidDCWEeum-LsfUdOKNQ" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-Jc1gGuAEeCqn7Fp3E2AOA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_04XXCbpBEeGw5LKoWj9CjA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_sor7kN6MEeehtLhJYaltnA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sor7kd6MEeehtLhJYaltnA" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sor7kt6MEeehtLhJYaltnA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sor7k96MEeehtLhJYaltnA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sor7lN6MEeehtLhJYaltnA" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sor7ld6MEeehtLhJYaltnA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_e1uSANKuEeaFScuhhBXuZA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_e1uSAdKuEeaFScuhhBXuZA" key="Version" value="1.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_e1uSAtKuEeaFScuhhBXuZA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_e1uSA9KuEeaFScuhhBXuZA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_e1uSBNKuEeaFScuhhBXuZA" key="Date" value="2016-02-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_e1uSBdKuEeaFScuhhBXuZA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_04XXCrpBEeGw5LKoWj9CjA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_JxrE4BtEEeWvQYFW8NSCww" hideGroupName="" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="System Backups and Restore Management Funciton" subTitle="" docNo="19089-CXA 117 0054/18" docRev="A" createdBy="" docDate="2023-08-04"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_JxsTABtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Package="_qiLpEGuCEeC-4MS_I9Cylg" author="" contact="" date="2023-08-04" docNo="19089-CXA 117 0054/18" revision="" version="1" release="0" organization="" ecimMomName="ECIM_BrM" ecimMomVersion="3" ecimMomRelease="1" ecimMomCorrection="0" correction="0"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_JxsTARtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_qi73AGuCEeC-4MS_I9Cylg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_JxxLgBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Class="_3Fq20HOGEeGI1al_hUEYpA"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_JxxLgRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_3GR60HOGEeGI1al_hUEYpA"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_JxyZoRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_hu96sHeGEeGf2P5cQ_Bi6A"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_JxyZohtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" isNotifiable="true" base_Property="_nzRj8INiEeGkLv30vkl8DA"/>
+  <CoreMWProfile:CmwClass xmi:id="_J6Oj8BtEEeWvQYFW8NSCww" base_Class="_qinG4GuCEeC-4MS_I9Cylg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6QZIxtEEeWvQYFW8NSCww" base_Property="_hu96sHeGEeGf2P5cQ_Bi6A" isConfigurable="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_J6RAMBtEEeWvQYFW8NSCww" base_Class="_3Fq20HOGEeGI1al_hUEYpA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6RAMxtEEeWvQYFW8NSCww" base_Property="_nzRj8INiEeGkLv30vkl8DA" isConfigurable="true" isPersistent="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Jx014xtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" isNotifiable="true" base_Property="_E6weEMH5EeGjkuGa2K3Csg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6SOUxtEEeWvQYFW8NSCww" base_Property="_E6weEMH5EeGjkuGa2K3Csg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6S1YBtEEeWvQYFW8NSCww" base_Property="_CZsacBooEeK1UMUQ9hLgqg" isConfigurable="true" isPersistent="true"/>
+  <CoreMWProfile:CmwMom xmi:id="_J6S1YRtEEeWvQYFW8NSCww" base_Package="_qiLpEGuCEeC-4MS_I9Cylg" immNamespace="MOM_NAME"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Jx2EAxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" isNotifiable="true" base_Property="_EAMnoFs2EeKbVdEkasR1Kg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6TcchtEEeWvQYFW8NSCww" base_Property="_EAMnoFs2EeKbVdEkasR1Kg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_Jx2rEBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_sJ9GoIBVEeKxi4ancrExzg" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_Jx3SIxtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Class="_zD6WIIBXEeKxi4ancrExzg"/>
+  <CoreMWProfile:CmwClass xmi:id="_J6UqkhtEEeWvQYFW8NSCww" base_Class="_zD6WIIBXEeKxi4ancrExzg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_Jx35MBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_zEYQMIBXEeKxi4ancrExzg"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_Jx35MhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_nNaz0IBYEeKxi4ancrExzg" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_Jx4gQBtEEeWvQYFW8NSCww" isNotifiable="true" base_Property="_CZsacBooEeK1UMUQ9hLgqg"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_Jx4gQRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" length="" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[-._!&quot;`'#%&amp;,:;&lt;>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|]).{8,}$" base_DataType="_oCassMJEEeKeBL66pxEmiQ" isPassphrase="true" patternErrorMsg="A strong password's basic rules are&#xA;&#xA;Should contain at least a capital letter&#xA;Should contain at least a small letter&#xA;Should contain at least a number&#xA;Should contain at least a special character&#xA;And minimum length of 8 characters&#xA;"/>
+  <CoreMWProfile:CmwModel xmi:id="_J6VRohtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwContribution xmi:id="_J6V4sBtEEeWvQYFW8NSCww" base_Association="_sJ9GoIBVEeKxi4ancrExzg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_Jx9_0RtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_qinG4GuCEeC-4MS_I9Cylg" isLegacyRoot="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6aKIRtEEeWvQYFW8NSCww" base_Property="_qi73AGuCEeC-4MS_I9Cylg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6axMBtEEeWvQYFW8NSCww" base_Property="_3GR60HOGEeGI1al_hUEYpA" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_J6bYQBtEEeWvQYFW8NSCww" base_Property="_zEYQMIBXEeKxi4ancrExzg" isPersistent="true"/>
+  <Documentation:Documentation xmi:id="_8c-7sBtDEeWvQYFW8NSCww" base_Comment="__82QUGuBEeC-4MS_I9Cylg"/>
+  <Documentation:Documentation xmi:id="_8c-7sRtDEeWvQYFW8NSCww" base_Comment="_qibgsGuCEeC-4MS_I9Cylg"/>
+  <Documentation:Documentation xmi:id="_8c-7shtDEeWvQYFW8NSCww" base_Comment="_qixe8GuCEeC-4MS_I9Cylg"/>
+  <Documentation:Documentation xmi:id="_8c-7sxtDEeWvQYFW8NSCww" base_Comment="_qjHdMGuCEeC-4MS_I9Cylg"/>
+  <Documentation:Documentation xmi:id="_8c-7xhtDEeWvQYFW8NSCww" base_Comment="_3F-Y0XOGEeGI1al_hUEYpA"/>
+  <Documentation:Documentation xmi:id="_8c-7xxtDEeWvQYFW8NSCww" base_Comment="_3Gk1wHOGEeGI1al_hUEYpA"/>
+  <Documentation:Documentation xmi:id="_8c-7yxtDEeWvQYFW8NSCww" base_Comment="_hvFPcXeGEeGf2P5cQ_Bi6A"/>
+  <Documentation:Documentation xmi:id="_8c-7zBtDEeWvQYFW8NSCww" base_Comment="_nzuP4YNiEeGkLv30vkl8DA"/>
+  <Documentation:Documentation xmi:id="_8c-73xtDEeWvQYFW8NSCww" base_Comment="_E6weEcH5EeGjkuGa2K3Csg"/>
+  <Documentation:Documentation xmi:id="_8c-74RtDEeWvQYFW8NSCww" base_Comment="_CZsacRooEeK1UMUQ9hLgqg"/>
+  <Documentation:Documentation xmi:id="_8c-76RtDEeWvQYFW8NSCww" base_Comment="_EAMnoVs2EeKbVdEkasR1Kg"/>
+  <Documentation:Documentation xmi:id="_8c-77xtDEeWvQYFW8NSCww" base_Comment="_zEI_oYBXEeKxi4ancrExzg"/>
+  <Documentation:Documentation xmi:id="_8c-78BtDEeWvQYFW8NSCww" base_Comment="_zElrkYBXEeKxi4ancrExzg"/>
+  <Documentation:Documentation xmi:id="_8c-78RtDEeWvQYFW8NSCww" base_Comment="_oCasscJEEeKeBL66pxEmiQ"/>
+  <ECIMBaseProfile:EcimFeatures xmi:id="_0SN64LoOEeWr2cQC7pIWdw" base_Package="_0SGmILoOEeWr2cQC7pIWdw"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_0SUokLoOEeWr2cQC7pIWdw" base_Class="_0SPJALoOEeWr2cQC7pIWdw"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_2rdDILoOEeWr2cQC7pIWdw" base_Package="_2rVuYLoOEeWr2cQC7pIWdw"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_2rjJwLoOEeWr2cQC7pIWdw" base_Class="_2rdqMLoOEeWr2cQC7pIWdw"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_tm1jQPSVEe2itP4G0RNAVA" hideGroupName="" specification="" statusInformation="" base_Enumeration="_tmuOgPSVEe2itP4G0RNAVA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_tm50sPSVEe2itP4G0RNAVA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" base_EnumerationLiteral="_tm2xYPSVEe2itP4G0RNAVA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_v6UBwPSVEe2itP4G0RNAVA" hideGroupName="APGHIDDEN" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" base_EnumerationLiteral="_v6TasPSVEe2itP4G0RNAVA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_wWiDsPSVEe2itP4G0RNAVA" hideGroupName="APGHIDDEN" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" base_EnumerationLiteral="_wWg1kPSVEe2itP4G0RNAVA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_wq1fwPSVEe2itP4G0RNAVA" hideGroupName="APGHIDDEN" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" base_EnumerationLiteral="_wq0RoPSVEe2itP4G0RNAVA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_xBjWoPSVEe2itP4G0RNAVA" hideGroupName="APGHIDDEN" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" base_EnumerationLiteral="_xBiIgPSVEe2itP4G0RNAVA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_xYYiQPSVEe2itP4G0RNAVA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" base_EnumerationLiteral="_xYWtEPSVEe2itP4G0RNAVA"/>
+  <ECIMBaseProfile:EcimAction xmi:id="__UR7wPSdEe2itP4G0RNAVA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" base_Operation="__UORYPSdEe2itP4G0RNAVA"/>
+  <CoreMWProfile:CmwAction xmi:id="__USi0PSdEe2itP4G0RNAVA" base_Operation="__UORYPSdEe2itP4G0RNAVA"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_INNrUPSeEe2itP4G0RNAVA" hideGroupName="" specification="" statusInformation="" base_Parameter="_INKA8PSeEe2itP4G0RNAVA"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_K1F9cPSnEe2itP4G0RNAVA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" length="" pattern="" patternErrorMsg="" isNotifiable="true" base_Property="_K08zgPSnEe2itP4G0RNAVA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_K1GkgPSnEe2itP4G0RNAVA" base_Property="_K08zgPSnEe2itP4G0RNAVA" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_bqOHgPSnEe2itP4G0RNAVA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" length="" pattern="" patternErrorMsg="" base_Property="_bqJPAPSnEe2itP4G0RNAVA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_bqOukPSnEe2itP4G0RNAVA" base_Property="_bqJPAPSnEe2itP4G0RNAVA" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_sXu3MPlIEe2juOZ_rTQ1oQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" isNotifiable="true" base_Property="_sXowkPlIEe2juOZ_rTQ1oQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_sXveQPlIEe2juOZ_rTQ1oQ" base_Property="_sXowkPlIEe2juOZ_rTQ1oQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_aI1L4PlKEe2juOZ_rTQ1oQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" length="" pattern="" patternErrorMsg="" isNotifiable="true" base_Property="_aIvsUPlKEe2juOZ_rTQ1oQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_aI1y8PlKEe2juOZ_rTQ1oQ" base_Property="_aIvsUPlKEe2juOZ_rTQ1oQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_IL5-AP4FEe2juOZ_rTQ1oQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" range="" unit="" resolution="" multiplicationFactor="" isNotifiable="true" base_Property="_IL1skP4FEe2juOZ_rTQ1oQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_IL6lEP4FEe2juOZ_rTQ1oQ" base_Property="_IL1skP4FEe2juOZ_rTQ1oQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_KM8osP4FEe2juOZ_rTQ1oQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" range="" unit="" resolution="" multiplicationFactor="" isNotifiable="true" base_Property="_KM7akP4FEe2juOZ_rTQ1oQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_KM920P4FEe2juOZ_rTQ1oQ" base_Property="_KM7akP4FEe2juOZ_rTQ1oQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_KpASkP4FEe2juOZ_rTQ1oQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" range="" unit="" resolution="" multiplicationFactor="" isNotifiable="true" base_Property="_Ko_rgP4FEe2juOZ_rTQ1oQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_KpBgsP4FEe2juOZ_rTQ1oQ" base_Property="_Ko_rgP4FEe2juOZ_rTQ1oQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_K0a4YP4FEe2juOZ_rTQ1oQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" range="" unit="" resolution="" multiplicationFactor="" isNotifiable="true" base_Property="_K0aRUP4FEe2juOZ_rTQ1oQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_K0cGgP4FEe2juOZ_rTQ1oQ" base_Property="_K0aRUP4FEe2juOZ_rTQ1oQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_L08hQP4FEe2juOZ_rTQ1oQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" range="" unit="" resolution="" multiplicationFactor="" isNotifiable="true" base_Property="_L07TIP4FEe2juOZ_rTQ1oQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_L09IUP4FEe2juOZ_rTQ1oQ" base_Property="_L07TIP4FEe2juOZ_rTQ1oQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_X3ftIP4FEe2juOZ_rTQ1oQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" isNotifiable="true" base_Property="_X3a0oP4FEe2juOZ_rTQ1oQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_X3gUMP4FEe2juOZ_rTQ1oQ" base_Property="_X3a0oP4FEe2juOZ_rTQ1oQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_axCGEP4FEe2juOZ_rTQ1oQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" isNotifiable="true" base_Property="_axA38P4FEe2juOZ_rTQ1oQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_axCtIP4FEe2juOZ_rTQ1oQ" base_Property="_axA38P4FEe2juOZ_rTQ1oQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_O-uwIP4aEe2juOZ_rTQ1oQ" hideGroupName="APGHIDDEN" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" isNotifiable="true" base_Property="_O-p3oP4aEe2juOZ_rTQ1oQ"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_O-vXMP4aEe2juOZ_rTQ1oQ" base_Property="_O-p3oP4aEe2juOZ_rTQ1oQ" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStruct xmi:id="_7BmjYAjaEe6Ee8RysBCCZw" hideGroupName="" specification="" statusInformation="" base_Class="_7BhD0AjaEe6Ee8RysBCCZw"/>
+  <CoreMWProfile:CmwStruct xmi:id="_7BnKcAjaEe6Ee8RysBCCZw" base_Class="_7BhD0AjaEe6Ee8RysBCCZw"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_MumwoAjbEe6Ee8RysBCCZw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" length="" pattern="" patternErrorMsg="" base_Property="_MujtUAjbEe6Ee8RysBCCZw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_MumwoQjbEe6Ee8RysBCCZw" base_Property="_MujtUAjbEe6Ee8RysBCCZw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_RhyLwAjbEe6Ee8RysBCCZw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" length="" pattern="" patternErrorMsg="" base_Property="_Rht6UAjbEe6Ee8RysBCCZw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_Rhyy0AjbEe6Ee8RysBCCZw" base_Property="_Rht6UAjbEe6Ee8RysBCCZw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_UPzRMAjbEe6Ee8RysBCCZw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" length="" pattern="" patternErrorMsg="" base_Property="_UPvm0AjbEe6Ee8RysBCCZw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_UPzRMQjbEe6Ee8RysBCCZw" base_Property="_UPvm0AjbEe6Ee8RysBCCZw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_ZOUZoAjbEe6Ee8RysBCCZw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" range="" unit="" resolution="" multiplicationFactor="" base_Property="_ZOQvQAjbEe6Ee8RysBCCZw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_ZOVAsAjbEe6Ee8RysBCCZw" base_Property="_ZOQvQAjbEe6Ee8RysBCCZw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_fSHvIAjbEe6Ee8RysBCCZw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" base_Property="_fSEr0AjbEe6Ee8RysBCCZw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_fSIWMAjbEe6Ee8RysBCCZw" base_Property="_fSEr0AjbEe6Ee8RysBCCZw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_igl2QAjbEe6Ee8RysBCCZw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" length="" pattern="" patternErrorMsg="" base_Property="_igiL4AjbEe6Ee8RysBCCZw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_igmdUAjbEe6Ee8RysBCCZw" base_Property="_igiL4AjbEe6Ee8RysBCCZw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_oGiyIAjbEe6Ee8RysBCCZw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" base_Property="_oGfu0AjbEe6Ee8RysBCCZw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_oGjZMAjbEe6Ee8RysBCCZw" base_Property="_oGfu0AjbEe6Ee8RysBCCZw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_ssN8wAjbEe6Ee8RysBCCZw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" range="" unit="" resolution="" multiplicationFactor="" base_Property="_ssK5cAjbEe6Ee8RysBCCZw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_ssOj0AjbEe6Ee8RysBCCZw" base_Property="_ssK5cAjbEe6Ee8RysBCCZw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_xfGc8AjbEe6Ee8RysBCCZw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" base_Property="_xfDZoAjbEe6Ee8RysBCCZw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_xfGc8QjbEe6Ee8RysBCCZw" base_Property="_xfDZoAjbEe6Ee8RysBCCZw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_1KLnkAjbEe6Ee8RysBCCZw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" base_Property="_1KJLUAjbEe6Ee8RysBCCZw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_1KMOoAjbEe6Ee8RysBCCZw" base_Property="_1KJLUAjbEe6Ee8RysBCCZw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_6I8noAjbEe6Ee8RysBCCZw" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" takesEffectObject="" preconditionObject="" base_Property="_6I5kUAjbEe6Ee8RysBCCZw"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_6I9OsAjbEe6Ee8RysBCCZw" base_Property="_6I5kUAjbEe6Ee8RysBCCZw" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_MbehQBcpEe6zJJ3AVmeQ8A" hideGroupName="" specification="" statusInformation="" base_Association="_MbM0cBcpEe6zJJ3AVmeQ8A" isNotifiable="true"/>
+</xmi:XMI>

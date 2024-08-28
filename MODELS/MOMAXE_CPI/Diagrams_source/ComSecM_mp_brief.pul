@@ -1,0 +1,50 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/ComSecM_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "SecM" as ComSecM__SecM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20SecM]] 
+class "AuthenticationOrder" as ComSecM__AuthenticationOrder [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20AuthenticationOrder]] 
+class "AuthorizationOrder" as ComSecM__AuthorizationOrder [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20AuthorizationOrder]] 
+class "UserManagement" as ComSecM__UserManagement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20UserManagement]] 
+
+class "LdapAuthenticationMethod" as ComLdapAuthentication__LdapAuthenticationMethod [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLdapAuthentication?title=class%20LdapAuthenticationMethod]] 
+ComSecM__UserManagement *-- "1" ComLdapAuthentication__LdapAuthenticationMethod
+
+class "LocalAuthorizationMethod" as ComLocalAuthorization__LocalAuthorizationMethod [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComLocalAuthorization?title=class%20LocalAuthorizationMethod]] 
+ComSecM__UserManagement *-- "1" ComLocalAuthorization__LocalAuthorizationMethod
+
+class "CertM" as SEC_CertM__CertM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SEC_CertM?title=class%20CertM]]class "Ssh" as ComSecM__Ssh [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20Ssh]] 
+
+class "Ssh" as ComSecM__Ssh [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20Ssh]] 
+class "Tls" as ComSecM__Tls [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20Tls]] 
+class "SecM" as ComSecM__SecM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20SecM]] 
+class "UserManagement" as ComSecM__UserManagement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20UserManagement]] 
+ComSecM__SecM *-- "1" ComSecM__UserManagement
+class "UserManagement" as ComSecM__UserManagement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20UserManagement]] 
+class "AuthenticationOrder" as ComSecM__AuthenticationOrder [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20AuthenticationOrder]] 
+ComSecM__UserManagement *-- "0..1" ComSecM__AuthenticationOrder
+class "UserManagement" as ComSecM__UserManagement [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20UserManagement]] 
+class "AuthorizationOrder" as ComSecM__AuthorizationOrder [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20AuthorizationOrder]] 
+ComSecM__UserManagement *-- "0..1" ComSecM__AuthorizationOrder
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "SecM" as ComSecM__SecM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20SecM]] 
+ComTop__SystemFunctions *-- "1" ComSecM__SecM
+
+ComSecM__SecM *-- "0..1" ComSecM__Ssh
+class "Tls" as ComSecM__Tls [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSecM?title=class%20Tls]] 
+ComSecM__SecM *-- "0..1" ComSecM__Tls
+ 
+ComSecM__SecM *-- SEC_CertM__CertM
+
+
+
+@enduml 

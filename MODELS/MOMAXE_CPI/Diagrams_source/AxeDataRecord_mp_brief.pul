@@ -1,0 +1,41 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeDataRecord_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "DataRecordM" as AxeDataRecord__DataRecordM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20DataRecordM]] 
+class "BlockBasedJob" as AxeDataRecord__BlockBasedJob [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20BlockBasedJob]] 
+class "FileBasedJob" as AxeDataRecord__FileBasedJob [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20FileBasedJob]] 
+class "StatisticsInfo" as AxeDataRecord__StatisticsInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20StatisticsInfo]] 
+class "CPStatisticsInfo" as AxeDataRecord__CPStatisticsInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20CPStatisticsInfo]] 
+class "MessageStore" as AxeDataRecord__MessageStore [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20MessageStore]] 
+class "StatisticsInfo" as AxeDataRecord__StatisticsInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20StatisticsInfo]] 
+class "CPStatisticsInfo" as AxeDataRecord__CPStatisticsInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20CPStatisticsInfo]] 
+AxeDataRecord__StatisticsInfo *-- "1..64" AxeDataRecord__CPStatisticsInfo
+class "DataRecordM" as AxeDataRecord__DataRecordM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20DataRecordM]] 
+class "MessageStore" as AxeDataRecord__MessageStore [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20MessageStore]] 
+AxeDataRecord__DataRecordM *-- "8" AxeDataRecord__MessageStore
+class "MessageStore" as AxeDataRecord__MessageStore [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20MessageStore]] 
+class "FileBasedJob" as AxeDataRecord__FileBasedJob [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20FileBasedJob]] 
+AxeDataRecord__MessageStore *-- "0..1" AxeDataRecord__FileBasedJob
+class "MessageStore" as AxeDataRecord__MessageStore [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20MessageStore]] 
+class "BlockBasedJob" as AxeDataRecord__BlockBasedJob [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20BlockBasedJob]] 
+AxeDataRecord__MessageStore *-- "0..1" AxeDataRecord__BlockBasedJob
+class "BlockBasedJob" as AxeDataRecord__BlockBasedJob [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20BlockBasedJob]] 
+class "StatisticsInfo" as AxeDataRecord__StatisticsInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20StatisticsInfo]] 
+AxeDataRecord__BlockBasedJob *-- "0..1" AxeDataRecord__StatisticsInfo
+class "FileBasedJob" as AxeDataRecord__FileBasedJob [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20FileBasedJob]] 
+class "StatisticsInfo" as AxeDataRecord__StatisticsInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20StatisticsInfo]] 
+AxeDataRecord__FileBasedJob *-- "0..1" AxeDataRecord__StatisticsInfo
+class "DataOutputHandling" as AxeFunctions__DataOutputHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20DataOutputHandling]] 
+class "DataRecordM" as AxeDataRecord__DataRecordM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeDataRecord?title=class%20DataRecordM]] 
+AxeFunctions__DataOutputHandling *-- "1" AxeDataRecord__DataRecordM
+@enduml 

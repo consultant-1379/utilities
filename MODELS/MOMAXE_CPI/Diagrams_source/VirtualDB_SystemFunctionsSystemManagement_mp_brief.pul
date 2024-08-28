@@ -1,0 +1,47 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/ECIM_TimeM_DWAXE_mp_brief.svg
+top to bottom direction
+hide members
+hide circle
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "TimeM" as LdeTimeM__TimeM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#LdeTimeM?title=class%20TimeM]] 
+class "TimeM" as LdeTimeM__TimeM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#LdeTimeM?title=class%20TimeM]] 
+class "CliTls" as ComSysM__CliTls [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20CliTls]] 
+class "NetconfTls" as ComSysM__NetconfTls [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20NetconfTls]] 
+class "SysM" as ComSysM__SysM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20SysM]] 
+class "TimeM" as LdeTimeM__TimeM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#LdeTimeM?title=class%20TimeM]] 
+ComSysM__SysM *-- "1" LdeTimeM__TimeM
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "SysM" as ComSysM__SysM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20SysM]] 
+ComTop__SystemFunctions *-- "1" ComSysM__SysM
+
+class "FileTPM" as ComFileTPM__FileTPM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileTPM?title=class%20FileTPM]] 
+class "FtpTlsServer" as ComFileTPM__FtpTlsServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileTPM?title=class%20FtpTlsServer]] 
+class "FtpServer" as ComFileTPM__FtpServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileTPM?title=class%20FtpServer]] 
+class "FileTPM" as ComFileTPM__FileTPM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileTPM?title=class%20FileTPM]] 
+class "FtpServer" as ComFileTPM__FtpServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileTPM?title=class%20FtpServer]] 
+ComFileTPM__FileTPM *-- "0..1" ComFileTPM__FtpServer
+class "FtpServer" as ComFileTPM__FtpServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileTPM?title=class%20FtpServer]] 
+class "FtpTlsServer" as ComFileTPM__FtpTlsServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileTPM?title=class%20FtpTlsServer]] 
+ComFileTPM__FtpServer *-- "0..1" ComFileTPM__FtpTlsServer
+class "SysM" as ComSysM__SysM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20SysM]] 
+class "FileTPM" as ComFileTPM__FileTPM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComFileTPM?title=class%20FileTPM]] 
+ComSysM__SysM *-- "1" ComFileTPM__FileTPM
+
+class "Schema" as ComSysM__Schema [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20Schema]] 
+ComSysM__SysM *-- "2..*" ComSysM__Schema
+class "SysM" as ComSysM__SysM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20SysM]] 
+class "CliTls" as ComSysM__CliTls [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20CliTls]] 
+ComSysM__SysM *-- "0..1" ComSysM__CliTls
+class "SysM" as ComSysM__SysM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20SysM]] 
+class "NetconfTls" as ComSysM__NetconfTls [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComSysM?title=class%20NetconfTls]] 
+ComSysM__SysM *-- "0..1" ComSysM__NetconfTls
+
+@enduml 

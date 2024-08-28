@@ -1,0 +1,105 @@
+#!/bin/bash
+##
+# ------------------------------------------------------------------------
+#     Copyright (C) 2012 Ericsson AB. All rights reserved.
+# ------------------------------------------------------------------------
+##
+# Name:
+#       001_ph_prologue_blade2
+# Description:
+#       A script to configure the second blade.
+# Note:
+#	Sourced via LOTC cluster install script execution during
+#	the pre installation phase.
+##
+# Usage:
+#	Used during APG43L maiden installation.
+##
+# Output:
+#       None.
+##
+# Changelog:
+# - Mon Mar 09 2015 - Giuseppe Pontillo (QGIUPON)
+#   Adaptation for APG-VM
+# - Wed Oct 31 2012 - Paolo Palmieri (epaopal)
+#	First version.
+##
+
+# Non-initialized variables are forbidden
+#set -u
+set -x
+
+function get_hook_path() {
+  local FOLDER="${HOOKS_DIR}"
+  if [ "${FOLDER}" == "" ]; then
+    FOLDER="/tmp/hooks_execute_dir"
+    if [ -d ${FOLDER} ]; then
+      echo "${FOLDER}"
+    else
+      echo "ERROR: The hook path is not configured by LOTC!"; echo "Aborting"; echo ""; exit 1
+    fi
+  else
+    if [ -d ${FOLDER} ]; then
+      echo "${FOLDER}"
+    else
+      echo "ERROR: The hook path is wrongly provided by LOTC!"; echo "Aborting"; echo ""; exit 1
+    fi
+  fi
+}
+
+function init_system() {
+
+  # Common functions sourcing
+  HOOK_PATH=$( get_hook_path )
+  local common_functions="${HOOK_PATH}/non_exec-common_functions"
+  . ${common_functions}
+
+}
+
+#                                              __    __   _______   _   __    _
+#                                             |  \  /  | |  ___  | | | |  \  | |
+#                                             |   \/   | | |___| | | | |   \ | |
+#                                             | |\  /| | |  ___  | | | | |\ \| |
+#                                             | | \/ | | | |   | | | | | | \   |
+#                                             |_|    |_| |_|   |_| |_| |_|  \__|
+#
+main() {
+  echo "--- main() begin"
+
+  # Local variables
+  local HOOK_PATH=""
+  
+  # Initialize the system
+  init_system
+  
+  pushd $HOOK_PATH >/dev/null 2>&1
+
+ if  ! isSIMULATED ; then
+  # IPMI configuration tool execution
+  if [ -r ./non_exec-ic.tgz ]; then
+    tar -xzf ./non_exec-ic.tgz
+    pushd ic >/dev/null 2>&1
+    if [ -x ./ipmiconf ]; then
+      ./ipmiconf
+      [ $? -ne $TRUE ] && abort "Failure while executing the ipmiconf tool on node 2"
+    else
+      abort "Unable to execute the ipmiconf tool"
+    fi
+    popd >/dev/null 2>&1
+  else
+    abort "Unable to read the ic.tgz file"
+  fi
+fi
+  popd >/dev/null 2>&1
+
+  echo "--- main() end"
+}
+
+# Main
+
+echo "APG43L: Pre-installation prologue hook for SC-2-2 node." 
+
+main "@"
+exit 0
+
+# End of file

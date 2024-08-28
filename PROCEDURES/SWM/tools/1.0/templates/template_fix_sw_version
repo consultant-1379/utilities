@@ -1,0 +1,5 @@
+						<campCompleteAction>
+							<doCliCommand command="$OSAFCAMPAIGNROOT/fixSwVersion.sh" args="#WANTED_PRODUCT_NUMBER# #WANTED_PRODUCT_REVISION#"/> 
+							<undoCliCommand command="/bin/false"/> 
+							<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+						</campCompleteAction>

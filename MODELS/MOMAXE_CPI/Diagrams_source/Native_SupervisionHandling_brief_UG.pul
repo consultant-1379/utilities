@@ -1,0 +1,23 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeFunctions_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "SupervisionHandling" as AxeFunctions__SupervisionHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SupervisionHandling]] 
+
+class "AlarmDisplayM" as AxeAlarmDisplay__AlarmDisplayM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeAlarmDisplay?title=class%20AlarmDisplayM]] 
+AxeFunctions__SupervisionHandling *-- "1" AxeAlarmDisplay__AlarmDisplayM
+class "ExternalAlarmReceiverM" as AxeExternalAlarmReceiver__ExternalAlarmReceiverM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeExternalAlarmReceiver?title=class%20ExternalAlarmReceiverM]] 
+AxeFunctions__SupervisionHandling *-- "1" AxeExternalAlarmReceiver__ExternalAlarmReceiverM
+class "ExternalNetworkSurveillanceM" as AxeExtNetworkSurveillance__ExternalNetworkSurveillanceM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeExtNetworkSurveillance?title=class%20ExternalNetworkSurveillanceM]] 
+AxeFunctions__SupervisionHandling *-- "1" AxeExtNetworkSurveillance__ExternalNetworkSurveillanceM
+
+@enduml 

@@ -1,0 +1,26 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/CmwLogM_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "LogM" as CmwLogM__LogM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwLogM?title=class%20LogM]]  
+class "Log" as CmwLogM__Log [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwLogM?title=class%20Log]] 
+class "RemoteLogServer" as CmwLogM__RemoteLogServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwLogM?title=class%20RemoteLogServer]]
+class "LogM" as CmwLogM__LogM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwLogM?title=class%20LogM]] 
+class "Log" as CmwLogM__Log [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwLogM?title=class%20Log]] 
+CmwLogM__LogM *-- "12" CmwLogM__Log
+class "LogM" as CmwLogM__LogM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwLogM?title=class%20LogM]] 
+class "RemoteLogServer" as CmwLogM__RemoteLogServer [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwLogM?title=class%20RemoteLogServer]] 
+CmwLogM__LogM *-- "2" CmwLogM__RemoteLogServer
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "LogM" as CmwLogM__LogM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#CmwLogM?title=class%20LogM]] 
+ComTop__SystemFunctions *-- "1" CmwLogM__LogM
+@enduml 

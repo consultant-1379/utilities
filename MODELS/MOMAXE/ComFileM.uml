@@ -1,0 +1,883 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="ComFileM">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_DULaUOKPEd-kQ-bA_LUmHA" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_DULaUeKPEd-kQ-bA_LUmHA" key="com.ericsson.ecim.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_l35X4OXCEd-kQ-bA_LUmHA" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>The top class in the FileM model.
+
+Copyright (c) 2014 Ericsson AB.
+
+All rights reserved</body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_uWHKUIXbEd-Id79DLfNphQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_a3F5gOMoEd-kQ-bA_LUmHA" name="ComFileM">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_KQYM0OXDEd-kQ-bA_LUmHA" annotatedElement="_a3F5gOMoEd-kQ-bA_LUmHA">
+        <body>The MOM for ECIM FileM.</body>
+      </ownedComment>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_HLxsEMTqEeWHWfw_NwU0PQ" constrainedElement="_RfnkwOTCEeOtlr5VAheQ_Q _RfnkyuTCEeOtlr5VAheQ_Q _RfnkzeTCEeOtlr5VAheQ_Q _Rfnk4OTCEeOtlr5VAheQ_Q _RfnkreTCEeOtlr5VAheQ_Q _Rfnky-TCEeOtlr5VAheQ_Q _RfnkweTCEeOtlr5VAheQ_Q _Rfnk3OTCEeOtlr5VAheQ_Q">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_HOQ_YMTqEeWHWfw_NwU0PQ">
+          <language>Optionality</language>
+          <body>if-feature NOT CPI_HIDDEN</body>
+        </specification>
+      </ownedRule>
+      <packagedElement xmi:type="uml:Class" xmi:id="_iKDJwKn0EeOxFs344A5H4g" name="FileInfo">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iLtWoKn0EeOxFs344A5H4g" annotatedElement="_iKDJwKn0EeOxFs344A5H4g">
+          <body>Struct representing a file information. </body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_xAQ6oKn1EeOxFs344A5H4g" name="size" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_49RNcKn1EeOxFs344A5H4g" annotatedElement="_xAQ6oKn1EeOxFs344A5H4g">
+            <body>The file size in kilobyte.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxV08CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2sGAgLvGEeOLgYlMqSYWvQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2svgwLvGEeOLgYlMqSYWvQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Kigl0Kn2EeOxFs344A5H4g" name="fileType" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_KiszEKn2EeOxFs344A5H4g" annotatedElement="_Kigl0Kn2EeOxFs344A5H4g">
+            <body>The type of the file.&#xD;
+It specifies the file structure content which shall follow common practice. For example, &quot;xml&quot; indicates that the file content is structured according to the eXtensible Markup Language.
+
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eC0V8LvMEeOLgYlMqSYWvQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ki4ZQan2EeOxFs344A5H4g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_8o360K_7EeOv2vlLPhRafA" name="modificationTime" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_IT1tIK_8EeOv2vlLPhRafA" annotatedElement="_8o360K_7EeOv2vlLPhRafA">
+            <body>Date and time of latest modification.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvs5dcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8pEIEK_7EeOv2vlLPhRafA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8pEIEa_7EeOv2vlLPhRafA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_BizSELvMEeOLgYlMqSYWvQ" name="fileName" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_BjHbILvMEeOLgYlMqSYWvQ" annotatedElement="_BizSELvMEeOLgYlMqSYWvQ">
+            <body>The file name. </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BjMTobvMEeOLgYlMqSYWvQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BjM6sLvMEeOLgYlMqSYWvQ" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_eqjuoOMpEd-kQ-bA_LUmHA" name="FileGroupPolicy">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_equGsOMpEd-kQ-bA_LUmHA" annotatedElement="_eqjuoOMpEd-kQ-bA_LUmHA">
+          <body>FileGroupPolicy defines housekeeping rules for file groups. 
+FileGroups already maintained by the system, as indicated by internalHousekeeping, are excluded from FileM housekeeping.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_dgCX8LhrEeWr2cQC7pIWdw" constrainedElement="_eqjuoOMpEd-kQ-bA_LUmHA _BcV1EOM2Ed-kQ-bA_LUmHA _BcWcIOM2Ed-kQ-bA_LUmHA _BcXDMuM2Ed-kQ-bA_LUmHA">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_dgENILhrEeWr2cQC7pIWdw">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_etDpAOMpEd-kQ-bA_LUmHA" name="fileGroupPolicyId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_etOBEeMpEd-kQ-bA_LUmHA" annotatedElement="_etDpAOMpEd-kQ-bA_LUmHA">
+            <body>Value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_qMWaAOMtEd-kQ-bA_LUmHA" name="userLabel">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_1TPYQALREeC4cqYSbHAuFw" annotatedElement="_qMWaAOMtEd-kQ-bA_LUmHA">
+            <body>Label for free use.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qMgLAOMtEd-kQ-bA_LUmHA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_MhoBEOMuEd-kQ-bA_LUmHA" name="maxFileGroupSize">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_MhyZIeMuEd-kQ-bA_LUmHA" annotatedElement="_MhoBEOMuEd-kQ-bA_LUmHA">
+            <body>Defines the maximum size of each tree of file groups related to this FileGroupPolicy. 
+0 indicates that no limit is set. The unit is kilobyte. 
+If the tree of file groups referenced by this policy includes a tree of file groups with its own policy, these file groups are excluded when the number of files for this policy are calculated.&#xD;
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-kmDQCCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ksuboP7kEd-fz_nup5IUEw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_ZaxFsNBlEeO0gbNbWf2nhQ">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-kmDQCCSEd-Egr3-YAWs7Q"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_SoppsOMuEd-kQ-bA_LUmHA" name="maxNumberFiles">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_SozasOMuEd-kQ-bA_LUmHA" annotatedElement="_SoppsOMuEd-kQ-bA_LUmHA">
+            <body>Defines the maximum number of files of each tree of file groups related to this FileGroupPolicy. 
+0 indicates that no limit is set. 
+If the tree of file groups referenced by this policy includes a tree of file groups with its own policy, these file groups are excluded when the number of files for this policy are calculated.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-kmDQCCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-EjmkP7kEd-fz_nup5IUEw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_exUToNBlEeO0gbNbWf2nhQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_XkNkwOMuEd-kQ-bA_LUmHA" name="retentionTime">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_XkX80OMuEd-kQ-bA_LUmHA" annotatedElement="_XkNkwOMuEd-kQ-bA_LUmHA">
+            <body>Indicates for how long the files in this group are kept before being automatically deleted. &#xD;
+The unit is minutes.&#xD;
+0 indicates that the files are kept for ever.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-kmDQCCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8O1bEP7kEd-fz_nup5IUEw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_M_usQB_dEeCL3f-50XoKsA" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_h6sfYNBlEeO0gbNbWf2nhQ">
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-kmDQCCSEd-Egr3-YAWs7Q"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_x-CgwPk-Ed-4UJA11_fNEA" name="fullFileGroupAction" type="_v2ge4B_SEeCL3f-50XoKsA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Gjdt4CSHEeCL3f-50XoKsA" annotatedElement="_x-CgwPk-Ed-4UJA11_fNEA">
+            <body>Defines the action taken by the housekeeping logic when a limit is reached. 
+Two limits can be defined by attributes maxFileGroupSize or maxNumberFiles.
+No limits are considered on maxFileGroupSize or maxNumberFiles if the action to take is unset.
+Possible values are: 
+-DISCARD_NEWEST: The system does not allow a new file to be stored if that causes the limit to be exceeded. 
+-DISCARD_OLDEST: If the limit is exceeded by storing a new file, the oldest files in the group are deleted before storing the new file.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jzDL0NZ-EeOVlNf-SiHFmQ"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_H3mD4B_UEeCL3f-50XoKsA" name="ROTATION" instance="_6rdZwB_TEeCL3f-50XoKsA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_z7QPkP7JEd-fz_nup5IUEw" name="thresholdMonitoring" visibility="public" type="_jIhSMP7JEd-fz_nup5IUEw" aggregation="composite" association="_z7PogP7JEd-fz_nup5IUEw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z7QPkf7JEd-fz_nup5IUEw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z7Q2oP7JEd-fz_nup5IUEw" value="8"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_cztw8DYEEeG04PAKOfxe_w" name="fileGroup" visibility="public" type="_HzxDcOMxEd-kQ-bA_LUmHA" isUnique="false">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_cz3h8TYEEeG04PAKOfxe_w" annotatedElement="_cztw8DYEEeG04PAKOfxe_w">
+            <body>A reference to one or more file groups to which the defined housekeeping policy applies.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_o_kp0DYEEeG04PAKOfxe_w"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_o_kp0TYEEeG04PAKOfxe_w" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_bbPvcOMoEd-kQ-bA_LUmHA" name="FileM">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QCbD8OXDEd-kQ-bA_LUmHA" source="uml2.diagrams"/>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Nqx3IOXDEd-kQ-bA_LUmHA" annotatedElement="_bbPvcOMoEd-kQ-bA_LUmHA">
+          <body>The top class of the the FileM model.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_n3nLwOZIEeO6G8wtoHRmdg" name="'are-distinct-values(FileGroupPolicy/@fileGroup)" constrainedElement="_bbPvcOMoEd-kQ-bA_LUmHA">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_n3nLweZIEeO6G8wtoHRmdg">
+            <language>Schematron</language>
+            <body>&lt;schema xmlns=&quot;http://purl.oclc.org/dsdl/schematron&quot;>&#xD;
+          &lt;pattern>&#xD;
+              &lt;rule>&#xD;
+                  &lt;assert test='are-distinct-values(FileGroupPolicy/@fileGroup)'>ERROR: The file group has already a policy assigned. Only one file group policy is allowed per file group&lt;/assert>&#xD;
+              &lt;/rule>&#xD;
+           &lt;/pattern>&#xD;
+&lt;/schema></body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_VtqOoOM1Ed-kQ-bA_LUmHA" name="logicalFS" visibility="public" type="_-dacQOMpEd-kQ-bA_LUmHA" aggregation="composite" association="_VtAuYOM1Ed-kQ-bA_LUmHA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VuEeUOM1Ed-kQ-bA_LUmHA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VuFFYOM1Ed-kQ-bA_LUmHA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_bfJ_EOMoEd-kQ-bA_LUmHA" name="fileMId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_qidCgOXCEd-kQ-bA_LUmHA" annotatedElement="_bfJ_EOMoEd-kQ-bA_LUmHA">
+            <body>Value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_oISbEOMuEd-kQ-bA_LUmHA" name="userLabel">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WKmkIOW4Ed-kQ-bA_LUmHA" annotatedElement="_oISbEOMuEd-kQ-bA_LUmHA">
+            <body>Label for free use.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4EsNkOXEEd-kQ-bA_LUmHA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_BcWcIOM2Ed-kQ-bA_LUmHA" name="fileGroupPolicy" visibility="public" type="_eqjuoOMpEd-kQ-bA_LUmHA" aggregation="composite" association="_BcV1EOM2Ed-kQ-bA_LUmHA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BcXDMOM2Ed-kQ-bA_LUmHA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BcXDMeM2Ed-kQ-bA_LUmHA" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_-dacQOMpEd-kQ-bA_LUmHA" name="LogicalFs">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_-dkNQOMpEd-kQ-bA_LUmHA" annotatedElement="_-dacQOMpEd-kQ-bA_LUmHA">
+          <body>Represents the root of a file system where files exposed over the NBI are represented. 
+The included class FileGroup allows grouping of logically related files.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_-fCM4OMpEd-kQ-bA_LUmHA" name="logicalFsId" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_-fMk8OMpEd-kQ-bA_LUmHA" annotatedElement="_-fCM4OMpEd-kQ-bA_LUmHA">
+            <body>Value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_GSOqIOMvEd-kQ-bA_LUmHA" name="userLabel">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NJhlMOW4Ed-kQ-bA_LUmHA" annotatedElement="_GSOqIOMvEd-kQ-bA_LUmHA">
+            <body>Label for free use.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EOYjQOXFEd-kQ-bA_LUmHA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rYfG4OM2Ed-kQ-bA_LUmHA" name="fileGroup" visibility="public" type="_HzxDcOMxEd-kQ-bA_LUmHA" aggregation="composite" association="_rYef0OM2Ed-kQ-bA_LUmHA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rYfG4eM2Ed-kQ-bA_LUmHA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rYfG4uM2Ed-kQ-bA_LUmHA" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_R-VEEOTDEeOtlr5VAheQ_Q" name="filemConfigData" visibility="public" type="_h6c0cOTBEeOtlr5VAheQ_Q" aggregation="composite" association="_R98pkOTDEeOtlr5VAheQ_Q">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R-v60eTDEeOtlr5VAheQ_Q" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R-v60OTDEeOtlr5VAheQ_Q" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_HzxDcOMxEd-kQ-bA_LUmHA" name="FileGroup">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_dpJM4CO_EeCL3f-50XoKsA" annotatedElement="_HzxDcOMxEd-kQ-bA_LUmHA">
+          <body>A set of files that are logically related and possible to manage by a common policy. 
+To allow a tree-structured hierarchical representation of groups of files, the FileGroup class has an association to itself. Over the northbound interface of the managed element, the instances of classes LogicalFs and FileGroup represent a file system.&#xD;
+</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_-eOswLhqEeWr2cQC7pIWdw" constrainedElement="_d_fIACQUEeOE6LL0c7RWiQ _nNeIIDYGEeG04PAKOfxe_w">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_-eQh8LhqEeWr2cQC7pIWdw">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_KP3PQKn5EeOxFs344A5H4g" name="files" visibility="public" type="_iKDJwKn0EeOxFs344A5H4g" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_iaauwKn5EeOxFs344A5H4g" annotatedElement="_KP3PQKn5EeOxFs344A5H4g">
+            <body>Container with information about the files under this file group.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KQEDkan5EeOxFs344A5H4g"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KQEqoKn5EeOxFs344A5H4g" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_H2p_YOMxEd-kQ-bA_LUmHA" name="fileGroupId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_H2ve8eMxEd-kQ-bA_LUmHA" annotatedElement="_H2p_YOMxEd-kQ-bA_LUmHA">
+            <body>Value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_agmjwOM2Ed-kQ-bA_LUmHA" name="fileGroup" visibility="public" type="_HzxDcOMxEd-kQ-bA_LUmHA" aggregation="composite" association="_agkukOM2Ed-kQ-bA_LUmHA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_agnK0OM2Ed-kQ-bA_LUmHA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_agnK0eM2Ed-kQ-bA_LUmHA" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ieF-wOM2Ed-kQ-bA_LUmHA" name="fileInformation" visibility="public" type="_fMfdYOMxEd-kQ-bA_LUmHA" aggregation="composite" association="_ieFXsOM2Ed-kQ-bA_LUmHA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ieF-weM2Ed-kQ-bA_LUmHA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ieGl0OM2Ed-kQ-bA_LUmHA" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_nNeIIDYGEeG04PAKOfxe_w" name="reservedByPolicy" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_nNxDETYGEeG04PAKOfxe_w" annotatedElement="_nNeIIDYGEeG04PAKOfxe_w">
+            <body>Indicates the DN of the FileGroupPolicy MO and sets the file group housekeeping policy.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_xu6e8JaXEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dx1pwKqsEeO1FoOWwmqM0w"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dx2Q0KqsEeO1FoOWwmqM0w" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_d_fIACQUEeOE6LL0c7RWiQ" name="internalHousekeeping" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_d_u_oCQUEeOE6LL0c7RWiQ" annotatedElement="_d_fIACQUEeOE6LL0c7RWiQ">
+            <body>If true, the files in this file group are maintained by the system. 
+User-defined housekeeping policies associated with this file group are excluded.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d_4JkCQUEeOE6LL0c7RWiQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_d_4woCQUEeOE6LL0c7RWiQ" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_dzhZcAaKEeCXUvk_8dGs_Q" name="removeFile">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_dzp8UQaKEeCXUvk_8dGs_Q" annotatedElement="_dzhZcAaKEeCXUvk_8dGs_Q">
+            <body>Removes a named file from this file group. 
+The file name can contain a regular expression and thus a set of files in the file group that match the expression can be removed. The regular expression is interpreted according to POSIX pattern definition used for file name expansion. Action removeFile() returns True when the files are removed, otherwise False.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_ABh_QB8TEeCL3f-50XoKsA" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_5cYawB8TEeCL3f-50XoKsA" annotatedElement="_ABh_QB8TEeCL3f-50XoKsA">
+              <body>Returns 'True' if the file or files matching the input parameter are removed.&#xD;
+If there is no file matching the input parameter, 'False' is returned.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_1guPACCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_X7f6QB-xEeCL3f-50XoKsA" name="file">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_7YhMgB-xEeCL3f-50XoKsA" annotatedElement="_X7f6QB-xEeCL3f-50XoKsA">
+              <body>This parameter specifies the file in the FileGroup to be removed. 
+The file string is interpreted as a regular expression and all files that match the expression are removed.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_fMfdYOMxEd-kQ-bA_LUmHA" name="FileInformation">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_HbswsCR3EeCL3f-50XoKsA" annotatedElement="_fMfdYOMxEd-kQ-bA_LUmHA">
+          <body>An instance of FileInformation represents a file. &#xD;
+</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_fO0YoOMxEd-kQ-bA_LUmHA" name="fileInformationId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_fO6fQOMxEd-kQ-bA_LUmHA" annotatedElement="_fO0YoOMxEd-kQ-bA_LUmHA">
+            <body>Value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_3haZ0OMxEd-kQ-bA_LUmHA" name="modificationTime" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_3hkK0OMxEd-kQ-bA_LUmHA" annotatedElement="_3haZ0OMxEd-kQ-bA_LUmHA">
+            <body>Date and time of latest modification.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_LJxvs5dcEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qMoWgKqsEeO1FoOWwmqM0w"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qMoWgaqsEeO1FoOWwmqM0w" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_z5eCwOMxEd-kQ-bA_LUmHA" name="size" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_z5nzwOMxEd-kQ-bA_LUmHA" annotatedElement="_z5eCwOMxEd-kQ-bA_LUmHA">
+            <body>The size of the file in kilobyte.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_-maBICCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z5nMseMxEd-kQ-bA_LUmHA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rI1TkOMxEd-kQ-bA_LUmHA" name="type" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_rI_EkOMxEd-kQ-bA_LUmHA" annotatedElement="_rI1TkOMxEd-kQ-bA_LUmHA">
+            <body>The type of the file.&#xD;
+The type specifies how the content of the file is structured and shall follow common practice. For example, &quot;xml&quot; indicates that the content of the file is structured according to the eXtensible Markup Language.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rI-dgOMxEd-kQ-bA_LUmHA"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_VtAuYOM1Ed-kQ-bA_LUmHA" name="FileM_to_LogicalFs" memberEnd="_VtqOoOM1Ed-kQ-bA_LUmHA _VuFFYeM1Ed-kQ-bA_LUmHA">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_VuFFYeM1Ed-kQ-bA_LUmHA" name="filem_logicalfs" visibility="public" type="_bbPvcOMoEd-kQ-bA_LUmHA" association="_VtAuYOM1Ed-kQ-bA_LUmHA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VuFscOM1Ed-kQ-bA_LUmHA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VuFsceM1Ed-kQ-bA_LUmHA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_BcV1EOM2Ed-kQ-bA_LUmHA" name="FileM_to_FileGroupPolicy" memberEnd="_BcWcIOM2Ed-kQ-bA_LUmHA _BcXDMuM2Ed-kQ-bA_LUmHA">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_BcXDMuM2Ed-kQ-bA_LUmHA" name="filem_filegrouppolicy" visibility="public" type="_bbPvcOMoEd-kQ-bA_LUmHA" association="_BcV1EOM2Ed-kQ-bA_LUmHA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BcXqQOM2Ed-kQ-bA_LUmHA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BcXqQeM2Ed-kQ-bA_LUmHA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_agkukOM2Ed-kQ-bA_LUmHA" name="FileGroup_to_FileGroup" memberEnd="_aglVoOM2Ed-kQ-bA_LUmHA _agmjwOM2Ed-kQ-bA_LUmHA">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_HBg5UOZhEd-ua4z0iG58tQ" annotatedElement="_agkukOM2Ed-kQ-bA_LUmHA">
+          <body>Recursive association that allows creation and representation of nested directories.</body>
+        </ownedComment>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_aglVoOM2Ed-kQ-bA_LUmHA" name="" visibility="public" type="_HzxDcOMxEd-kQ-bA_LUmHA" association="_agkukOM2Ed-kQ-bA_LUmHA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_agl8sOM2Ed-kQ-bA_LUmHA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_agl8seM2Ed-kQ-bA_LUmHA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_ieFXsOM2Ed-kQ-bA_LUmHA" name="FileGroup_to_FileInformation" memberEnd="_ieF-wOM2Ed-kQ-bA_LUmHA _ieHM4OM2Ed-kQ-bA_LUmHA">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_ieHM4OM2Ed-kQ-bA_LUmHA" name="filegroup_fileinformation" visibility="public" type="_HzxDcOMxEd-kQ-bA_LUmHA" association="_ieFXsOM2Ed-kQ-bA_LUmHA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ieHM4eM2Ed-kQ-bA_LUmHA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ieHz8OM2Ed-kQ-bA_LUmHA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_rYef0OM2Ed-kQ-bA_LUmHA" name="LogicalFs_to_FileGroup" memberEnd="_rYfG4OM2Ed-kQ-bA_LUmHA _rYft8OM2Ed-kQ-bA_LUmHA">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_rYft8OM2Ed-kQ-bA_LUmHA" name="logicalfs_filegroup" visibility="public" type="_-dacQOMpEd-kQ-bA_LUmHA" association="_rYef0OM2Ed-kQ-bA_LUmHA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rYft8eM2Ed-kQ-bA_LUmHA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rYgVAOM2Ed-kQ-bA_LUmHA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_jIhSMP7JEd-fz_nup5IUEw" name="ThresholdMonitoring">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_jIh5QP7JEd-fz_nup5IUEw" annotatedElement="_jIhSMP7JEd-fz_nup5IUEw">
+          <body>Specifies a threshold for housekeeping files in a file group.&#xD;
+</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_ipT-4LhrEeWr2cQC7pIWdw" constrainedElement="_jIhSMP7JEd-fz_nup5IUEw _z7PogP7JEd-fz_nup5IUEw _z7QPkP7JEd-fz_nup5IUEw _z7Q2of7JEd-fz_nup5IUEw _2pG3QB_WEeCL3f-50XoKsA">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_ipVNALhrEeWr2cQC7pIWdw">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jJydgP7JEd-fz_nup5IUEw" name="thresholdMonitoringId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_jJ6ZUf7JEd-fz_nup5IUEw" annotatedElement="_jJydgP7JEd-fz_nup5IUEw">
+            <body>Value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZpC3UP7aEd-fz_nup5IUEw" name="userLabel">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ZpKzIf7aEd-fz_nup5IUEw" annotatedElement="_ZpC3UP7aEd-fz_nup5IUEw">
+            <body>Label for free use.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZpTWAf7aEd-fz_nup5IUEw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZaPbgAbLEeCXUvk_8dGs_Q" name="monitoredAspect" type="_2pG3QB_WEeCL3f-50XoKsA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Y67fUCSFEeCL3f-50XoKsA" annotatedElement="_ZaPbgAbLEeCXUvk_8dGs_Q">
+            <body>Defines the aspect this monitor monitors.
+There will be no monitoring if the aspect is unset.
+
+Possible values are: SIZE | QUANTITY</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n21KUNZ-EeOVlNf-SiHFmQ"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_gsH34CPOEeCL3f-50XoKsA" name="SIZE" type="_2pG3QB_WEeCL3f-50XoKsA" instance="_2sh-sB_WEeCL3f-50XoKsA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_cvWM4OMuEd-kQ-bA_LUmHA" name="thresholdHigh">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_cvf94OMuEd-kQ-bA_LUmHA" annotatedElement="_cvWM4OMuEd-kQ-bA_LUmHA">
+            <body>Defines the upper threshold for the configured monitored aspect. 
+A new alarm must be sent or an existing alarm must change severity if the monitored value has reached or exceeded this threshold. The alarm must change severity if there is another MO of the same monitored aspect with a higher threshold value than this MO. The unit of the configured value depends on the selected monitored aspect. SIZE is given in kilobytes (kB) and QUANTITY has no unit.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__WlocP7fEd-fz_nup5IUEw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_xvnA8P7VEd-fz_nup5IUEw" name="thresholdLow">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_xvu8wf7VEd-fz_nup5IUEw" annotatedElement="_xvnA8P7VEd-fz_nup5IUEw">
+            <body>Defines the lower threshold for the configured monitored aspect.
+If there is an outstanding alarm, it must change severity or be cleared when the monitored value has reached or fallen below this threshold. The alarm must be cleared if there is no other MO of the same monitored aspect with a lower threshold value. Otherwise, it is only permitted to send a new alarm with lower severity. The unit of the configured value depends on the selected monitored aspect. SIZE is given in kilobytes (kB) and QUANTITY has no unit.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VkAVAHRCEeKTGuQ5eFfP3g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tAlwAAbLEeCXUvk_8dGs_Q" name="thresholdSeverity" type="_r8DrcB_mEeCL3f-50XoKsA">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tAvhAAbLEeCXUvk_8dGs_Q" annotatedElement="_tAlwAAbLEeCXUvk_8dGs_Q">
+            <body>Severity of the alarm associated with this monitor.
+
+Possible values are: WARNING | MINOR | MAJOR | CRITICAL</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rF68gNZ-EeOVlNf-SiHFmQ"/>
+          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_spxzkEV2EeCC6OvvYvHldQ" name="WARNING" instance="_-Za-oB_mEeCL3f-50XoKsA"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_z7PogP7JEd-fz_nup5IUEw" name="FileGroupPolicy_to_ThresholdMonitoring" memberEnd="_z7QPkP7JEd-fz_nup5IUEw _z7Q2of7JEd-fz_nup5IUEw">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_z7Q2of7JEd-fz_nup5IUEw" name="filegrouppolicy" type="_eqjuoOMpEd-kQ-bA_LUmHA" association="_z7PogP7JEd-fz_nup5IUEw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z7RdsP7JEd-fz_nup5IUEw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z7Rdsf7JEd-fz_nup5IUEw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_v2ge4B_SEeCL3f-50XoKsA" name="FullAction">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_mKTlANaoEeOz-cJ9PJw0Og" annotatedElement="_v2ge4B_SEeCL3f-50XoKsA">
+          <body>Specifies the different alternatives when a file group or tree of file groups is full.
+A file group is considered full when, unless an action is taken, the file group exceeds a define limit.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_wBEwIB_SEeCL3f-50XoKsA" name="DISCARD_NEWEST">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_wBXrEh_SEeCL3f-50XoKsA" annotatedElement="_wBEwIB_SEeCL3f-50XoKsA">
+            <body>A file must not be stored if that would cause the defined limit to be exceeded.
+Instead, the current or newest file is discarded.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_wBXrER_SEeCL3f-50XoKsA" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6rdZwB_TEeCL3f-50XoKsA" name="DISCARD_OLDEST">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6rmjsh_TEeCL3f-50XoKsA" annotatedElement="_6rdZwB_TEeCL3f-50XoKsA">
+            <body>The oldest file(s) are removed to free up space for the newest file. 
+When a new file is stored and it causes the file group or the hierarchical tree of file groups to exceed its limit, the oldest file in the file group or tree of file groups is deleted before storing the new file.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_6rmjsR_TEeCL3f-50XoKsA" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_2pG3QB_WEeCL3f-50XoKsA" name="HousekeepingAspect">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_2pG3Qh_WEeCL3f-50XoKsA" annotatedElement="_2pG3QB_WEeCL3f-50XoKsA">
+          <body>Defines the different housekeeping aspects of a file group that can be monitored.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_2sh-sB_WEeCL3f-50XoKsA" name="SIZE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_2sh-sx_WEeCL3f-50XoKsA" annotatedElement="_2sh-sB_WEeCL3f-50XoKsA">
+            <body>The sum of the size of all files is the monitored aspect.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_2sh-sh_WEeCL3f-50XoKsA" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_IXgLoB_XEeCL3f-50XoKsA" name="QUANTITY">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_IXp8oh_XEeCL3f-50XoKsA" annotatedElement="_IXgLoB_XEeCL3f-50XoKsA">
+            <body>The sum of the number of files is the monitored aspect.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_IXp8oR_XEeCL3f-50XoKsA" value="2"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_r8DrcB_mEeCL3f-50XoKsA" name="Severity">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_r8M1YR_mEeCL3f-50XoKsA" annotatedElement="_r8DrcB_mEeCL3f-50XoKsA">
+          <body>Specifies the severity of passing a threshold.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_-Za-oB_mEeCL3f-50XoKsA" name="WARNING">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_-Zkvoh_mEeCL3f-50XoKsA" annotatedElement="_-Za-oB_mEeCL3f-50XoKsA">
+            <body>Issues a system failure warning.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_QhELgEVtEeClV4QPzec9dw" value="6"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GrDdoB_nEeCL3f-50XoKsA" name="MINOR">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_GrNOoh_nEeCL3f-50XoKsA" annotatedElement="_GrDdoB_nEeCL3f-50XoKsA">
+            <body>Issues a minor risk for system failure.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_VxHv4EVtEeClV4QPzec9dw" value="5"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_NooTwB_nEeCL3f-50XoKsA" name="MAJOR">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NoyEwh_nEeCL3f-50XoKsA" annotatedElement="_NooTwB_nEeCL3f-50XoKsA">
+            <body>Issues a major risk for system failure.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_XtANwEVtEeClV4QPzec9dw" value="4"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_aISSYB_nEeCL3f-50XoKsA" name="CRITICAL">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_aIcDYh_nEeCL3f-50XoKsA" annotatedElement="_aISSYB_nEeCL3f-50XoKsA">
+            <body>Issues a critical risk for system failure.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_ZaYVkEVtEeClV4QPzec9dw" value="3"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_gtkQEPDnEeCADdda_lGd-A" name="SystemFunctions_to_FileM" memberEnd="_gtkQEfDnEeCADdda_lGd-A _gtkQFPDnEeCADdda_lGd-A">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_gtkQFPDnEeCADdda_lGd-A" name="filem" visibility="public" type="_bbPvcOMoEd-kQ-bA_LUmHA" aggregation="composite" association="_gtkQEPDnEeCADdda_lGd-A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gt3LAvDnEeCADdda_lGd-A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gt3LAfDnEeCADdda_lGd-A" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_gtkQEfDnEeCADdda_lGd-A" name="systemFunctions" visibility="public" association="_gtkQEPDnEeCADdda_lGd-A">
+          <type xmi:type="uml:Class" href="ComTop.uml#_ETwJsJmNEd-RhrgDerFWug"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gttaA_DnEeCADdda_lGd-A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gttaAvDnEeCADdda_lGd-A" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_h6c0cOTBEeOtlr5VAheQ_Q" name="FileMConfigData">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_h6c0ceTBEeOtlr5VAheQ_Q" annotatedElement="_h6c0cOTBEeOtlr5VAheQ_Q">
+          <body>Hidden MOC for fileM configuration</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_itt0ALqrEeWQ5fgWrWqk0w" constrainedElement="_h6c0cOTBEeOtlr5VAheQ_Q _R98pkOTDEeOtlr5VAheQ_Q _R-WSMeTDEeOtlr5VAheQ_Q _R-VEEOTDEeOtlr5VAheQ_Q">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_itvpMLqrEeWQ5fgWrWqk0w">
+            <language>Optionality</language>
+            <body>if-feature NOT CPI_HIDDEN</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_h6c0cuTBEeOtlr5VAheQ_Q" name="fileMConfigDataId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_h6c0c-TBEeOtlr5VAheQ_Q" annotatedElement="_h6c0cuTBEeOtlr5VAheQ_Q">
+            <body>The value component of the RDN.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h6c0deTBEeOtlr5VAheQ_Q" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h6c0dOTBEeOtlr5VAheQ_Q" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_h6c0duTBEeOtlr5VAheQ_Q" name="internalRoot" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_h6c0d-TBEeOtlr5VAheQ_Q" annotatedElement="_h6c0duTBEeOtlr5VAheQ_Q">
+            <body>Internal root for File Management</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h6c0eeTBEeOtlr5VAheQ_Q" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h6c0eOTBEeOtlr5VAheQ_Q" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_Rfm9MOTCEeOtlr5VAheQ_Q" name="FileMInstances">
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_RfnkreTCEeOtlr5VAheQ_Q" name="FileMNoOfFilesExceeded">
+          <classifier xmi:type="uml:Class" href="ComFm.uml#_tqWg0GGaEd-7fPz80YESTA"/>
+          <slot xmi:type="uml:Slot" xmi:id="_RfnkruTCEeOtlr5VAheQ_Q">
+            <definingFeature xmi:type="uml:Property" href="ComFm.uml#_ttU8UGGaEd-7fPz80YESTA"/>
+            <value xmi:type="uml:LiteralString" xmi:id="_Rfnkr-TCEeOtlr5VAheQ_Q" value="FileMNoOfFilesExceeded"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_RfnksOTCEeOtlr5VAheQ_Q">
+            <definingFeature xmi:type="uml:Property" href="ComFm.uml#_wSlNsGGiEd-7fPz80YESTA"/>
+            <value xmi:type="uml:InstanceValue" xmi:id="_RfnkseTCEeOtlr5VAheQ_Q">
+              <type xmi:type="uml:Enumeration" href="ComFm.uml#_IniOEGZ_Ed-VkJjlpEntLQ"/>
+              <instance xmi:type="uml:EnumerationLiteral" href="ComFm.uml#_dL_WMARXEeCCt4JYS-SMPA"/>
+            </value>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_RfnksuTCEeOtlr5VAheQ_Q">
+            <definingFeature xmi:type="uml:Property" href="ComFm.uml#_6UcewGGjEd-7fPz80YESTA"/>
+            <value xmi:type="uml:LiteralBoolean" xmi:id="_Rfnks-TCEeOtlr5VAheQ_Q" value="true"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_RfnktOTCEeOtlr5VAheQ_Q">
+            <definingFeature xmi:type="uml:Property" href="ComFm.uml#_lQa9QGGhEd-7fPz80YESTA"/>
+            <value xmi:type="uml:LiteralInteger" xmi:id="_RfnkteTCEeOtlr5VAheQ_Q" value="193"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_RfnktuTCEeOtlr5VAheQ_Q">
+            <definingFeature xmi:type="uml:Property" href="ComFm.uml#_wtuuEGGhEd-7fPz80YESTA"/>
+            <value xmi:type="uml:LiteralInteger" xmi:id="_Rfnkt-TCEeOtlr5VAheQ_Q" value="131073"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_RfnkuOTCEeOtlr5VAheQ_Q">
+            <definingFeature xmi:type="uml:Property" href="ComFm.uml#_JnsRQGGiEd-7fPz80YESTA"/>
+            <value xmi:type="uml:LiteralString" xmi:id="_RfnkueTCEeOtlr5VAheQ_Q" value="FileGroup"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_RfnkuuTCEeOtlr5VAheQ_Q">
+            <definingFeature xmi:type="uml:Property" href="ComFm.uml#_lVJ20GGiEd-7fPz80YESTA"/>
+            <value xmi:type="uml:LiteralString" xmi:id="_Rfnku-TCEeOtlr5VAheQ_Q" value="File Management, Number of Files in FileGroup Exceeded"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_RfnkvOTCEeOtlr5VAheQ_Q">
+            <definingFeature xmi:type="uml:Property" href="ComFm.uml#_B3FAoIW9Ed-Bff57fZjsiQ"/>
+            <value xmi:type="uml:LiteralNull" xmi:id="_RfnkveTCEeOtlr5VAheQ_Q"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_RfnkvuTCEeOtlr5VAheQ_Q">
+            <definingFeature xmi:type="uml:Property" href="ComFm.uml#_F7lWcGGjEd-7fPz80YESTA"/>
+            <value xmi:type="uml:LiteralInteger" xmi:id="_Rfnkv-TCEeOtlr5VAheQ_Q" value="343"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_RfnkwOTCEeOtlr5VAheQ_Q" name="FileManagement">
+          <classifier xmi:type="uml:Class" href="ComFm.uml#_e8UoIGGEEd-7fPz80YESTA"/>
+          <slot xmi:type="uml:Slot" xmi:id="_RfnkweTCEeOtlr5VAheQ_Q">
+            <definingFeature xmi:type="uml:Property" href="ComFm.uml#_e9BLsGGEEd-7fPz80YESTA"/>
+            <value xmi:type="uml:LiteralString" xmi:id="_RfnkwuTCEeOtlr5VAheQ_Q" value="FileManagement"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_Rfnkw-TCEeOtlr5VAheQ_Q" name="FileMInstance" classifier="_bbPvcOMoEd-kQ-bA_LUmHA">
+          <slot xmi:type="uml:Slot" xmi:id="_z-c4MOY8EeO6G8wtoHRmdg" definingFeature="_bfJ_EOMoEd-kQ-bA_LUmHA">
+            <value xmi:type="uml:LiteralString" xmi:id="_z-lbEOY8EeO6G8wtoHRmdg" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_RfnkxuTCEeOtlr5VAheQ_Q" name="LogicalFsInstance" classifier="_-dacQOMpEd-kQ-bA_LUmHA">
+          <slot xmi:type="uml:Slot" xmi:id="_ARbswOY9EeO6G8wtoHRmdg" definingFeature="_-fCM4OMpEd-kQ-bA_LUmHA">
+            <value xmi:type="uml:LiteralString" xmi:id="_ARbsweY9EeO6G8wtoHRmdg" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_RfnkyeTCEeOtlr5VAheQ_Q" client="_RfnkxuTCEeOtlr5VAheQ_Q" supplier="_Rfnkw-TCEeOtlr5VAheQ_Q"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_RfnkyuTCEeOtlr5VAheQ_Q" client="_RfnkwOTCEeOtlr5VAheQ_Q">
+          <supplier xmi:type="uml:InstanceSpecification" href="ComFm.uml#_df3eEFBZEeOV9fRANQhAWQ"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_Rfnky-TCEeOtlr5VAheQ_Q" client="_RfnkreTCEeOtlr5VAheQ_Q" supplier="_RfnkwOTCEeOtlr5VAheQ_Q"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_RfnkzOTCEeOtlr5VAheQ_Q" client="_Rfnkw-TCEeOtlr5VAheQ_Q">
+          <supplier xmi:type="uml:InstanceSpecification" href="ComTop.uml#_rD11dFFfEeWvE-mxCiaX_Q"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_RfnkzeTCEeOtlr5VAheQ_Q" name="FileMMaxSizeExceeded">
+          <classifier xmi:type="uml:Class" href="ComFm.uml#_tqWg0GGaEd-7fPz80YESTA"/>
+          <slot xmi:type="uml:Slot" xmi:id="_RfnkzuTCEeOtlr5VAheQ_Q">
+            <definingFeature xmi:type="uml:Property" href="ComFm.uml#_ttU8UGGaEd-7fPz80YESTA"/>
+            <value xmi:type="uml:LiteralString" xmi:id="_Rfnkz-TCEeOtlr5VAheQ_Q" value="FileMMaxSizeExceeded"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_Rfnk0OTCEeOtlr5VAheQ_Q">
+            <definingFeature xmi:type="uml:Property" href="ComFm.uml#_wSlNsGGiEd-7fPz80YESTA"/>
+            <value xmi:type="uml:InstanceValue" xmi:id="_Rfnk0eTCEeOtlr5VAheQ_Q">
+              <type xmi:type="uml:Enumeration" href="ComFm.uml#_IniOEGZ_Ed-VkJjlpEntLQ"/>
+              <instance xmi:type="uml:EnumerationLiteral" href="ComFm.uml#_dL_WMARXEeCCt4JYS-SMPA"/>
+            </value>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_Rfnk0uTCEeOtlr5VAheQ_Q">
+            <definingFeature xmi:type="uml:Property" href="ComFm.uml#_6UcewGGjEd-7fPz80YESTA"/>
+            <value xmi:type="uml:LiteralBoolean" xmi:id="_Rfnk0-TCEeOtlr5VAheQ_Q" value="true"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_Rfnk1OTCEeOtlr5VAheQ_Q">
+            <definingFeature xmi:type="uml:Property" href="ComFm.uml#_lQa9QGGhEd-7fPz80YESTA"/>
+            <value xmi:type="uml:LiteralInteger" xmi:id="_Rfnk1eTCEeOtlr5VAheQ_Q" value="193"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_Rfnk1uTCEeOtlr5VAheQ_Q">
+            <definingFeature xmi:type="uml:Property" href="ComFm.uml#_wtuuEGGhEd-7fPz80YESTA"/>
+            <value xmi:type="uml:LiteralInteger" xmi:id="_Rfnk1-TCEeOtlr5VAheQ_Q" value="131074"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_Rfnk2OTCEeOtlr5VAheQ_Q">
+            <definingFeature xmi:type="uml:Property" href="ComFm.uml#_JnsRQGGiEd-7fPz80YESTA"/>
+            <value xmi:type="uml:LiteralString" xmi:id="_Rfnk2eTCEeOtlr5VAheQ_Q" value="FileGroup"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_Rfnk2uTCEeOtlr5VAheQ_Q">
+            <definingFeature xmi:type="uml:Property" href="ComFm.uml#_lVJ20GGiEd-7fPz80YESTA"/>
+            <value xmi:type="uml:LiteralString" xmi:id="_Rfnk2-TCEeOtlr5VAheQ_Q" value="File Management, Max Size in FileGroup Exceeded"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_Rfnk3OTCEeOtlr5VAheQ_Q">
+            <definingFeature xmi:type="uml:Property" href="ComFm.uml#_B3FAoIW9Ed-Bff57fZjsiQ"/>
+            <value xmi:type="uml:LiteralNull" xmi:id="_Rfnk3eTCEeOtlr5VAheQ_Q"/>
+          </slot>
+          <slot xmi:type="uml:Slot" xmi:id="_Rfnk3uTCEeOtlr5VAheQ_Q">
+            <definingFeature xmi:type="uml:Property" href="ComFm.uml#_F7lWcGGjEd-7fPz80YESTA"/>
+            <value xmi:type="uml:LiteralInteger" xmi:id="_Rfnk3-TCEeOtlr5VAheQ_Q" value="151"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_Rfnk4OTCEeOtlr5VAheQ_Q" client="_RfnkzeTCEeOtlr5VAheQ_Q" supplier="_RfnkwOTCEeOtlr5VAheQ_Q"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_R98pkOTDEeOtlr5VAheQ_Q" name="LogicalFs_to_FileMConfigData" memberEnd="_R-VEEOTDEeOtlr5VAheQ_Q _R-WSMeTDEeOtlr5VAheQ_Q">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_R-WSMeTDEeOtlr5VAheQ_Q" name="logicalfs" visibility="public" type="_-dacQOMpEd-kQ-bA_LUmHA" association="_R98pkOTDEeOtlr5VAheQ_Q">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R-1aYeTDEeOtlr5VAheQ_Q" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R-1aYOTDEeOtlr5VAheQ_Q" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_6hFCELhnEeWr2cQC7pIWdw" name="Features">
+        <packagedElement xmi:type="uml:Class" xmi:id="_6hNk8LhnEeWr2cQC7pIWdw" name="CPI_HIDDEN"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_7gTYgLhpEeWr2cQC7pIWdw" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_7geXobhpEeWr2cQC7pIWdw" name="BASIC"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_X8sOkLn0EeWr2cQC7pIWdw" client="_7geXobhpEeWr2cQC7pIWdw" supplier="_6hNk8LhnEeWr2cQC7pIWdw"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_8lWO0LYVEeWbuatly-CGgw" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_F2Y4YOKPEd-kQ-bA_LUmHA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pO-q0DCWEeum-LsfUdOKNQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pO-q0TCWEeum-LsfUdOKNQ" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pO-q0jCWEeum-LsfUdOKNQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pO-q0zCWEeum-LsfUdOKNQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pO-q1DCWEeum-LsfUdOKNQ" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pO-q1TCWEeum-LsfUdOKNQ" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_F324AOKPEd-kQ-bA_LUmHA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_8kxnELYVEeWbuatly-CGgw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_szsRsN6MEeehtLhJYaltnA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_szsRsd6MEeehtLhJYaltnA" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_szsRst6MEeehtLhJYaltnA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_szsRs96MEeehtLhJYaltnA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_szsRtN6MEeehtLhJYaltnA" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_szsRtd6MEeehtLhJYaltnA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_F5y1kMSFEeeyRtYJGL_f4w" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_F5y1kcSFEeeyRtYJGL_f4w" key="Version" value="1.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_F5y1ksSFEeeyRtYJGL_f4w" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_F5y1k8SFEeeyRtYJGL_f4w" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_F5y1lMSFEeeyRtYJGL_f4w" key="Date" value="2016-02-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_F5y1lcSFEeeyRtYJGL_f4w" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8kxnEbYVEeWbuatly-CGgw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_soleEGgfEeWh_IKdJv1FQA" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_so2j0GgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" base_Package="_a3F5gOMoEd-kQ-bA_LUmHA" author="EMIKLIL" contact="EAB/FLE/CB Mikael Lilliestierna" date="2014-05-26" docNo="" revision="" version="11" release="1" organization="EAB/FLE/CB" ecimMomName="ECIM_FileM" ecimMomVersion="3" ecimMomRelease="2" ecimMomCorrection="0" correction="2"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_so3x8GgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Property="_bfJ_EOMoEd-kQ-bA_LUmHA"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_so4ZAGgfEeWh_IKdJv1FQA" hideGroupName="hidden" specification="" base_Class="_eqjuoOMpEd-kQ-bA_LUmHA"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_so5AEGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Property="_etDpAOMpEd-kQ-bA_LUmHA"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_spCKAGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Class="_-dacQOMpEd-kQ-bA_LUmHA" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_spCKAWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Property="_-fCM4OMpEd-kQ-bA_LUmHA"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_spCxEGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Property="_H2p_YOMxEd-kQ-bA_LUmHA"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_spGbcGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" status="DEPRECATED" statusInformation="DEPRECATED" base_Property="_fO0YoOMxEd-kQ-bA_LUmHA"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_spHCgGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Association="_VtAuYOM1Ed-kQ-bA_LUmHA" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_spHCgWgfEeWh_IKdJv1FQA" hideGroupName="hidden" specification="" base_Association="_BcV1EOM2Ed-kQ-bA_LUmHA" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_spJewGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Association="_agkukOM2Ed-kQ-bA_LUmHA" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_spJewWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" status="DEPRECATED" statusInformation="DEPRECATED" base_Association="_ieFXsOM2Ed-kQ-bA_LUmHA" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_spL7AGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Association="_rYef0OM2Ed-kQ-bA_LUmHA" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_spMiEGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" isNotifiable="true" base_Property="_oISbEOMuEd-kQ-bA_LUmHA"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_spMiEWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" isNotifiable="true" base_Property="_qMWaAOMtEd-kQ-bA_LUmHA"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_spNJIGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" isNotifiable="true" base_Property="_GSOqIOMvEd-kQ-bA_LUmHA"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_spNwMGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" status="DEPRECATED" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" range="" unit="" resolution="" multiplicationFactor="" base_Property="_3haZ0OMxEd-kQ-bA_LUmHA"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_spNwMWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" status="DEPRECATED" base_Property="_z5eCwOMxEd-kQ-bA_LUmHA"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_spQzgGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" status="DEPRECATED" base_Property="_rI1TkOMxEd-kQ-bA_LUmHA"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_spQzgWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Class="_HzxDcOMxEd-kQ-bA_LUmHA"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_spQzgmgfEeWh_IKdJv1FQA" hideGroupName="" specification="" isNotifiable="true" base_Property="_x-CgwPk-Ed-4UJA11_fNEA"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_spRakGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Property="_jJydgP7JEd-fz_nup5IUEw"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_spRakWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Association="_z7PogP7JEd-fz_nup5IUEw" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_spRakmgfEeWh_IKdJv1FQA" hideGroupName="" specification="" status="DEPRECATED" statusInformation="DEPRECATED" base_Class="_fMfdYOMxEd-kQ-bA_LUmHA" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_spUd4GgfEeWh_IKdJv1FQA" hideGroupName="hidden" specification="" base_Class="_jIhSMP7JEd-fz_nup5IUEw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_spUd4WgfEeWh_IKdJv1FQA" hideGroupName="" specification="" isNotifiable="true" base_Property="_ZpC3UP7aEd-fz_nup5IUEw"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_spVE8GgfEeWh_IKdJv1FQA" hideGroupName="" specification="" isNotifiable="true" base_Property="_xvnA8P7VEd-fz_nup5IUEw"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_speO4GgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Operation="_dzhZcAaKEeCXUvk_8dGs_Q"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_spe18GgfEeWh_IKdJv1FQA" hideGroupName="" specification="" isNotifiable="true" base_Property="_ZaPbgAbLEeCXUvk_8dGs_Q"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_spe18WgfEeWh_IKdJv1FQA" hideGroupName="" specification="" isNotifiable="true" base_Property="_tAlwAAbLEeCXUvk_8dGs_Q"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_spfdAGgfEeWh_IKdJv1FQA" base_Parameter="_ABh_QB8TEeCL3f-50XoKsA"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_spgEEGgfEeWh_IKdJv1FQA" base_Parameter="_X7f6QB-xEeCL3f-50XoKsA"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_spgrIGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Enumeration="_v2ge4B_SEeCL3f-50XoKsA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_spigUGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_EnumerationLiteral="_wBEwIB_SEeCL3f-50XoKsA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_spjHYGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_EnumerationLiteral="_6rdZwB_TEeCL3f-50XoKsA"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_spjucGgfEeWh_IKdJv1FQA" hideGroupName="hidden" specification="" base_Enumeration="_2pG3QB_WEeCL3f-50XoKsA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_spjucWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_EnumerationLiteral="_2sh-sB_WEeCL3f-50XoKsA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_spkVgGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_EnumerationLiteral="_IXgLoB_XEeCL3f-50XoKsA"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_spk8kGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Enumeration="_r8DrcB_mEeCL3f-50XoKsA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_spk8kWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_EnumerationLiteral="_-Za-oB_mEeCL3f-50XoKsA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_spk8kmgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_EnumerationLiteral="_GrDdoB_nEeCL3f-50XoKsA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_spljoGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_EnumerationLiteral="_NooTwB_nEeCL3f-50XoKsA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_spljoWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_EnumerationLiteral="_aISSYB_nEeCL3f-50XoKsA"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_spljomgfEeWh_IKdJv1FQA" hideGroupName="" specification="" isNotifiable="true" base_Property="_MhoBEOMuEd-kQ-bA_LUmHA"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_spmKsGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" isNotifiable="true" base_Property="_SoppsOMuEd-kQ-bA_LUmHA"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_spmKsWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" isNotifiable="true" base_Property="_XkNkwOMuEd-kQ-bA_LUmHA"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_spmKsmgfEeWh_IKdJv1FQA" hideGroupName="" specification="" isNotifiable="true" base_Property="_cvWM4OMuEd-kQ-bA_LUmHA"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_spmxwGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" base_Association="_gtkQEPDnEeCADdda_lGd-A" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_spmxwWgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_cztw8DYEEeG04PAKOfxe_w"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_spnY0GgfEeWh_IKdJv1FQA" isPersistent="false" hideGroupName="hidden" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" range="" unit="" resolution="" multiplicationFactor="" isAssociationEnd="true" base_Property="_nNeIIDYGEeG04PAKOfxe_w"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_spnY0WgfEeWh_IKdJv1FQA" isPersistent="false" hideGroupName="hidden" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_d_fIACQUEeOE6LL0c7RWiQ"/>
+  <ECIMBaseProfile:EcimStruct xmi:id="_spn_4GgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" base_Class="_iKDJwKn0EeOxFs344A5H4g"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_sppOAGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" range="" unit="" resolution="" multiplicationFactor="" base_Property="_xAQ6oKn1EeOxFs344A5H4g"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_spsRUGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" base_Property="_Kigl0Kn2EeOxFs344A5H4g"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_sptfcGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_KP3PQKn5EeOxFs344A5H4g"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_spuGgGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" base_Property="_8o360K_7EeOv2vlLPhRafA"/>
+  <ECIMBaseProfile:EcimStructMember xmi:id="_sputkGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" base_Property="_BizSELvMEeOLgYlMqSYWvQ" isKey="true"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_spvUoGgfEeWh_IKdJv1FQA" hideGroupName="" specification="" base_Class="_bbPvcOMoEd-kQ-bA_LUmHA" isSystemCreated="true" isLegacyRoot="true"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_spvUoWgfEeWh_IKdJv1FQA" hideGroupName="filemData" specification="" statusInformation="" base_Class="_h6c0cOTBEeOtlr5VAheQ_Q" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_spv7sGgfEeWh_IKdJv1FQA" hideGroupName="filemData" specification="" statusInformation="" isNotifiable="true" base_Property="_h6c0cuTBEeOtlr5VAheQ_Q"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_spv7sWgfEeWh_IKdJv1FQA" hideGroupName="filemData" specification="" statusInformation="" base_Property="_h6c0duTBEeOtlr5VAheQ_Q"/>
+  <ECIMBaseProfile:EcimInstances xmi:id="_spxw4GgfEeWh_IKdJv1FQA" base_Package="_Rfm9MOTCEeOtlr5VAheQ_Q" version="1" release="2" correction="0"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_spyX8GgfEeWh_IKdJv1FQA" base_InstanceSpecification="_RfnkreTCEeOtlr5VAheQ_Q"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_spy_AGgfEeWh_IKdJv1FQA" base_InstanceSpecification="_RfnkwOTCEeOtlr5VAheQ_Q"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_sp00MGgfEeWh_IKdJv1FQA" base_InstanceSpecification="_Rfnkw-TCEeOtlr5VAheQ_Q"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_sp00MWgfEeWh_IKdJv1FQA" base_InstanceSpecification="_RfnkxuTCEeOtlr5VAheQ_Q"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_sp1bQGgfEeWh_IKdJv1FQA" base_Dependency="_RfnkyeTCEeOtlr5VAheQ_Q"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_sp2CUGgfEeWh_IKdJv1FQA" base_Dependency="_RfnkyuTCEeOtlr5VAheQ_Q"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_sp2pYGgfEeWh_IKdJv1FQA" base_Dependency="_Rfnky-TCEeOtlr5VAheQ_Q"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_sp2pYWgfEeWh_IKdJv1FQA" base_Dependency="_RfnkzOTCEeOtlr5VAheQ_Q"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_sp3QcGgfEeWh_IKdJv1FQA" base_InstanceSpecification="_RfnkzeTCEeOtlr5VAheQ_Q"/>
+  <ECIMBaseProfile:EcimInstanceDependency xmi:id="_sp33gGgfEeWh_IKdJv1FQA" base_Dependency="_Rfnk4OTCEeOtlr5VAheQ_Q"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_sp4ekGgfEeWh_IKdJv1FQA" hideGroupName="hidden" specification="" statusInformation="" base_Association="_R98pkOTDEeOtlr5VAheQ_Q" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimSchematronConstraint xmi:id="_sp5FoGgfEeWh_IKdJv1FQA" interfaceVersion="1.0" interfaceName="ECIM_Schematron" base_Constraint="_n3nLwOZIEeO6G8wtoHRmdg"/>
+  <Documentation:Documentation xmi:id="_UiExEGgfEeWh_IKdJv1FQA" base_Comment="_equGsOMpEd-kQ-bA_LUmHA"/>
+  <Documentation:Documentation xmi:id="_UiExEWgfEeWh_IKdJv1FQA" base_Comment="_etOBEeMpEd-kQ-bA_LUmHA"/>
+  <Documentation:Documentation xmi:id="_UiExEmgfEeWh_IKdJv1FQA" base_Comment="_-dkNQOMpEd-kQ-bA_LUmHA"/>
+  <Documentation:Documentation xmi:id="_UiExE2gfEeWh_IKdJv1FQA" base_Comment="_-fMk8OMpEd-kQ-bA_LUmHA"/>
+  <Documentation:Documentation xmi:id="_UiExFGgfEeWh_IKdJv1FQA" base_Comment="_MhyZIeMuEd-kQ-bA_LUmHA"/>
+  <Documentation:Documentation xmi:id="_UiExFWgfEeWh_IKdJv1FQA" base_Comment="_SozasOMuEd-kQ-bA_LUmHA"/>
+  <Documentation:Documentation xmi:id="_UiExFmgfEeWh_IKdJv1FQA" base_Comment="_XkX80OMuEd-kQ-bA_LUmHA"/>
+  <Documentation:Documentation xmi:id="_UiExF2gfEeWh_IKdJv1FQA" base_Comment="_cvf94OMuEd-kQ-bA_LUmHA"/>
+  <Documentation:Documentation xmi:id="_UiExGGgfEeWh_IKdJv1FQA" base_Comment="_H2ve8eMxEd-kQ-bA_LUmHA"/>
+  <Documentation:Documentation xmi:id="_UiExGWgfEeWh_IKdJv1FQA" base_Comment="_fO6fQOMxEd-kQ-bA_LUmHA"/>
+  <Documentation:Documentation xmi:id="_UiExGmgfEeWh_IKdJv1FQA" base_Comment="_rI_EkOMxEd-kQ-bA_LUmHA"/>
+  <Documentation:Documentation xmi:id="_UiExG2gfEeWh_IKdJv1FQA" base_Comment="_z5nzwOMxEd-kQ-bA_LUmHA"/>
+  <Documentation:Documentation xmi:id="_UiExHGgfEeWh_IKdJv1FQA" base_Comment="_3hkK0OMxEd-kQ-bA_LUmHA"/>
+  <Documentation:Documentation xmi:id="_UiExHWgfEeWh_IKdJv1FQA" base_Comment="_NJhlMOW4Ed-kQ-bA_LUmHA"/>
+  <Documentation:Documentation xmi:id="_UiExHmgfEeWh_IKdJv1FQA" base_Comment="_WKmkIOW4Ed-kQ-bA_LUmHA"/>
+  <Documentation:Documentation xmi:id="_UiExH2gfEeWh_IKdJv1FQA" base_Comment="_l35X4OXCEd-kQ-bA_LUmHA"/>
+  <Documentation:Documentation xmi:id="_UiExIGgfEeWh_IKdJv1FQA" base_Comment="_qidCgOXCEd-kQ-bA_LUmHA"/>
+  <Documentation:Documentation xmi:id="_UiExIWgfEeWh_IKdJv1FQA" base_Comment="_KQYM0OXDEd-kQ-bA_LUmHA"/>
+  <Documentation:Documentation xmi:id="_UiExImgfEeWh_IKdJv1FQA" base_Comment="_Nqx3IOXDEd-kQ-bA_LUmHA"/>
+  <Documentation:Documentation xmi:id="_UiExI2gfEeWh_IKdJv1FQA" base_Comment="_HBg5UOZhEd-ua4z0iG58tQ"/>
+  <Documentation:Documentation xmi:id="_UiExJGgfEeWh_IKdJv1FQA" base_Comment="_jIh5QP7JEd-fz_nup5IUEw"/>
+  <Documentation:Documentation xmi:id="_UiExJWgfEeWh_IKdJv1FQA" base_Comment="_jJ6ZUf7JEd-fz_nup5IUEw"/>
+  <Documentation:Documentation xmi:id="_UiExJmgfEeWh_IKdJv1FQA" base_Comment="_xvu8wf7VEd-fz_nup5IUEw"/>
+  <Documentation:Documentation xmi:id="_UiExJ2gfEeWh_IKdJv1FQA" base_Comment="_ZpKzIf7aEd-fz_nup5IUEw"/>
+  <Documentation:Documentation xmi:id="_UiExKGgfEeWh_IKdJv1FQA" base_Comment="_1TPYQALREeC4cqYSbHAuFw"/>
+  <Documentation:Documentation xmi:id="_UiExKWgfEeWh_IKdJv1FQA" base_Comment="_dzp8UQaKEeCXUvk_8dGs_Q"/>
+  <Documentation:Documentation xmi:id="_UiExKmgfEeWh_IKdJv1FQA" base_Comment="_tAvhAAbLEeCXUvk_8dGs_Q"/>
+  <Documentation:Documentation xmi:id="_UiExK2gfEeWh_IKdJv1FQA" base_Comment="_5cYawB8TEeCL3f-50XoKsA"/>
+  <Documentation:Documentation xmi:id="_UiExLGgfEeWh_IKdJv1FQA" base_Comment="_7YhMgB-xEeCL3f-50XoKsA"/>
+  <Documentation:Documentation xmi:id="_UiExLWgfEeWh_IKdJv1FQA" base_Comment="_wBXrEh_SEeCL3f-50XoKsA"/>
+  <Documentation:Documentation xmi:id="_UiExLmgfEeWh_IKdJv1FQA" base_Comment="_6rmjsh_TEeCL3f-50XoKsA"/>
+  <Documentation:Documentation xmi:id="_UiExL2gfEeWh_IKdJv1FQA" base_Comment="_2pG3Qh_WEeCL3f-50XoKsA"/>
+  <Documentation:Documentation xmi:id="_UiExMGgfEeWh_IKdJv1FQA" base_Comment="_2sh-sx_WEeCL3f-50XoKsA"/>
+  <Documentation:Documentation xmi:id="_UiExMWgfEeWh_IKdJv1FQA" base_Comment="_IXp8oh_XEeCL3f-50XoKsA"/>
+  <Documentation:Documentation xmi:id="_UiExMmgfEeWh_IKdJv1FQA" base_Comment="_r8M1YR_mEeCL3f-50XoKsA"/>
+  <Documentation:Documentation xmi:id="_UiExM2gfEeWh_IKdJv1FQA" base_Comment="_-Zkvoh_mEeCL3f-50XoKsA"/>
+  <Documentation:Documentation xmi:id="_UiExNGgfEeWh_IKdJv1FQA" base_Comment="_GrNOoh_nEeCL3f-50XoKsA"/>
+  <Documentation:Documentation xmi:id="_UiExNWgfEeWh_IKdJv1FQA" base_Comment="_NoyEwh_nEeCL3f-50XoKsA"/>
+  <Documentation:Documentation xmi:id="_UiExNmgfEeWh_IKdJv1FQA" base_Comment="_aIcDYh_nEeCL3f-50XoKsA"/>
+  <Documentation:Documentation xmi:id="_UiExN2gfEeWh_IKdJv1FQA" base_Comment="_dpJM4CO_EeCL3f-50XoKsA"/>
+  <Documentation:Documentation xmi:id="_UiExOGgfEeWh_IKdJv1FQA" base_Comment="_HbswsCR3EeCL3f-50XoKsA"/>
+  <Documentation:Documentation xmi:id="_UiExOWgfEeWh_IKdJv1FQA" base_Comment="_Y67fUCSFEeCL3f-50XoKsA"/>
+  <Documentation:Documentation xmi:id="_UiExOmgfEeWh_IKdJv1FQA" base_Comment="_Gjdt4CSHEeCL3f-50XoKsA"/>
+  <Documentation:Documentation xmi:id="_UiExO2gfEeWh_IKdJv1FQA" base_Comment="_cz3h8TYEEeG04PAKOfxe_w"/>
+  <Documentation:Documentation xmi:id="_UiExPGgfEeWh_IKdJv1FQA" base_Comment="_nNxDETYGEeG04PAKOfxe_w"/>
+  <Documentation:Documentation xmi:id="_UiExPWgfEeWh_IKdJv1FQA" base_Comment="_d_u_oCQUEeOE6LL0c7RWiQ"/>
+  <Documentation:Documentation xmi:id="_UiExPmgfEeWh_IKdJv1FQA" base_Comment="_iLtWoKn0EeOxFs344A5H4g"/>
+  <Documentation:Documentation xmi:id="_UiExP2gfEeWh_IKdJv1FQA" base_Comment="_49RNcKn1EeOxFs344A5H4g"/>
+  <Documentation:Documentation xmi:id="_UiExQGgfEeWh_IKdJv1FQA" base_Comment="_KiszEKn2EeOxFs344A5H4g"/>
+  <Documentation:Documentation xmi:id="_UiExQWgfEeWh_IKdJv1FQA" base_Comment="_iaauwKn5EeOxFs344A5H4g"/>
+  <Documentation:Documentation xmi:id="_UiExQmgfEeWh_IKdJv1FQA" base_Comment="_IT1tIK_8EeOv2vlLPhRafA"/>
+  <Documentation:Documentation xmi:id="_UiExQ2gfEeWh_IKdJv1FQA" base_Comment="_BjHbILvMEeOLgYlMqSYWvQ"/>
+  <Documentation:Documentation xmi:id="_UiExRGgfEeWh_IKdJv1FQA" base_Comment="_mKTlANaoEeOz-cJ9PJw0Og"/>
+  <Documentation:Documentation xmi:id="_UiExRWgfEeWh_IKdJv1FQA" base_Comment="_h6c0ceTBEeOtlr5VAheQ_Q"/>
+  <Documentation:Documentation xmi:id="_UiExRmgfEeWh_IKdJv1FQA" base_Comment="_h6c0c-TBEeOtlr5VAheQ_Q"/>
+  <Documentation:Documentation xmi:id="_UiExR2gfEeWh_IKdJv1FQA" base_Comment="_h6c0d-TBEeOtlr5VAheQ_Q"/>
+  <CoreMWProfile:CmwModel xmi:id="_8kzcQLYVEeWbuatly-CGgw" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwMom xmi:id="_8k1RcLYVEeWbuatly-CGgw" base_Package="_a3F5gOMoEd-kQ-bA_LUmHA" immNamespace="MOM_NAME"/>
+  <CoreMWProfile:CmwStruct xmi:id="_8k2fkLYVEeWbuatly-CGgw" base_Class="_iKDJwKn0EeOxFs344A5H4g"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_8k4UwLYVEeWbuatly-CGgw" base_Property="_xAQ6oKn1EeOxFs344A5H4g" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_8k6xALYVEeWbuatly-CGgw" base_Property="_Kigl0Kn2EeOxFs344A5H4g" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_8k7YELYVEeWbuatly-CGgw" base_Property="_8o360K_7EeOv2vlLPhRafA" isConfigurable="true"/>
+  <CoreMWProfile:CmwStructMember xmi:id="_8k7_ILYVEeWbuatly-CGgw" base_Property="_BizSELvMEeOLgYlMqSYWvQ" isConfigurable="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_8k8mMLYVEeWbuatly-CGgw" base_Class="_eqjuoOMpEd-kQ-bA_LUmHA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k8mMbYVEeWbuatly-CGgw" base_Property="_etDpAOMpEd-kQ-bA_LUmHA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k9NQLYVEeWbuatly-CGgw" base_Property="_qMWaAOMtEd-kQ-bA_LUmHA" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k9NQbYVEeWbuatly-CGgw" base_Property="_MhoBEOMuEd-kQ-bA_LUmHA" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k9NQrYVEeWbuatly-CGgw" base_Property="_SoppsOMuEd-kQ-bA_LUmHA" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k9NQ7YVEeWbuatly-CGgw" base_Property="_XkNkwOMuEd-kQ-bA_LUmHA" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k9NRLYVEeWbuatly-CGgw" base_Property="_x-CgwPk-Ed-4UJA11_fNEA" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k90ULYVEeWbuatly-CGgw" base_Property="_cztw8DYEEeG04PAKOfxe_w" isConfigurable="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_8k90UbYVEeWbuatly-CGgw" base_Class="_bbPvcOMoEd-kQ-bA_LUmHA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k90UrYVEeWbuatly-CGgw" base_Property="_bfJ_EOMoEd-kQ-bA_LUmHA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k90U7YVEeWbuatly-CGgw" base_Property="_oISbEOMuEd-kQ-bA_LUmHA" isConfigurable="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_8k-bYLYVEeWbuatly-CGgw" base_Class="_-dacQOMpEd-kQ-bA_LUmHA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k-bYbYVEeWbuatly-CGgw" base_Property="_-fCM4OMpEd-kQ-bA_LUmHA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k-bYrYVEeWbuatly-CGgw" base_Property="_GSOqIOMvEd-kQ-bA_LUmHA" isConfigurable="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_8k-bY7YVEeWbuatly-CGgw" base_Class="_HzxDcOMxEd-kQ-bA_LUmHA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k-bZLYVEeWbuatly-CGgw" base_Property="_KP3PQKn5EeOxFs344A5H4g"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k-bZbYVEeWbuatly-CGgw" base_Property="_H2p_YOMxEd-kQ-bA_LUmHA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k_CcLYVEeWbuatly-CGgw" base_Property="_nNeIIDYGEeG04PAKOfxe_w"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k_CcbYVEeWbuatly-CGgw" base_Property="_d_fIACQUEeOE6LL0c7RWiQ"/>
+  <CoreMWProfile:CmwAction xmi:id="_8k_CcrYVEeWbuatly-CGgw" base_Operation="_dzhZcAaKEeCXUvk_8dGs_Q"/>
+  <CoreMWProfile:CmwClass xmi:id="_8k_Cc7YVEeWbuatly-CGgw" base_Class="_fMfdYOMxEd-kQ-bA_LUmHA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k_CdLYVEeWbuatly-CGgw" base_Property="_fO0YoOMxEd-kQ-bA_LUmHA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k_CdbYVEeWbuatly-CGgw" base_Property="_3haZ0OMxEd-kQ-bA_LUmHA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k_pgLYVEeWbuatly-CGgw" base_Property="_z5eCwOMxEd-kQ-bA_LUmHA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k_pgbYVEeWbuatly-CGgw" base_Property="_rI1TkOMxEd-kQ-bA_LUmHA"/>
+  <CoreMWProfile:CmwClass xmi:id="_8k_pgrYVEeWbuatly-CGgw" base_Class="_jIhSMP7JEd-fz_nup5IUEw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k_pg7YVEeWbuatly-CGgw" base_Property="_jJydgP7JEd-fz_nup5IUEw"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8k_phLYVEeWbuatly-CGgw" base_Property="_ZpC3UP7aEd-fz_nup5IUEw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8lAQkLYVEeWbuatly-CGgw" base_Property="_ZaPbgAbLEeCXUvk_8dGs_Q" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8lAQkbYVEeWbuatly-CGgw" base_Property="_cvWM4OMuEd-kQ-bA_LUmHA" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8lAQkrYVEeWbuatly-CGgw" base_Property="_xvnA8P7VEd-fz_nup5IUEw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8lAQk7YVEeWbuatly-CGgw" base_Property="_tAlwAAbLEeCXUvk_8dGs_Q" isConfigurable="true"/>
+  <CoreMWProfile:CmwContribution xmi:id="_8lAQlLYVEeWbuatly-CGgw" base_Association="_gtkQEPDnEeCADdda_lGd-A"/>
+  <CoreMWProfile:CmwClass xmi:id="_8lA3oLYVEeWbuatly-CGgw" base_Class="_h6c0cOTBEeOtlr5VAheQ_Q"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8lA3obYVEeWbuatly-CGgw" base_Property="_h6c0cuTBEeOtlr5VAheQ_Q"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_8lA3orYVEeWbuatly-CGgw" base_Property="_h6c0duTBEeOtlr5VAheQ_Q"/>
+  <ECIMBaseProfile:EcimFeatures xmi:id="_6hM94LhnEeWr2cQC7pIWdw" base_Package="_6hFCELhnEeWr2cQC7pIWdw"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_6hTrkLhnEeWr2cQC7pIWdw" base_Class="_6hNk8LhnEeWr2cQC7pIWdw"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_7geXoLhpEeWr2cQC7pIWdw" base_Package="_7gTYgLhpEeWr2cQC7pIWdw"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_7giCALhpEeWr2cQC7pIWdw" base_Class="_7geXobhpEeWr2cQC7pIWdw"/>
+</xmi:XMI>

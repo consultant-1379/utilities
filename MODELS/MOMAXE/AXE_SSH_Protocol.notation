@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <notation:Diagram xmi:id="_SiwmAMJqEemW-4AuSvlJHw" type="PapyrusUMLClassDiagram" name="AXE SSH Protocol Management" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_SiwmO8JqEemW-4AuSvlJHw" type="Class_Shape" fontName="Segoe UI" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_SiwmPMJqEemW-4AuSvlJHw" type="Class_NameLabel">
+        <element xmi:type="uml:Class" href="AXE_SSH_Protocol.uml#_lR0nMKiFEeSr2ZbyDzUAmw"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_SiwmPcJqEemW-4AuSvlJHw" visible="false" type="Class_AttributeCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_SiwmPsJqEemW-4AuSvlJHw" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_SSH_Protocol.uml#_lSFs8aiFEeSr2ZbyDzUAmw"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_SiwmP8JqEemW-4AuSvlJHw" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_SSH_Protocol.uml#_QOgckLEkEeS_NN5tre41SA"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_SiwmQMJqEemW-4AuSvlJHw" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_SSH_Protocol.uml#_KhQSQKiGEeSr2ZbyDzUAmw"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_SiwmQcJqEemW-4AuSvlJHw" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_SSH_Protocol.uml#_WLj-8LEmEeS_NN5tre41SA"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_SiwmQsJqEemW-4AuSvlJHw" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_SSH_Protocol.uml#_afWtsKiGEeSr2ZbyDzUAmw"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_SiwmQ8JqEemW-4AuSvlJHw" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_SSH_Protocol.uml#_jxwu4LEmEeS_NN5tre41SA"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_SiwmRMJqEemW-4AuSvlJHw" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_SSH_Protocol.uml#_kEA60KiGEeSr2ZbyDzUAmw"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_SSH_Protocol.uml#_lR0nMKiFEeSr2ZbyDzUAmw"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_SiwmRcJqEemW-4AuSvlJHw" visible="false" type="Class_OperationCompartment">
+        <element xmi:type="uml:Class" href="AXE_SSH_Protocol.uml#_lR0nMKiFEeSr2ZbyDzUAmw"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_SiwmRsJqEemW-4AuSvlJHw" visible="false" type="Class_NestedClassifierCompartment">
+        <element xmi:type="uml:Class" href="AXE_SSH_Protocol.uml#_lR0nMKiFEeSr2ZbyDzUAmw"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_SiwmR8JqEemW-4AuSvlJHw" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_SiwmSMJqEemW-4AuSvlJHw"/>
+        <element xmi:type="uml:Class" href="AXE_SSH_Protocol.uml#_lR0nMKiFEeSr2ZbyDzUAmw"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_VcjdssJqEemW-4AuSvlJHw" visible="false" type="StereotypeLabel">
+        <styles xmi:type="notation:StringValueStyle" xmi:id="_Vcjds8JqEemW-4AuSvlJHw" name="stereotype" stringValue="ECIM Base Profile::EcimMoClass"/>
+        <element xmi:type="uml:Stereotype" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_yvyN4BuvEd-mDsccxLrSLg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VcjdtMJqEemW-4AuSvlJHw"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_SSH_Protocol.uml#_lR0nMKiFEeSr2ZbyDzUAmw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SiwmSsJqEemW-4AuSvlJHw" x="386" y="116" width="101"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_9kf5IOz3EembzPVzg4fOUg" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_9kf5Iez3EembzPVzg4fOUg"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_9kf5I-z3EembzPVzg4fOUg" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="AXE_SSH_Protocol.uml#_lR0nMKiFEeSr2ZbyDzUAmw"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9kf5Iuz3EembzPVzg4fOUg" x="586" y="116"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_SiwmWMJqEemW-4AuSvlJHw"/>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_9TawMOz3EembzPVzg4fOUg" name="diagram_compatibility_version" stringValue="1.2.0"/>
+    <element xmi:type="uml:Model" href="AXE_SSH_Protocol.uml#_NRAMoAwOEdmFcaeZXPdWAQ"/>
+    <edges xmi:type="notation:Connector" xmi:id="_9kggMOz3EembzPVzg4fOUg" type="StereotypeCommentLink" source="_SiwmO8JqEemW-4AuSvlJHw" target="_9kf5IOz3EembzPVzg4fOUg">
+      <styles xmi:type="notation:FontStyle" xmi:id="_9kggMez3EembzPVzg4fOUg"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_9kggNez3EembzPVzg4fOUg" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="AXE_SSH_Protocol.uml#_lR0nMKiFEeSr2ZbyDzUAmw"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9kggMuz3EembzPVzg4fOUg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9kggM-z3EembzPVzg4fOUg"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9kggNOz3EembzPVzg4fOUg"/>
+    </edges>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_Siwmp8JqEemW-4AuSvlJHw" type="PapyrusUMLClassDiagram" name="AXE SSH Protocol Management UC" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_SiwnEcJqEemW-4AuSvlJHw" type="Class_Shape" fontName="Segoe UI" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_SiwnEsJqEemW-4AuSvlJHw" type="Class_NameLabel">
+        <element xmi:type="uml:Class" href="AXE_SSH_Protocol.uml#_lR0nMKiFEeSr2ZbyDzUAmw"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_SiwnE8JqEemW-4AuSvlJHw" type="Class_AttributeCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_SiwnFMJqEemW-4AuSvlJHw" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_SSH_Protocol.uml#_lSFs8aiFEeSr2ZbyDzUAmw"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_SiwnFcJqEemW-4AuSvlJHw" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_SSH_Protocol.uml#_QOgckLEkEeS_NN5tre41SA"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_SiwnFsJqEemW-4AuSvlJHw" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_SSH_Protocol.uml#_KhQSQKiGEeSr2ZbyDzUAmw"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_SiwnF8JqEemW-4AuSvlJHw" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_SSH_Protocol.uml#_WLj-8LEmEeS_NN5tre41SA"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_SiwnGMJqEemW-4AuSvlJHw" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_SSH_Protocol.uml#_afWtsKiGEeSr2ZbyDzUAmw"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_SiwnGcJqEemW-4AuSvlJHw" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_SSH_Protocol.uml#_jxwu4LEmEeS_NN5tre41SA"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_SiwnGsJqEemW-4AuSvlJHw" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_SSH_Protocol.uml#_kEA60KiGEeSr2ZbyDzUAmw"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_SSH_Protocol.uml#_lR0nMKiFEeSr2ZbyDzUAmw"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_SiwnG8JqEemW-4AuSvlJHw" type="Class_OperationCompartment">
+        <element xmi:type="uml:Class" href="AXE_SSH_Protocol.uml#_lR0nMKiFEeSr2ZbyDzUAmw"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_SiwnHMJqEemW-4AuSvlJHw" visible="false" type="Class_NestedClassifierCompartment">
+        <element xmi:type="uml:Class" href="AXE_SSH_Protocol.uml#_lR0nMKiFEeSr2ZbyDzUAmw"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_SiwnHcJqEemW-4AuSvlJHw" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_SiwnHsJqEemW-4AuSvlJHw"/>
+        <element xmi:type="uml:Class" href="AXE_SSH_Protocol.uml#_lR0nMKiFEeSr2ZbyDzUAmw"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_SSH_Protocol.uml#_lR0nMKiFEeSr2ZbyDzUAmw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SiwnIMJqEemW-4AuSvlJHw" x="539" y="296"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_SiwnIcJqEemW-4AuSvlJHw" type="DataType_Shape" fontName="Segoe UI" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_SiwnIsJqEemW-4AuSvlJHw" type="DataType_NameLabel">
+        <element xmi:type="uml:DataType" href="AXE_SSH_Protocol.uml#__RKVoO2zEeSvJIdWZk0X_A"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_SiwnI8JqEemW-4AuSvlJHw" visible="false" type="DataType_AttributeCompartment">
+        <element xmi:type="uml:DataType" href="AXE_SSH_Protocol.uml#__RKVoO2zEeSvJIdWZk0X_A"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_SiwnJMJqEemW-4AuSvlJHw" visible="false" type="DataType_OperationCompartment">
+        <element xmi:type="uml:DataType" href="AXE_SSH_Protocol.uml#__RKVoO2zEeSvJIdWZk0X_A"/>
+      </children>
+      <element xmi:type="uml:DataType" href="AXE_SSH_Protocol.uml#__RKVoO2zEeSvJIdWZk0X_A"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SiwnJsJqEemW-4AuSvlJHw" x="637" y="467"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="__FULoOz3EembzPVzg4fOUg" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="__FULoez3EembzPVzg4fOUg"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="__FUysOz3EembzPVzg4fOUg" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="AXE_SSH_Protocol.uml#_lR0nMKiFEeSr2ZbyDzUAmw"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FULouz3EembzPVzg4fOUg" x="739" y="296"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="__Gsrs-z3EembzPVzg4fOUg" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="__GsrtOz3EembzPVzg4fOUg"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="__Gsrtuz3EembzPVzg4fOUg" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:DataType" href="AXE_SSH_Protocol.uml#__RKVoO2zEeSvJIdWZk0X_A"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Gsrtez3EembzPVzg4fOUg" x="837" y="467"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_SiwnJ8JqEemW-4AuSvlJHw"/>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_-_VfcOz3EembzPVzg4fOUg" name="diagram_compatibility_version" stringValue="1.2.0"/>
+    <element xmi:type="uml:Model" href="AXE_SSH_Protocol.uml#_NRAMoAwOEdmFcaeZXPdWAQ"/>
+    <edges xmi:type="notation:Connector" xmi:id="__FUysez3EembzPVzg4fOUg" type="StereotypeCommentLink" source="_SiwnEcJqEemW-4AuSvlJHw" target="__FULoOz3EembzPVzg4fOUg">
+      <styles xmi:type="notation:FontStyle" xmi:id="__FUysuz3EembzPVzg4fOUg"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="__FUytuz3EembzPVzg4fOUg" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="AXE_SSH_Protocol.uml#_lR0nMKiFEeSr2ZbyDzUAmw"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__FUys-z3EembzPVzg4fOUg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__FUytOz3EembzPVzg4fOUg"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__FUytez3EembzPVzg4fOUg"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="__GtSwOz3EembzPVzg4fOUg" type="StereotypeCommentLink" source="_SiwnIcJqEemW-4AuSvlJHw" target="__Gsrs-z3EembzPVzg4fOUg">
+      <styles xmi:type="notation:FontStyle" xmi:id="__GtSwez3EembzPVzg4fOUg"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="__GtSxez3EembzPVzg4fOUg" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:DataType" href="AXE_SSH_Protocol.uml#__RKVoO2zEeSvJIdWZk0X_A"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__GtSwuz3EembzPVzg4fOUg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__GtSw-z3EembzPVzg4fOUg"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__GtSxOz3EembzPVzg4fOUg"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>

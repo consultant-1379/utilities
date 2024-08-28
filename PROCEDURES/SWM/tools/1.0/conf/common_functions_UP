@@ -1,0 +1,1017 @@
+#!/bin/bash
+##
+# argument_handling.sh
+# A common script to be used for command line arguments and options handling.
+##
+# Changelog:
+# - Wed  Dec 06 2017 - Raghavendra Koduri (xkodrag)
+#    GEP7 impacts
+# - Tue Aug 09 2016 - Yeswanth Vankayala (xyesvan)
+#    Smart Campaign Adaptations for BUP
+# - Wed Jun 15 2016 - Yeswanth Vankayala (xyesvan)
+#    block_exist function is added to check block existence.
+# - Tue May 17 2016 - Yeswanth Vankayala (xyesvan)
+#    Enhancement in smart campaign impacts
+# - Wed Apr 13 2016 - Yeswanth Vankayala (xyesvan)
+#    smart campaign impacts
+# - Mon Dec 1 2014 - Fabrizio Paglia (xfabpag)
+#   Added makeEmptyCampaign() function
+# - Thu Apr 24 2014 - Fabrizio Paglia (xfabpag)
+#   installationTagCheck changed according to the new format of blocks_base file
+#   described in 19/102 60-LZY 214 5161 Uen PB13
+# - Wed Apr 23 2014 - Fabrizio Paglia (xfabpag)
+#   CXC number read from makefile (not from sources.list) for BUP (option -t)
+# - Tue Feb 11 2014 - Antonio Buonocunto (eanbuon)
+#   Bug fixing in createChSum
+# - Tue Feb 04 2014 - Fabrizio Paglia (xfabpag)
+#   Bug fixing in createPackageInfo and createChSum
+# - Mon Feb 03 2014 - Fabrizio Paglia (xfabpag)
+#   Removed no more used options and functions
+# - Fri Jan 24 2014 - Fabrizio Paglia (xfabpag)
+#   redirected non-result output to stderr in installationTagCheck
+# - Thu Jan 23 2014 - Claudia Atteo (xclaatt)
+#   added installationTagCheck function for BFU new blocks handling
+# - Fri Jan 17 2014 - Fabrizio Paglia (xfabpag)
+# 	[BFU] as default for OPT_TEAM_FROM_VERSION
+# - Tue Nov 26 2013 - Fabrizio Paglia (xfabpag)
+# 	Bug fixed in createPackageInfo and createChSum
+# - Wed Nov 20 2013 - Fabrizio Paglia (xfabpag)
+# 	Functions createPackageInfo and createChSum replaced with the ones supporting AP2 (by eattcla)
+# 	Added support for Free Baseline Upgrade in createPackageInfo and createChSum
+# - Mon Feb 11 2013 - Antonio Buonovunto (eanbuon)
+# 	New functions for Free Baseline Upgrade.
+# - Sat May 14 2011 - Francesco Rainone (efrarai)
+# 	First version.
+##
+
+TRUE=$(true; echo $?)
+FALSE=$(false; echo $?)
+
+function abort() {
+	echo -e ${@:-"An error occurred. Exiting!"}
+	exit 1
+}
+
+function usage() {
+	echo 'createUPcampaign.sh  -v|--verbose'
+	echo '                     -t|--team'
+	echo '                     -r|--rup'
+	echo '                     -l|--local'
+	echo '                     -g|--group'
+}
+
+function usage_v2() {
+  echo 'createUPcampaign.sh  -v|--verbose'
+  echo '                     -l|--local'
+}  
+
+# The function reads the command line argument list and parses it flagging the
+#  right variables in a case/esac switch.
+#  Input: the function must be invoked with the $@ parameter:
+#   parse_cmdline $@
+#  Required: please make attention to handle the cases in the right way.
+#
+function parse_cmdline() {
+
+	OPT_VERBOSE=''
+	OPT_TEAM=''
+	OPT_TEAM_BLOCK_NAME=''
+	OPT_TEAM_CXC=''
+	OPT_TEAM_VERSION=''
+	OPT_TEAM_FROM_VERSION=''
+	OPT_TEAM_PATH=''
+	OPT_TEAM_SW_VERSION=''
+	OPT_RUP=''
+	OPT_LOCAL=''
+	OPT_GROUP=''
+	OPT_FREE_GROUP=''
+
+	# OPTIONS is a list of single-character options.
+	#  The string must be in the form:
+	#   Example: 'ovl' (for -o -v -l options).
+	#  Options that takes an argument must be followed by a colon:
+	#   Example: 'ov:l' (-v takes a mandatory argument).
+	#  Options with an optional argument must be followed by a double colon:
+	#   Example: 'ovl::' (-l takes an optional argument).
+	local OPTIONS='v t: r l g:'
+	
+	# LONG_OPTIONS is a list of space-separated multi-character options.
+	#  The string must be in the form:
+	#   Example: 'option1 option2 ... optionN'.
+	#  Options that takes an argument must be followed by a colon:
+	#   Example: 'option1: option2 ... optionN:'
+	#  Options with an optional argument must be followed by a double colon:
+	#   Example: 'option1:: option2:: ... optionN'
+	local LONG_OPTIONS='verbose team: rup local group:'
+
+	ARGS=`getopt --longoptions "$LONG_OPTIONS" --options "$OPTIONS" -- "$@"`
+	RETURN_CODE=$?	
+	if [ $RETURN_CODE -ne 0 ]; then
+		usage_v2
+		abort "Wrong parameters"
+	fi
+	
+	eval set -- "$ARGS"
+	
+	# Make sure to handle the cases for all the options listed in OPTIONS
+	#  and LONG_OPTIONS and to fill up the right script-wide variables.
+	while [ $# -gt 0 ]; do		
+		case "$1" in
+			-v|--verbose)
+				OPT_VERBOSE=$TRUE
+			;;
+			-t|--team)
+				OPT_TEAM=$TRUE
+				OPT_TEAM_BLOCK_NAME=$(echo $2 | awk -F':' '{print $1}')
+				OPT_TEAM_CXC=$(echo $2 | awk -F':' '{print $2}')
+				OPT_TEAM_VERSION=$(echo $2 | awk -F':' '{print $3}')
+				OPT_TEAM_FROM_VERSION=$(echo $2 | awk -F':' '{print $4}'|tr -d "'")
+				OPT_TEAM_PATH=$(echo $2 | awk -F':' '{print $5}')
+				OPT_TEAM_SDP_PATH=$OPT_TEAM_PATH/packages/sdp
+				OPT_TEAM_SW_VERSION=$(echo $2 | awk -F':' '{print $6}')
+				if [ -z $OPT_TEAM_BLOCK_NAME ]
+				then
+					echo "ERROR OPT_TEAM_BLOCK_NAME is empty"
+					exit 2
+				fi
+				if [ -z $OPT_TEAM_CXC ]
+				then
+					echo "ERROR OPT_TEAM_CXC is empty"
+					exit 2
+				fi
+				if [ -z $OPT_TEAM_VERSION ]
+				then
+					echo "ERROR OPT_TEAM_VERSION is empty"
+					exit 2
+				fi
+				if [ -z $OPT_TEAM_FROM_VERSION ]
+				then
+					OPT_TEAM_FROM_VERSION="[BFU]"
+				fi
+				if [ -z $OPT_TEAM_PATH ]
+				then
+					echo "ERROR OPT_TEAM_PATH is empty"
+					exit 2
+				fi
+				if [ -z $OPT_TEAM_SDP_PATH ]
+				then
+					echo "ERROR OPT_TEAM_SDP_PATH is empty"
+					exit 2
+				fi
+				if [ -z $OPT_TEAM_SW_VERSION ]
+				then
+					echo "ERROR OPT_TEAM_SW_VERSION is empty"
+					exit 2
+				fi
+				shift
+			;;
+			-r|--rup)
+				OPT_RUP=$TRUE
+			;;
+			-l|--local)
+				OPT_LOCAL=$TRUE
+			;;
+			-g|--group)
+				if [[ $2 == -* ]] ;then
+					echo "ERROR: A Group name must be specified for option --group!"
+					usage
+					exit 45
+				elif [ -z $2 ] ; then
+					echo "ERROR: A Group name must be specified for option --group!"
+					usage
+					exit 45
+				fi
+				OPT_GROUP=$TRUE
+				OPT_FREE_GROUP="$2"
+				shift
+			;;
+			--)
+				# echo "end of argument list"
+				shift
+				break
+			;;
+			*)
+				abort "unrecognized option ($1)"
+			;;
+		esac
+		shift
+	done
+
+  if [[ "$OPT_TEAM"  = "$TRUE" ||
+        "$OPT_RUP"   = "$TRUE" ||
+        "$OPT_GROUP" = "$TRUE" ]]; then
+        usage_v2
+        abort "Wrong parameters"
+  fi
+
+	num_options=0
+	if [ "$OPT_TEAM" = "$TRUE" ] ; then
+		(( num_options = num_options + 1))
+	fi
+	if [ "$OPT_RUP" = "$TRUE" ] ; then
+		(( num_options = num_options + 1))
+	fi
+	if [ "$OPT_LOCAL" = "$TRUE" ] ; then
+		(( num_options = num_options + 1))
+	fi
+	if [ "$OPT_GROUP" = "$TRUE" ] ; then
+		(( num_options = num_options + 1))
+	fi
+	
+	if [ $num_options -ne 1 ] ; then
+		echo "ERROR: One (and only) of the options -t -r -l -g must be used!"
+		exit 2
+	fi
+}
+
+function is_verbose() {
+	if [ "$OPT_VERBOSE" = "$TRUE" ]
+	then
+		return 0
+	else
+		return 1
+	fi
+}
+
+function readInfoFromRepositoryAll() {
+	if [ -e $CC_CONF_FILE ]
+    then
+        is_verbose && echo "INFO: $CC_CONF_FILE detected"
+		cp -f $CC_CONF_FILE $TMP_DIR/cc_blocks_conf
+		sed -i "s/^#.*$//g" $TMP_DIR/cc_blocks_conf
+		sed -i '/^$/d' $TMP_DIR/cc_blocks_conf
+		CC_NUM_CHECK=`cat $TMP_DIR/cc_blocks_conf| wc -l`
+		if [ "$CC_NUM_CHECK" = "0" ]
+		then
+			echo "ERROR: cc_blocks_conf file is empty"
+			exit 4
+		fi
+		#Verify if output files exists
+		if [ -e $TMP_DIR/free.list ];then
+			echo "INFO: File free.list found!"
+			rm -f $TMP_DIR/free.list
+			touch $TMP_DIR/free.list
+			chmod 775 $TMP_DIR/free.list
+		else
+			touch $TMP_DIR/free.list
+			chmod 775 $TMP_DIR/free.list	
+		fi
+		while read line    
+		do    
+			BFU_BLOCK_NAME=`echo $line | awk -F';' '{print $1}'`
+			BFU_BLOCK_CXC_PATH="$PACKAGE_SDPS_DIR"
+			if [ -z $BFU_BLOCK_NAME ]
+			then
+				echo "ERROR: BFU_BLOCK_NAME is empty in cc_blocks_conf"
+				exit 2
+			fi
+			if [ -z $BFU_BLOCK_CXC_PATH ]
+			then
+				echo "ERROR: BFU_BLOCK_CXC_PATH is empty in cc_blocks_conf"
+				exit 2
+			else
+				BFU_BLOCK_SDP_PATH="$PACKAGE_SDPS_DIR"
+			fi
+			#verify if the path exists
+			if [ ! -d $BFU_BLOCK_SDP_PATH ];then
+				echo "ERROR: Path $BFU_BLOCK_SDP_PATH Not Found!"
+				exit 14
+			fi
+			#verify if there are more than one SDP
+			BFU_BLOCK_SDP_FILE=$(ls -1 $BFU_BLOCK_SDP_PATH | grep -E _"$BFU_BLOCK_NAME"|grep -Ev 'I1|U1')
+			echo BFU_BLOCK_SDP_FILE: $BFU_BLOCK_SDP_FILE
+			BFU_BLOCK_SDP_CHECK=$(echo $BFU_BLOCK_SDP_FILE | wc -w)
+			if [ "$BFU_BLOCK_SDP_CHECK" = "0" ]; then
+				echo "ERROR: No SDP found in $BFU_BLOCK_SDP_PATH"
+				exit 34
+			elif [ "$BFU_BLOCK_SDP_CHECK" != "1" ]; then
+				echo "ERROR: Multiple SDPs found at $BFU_BLOCK_SDP_PATH"
+				exit 35
+			fi
+			echo "$BFU_BLOCK_SDP_FILE;$BFU_BLOCK_SDP_PATH" >> $TMP_DIR/free.list
+		done < $TMP_DIR/cc_blocks_conf 		
+	else
+		echo "ERROR: CC Configuration file not found!"
+		exit 2
+	fi
+	is_verbose && echo "STEP: READ INFO FROM REPOSITORY ALL DONE"
+}
+
+function readInfoFromRepositoryGroup() {
+	local BFU_GROUP_COUNT=0
+	if [ -e $CC_CONF_FILE ]
+    then
+        is_verbose && echo "INFO: $CC_CONF_FILE detected"
+		cp -f $CC_CONF_FILE $TMP_DIR/cc_blocks_conf
+		sed -i "s/^#.*$//g" $TMP_DIR/cc_blocks_conf
+		sed -i '/^$/d' $TMP_DIR/cc_blocks_conf
+		CC_NUM_CHECK=`cat $TMP_DIR/cc_blocks_conf| wc -l`
+		if [ "$CC_NUM_CHECK" = "0" ]
+		then
+			echo "ERROR: cc_blocks_conf file is empty"
+			exit 4
+		fi
+		#Verify if output files exists
+		if [ -e $TMP_DIR/free.list ];then
+			echo "INFO: File free.list found!"
+			rm -f $TMP_DIR/free.list
+			touch $TMP_DIR/free.list
+			chmod 775 $TMP_DIR/free.list
+		else
+			touch $TMP_DIR/free.list
+			chmod 775 $TMP_DIR/free.list	
+		fi
+		while read line    
+		do    
+			BFU_BLOCK_NAME=`echo $line | awk -F';' '{print $1}'`
+			BFU_BLOCK_GROUP=`echo $line | awk -F';' '{print $2}'`
+			BFU_BLOCK_CXC_PATH="$PACKAGE_SDPS_DIR"
+			if [ -z $BFU_BLOCK_NAME ]
+			then
+				echo "ERROR: BFU_BLOCK_NAME is empty in cc_blocks_conf"
+				exit 2
+			fi
+			if [ ! -z $BFU_BLOCK_GROUP ]
+			then
+				BFU_BLOCK_GROUP_LIST=$(echo $BFU_BLOCK_GROUP|sed "s/|/ /g")
+				for BFU_BLOCK_GROUP_ITEM in $BFU_BLOCK_GROUP_LIST;do
+					if [ "$BFU_BLOCK_GROUP_ITEM" = "$OPT_FREE_GROUP" ];then
+						BFU_GROUP_COUNT=$(($BFU_GROUP_COUNT+1))
+						if [ -z $BFU_BLOCK_CXC_PATH ]
+						then
+							echo "ERROR: BFU_BLOCK_CXC_PATH is empty in cc_blocks_conf"
+							exit 2
+						else
+							BFU_BLOCK_SDP_PATH="$PACKAGE_SDPS_DIR"
+						fi
+						#verify if the path exists
+						if [ ! -d $BFU_BLOCK_SDP_PATH ];then
+							echo "ERROR: Path $BFU_BLOCK_SDP_PATH Not Found!"
+							exit 14
+						fi
+						#verify if there are more than one SDP
+						BFU_BLOCK_SDP_FILE=$(ls -1 $BFU_BLOCK_SDP_PATH | grep -E "$BFU_BLOCK_NAME"|grep -Ev 'I1|U1')
+						BFU_BLOCK_SDP_CHECK=$(echo $BFU_BLOCK_SDP_FILE | wc -w)
+						if [ "$BFU_BLOCK_SDP_CHECK" = "0" ]; then
+							echo "ERROR: No SDP found in $BFU_BLOCK_SDP_PATH"
+							exit 34
+						elif [ "$BFU_BLOCK_SDP_CHECK" != "1" ]; then
+							echo "ERROR: Multiple SDPs found at $BFU_BLOCK_SDP_PATH"
+							exit 35
+						fi
+						echo "$BFU_BLOCK_SDP_FILE;$BFU_BLOCK_SDP_PATH" >> $TMP_DIR/free.list
+						#BFU_BLOCK_SDP_NAME=$(echo $BFU_BLOCK_SDP_FILE | awk -F'-' '{print $1}')
+						#BFU_BLOCK_SDP_CXC=$(echo $BFU_BLOCK_SDP_FILE | awk -F'-' '{print $2}')
+						#BFU_BLOCK_SDP_RSTATE=$(echo $BFU_BLOCK_SDP_FILE | awk -F'-' '{print $3}')
+						#echo $BFU_BLOCK_SDP_NAME
+						#echo $BFU_BLOCK_SDP_CXC
+						#echo $BFU_BLOCK_SDP_RSTATE
+					fi
+				done
+			fi
+		done < $TMP_DIR/cc_blocks_conf
+		if [ "$BFU_GROUP_COUNT" = "0" ];then
+			echo "ERROR: No SDP matched using Group: $OPT_FREE_GROUP"
+			exit 55
+		else
+			is_verbose && echo "INFO: $BFU_GROUP_COUNT BLOCK Matched for group $OPT_FREE_GROU"
+		fi	
+	else
+		echo "ERROR: CC Configuration file not found!"
+		exit 2
+	fi
+	is_verbose && echo "STEP: READ INFO FROM REPOSITORY GROUP DONE"
+}
+
+function readInfoFromRepositoryLocal() {
+	#Verify if the local sdp folder is empty
+	BFU_BLOCK_LOCAL_LIST=$(ls -1 $PATH_SDPS | grep -E "*.sdp|*.rpm")
+	BFU_BLOCK_LOCAL_CHECK=$(echo $BFU_BLOCK_LOCAL_LIST | wc -w)
+	if [ "$BFU_BLOCK_LOCAL_CHECK" = "0" ];then
+		echo "ERROR: Local SDP folder is empty!"
+		exit 14
+	fi
+	#Verify if output files exists
+	if [ -e $TMP_DIR/free.list ];then
+		echo "INFO: File free.list found!"
+		rm -f $TMP_DIR/free.list
+		touch $TMP_DIR/free.list
+		chmod 775 $TMP_DIR/free.list
+	else
+		touch $TMP_DIR/free.list
+		chmod 775 $TMP_DIR/free.list	
+	fi
+	for BFU_BLOCK_LOCAL_ITEM in $BFU_BLOCK_LOCAL_LIST;do
+		echo "$BFU_BLOCK_LOCAL_ITEM" >> $TMP_DIR/free.list
+	done
+	is_verbose && echo "STEP: READ INFO FROM REPOSITORY LOCAL DONE"
+}
+
+function getBunldeFromRepository() {
+	#Verify if the file free.list exists
+	if [ -e $TMP_DIR/free.list ];then
+		while read line    
+		do
+			BFU_BLOCK_CC_ITEM_SDP=$(echo $line | awk -F';' '{print $1}')
+			BFU_BLOCK_CC_ITEM_PATH=$(echo $line | awk -F';' '{print $2}')
+			BFU_BLOCK_CC_ITEM="$BFU_BLOCK_CC_ITEM_PATH/$BFU_BLOCK_CC_ITEM_SDP"
+			if [ -e $BFU_BLOCK_CC_ITEM ];then
+				cp -f $BFU_BLOCK_CC_ITEM $TMP_DIR_OUT
+				if [ "$?" != "0" ];then
+					echo "ERROR: A problem occurs during copy of $BFU_BLOCK_CC_ITEM in getBunldeFromRepository()"
+					exit 15
+				fi
+			else
+				echo "ERROR: SDP $BFU_BLOCK_CC_ITEM not found in getBunldeFromRepository()"
+				exit 14
+			fi
+		done < $TMP_DIR/free.list
+	else
+		echo "ERROR: File free.list not found during getBunldeFromRepository()"	
+		exit 4
+	fi
+	is_verbose && echo "STEP: GET BUNDLE FROM REPOSITORY DONE"
+}
+
+function createSourceFileTmp() {
+	SOURCE_LIST_TMP_FOLDER=$1
+	if [ -z $SOURCE_LIST_TMP_FOLDER ];then
+		echo "ERROR: SOURCE_LIST_TMP_FOLDER empty in function createSourceFileTmp()"
+		exit 4
+	fi
+	SOURCE_LIST_TMP=$SOURCE_LIST_TMP_FOLDER/sources.list
+	if [ -e $SOURCE_LIST_TMP ];then
+		rm -f $SOURCE_LIST_TMP
+	fi
+	touch $SOURCE_LIST_TMP
+	chmod 775 $SOURCE_LIST_TMP
+
+	if [ ! -f $TMP_DIR/free.list ];then
+		echo "ERROR: File free.list not found in function createSourceFileTmp()"
+		exit 4
+	fi
+	while read line_free    
+	do
+		UPDATED_LINE=""
+		UPDATE_ITEM=`echo $line_free | awk -F';' '{print $1}'`
+		UPDATE_ITEM_NAME=`echo $UPDATE_ITEM | awk -F'-' '{print $1}'`
+		UPDATE_ITEM=`echo ERIC-$UPDATE_ITEM | awk -F'.' '{print $1}'`
+		UPDATE_ITEM_DETECTED="$FALSE"
+		while read line_sources   
+		do
+			BUNDLE_NAME=`echo $line_sources | awk -F';' '{print $2}'`
+			BUNDLE_ITEM_NAME=`echo $BUNDLE_NAME | awk -F'-' '{print $2}'`
+			if [ "$UPDATE_ITEM_NAME" = "$BUNDLE_ITEM_NAME" ]
+			then
+				type=`echo $line_sources | awk -F';' '{print $1}'`
+				BUNDLE_NAME="$UPDATE_ITEM"
+				COMP_NAME=`echo $line_sources | awk -F';' '{print $3}'`
+				COMP_PATH=`echo $line_sources | awk -F';' '{print $4}'`
+				UPDATED_LINE="$type;$BUNDLE_NAME;$COMP_NAME;$COMP_PATH"
+				if [ "$type" = "2N" ] || [ "$type" = "NORED" ]
+				then
+					COMP_TYPE_NAME=`echo $line_sources | awk -F';' '{print $5}'`
+					CS_TYPE=`echo $line_sources | awk -F';' '{print $6}'`
+					COMP_VERSION=`echo $UPDATE_ITEM | awk -F'-' '{print $4}'`
+					CLC_NAME=`echo $line_sources | awk -F';' '{print $8}'`
+					HelthCheck=`echo $line_sources | awk -F';' '{print $9}'`
+					SI_NAME=`echo $line_sources | awk -F';' '{print $10}'`
+					CSI_NAME=`echo $line_sources | awk -F';' '{print $11}'`
+					UPDATED_LINE="$UPDATED_LINE;$COMP_TYPE_NAME;$CS_TYPE;$COMP_VERSION;$CLC_NAME;$HelthCheck;$SI_NAME;$CSI_NAME"
+				fi
+				echo $UPDATED_LINE >> $SOURCE_LIST_TMP
+				UPDATE_ITEM_DETECTED="$TRUE"
+			fi
+		done < $PATH_SOURCE_FILE/sources.list
+		#Verify if the item reported in free.list is present in sources.list
+		if [ "$UPDATE_ITEM_DETECTED" = "$FALSE" ]
+		then
+			echo "ERROR: Block $line_free not found in IPA sources.list"
+			exit 5
+		fi
+	done < $TMP_DIR/free.list
+}
+
+#create packageInfo.xml file
+function createPackageInfo() {
+	# create file under tmpdir
+	touch $TMP_DIR/packageInfo.xml
+	if [ -e $TMP_DIR_OUT/$UP_CAMPAIGN_FILE_NAME_1 ] 
+	then
+		is_verbose && echo "INFO: $UP_CAMPAIGN_FILE_NAME_1 file detected "
+	else
+		echo "ERROR: $UP_CAMPAIGN_FILE_NAME_1 is missing "
+		exit 2
+	fi 
+         
+        if [ "$OPT_TEAM" = "$TRUE" ]
+        then
+               if [ -e $TMP_DIR_OUT/$UP_CAMPAIGN_FILE_NAME_2 ]
+               then
+                     is_verbose && echo "INFO: $UP_CAMPAIGN_FILE_NAME_2 file detected "
+               else
+                     echo "ERROR: $UP_CAMPAIGN_FILE_NAME_2 is missing "
+                     exit 2
+               fi
+        fi
+	# Create init part
+	cat templates/template_info_init >> $TMP_DIR/packageInfo.xml
+	# Create info file
+	cp templates/template_info_file $TMP_DIR/template_info_file
+	sed -i "s/#PACKAGE_INFO_NAME#/$UP_PACKAGE_INFO_NAME/g" $TMP_DIR/template_info_file
+	cat $TMP_DIR/template_info_file >> $TMP_DIR/packageInfo.xml
+	# Create up id
+	cp templates/template_info_upid $TMP_DIR/template_info_upid
+	sed -i "s/#UP_PRODUCT_NAME#/$UP_PRODUCT_NAME/g" $TMP_DIR/template_info_upid
+	sed -i "s/#UP_PRODUCT_NUMBER#/$UP_PRODUCT_NUMBER/g" $TMP_DIR/template_info_upid
+	sed -i "s/#UP_PRODUCT_REVISION#/$UP_PRODUCT_REVISION/g" $TMP_DIR/template_info_upid
+	sed -i "s/#UP_PRODUCT_DATE#/$UP_PRODUCT_DATE/g" $TMP_DIR/template_info_upid
+	sed -i "s/#UP_DESCRIPTION#/$UP_DESCRIPTION/g" $TMP_DIR/template_info_upid
+	sed -i "s/#UP_TYPE#/$UP_TYPE/g" $TMP_DIR/template_info_upid
+	cat $TMP_DIR/template_info_upid >> $TMP_DIR/packageInfo.xml
+	# Create ME SubType
+	# AP1 Subtype
+	cp templates/template_info_mesubtype $TMP_DIR/template_info_mesubtype_ap1
+	sed -i "s/#UP_SUBTYPE_NAME#/$UP_SUBTYPE_NAME_1/g" $TMP_DIR/template_info_mesubtype_ap1
+	sed -i "s/#UP_CAMPAIGN_FILE_NAME#/$UP_CAMPAIGN_FILE_NAME_1/g" $TMP_DIR/template_info_mesubtype_ap1
+	sed -i "s/#UP_ACTIVATION_TIMEOUT#/$UP_ACTIVATION_TIMEOUT/g" $TMP_DIR/template_info_mesubtype_ap1
+	cat $TMP_DIR/template_info_mesubtype_ap1 >> $TMP_DIR/packageInfo.xml
+        rm -f $TMP_DIR/template_info_mesubtype_ap1
+        # AP2 Subtype
+	cp templates/template_info_mesubtype $TMP_DIR/template_info_mesubtype_ap2
+	sed -i "s/#UP_SUBTYPE_NAME#/$UP_SUBTYPE_NAME_2/g" $TMP_DIR/template_info_mesubtype_ap2
+        if [ "$OPT_TEAM" = "$TRUE" ] ; then
+            sed -i "s/#UP_CAMPAIGN_FILE_NAME#/$UP_CAMPAIGN_FILE_NAME_2/g" $TMP_DIR/template_info_mesubtype_ap2
+        else
+	    sed -i "s/#UP_CAMPAIGN_FILE_NAME#/$UP_CAMPAIGN_FILE_NAME_1/g" $TMP_DIR/template_info_mesubtype_ap2
+        fi
+	sed -i "s/#UP_ACTIVATION_TIMEOUT#/$UP_ACTIVATION_TIMEOUT/g" $TMP_DIR/template_info_mesubtype_ap2
+	cat $TMP_DIR/template_info_mesubtype_ap2 >> $TMP_DIR/packageInfo.xml
+         
+	# Create Sw Domain
+	echo "		<SwDomain>" >> $TMP_DIR/packageInfo.xml
+	cp templates/template_info_domainid $TMP_DIR/template_info_domainid
+	sed -i "s/#DOMAINID_NAME#/$DOMAINID_NAME/g" $TMP_DIR/template_info_domainid
+	sed -i "s/#DOMAINID_PRODUCT_NUMBER#/$DOMAINID_PRODUCT_NUMBER/g" $TMP_DIR/template_info_domainid
+	sed -i "s/#DOMAINID_PRODUCT_REVISION#/$DOMAINID_PRODUCT_REVISION/g" $TMP_DIR/template_info_domainid
+	sed -i "s/#DOMAINID_PRODUCT_DATE#/$DOMAINID_PRODUCT_DATE/g" $TMP_DIR/template_info_domainid
+	sed -i "s/#DOMAINID_DESCRIPTION#/$DOMAINID_DESCRIPTION/g" $TMP_DIR/template_info_domainid
+	sed -i "s/#DOMAINID_TYPE#/$DOMAINID_TYPE/g" $TMP_DIR/template_info_domainid
+	cat $TMP_DIR/template_info_domainid >> $TMP_DIR/packageInfo.xml
+	if [ "$OPT_TEAM" = $TRUE ] ; then
+		BUNDLE_BASE_NAME=`echo "$TEAM_BUNDLE_NAME"|sed 's/-[^-]*$//'`
+		local bundle_base_name_wo_cxc=`echo "$BUNDLE_BASE_NAME"|sed 's/-[^-]*$//'`
+		NEW_BUNDLE_NAME=`echo "$bundle_base_name_wo_cxc-$OPT_TEAM_CXC-$OPT_TEAM_VERSION"`
+		cp templates/template_info_swbundle $TMP_DIR/template_info_team
+		sed -i "s/#BUNDLE_NAME#/$NEW_BUNDLE_NAME/g" $TMP_DIR/template_info_team
+		sed -i "s/#BUNDLE_FILE_NAME#/$TEAM_SDP_FILE_NAME/g" $TMP_DIR/template_info_team
+		cat $TMP_DIR/template_info_team >> $TMP_DIR/packageInfo.xml
+		rm -f $TMP_DIR/template_info_team
+	else
+		local sdp_list_file="$TMP_DIR/list4PackageInfo"
+		while read line
+			do
+			if [ "$OPT_LOCAL" = "" ] ; then
+				line=$(echo $line | awk -F';' '{print $1}')
+			fi
+			cp templates/template_info_swbundle $TMP_DIR/template_info_$line
+			TMP_BUNDLE_NAME=`echo ERIC-$line | awk -F'.' '{print $1}'`
+			sed -i "s/#BUNDLE_NAME#/$TMP_BUNDLE_NAME/g" $TMP_DIR/template_info_$line
+			sed -i "s/#BUNDLE_FILE_NAME#/$line/g" $TMP_DIR/template_info_$line
+			cat $TMP_DIR/template_info_$line >> $TMP_DIR/packageInfo.xml
+			rm -f $TMP_DIR/template_info_$line
+		done < $sdp_list_file
+	fi
+	echo "		</SwDomain>" >> $TMP_DIR/packageInfo.xml
+	cat templates/template_info_end >> $TMP_DIR/packageInfo.xml
+	cp $TMP_DIR/packageInfo.xml $TMP_DIR_OUT/packageInfo.xml
+}
+
+#Create sha256 checksum for UP files
+function createChSum() {
+	# create file under tmpdir
+	touch $TMP_DIR_OUT/packageChsum.sha2
+	local SHA_COMMAND=sha256sum
+	local SSL_COMMAND_TEST="openssl"
+	local SSL_COMMAND="openssl dgst -sha256"
+	local CHECKSUM_TYPE=""
+	which $SHA_COMMAND >> /dev/null
+	if [ "$?" = "0" ];then
+		CHECKSUM_TYPE="SHA"
+	else
+		which $SSL_COMMAND_TEST >> /dev/null
+		if [ "$?" = "0" ];then
+			CHECKSUM_TYPE="SSL"
+		else
+			echo "ERROR: CHECKSUM command not found!"
+			exit 12
+		fi
+	fi
+	if [ -e $TMP_DIR_OUT/packageInfo.xml ]
+			then
+				is_verbose && echo "INFO: packageInfo.xml file detected"
+				#check on packageInfo before checksum
+				which tidy &> /dev/null
+				if [ $? -eq 0 ]; then
+					tidy -output $TMP_DIR_OUT/packageInfo.xml -indent -wrap -clean -xml -asxml -utf8 packageInfo.xml &> /dev/null
+				fi
+			else
+				echo "packageInfo.xml file is missing!!!"
+			exit 2
+	fi
+	pushd $TMP_DIR_OUT >> /dev/null
+	if [ "$OPT_TEAM" = $TRUE ] ; then
+		if [ "$CHECKSUM_TYPE" = "SHA" ];then
+			$SHA_COMMAND $TEAM_SDP_FILE_NAME >> packageChsum.sha2
+		else
+			echo "$($SSL_COMMAND $TEAM_SDP_FILE_NAME|awk -F' ' '{print $2}') $TEAM_SDP_FILE_NAME" >> packageChsum.sha2
+		fi
+	else
+		local sdp_list_file="$TMP_DIR/list4PackageInfo"
+		while read line
+		do
+			if [ "$OPT_LOCAL" = "" ] ; then
+				line=$(echo $line | awk -F';' '{print $1}')
+			fi
+			if [ "$CHECKSUM_TYPE" = "SHA" ];then
+				$SHA_COMMAND $line >> packageChsum.sha2
+				if [ "$?" != "0"  ]
+				then
+					echo "ERROR: A problem occurs during sha256sum command"
+					exit 6
+				fi
+			else
+				echo "$($SSL_COMMAND $line|awk -F' ' '{print $2}') $line" >> packageChsum.sha2
+				if [ "$?" != "0"  ]
+				then
+					echo "ERROR: A problem occurs during openssl command"
+					exit 6
+				fi
+			fi
+		done < $sdp_list_file
+	fi
+	#add checksum for campaign.template.xml
+	if [ "$CHECKSUM_TYPE" = "SHA" ];then
+		$SHA_COMMAND $UP_CAMPAIGN_FILE_NAME_1 >> packageChsum.sha2
+		if [ "$?" != "0"  ]
+		then
+			echo "ERROR: A problem occurs during sha256sum command"
+			exit 6
+		fi
+                #add checksum of AP2 node only in case of Team UP
+                if [ "$OPT_TEAM" = "$TRUE" ]
+                then
+                    $SHA_COMMAND $UP_CAMPAIGN_FILE_NAME_2 >> packageChsum.sha2
+                    if [ "$?" != "0"  ]
+                    then
+                           echo "ERROR: A problem occurs during sha256sum command"
+                           exit 6
+                    fi
+                fi    
+		#add checksum for packageInfo.xml
+		$SHA_COMMAND packageInfo.xml >> packageChsum.sha2
+		if [ "$?" != "0"  ]
+		then
+			echo "ERROR: A problem occurs during sha256sum command"
+			exit 6
+		fi
+	else
+		echo "$($SSL_COMMAND $UP_CAMPAIGN_FILE_NAME_1|awk -F' ' '{print $2}') $UP_CAMPAIGN_FILE_NAME_1" >> packageChsum.sha2	
+                if [ "$OPT_TEAM" = "$TRUE" ]
+                then
+                    echo "$($SSL_COMMAND $UP_CAMPAIGN_FILE_NAME_2|awk -F' ' '{print $2}') $UP_CAMPAIGN_FILE_NAME_2" >> packageChsum.sha2
+                fi
+		echo "$($SSL_COMMAND packageInfo.xml|awk -F' ' '{print $2}') packageInfo.xml " >> packageChsum.sha2
+	fi
+	popd >> /dev/null	
+}
+
+function check_parmtool_structure(){
+ 
+  [ ! -f $PARMTOOL_DIR/files.list ] && abort "ERROR: [ $PARMTOOL_DIR/files.list ] not found"
+  
+  while read line
+  do
+    [[ $( echo $line | grep -E '^#.*|^$|^.*.man') ]] && continue
+    PARMTOOL_STRUCTURE="$PARMTOOL_STRUCTURE $( echo $line | awk -F ':' '{print $2}')"
+  done < $PARMTOOL_DIR/files.list
+  
+  PARMTOOL_DIR="$PARMTOOL_DIR/parmtool"
+  for ITEM in ${PARMTOOL_STRUCTURE[@]}
+  do
+    local FOUND=$FALSE
+    for ENTRY in $(find $PARMTOOL_DIR)
+    do
+      REL_PATH=$( echo $ENTRY | sed 's|'$PARMTOOL_DIR'/||')
+      [[ $REL_PATH =~ .*.man.* ]] && continue
+      if [[ "$REL_PATH" == "$ITEM" ]]; then
+        FOUND=$TRUE
+        break
+      fi
+    done
+
+    if [[ $FOUND -eq $FALSE ]];then
+      abort "ERROR: paramtool structure mismatch [$ITEM] not found"
+    fi
+  done
+
+}
+
+####################################################################################
+# function block_exist($current_block);                                   #
+#                                                                                  #
+# Arguments:                                                                       #
+# $current_block block name in the format Subsystem_Blockname (e.g. ACS_APSESHBIN) #
+#                                                                                  #
+# Returns:                                                                         #
+# e.g. for block ACS_APSESHBIN, returns TRUE                                       #
+# (because ACS_APSESHBIN is present in blocks_base file                             #
+# e.g. for a blocks not present in blocks_base file , returns FALSE                 #
+####################################################################################
+function block_exist() {
+	local current_block="$1"
+	local return_value=$FALSE
+	
+	if [ -e $BASE_BLOCK_FILE ] ; then
+		cp -f $BASE_BLOCK_FILE $TMP_DIR/blocks_base
+		sed -i "s/^#.*$//g" $TMP_DIR/blocks_base
+		sed -i '/^$/d' $TMP_DIR/blocks_base
+		
+		local block_name
+		local line
+		while read line ; do
+			block_name=`echo $line | awk -F';' '{ print $1 }'`
+			if [ "$block_name" == "$current_block" ]; then
+				return_value=$TRUE
+			fi	
+		
+		done < $TMP_DIR/blocks_base
+	fi
+	
+	echo $return_value	
+}
+
+####################################################################################
+# function installationTagCheck($current_block);                                   #
+#                                                                                  #
+# Arguments:                                                                       #
+# $current_block block name in the format Subsystem_Blockname (e.g. ACS_APSESHBIN) #
+#                                                                                  #
+# Returns:                                                                         #
+# a |-separated list of SW major version number in which the block is not present  #
+# e.g. for block ACS_APSESHBIN, returns 1                                          #
+# (because ACS_APSESHBIN has been released first time in the baseline 2.0.0        #
+# e.g. for a block released in baseline 3.0.0, returns 1|2                         #
+####################################################################################
+function installationTagCheck() {
+	local current_block="$1"
+	local return_value=""
+	
+	if [ -e $BASE_BLOCK_FILE ] ; then
+		cp -f $BASE_BLOCK_FILE $TMP_DIR/blocks_base
+		sed -i "s/^#.*$//g" $TMP_DIR/blocks_base
+		sed -i '/^$/d' $TMP_DIR/blocks_base
+		
+		local block_name
+		local first_sw_version
+		local line
+		while read line ; do
+			block_name=`echo $line | awk -F';' '{ print $1 }'`
+			first_sw_version=`echo $line | awk -F';' '{ print $2 }'`
+			if [ "$block_name" == "$current_block" ]; then
+				local previous_sw_version
+				(( previous_sw_version = $first_sw_version - 1 ))
+				return_value=$(seq 1 $previous_sw_version | tr '\n' '|' | rev | cut -c 2- | rev)
+				break
+			fi	
+		
+		done < $TMP_DIR/blocks_base
+	fi
+	
+	echo "$return_value"	
+}
+
+
+##########################################################################################
+# function makeEmptyCampaign($campaign_name,$is_team,$product_number,$product_revision); #
+#                                                                                        #
+# Create an "empty" (with no bundles to install).                                        #
+# Called by createUPcampaign.sh script.                                                  #
+# Use some of the global variables/functions defined there.                              #
+#                                                                                        #
+# Arguments:                                                                             #
+# $campaign_name campaign name                                                           #
+# $is_team specifies the UP type (0 for BUP, 1 for all others)                           #
+# $product_number product number (e.g. 2.0.7)                                            #
+# $product_revision product revision (e.g. R1C)                                          #
+##########################################################################################
+function makeEmptyCampaign() {
+	local campaign_name="$1"
+	local is_team=$2
+	local product_number="$3"
+	local product_revision="$4"
+	
+	is_verbose && echo "INFO: making $UP_CAMPAIGN_NAME campaign"
+	
+	if [ "$campaign_name" == "$UP_CAMPAIGN_NAME_1" ] ;then 
+		UP_CAMPAIGN_FILE_NAME=$UP_CAMPAIGN_FILE_NAME_1
+	else
+		UP_CAMPAIGN_FILE_NAME=$UP_CAMPAIGN_FILE_NAME_2
+	fi 
+	
+	#check for the final file
+	if [ -e $TMP_DIR/final.xml ] ; then
+		rm $TMP_DIR/final.xml
+		touch $TMP_DIR/final.xml
+	else
+		touch $TMP_DIR/final.xml
+	fi
+	
+	#START creating the intro part of the campaign =============================
+	cp templates/template_initial-1 $TMP_DIR/
+	sed -i "s/#UP_CAMPAIGN_NAME#/$campaign_name/g" $TMP_DIR/template_initial-1
+	cat $TMP_DIR/template_initial-1 >> $TMP_DIR/final.xml
+	rm -f $TMP_DIR/template_initial-1
+	#END creating the intro part of the campaign ===============================
+	
+	cat templates/template_end_type-3 >> $TMP_DIR/final.xml
+	
+	cat templates/template_pre_swadd_swremove-5 >> $TMP_DIR/final.xml
+	cat templates/template_end_node_template-8 >> $TMP_DIR/final.xml
+	cat templates/template_end_entity-10 >> $TMP_DIR/final.xml
+	
+	#START Supervision Period part =============================================
+	cat templates/template_supervision_init >> $TMP_DIR/final.xml
+	cp -f templates/template_supervision_breakpoint $TMP_DIR/template_supervision_breakpoint
+	sed -i "s/#SUPERVISION_BREAKPOINT_TIMEOUT#/$SUPERVISION_BREAKPOINT_TIMEOUT/g" $TMP_DIR/template_supervision_breakpoint
+	
+	cp -f templates/template_supervision_script $TMP_DIR/template_supervision_script
+	sed -i "s/#SUPERVISION_SCRIPT_TIMEOUT#/$SUPERVISION_SCRIPT_TIMEOUT/g" $TMP_DIR/template_supervision_script
+	cat $TMP_DIR/template_supervision_script >> $TMP_DIR/final.xml
+	
+	#copy supervision script under TMP folder
+	cp -f $PATH_SCRIPTS/supervision.sh $TMP_DIR_OUT/supervision.sh
+	rm -f $TMP_DIR/template_supervision_script
+	
+	cat $TMP_DIR/template_supervision_breakpoint >> $TMP_DIR/final.xml
+	rm -f $TMP_DIR/template_supervision_breakpoint
+	cat templates/template_supervision_end >> $TMP_DIR/final.xml
+	#END Supervision Period part =============================================
+	
+	cat templates/template_upgrade_procedure_end-14 >> $TMP_DIR/final.xml
+	cat templates/template_campaign_wrapup_init-15 >> $TMP_DIR/final.xml
+	
+	#START Creating remove from imm part =====================================
+	#Verify if baseline files are present
+	if [ "$is_team" == "1" ] ; then
+		if [ ! -f "$PATH_SCRIPTS/$BASELINE_FILE_GEP12_AP1" ];then
+			echo "ERROR: Baseline File for GEP1/GEP2 AP1 Not Found!"
+			exit 1
+		fi
+		if [ ! -f "$PATH_SCRIPTS/$BASELINE_FILE_GEP12_AP2" ];then
+			echo "ERROR: Baseline File for GEP1/GEP2 AP2 Not Found!"
+			exit 1
+		fi
+		if [ ! -f "$PATH_SCRIPTS/$BASELINE_FILE_GEP5_AP1" ];then
+			echo "ERROR: Baseline File for GEP5 AP1 Not Found!"
+			exit 1
+		fi
+		if [ ! -f "$PATH_SCRIPTS/$BASELINE_FILE_GEP5_AP2" ];then
+			echo "ERROR: Baseline File for GEP5 AP2 Not Found!"
+			exit 1
+		fi
+		if [ ! -f "$PATH_SCRIPTS/$BASELINE_FILE_GEP7_AP1" ];then
+                        echo "ERROR: Baseline File for GEP7 AP1 Not Found!"
+                        exit 1
+                fi
+                if [ ! -f "$PATH_SCRIPTS/$BASELINE_FILE_GEP7_AP2" ];then
+                        echo "ERROR: Baseline File for GEP7 AP2 Not Found!"
+                        exit 1
+                fi
+
+		if [ ! -f "$PATH_SCRIPTS/$BASELINE_FILE_VM_AP1" ];then
+			echo "ERROR: Baseline File for VM Not Found!"
+			exit 1
+		fi
+			BASELINE_FILE_GEP12_AP1_FINAL=$(echo $BASELINE_FILE_GEP12_AP1 | cut -c5-)
+			BASELINE_FILE_GEP12_AP2_FINAL=$(echo $BASELINE_FILE_GEP12_AP2 | cut -c5-)
+			BASELINE_FILE_GEP5_AP1_FINAL=$(echo $BASELINE_FILE_GEP5_AP1 | cut -c5-)
+			BASELINE_FILE_GEP5_AP2_FINAL=$(echo $BASELINE_FILE_GEP5_AP2 | cut -c5-)
+                        BASELINE_FILE_GEP7_AP1_FINAL=$(echo $BASELINE_FILE_GEP7_AP1 | cut -c5-)
+                        BASELINE_FILE_GEP7_AP2_FINAL=$(echo $BASELINE_FILE_GEP7_AP2 | cut -c5-)
+			BASELINE_FILE_VM_FINAL=$(echo $BASELINE_FILE_VM_AP1 | cut -c5-)
+			cp -f $PATH_SCRIPTS/$BASELINE_FILE_GEP12_AP1 $TMP_DIR_OUT/$BASELINE_FILE_GEP12_AP1_FINAL
+			cp -f $PATH_SCRIPTS/$BASELINE_FILE_GEP12_AP2 $TMP_DIR_OUT/$BASELINE_FILE_GEP12_AP2_FINAL
+			cp -f $PATH_SCRIPTS/$BASELINE_FILE_GEP5_AP1 $TMP_DIR_OUT/$BASELINE_FILE_GEP5_AP1_FINAL
+			cp -f $PATH_SCRIPTS/$BASELINE_FILE_GEP5_AP2 $TMP_DIR_OUT/$BASELINE_FILE_GEP5_AP2_FINAL
+                        cp -f $PATH_SCRIPTS/$BASELINE_FILE_GEP7_AP1 $TMP_DIR_OUT/$BASELINE_FILE_GEP7_AP1_FINAL
+                        cp -f $PATH_SCRIPTS/$BASELINE_FILE_GEP7_AP2 $TMP_DIR_OUT/$BASELINE_FILE_GEP7_AP2_FINAL
+			cp -f $PATH_SCRIPTS/$BASELINE_FILE_VM_AP1 $TMP_DIR_OUT/$BASELINE_FILE_VM_FINAL
+		cp -f templates/template_baseline $TMP_DIR/template_baseline
+		sed -i "s/#BASELINE_SCRIPTS#/$BASELINE_SCRIPTS/g" $TMP_DIR/template_baseline
+		cat $TMP_DIR/template_baseline >> $TMP_DIR/final.xml
+		cp -f $PATH_SCRIPTS/$BASELINE_SCRIPTS $TMP_DIR_OUT/
+	fi
+	
+	cp -f templates/template_fix_sw_version $TMP_DIR/template_fix_sw_version
+	sed -i "s/#WANTED_PRODUCT_NUMBER#/$product_number/g" $TMP_DIR/template_fix_sw_version
+	sed -i "s/#WANTED_PRODUCT_REVISION#/$product_revision/g" $TMP_DIR/template_fix_sw_version
+	cat $TMP_DIR/template_fix_sw_version >> $TMP_DIR/final.xml
+	
+	cat templates/template_waitTo >> $TMP_DIR/final.xml
+	cat templates/template_remove_from_imm_init-16 >> $TMP_DIR/final.xml
+	cat templates/template_remove_from_imm_end-18 >> $TMP_DIR/final.xml
+	#END Creating remove from imm part =====================================
+	
+	#START final part ======================================================
+	cat templates/template_end-19 >> $TMP_DIR/final.xml
+	#END final part ========================================================
+	
+	#START ETF part ========================================================
+	cp -f templates/template_etf_campaign $TMP_DIR/ETF.xml
+	sed -i "s/#UP_CAMPAIGN_NAME#/$campaign_name/g" $TMP_DIR/ETF.xml
+	cp -f $TMP_DIR/ETF.xml $TMP_DIR_OUT/ETF.xml
+	#END ETF part ==========================================================
+	
+	#START CAMPAIGN SDP part ===============================================	
+	cp -f $PATH_SCRIPTS/apos_drbdstatus.sh $TMP_DIR_OUT/apos_drbdstatus.sh
+	# Copied apos_drbdstatus.sh file
+	cp -f $PATH_SCRIPTS/fixSwVersion.sh $TMP_DIR_OUT/fixSwVersion.sh
+        cp -f $PATH_SCRIPTS/is_updatable.sh $TMP_DIR_OUT/is_updatable.sh
+	cp $TMP_DIR/final.xml $TMP_DIR_OUT/campaign.template.xml
+	
+	# Tidy-up XML code (if possible)
+	which tidy &> /dev/null
+	if [ $? -eq 0 ]; then
+		tidy -output $TMP_DIR_OUT/campaign.template.xml -indent -wrap -clean -xml -asxml -ascii $TMP_DIR_OUT/campaign.template.xml &> /dev/null
+		tidy -output $TMP_DIR_OUT/ETF.xml -indent -wrap -clean -xml -asxml -utf8 $TMP_DIR_OUT/ETF.xml &> /dev/null
+	fi
+
+	pushd $TMP_DIR_OUT >> /dev/null
+	chmod 775 ./apos_drbdstatus.sh
+	# we are in tmp folder and we can ignore relative path
+	chmod 775 ./fixSwVersion.sh
+	chmod 775 ./supervision.sh
+	chmod 775 ./is_updatable.sh
+
+        if [ "$is_team" == "0" ] ; then
+                tar -czf $UP_CAMPAIGN_FILE_NAME ETF.xml campaign.template.xml supervision.sh apos_drbdstatus.sh fixSwVersion.sh is_updatable.sh
+                if [ "$?" != "0"  ]
+                then
+                        echo "ERROR Failed to create Campaign SDP"
+                        exit 29
+                fi
+                rm -f ETF.xml campaign.template.xml supervision.sh apos_drbdstatus.sh fixSwVersion.sh is_updatable.sh
+	else
+                cp -f $PATH_UP_CONF/apps_list.csv $TMP_DIR_OUT/apps_list.csv
+                cp -f $PATH_UP_CONF/node_lock_list.conf $TMP_DIR_OUT/node_lock_list.conf
+                cp -f $PATH_UP_CONF/apg_common.sh $TMP_DIR_OUT/apg_common.sh
+                cp -f $PATH_SCRIPTS/check_imm_dn.sh $TMP_DIR_OUT/check_imm_dn.sh
+                cp -f $PATH_SCRIPTS/smart_camp_tool.sh $TMP_DIR_OUT/smart_camp_tool.sh
+                if [ -L $PATH_SCRIPTS/parmtool_cc ];then
+                    PARMTOOL_DIR=$(readlink -f $PATH_SCRIPTS/parmtool_cc)
+                    cp -r $PARMTOOL_DIR/ $TMP_DIR_OUT/
+                else
+                    PARMTOOL_DIR=$(find $PATH_SCRIPTS -name "parmtool" -type d )
+                    [ -z $PARMTOOL_DIR ] && abort "ERROR: parmtool is missing in $PATH_SCRIPTS folder"
+                    cp -r $PARMTOOL_DIR/ $TMP_DIR_OUT/
+                fi
+                PARMTOOL=$( find $TMP_DIR_OUT/ -maxdepth 1 -type d -name "parmtool")
+                if [ -z "$PARMTOOL" ]; then
+                    rm -rf $TMP_DIR_OUT
+                    abort "ERROR: parmtool is missing in package"
+                fi
+                if [ -L $PATH_SCRIPTS/entry_matches_cc ];then
+                    ENTRY_MATCHES=$(readlink -f $PATH_SCRIPTS/entry_matches_cc)
+                    cp -f $ENTRY_MATCHES $TMP_DIR_OUT/
+                else
+                    cp -f $PATH_SCRIPTS/entry_matches.sh $TMP_DIR_OUT/entry_matches.sh
+                fi
+                ENTRY_MATCH=$( find $TMP_DIR_OUT/ -maxdepth 1 -type f -name "entry_matches.sh")
+                if [ -z $ENTRY_MATCH ];then
+                   rm -rf $TMP_DIR_OUT
+                   abort "ERROR: entry_matches script is missing in package"
+                fi
+
+
+                chmod 775 ./$BASELINE_SCRIPTS
+		            chmod 775 ./entry_matches.sh
+		            chmod 775 ./apg_common.sh
+		            chmod 775 ./apps_list.csv
+		            chmod 775 ./node_lock_list.conf
+		            chmod 775 ./check_imm_dn.sh
+		            chmod 775 ./smart_camp_tool.sh
+
+                tar -czf $UP_CAMPAIGN_FILE_NAME ETF.xml campaign.template.xml supervision.sh apos_drbdstatus.sh apg_common.sh fixSwVersion.sh *_acs_lct_sha1verify.conf *_entry_list.csv entry_matches.sh parmtool node_lock_list.conf smart_camp_tool.sh check_imm_dn.sh is_updatable.sh $BASELINE_SCRIPTS
+                if [ "$?" != "0"  ]
+                then
+                        echo "ERROR Failed to create Campaign SDP"
+                        exit 29
+                fi
+                rm -rf ETF.xml campaign.template.xml supervision.sh apos_drbdstatus.sh apg_common.sh fixSwVersion.sh *_acs_lct_sha1verify.conf *_entry_list.csv entry_matches.sh node_lock_list.conf parmtool check_imm_dn.sh smart_camp_tool.sh is_updatable.sh $BASELINE_SCRIPTS
+	fi
+	popd >> /dev/null
+
+	is_verbose && echo "STEP: EMPTY CAMPAIGN SDP CREATION DONE"
+}
+

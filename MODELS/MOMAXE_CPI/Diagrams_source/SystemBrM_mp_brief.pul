@@ -1,0 +1,22 @@
+@startuml img/SystemBrM_mp_brief.svg
+top to bottom direction
+hide members
+hide circle
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "SystemBrM" as SystemBrM__SystemBrM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrM]] 
+class "SystemBrmBackupScheduler" as SystemBrM__SystemBrmBackupScheduler [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmBackupScheduler]] 
+class "SystemBrmPeriodicEvent" as SystemBrM__SystemBrmPeriodicEvent [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmPeriodicEvent]] 
+class "SystemBrmBackupScheduler" as SystemBrM__SystemBrmBackupScheduler [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmBackupScheduler]] 
+class "SystemBrmPeriodicEvent" as SystemBrM__SystemBrmPeriodicEvent [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmPeriodicEvent]] 
+SystemBrM__SystemBrmBackupScheduler *-- "*" SystemBrM__SystemBrmPeriodicEvent
+class "SystemBrM" as SystemBrM__SystemBrM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrM]] 
+class "SystemBrmBackupScheduler" as SystemBrM__SystemBrmBackupScheduler [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrmBackupScheduler]] 
+SystemBrM__SystemBrM *-- "0..1" SystemBrM__SystemBrmBackupScheduler
+class "SystemHandling" as AxeFunctions__SystemHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemHandling]] 
+class "SystemBrM" as SystemBrM__SystemBrM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#SystemBrM?title=class%20SystemBrM]] 
+AxeFunctions__SystemHandling *-- "0..1" SystemBrM__SystemBrM
+@enduml 

@@ -1,0 +1,30 @@
+	<upgradeProcedure saSmfExecLevel="7" safSmfProcedure="safSmfProc=SingleStepProcSEC">
+		<outageInfo>
+			<acceptableServiceOutage>
+          			<all/>
+			</acceptableServiceOutage>
+			<procedurePeriod saSmfProcPeriod="600000000"/>
+		</outageInfo>
+		<upgradeMethod>
+			<singleStepUpgrade>
+				<upgradeScope>
+					<forAddRemove>
+						<deactivationUnit/>
+						<activationUnit>
+							<swAdd bundleDN="safSmfBundle=#SEC_CRYPTO_BUNDLE#" pathnamePrefix="/opt">
+								<plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster"/>
+							</swAdd>
+							<swAdd bundleDN="safSmfBundle=#SEC_BUNDLE#" pathnamePrefix="/opt/eric/sec-cert-cxp9027891">
+								<plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster"/>
+							</swAdd>
+							<swAdd bundleDN="safSmfBundle=#SEC_AGENT_BUNDLE#" pathnamePrefix="/opt/eric/sec-cert-cxp9027891">
+								<plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster"/>
+							</swAdd>
+						</activationUnit>
+					</forAddRemove>
+				</upgradeScope>
+				<upgradeStep/>
+			</singleStepUpgrade>
+		</upgradeMethod>
+	</upgradeProcedure>
+	

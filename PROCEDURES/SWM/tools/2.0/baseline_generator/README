@@ -1,0 +1,75 @@
+README
+  APG Offline Baseline Creation is intended to generate the baseline file for
+  different configurations during package creation.
+
+FILES
+  * createBaseline.sh              - Collects all the rpms from the Runtime 
+			             packages and generates md5 checksum for 
+				     all rpm content files.
+  * baseline_filter.sh             - Filters out unnecessary files that to be
+				     excluded from the baseline file.
+  * baseline_infraspecific.sh      - Update the baseline file with respect to
+				     the infrastructure selected.
+  * acs_lct_integrityAP_base.conf  - Configuration file that defines inclusion 
+				     or exclusion of a file in baseline file.
+  * directoryStructure             - Contains all the directory paths of generic 
+				     APG directory structure that are skipped
+				     during the generation of baseline file. 
+				     This file content will be appended to 
+				     baseline file. 
+
+
+PREREQUISITES:
+  Inorder to create Baseline files Offline the "acs_lct_integrityAP_base.conf"
+  should be up to data and to be synced with the same in acs_lct.
+  All the runtime packages should be generated before generating baseline files.
+  
+HOW-TO
+  source modules.sh
+  ./createDpRepo.sh
+  ./createCsm.sh
+  ./applyPatches.sh
+  ./createBaseline.sh
+
+HOW-TO-CHANGE
+* acs_lct_integrityAP_base.conf    - Refer to opening comments in the same 
+				     file. All the changes updated in the file
+				     should be synced with file in acs_lct 
+				     subsystem.
+  E.g.,
+  <DirPath> [true|false] [+|-] [files]
+  DirPath : Absolute path of directory
+  true    : Including all the files in given DirPath if exclusion files are 
+  	    not provided
+  false   : Excluding all the files in given DirPath if inclusion files are 
+	    not provided
+  +       : to include
+  -       : to exclude
+  files   : file names to be included/excluded	
+
+  "/usr/bin/" false 		   - This defines all the files under 
+				     "/usr/bin" are excluded
+  "/usr/bin/" true		   - This defines all the files under
+                                     "/usr/bin" are included
+  "/usr/bin/" false + file1 file2  - This defines all the files except file1 
+				     and file2 are excluded
+  "/usr/bin/" true  - file1 file2  - This defines all the files except file1
+                                     and file2 are included
+
+  Including /usr/bin/zip
+  "usr/bin/" false + zip	   - This includes /usr/bin/zip for integrity
+				     check
+  Excluding /usr/bin/zip
+  "usr/bin/" true - zip		   - This excludes /usr/bin/zip for integrity
+				     check
+* directoryStructure
+  The file contains all the missing directory entries of baseline file
+  and are introduced to respective infrastructure based baseline files
+  ADD
+  	To Add a new entry add a new line with the directory path in the directoryStructure file
+  REMOVE
+	To Remove an existing entry remove the line containing respective directory path from directoryStructure file
+
+NOTICE
+  Copyright (C) 2022 Ericsson AB. All rights reserved.
+

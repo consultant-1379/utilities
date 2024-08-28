@@ -1,0 +1,15 @@
+#!/bin/bash
+
+KEYS="ecdsa ed25519"
+
+for k in $KEYS; do
+	if [ -f /cluster/etc/ssh_host_${k}_key ]; then
+		continue
+	fi
+	rm -f /cluster/etc/.ssh_host_${k}_key*
+	ssh-keygen -t $k -N '' -f /cluster/etc/.ssh_host_${k}_key
+	mv /cluster/etc/.ssh_host_${k}_key.pub /cluster/etc/ssh_host_${k}_key.pub
+	mv /cluster/etc/.ssh_host_${k}_key /cluster/etc/ssh_host_${k}_key
+done
+
+exit 0

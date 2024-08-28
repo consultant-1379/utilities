@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="AxeCpReload">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NRAMoQwOEdmFcaeZXPdWAQ" source="uml2.diagrams"/>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Oh0goWu7EeK_psk_X1_33w" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Oh0gomu7EeK_psk_X1_33w" key="com.ericsson.ecim.coremw.dsl.uireduction.activity" value="2"/>
+    </eAnnotations>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_RveIYGu7EeK_psk_X1_33w" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>&lt;p>AXE CP Reload MOM&lt;/p></body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_8JbBoIW5Ed-FBpQGdJXi3g">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OS1OUIXLEd-lToFzlKoOsA" name="" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_daJaMIKNEeK3wcU1QErItg" name="AxeCpReload">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_daKCRoKNEeK3wcU1QErItg" annotatedElement="_daJaMIKNEeK3wcU1QErItg">
+        <body>CP Backup and Reload Parameters model defines parameters for system backup generation handling and command log handling on Non-Classic Dual (APZ 212 40 and later) and Cluster system. The parameters are used at reload attempts when the reload is caused by software faults, command initiated reload (SYREI:RANK=RELOAD) and forced executive (FEX) reload. </body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_daKCR4KNEeK3wcU1QErItg" name="CpReloadM">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_daKCSIKNEeK3wcU1QErItg" annotatedElement="_daKCR4KNEeK3wcU1QErItg">
+          <body>This fragment provides all configuration settings applicable to reload handling of the CP. Specific classes are automatically provided by the system matching the APZ type.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_daKCSYKNEeK3wcU1QErItg" name="cpReloadMId" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_daKCSoKNEeK3wcU1QErItg" annotatedElement="_daKCSYKNEeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO.
+It is automatically set.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_daKCTIKNEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_daKCS4KNEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_daKCUIKNEeK3wcU1QErItg" name="cpCluster" visibility="public" type="_daKCa4KNEeK3wcU1QErItg" aggregation="composite" association="_daKoWoKNEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_daKCUoKNEeK3wcU1QErItg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_daKCUYKNEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_daKCU4KNEeK3wcU1QErItg" name="dualSidedCp" visibility="public" type="_daKCVoKNEeK3wcU1QErItg" aggregation="composite" association="_daKoXoKNEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_daKCVYKNEeK3wcU1QErItg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_daKCVIKNEeK3wcU1QErItg" value="2"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_daKCVoKNEeK3wcU1QErItg" name="DualSidedCp">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_daKCV4KNEeK3wcU1QErItg" annotatedElement="_daKCVoKNEeK3wcU1QErItg">
+          <body>The class DualSidedCp configures the system backup generation handling during CP fallback reload for AXE dual sided systems, from APZ 212 40 and later. The parameters are used at reload attempts when the reload is caused by software faults as well as when the reload is command initiated (that is MML command SYREI:RANK=RELOAD;).&#xD;
+&#xD;
+When the backup parameters are not defined the default backup parameter values are used. &#xD;
+&#xD;
+DEFAULT BACKUP PARAMETER VALUES &#xD;
+&#xD;
+firstFileRange = 0, only RELFSW0 is used from the first file range &#xD;
+secondFileRange = 0, no files are used from second file range &#xD;
+supervisionTime = 60, supervision time of 60 minutes is used &#xD;
+&#xD;
+GENERAL RELOADING SEQUENCE &#xD;
+&#xD;
+Reload attempt 1 &#xD;
+&#xD;
+load MS-dump &#xD;
+&#xD;
+Reload attempt 2 &#xD;
+&#xD;
+load RELFSW0 &#xD;
+&#xD;
+... &#xD;
+&#xD;
+Reload attempt x &#xD;
+&#xD;
+load RELFSWn (last file from the first file range, as determined by firstFileRange) &#xD;
+&#xD;
+Reload attempt x+1 &#xD;
+&#xD;
+load RELFSW100 (first file from the second file range, as determined by secondFileRange)&#xD;
+&#xD;
+... &#xD;
+&#xD;
+Reload attempt y &#xD;
+&#xD;
+load RELFSWm (last file from the second file range, as determined by secondFileRange) &#xD;
+&#xD;
+return to reload attempt 1 after time out (as determined by supervisionTime), else reload the latest reloaded file again &#xD;
+&#xD;
+TIME SUPERVISION &#xD;
+&#xD;
+At the start of each reload attempt, a time supervision is started. During the time supervision, any new reloading attempt is made according to the parameters. When the time supervision expires, a successful reload attempt is considered to have occurred, meaning that any subsequent reloading attempt will be made from the start of the sequence described above. &#xD;
+&#xD;
+When the user change reload parameters during a reload sequence, the reload sequence will return to reload attempt 2. If the change is executed during a reload sequence and at a time out (as determined by supervisionTime), the reload sequence will return to reload attempt 1.&#xD;
+&#xD;
+The order remains after system restart and reload. &#xD;
+&#xD;
+</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_daKCWIKNEeK3wcU1QErItg" name="dualSidedCpId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_daKCWYKNEeK3wcU1QErItg" annotatedElement="_daKCWIKNEeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO.
+It is automatically set.&#xD;
+For a Single-CP System, the value of this attribute is &quot;1&quot;.&#xD;
+For a Multi-CP System, the value of this attribute is &quot;1001&quot; for CP1 and &quot;1002&quot; for CP2.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_daKCW4KNEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_daKCWoKNEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_daKCXIKNEeK3wcU1QErItg" name="firstFileRange" type="_daKoUIKNEeK3wcU1QErItg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_daKCXYKNEeK3wcU1QErItg" annotatedElement="_daKCXIKNEeK3wcU1QErItg">
+            <body>This attribute defines the highest file number for attempts to reload generation files from first file range. The file number must be within a consecutive series of file numbers going from 0 up to 99. The first file range is not limited to the Cluster backup range. Reload attempts are made from RELFSW0 and up to the given file number.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iojUEL7DEeOGRMs_R_eogQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_daKCXoKNEeK3wcU1QErItg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_daKCYIKNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_daKCYYKNEeK3wcU1QErItg" name="secondFileRange">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_daKCYoKNEeK3wcU1QErItg" annotatedElement="_daKCYYKNEeK3wcU1QErItg">
+            <body>This attribute defines the highest file number for attempts to reload generation files from second file range. The file number must be within a consecutive series of file numbers going from 100 up to 127. Reload attempts are made from RELFSW100 and up to the given file number. If defined to zero, no attempt will be made to reload from the second file range.&#xD;
+Numeral 0, 100 - 127 </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jLHOkL7DEeOGRMs_R_eogQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_daKCY4KNEeK3wcU1QErItg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_daKCZYKNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_daKCZoKNEeK3wcU1QErItg" name="supervisionTime" visibility="public" type="_daKoU4KNEeK3wcU1QErItg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_daKCZ4KNEeK3wcU1QErItg" annotatedElement="_daKCZoKNEeK3wcU1QErItg">
+            <body>This attribute defines the time (in minutes) for supervision of reload attempts.&#xD;
+Recommended value is 60. If the time since last reload attempt exceeds supervision time, then the last reload attempt is considered to be successful.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lgQhAL7DEeOGRMs_R_eogQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_daKCaIKNEeK3wcU1QErItg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_daKCaoKNEeK3wcU1QErItg" value="60"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_daKCa4KNEeK3wcU1QErItg" name="CpCluster">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_daKCbIKNEeK3wcU1QErItg" annotatedElement="_daKCa4KNEeK3wcU1QErItg">
+          <body>The class CpCluster defines parameters for system backup generation handling during CP fallback reload on CP Cluster system. The parameters are used at reload attempts when the reload is caused by software faults and command initiated reload (SYREI:RANK=RELOAD). &#xD;
+&#xD;
+When the backup parameters are not defined the default backup parameter values are used. &#xD;
+&#xD;
+DEFAULT BACKUP PARAMETER VALUES &#xD;
+&#xD;
+firstFileRange = 0, only RELFSW0 is used from the first file range &#xD;
+secondFileRange = 0, no files are used from second file range &#xD;
+supervisionTime = 60, supervision time of 60 minutes is used &#xD;
+&#xD;
+GENERAL RELOADING SEQUENCE &#xD;
+&#xD;
+Reload attempt 1 &#xD;
+&#xD;
+load MS-dump &#xD;
+&#xD;
+Reload attempt 2 &#xD;
+&#xD;
+load RELFSW0 &#xD;
+&#xD;
+... &#xD;
+&#xD;
+Reload attempt x &#xD;
+&#xD;
+load RELFSWn (last file from the first file range, as determined by firstFileRange) &#xD;
+&#xD;
+Reload attempt x+1 &#xD;
+&#xD;
+load RELFSW100 (first file from the second file range, as determined by secondFileRange) &#xD;
+&#xD;
+... &#xD;
+&#xD;
+Reload attempt y &#xD;
+&#xD;
+load RELFSWm (last file from the second file range, as determined by secondFileRange) &#xD;
+&#xD;
+return to reload attempt 1 after time out (as determined by supervisionTime), else reload the latest reloaded file again &#xD;
+&#xD;
+TIME SUPERVISION &#xD;
+&#xD;
+At the start of each reload attempt, a time supervision is started. During the time supervision, any new reloading attempt is made according to the parameters defined by the user. When the time supervision expires, a successful reload attempt is considered to have occurred, meaning that any subsequent reloading attempt will be made from the start of the sequence described above. &#xD;
+&#xD;
+When the user change reload parameters during a reload sequence, the reload sequence will return to reload attempt 2. If the change executed during a reload sequence and at a time out (as determined by supervisionTime), the reload sequence will return to reload attempt 1. &#xD;
+&#xD;
+The order remains after system restart and reload. &#xD;
+&#xD;
+</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_daKCbYKNEeK3wcU1QErItg" name="cpClusterId" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_daKCboKNEeK3wcU1QErItg" annotatedElement="_daKCbYKNEeK3wcU1QErItg">
+            <body>Holds the name used when identifying the MO.
+It is automatically set to &quot;1&quot;.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_daKCcIKNEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_daKCb4KNEeK3wcU1QErItg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_daKCcYKNEeK3wcU1QErItg" name="firstFileRange" type="_daKocoKNEeK3wcU1QErItg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_daKCcoKNEeK3wcU1QErItg" annotatedElement="_daKCcYKNEeK3wcU1QErItg">
+            <body>This attribute defines the highest file number for attempts to reload generation files from first file range. The file number must be within a consecutive series of file numbers going from 0 up to 29. The first file range is not limited to the Cluster backup range. Reload attempts are made from RELFSW0 and up to the given file number.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ffppcL7DEeOGRMs_R_eogQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_daKCc4KNEeK3wcU1QErItg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_daKCdYKNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_daKCdoKNEeK3wcU1QErItg" name="secondFileRange">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_daKCd4KNEeK3wcU1QErItg" annotatedElement="_daKCdoKNEeK3wcU1QErItg">
+            <body>This attribute defines the highest file number for attempts to reload generation files from second file range. The file number must be within a consecutive series of file numbers going from 100 up to 127. Reload attempts are made from RELFSW100 and up to the given file number. If defined to zero, no attempt will be made to reload from the second file range.&#xD;
+Numeral 0, 100 - 127 </body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gLeNoL7DEeOGRMs_R_eogQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_daKCeIKNEeK3wcU1QErItg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_daKCeoKNEeK3wcU1QErItg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_daKCe4KNEeK3wcU1QErItg" name="supervisionTime" visibility="public" type="_daKoU4KNEeK3wcU1QErItg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_daKCfIKNEeK3wcU1QErItg" annotatedElement="_daKCe4KNEeK3wcU1QErItg">
+            <body>This attribute defines the time (in minutes) for supervision of reload attempts.&#xD;
+Recommended value is 60. If the time since last reload attempt exceeds supervision time, then the last reload attempt is considered to be successful.</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gya44L7DEeOGRMs_R_eogQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_daKCfYKNEeK3wcU1QErItg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_daKCf4KNEeK3wcU1QErItg" value="60"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_daKoUIKNEeK3wcU1QErItg" name="FirstFileRangeT">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_daKoUYKNEeK3wcU1QErItg" annotatedElement="_daKoUIKNEeK3wcU1QErItg">
+          <body>Derived numeric data type for First File Range in a Classic CP or Dual Sided CP.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_daKoUoKNEeK3wcU1QErItg">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_daKoU4KNEeK3wcU1QErItg" name="SupervisionTimeT">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_daKoVIKNEeK3wcU1QErItg" annotatedElement="_daKoU4KNEeK3wcU1QErItg">
+          <body>Derived numeric for Supervision Time (in minute).</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_daKoVYKNEeK3wcU1QErItg">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_daKoVoKNEeK3wcU1QErItg" name="" memberEnd="_daKCTYKNEeK3wcU1QErItg _daKoV4KNEeK3wcU1QErItg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_daKoV4KNEeK3wcU1QErItg" name="cpReloadM" visibility="public" type="_daKCR4KNEeK3wcU1QErItg" aggregation="composite" association="_daKoVoKNEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_daKoWYKNEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_daKoWIKNEeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_daKCTYKNEeK3wcU1QErItg" name="systemHandling" visibility="public" association="_daKoVoKNEeK3wcU1QErItg">
+          <type xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0MIKREeK3wcU1QErItg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_daKCT4KNEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_daKCToKNEeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_daKoWoKNEeK3wcU1QErItg" name="" memberEnd="_daKCUIKNEeK3wcU1QErItg _daKoW4KNEeK3wcU1QErItg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_daKoW4KNEeK3wcU1QErItg" name="cpReloadM" visibility="public" type="_daKCR4KNEeK3wcU1QErItg" association="_daKoWoKNEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_daKoXYKNEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_daKoXIKNEeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_daKoXoKNEeK3wcU1QErItg" name="" memberEnd="_daKCU4KNEeK3wcU1QErItg _daKoX4KNEeK3wcU1QErItg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_daKoX4KNEeK3wcU1QErItg" name="cpReloadM" visibility="public" type="_daKCR4KNEeK3wcU1QErItg" association="_daKoXoKNEeK3wcU1QErItg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_daKoYYKNEeK3wcU1QErItg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_daKoYIKNEeK3wcU1QErItg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_daKoYoKNEeK3wcU1QErItg" name="Instances">
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_daKob4KNEeK3wcU1QErItg" name="cpReloadInstance" classifier="_daKCR4KNEeK3wcU1QErItg">
+          <slot xmi:type="uml:Slot" xmi:id="_daKocIKNEeK3wcU1QErItg" definingFeature="_daKCSYKNEeK3wcU1QErItg">
+            <value xmi:type="uml:LiteralString" xmi:id="_daKocYKNEeK3wcU1QErItg" value="1">
+              <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            </value>
+          </slot>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_daKocoKNEeK3wcU1QErItg" name="FirstFileRangeClusterT">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_daKoc4KNEeK3wcU1QErItg" annotatedElement="_daKocoKNEeK3wcU1QErItg">
+          <body>Derived numeric data type for First File Range in CP Cluster system.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_daKodIKNEeK3wcU1QErItg">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxXDECCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_5s3sYBzMEeaABvSSUV_l7g" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_58F0IBzMEeaABvSSUV_l7g" name="BASIC"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_cikwQHVqEeCBgp9CYCosRQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tQP_oCo6Eeu3bJ1648roRQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_tQP_oSo6Eeu3bJ1648roRQ" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_tQP_oio6Eeu3bJ1648roRQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_tQP_oyo6Eeu3bJ1648roRQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_tQP_pCo6Eeu3bJ1648roRQ" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_tQP_pSo6Eeu3bJ1648roRQ" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ciq24HVqEeCBgp9CYCosRQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Oi3pgGu7EeK_psk_X1_33w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_o4IbEN6MEeehtLhJYaltnA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_o4IbEd6MEeehtLhJYaltnA" key="Version" value="1.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_o4IbEt6MEeehtLhJYaltnA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_o4IbE96MEeehtLhJYaltnA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_o4IbFN6MEeehtLhJYaltnA" key="Date" value="2017-11-01"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_o4IbFd6MEeehtLhJYaltnA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dHFwwMPDEee-MNJ3JBpygA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dHFwwcPDEee-MNJ3JBpygA" key="Version" value="1.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dHFwwsPDEee-MNJ3JBpygA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dHFww8PDEee-MNJ3JBpygA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dHFwxMPDEee-MNJ3JBpygA" key="Date" value="2016-02-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dHFwxcPDEee-MNJ3JBpygA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_O2V_IGu7EeK_psk_X1_33w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_HiLugBtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="Managed Object Model for CP Reload Management Function" subTitle=" " docNo="1/19089-CXA 117 0017" docRev="C" createdBy="XHARBAV" approvedBy="" docLang="Uen" docDate="2020-12-08"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_HiMVkBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Package="_daJaMIKNEeK3wcU1QErItg" author="Harika Bavana" contact="XHARBAV" date="2020-12-08" docNo="1/19089-CXA 117 0017" revision="C" version="1" release="1" organization="" correction="0"/>
+  <CoreMWProfile:CmwMom xmi:id="_HoX2EBtEEeWvQYFW8NSCww" base_Package="_daJaMIKNEeK3wcU1QErItg" immNamespace="MOM_NAME"/>
+  <CoreMWProfile:CmwClass xmi:id="_HoX2ERtEEeWvQYFW8NSCww" base_Class="_daKCR4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HiMVkRtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Property="_daKCSYKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_HiM8oBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_daKCVoKNEeK3wcU1QErItg" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_HoX2EhtEEeWvQYFW8NSCww" base_Class="_daKCVoKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HiNjsBtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_daKCWIKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HoYdIBtEEeWvQYFW8NSCww" base_Property="_daKCXIKNEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HiNjsRtEEeWvQYFW8NSCww" hideGroupName="" specification="" isNotifiable="true" base_Property="_daKCXIKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HoYdIRtEEeWvQYFW8NSCww" base_Property="_daKCYYKNEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HiOKwBtEEeWvQYFW8NSCww" hideGroupName="" specification="" isNotifiable="true" base_Property="_daKCYYKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HoYdIhtEEeWvQYFW8NSCww" base_Property="_daKCZoKNEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HiOKwRtEEeWvQYFW8NSCww" hideGroupName="" specification="" isNotifiable="true" base_Property="_daKCZoKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_HiOKwhtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Class="_daKCa4KNEeK3wcU1QErItg" isSystemCreated="true"/>
+  <CoreMWProfile:CmwClass xmi:id="_HoYdJBtEEeWvQYFW8NSCww" base_Class="_daKCa4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_HiOKwxtEEeWvQYFW8NSCww" hideGroupName="" specification="" base_Property="_daKCbYKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HiOx0BtEEeWvQYFW8NSCww" hideGroupName="" specification="" isNotifiable="true" base_Property="_daKCcYKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HoZEMBtEEeWvQYFW8NSCww" base_Property="_daKCcYKNEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HiOx0RtEEeWvQYFW8NSCww" hideGroupName="" specification="" isNotifiable="true" base_Property="_daKCdoKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HoZEMRtEEeWvQYFW8NSCww" base_Property="_daKCdoKNEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_HiOx0htEEeWvQYFW8NSCww" hideGroupName="" specification="" isNotifiable="true" base_Property="_daKCe4KNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HoZEMhtEEeWvQYFW8NSCww" base_Property="_daKCe4KNEeK3wcU1QErItg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_HiPY4BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" range="0..99" base_DataType="_daKoUIKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_HiPY4RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" range="30..2400" base_DataType="_daKoU4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_HiPY4htEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_daKoVoKNEeK3wcU1QErItg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_HiP_8BtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_daKoWoKNEeK3wcU1QErItg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_HiP_8RtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Association="_daKoXoKNEeK3wcU1QErItg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimInstances xmi:id="_HiQnABtEEeWvQYFW8NSCww" base_Package="_daKoYoKNEeK3wcU1QErItg" version="1" release="0" correction="0"/>
+  <ECIMBaseProfile:EcimMocInstance xmi:id="_HiQnARtEEeWvQYFW8NSCww" base_InstanceSpecification="_daKob4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_HiQnAhtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" range="0..29" base_DataType="_daKocoKNEeK3wcU1QErItg"/>
+  <CoreMWProfile:CmwModel xmi:id="_HoZrQBtEEeWvQYFW8NSCww" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwContribution xmi:id="_HoZrQhtEEeWvQYFW8NSCww" base_Association="_daKoVoKNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_HiROEBtEEeWvQYFW8NSCww" hideGroupName="" specification="" statusInformation="" base_Class="_daKCR4KNEeK3wcU1QErItg" isSystemCreated="true" isLegacyRoot="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HoZrQxtEEeWvQYFW8NSCww" base_Property="_daKCSYKNEeK3wcU1QErItg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HoZrRBtEEeWvQYFW8NSCww" base_Property="_daKCWIKNEeK3wcU1QErItg" isPersistent="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_HoaSUBtEEeWvQYFW8NSCww" base_Property="_daKCbYKNEeK3wcU1QErItg" isPersistent="true"/>
+  <Documentation:Documentation xmi:id="_7aXoIBtDEeWvQYFW8NSCww" base_Comment="_RveIYGu7EeK_psk_X1_33w"/>
+  <Documentation:Documentation xmi:id="_7aXoIRtDEeWvQYFW8NSCww" base_Comment="_daKCRoKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7aXoIhtDEeWvQYFW8NSCww" base_Comment="_daKCSIKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7aXoIxtDEeWvQYFW8NSCww" base_Comment="_daKCSoKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7aXoJBtDEeWvQYFW8NSCww" base_Comment="_daKCV4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7aXoJRtDEeWvQYFW8NSCww" base_Comment="_daKCWYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7aXoJhtDEeWvQYFW8NSCww" base_Comment="_daKCXYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7aXoJxtDEeWvQYFW8NSCww" base_Comment="_daKCYoKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7aXoKBtDEeWvQYFW8NSCww" base_Comment="_daKCZ4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7aXoKRtDEeWvQYFW8NSCww" base_Comment="_daKCbIKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7aXoKhtDEeWvQYFW8NSCww" base_Comment="_daKCboKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7aXoKxtDEeWvQYFW8NSCww" base_Comment="_daKCcoKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7aXoLBtDEeWvQYFW8NSCww" base_Comment="_daKCd4KNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7aXoLRtDEeWvQYFW8NSCww" base_Comment="_daKCfIKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7aXoLhtDEeWvQYFW8NSCww" base_Comment="_daKoUYKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7aXoLxtDEeWvQYFW8NSCww" base_Comment="_daKoVIKNEeK3wcU1QErItg"/>
+  <Documentation:Documentation xmi:id="_7aXoMBtDEeWvQYFW8NSCww" base_Comment="_daKoc4KNEeK3wcU1QErItg"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_57-fYBzMEeaABvSSUV_l7g" base_Package="_5s3sYBzMEeaABvSSUV_l7g"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_58QMMBzMEeaABvSSUV_l7g" base_Class="_58F0IBzMEeaABvSSUV_l7g"/>
+</xmi:XMI>

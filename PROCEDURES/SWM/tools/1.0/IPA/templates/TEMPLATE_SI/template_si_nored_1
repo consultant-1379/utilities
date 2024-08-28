@@ -1,0 +1,17 @@
+			<create objectClassName="SaAmfSI" parentObjectDN="safApp=#SAF_APP#">
+				<attribute name="safSi" type="SA_IMM_ATTR_SASTRINGT">
+					<value>safSi=#CSI_NAME#-1</value>
+				</attribute>
+				<attribute name="saAmfSvcType" type="SA_IMM_ATTR_SANAMET">
+					<value>safVersion=#SAF_VERSION#,safSvcType=ERIC-APG_#CSI_NAME#</value>
+				</attribute>
+				<attribute name="saAmfSIProtectedbySG" type="SA_IMM_ATTR_SANAMET">
+					<value>safSg=NoRed_#CSI_NAME#,safApp=#SAF_APP#</value>
+				</attribute>
+				<attribute name="saAmfSIRank" type="SA_IMM_ATTR_SAUINT32T">
+					<value>#SI_RANK_NORED#</value>
+				</attribute>
+				<attribute name="saAmfSIAdminState" type="SA_IMM_ATTR_SAUINT32T">
+					<value>1</value>
+				</attribute>
+			</create>

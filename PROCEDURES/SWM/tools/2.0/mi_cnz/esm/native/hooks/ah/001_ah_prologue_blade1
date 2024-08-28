@@ -1,0 +1,2360 @@
+#!/bin/bash
+##
+# ------------------------------------------------------------------------
+#     Copyright (C) 2012 Ericsson AB. All rights reserved.
+# ------------------------------------------------------------------------
+##
+# Name:
+#       001_ah_prologue_blade1
+# Description:
+#       A script to install all software.
+# Note:
+#       Sourced via LOTC cluster install script execution during
+#       the post installation phase.
+##
+# Usage:
+#       Used during APG43L maiden installation.
+##
+# Output:
+#       None.
+##
+# Changelog:
+# - Wed Jun 30 2021 - Komal L (xkomala)
+#   Added code to create persistent system_type file
+# - Mon May 24 2021 - Gnaneswara Seshu (zbhegna)
+#   Replaced tipc-config with tipc 
+# - Mon Oct 29 2018 - Yeswanth Vankayala (xyesvan)
+#   Added a function configure_apt_type()
+#   Added a function configure_apt_type()
+# - Tue Sep 11  2018 - Yeswanth Vankayala (xyesvan)
+#   enabled sec_la function
+# - Tue Aug 28 2018 - Yeswanth Vankayala (xyesvan)
+#   log entries adaptation for SwM 2.0
+# - Thu Aug 9 2018 - Yeswanth Vankayala (xyesvan)
+#   SwM 2.0 Adaptations
+# - Mon May 21 2018 - Yeswanth Vankayala (xyesvan)
+#   WA for GSNH issue
+# - Mon May 14 2018 - Yeswanth Vankayala (xyesvan)
+#  Sec-ldap Configuration file adaptation.
+# - Mon Feb 12 2018 - Sowjanya Medak (XSOWMED)
+#	Rename ge7lasge5-64 in factoryparams.conf to turbo_boost_cp
+# - Mon Jan 22 2018 - Raghavendra Koduri (XKODRAG)
+#	Support for additional parameter ge7lasge5-64 in factoryparams.conf
+# - Thu July 05 2017 Raghavendra Koduri (XKODRAG)
+#	Modified to support GEP7 boards
+# - Mon 10 Jul 2017 - Sai Harini Mallavaram (zmalsai)
+#       Adapatation for  SLES 12 SP2
+# - Thu 03 Mar 2016 - Pratap Reddy (xpraupp)
+#     	GEP5 adaptations for SLES12 
+# - Thu 11 Feb 2016 - Antonio Buonocunto (eanbuon)
+#   	New DHCP handling
+# - Fri 22 Jan 2016 - Antonio Buonocunto (eanbuon)
+#   	Configuration for LDAP LA 
+# - Thu Jan 14 2016 Sindhuja Palla (XSINPAL)
+#	Impacts to support SMX architecture
+# - Thu 19 Nov 2015 - Roni Newatia (XRONNEW)
+#   	Modified to support GEP5-64-1200
+# - Wed 18 Nov 2015 - Sindhuja Palla (XSINPAL)
+#   	Created persistant files for mau_type
+# - Thurs 10 Sep 2015 - Raghavendra Koduri (XKODRAG)
+#   	Removed adding of default PCP value to vlan_mapping.conf file for oam vlan
+# - Mon 11 MAY 2015 - Sindhuja Palla (XSINPAL)
+#   	1. Added PCP value for public vlan
+#   	2. Created persistant files for shelfArchitecture,oam_vlantag and tipc_vlantag
+# - Mon Mar 09 2015 - Giuseppe Pontillo (QGIUPON)
+#   	Adaptation for APG-VM
+# - Mon Jan 05 2015 - Pranshu Sinha (XPRANSI)
+#   	Added fix for ARP leakage Issue
+# - Tue Jun 10 2014 - Antonio Buonocunto (EANBUON)
+#   	Added cached_creds_duration handling
+# - Fri May 23 2014 - Pratap Reddy (XPRAUPP)
+#   	Added installation_hw function
+# - Tue May 20 2014 - Nikhila Sattala (XNIKSAT)
+#       Bash prompt configuration
+# - Mon Apr 7 2014 - Pratap Reddy (XPRAUPP)
+# 	cableless changes
+# - Wed Mar 12 2014 - Antonio Buonocunto (eanbuon)
+#   	Added handling of ap2_oam option
+# - Sat Feb 1 2014 - Stefano Volpe (estevol)
+#   	Added configurable TIPC vlan tag
+# - Fri Jan 10 2013 - Malangsha Shaik (xmalsha)
+#   	Added 10G usage support
+# - Tue Aug 08 2013 - Malangsha Shaik (xmalsha)
+#	Added support for DRBD-GEP5 installation.
+# - Mon Jun 24 2013 - Fabio Ronca (efabron)
+#   	Impact to manage two cluster.conf template
+# - Thu Jun 13 2013 - Fabio Ronca (efabron)
+#   	Update to define the 10Gbit Ethernet Interfaces for GEP5 APUBs
+# - Tue Mar 13 2012 - Paolo Palmieri (epaopal)
+#   	First version.
+##
+
+# Variables
+export PATH="${PATH}:/opt/coremw/bin:/opt/coremw/sbin:/opt/ap/apos/bin"
+
+# Below variables are added as part of solution for ARP issue
+
+  if [ -f /cluster/mi/installation/shelf_architecture ];	then
+  	switch_type=$(cat /cluster/mi/installation/shelf_architecture)
+  else
+  	abort "/cluster/mi/installation/shelf_architecture does not exist"
+  fi
+  if [ -f /cluster/mi/installation/apt_type ];	then
+	apt_type=$(cat /cluster/mi/installation/apt_type)
+  else
+	abort "/cluster/mi/installation/apt_type does not exist"
+  fi
+  if [ -f /cluster/mi/installation/ap_type ];	then
+	ap_type=$(cat /cluster/mi/installation/ap_type)
+  else
+	abort "/cluster/mi/installation/ap_type does not exist"
+  fi
+
+# Non-initialized variables are forbidden
+#set -u
+set -x
+
+#--------------------------------------------------------------------
+function generate_mvl_mac() {
+
+  mvl_num=$1
+  node_num=$2
+
+  if [ "$mvl_num" == "mvl0" ] && [ "$node_num" == "node1" ];then
+	  sec_bit_to_set="00"
+  elif [ "$mvl_num" == "mvl1" ] && [ "$node_num" == "node1" ];then
+          sec_bit_to_set="01"
+  elif [ "$mvl_num" == "mvl0" ] && [ "$node_num" == "node2" ];then
+          sec_bit_to_set="02"
+  elif [ "$mvl_num" == "mvl1" ] && [ "$node_num" == "node2" ];then
+          sec_bit_to_set="03"
+  fi
+
+  if [ "$ap_type" == "AP1" ];then
+          ap_num=0
+  elif [ "$ap_type" == "AP2" ];then
+          ap_num=1
+  fi
+  new_mac=""$ap_num"2:"$sec_bit_to_set":41:50:47:4C"
+  echo $new_mac
+}
+
+#--------------------------------------------------------------------
+function remove_line() {
+  echo "--- remove_line($1, $2, $3) begin"
+
+  # Local variables
+  local FILE=$1
+  local STATEMENT=$2
+  local BLANK_LINE=$3
+
+  # Line to remove
+  if [ -f "$FILE" ]; then
+    if [ "`cat $FILE | grep \"$STATEMENT\"`" ]; then
+      if [ $BLANK_LINE == y ]; then
+        sed -i "/$STATEMENT/,+1d" $FILE
+      else
+        sed -i "/$STATEMENT/d" $FILE
+      fi
+    else
+      abort "Statement \"$STATEMENT\" not found in \"$FILE\""
+    fi
+  else
+    abort "File \"$FILE\" not found"
+  fi
+
+  echo "--- remove_line($1, $2, $3) end"
+}
+
+#--------------------------------------------------------------------
+function install_cmw() {
+  echo "--- install_cmw($1) begin"
+
+  # Local variables
+  local CMW_INSTALL_PATH=$1
+  local CMW_INSTALL_COMMAND='install'
+
+  pushd "$CMW_INSTALL_PATH" > /dev/null 2>&1
+  CMW_RUNTIME_PKG=$(find . -name "COREMW_RUNTIME.tar")
+  if [ -z $CMW_RUNTIME_PKG ]; then
+    CMW_RUNTIME_PKG=$(find . -name "coremw-*.tar.gz")
+  fi   
+  if [ -e $CMW_RUNTIME_PKG ]; then
+    tar -xf $CMW_RUNTIME_PKG
+    rm -f $CMW_RUNTIME_PKG
+  else
+    abort "CoreMW runtime package not found"
+  fi
+  popd > /dev/null 2>&1
+
+  if [ -x $CMW_INSTALL_PATH/$CMW_INSTALL_COMMAND ]; then
+    $CMW_INSTALL_PATH/$CMW_INSTALL_COMMAND
+    [ $? -ne $TRUE ] && abort "An error occurred during CoreMW installation"
+  else
+    abort "$CMW_INSTALL_PATH/$CMW_INSTALL_COMMAND not found or not executable"
+  fi
+
+  echo "--- install_cmw($1) end"
+}
+
+# The function checks for the --backup option then creates a partial backup
+# named "<bname>_AFTER".
+#--------------------------------------------------------------------
+function sdpinstall_backup_before() {
+  if [ $OPT_BACKUP ]; then
+    if [[ "$OPT_BACKUP_ARG" =~ ^NORMAL:.*$|^FULL:.*$ && "$BACKUP_FILE_BEFORE" ]]; then
+      # cmw-partial-backup-create (BEFORE)
+      echo -n "executing \"cmw-partial-backup-create $BACKUP_FILE_BEFORE\"... "
+      cmw-partial-backup-create $BACKUP_FILE_BEFORE
+      if [ $? -ne 0 ]; then
+        abort "Failure while trying to create a partial backup ($BACKUP_FILE_BEFORE)"
+      fi
+      echo 'done'
+      echo
+    fi
+  fi
+}
+
+# The function checks for the --backup option then creates a partial backup
+# named "<bname>_BEFORE".
+#--------------------------------------------------------------------
+function sdpinstall_backup_after() {
+  if [ $OPT_BACKUP ]; then
+    if [[ "$OPT_BACKUP_ARG" =~ ^NORMAL:.*$|^FULL:.*$ && "$BACKUP_FILE_AFTER" ]]; then
+      # cmw-partial-backup-create (AFTER)
+      echo -n "executing \"cmw-partial-backup-create $BACKUP_FILE_AFTER\"... "
+      cmw-partial-backup-create $BACKUP_FILE_AFTER
+      if [ $? -ne 0 ]; then
+        abort "Failure while trying to create a partial backup ($BACKUP_FILE_AFTER)"
+      fi
+      echo 'done'
+      echo
+    fi
+  fi
+}
+
+# The function will remove all the partial backups listed by the
+# cmw-partial-backup-list command.
+#--------------------------------------------------------------------
+function sdpinstall_backup_clear() {
+  BACKUP_LIST=$( cmw-partial-backup-list 2>/dev/null )
+  if [ -z "$BACKUP_LIST" ]; then
+    echo 'nothing to be cleared'
+  else
+    for B in $BACKUP_LIST; do
+      echo -n "performing \"cmw-partial-backup-remove $B\"... "
+      cmw-partial-backup-remove "$B" >/dev/null 2>&1
+      if [ $? -ne 0 ]; then
+        echo 'FAILED'
+        abort "\"cmw-partial-backup-remove $B\" failed"
+      else
+        echo 'done'
+        echo
+      fi
+    done
+  fi
+}
+
+# The function is invoked in the case of command-line-specified bundles
+# and campaigns
+#--------------------------------------------------------------------
+function sdpinstall_cmdline_parsing() {  
+  BUNDLE_FILE_LIST=`echo $OPT_BUNDLE_ARG | tr ':' ' '`
+  CAMPAIGN_FILE_LIST=`echo $OPT_CAMPAIGN_ARG | tr ':' ' '`
+
+  sdpinstall_sdp_import
+  sdpinstall_sdp_install
+}
+
+# The function is invoked in the case of file-fetched bundles and campaigns
+#--------------------------------------------------------------------
+function sdpinstall_listfile_parsing() {
+  echo "Using \"$SDPLIST_FILE\""
+  SDP_SET=`cat $SDPLIST_FILE | sed 's@\#.*@@g' | sed '/^\s*$/d' | sed 's/  */\@/g'`
+  for SDP_ROW in $SDP_SET; do             
+    BUNDLE_FILE_LIST=`echo $SDP_ROW | awk -F @ '{ print $1 }' | tr ':' ' '`
+    CAMPAIGN_FILE_LIST=`echo $SDP_ROW | awk -F @ '{ print $2 }' | tr ':' ' '`
+    OPT_BACKUP_ARG=$(echo $SDP_ROW | awk -F @ '{ print $3 }')
+    if [ "$OPT_BACKUP_ARG" ]; then
+      OPT_BACKUP=$SDP_TRUE
+      sdpinstall_backup_arguments_check
+    else
+      OPT_BACKUP=$SDP_FALSE
+    fi
+    sdpinstall_sdp_import
+    sdpinstall_sdp_install
+  done
+}
+
+# The function check the health of the system in terms of files and services
+#--------------------------------------------------------------------
+function sdpinstall_sanity_checks() {
+  if [ $OPT_SDPLIST ]; then
+    if [ ! -f $SDPLIST_FILE ]; then
+      abort "File $SDPLIST_FILE not found"
+    fi              
+  fi
+  if [ ! "`cmw-status node su comp`" == "Status OK" ]; then
+    abort "CoreMW status is NOT-OK"
+  fi
+}
+
+# The function imports the bundles and the campaigns contained
+# in the $BUNDLE_FILE_LIST and $CAMPAIGN_FILE_LIST variables.
+# It populates the CNAME_LIST variable too.
+#--------------------------------------------------------------------
+function sdpinstall_sdp_import() {
+  SDP_FILE_LIST="${BUNDLE_FILE_LIST} ${CAMPAIGN_FILE_LIST}"
+  
+  # checks for the files to exist
+  for SDP in $SDP_FILE_LIST; do
+    if [ ! -r "$SDP" ]; then
+      abort "The file \"$SDP\" is not found or unreadable"
+    fi
+  done
+  # cmw-sdp-import
+  CNAME_LIST=''   
+  for SDP in $SDP_FILE_LIST; do
+    echo "Performing \"cmw-sdp-import $SDP\"..."            
+    OUT="$( cmw-sdp-import $SDP 2>&1 )"
+    if [ $? -ne 0 ]; then
+      abort "Failure while importing the following sdp:\n$SDP"
+    else
+      LOGICAL_NAME="$( echo $OUT | awk '{ print $1 }' )"
+      TYPE="$( echo $OUT | awk '{ print $3 }' | sed 's@.*(type=@@g' | sed 's@)@@g' | tr [:lower:] [:upper:] )"
+      if [ "${TYPE}" == 'CAMPAIGN' ]; then
+        CNAME_LIST="${CNAME_LIST} ${LOGICAL_NAME}"
+        echo -e "campaign $LOGICAL_NAME successfully imported!\n"
+      elif [ "${TYPE}" == 'BUNDLE' ]; then
+        echo -e "bundle $LOGICAL_NAME successfully imported!\n"
+      else
+        abort "Unknown type: \"$TYPE\""
+      fi
+    fi
+  done
+
+  for ITEM in $CNAME_LIST; do
+    if [ -z "`cmw-repository-list --campaign | grep $ITEM`" ]; then
+      abort "$ITEM not correctly loaded"
+    fi
+  done
+}
+
+# The function starts and commits the campaigns listed in the
+# $CNAME_LIST variable.
+#--------------------------------------------------------------------
+function sdpinstall_sdp_install() {      
+  # cmw-campaign-start
+  BKP=''
+  INDEX=0
+  TOTAL=$( echo $CNAME_LIST | wc -w )
+  if [[ $OPT_BACKUP && $DISABLE_BACKUP = $SDP_TRUE ]]; then
+    BKP='--disable-backup'
+  fi
+  for CAMPAIGN in $CNAME_LIST; do
+    INDEX=$(( $INDEX + 1 ))
+    if [[ $OPT_BACKUP && $OPT_BACKUP_ARG =~ ^EDGES$ ]]; then
+      if [[ $INDEX -eq 1 || $INDEX -eq $TOTAL ]]; then
+        BKP=''
+      else
+        BKP='--disable-backup'
+      fi
+    fi
+    echo "$INDEX/$TOTAL) Performing \"cmw-campaign-start $BKP $CAMPAIGN\"..."
+    cmw-campaign-start $BKP $CAMPAIGN >/dev/null 2>&1
+    while [[ "`cmw-campaign-status $CAMPAIGN`" =~ (^.*EXECUTING$)|(^.*INITIAL$) ]]; do
+      sleep $CMW_STATUS_INTERVAL
+    done
+    if [[ ! "`cmw-campaign-status $CAMPAIGN`" =~ ^.*COMPLETED$ || ! "`cmw-status node su comp`" == 'Status OK' ]]; then
+      abort "Campaign $CAMPAIGN execution ended abnormally"
+    else
+      echo -e "cmw-campaign-start successfully completed!\n"
+    fi
+    # cmw-campaign-commit
+    echo "Performing \"cmw-campaign-commit $CAMPAIGN\"..."
+    cmw-campaign-commit $CAMPAIGN >/dev/null 2>&1
+    if [ $? -ne 0 ]; then
+      abort "The command \"cmw-campaign-commit $CAMPAIGN\" returned a non-zero value"
+    else
+      echo -e "cmw-campaign-commit successfully completed!\n"
+    fi
+    
+    echo "Checking if the $CAMPAIGN campaign has been committed..."
+    for (( I=3; I > 0; I-- )); do
+      # Check if the campaign has been committed.
+      if [[ ! "`cmw-campaign-status $CAMPAIGN`" =~ ^.*COMMITTED$ ]]; then
+        warning "$I attempt(s) left..."
+      else
+        echo -e "campaign $CAMPAIGN successfully committed!\n"
+        break
+      fi
+      sleep $CMW_COMMIT_INTERVAL
+    done
+    if [[ $I -le 0 && ! "`cmw-campaign-status $CAMPAIGN`" =~ ^.*COMMITTED$ ]]; then
+      abort "Failure while committing the following campaign:\n$CAMPAIGN"
+    fi
+  done
+  
+  echo "Performing \"cmw-sdp-remove $CNAME_LIST\"..."
+  for (( I=3; I > 0; I-- )); do
+    # cmw-sdp-remove                
+    cmw-sdp-remove $CNAME_LIST >/dev/null 2>&1
+    RETURN_VALUE=$?
+    if [ $RETURN_VALUE -ne 0 ]; then
+      warning "$I attempt(s) left..."
+    else
+      echo -e "cmw-sdp-remove successfully completed!\n"
+      break
+    fi
+    sleep $CMW_SDP_REMOVE_INTERVAL
+  done
+  if [[ $I -le 0 && $RETURN_VALUE -ne 0 ]]; then
+    warning "Failure while removing the following sdp(s):\n$CNAME_LIST\n\nManual intervention is required!"
+  fi
+}
+
+# The function reads the $OPT_BACKUP_ARG variable and checks for its correctness
+#--------------------------------------------------------------------
+function sdpinstall_backup_arguments_check() {
+  if [[ "$OPT_BACKUP_ARG" =~ ^NORMAL:.*$|^FULL:.*$ ]]; then
+    BNAME=$( echo $OPT_BACKUP_ARG | awk -F: '{ print $2 }' )
+    if [[ $BNAME != '' && ${#BNAME} -gt 2 && ! "$BNAME" =~ ^-.*$ ]]; then
+      BACKUP_NAME=`echo $BNAME | tr '[:lower:]' '[:upper:]'`
+      BACKUP_FILE_BEFORE="${BACKUP_NAME}_BEFORE"
+      BACKUP_FILE_AFTER="${BACKUP_NAME}_AFTER"                                
+    else
+      abort 'Missing parameter: <bname>'
+    fi                                      
+  else
+    BACKUP_NAME=''
+    if [[ "$OPT_BACKUP_ARG" =~ ^NORMAL$|^FULL$ ]]; then
+      echo 'The syntax for the NORMAL and FULL backups is the following:'
+      echo '--backup NORMAL:<bname>'
+      echo '--backup FULL:<bname>'
+      echo
+      abort "Badly formatted option"
+    else                                    
+      if [[ ! "$OPT_BACKUP_ARG" =~ ^OFF$|^CLEAR$|^EDGES$ ]]; then
+        abort "Wrong backup type: $OPT_BACKUP_ARG"
+      fi
+    fi
+  fi
+                                  
+  if [[ "$OPT_BACKUP_ARG" =~ ^NORMAL:.*$|^OFF$ ]]; then
+    DISABLE_BACKUP=$SDP_TRUE
+  else
+    DISABLE_BACKUP=$SDP_FALSE
+  fi
+}
+
+# The function reads the command line argument list and parses it flagging the
+#  right variables in a case/esac switch.
+#  Input: the function must be invoked with the $@ parameter:
+#   parse_cmdline $@
+#  Required: please make attention to handle the cases in the right way.
+#
+#--------------------------------------------------------------------
+function sdpinstall_parse_options() {    
+  # OPTIONS is a list of single-character options.
+  #  The string must be in the form:
+  #   Example: 'ovl' (for -o -v -l options).
+  #  Options that takes an argument must be followed by a colon:
+  #   Example: 'ov:l' (-v takes a mandatory argument).
+  #  Options with an optional argument must be followed by a double colon:
+  #   Example: 'ovl::' (-l takes an optional argument).
+  local OPTIONS='b: c: B: f: h'
+  
+  # LONG_OPTIONS is a list of space-separated multi-character options.
+  #  The string must be in the form:
+  #   Example: 'option1 option2 ... optionN'.
+  #  Options that takes an argument must be followed by a colon:
+  #   Example: 'option1: option2 ... optionN:'
+  #  Options with an optional argument must be followed by a double colon:
+  #   Example: 'option1:: option2:: ... optionN'
+  local LONG_OPTIONS='bundle: campaign: backup: file:'
+
+  ARGS=`getopt --longoptions "$LONG_OPTIONS" --options "$OPTIONS" -- "$@"`
+  RETURN_CODE=$?  
+  if [ $RETURN_CODE -ne 0 ]; then
+    abort "Wrong parameters"
+  fi
+  
+  eval set -- "$ARGS"
+  
+  # Make sure to handle the cases for all the options listed in OPTIONS
+  #  and LONG_OPTIONS and to fill up the right script-wide variables.
+  while [ $# -gt 0 ]; do          
+    case "$1" in
+      -b|--bundle)
+        OPT_BUNDLE=$SDP_TRUE
+        OPT_BUNDLE_ARG=$2
+        shift
+      ;;
+      -c|--campaign)
+        OPT_CAMPAIGN=$SDP_TRUE
+        OPT_CAMPAIGN_ARG=$2
+        shift
+      ;;
+      -B|--backup)
+        OPT_BACKUP=$SDP_TRUE
+        OPT_BACKUP_ARG=`echo $2 | tr '[:lower:]' '[:upper:]'`
+        sdpinstall_backup_arguments_check
+        shift
+      ;;
+      -f|--file)
+        OPT_FILENAME=$SDP_TRUE
+        OPT_FILENAME_ARG=$2
+        shift
+      ;;
+      --)
+        shift
+        break
+      ;;
+      *)
+        abort "Unrecognized option ($1)"
+      ;;
+    esac
+    shift
+  done
+}
+
+# The function checks for command-line options consistency.
+#--------------------------------------------------------------------
+function sdpinstall_options_check() {    
+  if [[ -z $OPT_BUNDLE && -z $OPT_CAMPAIGN ]]; then
+    if [[ $OPT_BACKUP && $OPT_BACKUP_ARG = 'CLEAR' ]]; then
+      OPT_SDPLIST=$SDP_FALSE
+    else
+      OPT_SDPLIST=$SDP_TRUE
+    fi
+  else
+    if [[ $OPT_BACKUP && $OPT_BACKUP_ARG = 'CLEAR' ]]; then
+      abort "Incompatible backup type: --backup CLEAR"
+    fi
+    
+    if [[ -z $OPT_BUNDLE || -z $OPT_CAMPAIGN || -z $OPT_BUNDLE_ARG || -z $OPT_CAMPAIGN_ARG ]]; then
+      abort 'Must specify at least one bundle and one campaign (or neither)'
+    fi
+  fi
+
+  if [ $OPT_FILENAME ]; then
+    if [ -z $OPT_SDPLIST ]; then
+      abort '--file must not be specified with the --bundle and/or --campaign options'
+    else
+      if [ -z $OPT_FILENAME_ARG ]; then
+        abort 'Missing parameter'
+      else
+        SDPLIST_FILE=$OPT_FILENAME_ARG
+      fi
+    fi
+  fi
+
+  if [[ ! -z $OPT_BACKUP && -z $OPT_BACKUP_ARG ]]; then
+    abort "Missing backup parameter"
+  fi
+
+  if [[ $OPT_BACKUP && $OPT_SDPLIST ]]; then
+    abort "Backup options must be specified inside the list file"          
+  fi
+}
+
+# The function checks for command-line option's arguments consistency.
+#--------------------------------------------------------------------
+function sdpinstall_args_check() {
+  #SDP_LIST_REGEX='^(.*(\.sdp){1}[:]{0,1}){1,}$'
+  SDP_LIST_REGEX='^(.*(\.[sr][dp][pm]){1}[:]{0,1}){1,}$'       
+  if [[ $OPT_BUNDLE && ! $OPT_BUNDLE_ARG =~ $SDP_LIST_REGEX ]]; then
+    abort "Badly formatted bundle list"
+  fi
+  if [[ $OPT_CAMPAIGN && ! $OPT_CAMPAIGN_ARG =~ $SDP_LIST_REGEX ]]; then
+    abort "Badly formatted campaign list"
+  fi      
+}
+
+# sdpinstall
+# A script to automate the sdp installation process.
+#
+# Usage:    sdpinstall [--file|-f <filename>]
+#           sdpinstall --bundle|-b <sdp_bundle_list>
+#                      --campaign|-c <sdp_campaign_list>
+#                      [--backup|-B NORMAL:<bname>|FULL:<bname>|EDGES|OFF]
+#         sdpinstall --backup|-B CLEAR
+#
+# If no --bundle nor --campaign options are given, then the command will
+#  fetch the SDPs to install from the file "sdpinstall.list" in the current
+#  working directory (the pathname of this file can be changed using the --file
+#  switch).
+#
+# OPTIONS
+# --bundle, -b <sdp_bundle_list>    installs the specified sdp bundle(s).
+# --campaign, -c <sdp_campaign_list>use the specified campaign(s) to install the
+#                                   bundle(s).                              
+# --backup, -B <btype>              Executes backups in different
+#                                   configurations, depending on <btype>.
+#                                   If this option is not specified, then the
+#                                   cmw-campaign-start command will be invoked
+#                                   WITHOUT the --disable-backup option and no
+#                                   extra backups will be made. It can be used
+#                                   only if both --bundle and --campaign options
+#                                   are specified.
+# --file, -f <filename>             Uses a file different than ./sdpinstall.list
+#                                   as source file for the SDPs to be installed.
+# 
+# ARGUMENTS
+# <sdp_bundle_list>                 A list of colon-separated sdp bundle files.
+# <sdp_campaign_list>               A list of colon-separated sdp campaign
+#                                   files.
+# <filename>                        The pathname of the file to be used as
+#                                   source for the SDPs to be installed.
+# <btype>                           Defines the backup type to be triggered. It
+#                                   can be one of the following types:
+#                                   NORMAL:<bname>  executes two partial
+#                                                   backups, one before and one
+#                                                   after the sdp installation.
+#                                                   They will be named after the
+#                                                   <bname> conventions.
+#                                                   Moreover the
+#                                                   cmw-campaign-start command
+#                                                   will be invoked WITH the
+#                                                   --disable-backup-option.
+#                                                   If you are using a CoreMW
+#                                                   version older than 2.1 SH3,
+#                                                   then this option is
+#                                                   FORBIDDEN.
+#                                   FULL:<bname>    executes two partial
+#                                                   backups, one before and one
+#                                                   after the sdp installation.
+#                                                   They will be named after the
+#                                                   <bname> conventions.
+#                                                   Moreover the
+#                                                   cmw-campaign-start command
+#                                                   will be invoked WITHOUT the
+#                                                   --disable-backup-option.
+#                                   EDGES           executes the
+#                                                   cmw-campaign-start command
+#                                                   WITH the --disable-backup
+#                                                   option EXCEPT for the first
+#                                                   and the last campaign of the
+#                                                   list.
+#                                   OFF             no backup at all.
+#                                                   If you are using a CoreMW
+#                                                   version older than 2.1 SH3,
+#                                                   then this option is
+#                                                   FORBIDDEN.
+#                                   CLEAR           it will remove ALL the
+#                                                   backups stored in the CoreMW
+#                                                   repository. This backup type
+#                                                   cannot be specified with the
+#                                                   --bundle nor the --campaign
+#                                                   options.
+#                                                   Use it with caution.
+# <bname>                           indicates the filename that will be used to
+#                                   store a backup. It will be named after the
+#                                   uppercase conversion of <bname> with the
+#                                   trailing tags "_BEFORE" and "_AFTER".
+function sdpinstall() {
+  echo "--- sdpinstall($@) begin"
+
+  # Variables
+  SDP_TRUE='TRUE'
+  SDP_FALSE=''
+  DISABLE_BACKUP=''
+  # Option variables
+  OPT_BUNDLE=''
+  OPT_BUNDLE_ARG=''
+  OPT_CAMPAIGN=''
+  OPT_CAMPAIGN_ARG=''
+  OPT_BACKUP=''
+  OPT_BACKUP_ARG=''
+  OPT_SDPLIST=''
+  OPT_FILENAME=''
+  OPT_FILENAME_ARG=''
+  # Functional variables
+  SDPLIST_FILE='./sdpinstall.list'
+  CMW_STATUS_INTERVAL=30
+  CMW_SDP_REMOVE_INTERVAL=10
+  CMW_COMMIT_INTERVAL=15
+
+  sdpinstall_parse_options $@
+  sdpinstall_options_check
+  sdpinstall_args_check
+  sdpinstall_sanity_checks
+  sdpinstall_backup_before
+  if [ $OPT_SDPLIST ]; then
+    sdpinstall_listfile_parsing
+  elif [[ $OPT_BUNDLE && $OPT_CAMPAIGN ]]; then
+    sdpinstall_cmdline_parsing
+  elif [[ $OPT_BACKUP && $OPT_BACKUP_ARG = 'CLEAR' ]]; then
+    sdpinstall_backup_clear
+  else
+    abort 'Unsupported options combination'
+  fi
+  sdpinstall_backup_after
+  
+  echo "--- sdpinstall($@) end"
+}
+
+#--------------------------------------------------------------------
+function get_sdp_campaign_name() {
+  # Sanity checks
+  [ $# -le 1 ] && abort 'Missing parameter'
+
+  # Local variables
+  local CGN_PATH=$1
+  local CGN_PRFX=$2
+
+  [ ! -d $CGN_PATH ] && abort "The folder $CGN_PATH does not exist"
+  find $CGN_PATH -name "$CGN_PRFX*.sdp"
+}
+
+#--------------------------------------------------------------------
+function get_bundle_list() {
+  # Sanity checks
+  [ $# -le 0 ] && abort 'Missing parameter'
+
+  # Local variables
+  local SDP_PATH=$1
+
+  [ ! -d $SDP_PATH ] && abort "The folder $SDP_PATH does not exist"
+  find $SDP_PATH -name '*.[rs][pd][mp]' | tr $'\n' ':' | sed -e 's/:$//'
+}
+
+#--------------------------------------------------------------------
+function resize_0_1() {
+  echo "--- resize_0_1($1, $2, $3) begin"
+
+  # Local variables
+  local CGN_PATH=$1
+  local CGN_PRFX=$2
+  local BDL_PATH=$3
+  local CGN_NAME=$(get_sdp_campaign_name $CGN_PATH $CGN_PRFX)
+  local BDL_LIST=$(get_bundle_list $BDL_PATH)
+
+  sdpinstall --bundle $BDL_LIST --campaign $CGN_NAME --backup OFF
+  [ $? -ne $TRUE ] && abort "An error occurred during the execution of the \"$CGN_NAME\" campaign"
+
+  echo "--- resize_0_1($1, $2, $3) end"
+}
+
+# Build the UID prefix
+#--------------------------------------------------------------------
+function uid_prefix() {
+
+  local ADDR_MAGAZINE=$1
+  local INDEX=0
+	
+  OIFS=$IFS
+  IFS='.'
+
+  for x in $ADDR_MAGAZINE
+  do
+    arr[INDEX]=$x
+    let INDEX=INDEX+1
+  done
+	
+  IFS=$OIFS
+	
+  if [ ${arr[3]} -gt 9 ]; then
+    UID_PRE='\00'${arr[3]}.${arr[1]}.${arr[0]}
+  else
+    UID_PRE='\000'${arr[3]}.${arr[1]}.${arr[0]}
+  fi
+}
+
+# Create the dhcp configuration file 
+#--------------------------------------------------------------------
+function create_dhcp_conf_file() {
+  echo "--- create_dhcp_conf_file() begin"
+
+  declare -a slots=($SLOT_SCB_A $SLOT_SCB_B $SLOT_SCB_A $SLOT_SCB_B)
+  declare -a sides=('A' 'A' 'B' 'B')
+  declare -a eth_label=($ETH_A $ETH_A $ETH_B $ETH_B)
+  declare -a ip_addr=($IPA_SCB_A $IPA_SCB_B $IPB_SCB_A $IPB_SCB_B)
+
+  echo -e "#\n# $DHCP_CONF_FILE: dhcpd configuration\n#\n" > $DHCP_CONF_FILE
+  echo -e "authoritative;" >> $DHCP_CONF_FILE
+  echo -e "ddns-update-style none;" >> $DHCP_CONF_FILE
+  echo -e "subnet ${IPNA_SUBNET_ADDR} netmask ${NETMASK} {" >> $DHCP_CONF_FILE
+
+  for i in 0 1
+  do
+    echo -e "\n\thost ${MAG_ID}_${slots[$i]}_${sides[$i]} {" >> $DHCP_CONF_FILE
+    echo -e "\t\tdynamic;" >> $DHCP_CONF_FILE
+    echo -e "\t\tuid\"\\${UID_PRE}.${slots[$i]}:${eth_label[$i]}\";" >> $DHCP_CONF_FILE
+    echo -e "\t\tfixed-address ${ip_addr[$i]};" >> $DHCP_CONF_FILE
+    echo -e "\t}" >> $DHCP_CONF_FILE
+  done
+
+  echo -e "}\n" >> $DHCP_CONF_FILE
+  echo -e "subnet ${IPNB_SUBNET_ADDR} netmask ${NETMASK} {" >> $DHCP_CONF_FILE
+
+  for i in 2 3
+  do
+    echo -e "\n\thost ${MAG_ID}_${slots[$i]}_${sides[$i]} {" >> $DHCP_CONF_FILE
+    echo -e "\t\tdynamic;" >> $DHCP_CONF_FILE
+    echo -e "\t\tuid\"\\${UID_PRE}.${slots[$i]}:${eth_label[$i]}\";" >> $DHCP_CONF_FILE
+    echo -e "\t\tfixed-address ${ip_addr[$i]};" >> $DHCP_CONF_FILE
+    echo -e "\t}" >> $DHCP_CONF_FILE
+  done
+
+  echo -e "}\n" >> $DHCP_CONF_FILE
+  echo -e "# End of file" >> $DHCP_CONF_FILE
+
+  echo "--- create_dhcp_conf_file() end"
+}
+
+# Create the dhcp configuration file 
+#--------------------------------------------------------------------
+function create_dhcp_conf_file_for_second_node() {
+	cat > $DHCP_CONF_FILE << HEREDOC
+#
+# /etc//dhcpd.conf: dhcpd configuration
+#
+
+authoritative;
+ddns-update-style none;
+
+option space pxelinux;
+option pxelinux.magic      code 208 = string;
+option pxelinux.configfile code 209 = text;
+option pxelinux.reboottime code 211 = unsigned integer 32;
+
+subnet 169.254.208.0 netmask 255.255.255.0 {
+        site-option-space "pxelinux";
+        option pxelinux.magic f1:00:74:7e;
+        option pxelinux.configfile "pxelinux.conf";
+        option pxelinux.reboottime 10;
+        if exists dhcp-parameter-request-list {
+                # Always send the PXELINUX options
+                option dhcp-parameter-request-list = concat(option dhcp-parameter-request-list,d0,d1,d3);
+        }
+
+        host SC-2-1_internal_0 {
+                hardware ethernet $(fetch_param node1_mac_address_eth3);
+                fixed-address 169.254.208.1;
+                next-server 169.254.208.101;
+                filename "nodes/1/boot/boot.0";
+        }
+
+        host SC-2-1_internal_1 {
+                hardware ethernet $(fetch_param node1_mac_address_eth4);
+                fixed-address 169.254.208.1;
+                next-server 169.254.208.101;
+                filename "nodes/1/boot/boot.0";
+        }
+
+        host SC-2-2_internal_0 {
+                hardware ethernet $(fetch_param node2_mac_address_eth3);
+                fixed-address 169.254.208.2;
+                next-server 169.254.208.102;
+                filename "nodes/2/boot/boot.0";
+        }
+
+        host SC-2-2_internal_1 {
+                hardware ethernet $(fetch_param node2_mac_address_eth4);
+                fixed-address 169.254.208.2;
+                next-server 169.254.208.102;
+                filename "nodes/2/boot/boot.0";
+        }
+}
+
+# End of file
+HEREDOC
+}
+
+# Start the dhcpd service. If $1 == "mi" start the dhcpd service with the configuration for SCBs board
+# else if $1 == "lotc" start the dhcpd service with the standard configuration for APUBs boards.
+#--------------------------------------------------------------------
+function start_dhcp_service() {
+  local AP_TYPE=""
+  AP_TYPE=$(cat $MI_PATH/$MI_INST/ap_type)
+  echo "--- start_dhcp_service($1) begin"
+  case "$1" in
+  apg)
+    service='apg-dhcpd.service'
+    if [[ "$HW_TYPE" =~ "GEP5" || "$HW_TYPE" =~ "GEP7" ]]; then
+      service='dhcpd.service'
+    fi
+    systemctl start $service >/dev/null 2>&1
+    if [ "$AP_TYPE" = "AP2" ];then
+      echo "DHCP status not verified on AP2"
+    else
+      if ! systemctl_start_status $service 2>/dev/null; then
+        abort "Failure while starting DHCP service"
+      fi
+    fi
+    ;;
+  mi)
+    /usr/sbin/dhcpd -q -f bond0 &>/dev/null 2>&1 &
+    DHCP_MI_PID=$!
+    if ! ps aux | grep $DHCP_MI_PID | grep -v grep; then
+      abort "Unable to start the dhcpd daemon for MI"
+    fi 
+    ;;
+  *)
+    abort "Unrecognized option ($1)"
+    ;;
+  esac
+
+  echo "--- start_dhcp_service($1) end"
+}
+
+# Stop the dhcpd service. If $1 == "mi" stop the dhcpd service with the configuration for SCBs board
+# else if $1 == "lotc" stop the dhcpd service with the standard configuration for APUBs boards.
+#--------------------------------------------------------------------
+function stop_dhcp_service() {
+  echo "--- stop_dhcp_service($1) begin"
+
+  case "$1" in
+  apg)
+    service='apg-dhcpd.service'
+    if [[ "$HW_TYPE" =~ "GEP5" || "$HW_TYPE" =~ "GEP7"   ]]; then
+      service='dhcpd.service'
+    fi 
+    /usr/bin/systemctl stop $service >/dev/null 2>&1
+    if ! systemctl_stop_status $service 2>/dev/null; then 
+      abort "Failure while stopping OS DHCP"
+    fi
+    ;;
+  mi)
+    if [ ${DHCP_MI_PID} -ne 0 ]; then
+      kill -9 ${DHCP_MI_PID}
+    else
+      abort "Wrong DHCPD PID: ${DHCP_MI_PID}"
+    fi
+    ;;
+  *)
+    abort "Unrecognized option ($1)"
+    ;;
+  esac
+
+  echo "--- stop_dhcp_service($1) end"
+}
+
+# configure the environment for dhcpd service
+#--------------------------------------------------------------------
+function configure_dhcp_service() {
+  echo "--- configure_dhcp_service() begin"
+
+  # Build the UID prefix 
+  uid_prefix $MAG_ID
+	
+  # Build the UID id
+  UID_ID=$UID_PRE.$SLOT_SCB_A:$ETH_A
+
+  # create the dhcpd.conf file for the new dhcpd configuration
+  create_dhcp_conf_file
+
+  # create a fake lease file
+  rm $DHCP_LEASES_FILE &>/dev/null 2>&1
+  touch $DHCP_LEASES_FILE &>/dev/null 2>&1
+	
+  echo "--- configure_dhcp_service() end"
+}
+
+#--------------------------------------------------------------------
+function set_mastership() {
+  echo "--- set_mastership() begin"
+
+  # Local variables
+  local SHLF_CMD_SET="set"
+  local SHLF_CMD_GET="get"
+
+  if [ "$(${SMPATH}/shelfmngr get master)" == "none" ]; then
+    ${SMPATH}/shelfmngr $SHLF_CMD_SET master sc_a &>/dev/null 2>&1
+    if [ $? -eq $TRUE ]; then
+      echo "--  SCBRP_A has mastership now"
+    else
+      ${SMPATH}/shelfmngr $SHLF_CMD_SET master sc_b &>/dev/null 2>&1
+      if [ $? -eq $TRUE ]; then
+        echo "--  SCBRP_B has mastership now"
+      else
+        abort "Impossible to set the mastership"
+      fi
+    fi
+  else
+    echo "--  mastership is already set!"
+  fi
+
+  echo "--- set_mastership() end"
+}
+
+#--------------------------------------------------------------------
+function get_mac_addresses() {
+  echo "--- get_mac_addresses() begin"
+
+  # Local variables
+  local APUB_SLOTS=''
+  local MAC=''
+  local INDEX=0
+  local COUNTER=0;
+  local MAC_ADDR_CURR_NODE=0;
+  local MAC_ADDR_OTHE_NODE=0;
+
+  declare -a INTERFACE=('eth0' 'eth1' 'eth2' 'eth3' 'eth4')
+
+  # Set the mastership
+  set_mastership
+
+  # Get slot id of APUB board
+  APUB_SLOT="$(${SMPATH}/shelfmngr get productid all-slots | grep 'ROJ 208 841\/[12]') 2>/dev/null"
+
+  # Get from shelfmngr output the slot id of APUB board	
+  if [ -n "$APUB_SLOT" ]; then
+    APUB_SLOT="$(echo $APUB_SLOT | tr '[:space:]' '\n' | grep -i slot | tr 'slot[]:' ' ')"
+    for P in $APUB_SLOT; do			
+      if [ $P ]; then 
+        APUB_SLOTS[INDEX]=$P
+        let INDEX=INDEX+1
+      fi
+    done
+  fi
+
+  # For each APUB board get the MAC addresses
+  for j in 0 1; do
+    COUNTER=0
+    let num=j+1
+
+    # Get MAC address of APUB
+    MAC="$(${SMPATH}/shelfmngr get mac ${APUB_SLOTS[j]} --eth=all) 2>/dev/null"
+
+    # Initialize local array whit MAC address of APUB board
+    local i=0
+    OIFS="$IFS";
+    IFS='
+';
+    for mac in $MAC; do
+      APUB_MAC[$i]=${mac:5:17}
+      let i=i+1
+    done
+    IFS="$OIFS";
+
+    for i in 0 1 2 3 4; do
+      # Convert the string to upper to lower charachter
+      X="$(echo ${APUB_MAC[i]}| tr '[:lower:]' '[:upper:]')"
+      # Replace space with ':' character
+      X="$(echo $X | tr '[:space:]' ':')"
+      # Remove last character of string
+      X="$(echo ${X%?})"
+
+      echo "--  Check MAC address "$X" of APUB board of slot " ${APUB_SLOTS[j]} &>/dev/null 2>&1
+      # Compare the MAC addresses of APUB_SLOT[j] whit those of current node 
+      if [ ! -s $MI_PATH/$MI_INST/node${num}_mac_address_eth$i ]; then
+        echo "--  File $MI_PATH/$MI_INST/node${num}_mac_address_eth$i not exist" &>/dev/null 2>&1
+      else
+        if [ "$X" == "$(cat $MI_PATH/$MI_INST/node${num}_mac_address_eth$i)" ]; then
+          let COUNTER=COUNTER+1
+        else
+          echo "--  MAC address of interface ${INTERFACE[$i]} do not match" &>/dev/null 2>&1
+        fi		
+      fi
+    done
+
+    if [ $COUNTER -eq 5 -a $MAC_ADDR_CURR_NODE -eq 0 ]; then
+      echo "MAC addresses of APUB slot ${APUB_SLOTS[j]} checked" &>/dev/null 2>&1
+      MAC_ADDR_CURRENT_NODE=( "${APUB_MAC[@]}" )
+      MAC_ADDR_CURR_NODE=1
+      MAC_ADDR_OTHER_NODE=( "${APUB_MAC[@]}" )
+      MAC_ADDR_OTHE_NODE=1
+    fi
+  done
+
+  if [[ $MAC_ADDR_CURR_NODE -ne 1 || $MAC_ADDR_OTHE_NODE -ne 1 ]]; then
+    abort "Unable to get the MAC addresses"
+  fi
+
+  echo "--- get_mac_addresses() end"
+}
+
+#--------------------------------------------------------------------
+function fetch_param() {
+  if [ ! -s $MI_PATH/$MI_INST/$1 -o -z "$(cat $MI_PATH/$MI_INST/$1)" ]; then
+    abort "Empty value for the $1 installation parameter"
+  else
+    echo "$(cat $MI_PATH/$MI_INST/$1)"
+  fi
+}
+
+#--------------------------------------------------------------------
+function str_replace() {
+  echo "--- str_replace($1, $2, $3) begin"
+
+  # Local variables
+  local FILE=$1
+  local FILE_TMP=${FILE}_tmp
+  local STATEMENT=$2
+  local REPLACEMENT=$3
+  # Statement replace
+  if [ -f "$FILE" ]; then
+    if [ "`cat $FILE | grep \"$STATEMENT\"`" ]; then
+      sed -i "s@$STATEMENT@$REPLACEMENT@g" $FILE
+    else
+      abort "Statement \"$STATEMENT\" not found in \"$FILE\""
+    fi
+  else
+    abort "File \"$FILE\" not found"
+  fi
+
+  echo "--- str_replace($1, $2, $3) end"
+}
+
+#--------------------------------------------------------------------
+function generate_random_MAC() {
+  local MAC="$1"
+  local RNDMAC=$( (date; cat /proc/interrupts) | md5sum | sed -r 's/^(.{10}).*$/\1/; s/([0-9a-f]{2})/\1:/g; s/:$//;' )
+  echo "${MAC:0:2}:$RNDMAC" | tr '[:lower:]' '[:upper:]'
+}
+
+#--------------------------------------------------------------------
+function set_LAA_bit() {
+  # Local variables
+  local MAC="$1"
+  local NIBBLE=$( echo ${MAC:1:1} )
+
+  case "$NIBBLE" in
+  0) NIBBLE="2"
+    ;;
+  1) NIBBLE="3"
+    ;;
+  4) NIBBLE="6"
+    ;;
+  5) NIBBLE="7"
+    ;;
+  8) NIBBLE="A"
+    ;;
+  9) NIBBLE="B"
+    ;;
+  C) NIBBLE="E"
+    ;;
+  D) NIBBLE="F"
+    ;;
+  *) MAC=$( generate_random_MAC $MAC)
+    ;;
+  esac
+  local LAAMAC=$( echo ${MAC:0:1} )$NIBBLE$( echo ${MAC:2} )
+  echo "$LAAMAC"
+}
+
+# ---------------------------------------------------------------------------- #
+# cluster.conf parameters                                                      #
+# ---------------------------------------------------------------------------- #
+#
+# <cluster_timezone> OPTIONAL (default: UTC)
+# 
+# <public_network_ipv4_address> MANDATORY (default: 10.246.15.0)
+# <public_network_ipv4_prefix> MANDATORY (default: 24)
+# 
+# <public2_network_ipv4_address> OPTIONAL (default: Not configured)
+# <public2_network_ipv4_prefix> OPTIONAL (default: Not configured)
+# 
+# <physep_network_ipv4_address> OPTIONAL (default: Not configured)
+# <physep_network_ipv4_prefix> OPTIONAL (default: Not configured)
+# 
+# <node1_mac_address_eth0> MANDATORY (default: Fetched via OS during MI)
+# <node1_mac_address_eth1> MANDATORY (default: Fetched via OS during MI)
+# <node1_mac_address_eth2> MANDATORY (default: Fetched via OS during MI)
+# <node1_mac_address_eth3> MANDATORY (default: Fetched via OS during MI)
+# <node1_mac_address_eth4> MANDATORY (default: Fetched via OS during MI)
+# 
+# <node2_mac_address_eth0> MANDATORY (default: Fetched via IPMI bus during MI)
+# <node2_mac_address_eth1> MANDATORY (default: Fetched via IPMI bus during MI)
+# <node2_mac_address_eth2> MANDATORY (default: Fetched via IPMI bus during MI)
+# <node2_mac_address_eth3> MANDATORY (default: Fetched via IPMI bus during MI)
+# <node2_mac_address_eth4> MANDATORY (default: Fetched via IPMI bus during MI)
+# 
+# <node1_mac_address_mvl0> MANDATORY (default: Automatically evaluated)
+# <node1_mac_address_mvl1> MANDATORY (default: Automatically evaluated)
+# 
+# <node2_mac_address_mvl0> MANDATORY (default: Automatically evaluated)
+# <node2_mac_address_mvl1> MANDATORY (default: Automatically evaluated)
+# 
+# <node1_public_network_ipv4_ip_address> MANDATORY (default: 10.246.15.30)
+# <node2_public_network_ipv4_ip_address> MANDATORY (default: 10.246.15.31)
+# 
+# <cluster_public_network_ipv4_ip_address> MANDATORY (default: 10.246.15.32)
+# 
+# <node1_public2_network_ipv4_ip_address> OPTIONAL (default: Not configured)
+# <node2_public2_network_ipv4_ip_address> OPTIONAL (default: Not configured)
+# 
+# <cluster_public2_network_ipv4_ip_address> OPTIONAL (default: Not configured)
+# 
+# <physep_network_ipv4_gateway_ip_address> OPTIONAL (default: Not configured)
+# 
+# <default_network_ipv4_gateway_ip_address> MANDATORY (default: 10.246.15.1)
+# 
+# <cluster_keymap> OPTIONAL (default: US)
+# 
+# ---------------------------------------------------------------------------- #
+# LEGENDA                                                                      #
+# ---------------------------------------------------------------------------- #
+# MANDATORY means that the parameter is mandatory in cluster.conf              #
+# OPTIONAL means that the parameter is optional in cluster.conf                #
+# ---------------------------------------------------------------------------- #
+function configure_cluster_tmp() {
+  echo "--- configure_cluster($1) begin"
+
+  # Local variables
+  local FILE=$1
+
+  # MACs addresses for node2
+  str_replace "$FILE" "<node2_mac_address_eth0>" "$(fetch_param node2_mac_address_eth0)"
+  str_replace "$FILE" "<node2_mac_address_eth1>" "$(fetch_param node2_mac_address_eth1)"
+  str_replace "$FILE" "<node2_mac_address_eth2>" "$(fetch_param node2_mac_address_eth2)"
+  str_replace "$FILE" "<node2_mac_address_eth3>" "$(fetch_param node2_mac_address_eth3)"
+  str_replace "$FILE" "<node2_mac_address_eth4>" "$(fetch_param node2_mac_address_eth4)"
+
+  # MAC_VLANs for node2(modified for ARP issue)
+  if [ "$switch_type" == "SCB" ] && [ "$apt_type" == "BSC" ];  then
+    str_replace "$FILE" "<node2_mac_address_mvl0>" "$(generate_mvl_mac mvl0 node2)"
+    str_replace "$FILE" "<node2_mac_address_mvl1>" "$(generate_mvl_mac mvl1 node2)"
+  else
+    str_replace "$FILE" "<node2_mac_address_mvl0>" "$(fetch_param node2_mac_address_mvl0)"
+    str_replace "$FILE" "<node2_mac_address_mvl1>" "$(fetch_param node2_mac_address_mvl1)"
+  fi
+  str_replace "$FILE" "<node2_mac_address_mvl2>" "$(fetch_param node2_mac_address_mvl2)"
+  str_replace "$FILE" "<node2_public_network_ipv4_ip_address>" "$(fetch_param node2_public_network_ipv4_ip_address)"
+
+  echo "--- configure_cluster($FILE) end"
+}
+#--------------------------------------------------------------------
+function isBSP(){
+	local rCode=$FALSE
+	local MI_INST_PATH="$MI_PATH/$MI_INST"
+	local apShelfManager=$( cat $MI_INST_PATH/shelf_architecture)
+	
+	[ "$apShelfManager" == "DMX" ] && rCode=$TRUE
+	
+	return $rCode
+}
+
+#--------------------------------------------------------------------
+function isGEP5_64(){
+	local rCode=$FALSE
+	local MI_INST_PATH="$MI_PATH/$MI_INST"
+	local apInstallationHw=$( cat $MI_INST_PATH/installation_hw)
+	
+	[ "$apInstallationHw" == "GEP5_64_1200" ] && rCode=$TRUE 
+	
+	return $rCode
+}
+
+#--------------------------------------------------------------------
+function is10G(){
+	local rCode=$FALSE
+	local MI_INST_PATH="$MI_PATH/$MI_INST"
+	if [[ $HW_TYPE =~ "GEP4" || $HW_TYPE =~ "GEP5" || $HW_TYPE =~ "GEP7" ]]; then
+		local apShelfManager=$( cat $MI_INST_PATH/shelf_architecture)
+		local apShelfSwitch=$( cat $MI_INST_PATH/shelf_switch)
+		[[ "$apShelfManager" =~ "DMX" || "$apShelfManager" =~ "SCX" || "$apShelfManager" =~ "SMX" ]] && {
+			[[  "$apShelfSwitch" =~ "CMX"  || "$apShelfSwitch" =~ "SMX" ]] && rCode=$TRUE 
+		}
+	fi
+	return $rCode
+}
+
+#--------------------------------------------------------------------
+function isCLFEnabled(){
+  local rCode=$FALSE
+  local MI_INST_PATH="$MI_PATH/$MI_INST"
+  local STORAGE_API='/usr/share/pso/storage-paths/config'
+  local STORAGE_PATH=$(cat $STORAGE_API)
+  local CFG_FILE='apos/apg_oam_access'
+  if [[ $HW_TYPE =~ "GEP4" || $HW_TYPE =~ "GEP5" || $HW_TYPE =~ "GEP7" ]]; then
+    local apShelfManager=$( cat $MI_INST_PATH/shelf_architecture)
+    local apgOaMaccess=$( cat $MI_INST_PATH/apg_oam_access)
+    if [ -z "$apgOaMaccess" ]; then
+      local apgOaMaccess=$( cat $STORAGE_PATH/$CFG_FILE)
+    fi
+    [[ "$apShelfManager" =~ "DMX" || "$apShelfManager" =~ "SMX" || "$apShelfManager" =~ "SCX" ]] && {
+      [ "$apgOaMaccess" == "NOCABLE" ] && rCode=$TRUE
+    }
+
+  fi
+
+  return $rCode
+}
+
+#--------------------------------------------------------------------
+function configure_cluster() {
+  echo "--- configure_cluster($1) begin"
+
+  # Local variables
+  local FILE=$1
+
+  str_replace "$FILE" "<cluster_timezone>" "$(fetch_param cluster_timezone)"
+
+  str_replace "$FILE" "<public_network_ipv4_address>" "$(fetch_param public_network_ipv4_address)"
+  str_replace "$FILE" "<public_network_ipv4_prefix>" "$(fetch_param public_network_ipv4_prefix)"
+
+  # MACs addresses for node1
+ if [[ $HW_TYPE != GEP7* ]]; then
+  str_replace "$FILE" "<node1_mac_address_eth0>" "$(fetch_param node1_mac_address_eth0)"
+  str_replace "$FILE" "<node1_mac_address_eth1>" "$(fetch_param node1_mac_address_eth1)"
+ fi
+ 
+  str_replace "$FILE" "<node1_mac_address_eth2>" "$(fetch_param node1_mac_address_eth2)"
+  str_replace "$FILE" "<node1_mac_address_eth3>" "$(fetch_param node1_mac_address_eth3)"
+  str_replace "$FILE" "<node1_mac_address_eth4>" "$(fetch_param node1_mac_address_eth4)"
+
+  [[ $HW_TYPE =~ "GEP4" || $HW_TYPE =~ "GEP5" || $HW_TYPE =~ "GEP7" ]] && {
+    str_replace "$FILE" "<node1_mac_address_eth5>" "$(fetch_param node1_mac_address_eth5)"
+    str_replace "$FILE" "<node1_mac_address_eth6>" "$(fetch_param node1_mac_address_eth6)"
+    if isGEP5_64 ; then	
+      str_replace "$FILE" "<node1_mac_address_eth7>" "$(fetch_param node1_mac_address_eth7)"
+      str_replace "$FILE" "<node1_mac_address_eth8>" "$(fetch_param node1_mac_address_eth8)"
+    fi 
+	
+	if [[ $HW_TYPE =~ "GEP7" ]] ; then	
+      str_replace "$FILE" "<node1_mac_address_eth7>" "$(fetch_param node1_mac_address_eth7)"
+      str_replace "$FILE" "<node1_mac_address_eth8>" "$(fetch_param node1_mac_address_eth8)"
+    fi 
+	
+	
+  }
+
+  # MACs addresses for node2
+ if [[ $HW_TYPE != GEP7* ]]; then
+  str_replace "$FILE" "<node2_mac_address_eth0>" "$(fetch_param node2_mac_address_eth0)"
+  str_replace "$FILE" "<node2_mac_address_eth1>" "$(fetch_param node2_mac_address_eth1)"
+ fi
+  str_replace "$FILE" "<node2_mac_address_eth2>" "$(fetch_param node2_mac_address_eth2)"
+  str_replace "$FILE" "<node2_mac_address_eth3>" "$(fetch_param node2_mac_address_eth3)"
+  str_replace "$FILE" "<node2_mac_address_eth4>" "$(fetch_param node2_mac_address_eth4)"
+  
+  [[ $HW_TYPE =~ "GEP4" || $HW_TYPE =~ "GEP5" || $HW_TYPE =~ "GEP7" ]] && {
+    str_replace "$FILE" "<node2_mac_address_eth5>" "$(fetch_param node2_mac_address_eth5)"
+    str_replace "$FILE" "<node2_mac_address_eth6>" "$(fetch_param node2_mac_address_eth6)"
+    if isGEP5_64 ; then
+      str_replace "$FILE" "<node2_mac_address_eth7>" "$(fetch_param node2_mac_address_eth7)"
+      str_replace "$FILE" "<node2_mac_address_eth8>" "$(fetch_param node2_mac_address_eth8)"
+    fi 
+	
+	if [[ $HW_TYPE =~ "GEP7" ]] ;then
+      str_replace "$FILE" "<node2_mac_address_eth7>" "$(fetch_param node2_mac_address_eth7)"
+      str_replace "$FILE" "<node2_mac_address_eth8>" "$(fetch_param node2_mac_address_eth8)"
+    fi 
+  }
+
+  # MAC_VLANs for node1(Modified for ARP issue)
+  if [ "$switch_type" == "SCB" ] && [ "$apt_type" == "BSC" ];  then
+    str_replace "$FILE" "<node1_mac_address_mvl0>" "$(generate_mvl_mac mvl0 node1)"
+    str_replace "$FILE" "<node1_mac_address_mvl1>" "$(generate_mvl_mac mvl1 node1)"
+  else
+    str_replace "$FILE" "<node1_mac_address_mvl0>" "$(fetch_param node1_mac_address_mvl0)"
+    str_replace "$FILE" "<node1_mac_address_mvl1>" "$(fetch_param node1_mac_address_mvl1)"
+  fi
+  if  ! isSIMULATED ; then
+    str_replace "$FILE" "<node1_mac_address_mvl2>" "$(fetch_param node1_mac_address_mvl2)"
+  fi   
+  # MAC_VLANs for node2(Modified for ARP issue)
+  if [ "$switch_type" == "SCB" ] && [ "$apt_type" == "BSC" ];  then
+    str_replace "$FILE" "<node2_mac_address_mvl0>" "$(generate_mvl_mac mvl0 node2)"
+    str_replace "$FILE" "<node2_mac_address_mvl1>" "$(generate_mvl_mac mvl1 node2)"
+  else
+    str_replace "$FILE" "<node2_mac_address_mvl0>" "$(fetch_param node2_mac_address_mvl0)"
+    str_replace "$FILE" "<node2_mac_address_mvl1>" "$(fetch_param node2_mac_address_mvl1)"
+  fi
+  if ! isSIMULATED ; then
+    str_replace "$FILE" "<node2_mac_address_mvl2>" "$(fetch_param node2_mac_address_mvl2)"
+  fi
+  str_replace "$FILE" "<node1_public_network_ipv4_ip_address>" "$(fetch_param node1_public_network_ipv4_ip_address)"
+  str_replace "$FILE" "<node2_public_network_ipv4_ip_address>" "$(fetch_param node2_public_network_ipv4_ip_address)"
+
+  str_replace "$FILE" "<cluster_public_network_ipv4_ip_address>" "$(fetch_param cluster_public_network_ipv4_ip_address)"
+  str_replace "$FILE" "<default_network_ipv4_gateway_ip_address>" "$(fetch_param default_network_ipv4_gateway_ip_address)"
+  is10G && str_replace "$FILE" "<network_10g_vlantag>" "$(fetch_param network_10g_vlantag)"
+  
+  if isBSP; then
+    # BGCI subnet is made fo first three bytes of the network (fixed netmask length is 24)
+  	str_replace "$FILE" "<bgci_a_network>" "$(fetch_param bgci_a_network)"
+  	str_replace "$FILE" "<bgci_a_subnet>" "$(echo "$(fetch_param bgci_a_network)" | awk -F. '{print $1"."$2"."$3}')"
+  	
+  	str_replace "$FILE" "<bgci_b_network>" "$(fetch_param bgci_b_network)"
+  	str_replace "$FILE" "<bgci_b_subnet>" "$(echo "$(fetch_param bgci_b_network)" | awk -F. '{print $1"."$2"."$3}')"
+  fi
+
+	 isCLFEnabled && {
+    str_replace "$FILE" "<oam_vlanid>" "$(fetch_param oam_vlanid)"
+  }
+  
+  str_replace "$FILE" "<tipc_vlantag>" "$(fetch_param tipc_vlantag)"
+  str_replace "$FILE" "<cluster_keymap>" "$(fetch_param cluster_keymap)"
+  echo "--- configure_cluster($FILE) end"
+}
+
+#--------------------------------------------------------------------
+function is_alive() {
+  if [[ $# -gt 0 && $1 =~ ^[0-9]+$ ]]; then
+    local TIPC_ADDR="1.1.$1"
+    local LINE="<$TIPC_ADDR>: up"
+    if [ $(tipc node list | grep "$LINE" | wc -l) -gt 0 ]; then
+      return $TRUE
+    fi
+  else
+    abort 'Missing mandatory parameter'
+  fi
+  return $FALSE
+}
+
+#--------------------------------------------------------------------
+function is_connected() {
+  local res=$1
+  if [ $(drbdadm status "$res" | grep "$res role:Secondary" | wc -l ) -eq 1 ] && [ $(drbdadm status "$res" | grep 'SC-2-2 role:Secondary' | wc -l ) -eq 1 ];then
+    return $TRUE
+  else
+    return $FALSE
+  fi
+}
+
+#--------------------------------------------------------------------
+function wait_drbd1_join() {
+  echo "--- wait_drbd1_active() begin"
+  while ! is_connected 'drbd1' ;do
+    sleep 5
+  done
+  echo 'drbd1 is now joined from node 2' &>/dev/null 2>&1
+  echo "--- wait_drbd1_join() end"
+}
+
+#--------------------------------------------------------------------
+function is_in_sync() {
+	local res=$1
+        if [ $(drbdadm status "$res" |  tr -d " " |  grep '^disk:UpToDate' | wc -l )  -eq 1 ] && [ $(drbdadm status "$res" |  grep 'peer-disk:UpToDate' | wc -l ) -eq 1 ];then
+		return $TRUE
+	else
+		return $FALSE
+	fi
+}
+
+#--------------------------------------------------------------------
+function lotc_rpm_add() {
+  echo "--- lotc_rpm_add() begin"
+
+  local RPMS_DIR='/cluster/rpms'
+  local LOTC_RPM=$( find $RPMS_DIR -name 'linux-control-*.rpm')
+  if [ -z $LOTC_RPM ];then
+    LOTC_RPM=$( find $RPMS_DIR -name 'ldews-control-*.rpm')
+  fi
+  if [ -z $LOTC_RPM ];then
+    abort 'Failure while fetching lotc rpm'
+  fi
+  cluster rpm -a $(basename $LOTC_RPM) -n 2 &>/dev/null 2>&1
+  [ $? -ne $TRUE ] && abort 'Failure while adding lotc rpm to node 2'
+
+  echo "--- lotc_rpm_add() end"
+}
+
+#--------------------------------------------------------------------
+function node_B_boot_control_old() {
+  echo "--- node_B_boot_control() begin"
+
+  # Set the mastership
+  set_mastership
+
+  # Set the APUB B to boot from network (eth3)
+  ${SMPATH}/shelfmngr set bootdev --eth=eth3 apub_b &>/dev/null 2>&1
+  echo 'apub_b network boot: done' &>/dev/null 2>&1
+  # Reset the APUB B
+  ${SMPATH}/shelfmngr set reboot apub_b &>/dev/null 2>&1
+  echo 'apub_b reset: done' &>/dev/null 2>&1
+  local RETURN_CODE=$FALSE
+  while [ $RETURN_CODE -ne $TRUE ]; do
+    ping -c 1 192.168.1.2 &>/dev/null 2>&1
+    RETURN_CODE=$?
+    sleep 5
+  done
+  echo 'apub_b is now pingable (192.168.1.2)' &>/dev/null 2>&1
+  # Set the APUB B to boot from the system disk
+  ${SMPATH}/shelfmngr set bootdev --disk=systemdisk apub_b &>/dev/null 2>&1
+  echo 'apub_b disk boot: done' &>/dev/null 2>&1
+
+  echo "--- node_B_boot_control() end"
+}
+
+#--------------------------------------------------------------------
+function node_B_boot_control() {
+  echo "--- node_B_boot_control() begin"
+
+  # Set the mastership
+  set_mastership
+
+  # Set the APUB B to boot from network (eth3)
+  ${SMPATH}/shelfmngr set bootdev --eth=eth3 apub_b &>/dev/null 2>&1
+  echo 'apub_b network boot: done' &>/dev/null 2>&1
+  # Reset the APUB B
+  ${SMPATH}/shelfmngr set reboot apub_b &>/dev/null 2>&1
+  echo 'apub_b reset: done' &>/dev/null 2>&1
+  local RETURN_CODE=$FALSE
+  while [ $RETURN_CODE -ne $TRUE ]; do
+    ping -c 1 192.168.1.2 &>/dev/null 2>&1
+    RETURN_CODE=$?
+    sleep 5
+  done
+  echo 'apub_b is now pingable (192.168.1.2)' &>/dev/null 2>&1
+  #Set the APUB B to boot from the system disk
+  ${SMPATH}/shelfmngr set bootdev --disk=systemdisk apub_b &>/dev/null 2>&1
+  echo 'apub_b disk boot: done' &>/dev/null 2>&1
+
+  echo "--- node_B_boot_control() end"
+}
+
+#--------------------------------------------------------------------
+function activate_vg() {
+	echo "--- activate_vg() begin"
+  	LVM_CONF='/etc/lvm/lvm.conf'
+	LVM_FILTER='filter = [ "a|drbd0|sd.*|", "r|.*|" ]'
+	[ ! -f $LVM_CONF ] && abort "lvm.conf file not found"
+	$(grep 'drbd0|sd.*' $LVM_CONF &>/dev/null)
+	[ $? -ne $TRUE ] && {
+		sed -i "/^\s*filter/ c \    $LVM_FILTER" $LVM_CONF
+		[ $? -ne $TRUE ] && abort "Falied to update lvm.conf file"
+		$( /sbin/lvmdiskscan &>/dev/null )
+		[ $? -ne $TRUE ] && abort "Falied to update lvm.conf file"
+	}
+	
+	echo "--- activate_vg() end"
+}
+
+#--------------------------------------------------------------------
+function wait_node_b_startup() {
+  echo "--- wait_node_b_startup() begin"
+
+  while ! is_in_sync 'drbd0'; do
+	sleep 5
+  done
+  echo 'drbd0 partitions are now in sync' &>/dev/null 2>&1
+  
+  while ! is_alive 2; do
+    sleep 5
+  done
+  echo 'node 2 is now up' &>/dev/null 2>&1
+
+  echo "--- wait_node_b_startup() end"
+}
+
+#--------------------------------------------------------------------
+function get_campaign_name() {
+  CGN_PATH="$MI_PATH/$MI_SWRE/$MI_SWCG"
+  local STAGE=${1:-1}
+  local SYSPKG=$(fetch_param system_package)
+  local CAMP_NAME=$(find $CGN_PATH -name "ERIC-S${STAGE}-${SYSPKG}-*" -exec basename {} \;|uniq)
+  echo "$CAMP_NAME"
+}
+
+#--------------------------------------------------------------------
+function resize_1_2() {
+  echo "--- resize_1_2($1, $2, $3) begin"
+
+  sleep 120
+  /opt/coremw/sbin/cmw-cluster-resize &>/dev/null 2>&1
+  [ $? -ne $TRUE ] && abort 'Failure while invoking cmw-cluster-resize'
+  sleep 120
+  local SDP_PATH="$MI_PATH/$MI_SWRE/$MI_SWCG"
+  local CAMPAIGN_NAME="$(get_campaign_name 2)"
+  local BUNDLE_LIST=$(get_bundle_list $SDP_PATH)
+  BUNDLE_FILE_LIST=''
+  CAMPAIGN_FILE_LIST=$SDP_PATH/$CAMPAIGN_NAME
+  #sdpinstall_sdp_import &>/dev/null 2>&1
+  sdpinstall_sdp_import
+  #sdpinstall_sdp_install &>/dev/null 2>&1
+  sdpinstall_sdp_install
+  [ $? -ne $TRUE ] && abort "An error occurred during the execution of the \"$CAMPAIGN_NAME\" campaign"
+
+  echo "--- resize_1_2($1, $2, $3) end"
+}
+
+#--------------------------------------------------------------------
+function installation_check() {
+  echo "--- installation_check() begin"
+
+  if [ ! "$(cmw-status node app sg su comp si csiass)" == "Status OK"  ]; then
+    abort "CoreMW status is NOT-OK"
+  fi
+
+  echo "--- installation_check() end"
+}
+
+#--------------------------------------------------------------------
+function cleanup() {
+  echo "--- cleanup() begin"
+
+  echo "--- cleanup() end"
+}
+
+#--------------------------------------------------------------------
+function get_hook_path() {
+  local FOLDER="${HOOKS_DIR}"
+	[ -z "${FOLDER}" ] && FOLDER="/tmp/hooks_execute_dir"
+	[ ! -d ${FOLDER} ] && abort "ERROR: The hook path is not configured by LOTC!"
+	echo "${FOLDER}"
+}
+
+#--------------------------------------------------------------------
+function get_repo_path() {
+  local FOLDER=$( cluster install --repo-path )
+  if [ $? -ne 0 ]; then
+    FOLDER="/tmp/installation_repo"
+    if [ -d ${FOLDER} ]; then
+      echo "${FOLDER}"
+    else
+      echo "ERROR: The hook path is not configured by LOTC!"; echo "Aborting"; echo ""; exit 1
+    fi
+  else
+    if [ -d ${FOLDER} ]; then
+      echo "${FOLDER}"
+    else
+      echo "ERROR: The hook path is wrongly provided by LOTC!"; echo "Aborting"; echo ""; exit 1
+    fi
+  fi
+}
+
+#--------------------------------------------------------------------
+function second_node_ip() {
+   # get SC-2 internal ip addrss
+   grep 'ip 2 bond0 internal' /cluster/etc/cluster.conf |awk '{print $5}'
+}
+
+#--------------------------------------------------------------------
+function udev_rules() {
+	echo "--- udev_rules() begin"
+	
+    pushd $HOOK_PATH >/dev/null 2>&1
+    [  ! -r ./non_exec-udev.tgz ] && abort "Unable to read the non_exec-udev.tgz file"
+	
+    tar -xzf ./non_exec-udev.tgz
+	[ ! -x ./udev/apos_udevconf.sh ] && abort "Unable to execute the apos_udevconf.sh"
+	
+    ./udev/apos_udevconf.sh
+    [ $? -ne 0 ] && abort "Failure while executing the apos_udevconf.sh on node 2"
+    
+	popd >/dev/null 2>&1
+	echo "--- udev_rules() end"
+}
+
+#--------------------------------------------------------------------
+function configure_drbd() {
+  echo "--- configure_drbd() begin" 
+  local OPTS=$1
+
+  pushd $HOOK_PATH >/dev/null 2>&1
+  [ ! -r ./non_exec-raidmgr.tgz ] && abort "Unable to read non_exec-raidmgr.tgz file"
+
+  tar -xzf ./non_exec-raidmgr.tgz
+  [ ! -x ./raid/raidmgr_mi ] && abort "Unable to execute raidmgr_mi"
+  ./raid/raidmgr_mi "$OPTS"
+  [ $? -ne 0 ] && abort "Failure while configuring drbd1 on first node"
+  popd >/dev/null 2>&1
+  
+  echo "--- configure_drbd() end" 
+}
+
+#--------------------------------------------------------------------
+function config_aptype() {
+  # LOTC API for Persistent Storage Area Path
+  STORAGE_CONFIG_PATH="/usr/share/pso/storage-paths/config"
+
+  # Setting Persistent Storage Area for apos config
+  AP_TYPE_FILE="apos/aptype.conf"
+  AP_TYPE_DEST_FOLDER=$(cat $STORAGE_CONFIG_PATH)
+
+  install -m 444 -D $MI_PATH/$MI_INST/ap_type  $AP_TYPE_DEST_FOLDER/$AP_TYPE_FILE
+}
+
+#--------------------------------------------------------------------
+function config_ap2_oam() {
+  echo "--- config_ap2_oam() begin"
+  local AP_TYPE=""
+  AP_TYPE=$(cat $MI_PATH/$MI_INST/ap_type)
+  # Setting Persistent Storage Area for apos config
+  APOS_PSO_DEST=$(cat $STORAGE_CONFIG_PATH)
+  AP2_OAM_PSO_FILE="apos/ap2_oam"
+  if [ "$AP_TYPE" = "AP2" ];then
+    install -m 444 -D $MI_PATH/$MI_INST/ap2_oam  $APOS_PSO_DEST/$AP2_OAM_PSO_FILE
+    [ $? -ne 0 ] && abort "Failure while executing the execution of config_ap2_oam"
+  fi
+  echo "--- config_ap2_oam() end"
+}
+#--------------------------------------------------------------------
+function config_apt_type() {
+  echo "--- config_apt_type() begin"
+  # LOTC API for Persistent Storage Area Path
+  STORAGE_CONFIG_PATH="/usr/share/pso/storage-paths/config"
+
+  # Setting Persistent Storage Area for apos config
+  APT_TYPE_FILE="apos/apt_type"
+  APT_TYPE_DEST_FOLDER=$(cat $STORAGE_CONFIG_PATH)
+
+  install -m 444 -D $MI_PATH/$MI_INST/apt_type  $APT_TYPE_DEST_FOLDER/$APT_TYPE_FILE
+
+	echo "-- config_apt_type() end"
+}
+
+#--------------------------------------------------------------------
+function create_prompt_config() {
+  echo "--- create_prompt_config()  begin"
+  # Setting Persistent Storage Area for apos config
+  APOS_PSO_DEST=$(cat $STORAGE_CONFIG_PATH)
+  NODE_A_NAME_FILE="apos/nodeA_MEId"
+  NODE_B_NAME_FILE="apos/nodeB_MEId"
+
+  install -m 444 -D $MI_PATH/$MI_INST/me_name $APOS_PSO_DEST/$NODE_A_NAME_FILE
+  [ $? -ne 0 ] && abort "Failure while executing the execution of config_node_me"
+
+  install -m 444 -D $MI_PATH/$MI_INST/me_name $APOS_PSO_DEST/$NODE_B_NAME_FILE
+  [ $? -ne 0 ] && abort "Failure while executing the execution of config_node_me"
+
+  echo "--- create_prompt_config() end"
+}
+
+#--------------------------------------------------------------------
+function create_http_cert_folder() {
+  echo "--- create_http_cert_folder() begin"
+  local STORAGE_API='/usr/share/pso/storage-paths/config'
+  local STORAGE_PATH=$(cat $STORAGE_API)
+	local APOS_PERSISTANT_STORAGE_PATH="$STORAGE_PATH/apos" 
+	local APOS_CERTIFICATES_PERSISTANT_PATH="$APOS_PERSISTANT_STORAGE_PATH/sec/var/db"
+  [ ! -d "$APOS_PERSISTANT_STORAGE_PATH" ] && mkdir -p $APOS_PERSISTANT_STORAGE_PATH
+  if [ ! -d "$APOS_CERTIFICATES_PERSISTANT_PATH" ]; then
+    mkdir -p "$APOS_CERTIFICATES_PERSISTANT_PATH" || \
+      abort "Failure while creating $APOS_CERTIFICATES_PERSISTANT_PATH"
+  fi
+  echo "--- create_http_cert_folder() end"
+}
+
+#--------------------------------------------------------------------
+function shelfArchitecture() {
+
+  echo "--- shelfArchitecture() begin"
+  # this function is used to display shelf architecture
+  local MI_INST_PATH="$MI_PATH/$MI_INST"
+  local STORAGE_API='/usr/share/pso/storage-paths/config'
+  local STORAGE_PATH=$(cat $STORAGE_API)
+  local CFG_FILE='apos/shelf_architecture'
+
+  if [ -f $MI_INST_PATH/shelf_architecture ]; then
+   install -m 444 -D $MI_INST_PATH/shelf_architecture $STORAGE_PATH/$CFG_FILE
+  fi
+
+  echo "--- shelfArchitecture() end"
+}
+
+#--------------------------------------------------------------------
+function systemType() {
+  echo "--- systemType() begin"
+  # this function is used to create persistent system_type file 
+  local MI_INST_PATH="$MI_PATH/$MI_INST"
+  local STORAGE_API='/usr/share/pso/storage-paths/config'
+  local STORAGE_PATH=$(cat $STORAGE_API)
+  local CFG_FILE='apos/system_type'
+
+  if [ -f $MI_INST_PATH/system_type ]; then
+   install -m 444 -D $MI_INST_PATH/system_type $STORAGE_PATH/$CFG_FILE
+  fi
+
+  echo "--- systemType() end"
+
+}
+
+#--------------------------------------------------------------------
+
+function mauType() {
+  echo "--- mauType() begin"
+  # this function is used to display mauType
+  local MI_INST_PATH="$MI_PATH/$MI_INST"
+  local STORAGE_API='/usr/share/pso/storage-paths/config'
+  local STORAGE_PATH=$(cat $STORAGE_API)
+  local CFG_FILE='acs_csbin/mau_type'
+
+  if [ -f $MI_INST_PATH/mau_type ]; then
+    install -m 444 -D $MI_INST_PATH/mau_type $STORAGE_PATH/$CFG_FILE
+  fi
+
+  echo "--- mauType() end"
+}
+
+#--------------------------------------------------------------------
+function oam_vlantag() {
+
+  echo "--- oam_vlantag() begin"
+  # this function is used to generate file (oam_vlanid)
+  # EGEM2, GEP5,GEP7 EVO and BSP configuration: oam_vlanid
+  # is mandatory.
+  local MI_INST_PATH="$MI_PATH/$MI_INST"
+  local STORAGE_API='/usr/share/pso/storage-paths/config'
+  local STORAGE_PATH=$(cat $STORAGE_API)
+  local CFG_FILE='apos/oam_vlanid'
+
+  if [ -f $MI_INST_PATH/oam_vlanid ]; then
+    install -m 444 -D $MI_INST_PATH/oam_vlanid $STORAGE_PATH/$CFG_FILE
+  fi
+
+  echo "--- oam_vlantag() end"
+}
+
+#--------------------------------------------------------------------
+function tipc_vlantag() {
+
+  echo "--- tipc_vlantag() begin"
+  # this function is used to generate file (tipc_vlantag)
+  # EGEM2, GEP5,GEP7 EVO and BSP configuration: tipc_vlantag
+  # is mandatory.
+  local MI_INST_PATH="$MI_PATH/$MI_INST"
+  local STORAGE_API='/usr/share/pso/storage-paths/config'
+  local STORAGE_PATH=$(cat $STORAGE_API)
+  local CFG_FILE='apos/tipc_vlantag'
+
+  if [ -f $MI_INST_PATH/tipc_vlantag ]; then
+    install -m 444 -D $MI_INST_PATH/tipc_vlantag $STORAGE_PATH/$CFG_FILE
+  fi
+
+  echo "--- tipc_vlantag() end"
+}
+
+#--------------------------------------------------------------------
+function cmxb_vlantag() {
+
+  echo "--- cmxb_vlantag() begin"
+  # this function is used to generate file (network_10g_vlantag)
+  # EGEM2, GEP5, GEP7, EVO and BSP configuration: network_10g_vlantag file
+  # is mandatory.
+  local MI_INST_PATH="$MI_PATH/$MI_INST"
+  local STORAGE_API='/usr/share/pso/storage-paths/config'
+  local STORAGE_PATH=$(cat $STORAGE_API)
+  local CFG_FILE='apos/network_10g_vlantag'
+
+  if [ -f $MI_INST_PATH/network_10g_vlantag ]; then
+    install -m 444 -D $MI_INST_PATH/network_10g_vlantag $STORAGE_PATH/$CFG_FILE
+  fi
+
+  echo "--- cmxb_vlantag() end"
+}
+
+#--------------------------------------------------------------------
+function network_bw() {
+	echo "--- network_bw() begin"
+	# this function is used to generate file (drbd_network_capacity)
+  	# EGEM2, GEP5, GEP7, EVO and BSP configuration: network bandwidth is 10GE
+  	# Rest of all configurations: network bandwidth is 1GE
+ 	local MI_INST_PATH="$MI_PATH/$MI_INST"
+	local STORAGE_API='/usr/share/pso/storage-paths/config'
+	local STORAGE_PATH=$(cat $STORAGE_API)
+	local CFG_FILE='apos/drbd_network_capacity'
+	local TMP_CFG_FILE='/tmp/drbd_network_capacity'
+
+	if [[ -f $MI_INST_PATH/shelf_switch && -f $MI_INST_PATH/shelf_architecture ]]; then
+		# this is the place, you can split bw and reserve
+		echo '10G' > $TMP_CFG_FILE
+		install -m 444 -D $TMP_CFG_FILE $STORAGE_PATH/$CFG_FILE
+		rm -f $TMP_CFG_FILE
+	fi
+	echo "--- network_bw() end"
+}
+
+#--------------------------------------------------------------------
+function installation_hw() {
+	echo "--- installation_hw() begin"
+	# this function is used to fetch the type of the hardware type
+	local MI_INST_PATH="$MI_PATH/$MI_INST"
+	local STORAGE_API='/usr/share/pso/storage-paths/config'
+	local STORAGE_PATH=$(cat $STORAGE_API)
+	local CFG_FILE='apos/installation_hw'
+
+	if [ -f $MI_INST_PATH/installation_hw ]; then
+		install -m 444 -D $MI_INST_PATH/installation_hw $STORAGE_PATH/$CFG_FILE
+	fi
+
+	echo "--- installation_hw() end"
+}
+
+#--------------------------------------------------------------------
+function turbo_boost_cp() {
+	echo "--- turbo_boost_cp() begin"
+	# this function is used to know if turbo boost is enabled or not for GEP7 CP blades
+	local MI_INST_PATH="$MI_PATH/$MI_INST"
+	local STORAGE_API='/usr/share/pso/storage-paths/config'
+	local STORAGE_PATH=$(cat $STORAGE_API)
+	local CFG_FILE='apos/turbo_boost_cp'
+
+        #checking for turbo_boost_cp file if there is no file 
+        #create a file with default value.
+	if [ ! -f $MI_INST_PATH/turbo_boost_cp ]; then
+		echo "FALSE" >  $STORAGE_PATH/$CFG_FILE
+	fi
+	
+        install -m 444 -D $MI_INST_PATH/turbo_boost_cp $STORAGE_PATH/$CFG_FILE
+
+	echo "--- turbo_boost_cp() end"
+}
+
+#--------------------------------------------------------------------
+function cached_creds_duration() {
+	echo "--- cached_creds_duration() begin"
+	# this function is used to store cached_creds_duration in APOS PSO
+	local AP_TYPE=""
+ 	AP_TYPE=$(cat $MI_PATH/$MI_INST/ap_type)
+ 	# Setting Persistent Storage Area for apos config
+ 	APOS_PSO_DEST=$(cat $STORAGE_CONFIG_PATH)
+	local CFG_FILE='apos/cached_creds_duration'
+	if [ "$AP_TYPE" = "AP1" ];then
+		echo -n "0" > $APOS_PSO_DEST/$CFG_FILE
+		chmod 666 $APOS_PSO_DEST/$CFG_FILE
+	fi
+	echo "--- cached_creds_duration() end"
+}
+
+#--------------------------------------------------------------------
+function sec_la() {
+  echo "--- sec_la() begin"
+  # this function is used to configure sec la configuration file
+  local SEC_LA_CONFIG_PATH='/storage/system/config/sec-apr9010539/la/etc'
+  local SEC_LA_CONFIG_FILE='la-admin.conf'
+  mkdir -p $SEC_LA_CONFIG_PATH
+  if [ $? -ne 0 ];then
+    abort "Failure while creating sec_la configuration folder $SEC_LA_CONFIG_PATH" 
+  fi
+  cat > $SEC_LA_CONFIG_PATH/$SEC_LA_CONFIG_FILE << EOF
+ADMIN_USERID=laadmin
+ADMIN_PASSWD=!\$6\$rZPQ75jIt6PoP\$/wPqicx1kQpfYvxGCXJCZEL//OpW7WhqaVy03ope5FNW6Yf9sSkUgYWgT87NXuK3zSFvH18N/lkVzpotNVb8p/
+EOF
+  if [ $? -ne 0 ];then
+    abort "Failure while creating sec_la configuration file $SEC_LA_CONFIG_FILE"
+  fi
+  echo "--- sec_la() end"
+}
+
+#--------------------------------------------------------------------
+function sec_ldap() {
+  echo "--- sec_ldap() begin"
+	# this function is used to configure sec ldap configuration file
+	local SEC_LDAP_CONFIG_PATH='/storage/system/config/sec-apr9010539/ldap/etc/'
+	local SEC_LDAP_CONFIG_FILE='ldap_aa.conf'
+	mkdir -p $SEC_LDAP_CONFIG_PATH
+	if [ $? -ne 0 ];then
+		abort "Failure while creating sec_ldap configuration folder $SEC_LDAP_CONFIG_PATH"
+	fi
+	cat > $SEC_LDAP_CONFIG_PATH/$SEC_LDAP_CONFIG_FILE << EOF
+# SEC LDAP Integration configuration
+#
+# Ldap Authentication method configuration
+#
+# These must be defined prior the SEC LDAP installation is executed.
+#
+# ldap-username-case-sensitive:Treat user names as case sensitive
+# Possible values (without quotation marks):
+# "True" = Case sensitive (default)
+# "Preserving" = Case insensitive, but does not change the casing in
+# in the result of NSS operations (NSS operations return the original username)
+CASE_SENSITIVE=Preserving
+
+# ldap network timeout in seconds for SEC LDAP SM authorization role fetch, default is 11 seconds
+LDAP_NETWORK_TIMEOUT=11
+
+# If the primary LDAP server fails, for example due to a network
+# timeout, its status is cached internally as unavailable. While
+# the primary LDAP server is unavailable only the secondary LDAP
+# server is used. The status of the primary LDAP server is checked
+# again after LDAP_SERVER_STATUS_CACHE_TIMEOUT seconds. If the cache
+# timeout value is zero, it means the primary LDAP server unavailable
+# state cache is not used.
+LDAP_SERVER_STATUS_CACHE_TIMEOUT=0
+EOF
+  if [ $? -ne 0 ];then
+		abort "Failure while creating sec_la configuration file $SEC_LDAP_CONFIG_FILE"
+	fi
+	echo "--- sec_ldap() end"
+}
+
+#--------------------------------------------------------------------
+function add_vlan_info() {
+
+	echo "--- add_vlan_info() begin"
+  local VLAN_MAPING_CONF="/cluster/etc/ap/apos/vlan_adapter_maping.conf"
+	local APOS_FOLDER="/cluster/etc/ap/apos/"
+  local VLAN='Public'
+  
+	local INTERFACE='bond1'
+  local OAM_VLAN="$(fetch_param oam_vlanid)"
+	[ ! -d $APOS_FOLDER ] && mkdir -p $APOS_FOLDER
+	[ ! -f $VLAN_MAPING_CONF ] && touch $VLAN_MAPING_CONF
+
+  if [ -f $VLAN_MAPING_CONF ]; then
+    echo -e  "$VLAN\t\t$INTERFACE.$OAM_VLAN" > $VLAN_MAPING_CONF
+	fi
+   echo "--- add_vlan_info() end"
+}
+
+#--------------------------------------------------------------------
+function apg_oam_access() {
+  echo "--- apg_oam_access() begin"
+  # this function is used to generate file (apg_oam_access)
+  # supported values for apg_OaM_type is FRONTCABLE/NOCABLE
+  # if it is NOCABLE, cableless settings configured
+  # if it is FRONTCABLE, Normal cable settings configured
+  local MI_INST_PATH="$MI_PATH/$MI_INST"
+  local STORAGE_API='/usr/share/pso/storage-paths/config'
+  local STORAGE_PATH=$(cat $STORAGE_API)
+  local CFG_FILE='apos/apg_oam_access'
+  local APG_OAM_ACCESS='FRONTCABLE'
+
+  if [ -f $MI_INST_PATH/apg_oam_access ]; then
+    install -m 444 -D $MI_INST_PATH/apg_oam_access $STORAGE_PATH/$CFG_FILE
+  else
+    # create temporary apg_oam_access file
+    local TMP_OAM_FILE='/tmp/apg_oam_access'
+    echo "$APG_OAM_ACCESS" > $TMP_OAM_FILE
+
+    install -m 444 -D $TMP_OAM_FILE $STORAGE_PATH/$CFG_FILE
+
+    # clean up tmp file
+    rm -f $TMP_OAM_FILE
+  fi
+
+  echo "--- apg_oam_access() end"
+}
+
+
+#--------------------------------------------------------------------
+function config_storage_type() {
+	echo "--- config_storage_type() begin"
+	# datadisk_replication_type is optional parameter set in the factory
+	# parameters file. If this parameter is not set, then the installation
+	# checks for hw-type to deduce the replication type.
+	# Following are the valid combinations:
+	# hw-type=GEP1/GEP2 -- replication_type=MD/DRBD ( optional,  default=MD ) 
+	# hw-type=GEP4/GEP5/GEP7 -- replication_type=DRBD	( optional,  default=DRBD )
+	# hw-type=VM		-- replication_type=MD/DRBD ( mandatory, default=DRBD )
+	#
+	STORAGE_TYPE='DRBD'
+	local MI_INST_PATH="$MI_PATH/$MI_INST"
+	local STORAGE_API='/usr/share/pso/storage-paths/config'
+	local STORAGE_PATH=$(cat $STORAGE_API)
+	local CFG_FILE='apos/datadisk_replication_type'
+	if [ -f $MI_INST_PATH/datadisk_replication_type ]; then
+		STORAGE_TYPE=$( cat $MI_INST_PATH/datadisk_replication_type)
+		if [ -z "$STORAGE_TYPE" ]; then
+			STORAGE_TYPE='DRBD'
+			[[ "$HW_TYPE" =~ "GEP1" || "$HW_TYPE" =~ "GEP2" ]] && STORAGE_TYPE='MD'
+		else
+			[[ "$HW_TYPE" =~ "GEP4" || "$HW_TYPE" =~ "GEP5" || "$HW_TYPE" =~ "GEP7" ]] && [[ "$STORAGE_TYPE" != "DRBD" ]] &&
+			apos_abort 1 "$STORAGE_TYPE not supported on $HW_TYPE"
+		fi
+	else
+		[[ "$HW_TYPE" =~ "GEP1" || "$HW_TYPE" =~ "GEP2" ]] && STORAGE_TYPE='MD'
+	fi	
+
+	# create temporary data disk replication type
+	local TMP_REP_FILE='/tmp/datadisk_replication_type'
+	echo "$STORAGE_TYPE" > $TMP_REP_FILE
+
+	# create datadisk_replication_type in persistent area so that 
+	# rest of the installation and restore process can use it
+	install -m 444 -D $TMP_REP_FILE $STORAGE_PATH/$CFG_FILE
+
+	# clean up tmp file
+	rm -f $TMP_REP_FILE
+
+	echo "--- config_storage_type() end"
+}
+
+function init_system() {
+  TMP_DIR='/tmp/mi'
+
+  DHCP_FILE_NAME='dhcpd.conf'
+  DHCP_LEASES_FILE_NAME='dhcpd.leases'
+  DHCP_MI_PID='0'
+
+  ETH_A='ethA'
+  ETH_B='ethB'
+  SLOT_SCB_A='0'
+  SLOT_SCB_B='25'
+  IPNA_SUBNET_ADDR='192.168.169.0'
+  IPNB_SUBNET_ADDR='192.168.170.0'
+  NETMASK='255.255.255.0'
+
+  IPA_SCB_A='192.168.169.56'
+  IPA_SCB_B='192.168.169.60'
+  IPB_SCB_A='192.168.170.56'
+  IPB_SCB_B='192.168.170.60'
+
+  UID_PRE=''
+  DRBD_DISK=''
+
+  MI_PATH='/cluster/mi'
+  MI_INST='installation'
+  
+  SMPATH='/opt/ap/apos/bin/sm'
+
+  CAMPAIGN_PREFIX='ERIC-S'
+  
+  # Creating temporary folders
+  mkdir -p $TMP_DIR
+
+  # Setting up variables with installation parameters
+  MAG_ID=$(fetch_param shelf_id)
+  
+  # Setting up other variables
+  DHCP_CONF_FILE=$TMP_DIR/$DHCP_FILE_NAME
+  DHCP_LEASES_FILE=$TMP_DIR/$DHCP_LEASES_FILE_NAME
+
+  # Common functions sourcing
+  local common_functions="${HOOK_PATH}/non_exec-common_functions"
+  . ${common_functions}
+	
+  # fetch hw-type
+  HW_TYPE=$(get_hwtype)  
+}
+
+function validate_clusterconf(){
+  local oldline=""
+  local TMP=$( mktemp --tmpdir mi_clusterconfig_validate_output_XXXXX )
+  [ ! -f ${TMP} ] && abort "Unable to create temporary file!"
+  cluster config -v -V &>/dev/null
+  [ $? -ne $TRUE ] && abort "The cluster config validation tool exits with error"
+
+  cluster config -v -V 2>&1 | grep -E '^Warning' -A2 > ${TMP}
+  if [ -s ${TMP} ]; then
+  	echo "--" >>${TMP}
+  	while read line; do
+    	if [ "$line" == '--' ]; then
+      		case $oldline in
+        	"ip address 192.168.200.1 is already assigned on line "*)
+          		echo "legit warning found"
+        		;;
+							"at least two IP addresses should be used in order"*)
+							 echo "legit warning found"
+						;;
+        	*)
+          		rm -f ${TMP}
+          		abort "unexpected warning while validating cluster.conf"
+        		;;
+      		esac
+    	fi
+    	oldline=$line
+  	done < <(cat ${TMP})
+  fi		
+  rm -f ${TMP}
+  return 0
+}
+
+#                                              __    __   _______   _   __    _
+#                                             |  \  /  | |  ___  | | | |  \  | |
+#                                             |   \/   | | |___| | | | |   \ | |
+#                                             | |\  /| | |  ___  | | | | |\ \| |
+#                                             | | \/ | | | |   | | | | | | \   |
+#                                             |_|    |_| |_|   |_| |_| |_|  \__|
+#
+main() {
+  echo "--- main() begin"
+
+  # Local variables
+  local MI_LOGS='logs'
+  local MI_SWRE='sw'
+  local MI_SWBD='bdl'
+  local MI_SWCG='cgn'
+  local MI_SWCM='cmw'
+  local SW_TGZ='sw.tgz'
+  local CGN_PREFIX='ERIC-S'
+  local REPO_PATH=$( get_repo_path )
+  local HOOK_PATH=$( get_hook_path )
+  local NODE_NAME=$( cat /etc/cluster/nodes/this/hostname )
+  local CLUSTER_TEMPLATE=""
+
+  # Initialize the system
+  init_system
+  status_update "Linux installed on first node"
+
+  sleep 10
+
+	echo "-- Configure APOS --"
+  config_aptype
+
+  #configure storage type
+  config_storage_type
+
+  #configure ap2 oam
+  config_ap2_oam
+
+  #configure apt type
+  config_apt_type
+
+  #configure bash prompt with node name
+  create_prompt_config
+
+  #configure apg access type
+  apg_oam_access
+
+  #fetch and store hardware type
+  installation_hw
+  
+  #fetch turbo boost for cp value
+  turbo_boost_cp
+
+  # Create persistant file for shelfArchitecture
+  shelfArchitecture
+
+  # Create persistant file for system_type
+  systemType
+  
+  # Create persistant file for mauType
+  mauType
+	
+  # Create under PSO cached_creds_duration in APOS PSO
+  cached_creds_duration
+
+  # Create SEC LA configuration file
+  sec_la
+
+  # Create SEC LDAP configuration file
+  sec_ldap
+  
+  ######## Workaround for GSNH issue ###################
+  # Create persistant folder to store private keys
+  create_http_cert_folder
+  ####### Workaround for GSNH issue ####################
+
+  if [ "$STORAGE_TYPE" == "DRBD" ]; then
+    # Check 10g configuration
+    if is10G ; then
+      # Generate network bandwidth file
+      network_bw
+
+      # Create persistant file for 10g vlantag
+      cmxb_vlantag
+    
+      # Create persistant file for oam vlantag
+      oam_vlantag
+
+      # Create persistant file for tipc vlantag
+      tipc_vlantag
+    fi	
+	  # activate vg
+	  activate_vg
+	
+	  # udev rules
+	  udev_rules
+
+  fi
+  
+  if [ "$STORAGE_TYPE" == "DRBD" ]; then
+    # Generating drbd1.conf and activating it.
+    # Having this hear, lets our installtion process enable /etc/cluster FS which helps to
+    # generate --configure in the right order.
+    OPTS='--lvm --configure --activate --force'
+    configure_drbd "$OPTS"
+  fi
+
+  local RETURN_CODE=$FALSE
+
+  IP_SECOND_NODE=$(second_node_ip)
+
+  while [ $RETURN_CODE -ne $TRUE ]; do
+	 # modified for AP2 introduction      
+    ping -c 1 $IP_SECOND_NODE &>/dev/null 2>&1
+    RETURN_CODE=$?
+    sleep 5
+  done
+  echo "apub_b is now pingable ($IP_SECOND_NODE)" &>/dev/null 2>&1
+
+  status_update "Linux installed on second node"
+  echo "--  waiting for node b to be up..."
+  wait_node_b_startup
+  status_update "Cluster storage in sync"
+
+  ########## WORK AROUND FOR GEP7 ####################
+  if [[ "$HW_TYPE" =~ GEP7 ]]; then
+    if [ "$(</cluster/mi/installation/ap_type)" == 'AP2' ]; then
+	    SUB_STATE=$(/usr/bin/systemctl show --property=SubState dhcpd.service | awk -F'=' '{print $2}')
+	    if [ "$SUB_STATE" == 'running' ]; then
+		    /usr/bin/systemctl stop dhcpd.service &>/dev/null 2>&1
+	    fi
+    fi
+  fi
+  ########## WORK AROUND FOR GEP7 ####################
+
+  [ "$STORAGE_TYPE" == "DRBD" ] && {
+ 	# wait for drbd1 is to be active on Node 2
+	wait_drbd1_join
+	
+	# format drbd1
+	OPTS='--format --force'
+  configure_drbd "$OPTS"
+	
+	echo "-- formatting done..."
+	sleep 10     
+	status_update "Data storage in sync"
+	
+	# check if drbd1 is in sync with node1
+	! is_in_sync 'drbd1' && abort "Unable to drbd1 in sync."
+	
+  }
+
+
+  # Small patch begin
+  ssh SC-2-1 "cluster rootfs -c -f -n 1"
+  ssh SC-2-2 "cluster rootfs -c -f -n 2"
+  # Small patch end
+
+	# populate vlan info in vlan_adapter_maping.conf,
+  # this is only for cableless feature 
+  isCLFEnabled && add_vlan_info
+
+  echo "-- cleaning up the system..."
+  cleanup
+  status_update "Software update is in progress"
+
+  # Copying log files
+  if [ -d $MI_PATH/$MI_LOGS ]; then
+    pushd "$MI_PATH/$MI_LOGS" > /dev/null 2>&1
+    if [ ! -d $NODE_NAME ]; then mkdir $NODE_NAME; fi
+    pushd "$NODE_NAME" > /dev/null 2>&1
+    cp /root/*.log $MI_PATH/$MI_LOGS/$NODE_NAME/
+    popd > /dev/null 2>&1; popd > /dev/null 2>&1
+  else
+    abort "Unable to find the $MI_PATH/$MI_LOGS folder"
+  fi
+  
+  echo "--- main() end"
+}
+
+# Main
+
+echo "APG43L: After-booting-from-disk prologue hook for SC-2-1 node."
+
+TMP_DIR=''
+
+DHCP_FILE_NAME=''
+DHCP_LEASES_FILE_NAME=''
+DHCP_CONF_FILE=''
+DHCP_LEASES_FILE=''
+DHCP_MI_PID=''
+
+ETH_A=''
+ETH_B=''
+SLOT_SCB_A=''
+SLOT_SCB_B=''
+MAG_ID=''
+IPNA_SUBNET_ADDR=''
+IPNB_SUBNET_ADDR=''
+NETMASK=''
+
+IPA_SCB_A=''
+IPA_SCB_B=''
+IPB_SCB_A=''
+IPB_SCB_B=''
+
+UID_PRE=''
+
+MI_PATH=''
+MI_INST=''
+
+SMPATH=''
+
+CAMPAIGN_PREFIX=''
+HW_TYPE=''
+STORAGE_TYPE=''
+
+main "@"
+exit $TRUE
+
+# End of file
+

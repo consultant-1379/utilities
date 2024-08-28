@@ -1,0 +1,1 @@
+This folder contains all templates and scripts aiming to support IPA creation both based on MI or on AIT

@@ -1,0 +1,30 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/BladeSwManagement_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "BladeSwM" as BladeSwManagement__BladeSwM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BladeSwManagement?title=class%20BladeSwM]] 
+class "ApManagedSwPackage" as BladeSwManagement__ApManagedSwPackage [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BladeSwManagement?title=class%20ApManagedSwPackage]] 
+class "ReportProgress" as BladeSwManagement__ReportProgress [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BladeSwManagement?title=class%20ReportProgress]] 
+class "CpManagedSwPackage" as BladeSwManagement__CpManagedSwPackage [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BladeSwManagement?title=class%20CpManagedSwPackage]] 
+class "ApManagedSwPackage" as BladeSwManagement__ApManagedSwPackage [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BladeSwManagement?title=class%20ApManagedSwPackage]] 
+class "ReportProgress" as BladeSwManagement__ReportProgress [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BladeSwManagement?title=class%20ReportProgress]] 
+BladeSwManagement__ApManagedSwPackage *-- "*" BladeSwManagement__ReportProgress
+class "BladeSwM" as BladeSwManagement__BladeSwM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BladeSwManagement?title=class%20BladeSwM]] 
+class "ApManagedSwPackage" as BladeSwManagement__ApManagedSwPackage [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BladeSwManagement?title=class%20ApManagedSwPackage]] 
+BladeSwManagement__BladeSwM *-- "*" BladeSwManagement__ApManagedSwPackage
+class "BladeSwM" as BladeSwManagement__BladeSwM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BladeSwManagement?title=class%20BladeSwM]] 
+class "CpManagedSwPackage" as BladeSwManagement__CpManagedSwPackage [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BladeSwManagement?title=class%20CpManagedSwPackage]] 
+BladeSwManagement__BladeSwM *-- "*" BladeSwManagement__CpManagedSwPackage
+class "SystemComponentHandling" as AxeFunctions__SystemComponentHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemComponentHandling]] 
+class "BladeSwM" as BladeSwManagement__BladeSwM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BladeSwManagement?title=class%20BladeSwM]] 
+AxeFunctions__SystemComponentHandling *-- "1" BladeSwManagement__BladeSwM
+@enduml 

@@ -1,0 +1,41 @@
+<campaignWrapup>
+<campCompleteAction>
+	<doCliCommand command="$OSAFCAMPAIGNROOT/swInventory.sh" args="$OSAFCAMPAIGNROOT/packageInfo.xml"/>
+	<undoCliCommand command="/bin/false"/>
+	<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+</campCompleteAction>
+<campCompleteAction>
+	<doCliCommand command="$OSAFCAMPAIGNROOT/remove_unused_apps.sh"/>
+	<undoCliCommand command="/bin/false"/>
+	<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+</campCompleteAction>
+<!-- CMW_CAMPAIGN_XML_INCLUDE_IF_CMD($OSAFCAMPAIGNROOT/#SCRIPT# node-lock) -->
+<campCompleteAction>
+	<doCliCommand command="/opt/ap/acs/bin/acs_lct_configap.sh" args="-a"/>
+	<undoCliCommand command="/bin/false"/>
+	<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+	<plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster"/>
+</campCompleteAction>
+<!-- CMW_CAMPAIGN_XML_INCLUDE_FI_CMD -->
+<!-- CMW_CAMPAIGN_XML_INCLUDE_IF_CMD($OSAFCAMPAIGNROOT/#SCRIPT# node-lock) -->
+<campCompleteAction>
+	<doCliCommand command="$OSAFCAMPAIGNROOT/tz_sync.sh"/>
+	<undoCliCommand command="/bin/false"/>
+	<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+</campCompleteAction>
+<!-- CMW_CAMPAIGN_XML_INCLUDE_FI_CMD -->
+<campCompleteAction>
+  <doCliCommand command="$OSAFCAMPAIGNROOT/cleanup_old_rpms"/>
+   <undoCliCommand command="/bin/true"/>
+  <plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+</campCompleteAction>
+<campCompleteAction>
+    <doCliCommand command="$OSAFCAMPAIGNROOT/ssh_keygen"/>
+    <undoCliCommand command="/bin/true"/>
+    <plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+</campCompleteAction>
+<waitToCommit/>
+<waitToAllowNewCampaign/>
+<removeFromImm/>
+</campaignWrapup>
+</upgradeCampaign>

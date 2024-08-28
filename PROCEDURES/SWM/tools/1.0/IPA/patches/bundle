@@ -1,0 +1,71 @@
+#! /bin/sh
+##
+## bundle --
+##
+## Commands;
+##
+
+TRCDIR=/var/opt/comsa
+COMSA_HOME=/home/comsa
+prg=$(basename $0)
+dir=$(dirname $0); dir=$(cd $dir; pwd)
+mkdir -p $TRCDIR
+mkdir -p $COMSA_HOME
+mkdir -p $COMSA_HOME/repository
+mkdir -p $COMSA_HOME/backup
+
+die() {
+	logger -t $prg -s -p user.err "ERROR: $@"
+	exit 1
+}
+help() {
+	grep '^##' $0 | cut -c3-
+	exit 0
+}
+test -n "$1" || help
+arch=$(uname -m)
+
+## remove <online|offline> <version>
+##
+cmd_remove() {
+	test -n "$2" || die "No RPM name specified"
+	rpmname="$2"
+	case $1 in
+	online)
+		;;
+	offline)
+		cmw-rpm-config-delete $rpmname
+		;;
+	*)
+		die "Invalid remove scope [$1]"
+	esac
+}
+
+## install <online|offline> <version>
+##
+cmd_install() {
+	test -n "$2" || die "No RPM name specified"
+	rpmfile="$dir/$2"
+	case $1 in
+	online)
+		;;
+	offline)
+		cmw-rpm-config-add $rpmfile
+		#rpm -i $rpmfile > /tmp/ComSa.loggg 2>&1
+		;;
+	*)
+		die "Invalid install scope [$1]"
+	esac
+}
+
+# Get the command
+cmd=$1
+shift
+logger -t $prg -p user.info "Called [$prg $@]"
+grep -q "^cmd_$cmd()" $0 || die "Invalid command [$cmd]"
+
+# Execute command
+trap "die Interrupted" INT TERM
+cmd_$cmd "$@"
+status=$?
+exit $status

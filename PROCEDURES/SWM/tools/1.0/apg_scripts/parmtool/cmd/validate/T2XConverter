@@ -1,0 +1,79 @@
+#!/bin/bash
+##
+# ------------------------------------------------------------------------
+#     Copyright (C) 2015 Ericsson AB. All rights reserved.
+# ------------------------------------------------------------------------
+##
+# Name:
+#       T2XMLConverter
+#
+# Description:
+#       It converts text input to XML file. VALIDATE sub command 
+#       internally uses this script.
+##
+# Usage:
+#  . <parmtool_root>/cmd/validate/T2XMLConverter <InputFile> <OutputFile>
+#
+##
+# Changelog:
+# - Wed Nov 18 2015 - Pratap Reddy (xpraupp)
+#   First Version
+##
+
+. $LIB_COMMON_DIR/parmtool_common.sh
+
+# ------------------------------------------------------------------------------
+function generate_xml() {
+
+  local PARAM_TAG=''
+  local BEGIN_HEADER='<?xml version="1.0" encoding="UTF-8"?>
+			<APGConfigParms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="APGParms.xsd">'
+  local END_HEADER='APGConfigParms'
+
+  # Prepare parameter part
+  INPUT_ITEMS="$(trim $INPUT_ITEMS)"
+  for ITEM in $INPUT_ITEMS; do
+    if $CMD_ECHO $ITEM | $CMD_GREP -qP '^[^[:space:]=]+=[^[:space:]=]+$' ; then
+      PARM=$($CMD_ECHO $ITEM | $CMD_AWK -F= '{print $1}')
+      VAL=$( $CMD_ECHO $ITEM | $CMD_AWK -F= '{print $2}')
+      PARAM_TAG="$PARAM_TAG \n $($CMD_ECHO -e "\t\t<$PARM>$VAL</$PARM>")"
+    else
+      PARAM_TAG="$PARAM_TAG \n $($CMD_ECHO -e "\t\t<$ITEM xsi:nil=\"true\"></$ITEM>")"
+    fi
+  done
+  
+  RESULT="$BEGIN_HEADER\n\t$PARAM_TAG\n</$END_HEADER>"
+
+	[ -f $OUTPUT_FILE ] && $CMD_RM -f $OUTPUT_FILE
+  $CMD_ECHO -e "$RESULT" > $OUTPUT_FILE
+}
+
+# ------------------------------------------------------------------------------
+function invoke() {
+
+	# Convert input items into XML format
+	generate_xml
+
+	# Verify, if the generated XML file is valid or not
+	$CMD_XMLLINT --format $OUTPUT_FILE &>/dev/null || abort "XML Format error" 
+
+} 
+
+# # # # # M A I N # # # # 
+
+[ $# -lt 2 ] && abort 'missing parameter'
+
+INPUT="$@"
+for ITEM in $INPUT; do
+  if [ "$($CMD_BASENAME $ITEM | $CMD_AWK -F'.' '{print $2}')" == 'xml' ]; then
+    OUTPUT_FILE="$ITEM"
+  else
+    INPUT_ITEMS+=" $ITEM"
+  fi
+done
+
+invoke
+
+# always return true if we are here.
+exit $TRUE

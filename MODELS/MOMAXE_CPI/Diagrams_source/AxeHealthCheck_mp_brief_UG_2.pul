@@ -1,0 +1,27 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeHealthCheck_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "HealthCheckM" as AxeHealthCheck__HealthCheckM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20HealthCheckM]] 
+class "Category" as AxeHealthCheck__Category [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20Category]] 
+class "Rule" as AxeHealthCheck__Rule [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20Rule]] 
+class "Category" as AxeHealthCheck__Category [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20Category]] 
+class "Rule" as AxeHealthCheck__Rule [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20Rule]] 
+AxeHealthCheck__Category *-- "1..*" AxeHealthCheck__Rule
+class "HealthCheckM" as AxeHealthCheck__HealthCheckM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20HealthCheckM]] 
+class "Category" as AxeHealthCheck__Category [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20Category]] 
+AxeHealthCheck__HealthCheckM *-- "*" AxeHealthCheck__Category
+class "HealthCheckM" as AxeHealthCheck__HealthCheckM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20HealthCheckM]] 
+class "SystemFunctions" as ComTop__SystemFunctions [[urn:x-ericsson:r2:reg-doc:*-*:*:*#ComTop?title=class%20SystemFunctions]] 
+class "HealthCheckM" as AxeHealthCheck__HealthCheckM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHealthCheck?title=class%20HealthCheckM]] 
+ComTop__SystemFunctions *-- "0..1" AxeHealthCheck__HealthCheckM
+@enduml 

@@ -1,0 +1,45 @@
+<!-- SEC SECM TYPE START -->
+          <CompBaseType safCompType="safCompType=ERIC-SecSecM">
+            <CompType safVersion="safVersion=#SEC_SECM_RSTATE#">
+              <providesCSType saAmfCtCompCapability="4" saAmfCtDefNumMaxActiveCsi="1" saAmfCtDefNumMaxStandbyCsi="1" safSupportedCsType="safSupportedCsType=safVersion=1.0.0\,safCSType=ERIC-SecSecM"/>
+              <compTypeDefaults saAmfCtCompCategory="1" saAmfCtDefCallbackTimeout="610000000000" saAmfCtDefClcCliTimeout="610000000000" saAmfCtDefDisableRestart="0" saAmfCtDefInstantiationLevel="0" saAmfCtDefQuiescingCompleteTimeout="610000000000" saAmfCtDefRecoveryOnError="2"/>
+              <instantiateCmd saAmfCtRelPathInstantiateCmd="bin/sec-secm-oi.sh">
+                <cmdArgv>start</cmdArgv>
+              </instantiateCmd>
+              <cleanupCmd saAmfCtRelPathCleanupCmd="bin/sec-secm-oi.sh">
+                <cmdArgv>stop</cmdArgv>
+              </cleanupCmd>
+              <healthCheck saAmfHealthcheckMaxDuration="360000000000" saAmfHealthcheckPeriod="240000000000" safHealthcheckKey="safHealthcheckKey=SecSecM"/>
+              <swBundle saAmfCtSwBundle="safSmfBundle=#SEC_SECM_BUNDLE#"/>
+            </CompType>
+          </CompBaseType>
+          <SUBaseType safSuType="safSuType=ERIC-SecSecM">
+            <SUType safVersion="safVersion=1.0.0">
+              <mandatoryAttrs saAmfSutDefSUFailover="0" saAmfSutIsExternal="0"/>
+              <componentType saAmfSutMaxNumComponents="0" saAmfSutMinNumComponents="1" safMemberCompType="safMemberCompType=safVersion=#SEC_SECM_RSTATE#\,safCompType=ERIC-SecSecM"/>
+              <supportedSvcType saAmfSutProvidesSvcType="safVersion=1.0.0,safSvcType=ERIC-SecSecM"/>
+            </SUType>
+          </SUBaseType>
+          <SGBaseType safSgType="safSgType=ERIC-SecSecM">
+            <SGType safVersion="safVersion=1.0.0">
+              <suType saAmfSgtValidSuTypes="safVersion=1.0.0,safSuType=ERIC-SecSecM"/>
+              <redundancy saAmfSgtRedundancyModel="1"/>
+              <compRestart saAmfSgtDefCompRestartMax="5" saAmfSgtDefCompRestartProb="100000000000"/>
+              <suRestart saAmfSgtDefSuRestartMax="5" saAmfSgtDefSuRestartProb="1000000000000"/>
+              <autoAttrs saAmfSgtDefAutoAdjustProb="100000" safAmfSgtDefAutoAdjust="0" safAmfSgtDefAutoRepair="0"/>
+            </SGType>
+          </SGBaseType>
+          <AppBaseType safAppType="safAppType=ERIC-SecSecM">
+            <AppType safVersion="safVersion=1.0.0">
+              <serviceGroupType saAmfApptSGTypes="safVersion=1.0.0,safSgType=ERIC-SecSecM"/>
+            </AppType>
+          </AppBaseType>
+          <CSBaseType safCSType="safCSType=ERIC-SecSecM">
+            <CSType safVersion="safVersion=1.0.0"/>
+          </CSBaseType>
+          <ServiceBaseType safSvcType="safSvcType=ERIC-SecSecM">
+            <ServiceType safVersion="safVersion=1.0.0">
+              <csType saAmfSvctMaxNumCSIs="0" safMemberCSType="safMemberCSType=safVersion=1.0.0\,safCSType=ERIC-SecSecM"/>
+            </ServiceType>
+          </ServiceBaseType>
+<!-- SEC SECM TYPE END -->

@@ -1,0 +1,12 @@
+[Unit]
+Description=APOS system configuration
+Before=lde-network.service
+After=lde-iptables.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/systemd/scripts/apos-system-conf.sh late
+RemainAfterExit=yes
+
+[Install]
+RequiredBy=lde-nodetype@control.target lde-network.service

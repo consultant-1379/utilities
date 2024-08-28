@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CoreMWProfile="http:///schemas/CoreMWProfile/" xmlns:Documentation="http://www.eclipse.org/papyrus/documentation" xmlns:ECIMBaseProfile="http:///schemas/ECIMBaseProfile/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:topic="http://www.ibm.com/xtools/6.0.0/Topic" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/CoreMWProfile/ pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw http:///schemas/ECIMBaseProfile/ pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg">
+  <uml:Model xmi:id="_NRAMoAwOEdmFcaeZXPdWAQ" name="CmwLogM">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_ggqPQEA1EeGv86_zpNl4KA" annotatedElement="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <body>Object that holds the CoreMW LogM Model.&#xD;
+&#xD;
+Copyright (c) 2015-2020 Ericsson AB.&#xD;
+&#xD;
+All rights reserved.</body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_uWHKUIXbEd-Id79DLfNphQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_iT7qACCSEd-Egr3-YAWs7Q"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_lDAQIH6aEeamS_QijE0SCw" importedPackage="_CtXG8EAnEeGv86_zpNl4KA"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_CtXG8EAnEeGv86_zpNl4KA" name="CmwLogM">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_CtcmgEAnEeGv86_zpNl4KA" annotatedElement="_CtXG8EAnEeGv86_zpNl4KA">
+        <body>This is the model for the log management fragment.</body>
+      </ownedComment>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="__vLFsH53EeamS_QijE0SCw" name="GroupH" constrainedElement="_Qk8ucF8LEeGdcsnBslhriQ">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="__vLswH53EeamS_QijE0SCw">
+          <language>Optionality</language>
+          <body>if-feature AutoLogExportStreaming OR AutoLogExportBulk</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_LIld0N-SEemNItqO1YdqCg" name="GroupM" constrainedElement="_Qk8ucF8LEeGdcsnBslhriQ">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_LImr8N-SEemNItqO1YdqCg">
+          <language>Optionality</language>
+          <body>if-feature UseLogPushTransfer</body>
+        </specification>
+      </ownedRule>
+      <packagedElement xmi:type="uml:Class" xmi:id="_CthfAEAnEeGv86_zpNl4KA" name="LogM">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_CtmXgUAnEeGv86_zpNl4KA" annotatedElement="_CthfAEAnEeGv86_zpNl4KA">
+          <body>Enables configuration of the LogM general properties.&#xD;
+This is the root MO for the log management fragment.&#xD;
+It contains various parameters concerning the log management service.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_sV7JgAcMEeaRYfy-t7-mAA" name="GroupA">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_sWBQIAcMEeaRYfy-t7-mAA">
+            <language>Optionality</language>
+            <body>if-feature CredentialsInRootClass</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_908eEEeXEea_ed_heOwLYg" name="GroupC">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_93NH4EeXEea_ed_heOwLYg">
+            <language>Optionality</language>
+            <body>if-feature ESI OR ISP</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_HEWM4EeYEea_ed_heOwLYg" name="GroupD">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_HEWM4UeYEea_ed_heOwLYg">
+            <language>Optionality</language>
+            <body>if-feature ESI</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_V2NesEeYEea_ed_heOwLYg" name="GroupE">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_V2NesUeYEea_ed_heOwLYg">
+            <language>Optionality</language>
+            <body>if-feature ISP</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_CtrQAUAnEeGv86_zpNl4KA" name="logMId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_CtwIgUAnEeGv86_zpNl4KA" annotatedElement="_CtrQAUAnEeGv86_zpNl4KA">
+            <body>This is the identity  for the LogM, it does not affect the file transfer and default value is 1.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ct1BAEAnEeGv86_zpNl4KA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ct1BAUAnEeGv86_zpNl4KA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_913ccEA6EeGv86_zpNl4KA" name="Log" visibility="public" type="_wN4k0EAvEeGv86_zpNl4KA" aggregation="composite" association="_911nQEA6EeGv86_zpNl4KA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0lPbASKiEeynL6EZmb88CQ" value="12"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0lPbACKiEeynL6EZmb88CQ" value="12"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_kCpTQZMVEem3evXGag4VMg" name="LogCategory" visibility="public" type="_eVmj0JMIEem3evXGag4VMg" aggregation="composite" association="_kCpTQJMVEem3evXGag4VMg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XYt2cCKiEeynL6EZmb88CQ" value="2"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XYsoUCKiEeynL6EZmb88CQ" value="2"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_wN4k0EAvEeGv86_zpNl4KA" name="Log">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_wN9dUUAvEeGv86_zpNl4KA" annotatedElement="_wN4k0EAvEeGv86_zpNl4KA">
+          <body>Enables configuration of the Log general properties.&#xD;
+The Log MO contains parameters for a specific log file/stream in the system.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_T37HMH55EeamS_QijE0SCw" name="GroupG">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_T37uQH55EeamS_QijE0SCw">
+            <language>Optionality</language>
+            <body>if-feature AutoLogExportStreaming OR AutoLogExportBulk</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_t9MlgIszEeagmYc-nzhl7g" name="GroupB" constrainedElement="_pcZPQLO_EeS0kajPZFOEOg _2D1ZoEAxEeGv86_zpNl4KA _CLDgIOU-EeSBVuUY69zoSw">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_t9SsIIszEeagmYc-nzhl7g">
+            <language>Optionality</language>
+            <body>if-feature OnDemandLog</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_wOCV0EAvEeGv86_zpNl4KA" name="logId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_wOHOUEAvEeGv86_zpNl4KA" annotatedElement="_wOCV0EAvEeGv86_zpNl4KA">
+            <body>Holds the name used when identifying the MO. It has no effect on the transfer function.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wOLfwUAvEeGv86_zpNl4KA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wOMG0EAvEeGv86_zpNl4KA" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_aOGCAFZPEeGFB8rqNpXtSg" name="severityFilter" visibility="public" type="_RBXpMFZOEeGFB8rqNpXtSg">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_aONWwFZPEeGFB8rqNpXtSg" annotatedElement="_aOGCAFZPEeGFB8rqNpXtSg">
+            <body>This can be used to put a filter on the log so that only events of a certain severity get logged.&#xD;
+&#xD;
+If no value is set, all entries will be kept.&#xD;
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aOSPQVZPEeGFB8rqNpXtSg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_759oUCMNEeqJXbchd-kDeQ" value="8"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_CLDgIOU-EeSBVuUY69zoSw" name="reportProgress" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_CLUl4OU-EeSBVuUY69zoSw" annotatedElement="_CLDgIOU-EeSBVuUY69zoSw">
+            <body>Represents the progress and result of the ongoing action.</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_K7KyoEVwEeC0EevVhLHxGg"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CQqoIPAvEeS4pK3PilGTig"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CQr2QPAvEeS4pK3PilGTig" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ibOawJMbEem3evXGag4VMg" name="remoteLogServer" visibility="public" type="_eVmj0JMIEem3evXGag4VMg" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ibReEZMbEem3evXGag4VMg" annotatedElement="_ibOawJMbEem3evXGag4VMg">
+            <body>The remote log server this log stream is to be streamed.
+A reference to MO instance of the RemoteLogServer class.
+Optional. If omitted then the implementation shall classify the log stream to belong to
+a default log server.
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qqZuEJ4QEem_-OkaFUdGAQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ibT6UpMbEem3evXGag4VMg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_OAmDEKtYEem8bIv9jI2b1g" name="logFacilityNumber" visibility="public" type="_ncOmYKtMEem8bIv9jI2b1g" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_OAxpQKtYEem8bIv9jI2b1g" annotatedElement="_OAmDEKtYEem8bIv9jI2b1g">
+            <body>The facility number used by this log stream as described in RFC 5424.
+Optional. Can be used as extra indication of the log category. For example, to identify a log stream as a security one.
+One of the values 4, 10 or 13 must be used for security log streams.
+If omitted then the implementation shall classify the log stream to belong to
+a default category.
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OA4-AatYEem8bIv9jI2b1g"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OA6MIKtYEem8bIv9jI2b1g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NBpj0N53EemlJYE5xRJgOg" name="logRetentionHousekeeping" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NBpj0d53EemlJYE5xRJgOg" annotatedElement="_NBpj0N53EemlJYE5xRJgOg">
+            <body>Enable or disable the log retention housekeeping.
+The recommended default value is enabled (UNLOCKED).
+If enabled then the logRetentionDays must have a value.</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#__k_d4JdbEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NBpj0t53EemlJYE5xRJgOg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NBpj0953EemlJYE5xRJgOg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_QqhvAN53EemlJYE5xRJgOg" name="logRetentionDays" visibility="public" type="_atzpUJ4iEem_-OkaFUdGAQ">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_QqhvAd53EemlJYE5xRJgOg" annotatedElement="_QqhvAN53EemlJYE5xRJgOg">
+            <body>Number of days for log retention.
+If the retention housekeeping is enabled then any log file will be deleted
+from the local storage after this number of days has elapsed since the file creation.
+The minimum value is 1 day.
+</body>
+          </ownedComment>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ow_C4OvDEemAU5hV37PyfQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QqhvA953EemlJYE5xRJgOg" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_2D1ZoEAxEeGv86_zpNl4KA" name="export" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_2D5rEUAxEeGv86_zpNl4KA" annotatedElement="_2D1ZoEAxEeGv86_zpNl4KA">
+            <body>Exports this log type to a given destination.&#xD;
+This action will move all log entries into a single ASCII encoded file which is transfered to the destination given in the parameters of the action.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_r_NBEEAzEeGv86_zpNl4KA" name="uri">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_r_NBEUAzEeGv86_zpNl4KA" annotatedElement="_r_NBEEAzEeGv86_zpNl4KA">
+              <body>A uniform resource locator describing the file transfer for the Log stream file.&#xD;
+(i.e. identifying protocol, server and destination directory)&#xD;
+ e.g. sftp://myserver.mydomain.com/support/LogStreamA&#xD;
+&#xD;
+The file name is determined by the system</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_r_NBE0AzEeGv86_zpNl4KA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_r_NBEkAzEeGv86_zpNl4KA" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_r_PdUEAzEeGv86_zpNl4KA" name="password" type="_eILKoNWLEeu95t3shJpnEQ">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_r_PdUUAzEeGv86_zpNl4KA" annotatedElement="_r_PdUEAzEeGv86_zpNl4KA">
+              <body>If credentials are required, the password is filled in here.&#xD;
+If no credentials are required, this parameter is ignored.</body>
+            </ownedComment>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x_esQNWLEeu95t3shJpnEQ" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_r_PdUkAzEeGv86_zpNl4KA" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_r_PdVEAzEeGv86_zpNl4KA" name="returnType" direction="return">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_r_PdVUAzEeGv86_zpNl4KA" annotatedElement="_r_PdVEAzEeGv86_zpNl4KA">
+              <body>The result of the action is the action id to be found in the progressReport struct.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="ECIM_CommonLibrary.uml#_J7BAoA5rEeWfJcAK7LgaLQ"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8zrlUECtEeOEwPi_UYe4jA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8z6O0ECtEeOEwPi_UYe4jA" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_pcZPQLO_EeS0kajPZFOEOg" name="cancel" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_k4EJkPQXEeSrYaroUnAVVw" annotatedElement="_pcZPQLO_EeS0kajPZFOEOg">
+            <body>Action will cancel the current  action invoked on this MO.&#xD;
+</body>
+          </ownedComment>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_YbRAMK6PEemDO9WnFrIdmA" name="GroupL">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_YbUDgK6PEemDO9WnFrIdmA">
+              <language>Optionality</language>
+              <body>if-feature ActionIdInCancel</body>
+            </specification>
+          </ownedRule>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_911nQEA6EeGv86_zpNl4KA" name="LogM_to_Log" memberEnd="_912OUEA6EeGv86_zpNl4KA _913ccEA6EeGv86_zpNl4KA">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_912OUEA6EeGv86_zpNl4KA" name="LogM" visibility="public" type="_CthfAEAnEeGv86_zpNl4KA" association="_911nQEA6EeGv86_zpNl4KA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jNe6cCKhEeynL6EZmb88CQ" value="12"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jNeTYCKhEeynL6EZmb88CQ" value="12"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_RBXpMFZOEeGFB8rqNpXtSg" name="LogSeverity">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_RBiBQVZOEeGFB8rqNpXtSg" annotatedElement="_RBXpMFZOEeGFB8rqNpXtSg">
+          <body>Each log entry is assigned a severity.&#xD;
+&#xD;
+This can be used to put a filter on the log so that only events of a certain severity get logged.</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_RBou8FZOEeGFB8rqNpXtSg" name="EMERGENCY">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_RBvcoVZOEeGFB8rqNpXtSg" annotatedElement="_RBou8FZOEeGFB8rqNpXtSg">
+            <body>Add this to the severity filter to capture EMERGENCY events to the log.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_RB1jQVZOEeGFB8rqNpXtSg"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_bEgiEFZOEeGFB8rqNpXtSg" name="ALERT">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_bEkzgFZOEeGFB8rqNpXtSg" annotatedElement="_bEgiEFZOEeGFB8rqNpXtSg">
+            <body>Add this to the severity filter to capture ALERT type events in the log.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_bEn20VZOEeGFB8rqNpXtSg" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_fNNc0FZOEeGFB8rqNpXtSg" name="CRITICAL">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_fNUxkFZOEeGFB8rqNpXtSg" annotatedElement="_fNNc0FZOEeGFB8rqNpXtSg">
+            <body>Add this to the severity filter to capture CRITICAL events to the log.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_fNa4MVZOEeGFB8rqNpXtSg" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_iPm20FZOEeGFB8rqNpXtSg" name="ERROR">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_iPuLkFZOEeGFB8rqNpXtSg" annotatedElement="_iPm20FZOEeGFB8rqNpXtSg">
+            <body>Add this to the severity filter to capture ERROR events to the log.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_iP05QVZOEeGFB8rqNpXtSg" value="3"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ljIdEFZOEeGFB8rqNpXtSg" name="WARNING">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ljPKwVZOEeGFB8rqNpXtSg" annotatedElement="_ljIdEFZOEeGFB8rqNpXtSg">
+            <body>add this to the severity filter to capture WARNING events to the log.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_ljVRYVZOEeGFB8rqNpXtSg" value="4"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_pMMOcFZOEeGFB8rqNpXtSg" name="NOTICE">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_pMTjMVZOEeGFB8rqNpXtSg" annotatedElement="_pMMOcFZOEeGFB8rqNpXtSg">
+            <body>Add this to the severity filter to capture NOTICE events to the log.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_pMaQ4VZOEeGFB8rqNpXtSg" value="5"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_tVaGkFZOEeGFB8rqNpXtSg" name="INFO">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tVg0QVZOEeGFB8rqNpXtSg" annotatedElement="_tVaGkFZOEeGFB8rqNpXtSg">
+            <body>Add this to the severity filter to capture INFO events to the log.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_tVnh8FZOEeGFB8rqNpXtSg" value="6"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_AGMIkKUUEemqAJvxHh1W_Q" name="DEBUG">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ORfJoKUUEemqAJvxHh1W_Q" annotatedElement="_AGMIkKUUEemqAJvxHh1W_Q">
+            <body>Add this to the severity filter to capture DEBUG events to the log.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_AIIpUKUUEemqAJvxHh1W_Q" value="7"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_Qk8ucF8LEeGdcsnBslhriQ" name="TransferType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_QlLX8F8LEeGdcsnBslhriQ" annotatedElement="_Qk8ucF8LEeGdcsnBslhriQ">
+          <body>The transfer type makes it possible to instruct the system to transfer log content.&#xD;
+It can be as a continous stream or as individual files.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_Rct68H53EeamS_QijE0SCw" name="GroupI" constrainedElement="_QlVI8F8LEeGdcsnBslhriQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_Rct68X53EeamS_QijE0SCw">
+            <language>Optionality</language>
+            <body>if-feature AutoLogExportStreaming</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_jlxLAH53EeamS_QijE0SCw" name="GroupJ" constrainedElement="_wLK_8B0JEea3rK5wnoLDYg">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_jlxyEH53EeamS_QijE0SCw">
+            <language>Optionality</language>
+            <body>if-feature AutoLogExportBulk</body>
+          </specification>
+        </ownedRule>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_QlVI8F8LEeGdcsnBslhriQ" name="STREAM">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_QlfhAV8LEeGdcsnBslhriQ" annotatedElement="_QlVI8F8LEeGdcsnBslhriQ">
+            <body>Instructs the system to transfer log data in a continuous stream.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_OAZYsB0JEea3rK5wnoLDYg"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_wLK_8B0JEea3rK5wnoLDYg" name="BULK">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ISfmQH6nEeaJBYJsWino3g" annotatedElement="_wLK_8B0JEea3rK5wnoLDYg">
+            <body>Instructs the system to transfer log data in bulk mode.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_wLRGkR0JEea3rK5wnoLDYg" value="1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_lrfq8OJDEeWahfG6H4W0ZQ" name="Features">
+        <packagedElement xmi:type="uml:Class" xmi:id="_fDB7sAivEeaRYfy-t7-mAA" name="AutoLogExportStreaming"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_-uyasEeYEea_ed_heOwLYg" name="ESI"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_FzS_QEeZEea_ed_heOwLYg" name="OnDemandLog"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_o2kP4H5vEeamS_QijE0SCw" name="AutoLogExportBulk"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_tBjCkH5vEeamS_QijE0SCw" name="ISP"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_erl7AJxVEem_sYFsZBeyrg" name="CredentialsInRootClass"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_KRAWYK6OEemDO9WnFrIdmA" name="ActionIdInCancel"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_sjKzsN-REemNItqO1YdqCg" name="UseLogPushTransfer"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_4M_lUOJFEeWahfG6H4W0ZQ" name="Decisions">
+        <packagedElement xmi:type="uml:Class" xmi:id="_TXalsH56EeamS_QijE0SCw" name="Variant_CBA"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_Bz3Z8H57EeamS_QijE0SCw" name="" client="_TXalsH56EeamS_QijE0SCw" supplier="_FzS_QEeZEea_ed_heOwLYg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_g52V4IsxEeagmYc-nzhl7g" name="" client="_TXalsH56EeamS_QijE0SCw" supplier="_fDB7sAivEeaRYfy-t7-mAA"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_bRU3MJXyEeahCY4FpJcoQw" name="Variant_FullModel"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_iA8w4JXyEeahCY4FpJcoQw" name="" client="_bRU3MJXyEeahCY4FpJcoQw" supplier="_o2kP4H5vEeamS_QijE0SCw"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_lHjVcJXyEeahCY4FpJcoQw" name="" client="_bRU3MJXyEeahCY4FpJcoQw" supplier="_fDB7sAivEeaRYfy-t7-mAA"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_o2tu0JXyEeahCY4FpJcoQw" name="" client="_bRU3MJXyEeahCY4FpJcoQw" supplier="_-uyasEeYEea_ed_heOwLYg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_sw-k8JXyEeahCY4FpJcoQw" name="" client="_bRU3MJXyEeahCY4FpJcoQw" supplier="_tBjCkH5vEeamS_QijE0SCw"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_xpoV8JXyEeahCY4FpJcoQw" name="" client="_bRU3MJXyEeahCY4FpJcoQw" supplier="_FzS_QEeZEea_ed_heOwLYg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_0EBogJ4TEem_-OkaFUdGAQ" name="" client="_bRU3MJXyEeahCY4FpJcoQw" supplier="_erl7AJxVEem_sYFsZBeyrg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_pMLOEK6OEemDO9WnFrIdmA" name="" client="_bRU3MJXyEeahCY4FpJcoQw" supplier="_KRAWYK6OEemDO9WnFrIdmA"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_Y0afMN-TEemNItqO1YdqCg" name="" client="_bRU3MJXyEeahCY4FpJcoQw" supplier="_sjKzsN-REemNItqO1YdqCg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_5YfhkH6lEeaJBYJsWino3g" name="SystemFunctions_to_LogM" memberEnd="_5YfhkX6lEeaJBYJsWino3g _5YloMn6lEeaJBYJsWino3g">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_-Vg1MH6lEeaJBYJsWino3g" annotatedElement="_5YfhkH6lEeaJBYJsWino3g">
+          <body>Relationship to the system function LogM class dedicated to logging management.&#xD;
+ (log streams severity levels, on demand logs, logs exports, ...)</body>
+        </ownedComment>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_5YfhkX6lEeaJBYJsWino3g" name="systemFunctions" visibility="public" association="_5YfhkH6lEeaJBYJsWino3g">
+          <type xmi:type="uml:Class" href="ComTop.uml#_ETwJsJmNEd-RhrgDerFWug"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5YloNn6lEeaJBYJsWino3g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5YloNX6lEeaJBYJsWino3g" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_5YloMn6lEeaJBYJsWino3g" name="logM" visibility="public" type="_CthfAEAnEeGv86_zpNl4KA" aggregation="composite" association="_5YfhkH6lEeaJBYJsWino3g">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5Yru0n6lEeaJBYJsWino3g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5Yru0X6lEeaJBYJsWino3g" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_eVmj0JMIEem3evXGag4VMg" name="RemoteLogServer">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_I9uwYKVpEemBE4tX0cJVSg" source="uml2.topicqueries">
+          <contents xmi:type="topic:TopicQuery" context="_eVmj0JMIEem3evXGag4VMg" topicId="com.ibm.xtools.modeler.ui.editor.RelatedModelingElements" name="TopicDiagram"/>
+        </eAnnotations>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_eWO18JMIEem3evXGag4VMg" annotatedElement="_eVmj0JMIEem3evXGag4VMg">
+          <body>Class used to configure remote server for streaming of logs.
+The same server can be used for a group of logs.
+The attributes are common for all logs of the group.</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_eWR5QZMIEem3evXGag4VMg" name="remoteLogServerId" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_eWU8kZMIEem3evXGag4VMg" annotatedElement="_eWR5QZMIEem3evXGag4VMg">
+            <body>The key attribute is the name of the remote server.
+Used to identify a group of log streams, e.g. security logs, regular logs, etc.
+</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eWX_4ZMIEem3evXGag4VMg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eWX_4pMIEem3evXGag4VMg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_eWX_4JMIEem3evXGag4VMg" value=""/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_AS7k8JMJEem3evXGag4VMg" name="uri" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_AS-oQZMJEem3evXGag4VMg" annotatedElement="_AS7k8JMJEem3evXGag4VMg">
+            <body>The URI for streaming to be used for all logs of one group.
+If not provided streaming is disabled for all logs which belong to this group.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ATBrkJMJEem3evXGag4VMg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ATBrkZMJEem3evXGag4VMg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_XYTlEJMJEem3evXGag4VMg" name="nodeCredential" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_XYWoYZMJEem3evXGag4VMg" annotatedElement="_XYTlEJMJEem3evXGag4VMg">
+            <body>The nodeCredential for streaming to be used for all logs of this group.
+A reference to MO of type NodeCredential from the ECIM CertM fragment.
+</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_xu6e8JaXEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XYa50ZMJEem3evXGag4VMg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XYa50pMJEem3evXGag4VMg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_l3RJAJMJEem3evXGag4VMg" name="trustCategory" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_t2PKsJMJEem3evXGag4VMg" annotatedElement="_l3RJAJMJEem3evXGag4VMg">
+            <body>The trustCategory for streaming to be used for all logs of this group.
+A reference to MO of type TrustCategory from the ECIM CertM fragment.
+If not provided streaming is disabled for all logs which belong to this group.
+</body>
+          </ownedComment>
+          <type xmi:type="uml:Class" href="ECIM_CommonLibrary.uml#_xu6e8JaXEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_l3TlQZMJEem3evXGag4VMg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_l3UMUJMJEem3evXGag4VMg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_7hC-YN53EemlJYE5xRJgOg" name="availStatus" visibility="public" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_7hC-Yd53EemlJYE5xRJgOg" annotatedElement="_7hC-YN53EemlJYE5xRJgOg">
+            <body>Available status for this remote log server object.</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#_k2VdcDrxEeOzd4qf6-nnMQ"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7hC-Yt53EemlJYE5xRJgOg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7hC-Y953EemlJYE5xRJgOg" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_La5L8N54EemlJYE5xRJgOg" name="operationalState" visibility="public" isUnique="false" isReadOnly="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_La5L8d54EemlJYE5xRJgOg" annotatedElement="_La5L8N54EemlJYE5xRJgOg">
+            <body>Operational state of this remote log server object.</body>
+          </ownedComment>
+          <type xmi:type="uml:Enumeration" href="ECIM_CommonLibrary.uml#__lAE8JdbEeC11vgiYYrb4A"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_La5L8t54EemlJYE5xRJgOg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_La5L8954EemlJYE5xRJgOg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_kCpTQJMVEem3evXGag4VMg" name="LogM_to_RemoteLogServer" memberEnd="_kCpTQZMVEem3evXGag4VMg _kCp6UpMVEem3evXGag4VMg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_kCp6UpMVEem3evXGag4VMg" name="LogM" visibility="public" type="_CthfAEAnEeGv86_zpNl4KA" association="_kCpTQJMVEem3evXGag4VMg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fnN-YCKhEeynL6EZmb88CQ" value="2"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fnKUACKhEeynL6EZmb88CQ" value="2"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_atzpUJ4iEem_-OkaFUdGAQ" name="RetentionDays">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_auCS0J4iEem_-OkaFUdGAQ" annotatedElement="_atzpUJ4iEem_-OkaFUdGAQ">
+          <body>Unsigned integer to be used for the logRetentionDays attribute.
+The aim is to eliminate the value of 0 which does not have meaning for log retention days.</body>
+        </ownedComment>
+        <generalization xmi:type="uml:Generalization" xmi:id="_auOgEJ4iEem_-OkaFUdGAQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_DxVN4CCTEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_ncOmYKtMEem8bIv9jI2b1g" name="LogFacilityNumber">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_nel94KtMEem8bIv9jI2b1g" annotatedElement="_ncOmYKtMEem8bIv9jI2b1g">
+          <body>Facility number as described in RFC 5424 The Syslog Protocol.
+To be used for log streaming to provide extra information about the log category.
+</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ne0nYKtMEem8bIv9jI2b1g" name="KERNEL_MESSAGES">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ne_mgatMEem8bIv9jI2b1g" annotatedElement="_ne0nYKtMEem8bIv9jI2b1g">
+            <body>kernel messages.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_nfIwcKtMEem8bIv9jI2b1g"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_CWB6YKtNEem8bIv9jI2b1g" name="USER_LEVEL_MESSAGES">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_CWXRkatNEem8bIv9jI2b1g" annotatedElement="_CWB6YKtNEem8bIv9jI2b1g">
+            <body>user-level messages.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_CWi3wKtNEem8bIv9jI2b1g" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Otj3wKtNEem8bIv9jI2b1g" name="MAIL_SYSTEM">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_OtwFAatNEem8bIv9jI2b1g" annotatedElement="_Otj3wKtNEem8bIv9jI2b1g">
+            <body>mail system.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_Ot4n4KtNEem8bIv9jI2b1g" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_CZyjkKtOEem8bIv9jI2b1g" name="SYSTEM_DAEMONS">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_CZ-w0atOEem8bIv9jI2b1g" annotatedElement="_CZyjkKtOEem8bIv9jI2b1g">
+            <body>system daemons.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_CaHTsatOEem8bIv9jI2b1g" value="3"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_KeNF8KtOEem8bIv9jI2b1g" name="SECURITY_AUTH_MESSAGES">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_KeZ6QKtOEem8bIv9jI2b1g" annotatedElement="_KeNF8KtOEem8bIv9jI2b1g">
+            <body>security/authorization messages.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_KejrQKtOEem8bIv9jI2b1g" value="4"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_TWHh0KtOEem8bIv9jI2b1g" name="INTERNAL_SYSLOG_MESSAGES">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_TWUWIKtOEem8bIv9jI2b1g" annotatedElement="_TWHh0KtOEem8bIv9jI2b1g">
+            <body>messages generated internally by syslogd.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_TWc5AKtOEem8bIv9jI2b1g" value="5"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_c8RjwKtOEem8bIv9jI2b1g" name="LINE_PRINTER_SUBSYSTEM">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_c8atsKtOEem8bIv9jI2b1g" annotatedElement="_c8RjwKtOEem8bIv9jI2b1g">
+            <body>line printer subsystem.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_c8ipgKtOEem8bIv9jI2b1g" value="6"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_jkl7kKtOEem8bIv9jI2b1g" name="NETWORK_NEWS_SUBSYSTEM">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_jkz-AatOEem8bIv9jI2b1g" annotatedElement="_jkl7kKtOEem8bIv9jI2b1g">
+            <body>network news subsystem.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_jk8g4KtOEem8bIv9jI2b1g" value="7"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_pz7LoKtOEem8bIv9jI2b1g" name="UUCP_SUBSYSTEM">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_p0DHcatOEem8bIv9jI2b1g" annotatedElement="_pz7LoKtOEem8bIv9jI2b1g">
+            <body>UUCP subsystem.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_p0LDQKtOEem8bIv9jI2b1g" value="8"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_zdEQIKtOEem8bIv9jI2b1g" name="CLOCK_DAEMON">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_zdMzAKtOEem8bIv9jI2b1g" annotatedElement="_zdEQIKtOEem8bIv9jI2b1g">
+            <body>clock daemon.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_zdUHwatOEem8bIv9jI2b1g" value="9"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_8r4JEKtOEem8bIv9jI2b1g" name="SECURITY_AUTH_MESSAGES_2">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_8sE9YKtOEem8bIv9jI2b1g" annotatedElement="_8r4JEKtOEem8bIv9jI2b1g">
+            <body>security/authorization messages.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_8sNgQKtOEem8bIv9jI2b1g" value="10"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_VztJIKtPEem8bIv9jI2b1g" name="FTP_DAEMON">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Vz3hMKtPEem8bIv9jI2b1g" annotatedElement="_VztJIKtPEem8bIv9jI2b1g">
+            <body>FTP daemon.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_V0AEEKtPEem8bIv9jI2b1g" value="11"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_egPbcKtPEem8bIv9jI2b1g" name="NTP_SUBSYSTEM">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_egZzgatPEem8bIv9jI2b1g" annotatedElement="_egPbcKtPEem8bIv9jI2b1g">
+            <body>NTP subsystem.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_eghvUKtPEem8bIv9jI2b1g" value="12"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lnnt0KtPEem8bIv9jI2b1g" name="LOG_AUDIT">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_lnxe0KtPEem8bIv9jI2b1g" annotatedElement="_lnnt0KtPEem8bIv9jI2b1g">
+            <body>log audit.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_ln5aoKtPEem8bIv9jI2b1g" value="13"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_tuqtcKtPEem8bIv9jI2b1g" name="LOG_ALERT">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_tuypQatPEem8bIv9jI2b1g" annotatedElement="_tuqtcKtPEem8bIv9jI2b1g">
+            <body>log alert.</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_tu5-AatPEem8bIv9jI2b1g" value="14"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_0mxNsKtPEem8bIv9jI2b1g" name="CLOCK_DAEMON_2">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_0m5wkatPEem8bIv9jI2b1g" annotatedElement="_0mxNsKtPEem8bIv9jI2b1g">
+            <body>clock daemon (note 2).</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_0nBsYKtPEem8bIv9jI2b1g" value="15"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_NmAScKtQEem8bIv9jI2b1g" name="LOCAL_USE_0">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NmI1UatQEem8bIv9jI2b1g" annotatedElement="_NmAScKtQEem8bIv9jI2b1g">
+            <body>local use 0  (local0).</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_NmSmUatQEem8bIv9jI2b1g" value="16"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_4oS6sKtVEem8bIv9jI2b1g" name="LOCAL_USE_1">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_4ofH8KtVEem8bIv9jI2b1g" annotatedElement="_4oS6sKtVEem8bIv9jI2b1g">
+            <body>local use 1  (local1).</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_4or8QatVEem8bIv9jI2b1g" value="17"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="__IXVcKtVEem8bIv9jI2b1g" name="LOCAL_USE_2">
+          <ownedComment xmi:type="uml:Comment" xmi:id="__Ikw0KtVEem8bIv9jI2b1g" annotatedElement="__IXVcKtVEem8bIv9jI2b1g">
+            <body>local use 2  (local2).</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="__ItTsKtVEem8bIv9jI2b1g" value="18"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GNaFgKtWEem8bIv9jI2b1g" name="LOCAL_USE_3">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_GN7C4atWEem8bIv9jI2b1g" annotatedElement="_GNaFgKtWEem8bIv9jI2b1g">
+            <body>local use 3  (local3).</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_GON90atWEem8bIv9jI2b1g" value="19"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_N3fcUKtWEem8bIv9jI2b1g" name="LOCAL_USE_4">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_N3rCgatWEem8bIv9jI2b1g" annotatedElement="_N3fcUKtWEem8bIv9jI2b1g">
+            <body>local use 4  (local4).</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_N33PwKtWEem8bIv9jI2b1g" value="20"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_S4B-AKtWEem8bIv9jI2b1g" name="LOCAL_USE_5">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_S4OLQKtWEem8bIv9jI2b1g" annotatedElement="_S4B-AKtWEem8bIv9jI2b1g">
+            <body>local use 5  (local5).</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_S4WHEKtWEem8bIv9jI2b1g" value="21"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_YvaoIKtWEem8bIv9jI2b1g" name="LOCAL_USE_6">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Yvij8atWEem8bIv9jI2b1g" annotatedElement="_YvaoIKtWEem8bIv9jI2b1g">
+            <body>local use 6  (local6).</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_YvqfwKtWEem8bIv9jI2b1g" value="22"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_fbjI8KtWEem8bIv9jI2b1g" name="LOCAL_USE_7">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_fb9YoatWEem8bIv9jI2b1g" annotatedElement="_fbjI8KtWEem8bIv9jI2b1g">
+            <body>local use 7  (local7).</body>
+          </ownedComment>
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_fcF7gatWEem8bIv9jI2b1g" value="23"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_eILKoNWLEeu95t3shJpnEQ" name="Log_export_password">
+        <generalization xmi:type="uml:Generalization" xmi:id="_eIRRQNWLEeu95t3shJpnEQ">
+          <general xmi:type="uml:DataType" href="pathmap://ECIM_DATA_TYPES/EcimDataTypes.uml#_7LZ54CCSEd-Egr3-YAWs7Q"/>
+        </generalization>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OTk98LzGEemKooXvtbfivg" client="_NRAMoAwOEdmFcaeZXPdWAQ">
+      <supplier xmi:type="uml:Model" href="pathmap://ECIM_COREMW_GUIDELIB/ECIM_Core_MW_Guidelines.uml#_5vlRYnhQEd-OM9oMWC6jJQ"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAINCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAIdCzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UeIAItCzEdqK7KjEh4hvHw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UeIAI9CzEdqK7KjEh4hvHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/documentation#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_DOCUMENTATION/Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_m0HvM0AmEeGv86_zpNl4KA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7ZUwUPJZEeqY8d9WGKoQQQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7ZUwUfJZEeqY8d9WGKoQQQ" key="Version" value="1.0.22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7ZUwUvJZEeqY8d9WGKoQQQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7ZUwU_JZEeqY8d9WGKoQQQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7ZUwVPJZEeqY8d9WGKoQQQ" key="Date" value="2020-01-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7ZUwVfJZEeqY8d9WGKoQQQ" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_nHqWQEAmEeGv86_zpNl4KA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_0pRc0DO_Eeq56KS5xRGMBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://ECIM_BASE_PROFILE/ECIM_Base_Profile.profile.uml#_cUcakNQkEd63X4o72aQidQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_OMMjkLzGEemKooXvtbfivg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_OMT4ULzGEemKooXvtbfivg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_ybiywL8WEee43aX3TJImHw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://COREMW_PROFILE/CoreMW_Profile.profile.uml#_Br2_QBSXEd-ZjqYFUyJzOw"/>
+    </profileApplication>
+  </uml:Model>
+  <ECIMBaseProfile:EcimModel xmi:id="_nHqWQUAmEeGv86_zpNl4KA" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ" title="Log management model." subTitle="" docNo="" createdBy="xnikvap" approvedBy="xkathof" docDate="2020-10-05"/>
+  <ECIMBaseProfile:EcimMom xmi:id="_Ctb_cEAnEeGv86_zpNl4KA" hideGroupName="" specification="" statusInformation="" base_Package="_CtXG8EAnEeGv86_zpNl4KA" author="xnikvap" contact="xnikvap" date="2020-10-05" docNo="" revision="2" version="2" release="1" organization="Ericsson AB" ecimMomName="ECIM_LogM" ecimMomVersion="2" ecimMomRelease="1" ecimMomCorrection="0" correction="0"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_CtwIgEAnEeGv86_zpNl4KA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_CtrQAUAnEeGv86_zpNl4KA"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_wN9dUEAvEeGv86_zpNl4KA" hideGroupName="" specification="" statusInformation="" base_Class="_wN4k0EAvEeGv86_zpNl4KA" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_wOGnQEAvEeGv86_zpNl4KA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_wOCV0EAvEeGv86_zpNl4KA"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_2D5rEEAxEeGv86_zpNl4KA" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_2D1ZoEAxEeGv86_zpNl4KA"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_r_QEYEAzEeGv86_zpNl4KA" hideGroupName="" specification="" statusInformation="" base_Parameter="_r_NBEEAzEeGv86_zpNl4KA"/>
+  <ECIMBaseProfile:EcimParameter xmi:id="_r_QrcEAzEeGv86_zpNl4KA" hideGroupName="" specification="" statusInformation="" length="" multiplicationFactor="" pattern="" isPassphrase="true" patternErrorMsg="" base_Parameter="_r_PdUEAzEeGv86_zpNl4KA"/>
+  <ECIMBaseProfile:EcimResult xmi:id="_r_QrckAzEeGv86_zpNl4KA" hideGroupName="" specification="" statusInformation="" range="" unit="" resolution="" multiplicationFactor="" base_Parameter="_r_PdVEAzEeGv86_zpNl4KA"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_91_YQEA6EeGv86_zpNl4KA" hideGroupName="" specification="" statusInformation="" base_Association="_911nQEA6EeGv86_zpNl4KA" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_RBiBQFZOEeGFB8rqNpXtSg" hideGroupName="" specification="" statusInformation="" base_Enumeration="_RBXpMFZOEeGFB8rqNpXtSg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_RBvcoFZOEeGFB8rqNpXtSg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_RBou8FZOEeGFB8rqNpXtSg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_bEkMcFZOEeGFB8rqNpXtSg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_bEgiEFZOEeGFB8rqNpXtSg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_fNUKgFZOEeGFB8rqNpXtSg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_fNNc0FZOEeGFB8rqNpXtSg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_iPtkgFZOEeGFB8rqNpXtSg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_iPm20FZOEeGFB8rqNpXtSg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_ljPKwFZOEeGFB8rqNpXtSg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_ljIdEFZOEeGFB8rqNpXtSg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_pMTjMFZOEeGFB8rqNpXtSg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_pMMOcFZOEeGFB8rqNpXtSg"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_tVg0QFZOEeGFB8rqNpXtSg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_tVaGkFZOEeGFB8rqNpXtSg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_aOMvsFZPEeGFB8rqNpXtSg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_aOGCAFZPEeGFB8rqNpXtSg"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_QlKJ0F8LEeGdcsnBslhriQ" hideGroupName="" specification="" statusInformation="" base_Enumeration="_Qk8ucF8LEeGdcsnBslhriQ"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_QlfhAF8LEeGdcsnBslhriQ" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_QlVI8F8LEeGdcsnBslhriQ"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_zW0GcMvPEeOavY1cNHAtvA" hideGroupName="" specification="" statusInformation="" base_Class="_CthfAEAnEeGv86_zpNl4KA" isSystemCreated="true" isLegacyRoot="true"/>
+  <ECIMBaseProfile:EcimAction xmi:id="_pcn4wLO_EeS0kajPZFOEOg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Operation="_pcZPQLO_EeS0kajPZFOEOg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_CQYUQPAvEeS4pK3PilGTig" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_CLDgIOU-EeSBVuUY69zoSw"/>
+  <ECIMBaseProfile:EcimFeatures xmi:id="_lr1pMOJDEeWahfG6H4W0ZQ" base_Package="_lrfq8OJDEeWahfG6H4W0ZQ"/>
+  <ECIMBaseProfile:EcimDecisions xmi:id="_4NR5MOJFEeWahfG6H4W0ZQ" base_Package="_4M_lUOJFEeWahfG6H4W0ZQ"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_fD43UAivEeaRYfy-t7-mAA" base_Class="_fDB7sAivEeaRYfy-t7-mAA"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_wLRGkB0JEea3rK5wnoLDYg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_wLK_8B0JEea3rK5wnoLDYg"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_-vdwIEeYEea_ed_heOwLYg" base_Class="_-uyasEeYEea_ed_heOwLYg"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_FzfMgEeZEea_ed_heOwLYg" base_Class="_FzS_QEeZEea_ed_heOwLYg"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_o2ySUH5vEeamS_QijE0SCw" base_Class="_o2kP4H5vEeamS_QijE0SCw"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_tB19gH5vEeamS_QijE0SCw" base_Class="_tBjCkH5vEeamS_QijE0SCw"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_TXs5kH56EeamS_QijE0SCw" base_Class="_TXalsH56EeamS_QijE0SCw"/>
+  <ECIMBaseProfile:EcimContribution xmi:id="_5Yru0H6lEeaJBYJsWino3g" hideGroupName="" specification="" statusInformation="" base_Association="_5YfhkH6lEeaJBYJsWino3g" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimDecision xmi:id="_bRa90JXyEeahCY4FpJcoQw" base_Class="_bRU3MJXyEeahCY4FpJcoQw"/>
+  <ECIMBaseProfile:EcimMoClass xmi:id="_eWJ9cJMIEem3evXGag4VMg" hideGroupName="" specification="" statusInformation="" base_Class="_eVmj0JMIEem3evXGag4VMg" isSystemCreated="true"/>
+  <ECIMBaseProfile:EcimKeyAttribute xmi:id="_eWU8kJMIEem3evXGag4VMg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_Property="_eWR5QZMIEem3evXGag4VMg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_AS-oQJMJEem3evXGag4VMg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" length="" pattern="" patternErrorMsg="" isNotifiable="true" base_Property="_AS7k8JMJEem3evXGag4VMg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_XYWoYJMJEem3evXGag4VMg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_XYTlEJMJEem3evXGag4VMg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_l3TlQJMJEem3evXGag4VMg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_l3RJAJMJEem3evXGag4VMg"/>
+  <ECIMBaseProfile:EcimContainment xmi:id="_kCtksJMVEem3evXGag4VMg" hideGroupName="" specification="" statusInformation="" base_Association="_kCpTQJMVEem3evXGag4VMg" canCreate="false" canDelete="false" isNotifiable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_ibReEJMbEem3evXGag4VMg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" isAssociationEnd="true" base_Property="_ibOawJMbEem3evXGag4VMg"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_erz9cJxVEem_sYFsZBeyrg" base_Class="_erl7AJxVEem_sYFsZBeyrg"/>
+  <ECIMBaseProfile:EcimDerivedInteger xmi:id="_auBEsJ4iEem_-OkaFUdGAQ" hideGroupName="" specification="" statusInformation="" range="1..65535" base_DataType="_atzpUJ4iEem_-OkaFUdGAQ" unit="days" multiplicationFactor="" resolution=""/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_AIICQKUUEemqAJvxHh1W_Q" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_AGMIkKUUEemqAJvxHh1W_Q"/>
+  <ECIMBaseProfile:EcimEnumeration xmi:id="_nekvwKtMEem8bIv9jI2b1g" hideGroupName="" specification="RFC 5424" statusInformation="" base_Enumeration="_ncOmYKtMEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_ne_mgKtMEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_ne0nYKtMEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_CWXRkKtNEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_CWB6YKtNEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_OtwFAKtNEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_Otj3wKtNEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_CZ-w0KtOEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_CZyjkKtOEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_KeZTMKtOEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_KeNF8KtOEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_TWTvEKtOEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_TWHh0KtOEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_c8aGoKtOEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_c8RjwKtOEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_jkz-AKtOEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_jkl7kKtOEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_p0DHcKtOEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_pz7LoKtOEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_zdML8KtOEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_zdEQIKtOEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_8sEWUKtOEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_8r4JEKtOEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_Vz26IKtPEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_VztJIKtPEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_egZzgKtPEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_egPbcKtPEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_lnw3wKtPEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_lnnt0KtPEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_tuypQKtPEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_tuqtcKtPEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_0m5wkKtPEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_0mxNsKtPEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_NmI1UKtQEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_NmAScKtQEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_4oa2gKtVEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_4oS6sKtVEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="__IkJwKtVEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="__IXVcKtVEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_GN7C4KtWEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_GNaFgKtWEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_N3rCgKtWEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_N3fcUKtWEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_S4NkMKtWEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_S4B-AKtWEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_Yvij8KtWEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_YvaoIKtWEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimEnumerationLiteral xmi:id="_fb9YoKtWEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" base_EnumerationLiteral="_fbjI8KtWEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_OAxCMKtYEem8bIv9jI2b1g" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_OAmDEKtYEem8bIv9jI2b1g"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_KSrKUK6OEemDO9WnFrIdmA" base_Class="_KRAWYK6OEemDO9WnFrIdmA"/>
+  <Documentation:Documentation xmi:id="_wtbKsLzAEemvDd0rdX2_6Q" base_Comment="_CtcmgEAnEeGv86_zpNl4KA"/>
+  <Documentation:Documentation xmi:id="_wtbKsbzAEemvDd0rdX2_6Q" base_Comment="_CtmXgUAnEeGv86_zpNl4KA"/>
+  <Documentation:Documentation xmi:id="_wtbKsrzAEemvDd0rdX2_6Q" base_Comment="_CtwIgUAnEeGv86_zpNl4KA"/>
+  <Documentation:Documentation xmi:id="_wtbKt7zAEemvDd0rdX2_6Q" base_Comment="_wN9dUUAvEeGv86_zpNl4KA"/>
+  <Documentation:Documentation xmi:id="_wtbKuLzAEemvDd0rdX2_6Q" base_Comment="_wOHOUEAvEeGv86_zpNl4KA"/>
+  <Documentation:Documentation xmi:id="_wtbKubzAEemvDd0rdX2_6Q" base_Comment="_2D5rEUAxEeGv86_zpNl4KA"/>
+  <Documentation:Documentation xmi:id="_wtbKvbzAEemvDd0rdX2_6Q" base_Comment="_r_NBEUAzEeGv86_zpNl4KA"/>
+  <Documentation:Documentation xmi:id="_wtbKvrzAEemvDd0rdX2_6Q" base_Comment="_r_PdUUAzEeGv86_zpNl4KA"/>
+  <Documentation:Documentation xmi:id="_wtbKv7zAEemvDd0rdX2_6Q" base_Comment="_r_PdVUAzEeGv86_zpNl4KA"/>
+  <Documentation:Documentation xmi:id="_wtbKwLzAEemvDd0rdX2_6Q" base_Comment="_ggqPQEA1EeGv86_zpNl4KA"/>
+  <Documentation:Documentation xmi:id="_wtbKwbzAEemvDd0rdX2_6Q" base_Comment="_RBiBQVZOEeGFB8rqNpXtSg"/>
+  <Documentation:Documentation xmi:id="_wtbKwrzAEemvDd0rdX2_6Q" base_Comment="_RBvcoVZOEeGFB8rqNpXtSg"/>
+  <Documentation:Documentation xmi:id="_wtbKw7zAEemvDd0rdX2_6Q" base_Comment="_bEkzgFZOEeGFB8rqNpXtSg"/>
+  <Documentation:Documentation xmi:id="_wtbKxLzAEemvDd0rdX2_6Q" base_Comment="_fNUxkFZOEeGFB8rqNpXtSg"/>
+  <Documentation:Documentation xmi:id="_wtbKxbzAEemvDd0rdX2_6Q" base_Comment="_iPuLkFZOEeGFB8rqNpXtSg"/>
+  <Documentation:Documentation xmi:id="_wtbKxrzAEemvDd0rdX2_6Q" base_Comment="_ljPKwVZOEeGFB8rqNpXtSg"/>
+  <Documentation:Documentation xmi:id="_wtbKx7zAEemvDd0rdX2_6Q" base_Comment="_pMTjMVZOEeGFB8rqNpXtSg"/>
+  <Documentation:Documentation xmi:id="_wtbKyLzAEemvDd0rdX2_6Q" base_Comment="_tVg0QVZOEeGFB8rqNpXtSg"/>
+  <Documentation:Documentation xmi:id="_wtbKybzAEemvDd0rdX2_6Q" base_Comment="_aONWwFZPEeGFB8rqNpXtSg"/>
+  <Documentation:Documentation xmi:id="_wtbKyrzAEemvDd0rdX2_6Q" base_Comment="_QlLX8F8LEeGdcsnBslhriQ"/>
+  <Documentation:Documentation xmi:id="_wtbKy7zAEemvDd0rdX2_6Q" base_Comment="_QlfhAV8LEeGdcsnBslhriQ"/>
+  <Documentation:Documentation xmi:id="_wtbK1bzAEemvDd0rdX2_6Q" base_Comment="_CLUl4OU-EeSBVuUY69zoSw"/>
+  <Documentation:Documentation xmi:id="_wtbK2LzAEemvDd0rdX2_6Q" base_Comment="_k4EJkPQXEeSrYaroUnAVVw"/>
+  <Documentation:Documentation xmi:id="_wtbK27zAEemvDd0rdX2_6Q" base_Comment="_-Vg1MH6lEeaJBYJsWino3g"/>
+  <Documentation:Documentation xmi:id="_wtbK3LzAEemvDd0rdX2_6Q" base_Comment="_ISfmQH6nEeaJBYJsWino3g"/>
+  <Documentation:Documentation xmi:id="_wtbK37zAEemvDd0rdX2_6Q" base_Comment="_eWO18JMIEem3evXGag4VMg"/>
+  <Documentation:Documentation xmi:id="_wtbK4LzAEemvDd0rdX2_6Q" base_Comment="_eWU8kZMIEem3evXGag4VMg"/>
+  <Documentation:Documentation xmi:id="_wtbK4bzAEemvDd0rdX2_6Q" base_Comment="_AS-oQZMJEem3evXGag4VMg"/>
+  <Documentation:Documentation xmi:id="_wtbxwLzAEemvDd0rdX2_6Q" base_Comment="_XYWoYZMJEem3evXGag4VMg"/>
+  <Documentation:Documentation xmi:id="_wtbxwbzAEemvDd0rdX2_6Q" base_Comment="_t2PKsJMJEem3evXGag4VMg"/>
+  <Documentation:Documentation xmi:id="_wtbxxLzAEemvDd0rdX2_6Q" base_Comment="_ibReEZMbEem3evXGag4VMg"/>
+  <Documentation:Documentation xmi:id="_wtbxxbzAEemvDd0rdX2_6Q" base_Comment="_auCS0J4iEem_-OkaFUdGAQ"/>
+  <Documentation:Documentation xmi:id="_wtbxxrzAEemvDd0rdX2_6Q" base_Comment="_ORfJoKUUEemqAJvxHh1W_Q"/>
+  <Documentation:Documentation xmi:id="_wtbxx7zAEemvDd0rdX2_6Q" base_Comment="_nel94KtMEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbxyLzAEemvDd0rdX2_6Q" base_Comment="_ne_mgatMEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbxybzAEemvDd0rdX2_6Q" base_Comment="_CWXRkatNEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbxyrzAEemvDd0rdX2_6Q" base_Comment="_OtwFAatNEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbxy7zAEemvDd0rdX2_6Q" base_Comment="_CZ-w0atOEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbxzLzAEemvDd0rdX2_6Q" base_Comment="_KeZ6QKtOEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbxzbzAEemvDd0rdX2_6Q" base_Comment="_TWUWIKtOEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbxzrzAEemvDd0rdX2_6Q" base_Comment="_c8atsKtOEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbxz7zAEemvDd0rdX2_6Q" base_Comment="_jkz-AatOEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbx0LzAEemvDd0rdX2_6Q" base_Comment="_p0DHcatOEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbx0bzAEemvDd0rdX2_6Q" base_Comment="_zdMzAKtOEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbx0rzAEemvDd0rdX2_6Q" base_Comment="_8sE9YKtOEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbx07zAEemvDd0rdX2_6Q" base_Comment="_Vz3hMKtPEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbx1LzAEemvDd0rdX2_6Q" base_Comment="_egZzgatPEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbx1bzAEemvDd0rdX2_6Q" base_Comment="_lnxe0KtPEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbx1rzAEemvDd0rdX2_6Q" base_Comment="_tuypQatPEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbx17zAEemvDd0rdX2_6Q" base_Comment="_0m5wkatPEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbx2LzAEemvDd0rdX2_6Q" base_Comment="_NmI1UatQEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbx2bzAEemvDd0rdX2_6Q" base_Comment="_4ofH8KtVEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbx2rzAEemvDd0rdX2_6Q" base_Comment="__Ikw0KtVEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbx27zAEemvDd0rdX2_6Q" base_Comment="_GN7C4atWEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbx3LzAEemvDd0rdX2_6Q" base_Comment="_N3rCgatWEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbx3bzAEemvDd0rdX2_6Q" base_Comment="_S4OLQKtWEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbx3rzAEemvDd0rdX2_6Q" base_Comment="_Yvij8atWEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbx37zAEemvDd0rdX2_6Q" base_Comment="_fb9YoatWEem8bIv9jI2b1g"/>
+  <Documentation:Documentation xmi:id="_wtbx4LzAEemvDd0rdX2_6Q" base_Comment="_OAxpQKtYEem8bIv9jI2b1g"/>
+  <CoreMWProfile:CmwModel xmi:id="_ORFDkLzGEemKooXvtbfivg" base_Model="_NRAMoAwOEdmFcaeZXPdWAQ"/>
+  <CoreMWProfile:CmwMom xmi:id="_ORKjILzGEemKooXvtbfivg" base_Package="_CtXG8EAnEeGv86_zpNl4KA" immNamespace="MOM_NAME"/>
+  <CoreMWProfile:CmwClass xmi:id="_ORO0kLzGEemKooXvtbfivg" base_Class="_CthfAEAnEeGv86_zpNl4KA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ORPboLzGEemKooXvtbfivg" base_Property="_CtrQAUAnEeGv86_zpNl4KA"/>
+  <CoreMWProfile:CmwClass xmi:id="_ORWwYLzGEemKooXvtbfivg" base_Class="_wN4k0EAvEeGv86_zpNl4KA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ORWwYbzGEemKooXvtbfivg" base_Property="_wOCV0EAvEeGv86_zpNl4KA"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ORXXcLzGEemKooXvtbfivg" base_Property="_aOGCAFZPEeGFB8rqNpXtSg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ORXXcbzGEemKooXvtbfivg" base_Property="_CLDgIOU-EeSBVuUY69zoSw" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ORX-gLzGEemKooXvtbfivg" base_Property="_ibOawJMbEem3evXGag4VMg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ORYlkLzGEemKooXvtbfivg" base_Property="_OAmDEKtYEem8bIv9jI2b1g" isConfigurable="true"/>
+  <CoreMWProfile:CmwAction xmi:id="_ORYlkbzGEemKooXvtbfivg" base_Operation="_2D1ZoEAxEeGv86_zpNl4KA" admOpId="1"/>
+  <CoreMWProfile:CmwAction xmi:id="_ORbo4LzGEemKooXvtbfivg" base_Operation="_pcZPQLO_EeS0kajPZFOEOg" admOpId="2"/>
+  <CoreMWProfile:CmwContribution xmi:id="_ORmoALzGEemKooXvtbfivg" base_Association="_5YfhkH6lEeaJBYJsWino3g"/>
+  <CoreMWProfile:CmwClass xmi:id="_ORnPELzGEemKooXvtbfivg" base_Class="_eVmj0JMIEem3evXGag4VMg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ORnPEbzGEemKooXvtbfivg" base_Property="_eWR5QZMIEem3evXGag4VMg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ORpEQLzGEemKooXvtbfivg" base_Property="_AS7k8JMJEem3evXGag4VMg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ORpEQbzGEemKooXvtbfivg" base_Property="_XYTlEJMJEem3evXGag4VMg" isConfigurable="true"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_ORprULzGEemKooXvtbfivg" base_Property="_l3RJAJMJEem3evXGag4VMg" isConfigurable="true"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_NB2_MN53EemlJYE5xRJgOg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_NBpj0N53EemlJYE5xRJgOg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_NCBXQN53EemlJYE5xRJgOg" base_Property="_NBpj0N53EemlJYE5xRJgOg" isConfigurable="true"/>
+  <Documentation:Documentation xmi:id="_NCDMcN53EemlJYE5xRJgOg" base_Comment="_NBpj0d53EemlJYE5xRJgOg"/>
+  <ECIMBaseProfile:EcimAttribute_RW xmi:id="_QqocsN53EemlJYE5xRJgOg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" range="" unit="" resolution="" multiplicationFactor="" isNotifiable="true" base_Property="_QqhvAN53EemlJYE5xRJgOg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_QqvxcN53EemlJYE5xRJgOg" base_Property="_QqhvAN53EemlJYE5xRJgOg" isConfigurable="true"/>
+  <Documentation:Documentation xmi:id="_Qq4UUN53EemlJYE5xRJgOg" base_Comment="_QqhvAd53EemlJYE5xRJgOg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_7hHP0N53EemlJYE5xRJgOg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_7hC-YN53EemlJYE5xRJgOg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_7hXugN53EemlJYE5xRJgOg" base_Property="_7hC-YN53EemlJYE5xRJgOg" isCached="true"/>
+  <Documentation:Documentation xmi:id="_7hb_8N53EemlJYE5xRJgOg" base_Comment="_7hC-Yd53EemlJYE5xRJgOg"/>
+  <ECIMBaseProfile:EcimAttribute_RO xmi:id="_La7BIN54EemlJYE5xRJgOg" hideGroupName="" specification="" statusInformation="" dependencies="" disturbances="" precondition="" sideEffects="" takesEffect="" isNotifiable="true" base_Property="_La5L8N54EemlJYE5xRJgOg"/>
+  <CoreMWProfile:CmwAttribute xmi:id="_LbHOYN54EemlJYE5xRJgOg" base_Property="_La5L8N54EemlJYE5xRJgOg" isCached="true"/>
+  <Documentation:Documentation xmi:id="_LbIcgN54EemlJYE5xRJgOg" base_Comment="_La5L8d54EemlJYE5xRJgOg"/>
+  <ECIMBaseProfile:EcimFeature xmi:id="_sjzF0N-REemNItqO1YdqCg" base_Class="_sjKzsN-REemNItqO1YdqCg"/>
+  <ECIMBaseProfile:EcimDerivedString xmi:id="_eIPcENWLEeu95t3shJpnEQ" hideGroupName="" specification="" statusInformation="" length="" pattern="" base_DataType="_eILKoNWLEeu95t3shJpnEQ" patternErrorMsg=""/>
+</xmi:XMI>

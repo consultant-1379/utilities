@@ -1,0 +1,240 @@
+#!/bin/bash
+##
+# ------------------------------------------------------------------------
+#     Copyright (C) 2015 Ericsson AB. All rights reserved.
+# ------------------------------------------------------------------------
+##
+# Name:
+#       get 
+##
+# Description:
+#       It retrieves the requested APG parameter value from PSO
+##
+# Usage:
+# . <parmtool_root>/parmtool get --file <filename>
+# . <parmtool_root>/parmtool get --simulated --file <filename>
+# . <parmtool_root>/parmtool get --item-list item1[,item2,...,itemN]
+# . <parmtool_root>/parmtool get --file <filename> 
+#                                --item-list item1[,item2,...,itemN]
+# . <parmtool_root>/parmtool get --simulated --file <filename> 
+#                                --item-list item1[,item2,...,itemN]
+##
+# Changelog:
+# - Mon Jul 19 2016 - Pratap Reddy (xpraupp)
+#   Plasil impacts 
+# - Thu Dec 03 2015 - Malangsha Shaik (xmalsha)
+#   First Version
+##
+
+. $LIB_COMMON_DIR/parmtool_common.sh
+
+# ------------------------------------------------------------------------
+function print_params(){
+	local INDEX=0
+	local RESULT=''
+
+	LENGTH=${#PRINT_ARRAY[@]}
+	while [ $INDEX -lt $LENGTH ]
+	do
+		ATTRIBUTE=${PRINT_ARRAY[$INDEX]}
+
+		# To handle simulated parameters
+		if [ $OPT_SIMULATED -eq $TRUE ]; then
+			SIMULATED_FILE=$( find $PSO_PATH/apos -mindepth 1 -maxdepth 1 -name "simulated_$ATTRIBUTE" 2>/dev/null)
+			if [[ -n $SIMULATED_FILE && -f "$SIMULATED_FILE" ]]; then
+				RESULT="${RESULT}${ATTRIBUTE}=$($CMD_CAT $SIMULATED_FILE)\n"
+			elif $CMD_GREP -q "$ATTRIBUTE" $PSO_DB ; then
+			  PATH=$( $CMD_GREP "^$ATTRIBUTE;" $PSO_DB | $CMD_AWK -F ';' '{print $2}')
+			  [ ! -f $PSO_PATH/$PATH ] && abort "Attribute value ($ATTRIBUTE) not found in $PSO_PATH. Exiting."
+			  RESULT="${RESULT}${ATTRIBUTE}=$($CMD_CAT $PSO_PATH/$PATH)\n"
+			else
+				abort "Attribute ($ATTRIBUTE) not found. Exiting."
+			fi
+		else
+			if $CMD_GREP -q "$ATTRIBUTE" $PSO_DB ; then
+				PATH=$( $CMD_GREP "^$ATTRIBUTE;" $PSO_DB | $CMD_AWK -F ';' '{print $2}')
+				[ ! -f $PSO_PATH/$PATH ] && abort "Attribute value ($ATTRIBUTE) not found in $PSO_PATH. Exiting."
+				RESULT="${RESULT}${ATTRIBUTE}=$($CMD_CAT $PSO_PATH/$PATH)\n"
+			else
+				abort "Attribute ($ATTRIBUTE) not found. Exiting."
+			fi
+		fi
+
+		((INDEX = $INDEX + 1))
+	done	
+
+  RESULT="${RESULT%'\n'}"
+	console_print $RESULT
+
+	return $TRUE
+}
+
+# ------------------------------------------------------------------------
+function parse_txtfile(){
+  ITEM_FILE_COUNT=0
+
+  while read ITEM
+  do
+    L_VAL=$($CMD_ECHO $ITEM | $CMD_AWK -F'=' '{print $1}')
+    ITEM_FILE_ARRAY[$ITEM_FILE_COUNT]=$L_VAL
+    ((ITEM_FILE_COUNT++))
+  done < $INFILE	
+
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------
+function get_file_params(){
+  if [ $OPT_SIMULATED -eq $FALSE ]; then
+    $CMD_VALIDATE_DIR/validate --file $INFILE || \
+    abort "Validation of file ($INFILE) failed, Exiting."
+  fi
+
+  if isXML $INFILE; then
+    abort "XML format Not supported, Exiting." 
+  else
+    parse_txtfile
+  fi	
+
+  PRINT_ARRAY=(${ITEM_FILE_ARRAY[@]})
+  print_params
+
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------
+function get_params(){
+  if [ $OPT_SIMULATED -eq $FALSE ]; then
+    $CMD_VALIDATE_DIR/validate --item-list $ITEM_LIST || \
+    abort "Paramter validation failed, Exiting."
+  fi
+
+  OIFS=$IFS
+  IFS=,
+  ITEM_ARRAY=( $ITEM_LIST )
+  IFS=$OIFS
+
+  PRINT_ARRAY=(${ITEM_ARRAY[@]})
+  print_params
+
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------
+function usage(){
+  $CMD_CAT $MAN_DIR/get.man
+}
+
+# ------------------------------------------------------------------------
+function check_itemlist_format() {
+  local ITEM_LIST=$1
+  local COUNT=1
+  local PATTERN='^[^[:space:]=,]+,*[^[:space:],=:@#!]+$'
+  local ITEM_COUNT=$($CMD_ECHO "$ITEM_LIST" | $CMD_AWK -F, '{print NF}')
+  while [ $COUNT -le $ITEM_COUNT ]; do
+    ITEM=$($CMD_ECHO "$ITEM_LIST" | $CMD_AWK -F',' "{print $"$COUNT"}")
+    if [ -z "$ITEM" ]; then
+      return $FALSE
+    elif ! $($CMD_ECHO "$ITEM" | $CMD_GREP -qP "$PATTERN" ); then
+      return $FALSE
+    fi
+    ((COUNT++))
+  done
+
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------
+function check_get_file_format(){
+  local FILE="$1"
+
+  if ! check_file_format $FILE; then
+    return $FALSE
+  fi
+	
+  while read LINE; do
+    if $CMD_ECHO "$LINE" | $CMD_GREP -qP '^[^[:space:]=]+=[^[:space:]=,:#@!^]+$'; then
+      return $FALSE
+    fi
+  done < $FILE
+	
+  return $TRUE
+}
+
+# ------------------------------------------------------------------------
+function invoke(){
+  [ $OPT_FILE -eq $TRUE ] && get_file_params
+  [ $OPT_ITEM -eq $TRUE ] && get_params
+}
+
+# ------------------------------------------------------------------------
+function parse_cmdline(){
+  local LONG_OPTIONS='help file: item-list: simulated'  
+  [ $# -le 0 ] && usage && abort 'missing parameter'
+
+  $CMD_GETOPT --quiet --quiet-output --longoptions="$LONG_OPTIONS" -- "$@"
+  EXIT_CODE=$?
+  [ $EXIT_CODE -ne $TRUE ] && usage && abort "Command line parameter error" 
+
+  local ARGS="$@"
+  eval set -- "$ARGS"
+
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --file)
+          [ $OPT_FILE -eq $TRUE ] && usage_error "--file option repeated"
+          OPT_FILE=$TRUE
+          INFILE="$2"
+          [ -z "$INFILE" ] && usage_error "Command line parameter error"
+          [ ! -s $INFILE ] && abort "FILE ($INFILE) is empty"
+
+          check_get_file_format $INFILE || \
+          usage_error "FILE ($INFILE) format is not supported"
+          shift
+      ;;
+      --item-list)
+          [ $OPT_ITEM -eq $TRUE ] && usage_error "--item-list option repeated"
+          OPT_ITEM=$TRUE
+          ITEM_LIST="$2"
+          [ -z "$ITEM_LIST" ] && usage_error "Command line parameter error"
+
+          check_itemlist_format $ITEM_LIST || \
+          usage_error "Invalid item list format"
+          shift
+      ;;
+     --simulated)
+          [ $OPT_SIMULATED -eq $TRUE ] && usage_error '--simulated option repeated'
+          OPT_SIMULATED=$TRUE
+			;;
+      --help)
+          usage && exit $TRUE
+      ;;
+      --)
+        	# "end of argument list"
+          shift
+          break
+      ;;
+      *)
+					abort "unrecognized option ($1)"
+      ;;
+    esac
+    shift
+  done
+}
+
+OPT_FILE=$FALSE
+OPT_ITEM=$FALSE
+OPT_SIMULATED=$FALSE
+INFILE=''
+ITEM_LIST=''
+
+ITEM_ARRAY=()
+ITEM_FILE_ARRAY=()
+PRINT_ARRAY=()
+
+parse_cmdline $@
+
+invoke
+
+# always return true if we are here.
+exit $TRUE

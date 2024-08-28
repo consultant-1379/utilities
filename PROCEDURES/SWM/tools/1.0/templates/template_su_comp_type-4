@@ -1,0 +1,8 @@
+								<create objectClassName="SaAmfSutCompType" parentObjectDN="safVersion=#SAF_VERSION#,safSuType=#SU_TYPE#">
+									<attribute name="saAmfSutMaxNumComponents" type="SA_IMM_ATTR_SAUINT32T">
+										<value>0</value>
+									</attribute>
+									<attribute name="safMemberCompType" type="SA_IMM_ATTR_SANAMET">
+										<value>safMemberCompType=safVersion=#NEW_RSTATE#\,safCompType=#COMP_TYPE_NAME#</value>
+									</attribute>
+								</create>

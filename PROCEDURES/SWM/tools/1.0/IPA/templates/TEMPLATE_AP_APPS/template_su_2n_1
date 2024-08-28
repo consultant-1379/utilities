@@ -1,0 +1,20 @@
+				<create objectClassName="SaAmfSU" parentObjectDN="safSg=#SG_2N#,safApp=#SAF_APP#">
+					<attribute name="safSu" type="SA_IMM_ATTR_SASTRINGT">
+				 		<value>safSu=#SU1_2N#</value>
+					</attribute>
+					<attribute name="saAmfSUType" type="SA_IMM_ATTR_SANAMET">
+				 		<value>safVersion=#SAF_VERSION#,safSuType=#SU_2N_TYPE#</value>
+					</attribute>
+					<attribute name="saAmfSURank" type="SA_IMM_ATTR_SAUINT32T">
+						<value>0</value>
+					</attribute>
+					<attribute name="saAmfSUHostNodeOrNodeGroup" type="SA_IMM_ATTR_SANAMET">
+						<value>safAmfNode=SC-1,safAmfCluster=myAmfCluster</value>
+					</attribute>
+					<attribute name="saAmfSUFailover" type="SA_IMM_ATTR_SAUINT32T">
+						<value>true</value> 
+					</attribute>
+					<attribute name="saAmfSUAdminState" type="SA_IMM_ATTR_SAUINT32T">
+						<value>3</value>
+					</attribute>
+				</create>

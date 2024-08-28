@@ -1,0 +1,40 @@
+ ___  __ 
+|__  /__` |\/|
+|___ .__/ |  |
+___  __   __       __ 
+ |  /  \ /  \ |   /__`
+ |  \__/ \__/ |__ .__/
+
+
+README
+  The folder tcg has been extracted from the coremw runtime package.
+
+FILES
+  * tcg.source              - To be sourced for loading the tcg module;
+  * getCamp.py              - Uses the tcg tool to fetch the installation campaign
+                            by referring the the conent of the ESM workspace.
+  * tcg                     - CoreMW TCG tool.
+  *node_config              - Folder to copy the  needed files for Upgrade and Migrate Cases from Node.
+  *node_config/config_base - Folder to copy the config_base contents from the node(/.cluster/storage/system/config/coremw/csm/config-base)
+  *node_mapping.txt         - File containig the node information  needed for tcg.
+  *imm dump file           - imm dump from the node 
+			     On the node execute the below commands to get the IMM  dump file
+
+				1.cmw-immconfig-export <filename>.xml
+				2.immdump <fileName>.xml 
+				
+			     This file name along with absolute path should be given as input to getCamp.py 
+
+HOW-TO
+  source tcg.source
+  ./getCamp.py -m mode[install|upgrade|migrate] [-i imm_dump_file]
+  ./getCamp.py -m install 
+  ./getCamp.py -m upgrade|migrate -i imm_dump.xml
+
+CONTACT
+  If you have problems, questions, ideas or suggestions, please contact us
+  at the following mail address: Genesis/TEI <PDLAESARTE@pdl.internal.ericsson.com>
+
+NOTICE
+  Copyright (C) 2018 Ericsson AB. All rights reserved.
+

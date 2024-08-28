@@ -1,0 +1,21 @@
+						</amfEntityTypes>
+					</addToImm>
+				</campaignInitialization>
+				<upgradeProcedure safSmfProcedure="safSmfProc=RollingUpgrade" saSmfExecLevel="1">
+					<outageInfo>
+						<acceptableServiceOutage>
+							<all/>
+						</acceptableServiceOutage>
+						<procedurePeriod saSmfProcPeriod="60000000000"/>
+						</outageInfo>
+						<procInitAction>
+							<doCliCommand command="$OSAFCAMPAIGNROOT/apos_drbdstatus.sh"/>
+							<undoCliCommand command="/bin/false"/>
+							<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+							<plmExecEnv amfNode="safAmfNode=SC-2,safAmfCluster=myAmfCluster"/>
+						</procInitAction>
+						<procInitAction>
+							<doCliCommand command="$OSAFCAMPAIGNROOT/migrate_models.sh"/>
+							<undoCliCommand command="/bin/false"/>
+							<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+						</procInitAction>

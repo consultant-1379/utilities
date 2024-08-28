@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <notation:Diagram xmi:id="_7JJ8UBtDEeWvQYFW8NSCww" type="PapyrusUMLClassDiagram" name="AuditLogging_Object_Instances" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_7JJ8URtDEeWvQYFW8NSCww" type="2001" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8UhtDEeWvQYFW8NSCww" type="5002">
+        <element xmi:type="uml:InstanceSpecification" href="AXE_Audit_Logging.uml#_s3E3-4KMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7JJ8UxtDEeWvQYFW8NSCww" type="7001">
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8VBtDEeWvQYFW8NSCww" type="3030">
+          <element xmi:type="uml:Slot" href="AXE_Audit_Logging.uml#_s3E3_IKMEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8VRtDEeWvQYFW8NSCww" type="3030">
+          <element xmi:type="uml:Slot" href="AXE_Audit_Logging.uml#_s3E3_oKMEeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:InstanceSpecification" href="AXE_Audit_Logging.uml#_s3E3-4KMEeK3wcU1QErItg"/>
+      </children>
+      <element xmi:type="uml:InstanceSpecification" href="AXE_Audit_Logging.uml#_s3E3-4KMEeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7JJ8VhtDEeWvQYFW8NSCww" x="253" y="101"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_7JJ8VxtDEeWvQYFW8NSCww"/>
+    <element xmi:type="uml:Package" href="AXE_Audit_Logging.uml#_s3E37oKMEeK3wcU1QErItg"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_7JJ8WBtDEeWvQYFW8NSCww" type="PapyrusUMLClassDiagram" name="Security Handling, Audit Logging Management_UC" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_7JJ8WRtDEeWvQYFW8NSCww" type="Class_Shape" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8WhtDEeWvQYFW8NSCww" type="Class_NameLabel">
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3E3yYKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7JJ8WxtDEeWvQYFW8NSCww" type="Class_AttributeCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8XBtDEeWvQYFW8NSCww" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#_s3E3y4KMEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8XRtDEeWvQYFW8NSCww" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#_s3E3zYKMEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8XhtDEeWvQYFW8NSCww" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#_s3E30YKMEeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3E3yYKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7JJ8XxtDEeWvQYFW8NSCww" type="Class_OperationCompartment">
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3E3yYKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7JJ8YBtDEeWvQYFW8NSCww" visible="false" type="Class_NestedClassifierCompartment">
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3E3yYKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8YRtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_7JJ8YhtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3E3yYKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_tUAmkCv9EeeOTJXfOfeIiw" type="Class_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_tUAmkSv9EeeOTJXfOfeIiw" y="5"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3E3yYKMEeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7JJ8YxtDEeWvQYFW8NSCww" x="367" y="634"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_7JJ8ZBtDEeWvQYFW8NSCww" type="Class_Shape" fontName="Segoe UI" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8ZRtDEeWvQYFW8NSCww" type="Class_NameLabel">
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3ERVIKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7JJ8ZhtDEeWvQYFW8NSCww" type="Class_AttributeCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8ZxtDEeWvQYFW8NSCww" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#_s3E3sYKMEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8aBtDEeWvQYFW8NSCww" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#_s3E3s4KMEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8aRtDEeWvQYFW8NSCww" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#_s3E3u4KMEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8ahtDEeWvQYFW8NSCww" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#_J1O1YIpqEeKzZLRXWrcn3w"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8axtDEeWvQYFW8NSCww" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#_nBNnYIpqEeKzZLRXWrcn3w"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8bBtDEeWvQYFW8NSCww" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#__lnMUIwBEeK01YQZswfq7g"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8bRtDEeWvQYFW8NSCww" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#_ATrv4Pf3EeSQB6Biut89ow"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3ERVIKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7JJ8bhtDEeWvQYFW8NSCww" type="Class_OperationCompartment">
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3ERVIKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7JJ8bxtDEeWvQYFW8NSCww" visible="false" type="Class_NestedClassifierCompartment">
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3ERVIKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8cBtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_7JJ8cRtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3ERVIKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_tUAmkiv9EeeOTJXfOfeIiw" type="Class_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_tUAmkyv9EeeOTJXfOfeIiw" y="5"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3ERVIKMEeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7JJ8chtDEeWvQYFW8NSCww" x="279" y="343"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_7JJ8cxtDEeWvQYFW8NSCww" type="Class_Shape" fontName="Sans" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8dBtDEeWvQYFW8NSCww" type="Class_NameLabel">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0JoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7JJ8dRtDEeWvQYFW8NSCww" type="Class_AttributeCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8dhtDEeWvQYFW8NSCww" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_Functions.uml#_tAN0KIKREeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8dxtDEeWvQYFW8NSCww" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="AXE_Functions.uml#_UR3NAPeHEeOT0ZN8HAfbgw"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0JoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7JJ8eBtDEeWvQYFW8NSCww" type="Class_OperationCompartment">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0JoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7JJ8eRtDEeWvQYFW8NSCww" visible="false" type="Class_NestedClassifierCompartment">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0JoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8ehtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_7JJ8extDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0JoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_tUAmlCv9EeeOTJXfOfeIiw" type="Class_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_tUAmlSv9EeeOTJXfOfeIiw" y="5"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0JoKREeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7JJ8fBtDEeWvQYFW8NSCww" x="295" y="161"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_tZ_SwCv9EeeOTJXfOfeIiw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_tZ_SwSv9EeeOTJXfOfeIiw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_tZ_50Cv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3E3yYKMEeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tZ_Swiv9EeeOTJXfOfeIiw" x="567" y="634"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_tcraYCv9EeeOTJXfOfeIiw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_tcraYSv9EeeOTJXfOfeIiw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_tcraYyv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="AXE_Audit_Logging.uml#_s3E35oKMEeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tcraYiv9EeeOTJXfOfeIiw" x="567" y="534"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_tdeEkCv9EeeOTJXfOfeIiw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_tdeEkSv9EeeOTJXfOfeIiw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_tderoCv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3ERVIKMEeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tdeEkiv9EeeOTJXfOfeIiw" x="479" y="343"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_thDkECv9EeeOTJXfOfeIiw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_thDkESv9EeeOTJXfOfeIiw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_thDkEyv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="AXE_Audit_Logging.uml#_s3E36oKMEeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_thDkEiv9EeeOTJXfOfeIiw" x="479" y="243"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_th7GwCv9EeeOTJXfOfeIiw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_th7GwSv9EeeOTJXfOfeIiw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_th7Gwyv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0JoKREeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_th7Gwiv9EeeOTJXfOfeIiw" x="495" y="161"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_7JJ8fRtDEeWvQYFW8NSCww"/>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_tUBNoCv9EeeOTJXfOfeIiw" name="diagram_compatibility_version" stringValue="1.2.0"/>
+    <element xmi:type="uml:Package" href="AXE_Audit_Logging.uml#_s3DpkIKMEeK3wcU1QErItg"/>
+    <edges xmi:type="notation:Connector" xmi:id="_7JJ8fhtDEeWvQYFW8NSCww" type="Association_Edge" source="_7JJ8WRtDEeWvQYFW8NSCww" target="_7JJ8ZBtDEeWvQYFW8NSCww" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8fxtDEeWvQYFW8NSCww" type="Association_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ8gBtDEeWvQYFW8NSCww" y="-7"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8gRtDEeWvQYFW8NSCww" type="Association_TargetMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ8ghtDEeWvQYFW8NSCww" y="15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8gxtDEeWvQYFW8NSCww" type="Association_TargetRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ8hBtDEeWvQYFW8NSCww" y="-15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8hRtDEeWvQYFW8NSCww" type="Association_SourceMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ8hhtDEeWvQYFW8NSCww" y="15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8hxtDEeWvQYFW8NSCww" type="Association_SourceRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ8iBtDEeWvQYFW8NSCww" y="-15"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_7JJ8iRtDEeWvQYFW8NSCww" fontName="Segoe UI"/>
+      <element xmi:type="uml:Association" href="AXE_Audit_Logging.uml#_s3E35oKMEeK3wcU1QErItg"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7JJ8ihtDEeWvQYFW8NSCww" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_7JJ8ixtDEeWvQYFW8NSCww" type="Association_Edge" source="_7JJ8ZBtDEeWvQYFW8NSCww" target="_7JJ8cxtDEeWvQYFW8NSCww" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8jBtDEeWvQYFW8NSCww" type="Association_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ8jRtDEeWvQYFW8NSCww" y="-9"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8jhtDEeWvQYFW8NSCww" type="Association_TargetMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ8jxtDEeWvQYFW8NSCww" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8kBtDEeWvQYFW8NSCww" type="Association_TargetRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ8kRtDEeWvQYFW8NSCww" y="-20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8khtDEeWvQYFW8NSCww" type="Association_SourceMultiplicityLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ8kxtDEeWvQYFW8NSCww" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8lBtDEeWvQYFW8NSCww" type="Association_SourceRoleLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ8lRtDEeWvQYFW8NSCww" y="-20"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_7JJ8lhtDEeWvQYFW8NSCww" fontName="Sans" fontHeight="8"/>
+      <element xmi:type="uml:Association" href="AXE_Audit_Logging.uml#_s3E36oKMEeK3wcU1QErItg"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7JJ8lxtDEeWvQYFW8NSCww" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_tZ_50Sv9EeeOTJXfOfeIiw" type="StereotypeCommentLink" source="_7JJ8WRtDEeWvQYFW8NSCww" target="_tZ_SwCv9EeeOTJXfOfeIiw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_tZ_50iv9EeeOTJXfOfeIiw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_tZ_51iv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3E3yYKMEeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tZ_50yv9EeeOTJXfOfeIiw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tZ_51Cv9EeeOTJXfOfeIiw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tZ_51Sv9EeeOTJXfOfeIiw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_tcraZCv9EeeOTJXfOfeIiw" type="StereotypeCommentLink" source="_7JJ8fhtDEeWvQYFW8NSCww" target="_tcraYCv9EeeOTJXfOfeIiw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_tcraZSv9EeeOTJXfOfeIiw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_tcsBcSv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="AXE_Audit_Logging.uml#_s3E35oKMEeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tcraZiv9EeeOTJXfOfeIiw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tcraZyv9EeeOTJXfOfeIiw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tcsBcCv9EeeOTJXfOfeIiw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_tderoSv9EeeOTJXfOfeIiw" type="StereotypeCommentLink" source="_7JJ8ZBtDEeWvQYFW8NSCww" target="_tdeEkCv9EeeOTJXfOfeIiw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_tderoiv9EeeOTJXfOfeIiw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_tderpiv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3ERVIKMEeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tderoyv9EeeOTJXfOfeIiw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tderpCv9EeeOTJXfOfeIiw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tderpSv9EeeOTJXfOfeIiw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_thDkFCv9EeeOTJXfOfeIiw" type="StereotypeCommentLink" source="_7JJ8ixtDEeWvQYFW8NSCww" target="_thDkECv9EeeOTJXfOfeIiw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_thDkFSv9EeeOTJXfOfeIiw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_thDkGSv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="AXE_Audit_Logging.uml#_s3E36oKMEeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_thDkFiv9EeeOTJXfOfeIiw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_thDkFyv9EeeOTJXfOfeIiw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_thDkGCv9EeeOTJXfOfeIiw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_th7t0Cv9EeeOTJXfOfeIiw" type="StereotypeCommentLink" source="_7JJ8cxtDEeWvQYFW8NSCww" target="_th7GwCv9EeeOTJXfOfeIiw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_th7t0Sv9EeeOTJXfOfeIiw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_th7t1Sv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0JoKREeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_th7t0iv9EeeOTJXfOfeIiw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_th7t0yv9EeeOTJXfOfeIiw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_th7t1Cv9EeeOTJXfOfeIiw"/>
+    </edges>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_7JJ8mBtDEeWvQYFW8NSCww" type="PapyrusUMLClassDiagram" name="Security Handling, Audit Logging Management" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_7JJ8mRtDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8mhtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3E3yYKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7JJ8mxtDEeWvQYFW8NSCww" visible="false" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8nBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#_s3E3y4KMEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8nRtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#_s3E3zYKMEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8nhtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#_s3E30YKMEeK3wcU1QErItg"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3E3yYKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7JJ8nxtDEeWvQYFW8NSCww" visible="false" type="7018">
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3E3yYKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7JJ8oBtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3E3yYKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8oRtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_7JJ8ohtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3E3yYKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_nTToYCv9EeeOTJXfOfeIiw" type="8510">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_nTToYSv9EeeOTJXfOfeIiw" y="5"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3E3yYKMEeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7JJ8oxtDEeWvQYFW8NSCww" x="328" y="389"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_7JJ8pBtDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8pRtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3ERVIKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7JJ8phtDEeWvQYFW8NSCww" visible="false" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8pxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#_s3E3sYKMEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8qBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#_s3E3s4KMEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8qRtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#_s3E3u4KMEeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8qhtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#_J1O1YIpqEeKzZLRXWrcn3w"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8qxtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#_nBNnYIpqEeKzZLRXWrcn3w"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8rBtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#__lnMUIwBEeK01YQZswfq7g"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8rRtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_Audit_Logging.uml#_ATrv4Pf3EeSQB6Biut89ow"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3ERVIKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7JJ8rhtDEeWvQYFW8NSCww" visible="false" type="7018">
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3ERVIKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7JJ8rxtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3ERVIKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8sBtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_7JJ8sRtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3ERVIKMEeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_nTUPcCv9EeeOTJXfOfeIiw" type="8510">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_nTUPcSv9EeeOTJXfOfeIiw" y="5"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3ERVIKMEeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7JJ8shtDEeWvQYFW8NSCww" x="328" y="255"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_7JJ8sxtDEeWvQYFW8NSCww" type="2008" fontName="Sans" fontHeight="8" lineColor="14263149" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8tBtDEeWvQYFW8NSCww" type="5029">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0JoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7JJ8tRtDEeWvQYFW8NSCww" visible="false" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8thtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_Functions.uml#_tAN0KIKREeK3wcU1QErItg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_7JJ8txtDEeWvQYFW8NSCww" type="3012">
+          <element xmi:type="uml:Property" href="AXE_Functions.uml#_UR3NAPeHEeOT0ZN8HAfbgw"/>
+        </children>
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0JoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7JJ8uBtDEeWvQYFW8NSCww" visible="false" type="7018">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0JoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7JJ8uRtDEeWvQYFW8NSCww" visible="false" type="7019">
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0JoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8uhtDEeWvQYFW8NSCww" visible="false">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_7JJ8uxtDEeWvQYFW8NSCww"/>
+        <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0JoKREeK3wcU1QErItg"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_nTUPciv9EeeOTJXfOfeIiw" type="8510">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_nTUPcyv9EeeOTJXfOfeIiw" y="5"/>
+      </children>
+      <element xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0JoKREeK3wcU1QErItg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7JJ8vBtDEeWvQYFW8NSCww" x="316" y="133"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_nkrFMCv9EeeOTJXfOfeIiw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_nkrFMSv9EeeOTJXfOfeIiw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_nkrFMyv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3E3yYKMEeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nkrFMiv9EeeOTJXfOfeIiw" x="528" y="389"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_nl2w8Cv9EeeOTJXfOfeIiw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_nl2w8Sv9EeeOTJXfOfeIiw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_nl3YACv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="AXE_Audit_Logging.uml#_s3E35oKMEeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nl2w8iv9EeeOTJXfOfeIiw" x="528" y="289"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_nnAngCv9EeeOTJXfOfeIiw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_nnAngSv9EeeOTJXfOfeIiw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_nnBOkCv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3ERVIKMEeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nnAngiv9EeeOTJXfOfeIiw" x="528" y="255"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_noCiQCv9EeeOTJXfOfeIiw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_noCiQSv9EeeOTJXfOfeIiw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_noCiQyv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="AXE_Audit_Logging.uml#_s3E36oKMEeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_noCiQiv9EeeOTJXfOfeIiw" x="528" y="155"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_npQqQCv9EeeOTJXfOfeIiw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_npQqQSv9EeeOTJXfOfeIiw" showTitle="true"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_npRRUCv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0JoKREeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_npQqQiv9EeeOTJXfOfeIiw" x="516" y="133"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_7JJ8vRtDEeWvQYFW8NSCww"/>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_nTU2gCv9EeeOTJXfOfeIiw" name="diagram_compatibility_version" stringValue="1.1.0"/>
+    <element xmi:type="uml:Package" href="AXE_Audit_Logging.uml#_s3DpkIKMEeK3wcU1QErItg"/>
+    <edges xmi:type="notation:Connector" xmi:id="_7JJ8vhtDEeWvQYFW8NSCww" type="4001" source="_7JJ8mRtDEeWvQYFW8NSCww" target="_7JJ8pBtDEeWvQYFW8NSCww" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8vxtDEeWvQYFW8NSCww" visible="false" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ8wBtDEeWvQYFW8NSCww" y="-7"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8wRtDEeWvQYFW8NSCww" type="6034">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ8whtDEeWvQYFW8NSCww" y="15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8wxtDEeWvQYFW8NSCww" visible="false" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ8xBtDEeWvQYFW8NSCww" y="-15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8xRtDEeWvQYFW8NSCww" visible="false" type="6033">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ8xhtDEeWvQYFW8NSCww" y="15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8xxtDEeWvQYFW8NSCww" visible="false" type="6005">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ8yBtDEeWvQYFW8NSCww" y="-15"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_7JJ8yRtDEeWvQYFW8NSCww" fontName="Segoe UI"/>
+      <element xmi:type="uml:Association" href="AXE_Audit_Logging.uml#_s3E35oKMEeK3wcU1QErItg"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7JJ8yhtDEeWvQYFW8NSCww" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_7JJ8yxtDEeWvQYFW8NSCww" type="4001" source="_7JJ8pBtDEeWvQYFW8NSCww" target="_7JJ8sxtDEeWvQYFW8NSCww" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8zBtDEeWvQYFW8NSCww" visible="false" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ8zRtDEeWvQYFW8NSCww" y="-9"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ8zhtDEeWvQYFW8NSCww" visible="false" type="6034">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ8zxtDEeWvQYFW8NSCww" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ80BtDEeWvQYFW8NSCww" visible="false" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ80RtDEeWvQYFW8NSCww" y="-20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ80htDEeWvQYFW8NSCww" visible="false" type="6033">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ80xtDEeWvQYFW8NSCww" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7JJ81BtDEeWvQYFW8NSCww" visible="false" type="6005">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7JJ81RtDEeWvQYFW8NSCww" y="-20"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_7JJ81htDEeWvQYFW8NSCww" fontName="Sans" fontHeight="8"/>
+      <element xmi:type="uml:Association" href="AXE_Audit_Logging.uml#_s3E36oKMEeK3wcU1QErItg"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7JJ81xtDEeWvQYFW8NSCww" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_nkrsQCv9EeeOTJXfOfeIiw" type="StereotypeCommentLink" source="_7JJ8mRtDEeWvQYFW8NSCww" target="_nkrFMCv9EeeOTJXfOfeIiw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_nkrsQSv9EeeOTJXfOfeIiw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_nksTUCv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3E3yYKMEeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nkrsQiv9EeeOTJXfOfeIiw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nkrsQyv9EeeOTJXfOfeIiw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nkrsRCv9EeeOTJXfOfeIiw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_nl3YASv9EeeOTJXfOfeIiw" type="StereotypeCommentLink" source="_7JJ8vhtDEeWvQYFW8NSCww" target="_nl2w8Cv9EeeOTJXfOfeIiw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_nl3YAiv9EeeOTJXfOfeIiw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_nl3YBiv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="AXE_Audit_Logging.uml#_s3E35oKMEeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nl3YAyv9EeeOTJXfOfeIiw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nl3YBCv9EeeOTJXfOfeIiw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nl3YBSv9EeeOTJXfOfeIiw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_nnBOkSv9EeeOTJXfOfeIiw" type="StereotypeCommentLink" source="_7JJ8pBtDEeWvQYFW8NSCww" target="_nnAngCv9EeeOTJXfOfeIiw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_nnBOkiv9EeeOTJXfOfeIiw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_nnBOliv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="AXE_Audit_Logging.uml#_s3ERVIKMEeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nnBOkyv9EeeOTJXfOfeIiw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nnBOlCv9EeeOTJXfOfeIiw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nnBOlSv9EeeOTJXfOfeIiw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_noCiRCv9EeeOTJXfOfeIiw" type="StereotypeCommentLink" source="_7JJ8yxtDEeWvQYFW8NSCww" target="_noCiQCv9EeeOTJXfOfeIiw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_noCiRSv9EeeOTJXfOfeIiw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_noDJUiv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Association" href="AXE_Audit_Logging.uml#_s3E36oKMEeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_noCiRiv9EeeOTJXfOfeIiw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_noDJUCv9EeeOTJXfOfeIiw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_noDJUSv9EeeOTJXfOfeIiw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_npRRUSv9EeeOTJXfOfeIiw" type="StereotypeCommentLink" source="_7JJ8sxtDEeWvQYFW8NSCww" target="_npQqQCv9EeeOTJXfOfeIiw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_npRRUiv9EeeOTJXfOfeIiw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_npRRViv9EeeOTJXfOfeIiw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="AXE_Functions.uml#_tAN0JoKREeK3wcU1QErItg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_npRRUyv9EeeOTJXfOfeIiw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_npRRVCv9EeeOTJXfOfeIiw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_npRRVSv9EeeOTJXfOfeIiw"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>

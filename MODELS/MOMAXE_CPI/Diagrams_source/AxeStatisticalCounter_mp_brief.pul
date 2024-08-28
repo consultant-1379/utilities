@@ -1,0 +1,73 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeStatisticalCounter_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "StatisticalCounterM" as AxeStatisticalCounter__StatisticalCounterM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20StatisticalCounterM]] 
+class "TranslationTable" as AxeStatisticalCounter__TranslationTable [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20TranslationTable]] 
+class "CapacityInfo" as AxeStatisticalCounter__CapacityInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20CapacityInfo]] 
+class "ScrFileManager" as AxeStatisticalCounter__ScrFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFileManager]]
+class "ObjectTypes" as AxeStatisticalCounter__ObjectTypes [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ObjectTypes]] 
+class "Reports" as AxeStatisticalCounter__Reports [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20Reports]] 
+class "MeasurementPrograms" as AxeStatisticalCounter__MeasurementPrograms [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20MeasurementPrograms]] 
+class "Report" as AxeStatisticalCounter__Report [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20Report]] 
+class "MeasurementProgram" as AxeStatisticalCounter__MeasurementProgram [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20MeasurementProgram]] 
+class "ObjectType" as AxeStatisticalCounter__ObjectType [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ObjectType]] 
+class "Counter" as AxeStatisticalCounter__Counter [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20Counter]]  
+class "ScrFile" as AxeStatisticalCounter__ScrFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFile]] 
+class "InUse" as AxeStatisticalCounter__InUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20InUse]] 
+class "ReadyToUse" as AxeStatisticalCounter__ReadyToUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ReadyToUse]] 
+class "StatisticalCounterM" as AxeStatisticalCounter__StatisticalCounterM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20StatisticalCounterM]] 
+class "TranslationTable" as AxeStatisticalCounter__TranslationTable [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20TranslationTable]] 
+AxeStatisticalCounter__StatisticalCounterM *-- "1" AxeStatisticalCounter__TranslationTable
+class "StatisticalCounterM" as AxeStatisticalCounter__StatisticalCounterM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20StatisticalCounterM]] 
+class "Reports" as AxeStatisticalCounter__Reports [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20Reports]] 
+AxeStatisticalCounter__StatisticalCounterM *-- "1" AxeStatisticalCounter__Reports
+class "StatisticalCounterM" as AxeStatisticalCounter__StatisticalCounterM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20StatisticalCounterM]] 
+class "MeasurementPrograms" as AxeStatisticalCounter__MeasurementPrograms [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20MeasurementPrograms]] 
+AxeStatisticalCounter__StatisticalCounterM *-- "1" AxeStatisticalCounter__MeasurementPrograms
+class "ObjectType" as AxeStatisticalCounter__ObjectType [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ObjectType]] 
+class "Counter" as AxeStatisticalCounter__Counter [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20Counter]] 
+AxeStatisticalCounter__ObjectType *-- "*" AxeStatisticalCounter__Counter
+class "StatisticalCounterM" as AxeStatisticalCounter__StatisticalCounterM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20StatisticalCounterM]] 
+class "ScrFileManager" as AxeStatisticalCounter__ScrFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFileManager]] 
+AxeStatisticalCounter__StatisticalCounterM *-- "1" AxeStatisticalCounter__ScrFileManager
+class "Reports" as AxeStatisticalCounter__Reports [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20Reports]] 
+class "Report" as AxeStatisticalCounter__Report [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20Report]] 
+AxeStatisticalCounter__Reports *-- "*" AxeStatisticalCounter__Report
+class "MeasurementPrograms" as AxeStatisticalCounter__MeasurementPrograms [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20MeasurementPrograms]] 
+class "MeasurementProgram" as AxeStatisticalCounter__MeasurementProgram [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20MeasurementProgram]] 
+AxeStatisticalCounter__MeasurementPrograms *-- "*" AxeStatisticalCounter__MeasurementProgram
+class "StatisticalCounterM" as AxeStatisticalCounter__StatisticalCounterM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20StatisticalCounterM]] 
+class "ObjectTypes" as AxeStatisticalCounter__ObjectTypes [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ObjectTypes]] 
+AxeStatisticalCounter__StatisticalCounterM *-- "1" AxeStatisticalCounter__ObjectTypes
+class "ObjectTypes" as AxeStatisticalCounter__ObjectTypes [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ObjectTypes]] 
+class "ObjectType" as AxeStatisticalCounter__ObjectType [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ObjectType]] 
+AxeStatisticalCounter__ObjectTypes *-- "*" AxeStatisticalCounter__ObjectType
+class "ScrFileManager" as AxeStatisticalCounter__ScrFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFileManager]] 
+class "ReadyToUse" as AxeStatisticalCounter__ReadyToUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ReadyToUse]] 
+AxeStatisticalCounter__ScrFileManager *-- "1" AxeStatisticalCounter__ReadyToUse
+class "ScrFileManager" as AxeStatisticalCounter__ScrFileManager [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFileManager]] 
+class "InUse" as AxeStatisticalCounter__InUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20InUse]] 
+AxeStatisticalCounter__ScrFileManager *-- "1" AxeStatisticalCounter__InUse
+class "ReadyToUse" as AxeStatisticalCounter__ReadyToUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ReadyToUse]] 
+class "ScrFile" as AxeStatisticalCounter__ScrFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFile]] 
+AxeStatisticalCounter__ReadyToUse *-- "*" AxeStatisticalCounter__ScrFile
+class "InUse" as AxeStatisticalCounter__InUse [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20InUse]] 
+class "ScrFile" as AxeStatisticalCounter__ScrFile [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20ScrFile]] 
+AxeStatisticalCounter__InUse *-- "*" AxeStatisticalCounter__ScrFile
+class "StatisticalCounterM" as AxeStatisticalCounter__StatisticalCounterM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20StatisticalCounterM]] 
+class "CapacityInfo" as AxeStatisticalCounter__CapacityInfo [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20CapacityInfo]] 
+AxeStatisticalCounter__StatisticalCounterM *-- "0..1" AxeStatisticalCounter__CapacityInfo
+class "DataOutputHandling" as AxeFunctions__DataOutputHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20DataOutputHandling]] 
+class "StatisticalCounterM" as AxeStatisticalCounter__StatisticalCounterM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeStatisticalCounter?title=class%20StatisticalCounterM]] 
+AxeFunctions__DataOutputHandling *-- "1" AxeStatisticalCounter__StatisticalCounterM
+@enduml 

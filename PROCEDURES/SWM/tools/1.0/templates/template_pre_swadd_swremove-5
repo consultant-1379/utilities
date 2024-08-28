@@ -1,0 +1,5 @@
+						<upgradeMethod>
+							<rollingUpgrade>
+								<upgradeScope>
+									<byTemplate>
+										<targetNodeTemplate objectDN="safAmfNodeGroup=SCs,safAmfCluster=myAmfCluster">

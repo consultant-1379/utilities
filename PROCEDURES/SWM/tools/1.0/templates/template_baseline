@@ -1,0 +1,7 @@
+						<!-- BASELINE START -->
+						<campCompleteAction>
+							<doCliCommand command="$OSAFCAMPAIGNROOT/#BASELINE_SCRIPTS#" args="$OSAFCAMPAIGNROOT"/> 
+							<undoCliCommand command="/bin/false"/> 
+							<plmExecEnv amfNode="safAmfNode=SC-1,safAmfCluster=myAmfCluster"/>
+						</campCompleteAction>
+						<!-- BASELINE END -->

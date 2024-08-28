@@ -1,0 +1,26 @@
+'Download plantuml from http://plantuml.sourceforge.net/ 
+'Generate png with java -jar plantuml.jar <file> 
+'Output in img/<module>.svg
+'If Java spits out memory error increase heap size with java -Xmx1024m -jar plantuml.jar <file> 
+@startuml img/AxeFunctions_mp_brief.svg
+top to bottom direction
+hide circle
+hide members
+skinparam class {
+BackgroundColor #C7DDF0
+ArrowColor #808080
+BorderColor #6DA3D9
+}
+class "SystemComponentHandling" as AxeFunctions__SystemComponentHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemComponentHandling]] 
+class "EquipmentM" as AxeEquipment__EquipmentM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeEquipment?title=class%20EquipmentM]] 
+AxeFunctions__SystemComponentHandling *-- "1" AxeEquipment__EquipmentM
+class "BladeSwM" as BladeSwManagement__BladeSwM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#BladeSwManagement?title=class%20BladeSwM]] 
+AxeFunctions__SystemComponentHandling *-- "1" BladeSwManagement__BladeSwM
+class "HardwareInventoryM" as AxeHardwareInventory__HardwareInventoryM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeHardwareInventory?title=class%20HardwareInventoryM]] 
+AxeFunctions__SystemComponentHandling *-- "0..1" AxeHardwareInventory__HardwareInventoryM
+
+class "TransportM" as AxeInfrastructureTransportM__TransportM [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeInfrastructureTransportM?title=class%20TransportM]] 
+class "SystemComponentHandling" as AxeFunctions__SystemComponentHandling [[urn:x-ericsson:r2:reg-doc:*-*:*:*#AxeFunctions?title=class%20SystemComponentHandling]] 
+AxeFunctions__SystemComponentHandling *-- "0..1" AxeInfrastructureTransportM__TransportM
+
+@enduml 
